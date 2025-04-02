@@ -152,6 +152,7 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
             SpreadsheetToolbarComponentItem.sort(context),
             // label
             SpreadsheetToolbarComponentItem.labelCreate(context),
+            SpreadsheetToolbarComponentItem.labelList(context),
             // reload
             SpreadsheetToolbarComponentItem.reload(context),
             // plugin
@@ -261,6 +262,10 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
 
     public static String labelCreateId() {
         return TOOLBAR_ID_PREFIX + "label-create";
+    }
+
+    public static String labelListId() {
+        return TOOLBAR_ID_PREFIX + "label-list";
     }
 
     public static String parserId() {

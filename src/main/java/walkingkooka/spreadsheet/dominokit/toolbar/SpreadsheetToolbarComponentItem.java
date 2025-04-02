@@ -120,6 +120,15 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
     }
 
     /**
+     * {@see SpreadsheetToolbarComponentItemLinkLabelList}
+     */
+    static SpreadsheetToolbarComponentItem<?> labelList(final SpreadsheetToolbarComponentContext context) {
+        return SpreadsheetToolbarComponentItemAnchorLabelList.with(
+            context
+        );
+    }
+
+    /**
      * {@link SpreadsheetToolbarComponentItemAnchorParser}
      */
     static SpreadsheetToolbarComponentItem<?> parsePattern(final SpreadsheetToolbarComponentContext context) {

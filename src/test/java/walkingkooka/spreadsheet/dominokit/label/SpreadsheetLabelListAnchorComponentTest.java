@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 
@@ -37,6 +38,7 @@ public final class SpreadsheetLabelListAnchorComponentTest implements AnchorComp
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetLabelListAnchorComponent.with(
+                HistoryTokenAnchorComponent.empty(),
                 "id123",
                 null
             )
@@ -62,6 +64,7 @@ public final class SpreadsheetLabelListAnchorComponentTest implements AnchorComp
         final TestHistoryContext historyContext = new TestHistoryContext("/2/SpreadsheetName222");
 
         final SpreadsheetLabelListAnchorComponent component = SpreadsheetLabelListAnchorComponent.with(
+            HistoryTokenAnchorComponent.empty(),
             "label-list-anchor-id",
             historyContext
         );
@@ -86,6 +89,7 @@ public final class SpreadsheetLabelListAnchorComponentTest implements AnchorComp
         final TestHistoryContext historyContext = new TestHistoryContext("/2/SpreadsheetName222");
 
         final SpreadsheetLabelListAnchorComponent component = SpreadsheetLabelListAnchorComponent.with(
+            HistoryTokenAnchorComponent.empty(),
             "label-list-anchor-id",
             historyContext
         );
@@ -109,6 +113,7 @@ public final class SpreadsheetLabelListAnchorComponentTest implements AnchorComp
 
     private SpreadsheetLabelListAnchorComponent createComponent(final String historyToken) {
         return SpreadsheetLabelListAnchorComponent.with(
+            HistoryTokenAnchorComponent.empty(),
             "label-list-anchor-id",
             new TestHistoryContext(historyToken)
         );

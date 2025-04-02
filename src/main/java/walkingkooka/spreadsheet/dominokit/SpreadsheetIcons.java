@@ -193,6 +193,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.flag_checkered();
     }
 
+    public static MdiIcon labelList() {
+        return Icons.flag_checkered();
+    }
+
     public static MdiIcon palette() {
         return Icons.palette();
     }

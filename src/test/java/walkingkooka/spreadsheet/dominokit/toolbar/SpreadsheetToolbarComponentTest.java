@@ -134,6 +134,9 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-flag-checkered \"Create Label\" [#/1/Spreadsheet123/create-label] id=toolbar-label-create-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Create Label\"\n" +
+                "      mdi-flag-checkered \"Labels\" [#/1/Spreadsheet123/label] id=toolbar-label-list-Link\n" +
+                "        SpreadsheetTooltipComponent\n" +
+                "          \"Labels\"\n" +
                 "      mdi-reload \"Reload\" [#/1/Spreadsheet123/reload] id=toolbar-reload-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Reload\"\n" +
@@ -228,6 +231,9 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-flag-checkered \"Create Label\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/label] id=toolbar-label-create-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Create Label\"\n" +
+                "      mdi-flag-checkered \"Labels\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/labels] id=toolbar-label-list-Link\n" +
+                "        SpreadsheetTooltipComponent\n" +
+                "          \"Labels\"\n" +
                 "      mdi-reload \"Reload\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/reload] id=toolbar-reload-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Reload\"\n" +
@@ -271,6 +277,9 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-flag-checkered \"Create Label\" [#/1/Spreadsheet123/create-label] id=toolbar-label-create-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Create Label\"\n" +
+                "      mdi-flag-checkered \"Labels\" [#/1/Spreadsheet123/label] id=toolbar-label-list-Link\n" +
+                "        SpreadsheetTooltipComponent\n" +
+                "          \"Labels\"\n" +
                 "      mdi-reload \"Reload\" [#/1/Spreadsheet123/reload] id=toolbar-reload-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Reload\"\n" +
@@ -314,6 +323,9 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-flag-checkered \"Create Label\" [#/1/Spreadsheet123/create-label] id=toolbar-label-create-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Create Label\"\n" +
+                "      mdi-flag-checkered \"Labels\" [#/1/Spreadsheet123/label] id=toolbar-label-list-Link\n" +
+                "        SpreadsheetTooltipComponent\n" +
+                "          \"Labels\"\n" +
                 "      mdi-reload \"Reload\" [#/1/Spreadsheet123/reload] id=toolbar-reload-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Reload\"\n" +
