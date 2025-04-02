@@ -25,7 +25,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
-import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -34,11 +33,7 @@ import java.util.Optional;
 final class SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting extends SpreadsheetToolbarComponentItemAnchorMetadata<SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting> {
 
     static SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting with(final SpreadsheetToolbarComponentContext context) {
-        Objects.requireNonNull(context, "context");
-
-        return new SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting(
-            context
-        );
+        return new SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting(context);
     }
 
     private SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting(final SpreadsheetToolbarComponentContext context) {

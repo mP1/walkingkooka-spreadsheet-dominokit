@@ -25,7 +25,6 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 
-import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -36,11 +35,7 @@ final class SpreadsheetToolbarComponentItemAnchorLabelCreate extends Spreadsheet
     NopComponentLifecycleRefresh {
 
     static SpreadsheetToolbarComponentItemAnchorLabelCreate with(final SpreadsheetToolbarComponentContext context) {
-        Objects.requireNonNull(context, "context");
-
-        return new SpreadsheetToolbarComponentItemAnchorLabelCreate(
-            context
-        );
+        return new SpreadsheetToolbarComponentItemAnchorLabelCreate(context);
     }
 
     private SpreadsheetToolbarComponentItemAnchorLabelCreate(final SpreadsheetToolbarComponentContext context) {

@@ -28,7 +28,6 @@ import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
-import java.util.Objects;
 import java.util.Optional;
 
 final class SpreadsheetToolbarComponentItemAnchorCellFind extends SpreadsheetToolbarComponentItemAnchor<SpreadsheetToolbarComponentItemAnchorCellFind>
@@ -36,11 +35,7 @@ final class SpreadsheetToolbarComponentItemAnchorCellFind extends SpreadsheetToo
     NopComponentLifecycleRefresh {
 
     static SpreadsheetToolbarComponentItemAnchorCellFind with(final SpreadsheetToolbarComponentContext context) {
-        Objects.requireNonNull(context, "context");
-
-        return new SpreadsheetToolbarComponentItemAnchorCellFind(
-            context
-        );
+        return new SpreadsheetToolbarComponentItemAnchorCellFind(context);
     }
 
     private SpreadsheetToolbarComponentItemAnchorCellFind(final SpreadsheetToolbarComponentContext context) {

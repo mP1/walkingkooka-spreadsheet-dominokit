@@ -25,7 +25,6 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetCellComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 
-import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -37,11 +36,7 @@ final class SpreadsheetToolbarComponentItemAnchorParser extends SpreadsheetToolb
     NopComponentLifecycleOpenGiveFocus {
 
     static SpreadsheetToolbarComponentItemAnchorParser with(final SpreadsheetToolbarComponentContext context) {
-        Objects.requireNonNull(context, "context");
-
-        return new SpreadsheetToolbarComponentItemAnchorParser(
-            context
-        );
+        return new SpreadsheetToolbarComponentItemAnchorParser(context);
     }
 
     private SpreadsheetToolbarComponentItemAnchorParser(final SpreadsheetToolbarComponentContext context) {

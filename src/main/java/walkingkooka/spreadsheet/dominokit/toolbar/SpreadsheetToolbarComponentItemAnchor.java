@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.tooltip.SpreadsheetTooltipComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -37,6 +38,8 @@ abstract class SpreadsheetToolbarComponentItemAnchor<C extends SpreadsheetToolba
                                           final String text,
                                           final String tooltipText,
                                           final SpreadsheetToolbarComponentContext context) {
+        Objects.requireNonNull(context, "context");
+
         final HistoryTokenAnchorComponent anchor = context.historyToken()
             .link(id)
             .setTextContent(text)

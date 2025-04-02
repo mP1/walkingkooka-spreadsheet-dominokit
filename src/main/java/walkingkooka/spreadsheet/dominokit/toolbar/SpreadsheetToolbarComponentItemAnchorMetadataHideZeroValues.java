@@ -25,7 +25,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
-import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -34,11 +33,7 @@ import java.util.Optional;
 final class SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues extends SpreadsheetToolbarComponentItemAnchorMetadata<SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues> {
 
     static SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues with(final SpreadsheetToolbarComponentContext context) {
-        Objects.requireNonNull(context, "context");
-
-        return new SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues(
-            context
-        );
+        return new SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues(context);
     }
 
     private SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues(final SpreadsheetToolbarComponentContext context) {
