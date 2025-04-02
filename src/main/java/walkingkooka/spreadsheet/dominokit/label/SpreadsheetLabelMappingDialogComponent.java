@@ -33,8 +33,10 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLabelHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLabelSaveHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingCreateHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingSaveHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
 import walkingkooka.spreadsheet.dominokit.spreadsheetexpressionreference.SpreadsheetExpressionReferenceComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -269,7 +271,8 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
     @Override
     public boolean isMatch(final HistoryToken token) {
         return token instanceof SpreadsheetCellLabelHistoryToken ||
-            token instanceof SpreadsheetLabelMappingHistoryToken;
+            token instanceof SpreadsheetLabelMappingCreateHistoryToken ||
+            token instanceof SpreadsheetLabelMappingSelectHistoryToken;
     }
 
     @Override
