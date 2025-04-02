@@ -17,14 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.label;
 
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponentDelegator;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.util.Objects;
@@ -35,7 +34,7 @@ import java.util.Optional;
  * The value which must be a {@link SpreadsheetLabelName} will be used to create the {@link SpreadsheetCellSelectHistoryToken}
  * which will select the provided when clicked and also update the text.
  */
-public final class SpreadsheetLabelSelectAnchorComponent implements AnchorComponentDelegator<SpreadsheetLabelSelectAnchorComponent, SpreadsheetLabelName> {
+public final class SpreadsheetLabelSelectAnchorComponent implements ValueHistoryTokenAnchorComponentDelegator<SpreadsheetLabelSelectAnchorComponent, SpreadsheetLabelName> {
 
     public static SpreadsheetLabelSelectAnchorComponent with(final String id,
                                                              final HistoryContext context) {
@@ -90,21 +89,10 @@ public final class SpreadsheetLabelSelectAnchorComponent implements AnchorCompon
         ).setTextContent(text);
     }
 
-    @Override
-    public Optional<SpreadsheetLabelName> value() {
-        return this.component.value();
-    }
+    // ValueHistoryTokenAnchorComponentDelegator........................................................................
 
     @Override
-    public SpreadsheetLabelSelectAnchorComponent setValue(final Optional<SpreadsheetLabelName> value) {
-        this.component.setValue(value);
-        return this;
-    }
-
-    // AnchorComponentDelegator......................................................................................
-
-    @Override
-    public AnchorComponent<?, SpreadsheetLabelName> anchorComponent() {
+    public ValueHistoryTokenAnchorComponent<SpreadsheetLabelName> valueHistoryTokenAnchorComponent() {
         return this.component;
     }
 

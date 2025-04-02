@@ -17,8 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.reference;
 
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -26,6 +24,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellDeleteHistoryTo
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnDeleteHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowDeleteHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponentDelegator;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Objects;
@@ -36,7 +35,7 @@ import java.util.Optional;
  * Ideally a type parameter would be used but some combinations of {@link SpreadsheetSelection} such as column and column-range
  * do not share a good parent class.
  */
-public final class SpreadsheetSelectionDeleteAnchorComponent implements AnchorComponentDelegator<SpreadsheetSelectionDeleteAnchorComponent, SpreadsheetSelection> {
+public final class SpreadsheetSelectionDeleteAnchorComponent implements ValueHistoryTokenAnchorComponentDelegator<SpreadsheetSelectionDeleteAnchorComponent, SpreadsheetSelection> {
 
     public static SpreadsheetSelectionDeleteAnchorComponent with(final String id,
                                                                  final HistoryContext context) {
@@ -90,21 +89,10 @@ public final class SpreadsheetSelectionDeleteAnchorComponent implements AnchorCo
         ).setTextContent(text);
     }
 
-    @Override
-    public Optional<SpreadsheetSelection> value() {
-        return this.component.value();
-    }
+    // ValueHistoryTokenAnchorComponentDelegator........................................................................
 
     @Override
-    public SpreadsheetSelectionDeleteAnchorComponent setValue(final Optional<SpreadsheetSelection> value) {
-        this.component.setValue(value);
-        return this;
-    }
-
-    // AnchorComponentDelegator......................................................................................
-
-    @Override
-    public AnchorComponent<?, SpreadsheetSelection> anchorComponent() {
+    public ValueHistoryTokenAnchorComponent<SpreadsheetSelection> valueHistoryTokenAnchorComponent() {
         return this.component;
     }
 

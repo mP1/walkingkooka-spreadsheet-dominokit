@@ -17,13 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.label;
 
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponentDelegator;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -34,7 +33,7 @@ import java.util.Optional;
  * Creates a {@link SpreadsheetLabelCreateAnchorComponent} which will display a link that creates a label with the optional
  * {@link SpreadsheetExpressionReference} providing the current history token is a {@link walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken}.
  */
-public final class SpreadsheetLabelCreateAnchorComponent implements AnchorComponentDelegator<SpreadsheetLabelCreateAnchorComponent, SpreadsheetExpressionReference> {
+public final class SpreadsheetLabelCreateAnchorComponent implements ValueHistoryTokenAnchorComponentDelegator<SpreadsheetLabelCreateAnchorComponent, SpreadsheetExpressionReference> {
 
     public static SpreadsheetLabelCreateAnchorComponent with(final HistoryTokenAnchorComponent anchor,
                                                              final String id,
@@ -87,21 +86,10 @@ public final class SpreadsheetLabelCreateAnchorComponent implements AnchorCompon
         ).setTextContent(text);
     }
 
-    @Override
-    public Optional<SpreadsheetExpressionReference> value() {
-        return this.component.value();
-    }
+    // ValueHistoryTokenAnchorComponentDelegator........................................................................
 
     @Override
-    public SpreadsheetLabelCreateAnchorComponent setValue(final Optional<SpreadsheetExpressionReference> value) {
-        this.component.setValue(value);
-        return this;
-    }
-
-    // AnchorComponentDelegator......................................................................................
-
-    @Override
-    public AnchorComponent<?, SpreadsheetExpressionReference> anchorComponent() {
+    public ValueHistoryTokenAnchorComponent<SpreadsheetExpressionReference> valueHistoryTokenAnchorComponent() {
         return this.component;
     }
 

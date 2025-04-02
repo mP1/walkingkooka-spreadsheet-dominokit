@@ -17,13 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLabelSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponentDelegator;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -33,7 +32,7 @@ import java.util.Optional;
 /**
  * Creates a {@link SpreadsheetCellCreateLabelSelectAnchorComponent} which will create a label for the given {@link SpreadsheetExpressionReference}.
  */
-public final class SpreadsheetCellCreateLabelSelectAnchorComponent implements AnchorComponentDelegator<SpreadsheetCellCreateLabelSelectAnchorComponent, SpreadsheetExpressionReference> {
+public final class SpreadsheetCellCreateLabelSelectAnchorComponent implements ValueHistoryTokenAnchorComponentDelegator<SpreadsheetCellCreateLabelSelectAnchorComponent, SpreadsheetExpressionReference> {
 
     public static SpreadsheetCellCreateLabelSelectAnchorComponent with(final String id,
                                                                        final HistoryContext context) {
@@ -96,10 +95,10 @@ public final class SpreadsheetCellCreateLabelSelectAnchorComponent implements An
         return this;
     }
 
-    // AnchorComponentDelegator......................................................................................
+    // ValueHistoryTokenAnchorComponentDelegator........................................................................
 
     @Override
-    public AnchorComponent<?, SpreadsheetExpressionReference> anchorComponent() {
+    public ValueHistoryTokenAnchorComponent<SpreadsheetExpressionReference> valueHistoryTokenAnchorComponent() {
         return this.component;
     }
 
