@@ -21,6 +21,8 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnInsertHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowInsertHistoryToken;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -48,13 +50,10 @@ final class AppContextSpreadsheetColumnRowInsertCountDialogComponentContext impl
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return COUNT.equals(
-            token.setCount(COUNT)
-                .count()
-        ) && false == token.count().isPresent();
+        return (token instanceof SpreadsheetColumnInsertHistoryToken ||
+            token instanceof SpreadsheetRowInsertHistoryToken) &&
+            false == token.count().isPresent();
     }
-
-    private final static OptionalInt COUNT = OptionalInt.of(123);
 
     @Override
     public String dialogTitle() {
