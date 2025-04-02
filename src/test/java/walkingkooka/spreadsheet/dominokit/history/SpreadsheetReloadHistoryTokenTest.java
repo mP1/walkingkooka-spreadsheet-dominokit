@@ -46,7 +46,11 @@ public final class SpreadsheetReloadHistoryTokenTest extends SpreadsheetNameHist
     @Test
     public void testCreateLabel() {
         this.createLabelAndCheck(
-            this.createHistoryToken()
+            this.createHistoryToken(),
+            HistoryToken.labelMappingCreate(
+                ID,
+                NAME
+            )
         );
     }
 

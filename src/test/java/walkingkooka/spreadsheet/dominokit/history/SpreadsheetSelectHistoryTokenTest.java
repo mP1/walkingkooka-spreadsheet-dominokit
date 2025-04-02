@@ -42,7 +42,11 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
     @Test
     public void testCreateLabel() {
         this.createLabelAndCheck(
-            this.createHistoryToken()
+            this.createHistoryToken(),
+            HistoryToken.labelMappingCreate(
+                ID,
+                NAME
+            )
         );
     }
 
