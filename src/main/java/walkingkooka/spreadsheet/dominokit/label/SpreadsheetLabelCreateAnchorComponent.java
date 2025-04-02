@@ -22,8 +22,7 @@ import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLabelSelectHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingCreateHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -66,21 +65,18 @@ public final class SpreadsheetLabelCreateAnchorComponent implements AnchorCompon
 
     private void setter(final Optional<? extends SpreadsheetExpressionReference> value,
                         final HistoryTokenAnchorComponent anchor) {
-        String text;
-        HistoryToken historyToken = null;
+        String text = "Create";
+        HistoryToken historyToken = this.context.historyToken()
+            .setSelection(value)
+            .createLabel();
 
-        if (value.isPresent()) {
-            historyToken = this.context.historyToken()
-                .setSelection(value
-                ).createLabel();
-            if (false == historyToken instanceof SpreadsheetLabelMappingCreateHistoryToken &&
-                false == historyToken instanceof SpreadsheetCellLabelSelectHistoryToken) {
-                historyToken = null;
+        if (historyToken instanceof SpreadsheetNameHistoryToken) {
+            if (value.isPresent()) {
+                text = value.get()
+                    .text();
             }
-            text = value.get()
-                .text();
         } else {
-            text = "Create";
+            historyToken = null;
         }
 
         anchor.setHistoryToken(
