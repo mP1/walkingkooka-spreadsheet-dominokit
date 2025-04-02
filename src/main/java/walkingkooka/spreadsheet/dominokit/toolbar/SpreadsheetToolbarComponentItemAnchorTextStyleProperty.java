@@ -44,7 +44,6 @@ final class SpreadsheetToolbarComponentItemAnchorTextStyleProperty<T> extends Sp
         Objects.requireNonNull(icon, "icon");
         CharSequences.failIfNullOrEmpty(text, "text");
         CharSequences.failIfNullOrEmpty(tooltipText, "tooltipText");
-        Objects.requireNonNull(context, "context");
 
         return new SpreadsheetToolbarComponentItemAnchorTextStyleProperty<>(
             propertyName,

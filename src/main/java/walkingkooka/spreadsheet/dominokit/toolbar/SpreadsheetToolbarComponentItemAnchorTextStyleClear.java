@@ -24,7 +24,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -34,11 +33,7 @@ import java.util.Optional;
 final class SpreadsheetToolbarComponentItemAnchorTextStyleClear extends SpreadsheetToolbarComponentItemAnchorTextStyle<SpreadsheetToolbarComponentItemAnchorTextStyleClear> {
 
     static SpreadsheetToolbarComponentItemAnchorTextStyleClear with(final SpreadsheetToolbarComponentContext context) {
-        Objects.requireNonNull(context, "context");
-
-        return new SpreadsheetToolbarComponentItemAnchorTextStyleClear(
-            context
-        );
+        return new SpreadsheetToolbarComponentItemAnchorTextStyleClear(context);
     }
 
     private SpreadsheetToolbarComponentItemAnchorTextStyleClear(final SpreadsheetToolbarComponentContext context) {

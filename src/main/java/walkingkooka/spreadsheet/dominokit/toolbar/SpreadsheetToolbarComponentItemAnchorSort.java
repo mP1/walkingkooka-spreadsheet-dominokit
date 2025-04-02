@@ -26,7 +26,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
-import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -37,11 +36,7 @@ final class SpreadsheetToolbarComponentItemAnchorSort extends SpreadsheetToolbar
     NopComponentLifecycleRefresh {
 
     static SpreadsheetToolbarComponentItemAnchorSort with(final SpreadsheetToolbarComponentContext context) {
-        Objects.requireNonNull(context, "context");
-
-        return new SpreadsheetToolbarComponentItemAnchorSort(
-            context
-        );
+        return new SpreadsheetToolbarComponentItemAnchorSort(context);
     }
 
     private SpreadsheetToolbarComponentItemAnchorSort(final SpreadsheetToolbarComponentContext context) {

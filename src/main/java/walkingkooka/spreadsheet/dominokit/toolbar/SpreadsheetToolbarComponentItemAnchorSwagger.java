@@ -26,7 +26,6 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 
-import java.util.Objects;
 import java.util.Optional;
 
 final class SpreadsheetToolbarComponentItemAnchorSwagger extends SpreadsheetToolbarComponentItemAnchor<SpreadsheetToolbarComponentItemAnchorSwagger>
@@ -34,11 +33,7 @@ final class SpreadsheetToolbarComponentItemAnchorSwagger extends SpreadsheetTool
     NopComponentLifecycleRefresh {
 
     static SpreadsheetToolbarComponentItemAnchorSwagger with(final SpreadsheetToolbarComponentContext context) {
-        Objects.requireNonNull(context, "context");
-
-        return new SpreadsheetToolbarComponentItemAnchorSwagger(
-            context
-        );
+        return new SpreadsheetToolbarComponentItemAnchorSwagger(context);
     }
 
     private SpreadsheetToolbarComponentItemAnchorSwagger(final SpreadsheetToolbarComponentContext context) {
