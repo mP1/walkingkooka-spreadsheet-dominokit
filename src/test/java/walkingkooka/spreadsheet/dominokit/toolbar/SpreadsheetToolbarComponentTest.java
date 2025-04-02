@@ -107,6 +107,46 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
     }
 
     @Test
+    public void testSpreadsheetNameHistoryToken() {
+        final HistoryTokenWatchers watchers = HistoryTokenWatchers.empty();
+
+        final AppContext context = appContext(
+            watchers,
+            "/1/Spreadsheet123"
+        );
+
+        this.onHistoryTokenChangeAndCheck(
+            this.createComponent(context),
+            watchers,
+            context,
+            "SpreadsheetToolbarComponent\n" +
+                "  SpreadsheetFlexLayout\n" +
+                "    ROW\n" +
+                "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hide-zero-values/save/true] id=toolbar-hide-zero-values-Link\n" +
+                "        SpreadsheetTooltipComponent\n" +
+                "          \"Show Zero Values\"\n" +
+                "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/find] id=toolbar-find-cells-Link\n" +
+                "        SpreadsheetTooltipComponent\n" +
+                "          \"Find cells...\"\n" +
+                "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/find-highlighting/save/true] id=toolbar-find-highlight-Link\n" +
+                "        SpreadsheetTooltipComponent\n" +
+                "          \"Enable cell highlighting\"\n" +
+                "      mdi-flag-checkered \"Create Label\" [#/1/Spreadsheet123/create-label] id=toolbar-label-create-Link\n" +
+                "        SpreadsheetTooltipComponent\n" +
+                "          \"Create Label\"\n" +
+                "      mdi-reload \"Reload\" [#/1/Spreadsheet123/reload] id=toolbar-reload-Link\n" +
+                "        SpreadsheetTooltipComponent\n" +
+                "          \"Reload\"\n" +
+                "      mdi-power-plug \"Plugin\" [#/plugin] id=toolbar-plugin-Link\n" +
+                "        SpreadsheetTooltipComponent\n" +
+                "          \"Manage system plugin(s)\"\n" +
+                "      \"Swagger\" [/api-doc/index.html] _blank id=toolbar-swagger-Link\n" +
+                "        SpreadsheetTooltipComponent\n" +
+                "          \"Click to open swagger html client\"\n"
+        );
+    }
+
+    @Test
     public void testCell() {
         final HistoryTokenWatchers watchers = HistoryTokenWatchers.empty();
 
