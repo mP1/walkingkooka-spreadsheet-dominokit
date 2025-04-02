@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -42,10 +43,23 @@ public final class SpreadsheetLabelCreateAnchorComponentTest implements AnchorCo
     // with.............................................................................................................
 
     @Test
+    public void testWithNullAnchorFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetLabelCreateAnchorComponent.with(
+                null,
+                "ID", // id,
+                HistoryContexts.fake()
+            )
+        );
+    }
+
+    @Test
     public void testWithNullIdFails() {
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetLabelCreateAnchorComponent.with(
+                HistoryTokenAnchorComponent.empty(),
                 null, // id,
                 HistoryContexts.fake()
             )
@@ -57,6 +71,7 @@ public final class SpreadsheetLabelCreateAnchorComponentTest implements AnchorCo
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetLabelCreateAnchorComponent.with(
+                HistoryTokenAnchorComponent.empty(),
                 "id",
                 null
             )
@@ -165,6 +180,7 @@ public final class SpreadsheetLabelCreateAnchorComponentTest implements AnchorCo
 
     private SpreadsheetLabelCreateAnchorComponent createComponent(final HistoryToken historyToken) {
         return SpreadsheetLabelCreateAnchorComponent.with(
+            HistoryTokenAnchorComponent.empty(),
             "cell-create-label-id",
             new FakeHistoryContext() {
 

@@ -36,18 +36,21 @@ import java.util.Optional;
  */
 public final class SpreadsheetLabelCreateAnchorComponent implements AnchorComponentDelegator<SpreadsheetLabelCreateAnchorComponent, SpreadsheetExpressionReference> {
 
-    public static SpreadsheetLabelCreateAnchorComponent with(final String id,
+    public static SpreadsheetLabelCreateAnchorComponent with(final HistoryTokenAnchorComponent anchor,
+                                                             final String id,
                                                              final HistoryContext context) {
         return new SpreadsheetLabelCreateAnchorComponent(
+            anchor,
             id,
             context
         );
     }
 
-    private SpreadsheetLabelCreateAnchorComponent(final String id,
+    private SpreadsheetLabelCreateAnchorComponent(final HistoryTokenAnchorComponent anchor,
+                                                  final String id,
                                                   final HistoryContext context) {
         this.component = ValueHistoryTokenAnchorComponent.with(
-            HistoryTokenAnchorComponent.empty(),
+            anchor,
             this::getter,
             this::setter
         );
