@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import com.google.gwt.core.shared.GWT;
 import walkingkooka.spreadsheet.dominokit.App;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
@@ -51,10 +52,13 @@ final class HistoryTokenWatchersEvent implements Consumer<HistoryTokenWatcher> {
                 cause
             );
         } finally {
-            final long after = System.currentTimeMillis();
-            final long millsTaken = after - before;
-            if (millsTaken > App.SLOW_HISTORY_TOKEN_CHANGE) {
-                this.context.warn(watcher.getClass().getSimpleName() + ".onHistoryTokenChange is too slow, took " + millsTaken + " ms");
+            // dont log too slow messages in JVM run mode (could be debugging etc).
+            if(GWT.isClient()) {
+                final long after = System.currentTimeMillis();
+                final long millsTaken = after - before;
+                if (millsTaken > App.SLOW_HISTORY_TOKEN_CHANGE) {
+                    this.context.warn(watcher.getClass().getSimpleName() + ".onHistoryTokenChange is too slow, took " + millsTaken + " ms");
+                }
             }
         }
     }
