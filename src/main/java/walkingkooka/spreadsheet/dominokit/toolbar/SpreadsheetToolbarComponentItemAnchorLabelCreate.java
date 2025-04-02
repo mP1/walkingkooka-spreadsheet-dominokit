@@ -23,7 +23,10 @@ import walkingkooka.spreadsheet.dominokit.NopComponentLifecycleRefresh;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
+import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelCreateAnchorComponent;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
@@ -48,6 +51,14 @@ final class SpreadsheetToolbarComponentItemAnchorLabelCreate extends Spreadsheet
             "Create Label",
             context
         );
+
+        final HistoryTokenAnchorComponent anchor = this.anchor;
+
+        this.labelCreate = SpreadsheetLabelCreateAnchorComponent.with(
+            anchor,
+            anchor.id(),
+            context
+        );
     }
 
     // SpreadsheetToolbarComponentItemLink............................................................................
@@ -61,16 +72,20 @@ final class SpreadsheetToolbarComponentItemAnchorLabelCreate extends Spreadsheet
 
     @Override
     public void refresh(final RefreshContext context) {
-        final HistoryToken historyToken = context.historyToken();
+        final SpreadsheetSelection selection = context.historyToken()
+            .selection()
+            .orElse(null);
 
-        this.anchor.setHistoryToken(
-            Optional.of(
-                historyToken.setLabelName(
-                    Optional.empty()
-                )
+        this.labelCreate.setValue(
+            Optional.ofNullable(
+                null != selection && selection.isExternalReference() ?
+                    selection.toExpressionReference() :
+                    null
             )
-        );
+        ).setTextContent("Create Label");
     }
+
+    private final SpreadsheetLabelCreateAnchorComponent labelCreate;
 
     @Override
     public boolean shouldIgnore(final HistoryToken token) {
