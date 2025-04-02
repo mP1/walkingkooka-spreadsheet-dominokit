@@ -21,6 +21,8 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
+import java.util.OptionalInt;
+
 public final class SpreadsheetLoadHistoryTokenTest extends SpreadsheetIdHistoryTokenTestCase<SpreadsheetLoadHistoryToken> {
 
     @Test
@@ -54,6 +56,18 @@ public final class SpreadsheetLoadHistoryTokenTest extends SpreadsheetIdHistoryT
             differentId,
             NAME,
             HistoryToken.spreadsheetSelect(differentId, NAME)
+        );
+    }
+
+    // labels...........................................................................................................
+
+    @Test
+    public final void testLabels() {
+        this.labelsAndCheck(
+            this.createHistoryToken(),
+            HistoryTokenOffsetAndCount.EMPTY.setCount(
+                OptionalInt.of(123)
+            )
         );
     }
 

@@ -80,6 +80,18 @@ public abstract class SpreadsheetListHistoryTokenTestCase<T extends SpreadsheetL
         );
     }
 
+    // labels...........................................................................................................
+
+    @Test
+    public final void testLabels() {
+        this.labelsAndCheck(
+            this.createHistoryToken(),
+            HistoryTokenOffsetAndCount.EMPTY.setCount(
+                OptionalInt.of(123)
+            )
+        );
+    }
+
     // list.............................................................................................................
 
     @Test

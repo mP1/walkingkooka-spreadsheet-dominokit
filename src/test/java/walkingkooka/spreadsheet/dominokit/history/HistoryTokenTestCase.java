@@ -490,6 +490,26 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
+    // labels...........................................................................................................
+
+    final void labelsAndCheck(final HistoryToken token,
+                              final HistoryTokenOffsetAndCount offsetAndCount) {
+        assertSame(
+            token,
+            token.labels(offsetAndCount)
+        );
+    }
+
+    final void labelsAndCheck(final HistoryToken token,
+                              final HistoryTokenOffsetAndCount offsetAndCount,
+                              final HistoryToken expected) {
+        this.checkEquals(
+            expected,
+            token.labels(offsetAndCount),
+            () -> token + " labels " + offsetAndCount
+        );
+    }
+
     // setList..........................................................................................................
 
     @Test

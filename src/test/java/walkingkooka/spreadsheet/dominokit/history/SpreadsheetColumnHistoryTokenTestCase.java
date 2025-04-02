@@ -26,6 +26,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
+import java.util.OptionalInt;
+
 public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends SpreadsheetColumnHistoryToken> extends SpreadsheetAnchoredSelectionHistoryTokenTestCase<T> {
 
     final static SpreadsheetColumnReference COLUMN = SpreadsheetSelection.parseColumn("A");
@@ -163,6 +165,25 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
                 ID,
                 NAME,
                 LABEL
+            )
+        );
+    }
+
+    // labels...........................................................................................................
+
+    @Test
+    public final void testLabels() {
+        final HistoryTokenOffsetAndCount offsetAndCount = HistoryTokenOffsetAndCount.EMPTY.setCount(
+            OptionalInt.of(123)
+        );
+
+        this.labelsAndCheck(
+            this.createHistoryToken(),
+            offsetAndCount,
+            HistoryToken.labelMappingList(
+                ID,
+                NAME,
+                offsetAndCount
             )
         );
     }

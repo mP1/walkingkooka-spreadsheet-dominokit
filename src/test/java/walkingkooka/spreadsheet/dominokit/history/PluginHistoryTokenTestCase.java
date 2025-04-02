@@ -21,6 +21,8 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
+import java.util.OptionalInt;
+
 import static org.junit.jupiter.api.Assertions.assertSame;
 
 public abstract class PluginHistoryTokenTestCase<T extends PluginHistoryToken> extends HistoryTokenTestCase<T> {
@@ -44,6 +46,18 @@ public abstract class PluginHistoryTokenTestCase<T extends PluginHistoryToken> e
     public final void testCreateLabel() {
         this.createLabelAndCheck(
             this.createHistoryToken()
+        );
+    }
+
+    // labels...........................................................................................................
+
+    @Test
+    public final void testLabels() {
+        this.labelsAndCheck(
+            this.createHistoryToken(),
+            HistoryTokenOffsetAndCount.EMPTY.setCount(
+                OptionalInt.of(123)
+            )
         );
     }
 

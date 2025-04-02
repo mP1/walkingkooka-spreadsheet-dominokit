@@ -23,6 +23,8 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
+import java.util.OptionalInt;
+
 public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHistoryTokenTestCase<SpreadsheetSelectHistoryToken> {
 
     @Test
@@ -46,6 +48,25 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
             HistoryToken.labelMappingCreate(
                 ID,
                 NAME
+            )
+        );
+    }
+
+    // labels...........................................................................................................
+
+    @Test
+    public void testLabels() {
+        final HistoryTokenOffsetAndCount offsetAndCount = HistoryTokenOffsetAndCount.EMPTY.setCount(
+            OptionalInt.of(123)
+        );
+
+        this.labelsAndCheck(
+            this.createHistoryToken(),
+            offsetAndCount,
+            HistoryToken.labelMappingList(
+                ID,
+                NAME,
+                offsetAndCount
             )
         );
     }

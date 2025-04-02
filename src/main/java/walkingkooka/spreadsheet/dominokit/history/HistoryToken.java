@@ -2529,19 +2529,36 @@ public abstract class HistoryToken implements HasUrlFragment,
     public final HistoryToken labels(final HistoryTokenOffsetAndCount offsetAndCount) {
         Objects.requireNonNull(offsetAndCount, "offsetAndCount");
 
-        HistoryToken token = this;
+        HistoryToken historyToken = this;
 
-        if (this instanceof SpreadsheetCellHistoryToken) {
-            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
-            token = cellLabels(
-                cell.id(),
-                cell.name(),
-                cell.anchoredSelection(),
-                offsetAndCount
-            );
+        if (this instanceof SpreadsheetNameHistoryToken) {
+            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+            final SpreadsheetId id = spreadsheetNameHistoryToken.id();
+            final SpreadsheetName name = spreadsheetNameHistoryToken.name();
+
+            if (this instanceof SpreadsheetCellHistoryToken) {
+                historyToken = cellLabels(
+                    id,
+                    name,
+                    this.cast(SpreadsheetCellHistoryToken.class)
+                        .anchoredSelection(),
+                    offsetAndCount
+                );
+
+                if(historyToken.equals(this)) {
+                    historyToken = this;
+                }
+
+            } else {
+                historyToken = labelMappingList(
+                    id,
+                    name,
+                    offsetAndCount
+                );
+            }
         }
 
-        return token;
+        return historyToken;
     }
 
     // LIST.............................................................................................................
