@@ -17,13 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellDeleteHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponentDelegator;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 
 import java.util.Objects;
@@ -33,7 +32,7 @@ import java.util.Optional;
  * Creates a {@link SpreadsheetCellDeleteAnchorComponent}.
  * The value which must be a {@link SpreadsheetExpressionReference} will create a link which pushes a {@link walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellDeleteHistoryToken}.
  */
-public final class SpreadsheetCellDeleteAnchorComponent implements AnchorComponentDelegator<SpreadsheetCellDeleteAnchorComponent, SpreadsheetExpressionReference> {
+public final class SpreadsheetCellDeleteAnchorComponent implements ValueHistoryTokenAnchorComponentDelegator<SpreadsheetCellDeleteAnchorComponent, SpreadsheetExpressionReference> {
 
     public static SpreadsheetCellDeleteAnchorComponent with(final String id,
                                                             final HistoryContext context) {
@@ -89,21 +88,10 @@ public final class SpreadsheetCellDeleteAnchorComponent implements AnchorCompone
         ).setTextContent(text);
     }
 
-    @Override
-    public Optional<SpreadsheetExpressionReference> value() {
-        return this.component.value();
-    }
-
-    @Override
-    public SpreadsheetCellDeleteAnchorComponent setValue(final Optional<SpreadsheetExpressionReference> value) {
-        this.component.setValue(value);
-        return this;
-    }
-
     // AnchorComponentDelegator.........................................................................................
 
     @Override
-    public AnchorComponent<?, SpreadsheetExpressionReference> anchorComponent() {
+    public ValueHistoryTokenAnchorComponent<SpreadsheetExpressionReference> valueHistoryTokenAnchorComponent() {
         return this.component;
     }
 

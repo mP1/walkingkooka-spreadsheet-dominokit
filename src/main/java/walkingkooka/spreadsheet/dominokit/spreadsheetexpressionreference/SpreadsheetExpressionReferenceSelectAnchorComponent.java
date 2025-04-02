@@ -17,13 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.spreadsheetexpressionreference;
 
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponentDelegator;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 
 import java.util.Objects;
@@ -34,7 +33,7 @@ import java.util.Optional;
  * The value which must be a {@link SpreadsheetExpressionReference} will be used to create the {@link SpreadsheetCellSelectHistoryToken}
  * which will select the provided when clicked and also update the text.
  */
-public final class SpreadsheetExpressionReferenceSelectAnchorComponent implements AnchorComponentDelegator<SpreadsheetExpressionReferenceSelectAnchorComponent, SpreadsheetExpressionReference> {
+public final class SpreadsheetExpressionReferenceSelectAnchorComponent implements ValueHistoryTokenAnchorComponentDelegator<SpreadsheetExpressionReferenceSelectAnchorComponent, SpreadsheetExpressionReference> {
 
     public static SpreadsheetExpressionReferenceSelectAnchorComponent with(final String id,
                                                                            final HistoryContext context) {
@@ -90,21 +89,10 @@ public final class SpreadsheetExpressionReferenceSelectAnchorComponent implement
         ).setTextContent(text);
     }
 
-    @Override
-    public Optional<SpreadsheetExpressionReference> value() {
-        return this.component.value();
-    }
+    // ValueHistoryTokenAnchorComponentDelegator........................................................................
 
     @Override
-    public SpreadsheetExpressionReferenceSelectAnchorComponent setValue(final Optional<SpreadsheetExpressionReference> value) {
-        this.component.setValue(value);
-        return this;
-    }
-
-    // AnchorComponentDelegator......................................................................................
-
-    @Override
-    public AnchorComponent<?, SpreadsheetExpressionReference> anchorComponent() {
+    public ValueHistoryTokenAnchorComponent<SpreadsheetExpressionReference> valueHistoryTokenAnchorComponent() {
         return this.component;
     }
 

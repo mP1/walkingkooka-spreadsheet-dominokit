@@ -17,13 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.label;
 
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingDeleteHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponentDelegator;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.util.Objects;
@@ -33,7 +32,7 @@ import java.util.Optional;
  * Creates a {@link SpreadsheetLabelDeleteAnchorComponent}.
  * The value which must be a {@link SpreadsheetLabelName} will create a link which pushes a {@link SpreadsheetLabelMappingDeleteHistoryToken}.
  */
-public final class SpreadsheetLabelDeleteAnchorComponent implements AnchorComponentDelegator<SpreadsheetLabelDeleteAnchorComponent, SpreadsheetLabelName> {
+public final class SpreadsheetLabelDeleteAnchorComponent implements ValueHistoryTokenAnchorComponentDelegator<SpreadsheetLabelDeleteAnchorComponent, SpreadsheetLabelName> {
 
     public static SpreadsheetLabelDeleteAnchorComponent with(final String id,
                                                              final HistoryContext context) {
@@ -88,21 +87,10 @@ public final class SpreadsheetLabelDeleteAnchorComponent implements AnchorCompon
         ).setTextContent(text);
     }
 
-    @Override
-    public Optional<SpreadsheetLabelName> value() {
-        return this.component.value();
-    }
+    // ValueHistoryTokenAnchorComponentDelegator........................................................................
 
     @Override
-    public SpreadsheetLabelDeleteAnchorComponent setValue(final Optional<SpreadsheetLabelName> value) {
-        this.component.setValue(value);
-        return this;
-    }
-
-    // AnchorComponentDelegator.........................................................................................
-
-    @Override
-    public AnchorComponent<?, SpreadsheetLabelName> anchorComponent() {
+    public ValueHistoryTokenAnchorComponent<SpreadsheetLabelName> valueHistoryTokenAnchorComponent() {
         return this.component;
     }
 

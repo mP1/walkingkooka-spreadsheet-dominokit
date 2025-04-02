@@ -17,13 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.formula;
 
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormulaSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponentDelegator;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 
@@ -35,7 +34,7 @@ import java.util.Optional;
  * The value which must be a {@link SpreadsheetExpressionReference} will be used to select the cell and edit the formula.
  * The link text will contain the {@link SpreadsheetExpressionReference}.
  */
-public final class SpreadsheetFormulaSelectAnchorComponent implements AnchorComponentDelegator<SpreadsheetFormulaSelectAnchorComponent, SpreadsheetExpressionReference> {
+public final class SpreadsheetFormulaSelectAnchorComponent implements ValueHistoryTokenAnchorComponentDelegator<SpreadsheetFormulaSelectAnchorComponent, SpreadsheetExpressionReference> {
 
     public static SpreadsheetFormulaSelectAnchorComponent with(final String id,
                                                                final SpreadsheetFormulaSelectAnchorComponentContext context) {
@@ -106,17 +105,6 @@ public final class SpreadsheetFormulaSelectAnchorComponent implements AnchorComp
         ).setTextContent(text);
     }
 
-    @Override
-    public Optional<SpreadsheetExpressionReference> value() {
-        return this.component.value();
-    }
-
-    @Override
-    public SpreadsheetFormulaSelectAnchorComponent setValue(final Optional<SpreadsheetExpressionReference> value) {
-        this.component.setValue(value);
-        return this;
-    }
-
     /**
      * Activates using the formula text for any given {@link SpreadsheetExpressionReference}.
      */
@@ -136,10 +124,10 @@ public final class SpreadsheetFormulaSelectAnchorComponent implements AnchorComp
 
     private boolean showFormulaText;
 
-    // AnchorComponentDelegator.........................................................................................
+    // ValueHistoryTokenAnchorComponentDelegator........................................................................
 
     @Override
-    public AnchorComponent<?, SpreadsheetExpressionReference> anchorComponent() {
+    public ValueHistoryTokenAnchorComponent<SpreadsheetExpressionReference> valueHistoryTokenAnchorComponent() {
         return this.component;
     }
 

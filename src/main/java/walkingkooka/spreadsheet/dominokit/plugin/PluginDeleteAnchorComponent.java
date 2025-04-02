@@ -18,19 +18,18 @@
 package walkingkooka.spreadsheet.dominokit.plugin;
 
 import walkingkooka.plugin.PluginName;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.PluginDeleteHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponentDelegator;
 
 import java.util.Optional;
 
 /**
  * Creates a {@link PluginDeleteAnchorComponent}.
  */
-public final class PluginDeleteAnchorComponent implements AnchorComponentDelegator<PluginDeleteAnchorComponent, PluginName> {
+public final class PluginDeleteAnchorComponent implements ValueHistoryTokenAnchorComponentDelegator<PluginDeleteAnchorComponent, PluginName> {
 
     public static PluginDeleteAnchorComponent empty(final String id) {
         return new PluginDeleteAnchorComponent()
@@ -60,21 +59,10 @@ public final class PluginDeleteAnchorComponent implements AnchorComponentDelegat
         );
     }
 
-    @Override
-    public Optional<PluginName> value() {
-        return this.component.value();
-    }
+    // ValueHistoryTokenAnchorComponentDelegator........................................................................
 
     @Override
-    public PluginDeleteAnchorComponent setValue(final Optional<PluginName> value) {
-        this.component.setValue(value);
-        return this;
-    }
-
-    // AnchorComponentDelegator......................................................................................
-
-    @Override
-    public AnchorComponent<?, PluginName> anchorComponent() {
+    public ValueHistoryTokenAnchorComponent<PluginName> valueHistoryTokenAnchorComponent() {
         return this.component;
     }
 
