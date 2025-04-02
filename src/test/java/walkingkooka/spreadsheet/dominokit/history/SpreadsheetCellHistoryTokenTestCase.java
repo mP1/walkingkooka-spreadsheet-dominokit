@@ -28,6 +28,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
+import java.util.OptionalInt;
+
 public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetCellHistoryToken> extends SpreadsheetAnchoredSelectionHistoryTokenTestCase<T> {
 
     final static SpreadsheetCellReference CELL = SpreadsheetSelection.A1;
@@ -163,6 +165,26 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
                 SpreadsheetSelection.parseCell("Z9")
             );
         }
+    }
+
+    // labels...........................................................................................................
+
+    @Test
+    public final void testLabels() {
+        final HistoryTokenOffsetAndCount offsetAndCount = HistoryTokenOffsetAndCount.EMPTY.setCount(
+            OptionalInt.of(123)
+        );
+
+        this.labelsAndCheck(
+            this.createHistoryToken(),
+            offsetAndCount,
+            HistoryToken.cellLabels(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                offsetAndCount
+            )
+        );
     }
 
     // menu with selection..............................................................................................

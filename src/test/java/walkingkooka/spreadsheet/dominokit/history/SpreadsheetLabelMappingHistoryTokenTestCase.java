@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
+import java.util.OptionalInt;
+
 public abstract class SpreadsheetLabelMappingHistoryTokenTestCase<T extends SpreadsheetLabelMappingHistoryToken> extends SpreadsheetSelectionHistoryTokenTestCase<T> {
 
     SpreadsheetLabelMappingHistoryTokenTestCase() {
@@ -48,6 +50,25 @@ public abstract class SpreadsheetLabelMappingHistoryTokenTestCase<T extends Spre
             HistoryToken.labelMappingCreate(
                 ID,
                 NAME
+            )
+        );
+    }
+
+    // labels...........................................................................................................
+
+    @Test
+    public final void testLabels() {
+        final HistoryTokenOffsetAndCount offsetAndCount = HistoryTokenOffsetAndCount.EMPTY.setCount(
+            OptionalInt.of(123)
+        );
+
+        this.labelsAndCheck(
+            this.createHistoryToken(),
+            offsetAndCount,
+            HistoryToken.labelMappingList(
+                ID,
+                NAME,
+                offsetAndCount
             )
         );
     }

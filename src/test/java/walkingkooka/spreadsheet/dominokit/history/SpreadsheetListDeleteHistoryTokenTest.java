@@ -22,6 +22,8 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
+import java.util.OptionalInt;
+
 public final class SpreadsheetListDeleteHistoryTokenTest extends SpreadsheetIdHistoryTokenTestCase<SpreadsheetListDeleteHistoryToken> {
 
     @Test
@@ -58,6 +60,20 @@ public final class SpreadsheetListDeleteHistoryTokenTest extends SpreadsheetIdHi
             token
         );
     }
+
+    // labels...........................................................................................................
+
+    @Test
+    public final void testLabels() {
+        this.labelsAndCheck(
+            this.createHistoryToken(),
+            HistoryTokenOffsetAndCount.EMPTY.setCount(
+                OptionalInt.of(123)
+            )
+        );
+    }
+
+    // setMetadataPropertyName..........................................................................................
 
     @Test
     public void testSetMetadataPropertyName() {

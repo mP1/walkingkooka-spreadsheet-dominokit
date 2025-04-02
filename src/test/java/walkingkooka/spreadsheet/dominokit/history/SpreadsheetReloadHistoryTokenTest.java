@@ -23,6 +23,8 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
+import java.util.OptionalInt;
+
 public final class SpreadsheetReloadHistoryTokenTest extends SpreadsheetNameHistoryTokenTestCase<SpreadsheetReloadHistoryToken> {
 
     @Test
@@ -53,6 +55,27 @@ public final class SpreadsheetReloadHistoryTokenTest extends SpreadsheetNameHist
             )
         );
     }
+
+    // labels...........................................................................................................
+
+    @Test
+    public void testLabels() {
+        final HistoryTokenOffsetAndCount offsetAndCount = HistoryTokenOffsetAndCount.EMPTY.setCount(
+            OptionalInt.of(123)
+        );
+
+        this.labelsAndCheck(
+            this.createHistoryToken(),
+            offsetAndCount,
+            HistoryToken.labelMappingList(
+                ID,
+                NAME,
+                offsetAndCount
+            )
+        );
+    }
+
+    // setMetadataPropertyName..........................................................................................
 
     @Test
     public void testSetMetadataPropertyName() {

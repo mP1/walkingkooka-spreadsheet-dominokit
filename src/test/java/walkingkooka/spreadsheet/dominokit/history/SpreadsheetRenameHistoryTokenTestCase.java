@@ -21,6 +21,8 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
+import java.util.OptionalInt;
+
 public abstract class SpreadsheetRenameHistoryTokenTestCase<T extends SpreadsheetRenameHistoryToken> extends SpreadsheetNameHistoryTokenTestCase<T> {
 
     SpreadsheetRenameHistoryTokenTestCase() {
@@ -49,6 +51,27 @@ public abstract class SpreadsheetRenameHistoryTokenTestCase<T extends Spreadshee
             )
         );
     }
+
+    // labels...........................................................................................................
+
+    @Test
+    public final void testLabels() {
+        final HistoryTokenOffsetAndCount offsetAndCount = HistoryTokenOffsetAndCount.EMPTY.setCount(
+            OptionalInt.of(123)
+        );
+
+        this.labelsAndCheck(
+            this.createHistoryToken(),
+            offsetAndCount,
+            HistoryToken.labelMappingList(
+                ID,
+                NAME,
+                offsetAndCount
+            )
+        );
+    }
+
+    // setMetadataPropertyName..........................................................................................
 
     @Test
     public final void testSetMetadataPropertyName() {

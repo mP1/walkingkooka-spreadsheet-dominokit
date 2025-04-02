@@ -77,7 +77,7 @@ public final class SpreadsheetLabelListAnchorComponentTest implements AnchorComp
 
         this.treePrintAndCheck(
             component,
-            "\"Labels\" [#/3/SpreadsheetName333] id=label-list-anchor-id"
+            "\"Labels\" [#/3/SpreadsheetName333/label] id=label-list-anchor-id"
         );
     }
 
