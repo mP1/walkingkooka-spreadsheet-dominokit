@@ -2488,12 +2488,12 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             // SpreadsheetLabelNameResolver.....................................................................................
 
             @Override
-            public SpreadsheetSelection resolveLabel(final SpreadsheetLabelName spreadsheetLabelName) {
-                if (spreadsheetLabelName.equals(LABEL)) {
-                    return SpreadsheetSelection.parseCell("Z1");
-                }
-
-                throw new IllegalArgumentException("Unknown label " + spreadsheetLabelName);
+            public Optional<SpreadsheetSelection> resolveLabel(final SpreadsheetLabelName spreadsheetLabelName) {
+                return Optional.ofNullable(
+                    spreadsheetLabelName.equals(LABEL) ?
+                        SpreadsheetSelection.parseCell("Z1") :
+                        null
+                );
             }
 
             @Override

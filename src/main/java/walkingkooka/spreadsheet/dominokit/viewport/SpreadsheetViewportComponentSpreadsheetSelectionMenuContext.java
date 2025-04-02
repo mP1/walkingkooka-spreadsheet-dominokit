@@ -39,6 +39,7 @@ import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMen
 import walkingkooka.tree.text.TextStyleProperty;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -172,7 +173,7 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     // SpreadsheetLabelNameResolver.....................................................................................
 
     @Override
-    public SpreadsheetSelection resolveLabel(final SpreadsheetLabelName spreadsheetLabelName) {
+    public Optional<SpreadsheetSelection> resolveLabel(final SpreadsheetLabelName spreadsheetLabelName) {
         return this.context.resolveLabel(spreadsheetLabelName);
     }
 
