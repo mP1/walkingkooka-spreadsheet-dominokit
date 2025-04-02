@@ -42,7 +42,11 @@ public abstract class SpreadsheetRenameHistoryTokenTestCase<T extends Spreadshee
     @Test
     public final void testCreateLabel() {
         this.createLabelAndCheck(
-            this.createHistoryToken()
+            this.createHistoryToken(),
+            HistoryToken.labelMappingCreate(
+                ID,
+                NAME
+            )
         );
     }
 

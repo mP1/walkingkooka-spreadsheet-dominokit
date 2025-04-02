@@ -31,7 +31,11 @@ public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends Spreadsh
     @Test
     public final void testCreateLabel() {
         this.createLabelAndCheck(
-            this.createHistoryToken()
+            this.createHistoryToken(),
+            HistoryToken.labelMappingCreate(
+                ID,
+                NAME
+            )
         );
     }
 

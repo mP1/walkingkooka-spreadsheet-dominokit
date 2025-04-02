@@ -2314,14 +2314,24 @@ public abstract class HistoryToken implements HasUrlFragment,
     public final HistoryToken createLabel() {
         HistoryToken historyToken = this;
 
-        if (this instanceof SpreadsheetCellHistoryToken) {
-            if (false == this instanceof SpreadsheetCellLabelSelectHistoryToken) {
-                final SpreadsheetCellHistoryToken spreadsheetCellHistoryToken = this.cast(SpreadsheetCellHistoryToken.class);
+        if (this instanceof SpreadsheetNameHistoryToken) {
+            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+            final SpreadsheetId id = spreadsheetNameHistoryToken.id();
+            final SpreadsheetName name = spreadsheetNameHistoryToken.name();
 
-                historyToken = cellLabelSelect(
-                    spreadsheetCellHistoryToken.id(),
-                    spreadsheetCellHistoryToken.name(),
-                    spreadsheetCellHistoryToken.anchoredSelection()
+            if (this instanceof SpreadsheetCellHistoryToken) {
+                if (false == this instanceof SpreadsheetCellLabelSelectHistoryToken) {
+                    historyToken = cellLabelSelect(
+                        id,
+                        name,
+                        this.cast(SpreadsheetCellHistoryToken.class)
+                            .anchoredSelection()
+                    );
+                }
+            } else {
+                historyToken = labelMappingCreate(
+                    id,
+                    name
                 );
             }
         }

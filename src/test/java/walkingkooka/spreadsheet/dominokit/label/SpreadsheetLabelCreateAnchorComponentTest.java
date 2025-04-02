@@ -84,7 +84,7 @@ public final class SpreadsheetLabelCreateAnchorComponentTest implements AnchorCo
                     SPREADSHEET_NAME
                 )
             ).clearValue(),
-            "\"Create\" [#/1/SpreadsheetName222] id=cell-create-label-id"
+            "\"Create\" [#/1/SpreadsheetName222/create-label] id=cell-create-label-id"
         );
     }
 
