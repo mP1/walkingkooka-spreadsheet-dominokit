@@ -156,7 +156,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
 
     @Test
     public void testSpreadsheetLabelMappingCreateHistoryTokenAndHistoryTokenRefresh() {
-        final AppContext context = appContext("/1/SpreadsheetName111/label");
+        final AppContext context = appContext("/1/SpreadsheetName111/create-label");
 
         final SpreadsheetLabelMappingDialogComponent dialog = this.dialog(
             context(context)
