@@ -34,18 +34,20 @@ import java.util.Optional;
  */
 public final class SpreadsheetLabelListAnchorComponent implements AnchorComponentDelegator<SpreadsheetLabelListAnchorComponent, Void> {
 
-    public static SpreadsheetLabelListAnchorComponent with(final String id,
+    public static SpreadsheetLabelListAnchorComponent with(final HistoryTokenAnchorComponent anchor,
+                                                           final String id,
                                                            final HistoryContext context) {
         return new SpreadsheetLabelListAnchorComponent(
+            anchor,
             id,
             context
         );
     }
 
-    private SpreadsheetLabelListAnchorComponent(final String id,
+    private SpreadsheetLabelListAnchorComponent(final HistoryTokenAnchorComponent anchor,
+                                                final String id,
                                                 final HistoryContext context) {
-        this.component = HistoryTokenAnchorComponent.empty()
-            .setTextContent("Labels");
+        this.component = anchor.setTextContent("Labels");
         this.setId(id);
 
         this.context = Objects.requireNonNull(context, "context");
