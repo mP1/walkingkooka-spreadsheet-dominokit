@@ -23,13 +23,15 @@ import walkingkooka.spreadsheet.dominokit.formula.SpreadsheetFormulaSelectAnchor
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelLinksComponentContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
 
 import java.util.Optional;
 
 public interface SpreadsheetDeltaLabelsTableComponentContext extends HistoryContext,
     HasSpreadsheetDeltaFetcherWatchers,
     SpreadsheetFormulaSelectAnchorComponentContext,
-    SpreadsheetLabelLinksComponentContext {
+    SpreadsheetLabelLinksComponentContext,
+    SpreadsheetLabelNameResolver {
 
     /**
      * Returns a {@link SpreadsheetCell} for the given {@link SpreadsheetLabelName}.

@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelLinksComponent;
 import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelSelectAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextNodeComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
@@ -84,15 +85,25 @@ final class SpreadsheetDeltaLabelsTableComponentSpreadsheetDataTableComponentCel
     private Component renderCellFormula(final SpreadsheetDeltaLabelsTableComponentRow row) {
         final SpreadsheetLabelName labelName = row.mapping.label();
 
-        return SpreadsheetFormulaSelectAnchorComponent.with(
+        final SpreadsheetFormulaSelectAnchorComponent component = SpreadsheetFormulaSelectAnchorComponent.with(
                 this.idPrefix + labelName + "-formula" + SpreadsheetElementIds.LINK,
                 this.context
             ).showFormulaText()
             .setValue(
-                Optional.of(
-                    row.mapping.label()
-                )
+                Optional.of(labelName)
             );
+
+        // https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/4799
+        // Prefer to show target reference (cell etc) than the label, if formula is shown leave as is.
+        if(component.textContent().equalsIgnoreCase(labelName.text())) {
+            final SpreadsheetSelection notLabel = this.context.resolveLabel(labelName)
+                .orElse(null);
+            if(null != notLabel) {
+                component.setTextContent(notLabel.text());
+            }
+        }
+
+        return component;
     }
 
     private SpreadsheetTextNodeComponent renderCellFormattedValue(final SpreadsheetDeltaLabelsTableComponentRow row) {

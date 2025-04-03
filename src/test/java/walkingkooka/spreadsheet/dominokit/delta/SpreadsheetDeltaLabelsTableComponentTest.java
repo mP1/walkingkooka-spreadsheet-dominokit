@@ -128,7 +128,7 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
                 "        ROW(S)\n" +
                 "          ROW 0\n" +
                 "            \"LabelXYZ\" [#/1/Spreadsheet222/label/LabelXYZ] id=ID123-labels-LabelXYZ-Link\n" +
-                "            \"LabelXYZ\" [#/1/Spreadsheet222/cell/LabelXYZ/formula] id=ID123-labels-LabelXYZ-formula-Link\n" +
+                "            \"A1\" [#/1/Spreadsheet222/cell/LabelXYZ/formula] id=ID123-labels-LabelXYZ-formula-Link\n" +
                 "            SpreadsheetTextNodeComponent\n" +
                 "            SpreadsheetLabelLinksComponent\n" +
                 "              SpreadsheetLinkListComponent\n" +
@@ -179,7 +179,7 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
                 "        ROW(S)\n" +
                 "          ROW 0\n" +
                 "            \"LabelXYZ\" [#/1/Spreadsheet222/label/LabelXYZ] id=ID123-labels-LabelXYZ-Link\n" +
-                "            \"LabelXYZ\" [#/1/Spreadsheet222/cell/LabelXYZ/formula] id=ID123-labels-LabelXYZ-formula-Link\n" +
+                "            \"A1\" [#/1/Spreadsheet222/cell/LabelXYZ/formula] id=ID123-labels-LabelXYZ-formula-Link\n" +
                 "            SpreadsheetTextNodeComponent\n" +
                 "            SpreadsheetLabelLinksComponent\n" +
                 "              SpreadsheetLinkListComponent\n" +
@@ -244,7 +244,7 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
                 "                    \"Delete\" [#/1/Spreadsheet222/label/LABEL2/delete] id=ID123-labels-LABEL2-delete-Link\n" +
                 "          ROW 1\n" +
                 "            \"LabelXYZ\" [#/1/Spreadsheet222/label/LabelXYZ] id=ID123-labels-LabelXYZ-Link\n" +
-                "            \"LabelXYZ\" [#/1/Spreadsheet222/cell/LabelXYZ/formula] id=ID123-labels-LabelXYZ-formula-Link\n" +
+                "            \"A1\" [#/1/Spreadsheet222/cell/LabelXYZ/formula] id=ID123-labels-LabelXYZ-formula-Link\n" +
                 "            SpreadsheetTextNodeComponent\n" +
                 "            SpreadsheetLabelLinksComponent\n" +
                 "              SpreadsheetLinkListComponent\n" +
@@ -299,6 +299,11 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
                         return null;
                     }
                 },
+                (l) -> Optional.ofNullable(
+                    LABEL.equals(l) ?
+                        SpreadsheetSelection.A1 :
+                        null
+                ),
                 new FakeHistoryContext() {
                     @Override
                     public HistoryToken historyToken() {

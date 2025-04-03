@@ -25,6 +25,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -39,12 +41,14 @@ final class BasicSpreadsheetDeltaLabelsTableComponentContext implements Spreadsh
                                                                  final Function<SpreadsheetExpressionReference, Set<SpreadsheetExpressionReference>> cellToReferences,
                                                                  final Function<SpreadsheetLabelName, Optional<SpreadsheetCell>> labelToCell,
                                                                  final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers,
+                                                                 final SpreadsheetLabelNameResolver spreadsheetLabelNameResolver,
                                                                  final HistoryContext historyContext) {
         return new BasicSpreadsheetDeltaLabelsTableComponentContext(
             Objects.requireNonNull(cellToFormulaText, "cellToFormulaText"),
             Objects.requireNonNull(cellToReferences, "cellToReferences"),
             Objects.requireNonNull(labelToCell, "labelToCell"),
             Objects.requireNonNull(hasSpreadsheetDeltaFetcherWatchers, "hasSpreadsheetDeltaFetcherWatchers"),
+            Objects.requireNonNull(spreadsheetLabelNameResolver, "spreadsheetLabelNameResolver"),
             Objects.requireNonNull(historyContext, "historyContext")
         );
     }
@@ -53,12 +57,14 @@ final class BasicSpreadsheetDeltaLabelsTableComponentContext implements Spreadsh
                                                              final Function<SpreadsheetExpressionReference, Set<SpreadsheetExpressionReference>> cellToReferences,
                                                              final Function<SpreadsheetLabelName, Optional<SpreadsheetCell>> labelToCell,
                                                              final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers,
+                                                             final SpreadsheetLabelNameResolver spreadsheetLabelNameResolver,
                                                              final HistoryContext historyContext) {
         this.cellToFormulaText = cellToFormulaText;
         this.cellToReferences = cellToReferences;
         this.labelToCell = labelToCell;
 
         this.hasSpreadsheetDeltaFetcherWatchers = hasSpreadsheetDeltaFetcherWatchers;
+        this.spreadsheetLabelNameResolver = spreadsheetLabelNameResolver;
         this.historyContext = historyContext;
     }
 
@@ -89,6 +95,14 @@ final class BasicSpreadsheetDeltaLabelsTableComponentContext implements Spreadsh
     }
 
     private final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers;
+
+
+    @Override
+    public Optional<SpreadsheetSelection> resolveLabel(final SpreadsheetLabelName spreadsheetLabelName) {
+        return this.spreadsheetLabelNameResolver.resolveLabel(spreadsheetLabelName);
+    }
+
+    private final SpreadsheetLabelNameResolver spreadsheetLabelNameResolver;
 
     // HistoryContextDelegator..........................................................................................
 

@@ -204,7 +204,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
                 "                  \"A1LABEL\" [#/1/SpreadsheetName222/label/A1LABEL] id=labels-labels-A1LABEL-Link\n" +
-                "                  \"=1+2\" [#/1/SpreadsheetName222/cell/A1LABEL/formula] id=labels-labels-A1LABEL-formula-Link\n" +
+                "                  \"=1+2\" [#/1/SpreadsheetName222/cell/A1LABEL/formula] id=labels-labels-A1LABEL-formula-Link\n" + // <---formula shouldnt be replaced by cell reference
                 "                  SpreadsheetTextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
                 "                    SpreadsheetLinkListComponent\n" +
@@ -214,7 +214,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                          \"Delete\" [#/1/SpreadsheetName222/label/A1LABEL/delete] id=labels-labels-A1LABEL-delete-Link\n" +
                 "                ROW 1\n" +
                 "                  \"B2LABEL\" [#/1/SpreadsheetName222/label/B2LABEL] id=labels-labels-B2LABEL-Link\n" +
-                "                  \"B2LABEL\" [#/1/SpreadsheetName222/cell/B2LABEL/formula] id=labels-labels-B2LABEL-formula-Link\n" +
+                "                  \"B2\" [#/1/SpreadsheetName222/cell/B2LABEL/formula] id=labels-labels-B2LABEL-formula-Link\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
                 "                    SpreadsheetLinkListComponent\n" +
@@ -327,7 +327,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
                 "                  \"B2LABEL\" [#/1/SpreadsheetName222/label/B2LABEL] id=labels-labels-B2LABEL-Link\n" +
-                "                  \"B2LABEL\" [#/1/SpreadsheetName222/cell/B2LABEL/formula] id=labels-labels-B2LABEL-formula-Link\n" +
+                "                  \"B2\" [#/1/SpreadsheetName222/cell/B2LABEL/formula] id=labels-labels-B2LABEL-formula-Link\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
                 "                    SpreadsheetLinkListComponent\n" +
@@ -337,7 +337,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                          \"Delete\" [#/1/SpreadsheetName222/label/B2LABEL/delete] id=labels-labels-B2LABEL-delete-Link\n" +
                 "                ROW 1\n" +
                 "                  \"C3LABEL\" [#/1/SpreadsheetName222/label/C3LABEL] id=labels-labels-C3LABEL-Link\n" +
-                "                  \"C3LABEL\" [#/1/SpreadsheetName222/cell/C3LABEL/formula] id=labels-labels-C3LABEL-formula-Link\n" +
+                "                  \"C3\" [#/1/SpreadsheetName222/cell/C3LABEL/formula] id=labels-labels-C3LABEL-formula-Link\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
                 "                    SpreadsheetLinkListComponent\n" +
@@ -411,6 +411,11 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
             return this.cache;
         }
 
+        @Override
+        public Optional<SpreadsheetSelection> resolveLabel(final SpreadsheetLabelName spreadsheetLabelName) {
+            return this.cache.resolveLabel(spreadsheetLabelName);
+        }
+
         private final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty(this);
 
         @Override
@@ -472,6 +477,11 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
         public void loadLabelMappings(final SpreadsheetId id,
                                       final HistoryTokenOffsetAndCount offsetAndCount) {
             // NOP
+        }
+
+        @Override
+        public Optional<SpreadsheetSelection> resolveLabel(final SpreadsheetLabelName spreadsheetLabelName) {
+            return this.context.resolveLabel(spreadsheetLabelName);
         }
 
         private final AppContext context;
