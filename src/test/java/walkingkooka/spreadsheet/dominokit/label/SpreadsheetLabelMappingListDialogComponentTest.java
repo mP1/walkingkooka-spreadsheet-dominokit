@@ -36,6 +36,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingListHistoryToken;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
@@ -485,6 +486,16 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
         }
 
         private final AppContext context;
+
+        @Override
+        public boolean shouldIgnore(final HistoryToken token) {
+            return false;
+        }
+
+        @Override
+        public boolean isMatch(final HistoryToken token) {
+            return token instanceof SpreadsheetLabelMappingListHistoryToken;
+        }
     }
 
     // ClassTesting.....................................................................................................

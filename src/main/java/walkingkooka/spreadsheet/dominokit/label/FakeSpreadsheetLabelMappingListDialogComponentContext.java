@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.label;
 
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.delta.FakeSpreadsheetDeltaLabelsTableComponentContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
@@ -46,6 +47,16 @@ public class FakeSpreadsheetLabelMappingListDialogComponentContext extends FakeS
 
     @Override
     public SpreadsheetMetadata spreadsheetMetadata() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean shouldIgnore(final HistoryToken token) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean isMatch(final HistoryToken token) {
         throw new UnsupportedOperationException();
     }
 

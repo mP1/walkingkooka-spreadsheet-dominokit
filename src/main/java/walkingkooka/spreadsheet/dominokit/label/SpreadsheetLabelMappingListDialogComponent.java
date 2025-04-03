@@ -122,12 +122,12 @@ public final class SpreadsheetLabelMappingListDialogComponent implements Spreads
 
     @Override
     public boolean shouldIgnore(final HistoryToken token) {
-        return false;
+        return this.context.shouldIgnore(token);
     }
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return token instanceof SpreadsheetLabelMappingListHistoryToken;
+        return this.context.isMatch(token);
     }
 
     @Override
