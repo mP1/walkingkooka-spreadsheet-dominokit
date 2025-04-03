@@ -1116,6 +1116,15 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             )
         );
 
+        // create should be first because there could be lost of labels which would push Crete to the bottom.
+        sub.item(
+            historyToken.setLabelName(Optional.empty())
+                .contextMenuItem(
+                    context.idPrefix() + "label-create" + SpreadsheetElementIds.MENU_ITEM,
+                    "Create..."
+                )
+        );
+
         int i = 0;
 
         // create items for each label
@@ -1133,14 +1142,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
 
             i++;
         }
-
-        sub.item(
-            historyToken.setLabelName(Optional.empty())
-                .contextMenuItem(
-                    context.idPrefix() + "label-create" + SpreadsheetElementIds.MENU_ITEM,
-                    "Create..."
-                )
-        );
     }
 
     private static void insertSubMenu(final SpreadsheetContextMenu menu,

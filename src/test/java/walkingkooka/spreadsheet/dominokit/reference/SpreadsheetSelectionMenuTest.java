@@ -262,8 +262,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
-                "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
+                "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
                 "  -----\n" +
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/A1/reload] id=test-reload-MenuItem\n"
@@ -478,8 +478,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
-                "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
+                "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
                 "  -----\n" +
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/A1/reload] id=test-reload-MenuItem\n"
@@ -689,8 +689,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
-                "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
+                "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
                 "  -----\n" +
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/A1/reload] id=test-reload-MenuItem\n"
@@ -915,8 +915,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
-                "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
+                "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
                 "  -----\n" +
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/A1/reload] id=test-reload-MenuItem\n"
@@ -1154,8 +1154,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
-                "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
+                "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
                 "  -----\n" +
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/A1/reload] id=test-reload-MenuItem\n"
@@ -1454,8 +1454,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  \"Unfreeze\" id=test-unfreeze-MenuItem\n" +
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
-                "    \"Label123 (B2)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/label] id=test-label-create-MenuItem\n" +
+                "    \"Label123 (B2)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/references] [0] id=test-references-MenuItem\n" +
                 "  -----\n" +
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/reload] id=test-reload-MenuItem\n"
@@ -1656,8 +1656,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/Label123/unfreeze] id=test-unfreeze-MenuItem\n" +
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
-                "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/Label123/label] id=test-label-create-MenuItem\n" +
+                "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/Label123/references] [0] id=test-references-MenuItem\n" +
                 "  -----\n" +
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/Label123/reload] id=test-reload-MenuItem\n"
@@ -1838,8 +1838,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/UnknownLabel/unfreeze] id=test-unfreeze-MenuItem\n" +
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
-                "    \"UnknownLabel (A1)\" [/1/SpreadsheetName-1/label/UnknownLabel] id=test-label-0-MenuItem\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/UnknownLabel/label] id=test-label-create-MenuItem\n" +
+                "    \"UnknownLabel (A1)\" [/1/SpreadsheetName-1/label/UnknownLabel] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/UnknownLabel/references] [0] id=test-references-MenuItem\n" +
                 "  -----\n" +
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/UnknownLabel/reload] id=test-reload-MenuItem\n"
