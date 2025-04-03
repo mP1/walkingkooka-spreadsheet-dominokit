@@ -218,6 +218,20 @@ public final class SpreadsheetCellLabelsHistoryTokenTest extends SpreadsheetCell
         );
     }
 
+    // close............................................................................................................
+
+    @Test
+    public void testClose() {
+        this.closeAndCheck(
+            this.createHistoryToken(),
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
     // freezeOrEmpty....................................................................................................
 
     @Test
