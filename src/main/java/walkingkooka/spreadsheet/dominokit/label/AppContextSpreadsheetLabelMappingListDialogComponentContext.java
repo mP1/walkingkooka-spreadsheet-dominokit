@@ -18,15 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.label;
 
 import walkingkooka.spreadsheet.SpreadsheetCell;
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchersDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingListHistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
@@ -37,54 +34,35 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
-final class AppContextSpreadsheetLabelMappingListDialogComponentContext implements SpreadsheetLabelMappingListDialogComponentContext,
+abstract class AppContextSpreadsheetLabelMappingListDialogComponentContext implements SpreadsheetLabelMappingListDialogComponentContext,
     HasSpreadsheetDeltaFetcherWatchersDelegator,
     HistoryContextDelegator,
     LoggingContextDelegator {
 
-    static AppContextSpreadsheetLabelMappingListDialogComponentContext with(final AppContext context) {
-        return new AppContextSpreadsheetLabelMappingListDialogComponentContext(
-            Objects.requireNonNull(context, "context")
-        );
-    }
-
-    private AppContextSpreadsheetLabelMappingListDialogComponentContext(final AppContext context) {
-        this.context = context;
+    AppContextSpreadsheetLabelMappingListDialogComponentContext(final AppContext context) {
+        this.context = Objects.requireNonNull(context, "context");
     }
 
     @Override
-    public Set<SpreadsheetExpressionReference> cellReferences(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+    public final Set<SpreadsheetExpressionReference> cellReferences(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
         return this.context.spreadsheetViewportCache()
             .cellReferences(spreadsheetExpressionReference);
     }
 
     @Override
-    public Optional<String> formulaText(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+    public final Optional<String> formulaText(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
         return this.context.spreadsheetViewportCache()
             .formulaText(spreadsheetExpressionReference);
     }
 
     @Override
-    public Optional<SpreadsheetCell> labelCell(final SpreadsheetLabelName label) {
+    public final Optional<SpreadsheetCell> labelCell(final SpreadsheetLabelName label) {
         return this.context.spreadsheetViewportCache()
             .cell(label);
     }
 
     @Override
-    public void loadLabelMappings(final SpreadsheetId id,
-                                  final HistoryTokenOffsetAndCount offsetAndCount) {
-        this.context.spreadsheetDeltaFetcher()
-            .loadLabelMappings(
-                id,
-                offsetAndCount.offset()
-                    .orElse(0),
-                offsetAndCount.count()
-                    .orElse(0)
-            );
-    }
-
-    @Override
-    public Optional<SpreadsheetSelection> resolveLabel(final SpreadsheetLabelName spreadsheetLabelName) {
+    public final Optional<SpreadsheetSelection> resolveLabel(final SpreadsheetLabelName spreadsheetLabelName) {
         return this.context.spreadsheetViewportCache()
             .resolveLabel(spreadsheetLabelName);
     }
@@ -92,35 +70,30 @@ final class AppContextSpreadsheetLabelMappingListDialogComponentContext implemen
     // HasSpreadsheetDeltaFetcherWatchersDelegator......................................................................
 
     @Override
-    public HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers() {
+    public final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers() {
         return this.context;
     }
 
     // ComponentLifecycleMatcher........................................................................................
 
     @Override
-    public boolean shouldIgnore(final HistoryToken token) {
+    public final boolean shouldIgnore(final HistoryToken token) {
         return false;
-    }
-
-    @Override
-    public boolean isMatch(final HistoryToken token) {
-        return token instanceof SpreadsheetLabelMappingListHistoryToken;
     }
 
     // HistoryContextDelegator..........................................................................................
 
     @Override
-    public HistoryContext historyContext() {
+    public final HistoryContext historyContext() {
         return this.context;
     }
 
     // LoggingContextDelegator..........................................................................................
 
     @Override
-    public LoggingContext loggingContext() {
+    public final LoggingContext loggingContext() {
         return this.context;
     }
 
-    private final AppContext context;
+    final AppContext context;
 }

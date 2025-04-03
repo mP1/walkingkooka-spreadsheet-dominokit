@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaLabelsTableCompo
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
@@ -93,7 +94,7 @@ public final class SpreadsheetLabelMappingListDialogComponent implements Spreads
 
     // table............................................................................................................
 
-    private void refreshTable(final SpreadsheetLabelMappingListHistoryToken token) {
+    private void refreshTable(final HistoryToken token) {
         this.table.refresh(token);
     }
 
@@ -102,7 +103,7 @@ public final class SpreadsheetLabelMappingListDialogComponent implements Spreads
 
     // close............................................................................................................
 
-    private void refreshClose(final SpreadsheetLabelMappingListHistoryToken token) {
+    private void refreshClose(final HistoryToken token) {
         this.close.setHistoryToken(
             Optional.of(token.close())
         );
@@ -142,8 +143,7 @@ public final class SpreadsheetLabelMappingListDialogComponent implements Spreads
      */
     @Override
     public void refresh(final RefreshContext context) {
-        final SpreadsheetLabelMappingListHistoryToken historyToken = context.historyToken()
-            .cast(SpreadsheetLabelMappingListHistoryToken.class);
+        final HistoryToken historyToken = context.historyToken();
 
         this.refreshClose(historyToken);
 

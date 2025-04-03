@@ -23,10 +23,17 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 public final class SpreadsheetLabelMappingListDialogComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see AppContextSpreadsheetLabelMappingListDialogComponentContext}
+     * {@see AppContextSpreadsheetLabelMappingListDialogComponentContextCell}
      */
-    public static SpreadsheetLabelMappingListDialogComponentContext appContext(final AppContext context) {
-        return AppContextSpreadsheetLabelMappingListDialogComponentContext.with(context);
+    public static SpreadsheetLabelMappingListDialogComponentContext appContextCell(final AppContext context) {
+        return AppContextSpreadsheetLabelMappingListDialogComponentContextCell.with(context);
+    }
+
+    /**
+     * {@see AppContextSpreadsheetLabelMappingListDialogComponentContextLabel}
+     */
+    public static SpreadsheetLabelMappingListDialogComponentContext appContextLabel(final AppContext context) {
+        return AppContextSpreadsheetLabelMappingListDialogComponentContextLabel.with(context);
     }
 
     /**
