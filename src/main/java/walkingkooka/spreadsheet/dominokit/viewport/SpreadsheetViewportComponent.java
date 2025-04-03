@@ -47,7 +47,6 @@ import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
-import walkingkooka.spreadsheet.dominokit.VisibleHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellLinksComponent;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuTargets;
@@ -120,8 +119,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     HistoryTokenAwareComponentLifecycle,
     SpreadsheetViewportComponentLifecycle,
     LoadedSpreadsheetMetadataRequired,
-    NopEmptyResponseFetcherWatcher,
-    VisibleHtmlElementComponent<HTMLDivElement, SpreadsheetViewportComponent> {
+    NopEmptyResponseFetcherWatcher {
 
     /**
      * The maximum number of recent format / parse pattern saves.
