@@ -22,6 +22,8 @@ import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
@@ -66,7 +68,8 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
     SpreadsheetDeltaFetcherWatcher,
     SpreadsheetFormatterFetcherWatcher,
     NopSpreadsheetFormatterInfoSetFetcherWatcher,
-    SpreadsheetMetadataFetcherWatcher {
+    SpreadsheetMetadataFetcherWatcher,
+    ComponentLifecycleMatcherDelegator {
 
     /**
      * Creates a new {@link SpreadsheetFormatterSelectorDialogComponent}.
@@ -380,15 +383,9 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
 
     // HistoryTokenAwareComponentLifecycle..............................................................................
 
-    // save should not open or close the dialog.
     @Override
-    public boolean shouldIgnore(final HistoryToken token) {
-        return this.context.shouldIgnore(token);
-    }
-
-    @Override
-    public boolean isMatch(final HistoryToken token) {
-        return this.context.isMatch(token);
+    public ComponentLifecycleMatcher componentLifecycleMatcher() {
+        return this.context;
     }
 
     @Override

@@ -20,13 +20,14 @@ package walkingkooka.spreadsheet.dominokit.spreadsheet;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -42,7 +43,8 @@ import java.util.Set;
  */
 public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogComponentLifecycle,
     SpreadsheetMetadataFetcherWatcher,
-    NopFetcherWatcher {
+    NopFetcherWatcher,
+    ComponentLifecycleMatcherDelegator {
 
     public static SpreadsheetNameDialogComponent with(final SpreadsheetNameDialogComponentContext context) {
         return new SpreadsheetNameDialogComponent(
@@ -155,13 +157,8 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
     // SpreadsheetDialogComponentLifecycle..............................................................................
 
     @Override
-    public boolean shouldIgnore(final HistoryToken token) {
-        return this.context.shouldIgnore(token);
-    }
-
-    @Override
-    public boolean isMatch(final HistoryToken token) {
-        return this.context.isMatch(token);
+    public ComponentLifecycleMatcher componentLifecycleMatcher() {
+        return this.context;
     }
 
     @Override
