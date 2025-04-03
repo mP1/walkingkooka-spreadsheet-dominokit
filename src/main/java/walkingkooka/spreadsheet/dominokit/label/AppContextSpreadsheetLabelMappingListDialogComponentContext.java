@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -84,6 +85,12 @@ final class AppContextSpreadsheetLabelMappingListDialogComponentContext implemen
                 offsetAndCount.count()
                     .orElse(0)
             );
+    }
+
+    @Override
+    public Optional<SpreadsheetSelection> resolveLabel(final SpreadsheetLabelName spreadsheetLabelName) {
+        return this.context.spreadsheetViewportCache()
+            .resolveLabel(spreadsheetLabelName);
     }
 
     // HasSpreadsheetDeltaFetcherWatchersDelegator......................................................................

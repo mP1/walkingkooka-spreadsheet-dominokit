@@ -26,6 +26,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolvers;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Objects;
@@ -69,6 +71,8 @@ public final class BasicSpreadsheetDeltaLabelsTableComponentContextTest implemen
         }
     };
 
+    private final static SpreadsheetLabelNameResolver SPREADSHEET_LABEL_NAME_RESOLVER = SpreadsheetLabelNameResolvers.fake();
+
     private final static HistoryContext HISTORY_CONTEXT = HistoryContexts.fake();
 
     // with.............................................................................................................
@@ -82,6 +86,7 @@ public final class BasicSpreadsheetDeltaLabelsTableComponentContextTest implemen
                 null,
                 LABEL_TO_CELL,
                 HAS_SPREADSHEET_DELTA_FETCHER_WATCHERS,
+                SPREADSHEET_LABEL_NAME_RESOLVER,
                 HISTORY_CONTEXT
             )
         );
@@ -96,6 +101,7 @@ public final class BasicSpreadsheetDeltaLabelsTableComponentContextTest implemen
                 CELL_TO_REFERENCES,
                 null,
                 HAS_SPREADSHEET_DELTA_FETCHER_WATCHERS,
+                SPREADSHEET_LABEL_NAME_RESOLVER,
                 HISTORY_CONTEXT
             )
         );
@@ -109,6 +115,22 @@ public final class BasicSpreadsheetDeltaLabelsTableComponentContextTest implemen
                 CELL_TO_FORMULA_TEXT,
                 CELL_TO_REFERENCES,
                 LABEL_TO_CELL,
+                null,
+                SPREADSHEET_LABEL_NAME_RESOLVER,
+                HISTORY_CONTEXT
+            )
+        );
+    }
+
+    @Test
+    public void testWithNullSpreadsheetLabelNameResolverFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> BasicSpreadsheetDeltaLabelsTableComponentContext.with(
+                CELL_TO_FORMULA_TEXT,
+                CELL_TO_REFERENCES,
+                LABEL_TO_CELL,
+                HAS_SPREADSHEET_DELTA_FETCHER_WATCHERS,
                 null,
                 HISTORY_CONTEXT
             )
@@ -124,6 +146,7 @@ public final class BasicSpreadsheetDeltaLabelsTableComponentContextTest implemen
                 CELL_TO_REFERENCES,
                 LABEL_TO_CELL,
                 HAS_SPREADSHEET_DELTA_FETCHER_WATCHERS,
+                SPREADSHEET_LABEL_NAME_RESOLVER,
                 null
             )
         );
@@ -136,6 +159,7 @@ public final class BasicSpreadsheetDeltaLabelsTableComponentContextTest implemen
             CELL_TO_REFERENCES,
             LABEL_TO_CELL,
             HAS_SPREADSHEET_DELTA_FETCHER_WATCHERS,
+            SPREADSHEET_LABEL_NAME_RESOLVER,
             HISTORY_CONTEXT
         );
     }
@@ -170,6 +194,7 @@ public final class BasicSpreadsheetDeltaLabelsTableComponentContextTest implemen
                 CELL_TO_REFERENCES,
                 LABEL_TO_CELL,
                 HAS_SPREADSHEET_DELTA_FETCHER_WATCHERS,
+                SPREADSHEET_LABEL_NAME_RESOLVER,
                 HISTORY_CONTEXT
             ),
             CELL_TO_FORMULA_TEXT +

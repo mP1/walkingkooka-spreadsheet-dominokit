@@ -21,6 +21,10 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.delta.FakeSpreadsheetDeltaLabelsTableComponentContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+
+import java.util.Optional;
 
 public class FakeSpreadsheetLabelMappingListDialogComponentContext extends FakeSpreadsheetDeltaLabelsTableComponentContext
     implements SpreadsheetLabelMappingListDialogComponentContext {
@@ -32,6 +36,11 @@ public class FakeSpreadsheetLabelMappingListDialogComponentContext extends FakeS
     @Override
     public void loadLabelMappings(final SpreadsheetId id,
                                   final HistoryTokenOffsetAndCount offsetAndCount) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<SpreadsheetSelection> resolveLabel(final SpreadsheetLabelName spreadsheetLabelName) {
         throw new UnsupportedOperationException();
     }
 
