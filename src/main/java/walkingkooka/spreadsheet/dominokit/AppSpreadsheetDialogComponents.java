@@ -117,7 +117,11 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
         );
 
         SpreadsheetLabelMappingListDialogComponent.with(
-            SpreadsheetLabelMappingListDialogComponentContexts.appContext(context)
+            SpreadsheetLabelMappingListDialogComponentContexts.appContextCell(context)
+        );
+
+        SpreadsheetLabelMappingListDialogComponent.with(
+            SpreadsheetLabelMappingListDialogComponentContexts.appContextLabel(context)
         );
     }
 
