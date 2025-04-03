@@ -144,6 +144,8 @@ import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContextDelegator;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
+import walkingkooka.validation.provider.ValidatorProvider;
+import walkingkooka.validation.provider.ValidatorProviders;
 
 import java.math.MathContext;
 import java.time.LocalDateTime;
@@ -204,7 +206,8 @@ public class App implements EntryPoint,
             SpreadsheetExporterProviders.empty(),
             SpreadsheetFormatterProviders.empty(),
             SpreadsheetImporterProviders.empty(),
-            SpreadsheetParserProviders.empty()
+            SpreadsheetParserProviders.empty(),
+            ValidatorProviders.empty()
         );
 
         this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
@@ -1052,6 +1055,8 @@ public class App implements EntryPoint,
             )
         );
 
+        final ValidatorProvider validatorProvider = ValidatorProviders.validators();
+
         this.spreadsheetProvider = metadata.spreadsheetProvider(
             SpreadsheetProviders.basic(
                 converterProvider,
@@ -1060,7 +1065,8 @@ public class App implements EntryPoint,
                 spreadsheetExporterProvider,
                 spreadsheetFormatterProvider,
                 spreadsheetImporterProvider,
-                spreadsheetParserProvider
+                spreadsheetParserProvider,
+                validatorProvider
             )
         );
         this.systemSpreadsheetProvider = SpreadsheetProviders.basic(
@@ -1070,7 +1076,8 @@ public class App implements EntryPoint,
             spreadsheetExporterProvider,
             spreadsheetFormatterProvider,
             spreadsheetImporterProvider,
-            spreadsheetParserProvider
+            spreadsheetParserProvider,
+            validatorProvider
         );
 
         try {
