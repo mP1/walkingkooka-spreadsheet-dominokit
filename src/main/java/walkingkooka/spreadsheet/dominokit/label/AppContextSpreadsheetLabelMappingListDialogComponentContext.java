@@ -29,7 +29,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingListHistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -51,11 +50,6 @@ final class AppContextSpreadsheetLabelMappingListDialogComponentContext implemen
 
     private AppContextSpreadsheetLabelMappingListDialogComponentContext(final AppContext context) {
         this.context = context;
-    }
-
-    @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
-        return null;
     }
 
     @Override

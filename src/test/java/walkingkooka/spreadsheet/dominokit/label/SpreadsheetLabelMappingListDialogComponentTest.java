@@ -449,11 +449,6 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
         private final HistoryTokenWatchers historyTokenWatchers = HistoryTokenWatchers.empty();
 
         @Override
-        public SpreadsheetMetadata spreadsheetMetadata() {
-            return this.context.spreadsheetMetadata();
-        }
-
-        @Override
         public Set<SpreadsheetExpressionReference> cellReferences(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
             return this.context.spreadsheetViewportCache()
                 .cellReferences(spreadsheetExpressionReference);
