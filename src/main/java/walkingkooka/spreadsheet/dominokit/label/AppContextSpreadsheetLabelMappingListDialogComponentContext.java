@@ -24,7 +24,9 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatc
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchersDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingListHistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -98,6 +100,18 @@ final class AppContextSpreadsheetLabelMappingListDialogComponentContext implemen
     @Override
     public HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers() {
         return this.context;
+    }
+
+    // ComponentLifecycleMatcher........................................................................................
+
+    @Override
+    public boolean shouldIgnore(final HistoryToken token) {
+        return false;
+    }
+
+    @Override
+    public boolean isMatch(final HistoryToken token) {
+        return token instanceof SpreadsheetLabelMappingListHistoryToken;
     }
 
     // HistoryContextDelegator..........................................................................................

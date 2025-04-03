@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.label;
 
 import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaLabelsTableComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
@@ -32,6 +33,7 @@ public interface SpreadsheetLabelMappingListDialogComponentContext extends Histo
     SpreadsheetDeltaLabelsTableComponentContext,
     HasSpreadsheetDeltaFetcherWatchers,
     HasSpreadsheetMetadata,
+    ComponentLifecycleMatcher,
     SpreadsheetDialogComponentContext {
 
     /**
