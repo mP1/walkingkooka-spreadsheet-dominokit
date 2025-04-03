@@ -26,5 +26,6 @@ import elemental2.dom.HTMLElement;
  */
 public interface VisibleHtmlElementComponentLike<E extends HTMLElement, C extends VisibleHtmlElementComponentLike<E, C>> extends HtmlElementComponent<E, C> {
 
+    @Override
     C setVisibility(final boolean visibility);
 }
