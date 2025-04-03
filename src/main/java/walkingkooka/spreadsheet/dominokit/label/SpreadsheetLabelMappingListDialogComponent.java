@@ -17,13 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.label;
 
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaLabelsTableComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
@@ -37,7 +38,8 @@ import java.util.Optional;
  * A modal dialog that displays a list of {@link walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping}.
  */
 public final class SpreadsheetLabelMappingListDialogComponent implements SpreadsheetDialogComponentLifecycle,
-    LoadedSpreadsheetMetadataRequired {
+    LoadedSpreadsheetMetadataRequired,
+    ComponentLifecycleMatcherDelegator {
 
     /**
      * Creates a new {@link SpreadsheetLabelMappingListDialogComponent}.
@@ -121,13 +123,8 @@ public final class SpreadsheetLabelMappingListDialogComponent implements Spreads
     }
 
     @Override
-    public boolean shouldIgnore(final HistoryToken token) {
-        return this.context.shouldIgnore(token);
-    }
-
-    @Override
-    public boolean isMatch(final HistoryToken token) {
-        return this.context.isMatch(token);
+    public ComponentLifecycleMatcher componentLifecycleMatcher() {
+        return this.context;
     }
 
     @Override
