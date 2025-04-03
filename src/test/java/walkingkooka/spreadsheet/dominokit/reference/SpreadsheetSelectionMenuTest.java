@@ -263,6 +263,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
+                "    \"List...\" [/1/SpreadsheetName-1/cell/A1/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
                 "  -----\n" +
@@ -479,6 +480,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
+                "    \"List...\" [/1/SpreadsheetName-1/cell/A1/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
                 "  -----\n" +
@@ -690,6 +692,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
+                "    \"List...\" [/1/SpreadsheetName-1/cell/A1/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
                 "  -----\n" +
@@ -916,6 +919,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
+                "    \"List...\" [/1/SpreadsheetName-1/cell/A1/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
                 "  -----\n" +
@@ -1155,6 +1159,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
+                "    \"List...\" [/1/SpreadsheetName-1/cell/A1/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
                 "  -----\n" +
@@ -1455,6 +1460,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/label] id=test-label-create-MenuItem\n" +
+                "    \"List...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (B2)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/references] [0] id=test-references-MenuItem\n" +
                 "  -----\n" +
@@ -1657,6 +1663,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/Label123/label] id=test-label-create-MenuItem\n" +
+                "    \"List...\" [/1/SpreadsheetName-1/cell/Label123/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/Label123/references] [0] id=test-references-MenuItem\n" +
                 "  -----\n" +
@@ -1839,6 +1846,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/UnknownLabel/label] id=test-label-create-MenuItem\n" +
+                "    \"List...\" [/1/SpreadsheetName-1/cell/UnknownLabel/labels] id=test-labels-list-MenuItem\n" +
                 "    \"UnknownLabel (A1)\" [/1/SpreadsheetName-1/label/UnknownLabel] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/UnknownLabel/references] [0] id=test-references-MenuItem\n" +
                 "  -----\n" +

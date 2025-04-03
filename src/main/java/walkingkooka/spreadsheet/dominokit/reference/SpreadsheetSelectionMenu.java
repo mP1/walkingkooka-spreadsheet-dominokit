@@ -1125,6 +1125,14 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                 )
         );
 
+        sub.item(
+            historyToken.labels(HistoryTokenOffsetAndCount.EMPTY)
+                .contextMenuItem(
+                    context.idPrefix() + "labels-list" + SpreadsheetElementIds.MENU_ITEM,
+                    "List..."
+                )
+        );
+
         int i = 0;
 
         // create items for each label
