@@ -83,7 +83,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         items.add(this.spreadsheetId());
         items.add(this.spreadsheetName());
         items.add(this.createdBy());
-        items.add(this.createdDateTime());
+        items.add(this.createdTimestamp());
         items.add(this.modifiedBy());
         items.add(this.modifiedTimestamp());
         items.add(this.locale());
@@ -188,7 +188,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<?> createdDateTime() {
+    private SpreadsheetMetadataPanelComponentItem<?> createdTimestamp() {
         return readOnlyText(
             SpreadsheetMetadataPropertyName.CREATED_TIMESTAMP,
             this.context::formatDateTime
