@@ -67,6 +67,12 @@ import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliasSet
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfo;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionSelector;
+import walkingkooka.validation.provider.ValidatorAlias;
+import walkingkooka.validation.provider.ValidatorAliasSet;
+import walkingkooka.validation.provider.ValidatorInfo;
+import walkingkooka.validation.provider.ValidatorInfoSet;
+import walkingkooka.validation.provider.ValidatorName;
+import walkingkooka.validation.provider.ValidatorSelector;
 
 /**
  * A collection of factory methods to create {@link PluginAliasSetLikeDialogComponentContext}.
@@ -147,6 +153,13 @@ public final class PluginAliasSetLikeDialogComponentContexts implements PublicSt
      */
     public static PluginAliasSetLikeDialogComponentContext<SpreadsheetParserName, SpreadsheetParserInfo, SpreadsheetParserInfoSet, SpreadsheetParserSelector, SpreadsheetParserAlias, SpreadsheetParserAliasSet> parsers(final AppContext context) {
         return AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetParserAliasSetParsers.with(context);
+    }
+
+    /**
+     * {@see AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidators}
+     */
+    public static PluginAliasSetLikeDialogComponentContext<ValidatorName, ValidatorInfo, ValidatorInfoSet, ValidatorSelector, ValidatorAlias, ValidatorAliasSet> validators(final AppContext context) {
+        return AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidators.with(context);
     }
 
     /**
