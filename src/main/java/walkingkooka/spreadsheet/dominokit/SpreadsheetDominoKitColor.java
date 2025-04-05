@@ -65,12 +65,12 @@ public final class SpreadsheetDominoKitColor implements PublicStaticHelper {
     /**
      * The background color for selected column/row headers.
      */
-    public final static Color VIEWPORT_CELL_SELECTED_BACKGROUND_COLOR = Color.parse("#888");
+    public final static Color VIEWPORT_CELL_SELECTED_BACKGROUND_COLOR = Color.parse("#bbb");
 
     /**
      * The background color for unselected column/row headers.
      */
-    public final static Color VIEWPORT_HEADER_UNSELECTED_BACKGROUND_COLOR = Color.parse("#aaa");
+    public final static Color VIEWPORT_HEADER_UNSELECTED_BACKGROUND_COLOR = Color.parse("#ddd");
 
     /**
      * The background color for selected column/row headers.
