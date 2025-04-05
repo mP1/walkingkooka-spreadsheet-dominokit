@@ -63,6 +63,11 @@ public final class SpreadsheetDominoKitColor implements PublicStaticHelper {
     public final static Color TOOLBAR_ICON_SELECTED_COLOR = Color.parse("#0000ff");
 
     /**
+     * The color that is used to color the viewport grid/border lines etc.
+     */
+    public final static Color VIEWPORT_LINES_COLOR = Color.parse("#888");
+
+    /**
      * The background color for selected column/row headers.
      */
     public final static Color VIEWPORT_CELL_SELECTED_BACKGROUND_COLOR = Color.parse("#bbb");
