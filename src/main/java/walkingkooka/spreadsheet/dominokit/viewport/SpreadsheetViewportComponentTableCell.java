@@ -21,6 +21,7 @@ import walkingkooka.collect.map.Maps;
 import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.BorderStyle;
 import walkingkooka.tree.text.FontSize;
@@ -46,7 +47,7 @@ abstract class SpreadsheetViewportComponentTableCell {
         super();
     }
 
-    final static Color BORDER_COLOR = Color.BLACK;
+    final static Color BORDER_COLOR = SpreadsheetDominoKitColor.VIEWPORT_LINES_COLOR;
     final static BorderStyle BORDER_STYLE = BorderStyle.SOLID;
     final static Length<?> BORDER_LENGTH = Length.pixel(1.0);
 
