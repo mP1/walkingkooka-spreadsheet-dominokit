@@ -49,6 +49,7 @@ import walkingkooka.text.CaseKind;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliasSet;
+import walkingkooka.validation.provider.ValidatorAliasSet;
 
 import java.math.RoundingMode;
 import java.util.List;
@@ -137,6 +138,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         items.add(this.formatters());
         items.add(this.importers());
         items.add(this.parsers());
+        items.add(this.validators());
 
         // TODO extract TABLE
         final TBodyElement tBody = ElementsFactory.elements.tbody();
@@ -436,6 +438,12 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     private SpreadsheetMetadataPanelComponentItem<SpreadsheetComparatorNameList> sortComparators() {
         return link(
             SpreadsheetMetadataPropertyName.SORT_COMPARATORS
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<ValidatorAliasSet> validators() {
+        return link(
+            SpreadsheetMetadataPropertyName.VALIDATORS
         );
     }
 
