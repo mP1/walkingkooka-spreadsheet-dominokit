@@ -89,6 +89,9 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetParserFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetParserFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetParserFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.fetcher.ValidatorFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.ValidatorFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.ValidatorFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.focus.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.focus.CanGiveFocuses;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
@@ -144,6 +147,7 @@ import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContextDelegator;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
+import walkingkooka.validation.provider.ValidatorInfoSet;
 import walkingkooka.validation.provider.ValidatorProvider;
 import walkingkooka.validation.provider.ValidatorProviders;
 
@@ -176,6 +180,7 @@ public class App implements EntryPoint,
     SpreadsheetImporterFetcherWatcher,
     SpreadsheetMetadataFetcherWatcher,
     SpreadsheetParserFetcherWatcher,
+    ValidatorFetcherWatcher,
     PluginFetcherWatcher,
     HasPluginFetcherWatchersDelegator,
     SpreadsheetProviderDelegator,
@@ -298,6 +303,15 @@ public class App implements EntryPoint,
         this.spreadsheetParserInfoSet = SpreadsheetParserInfoSet.EMPTY;
         this.addSpreadsheetParserFetcherWatcher(this);
 
+        // importer
+        this.validatorFetcherWatchers = ValidatorFetcherWatchers.empty();
+        this.validatorFetcher = ValidatorFetcher.with(
+            this.validatorFetcherWatchers,
+            this
+        );
+        this.validatorInfoSet = ValidatorInfoSet.EMPTY;
+        this.addValidatorFetcherWatcher(this);
+        
         // plugins
         this.pluginFetcherWatchers = PluginFetcherWatchers.empty();
         this.pluginFetcher = PluginFetcher.with(
@@ -886,6 +900,39 @@ public class App implements EntryPoint,
         // nop
     }
 
+    // HasValidatorFetcher..............................................................................................
+
+    @Override
+    public ValidatorFetcher validatorFetcher() {
+        return this.validatorFetcher;
+    }
+
+    private final ValidatorFetcher validatorFetcher;
+
+    @Override
+    public Runnable addValidatorFetcherWatcher(final ValidatorFetcherWatcher watcher) {
+        return this.validatorFetcherWatchers.add(watcher);
+    }
+
+    @Override
+    public Runnable addValidatorFetcherWatcherOnce(final ValidatorFetcherWatcher watcher) {
+        return this.validatorFetcherWatchers.addOnce(watcher);
+    }
+
+    private final ValidatorFetcherWatchers validatorFetcherWatchers;
+
+    @Override
+    public void onValidatorInfoSet(final SpreadsheetId id,
+                                   final ValidatorInfoSet infos,
+                                   final AppContext context) {
+        this.maybeRefreshSpreadsheetProvider(
+            id,
+            () -> this.validatorInfoSet = infos
+        );
+    }
+
+    private ValidatorInfoSet validatorInfoSet;
+
     // PluginFetcher....................................................................................................
 
     @Override
@@ -1055,7 +1102,12 @@ public class App implements EntryPoint,
             )
         );
 
-        final ValidatorProvider validatorProvider = ValidatorProviders.validators();
+        final ValidatorProvider validatorProvider = ValidatorProviders.mergedMapped(
+            this.validatorInfoSet.renameIfPresent(
+                ValidatorInfoSet.EMPTY
+            ),
+            ValidatorProviders.validators()
+        );
 
         this.spreadsheetProvider = metadata.spreadsheetProvider(
             SpreadsheetProviders.basic(

@@ -41,6 +41,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetFormatterFetcher
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetImporterFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetParserFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasValidatorFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.focus.CanGiveFocus;
@@ -83,6 +84,7 @@ public interface AppContext extends CanGiveFocus,
     HasSpreadsheetMetadata,
     HasSpreadsheetMetadataFetcher,
     HasSpreadsheetParserFetcher,
+    HasValidatorFetcher,
     JsonNodeMarshallUnmarshallContext,
     ProviderContext,
     SpreadsheetFormatterContext,

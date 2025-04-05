@@ -48,6 +48,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetParserFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetParserFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.ValidatorFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.ValidatorFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
@@ -273,6 +275,23 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public PluginFetcher pluginFetcher() {
+        throw new UnsupportedOperationException();
+    }
+
+    // HasValidatorFetcher..............................................................................................
+
+    @Override
+    public ValidatorFetcher validatorFetcher() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addValidatorFetcherWatcher(final ValidatorFetcherWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addValidatorFetcherWatcherOnce(final ValidatorFetcherWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 
