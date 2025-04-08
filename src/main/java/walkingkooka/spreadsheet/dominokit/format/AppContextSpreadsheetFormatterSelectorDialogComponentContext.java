@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.format;
 
+import walkingkooka.convert.CanConvert;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.ProviderContextDelegator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -71,6 +72,11 @@ abstract class AppContextSpreadsheetFormatterSelectorDialogComponentContext impl
     }
 
     // ProviderContext..................................................................................................
+
+    @Override
+    public final CanConvert canConvert() {
+        return this.context;
+    }
 
     @Override
     public final ProviderContext providerContext() {

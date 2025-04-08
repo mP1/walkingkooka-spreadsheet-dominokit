@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit;
 import com.google.gwt.core.client.EntryPoint;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Headers;
+import walkingkooka.convert.CanConvert;
+import walkingkooka.convert.ConverterContexts;
 import walkingkooka.convert.provider.ConverterInfoSet;
 import walkingkooka.convert.provider.ConverterProvider;
 import walkingkooka.convert.provider.ConverterProviders;
@@ -469,7 +471,11 @@ public class App implements EntryPoint,
                     )
                 )
             );
+
+            // TODO https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/4833
+            // App#onSpreadsheetMetadata ProviderContext given ConverterContexts.fake() for CanConvert
             this.providerContext = ProviderContexts.basic(
+                ConverterContexts.fake(),
                 environmentContext,
                 PluginStores.fake()
             );
@@ -1023,6 +1029,11 @@ public class App implements EntryPoint,
     private SpreadsheetParserContext parserContext;
 
     // ProviderContext..................................................................................................
+
+    @Override
+    public CanConvert canConvert() {
+        return this.spreadsheetFormatterContext(); // prioritize SpreadsheetFormatterContext over ProviderContext
+    }
 
     @Override
     public ProviderContext providerContext() {

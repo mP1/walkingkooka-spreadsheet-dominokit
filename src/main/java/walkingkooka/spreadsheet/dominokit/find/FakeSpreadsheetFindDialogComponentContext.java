@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.find;
 
+import walkingkooka.Either;
 import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.plugin.ProviderContext;
@@ -98,6 +99,18 @@ public class FakeSpreadsheetFindDialogComponentContext extends FakeSpreadsheetDi
     }
 
     // ProviderContext..................................................................................................
+
+    @Override
+    public boolean canConvert(final Object value,
+                              final Class<?> type) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public <T> Either<T, String> convert(final Object value,
+                                         final Class<T> type) {
+        throw new UnsupportedOperationException();
+    }
 
     @Override
     public <T> Optional<T> environmentValue(final EnvironmentValueName<T> name) {
