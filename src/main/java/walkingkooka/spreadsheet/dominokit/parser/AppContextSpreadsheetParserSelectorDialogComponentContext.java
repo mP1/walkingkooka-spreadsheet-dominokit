@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.parser;
 
+import walkingkooka.convert.CanConvert;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.ProviderContextDelegator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -137,6 +138,11 @@ abstract class AppContextSpreadsheetParserSelectorDialogComponentContext impleme
     private final Throttler throttler;
 
     // ProviderContext..................................................................................................
+
+    @Override
+    public final CanConvert canConvert() {
+        return this.context;
+    }
 
     @Override
     public final ProviderContext providerContext() {
