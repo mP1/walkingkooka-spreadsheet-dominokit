@@ -53,7 +53,7 @@ public final class ValidatorInfoSetComponentTest implements FormValueComponentTe
             "ValidatorInfoSetComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
                 "    SpreadsheetTextBox\n" +
-                "      [https://github.com/mP1/walkingkooka-validation/Validator/collection collection,https://github.com/mP1/walkingkooka-validation/Validator/non-null non-null]\n"
+                "      [https://github.com/mP1/walkingkooka-validation/Validator/collection collection,https://github.com/mP1/walkingkooka-validation/Validator/expression expression,https://github.com/mP1/walkingkooka-validation/Validator/non-null non-null]\n"
         );
     }
 
