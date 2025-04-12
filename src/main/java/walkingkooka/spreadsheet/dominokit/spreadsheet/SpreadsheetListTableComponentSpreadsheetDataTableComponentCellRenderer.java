@@ -17,7 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
-import walkingkooka.Value;
+import walkingkooka.environment.AuditInfo;
+import walkingkooka.net.email.EmailAddress;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.Component;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
@@ -31,6 +32,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
+import java.util.function.Function;
 
 final class SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer implements SpreadsheetDataTableComponentCellRenderer<SpreadsheetMetadata> {
 
@@ -58,27 +60,27 @@ final class SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRender
                 component = spreadsheetName(metadata);
                 break;
             case 1: // created by
-                component = hasText(
-                    SpreadsheetMetadataPropertyName.CREATED_BY,
-                    metadata
+                component = this.auditInfoUser(
+                    metadata,
+                    AuditInfo::createdBy
                 );
                 break;
             case 2: // create-date-time
-                component = dateTime(
-                    SpreadsheetMetadataPropertyName.CREATED_TIMESTAMP,
-                    metadata
+                component = this.auditInfoTimestamp(
+                    metadata,
+                    AuditInfo::createdTimestamp
                 );
                 break;
             case 3: // lastmod by
-                component = hasText(
-                    SpreadsheetMetadataPropertyName.MODIFIED_BY,
-                    metadata
+                component = this.auditInfoUser(
+                    metadata,
+                    AuditInfo::modifiedBy
                 );
                 break;
             case 4: // modified timestamp
-                component = dateTime(
-                    SpreadsheetMetadataPropertyName.MODIFIED_TIMESTAMP,
-                    metadata
+                component = this.auditInfoTimestamp(
+                    metadata,
+                    AuditInfo::modifiedTimestamp
                 );
                 break;
             case 5: // links
@@ -90,6 +92,25 @@ final class SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRender
 
 
         return component;
+    }
+
+    private SpreadsheetTextComponent auditInfoUser(final SpreadsheetMetadata metadata,
+                                                   final Function<AuditInfo, EmailAddress> userEmailGetter) {
+        return this.text(
+            metadata.get(SpreadsheetMetadataPropertyName.AUDIT_INFO)
+                .map(a -> userEmailGetter.apply(a).value())
+        );
+    }
+
+    private SpreadsheetTextComponent auditInfoTimestamp(final SpreadsheetMetadata metadata,
+                                                        final Function<AuditInfo, LocalDateTime> dateTimeGetter) {
+        return this.text(
+            metadata.get(SpreadsheetMetadataPropertyName.AUDIT_INFO)
+                .map(a -> this.context.formatDateTime(
+                    dateTimeGetter.apply(a)
+                )
+            )
+        );
     }
 
     private HtmlElementComponent<?, ?> spreadsheetName(final SpreadsheetMetadata metadata) {
@@ -104,22 +125,6 @@ final class SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRender
                     .orElse(null)
                     .toString()
             );
-    }
-
-    private <TT extends Value<String>> SpreadsheetTextComponent hasText(final SpreadsheetMetadataPropertyName<TT> propertyName,
-                                                                        final SpreadsheetMetadata metadata) {
-        return text(
-            metadata.get(propertyName)
-                .map(Value::value)
-        );
-    }
-
-    private SpreadsheetTextComponent dateTime(final SpreadsheetMetadataPropertyName<LocalDateTime> propertyName,
-                                              final SpreadsheetMetadata metadata) {
-        return text(
-            metadata.get(propertyName)
-                .map(this.context::formatDateTime)
-        );
     }
 
     private SpreadsheetTextComponent text(final Optional<String> text) {

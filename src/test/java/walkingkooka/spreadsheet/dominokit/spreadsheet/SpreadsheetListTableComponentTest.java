@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.spreadsheet;
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.environment.AuditInfo;
+import walkingkooka.net.email.EmailAddress;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -102,11 +104,11 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "          ROW 0\n" +
                 "            \"Spreadsheet111\" [#/1] id=Table123-1-Link\n" +
                 "            SpreadsheetTextComponent\n" +
-                "              \"user@example.com\"\n" +
+                "              \"creator@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"31/12/99, 12:01 pm\"\n" +
                 "            SpreadsheetTextComponent\n" +
-                "              \"user@example.com\"\n" +
+                "              \"modifier@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"31/1/00, 12:58 pm\"\n" +
                 "            SpreadsheetFlexLayout\n" +
@@ -116,11 +118,11 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "          ROW 1\n" +
                 "            \"Spreadsheet222\" [#/2] id=Table123-2-Link\n" +
                 "            SpreadsheetTextComponent\n" +
-                "              \"user@example.com\"\n" +
+                "              \"creator@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"31/12/99, 12:01 pm\"\n" +
                 "            SpreadsheetTextComponent\n" +
-                "              \"user@example.com\"\n" +
+                "              \"modifier@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"31/1/00, 12:58 pm\"\n" +
                 "            SpreadsheetFlexLayout\n" +
@@ -130,11 +132,11 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "          ROW 2\n" +
                 "            \"Spreadsheet333\" [#/3] id=Table123-3-Link\n" +
                 "            SpreadsheetTextComponent\n" +
-                "              \"user@example.com\"\n" +
+                "              \"creator@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"31/12/99, 12:01 pm\"\n" +
                 "            SpreadsheetTextComponent\n" +
-                "              \"user@example.com\"\n" +
+                "              \"modifier@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"31/1/00, 12:58 pm\"\n" +
                 "            SpreadsheetFlexLayout\n" +
@@ -183,11 +185,11 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "          ROW 0\n" +
                 "            \"Spreadsheet111\" [#/1] id=Table123-1-Link\n" +
                 "            SpreadsheetTextComponent\n" +
-                "              \"user@example.com\"\n" +
+                "              \"creator@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"31/12/99, 12:01 pm\"\n" +
                 "            SpreadsheetTextComponent\n" +
-                "              \"user@example.com\"\n" +
+                "              \"modifier@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"31/1/00, 12:58 pm\"\n" +
                 "            SpreadsheetFlexLayout\n" +
@@ -197,11 +199,11 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "          ROW 1\n" +
                 "            \"Spreadsheet222\" [#/2] id=Table123-2-Link\n" +
                 "            SpreadsheetTextComponent\n" +
-                "              \"user@example.com\"\n" +
+                "              \"creator@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"31/12/99, 12:01 pm\"\n" +
                 "            SpreadsheetTextComponent\n" +
-                "              \"user@example.com\"\n" +
+                "              \"modifier@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"31/1/00, 12:58 pm\"\n" +
                 "            SpreadsheetFlexLayout\n" +
@@ -211,11 +213,11 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "          ROW 2\n" +
                 "            \"Spreadsheet333\" [#/3] id=Table123-3-Link\n" +
                 "            SpreadsheetTextComponent\n" +
-                "              \"user@example.com\"\n" +
+                "              \"creator@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"31/12/99, 12:01 pm\"\n" +
                 "            SpreadsheetTextComponent\n" +
-                "              \"user@example.com\"\n" +
+                "              \"modifier@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"31/1/00, 12:58 pm\"\n" +
                 "            SpreadsheetFlexLayout\n" +
@@ -264,11 +266,11 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "          ROW 0\n" +
                 "            \"Spreadsheet111\" [#/1] id=Table123-1-Link\n" +
                 "            SpreadsheetTextComponent\n" +
-                "              \"user@example.com\"\n" +
+                "              \"creator@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"31/12/99, 12:01 pm\"\n" +
                 "            SpreadsheetTextComponent\n" +
-                "              \"user@example.com\"\n" +
+                "              \"modifier@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"31/1/00, 12:58 pm\"\n" +
                 "            SpreadsheetFlexLayout\n" +
@@ -278,11 +280,11 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "          ROW 1\n" +
                 "            \"Spreadsheet222\" [#/2] id=Table123-2-Link\n" +
                 "            SpreadsheetTextComponent\n" +
-                "              \"user@example.com\"\n" +
+                "              \"creator@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"31/12/99, 12:01 pm\"\n" +
                 "            SpreadsheetTextComponent\n" +
-                "              \"user@example.com\"\n" +
+                "              \"modifier@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"31/1/00, 12:58 pm\"\n" +
                 "            SpreadsheetFlexLayout\n" +
@@ -292,11 +294,11 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "          ROW 2\n" +
                 "            \"Spreadsheet333\" [#/3] id=Table123-3-Link\n" +
                 "            SpreadsheetTextComponent\n" +
-                "              \"user@example.com\"\n" +
+                "              \"creator@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"31/12/99, 12:01 pm\"\n" +
                 "            SpreadsheetTextComponent\n" +
-                "              \"user@example.com\"\n" +
+                "              \"modifier@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"31/1/00, 12:58 pm\"\n" +
                 "            SpreadsheetFlexLayout\n" +
@@ -363,12 +365,13 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
             SpreadsheetMetadataPropertyName.SPREADSHEET_ID, SpreadsheetId.with(id)
         ).set(
             SpreadsheetMetadataPropertyName.SPREADSHEET_NAME, SpreadsheetName.with(name)
-        ).set(
-            SpreadsheetMetadataPropertyName.CREATED_TIMESTAMP,
-            LocalDateTime.of(1999, 12, 31, 12, 1, 2)
-        ).set(
-            SpreadsheetMetadataPropertyName.MODIFIED_TIMESTAMP,
-            LocalDateTime.of(2000, 1, 31, 12, 58, 59)
+        ).set(SpreadsheetMetadataPropertyName.AUDIT_INFO,
+            AuditInfo.with(
+                EmailAddress.parse("creator@example.com"),
+                LocalDateTime.of(1999, 12, 31, 12, 1, 2),
+                EmailAddress.parse("modifier@example.com"),
+                LocalDateTime.of(2000, 1, 31, 12, 58, 59)
+            )
         );
     }
 
