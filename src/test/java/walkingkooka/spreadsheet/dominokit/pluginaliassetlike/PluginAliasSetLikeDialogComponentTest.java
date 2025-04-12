@@ -70,7 +70,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
     @Test
     public void testEmptyTextRefreshAndTreePrint() {
         final AppContext context = this.appContext(
-            HistoryToken.parseString("/1/Spreadsheet123/spreadsheet/formula-functions"),
+            HistoryToken.parseString("/1/Spreadsheet123/spreadsheet/formulaFunctions"),
             ExpressionFunctionAliasSet.with(
                 SortedSets.of(
                     ALIAS1,
@@ -95,10 +95,10 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
                 "            Add\n" +
                 "              SpreadsheetFlexLayout\n" +
                 "                ROW\n" +
-                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/formula-functions/save/name1,%20name2,%20name3] id=pluginAliasSet-add-0-Link\n" +
-                "                  \"Name1\" [#/1/Spreadsheet123/spreadsheet/formula-functions/save/name1] id=pluginAliasSet-add-1-Link\n" +
-                "                  \"Name2\" [#/1/Spreadsheet123/spreadsheet/formula-functions/save/name2] id=pluginAliasSet-add-2-Link\n" +
-                "                  \"Name3\" [#/1/Spreadsheet123/spreadsheet/formula-functions/save/name3] id=pluginAliasSet-add-3-Link\n" +
+                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=pluginAliasSet-add-0-Link\n" +
+                "                  \"Name1\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1] id=pluginAliasSet-add-1-Link\n" +
+                "                  \"Name2\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name2] id=pluginAliasSet-add-2-Link\n" +
+                "                  \"Name3\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name3] id=pluginAliasSet-add-3-Link\n" +
                 "      RemovePluginAliasSetLikeComponent\n" +
                 "      ExpressionFunctionAliasSetComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
@@ -107,8 +107,8 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/formula-functions/save/] id=pluginAliasSet-save-Link\n" +
-                "            \"Reset\" [#/1/Spreadsheet123/spreadsheet/formula-functions/save/name1,%20name2,%20name3] id=pluginAliasSet-reset-Link\n" +
+                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/] id=pluginAliasSet-save-Link\n" +
+                "            \"Reset\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=pluginAliasSet-reset-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginAliasSet-close-Link\n"
         );
     }
@@ -116,7 +116,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
     @Test
     public void testRefreshAndTreePrint() {
         final AppContext context = this.appContext(
-            HistoryToken.parseString("/1/Spreadsheet123/spreadsheet/formula-functions/"),
+            HistoryToken.parseString("/1/Spreadsheet123/spreadsheet/formulaFunctions/"),
             ExpressionFunctionAliasSet.with(
                 SortedSets.of(
                     ALIAS1,
@@ -145,17 +145,17 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
                 "            Add\n" +
                 "              SpreadsheetFlexLayout\n" +
                 "                ROW\n" +
-                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/formula-functions/save/name1,%20name2,%20name3] id=pluginAliasSet-add-0-Link\n" +
-                "                  \"Name2\" [#/1/Spreadsheet123/spreadsheet/formula-functions/save/name1,%20name2] id=pluginAliasSet-add-1-Link\n" +
-                "                  \"Name3\" [#/1/Spreadsheet123/spreadsheet/formula-functions/save/name1,%20name3] id=pluginAliasSet-add-2-Link\n" +
+                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=pluginAliasSet-add-0-Link\n" +
+                "                  \"Name2\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2] id=pluginAliasSet-add-1-Link\n" +
+                "                  \"Name3\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name3] id=pluginAliasSet-add-2-Link\n" +
                 "      RemovePluginAliasSetLikeComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
                 "            Remove\n" +
                 "              SpreadsheetFlexLayout\n" +
                 "                ROW\n" +
-                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/formula-functions/save/name1] id=pluginAliasSet-remove-0-Link\n" +
-                "                  \"Name1\" [#/1/Spreadsheet123/spreadsheet/formula-functions/save/] id=pluginAliasSet-remove-1-Link\n" +
+                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1] id=pluginAliasSet-remove-0-Link\n" +
+                "                  \"Name1\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/] id=pluginAliasSet-remove-1-Link\n" +
                 "      ExpressionFunctionAliasSetComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
@@ -163,8 +163,8 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/formula-functions/save/name1] id=pluginAliasSet-save-Link\n" +
-                "            \"Reset\" [#/1/Spreadsheet123/spreadsheet/formula-functions/save/name1,%20name2,%20name3] id=pluginAliasSet-reset-Link\n" +
+                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1] id=pluginAliasSet-save-Link\n" +
+                "            \"Reset\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=pluginAliasSet-reset-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginAliasSet-close-Link\n"
         );
     }

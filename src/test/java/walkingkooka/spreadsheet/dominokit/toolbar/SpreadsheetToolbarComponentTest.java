@@ -122,13 +122,13 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
             "SpreadsheetToolbarComponent\n" +
                 "  SpreadsheetFlexLayout\n" +
                 "    ROW\n" +
-                "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hide-zero-values/save/true] id=toolbar-hide-zero-values-Link\n" +
+                "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hideZeroValues/save/true] id=toolbar-hide-zero-values-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Show Zero Values\"\n" +
                 "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/find] id=toolbar-find-cells-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Find cells...\"\n" +
-                "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/find-highlighting/save/true] id=toolbar-find-highlight-Link\n" +
+                "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/findHighlighting/save/true] id=toolbar-find-highlight-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Enable cell highlighting\"\n" +
                 "      mdi-flag-checkered \"Create Label\" [#/1/Spreadsheet123/create-label] id=toolbar-label-create-Link\n" +
@@ -216,13 +216,13 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-format-clear \"Clear styling\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/*/save/] CHECKED id=toolbar-*-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Clear styling\"\n" +
-                "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hide-zero-values/save/true] id=toolbar-hide-zero-values-Link\n" +
+                "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hideZeroValues/save/true] id=toolbar-hide-zero-values-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Show Zero Values\"\n" +
                 "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/find] id=toolbar-find-cells-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Find cells...\"\n" +
-                "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/find-highlighting/save/true] id=toolbar-find-highlight-Link\n" +
+                "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/findHighlighting/save/true] id=toolbar-find-highlight-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Enable cell highlighting\"\n" +
                 "      mdi-sort \"Sort\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/sort/edit] id=toolbar-sort-Link\n" +
@@ -262,13 +262,13 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
             "SpreadsheetToolbarComponent\n" +
                 "  SpreadsheetFlexLayout\n" +
                 "    ROW\n" +
-                "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hide-zero-values/save/true] id=toolbar-hide-zero-values-Link\n" +
+                "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hideZeroValues/save/true] id=toolbar-hide-zero-values-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Show Zero Values\"\n" +
                 "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/find] id=toolbar-find-cells-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Find cells...\"\n" +
-                "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/find-highlighting/save/true] id=toolbar-find-highlight-Link\n" +
+                "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/findHighlighting/save/true] id=toolbar-find-highlight-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Enable cell highlighting\"\n" +
                 "      mdi-sort \"Sort\" [#/1/Spreadsheet123/column/B:C/right/sort/edit] id=toolbar-sort-Link\n" +
@@ -308,13 +308,13 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
             "SpreadsheetToolbarComponent\n" +
                 "  SpreadsheetFlexLayout\n" +
                 "    ROW\n" +
-                "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hide-zero-values/save/true] id=toolbar-hide-zero-values-Link\n" +
+                "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hideZeroValues/save/true] id=toolbar-hide-zero-values-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Show Zero Values\"\n" +
                 "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/find] id=toolbar-find-cells-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Find cells...\"\n" +
-                "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/find-highlighting/save/true] id=toolbar-find-highlight-Link\n" +
+                "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/findHighlighting/save/true] id=toolbar-find-highlight-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Enable cell highlighting\"\n" +
                 "      mdi-sort \"Sort\" [#/1/Spreadsheet123/row/3:4/bottom/sort/edit] id=toolbar-sort-Link\n" +
