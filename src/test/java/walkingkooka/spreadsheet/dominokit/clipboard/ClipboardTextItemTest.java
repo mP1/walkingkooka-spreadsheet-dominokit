@@ -272,7 +272,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                     "        \"text\": \"=1\"\n" +
                     "      },\n" +
                     "      \"style\": {\n" +
-                    "        \"text-align\": \"CENTER\"\n" +
+                    "        \"textAlign\": \"CENTER\"\n" +
                     "      }\n" +
                     "    }\n" +
                     "  }\n" +
@@ -315,7 +315,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                     "        \"text\": \"=1\"\n" +
                     "      },\n" +
                     "      \"style\": {\n" +
-                    "        \"text-align\": \"CENTER\"\n" +
+                    "        \"textAlign\": \"CENTER\"\n" +
                     "      }\n" +
                     "    },\n" +
                     "    \"B2\": {\n" +
@@ -664,7 +664,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                     "  \"value\": {\n" +
                     "    \"A1\": {},\n" +
                     "    \"B2\": {\n" +
-                    "      \"text-align\": \"CENTER\"\n" +
+                    "      \"textAlign\": \"CENTER\"\n" +
                     "    }\n" +
                     "  }\n" +
                     "}"
@@ -702,10 +702,10 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                     "  \"cell-range\": \"A1:B2\",\n" +
                     "  \"value\": {\n" +
                     "    \"A1\": {\n" +
-                    "      \"font-style\": \"ITALIC\"\n" +
+                    "      \"fontStyle\": \"ITALIC\"\n" +
                     "    },\n" +
                     "    \"B2\": {\n" +
-                    "      \"text-align\": \"CENTER\"\n" +
+                    "      \"textAlign\": \"CENTER\"\n" +
                     "    }\n" +
                     "  }\n" +
                     "}"

@@ -495,7 +495,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
                 "    \"text\": \"=1+2\"\n" +
                 "  },\n" +
                 "  \"style\": {\n" +
-                "    \"text-align\": \"CENTER\"\n" +
+                "    \"textAlign\": \"CENTER\"\n" +
                 "  },\n" +
                 "  \"parser\": \"number-parse-pattern $0.00\",\n" +
                 "  \"formatter\": \"date-format-pattern yyyy/mm/dd\"\n" +
@@ -587,7 +587,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
                     )
                 ),
             "{\n" +
-                "  \"text-align\": \"CENTER\"\n" +
+                "  \"textAlign\": \"CENTER\"\n" +
                 "}"
         );
     }
