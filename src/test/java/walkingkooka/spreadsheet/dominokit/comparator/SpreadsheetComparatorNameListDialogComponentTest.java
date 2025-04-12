@@ -34,7 +34,7 @@ public final class SpreadsheetComparatorNameListDialogComponentTest implements S
     @Test
     public void testRefresh() {
         final AppContext context = this.appContext(
-            "/1/Spreadsheet123/spreadsheet/sort-comparators"
+            "/1/Spreadsheet123/spreadsheet/sortComparators"
         );
 
         final SpreadsheetComparatorNameListDialogComponent dialog = SpreadsheetComparatorNameListDialogComponent.with(
@@ -83,9 +83,9 @@ public final class SpreadsheetComparatorNameListDialogComponentTest implements S
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/sort-comparators/save/day-of-month] id=spreadsheetComparatorNameList-save-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/sort-comparators/save/day-of-month] id=spreadsheetComparatorNameList-undo-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet123/spreadsheet/sort-comparators/save/] id=spreadsheetComparatorNameList-clear-Link\n" +
+                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/day-of-month] id=spreadsheetComparatorNameList-save-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/day-of-month] id=spreadsheetComparatorNameList-undo-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/] id=spreadsheetComparatorNameList-clear-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=spreadsheetComparatorNameList-close-Link\n"
         );
     }

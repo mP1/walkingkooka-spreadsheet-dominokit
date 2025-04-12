@@ -60,7 +60,7 @@ public final class AddPluginNameSetComponentTest implements HtmlElementComponent
                 "      Add\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/plugin1,%20plugin2,%20plugin3] id=base-id-123-add-0-Link\n"
+                "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/plugin1,%20plugin2,%20plugin3] id=base-id-123-add-0-Link\n"
         );
     }
 
@@ -82,9 +82,9 @@ public final class AddPluginNameSetComponentTest implements HtmlElementComponent
                 "      Add\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/plugin1,%20plugin2,%20plugin3,%20plugin4] id=base-id-123-add-0-Link\n" +
-                "            \"Plugin3\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/plugin1,%20plugin2,%20plugin3] id=base-id-123-add-1-Link\n" +
-                "            \"Plugin4\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/plugin1,%20plugin2,%20plugin4] id=base-id-123-add-2-Link\n"
+                "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/plugin1,%20plugin2,%20plugin3,%20plugin4] id=base-id-123-add-0-Link\n" +
+                "            \"Plugin3\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/plugin1,%20plugin2,%20plugin3] id=base-id-123-add-1-Link\n" +
+                "            \"Plugin4\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/plugin1,%20plugin2,%20plugin4] id=base-id-123-add-2-Link\n"
         );
     }
 
@@ -106,8 +106,8 @@ public final class AddPluginNameSetComponentTest implements HtmlElementComponent
                 "      Add\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/plugin1] id=base-id-123-add-0-Link\n" +
-                "            \"Plugin1\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/plugin1] id=base-id-123-add-1-Link\n"
+                "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/plugin1] id=base-id-123-add-0-Link\n" +
+                "            \"Plugin1\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/plugin1] id=base-id-123-add-1-Link\n"
         );
     }
 
@@ -129,10 +129,10 @@ public final class AddPluginNameSetComponentTest implements HtmlElementComponent
                 "      Add\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/plugin1,%20plugin2,%20plugin3] id=base-id-123-add-0-Link\n" +
-                "            \"Plugin1\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/plugin1] id=base-id-123-add-1-Link\n" +
-                "            \"Plugin2\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/plugin2] id=base-id-123-add-2-Link\n" +
-                "            \"Plugin3\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/plugin3] id=base-id-123-add-3-Link\n"
+                "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/plugin1,%20plugin2,%20plugin3] id=base-id-123-add-0-Link\n" +
+                "            \"Plugin1\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/plugin1] id=base-id-123-add-1-Link\n" +
+                "            \"Plugin2\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/plugin2] id=base-id-123-add-2-Link\n" +
+                "            \"Plugin3\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/plugin3] id=base-id-123-add-3-Link\n"
         );
     }
 
@@ -155,9 +155,9 @@ public final class AddPluginNameSetComponentTest implements HtmlElementComponent
                 "      Add\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/plugin1,%20plugin2] id=base-id-123-add-0-Link\n" +
-                "            \"Plugin1\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/plugin1] id=base-id-123-add-1-Link\n" +
-                "            \"Plugin2\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/plugin2] id=base-id-123-add-2-Link\n"
+                "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/plugin1,%20plugin2] id=base-id-123-add-0-Link\n" +
+                "            \"Plugin1\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/plugin1] id=base-id-123-add-1-Link\n" +
+                "            \"Plugin2\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/plugin2] id=base-id-123-add-2-Link\n"
         );
     }
 
@@ -180,8 +180,8 @@ public final class AddPluginNameSetComponentTest implements HtmlElementComponent
                 "      Add\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/plugin1,%20plugin2] id=base-id-123-add-0-Link\n" +
-                "            \"Plugin2\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/plugin1,%20plugin2] id=base-id-123-add-1-Link\n"
+                "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/plugin1,%20plugin2] id=base-id-123-add-0-Link\n" +
+                "            \"Plugin2\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/plugin1,%20plugin2] id=base-id-123-add-1-Link\n"
         );
     }
 
