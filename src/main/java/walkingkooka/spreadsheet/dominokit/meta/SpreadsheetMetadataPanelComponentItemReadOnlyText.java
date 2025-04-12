@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Objects;
+import java.util.Optional;
 import java.util.function.Function;
 
 /**
@@ -34,24 +35,29 @@ import java.util.function.Function;
 final class SpreadsheetMetadataPanelComponentItemReadOnlyText<T> extends SpreadsheetMetadataPanelComponentItem<T> {
 
     static <T> SpreadsheetMetadataPanelComponentItemReadOnlyText<T> with(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                                         final Optional<String> label,
                                                                          final Function<T, String> formatter,
                                                                          final SpreadsheetMetadataPanelComponentContext context) {
         checkPropertyName(propertyName);
+        Objects.requireNonNull(label, "label");
         Objects.requireNonNull(formatter, "formatter");
         checkContext(context);
 
         return new SpreadsheetMetadataPanelComponentItemReadOnlyText<>(
             propertyName,
+            label,
             formatter,
             context
         );
     }
 
     private SpreadsheetMetadataPanelComponentItemReadOnlyText(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                              final Optional<String> label,
                                                               final Function<T, String> formatter,
                                                               final SpreadsheetMetadataPanelComponentContext context) {
         super(
             propertyName,
+            label,
             context
         );
         this.formatter = formatter;

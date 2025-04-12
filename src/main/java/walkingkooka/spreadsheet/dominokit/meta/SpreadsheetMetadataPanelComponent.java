@@ -23,7 +23,7 @@ import org.dominokit.domino.ui.elements.TableElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.convert.provider.ConverterAliasSet;
-import walkingkooka.net.email.EmailAddress;
+import walkingkooka.environment.AuditInfo;
 import walkingkooka.plugin.PluginNameSet;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAliasSet;
@@ -45,7 +45,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserAliasSet;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
-import walkingkooka.text.CaseKind;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliasSet;
@@ -154,7 +153,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
                             .setPaddingTop(PADDING_TOP_BOTTOM)
                             .setPaddingBottom(PADDING_TOP_BOTTOM)
                             .setTextContent(
-                                label(item.propertyName)
+                                item.label()
                             )
                     ).appendChild(
                         ElementsFactory.elements.td()
@@ -175,6 +174,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     private SpreadsheetMetadataPanelComponentItem<?> spreadsheetId() {
         return readOnlyText(
             SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+            Optional.empty(), // no label
             SpreadsheetId::toString
         );
     }
@@ -185,35 +185,40 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
 
     private SpreadsheetMetadataPanelComponentItem<?> createdBy() {
         return readOnlyText(
-            SpreadsheetMetadataPropertyName.CREATED_BY,
-            EmailAddress::toString
+            SpreadsheetMetadataPropertyName.AUDIT_INFO,
+            Optional.of("Created by"),
+            (final AuditInfo a) -> a.createdBy().value()
         );
     }
 
     private SpreadsheetMetadataPanelComponentItem<?> createdTimestamp() {
         return readOnlyText(
-            SpreadsheetMetadataPropertyName.CREATED_TIMESTAMP,
-            this.context::formatDateTime
+            SpreadsheetMetadataPropertyName.AUDIT_INFO,
+            Optional.of("Create Timestamp"),
+            (final AuditInfo a) -> this.context.formatDateTime(a.createdTimestamp())
         );
     }
 
     private SpreadsheetMetadataPanelComponentItem<?> modifiedBy() {
         return readOnlyText(
-            SpreadsheetMetadataPropertyName.MODIFIED_BY,
-            EmailAddress::toString
+            SpreadsheetMetadataPropertyName.AUDIT_INFO,
+            Optional.of("Modified by"),
+            (final AuditInfo a) -> a.createdBy().value()
         );
     }
 
     private SpreadsheetMetadataPanelComponentItem<?> modifiedTimestamp() {
         return readOnlyText(
-            SpreadsheetMetadataPropertyName.MODIFIED_TIMESTAMP,
-            this.context::formatDateTime
+            SpreadsheetMetadataPropertyName.AUDIT_INFO,
+            Optional.of("Modified Timestamp"),
+            (final AuditInfo a) -> this.context.formatDateTime(a.createdTimestamp())
         );
     }
 
     private SpreadsheetMetadataPanelComponentItem<?> locale() {
         return readOnlyText(
             SpreadsheetMetadataPropertyName.LOCALE,
+            Optional.empty(),
             Locale::toLanguageTag
         );
     }
@@ -253,6 +258,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     private SpreadsheetMetadataPanelComponentItem<?> decimalSeparator() {
         return readOnlyText(
             SpreadsheetMetadataPropertyName.DECIMAL_SEPARATOR,
+            Optional.empty(),
             Object::toString
         );
     }
@@ -260,6 +266,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     private SpreadsheetMetadataPanelComponentItem<?> exponentSymbol() {
         return readOnlyText(
             SpreadsheetMetadataPropertyName.EXPONENT_SYMBOL,
+            Optional.empty(),
             Object::toString
         );
     }
@@ -267,6 +274,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     private SpreadsheetMetadataPanelComponentItem<?> groupSeparator() {
         return readOnlyText(
             SpreadsheetMetadataPropertyName.GROUP_SEPARATOR,
+            Optional.empty(),
             Object::toString
         );
     }
@@ -274,6 +282,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     private SpreadsheetMetadataPanelComponentItem<?> negativeSign() {
         return readOnlyText(
             SpreadsheetMetadataPropertyName.NEGATIVE_SIGN,
+            Optional.empty(),
             Object::toString
         );
     }
@@ -281,6 +290,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     private SpreadsheetMetadataPanelComponentItem<?> percentageSymbol() {
         return readOnlyText(
             SpreadsheetMetadataPropertyName.PERCENTAGE_SYMBOL,
+            Optional.empty(),
             Object::toString
         );
     }
@@ -288,6 +298,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     private SpreadsheetMetadataPanelComponentItem<?> positiveSign() {
         return readOnlyText(
             SpreadsheetMetadataPropertyName.POSITIVE_SIGN,
+            Optional.empty(),
             Object::toString
         );
     }
@@ -295,6 +306,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     private SpreadsheetMetadataPanelComponentItem<?> valueSeparator() {
         return readOnlyText(
             SpreadsheetMetadataPropertyName.VALUE_SEPARATOR,
+            Optional.empty(),
             Object::toString
         );
     }
@@ -487,9 +499,11 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
      * Factory that creates a single ROW.
      */
     private <T> SpreadsheetMetadataPanelComponentItem<?> readOnlyText(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                                      final Optional<String> label,
                                                                       final Function<T, String> formatter) {
         return SpreadsheetMetadataPanelComponentItem.readOnlyText(
             propertyName,
+            label,
             formatter,
             this.context
         );
@@ -515,15 +529,6 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     }
 
     private final SpreadsheetMetadataPanelComponentContext context;
-
-    /**
-     * Helper that converts a {@link SpreadsheetMetadataPropertyName} into a label for display.
-     */
-    private static String label(final SpreadsheetMetadataPropertyName<?> propertyName) {
-        return CaseKind.kebabToTitle(
-            propertyName.value()
-        );
-    }
 
     // setCssText.......................................................................................................
 

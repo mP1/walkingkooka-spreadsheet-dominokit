@@ -36,6 +36,7 @@ import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.tooltip.SpreadsheetTooltipComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 
 import java.util.List;
@@ -121,10 +122,12 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
      * {@see SpreadsheetMetadataPanelComponentItemReadOnlyText}
      */
     static <T> SpreadsheetMetadataPanelComponentItem<T> readOnlyText(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                                     final Optional<String> label,
                                                                      final Function<T, String> formatter,
                                                                      final SpreadsheetMetadataPanelComponentContext context) {
         return SpreadsheetMetadataPanelComponentItemReadOnlyText.with(
             propertyName,
+            label,
             formatter,
             context
         );
@@ -164,11 +167,24 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
      * Package private ctor to limit sub-classing.
      */
     SpreadsheetMetadataPanelComponentItem(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                          final Optional<String> label,
                                           final SpreadsheetMetadataPanelComponentContext context) {
         this.propertyName = propertyName;
+        this.label = label;
         this.context = context;
     }
 
+    /**
+     * Package private ctor to limit sub-classing.
+     */
+    SpreadsheetMetadataPanelComponentItem(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                          final SpreadsheetMetadataPanelComponentContext context) {
+        this(
+            propertyName,
+            Optional.empty(), // no specific label, label will be kebab to title case
+            context
+        );
+    }
 
     /**
      * Give focus to an element so the user can update the value.
@@ -359,6 +375,19 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
     // properties......................................................................................................
 
     final SpreadsheetMetadataPropertyName<T> propertyName;
+
+    /**
+     * Getter that returns the label if one is present or generates by converting property name to title case.
+     */
+    String label() {
+        return this.label.orElseGet(
+            () -> CaseKind.kebabToTitle(
+                this.propertyName.value()
+            )
+        );
+    }
+
+    private final Optional<String> label;
 
     /**
      * The parent {@link SpreadsheetMetadataPanelComponentContext} this will be used primarily to save updated values.
