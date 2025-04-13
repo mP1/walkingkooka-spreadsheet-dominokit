@@ -21,7 +21,6 @@ import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.elements.DivElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
-import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Objects;
 
@@ -69,18 +68,4 @@ public final class SpreadsheetDivComponent extends SpreadsheetDivComponentLike {
     }
 
     private final DivElement root;
-
-    // TreePrintable....................................................................................................
-
-    @Override
-    public void printTree(final IndentingPrinter printer) {
-        printer.println(this.getClass().getSimpleName());
-        printer.indent();
-        {
-            for (final HtmlElementComponent<?, ?> child : this.children) {
-                child.printTree(printer);
-            }
-        }
-        printer.outdent();
-    }
 }
