@@ -3595,16 +3595,18 @@ public abstract class HistoryToken implements HasUrlFragment,
                             final SpreadsheetMetadataPropertySelectHistoryToken<?> spreadsheetMetadataPropertySelectHistoryToken = this.cast(SpreadsheetMetadataPropertySelectHistoryToken.class);
 
                             // raw type here simplest option
-                            final SpreadsheetMetadataPropertyName propertyName = spreadsheetMetadataPropertySelectHistoryToken.propertyName();
+                            final SpreadsheetMetadataPropertyName<?> propertyName = spreadsheetMetadataPropertySelectHistoryToken.propertyName();
 
                             saved = HistoryToken.metadataPropertySave(
                                 id,
                                 name,
                                 propertyName,
-                                Optional.ofNullable(
-                                    value.isEmpty() ?
-                                        null :
-                                        propertyName.parseUrlFragmentSaveValue(value)
+                                Cast.to(
+                                    Optional.ofNullable(
+                                        value.isEmpty() ?
+                                            null :
+                                            propertyName.parseUrlFragmentSaveValue(value)
+                                    )
                                 )
                             );
                         }
@@ -3612,16 +3614,18 @@ public abstract class HistoryToken implements HasUrlFragment,
                         if (this instanceof SpreadsheetMetadataPropertyStyleHistoryToken) {
                             final SpreadsheetMetadataPropertyStyleHistoryToken<?> spreadsheetMetadataPropertyStyleHistoryToken = this.cast(SpreadsheetMetadataPropertyStyleHistoryToken.class);
 
-                            final TextStylePropertyName propertyName = spreadsheetMetadataPropertyStyleHistoryToken.stylePropertyName();
+                            final TextStylePropertyName<?> propertyName = spreadsheetMetadataPropertyStyleHistoryToken.stylePropertyName();
 
                             return HistoryToken.metadataPropertyStyleSave(
                                 id,
                                 name,
                                 propertyName,
-                                Optional.ofNullable(
-                                    value.isEmpty() ?
-                                        null :
-                                        propertyName.parseValue(value)
+                                Cast.to(
+                                    Optional.ofNullable(
+                                        value.isEmpty() ?
+                                            null :
+                                            propertyName.parseValue(value)
+                                    )
                                 )
                             );
                         }
@@ -3718,17 +3722,19 @@ public abstract class HistoryToken implements HasUrlFragment,
                                                             } else {
                                                                 if (this instanceof SpreadsheetCellStyleSelectHistoryToken) {
                                                                     final SpreadsheetCellStyleSelectHistoryToken<?> spreadsheetCellStyleSelectHistoryToken = this.cast(SpreadsheetCellStyleSelectHistoryToken.class);
-                                                                    final TextStylePropertyName propertyName = spreadsheetCellStyleSelectHistoryToken.propertyName();
+                                                                    final TextStylePropertyName<?> propertyName = spreadsheetCellStyleSelectHistoryToken.propertyName();
 
                                                                     saved = cellStyleSave(
                                                                         id,
                                                                         name,
                                                                         anchoredSpreadsheetSelection,
                                                                         propertyName,
-                                                                        Optional.ofNullable(
-                                                                            value.isEmpty() ?
-                                                                                null :
-                                                                                propertyName.parseValue(value)
+                                                                        Cast.to(
+                                                                            Optional.ofNullable(
+                                                                                value.isEmpty() ?
+                                                                                    null :
+                                                                                    propertyName.parseValue(value)
+                                                                            )
                                                                         )
                                                                     );
                                                                 }
