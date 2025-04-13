@@ -222,8 +222,8 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
         );
 
         // if value absent must be using default so disable
-        anchor.setDisabled(
-            false == context.spreadsheetMetadata()
+        anchor.setEnabled(
+            context.spreadsheetMetadata()
                 .getIgnoringDefaults(propertyName)
                 .isPresent()
         );
