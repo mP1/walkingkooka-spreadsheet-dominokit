@@ -212,7 +212,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
         return new TestAppContext(historyToken);
     }
 
-    class TestAppContext extends FakeAppContext {
+    static class TestAppContext extends FakeAppContext {
 
         TestAppContext(final HistoryToken historyToken) {
             this.historyToken = historyToken;

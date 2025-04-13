@@ -200,7 +200,7 @@ public final class AppContextSpreadsheetFindDialogComponentContextTest implement
         return AppContextSpreadsheetFindDialogComponentContext.with(AppContexts.fake());
     }
 
-     abstract class TestAppContext extends FakeAppContext {
+     abstract static class TestAppContext extends FakeAppContext {
 
          TestAppContext() {
              super();

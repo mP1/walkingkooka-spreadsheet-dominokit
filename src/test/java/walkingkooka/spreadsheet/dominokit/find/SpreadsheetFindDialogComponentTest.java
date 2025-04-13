@@ -1734,7 +1734,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
         return new TestAppContext(highlightingQuery, historyToken);
     }
 
-    class TestAppContext extends FakeAppContext {
+    static class TestAppContext extends FakeAppContext {
 
         TestAppContext(final Optional<SpreadsheetCellQuery> highlightingQuery,
                        final HistoryToken historyToken) {
