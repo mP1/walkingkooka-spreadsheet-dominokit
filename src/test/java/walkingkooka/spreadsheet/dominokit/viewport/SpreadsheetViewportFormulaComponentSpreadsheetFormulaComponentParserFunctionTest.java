@@ -367,7 +367,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
     }
 
 
-    class TestSpreadsheetViewportFormulaComponentContext extends FakeAppContext implements SpreadsheetViewportFormulaComponentContext {
+    static class TestSpreadsheetViewportFormulaComponentContext extends FakeAppContext implements SpreadsheetViewportFormulaComponentContext {
 
         TestSpreadsheetViewportFormulaComponentContext(final SpreadsheetSelection selection,
                                                        final SpreadsheetMetadata metadata) {

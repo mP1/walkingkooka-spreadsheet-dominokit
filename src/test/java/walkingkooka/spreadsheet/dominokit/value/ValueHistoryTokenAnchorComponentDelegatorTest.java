@@ -27,7 +27,7 @@ import java.util.Optional;
 
 public final class ValueHistoryTokenAnchorComponentDelegatorTest implements ClassTesting<ValueHistoryTokenAnchorComponentDelegator<TestValueHistoryTokenAnchorComponent, Void>> {
 
-    class TestValueHistoryTokenAnchorComponent implements ValueHistoryTokenAnchorComponentDelegator<TestValueHistoryTokenAnchorComponent, Void> {
+    static class TestValueHistoryTokenAnchorComponent implements ValueHistoryTokenAnchorComponentDelegator<TestValueHistoryTokenAnchorComponent, Void> {
         @Override
         public ValueHistoryTokenAnchorComponent<Void> valueHistoryTokenAnchorComponent() {
             return ValueHistoryTokenAnchorComponent.with(
