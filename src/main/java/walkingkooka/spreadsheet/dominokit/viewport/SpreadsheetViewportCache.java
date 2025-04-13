@@ -577,7 +577,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                 if (maybeSelectionNotLabel.isPresent()) {
                     final SpreadsheetSelection selectionNotLabel = maybeSelectionNotLabel.get();
 
-                    if (false == selectionNotLabel.equals(this.selectionNotLabel)) {
+                    if (false == selectionNotLabel.equals(this.selectionNotLabel.orElse(null))) {
                         this.selectionSummary = null;
                     }
                 } else {
