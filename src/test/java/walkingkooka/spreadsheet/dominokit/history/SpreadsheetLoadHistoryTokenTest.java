@@ -62,7 +62,7 @@ public final class SpreadsheetLoadHistoryTokenTest extends SpreadsheetIdHistoryT
     // labels...........................................................................................................
 
     @Test
-    public final void testLabels() {
+    public void testLabels() {
         this.labelsAndCheck(
             this.createHistoryToken(),
             HistoryTokenOffsetAndCount.EMPTY.setCount(
