@@ -487,10 +487,9 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
                     .orElse("");
             }
 
-            final HistoryToken h = this.setEdit(
+            return this.setEdit(
                 this.mergeSpreadsheetColumnOrRowSpreadsheetComparatorNames(tokens)
             );
-            return h;
         };
     }
 
