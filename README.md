@@ -71,12 +71,11 @@ Individual issues that breakdown outstanding tasks will be added.
 
 - Keyboard
   - Cursor key navigation *DONE*
-  - ENTER gives focus to Formula for editing
+  - ENTER gives focus to Formula for editing *DONE*
 - Mouse
   - Click cell, column, row to select *DONE*
-  - Mouse SHIFT click to extend cell/column/row range.
-  - Support dragging mouse to select/extend a
-    range [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2063)
+  - Mouse SHIFT click to extend cell/column/row range *DONE*
+  - Support dragging mouse to select/extend a range [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2063)
 - Cell formatting:
   - Alignment: Left, Center, Right, Justify *DONE*
   - Vertical alignment: Top, Middle, Bottom *DONE*
@@ -143,6 +142,13 @@ Global settings that may be added or updated appear in a panel that appears on t
   - delete *DONE*
   - print [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2330)
   - download [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2329)
+
+## Interactive Terminal
+
+- Supports macro recording/editing
+- Macro playing aka a list of history tokens
+- Terminal commands which interact with server.
+- Graph functionality on command responses, aka JsonPointer, XPath etc.
 
 ## UI, Theme, icons
 
