@@ -152,7 +152,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     public SpreadsheetCellRange cellRange(final SpreadsheetCellRangeReference range) {
         Objects.requireNonNull(range, "range");
 
-        final Set<SpreadsheetCell> cells = SortedSets.tree();
+        final Set<SpreadsheetCell> cells = SortedSets.tree(SpreadsheetCell.REFERENCE_COMPARATOR);
         final Iterator<SpreadsheetCell> iterator = this.cells(range);
 
         while (iterator.hasNext()) {
