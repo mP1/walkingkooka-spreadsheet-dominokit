@@ -280,7 +280,7 @@ public final class ClipboardTextItem implements HasText,
                 .stringOrFail()
         );
 
-        final Set<SpreadsheetCell> values = SortedSets.tree();
+        final Set<SpreadsheetCell> values = SortedSets.tree(SpreadsheetCell.REFERENCE_COMPARATOR);
 
         for (final JsonNode value : json.getOrFail(VALUE_PROPERTY_NAME)
             .objectOrFail()
