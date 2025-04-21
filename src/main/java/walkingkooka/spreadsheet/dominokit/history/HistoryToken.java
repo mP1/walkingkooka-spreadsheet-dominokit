@@ -408,6 +408,19 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
+     * {@see SpreadsheetCellFormulaMenuHistoryToken}
+     */
+    public static SpreadsheetCellFormulaMenuHistoryToken cellFormulaMenu(final SpreadsheetId id,
+                                                                         final SpreadsheetName name,
+                                                                         final AnchoredSpreadsheetSelection anchoredSelection) {
+        return SpreadsheetCellFormulaMenuHistoryToken.with(
+            id,
+            name,
+            anchoredSelection
+        );
+    }
+
+    /**
      * {@see SpreadsheetCellFormulaSaveHistoryToken}
      */
     public static SpreadsheetCellFormulaSaveHistoryToken cellFormulaSave(final SpreadsheetId id,
@@ -2615,32 +2628,42 @@ public abstract class HistoryToken implements HasUrlFragment,
     public final HistoryToken menu() {
         HistoryToken historyToken = this;
 
-        if (this instanceof SpreadsheetCellHistoryToken) {
-            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
+        if(this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
+            final SpreadsheetAnchoredSelectionHistoryToken spreadsheetAnchoredSelectionHistoryToken = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
 
-            historyToken = cellMenu(
-                cell.id(),
-                cell.name(),
-                cell.anchoredSelection()
-            );
-        } else {
-            if (this instanceof SpreadsheetColumnHistoryToken) {
-                final SpreadsheetColumnHistoryToken column = this.cast(SpreadsheetColumnHistoryToken.class);
+            final SpreadsheetId id = spreadsheetAnchoredSelectionHistoryToken.id();
+            final SpreadsheetName name = spreadsheetAnchoredSelectionHistoryToken.name();
+            final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = spreadsheetAnchoredSelectionHistoryToken.anchoredSelection();
 
-                historyToken = columnMenu(
-                    column.id(),
-                    column.name(),
-                    column.anchoredSelection()
-                );
-            } else {
-                if (this instanceof SpreadsheetRowHistoryToken) {
-                    final SpreadsheetRowHistoryToken row = this.cast(SpreadsheetRowHistoryToken.class);
-
-                    historyToken = rowMenu(
-                        row.id(),
-                        row.name(),
-                        row.anchoredSelection()
+            if (this instanceof SpreadsheetCellHistoryToken) {
+                if(this instanceof SpreadsheetCellFormulaHistoryToken) {
+                    historyToken = cellFormulaMenu(
+                        id,
+                        name,
+                        anchoredSpreadsheetSelection
                     );
+                } else {
+                    historyToken = cellMenu(
+                        id,
+                        name,
+                        anchoredSpreadsheetSelection
+                    );
+                }
+            } else {
+                if (this instanceof SpreadsheetColumnHistoryToken) {
+                    historyToken = columnMenu(
+                        id,
+                        name,
+                        anchoredSpreadsheetSelection
+                    );
+                } else {
+                    if (this instanceof SpreadsheetRowHistoryToken) {
+                        historyToken = rowMenu(
+                            id,
+                            name,
+                            anchoredSpreadsheetSelection
+                        );
+                    }
                 }
             }
         }
