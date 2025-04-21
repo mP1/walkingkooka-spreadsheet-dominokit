@@ -215,11 +215,16 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         // overflow:hidden required to prevent scrollbars...
         root.style("width:100%; border: none; margin: 0px; padding: none; overflow: hidden");
 
+        // The display:flex on $formulaCellLinks is necessary otherwise the badges will all be grouped to the right of all the links.
+        // giving
+        // link1  link2  link3  badge1  badge2
+        // rather than
+        // link1 badge1  link2 badge2 link3
         root.appendChild(
             SpreadsheetDivComponent.empty()
                 .setCssText("position: relative;")
                 .appendChild(this.formula)
-                .appendChild(this.formulaCellLinks.setCssText("position:absolute; bottom: 0px; right: 15px; height: fit-content;"))
+                .appendChild(this.formulaCellLinks.setCssText("position:absolute; bottom: 0px; right: 15px; height: fit-content; display:flex;"))
         );
         root.appendChild(this.tableContainer);
 
