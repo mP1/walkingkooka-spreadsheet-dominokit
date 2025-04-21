@@ -339,12 +339,8 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         final HistoryToken historyToken = this.context.historyToken();
         final boolean show = historyToken instanceof SpreadsheetCellFormulaHistoryToken;
 
-        formulaCellLinks.setCssProperty(
-            "Visibility",
-            show ?
-                "visible" :
-                "hidden"
-        );
+        formulaCellLinks.setVisibility(show);
+
         if (show) {
             formulaCellLinks.setValue(
                 historyToken.selection()
