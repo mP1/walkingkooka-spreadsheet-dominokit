@@ -278,6 +278,10 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
     @Override
     public void dialogReset() {
         this.loaded = null;
+
+        // guarantee that label and reference from previous edits are cleared.
+        this.labelName.clearValue();
+        this.labelMappingReference.clearValue();
     }
 
     @Override
