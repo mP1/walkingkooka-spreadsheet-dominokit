@@ -54,6 +54,11 @@ public final class SpreadsheetLabelMappingListDialogComponent implements Spreads
     private SpreadsheetLabelMappingListDialogComponent(final SpreadsheetLabelMappingListDialogComponentContext context) {
         this.context = context;
 
+        this.create = SpreadsheetLabelCreateAnchorComponent.with(
+            HistoryTokenAnchorComponent.empty(),
+            ID_PREFIX + "create" + SpreadsheetElementIds.LINK, // id,
+            context // HistoryTokenContext
+        );
         this.close = this.closeAnchor();
 
         this.table = SpreadsheetDeltaLabelsTableComponent.with(
@@ -84,6 +89,7 @@ public final class SpreadsheetLabelMappingListDialogComponent implements Spreads
                 SpreadsheetLinkListComponent.empty()
                     .setCssProperty("margin-top", "5px")
                     .setCssProperty("margin-left", "-5px")
+                    .appendChild(this.create)
                     .appendChild(this.close)
             );
     }
@@ -100,6 +106,15 @@ public final class SpreadsheetLabelMappingListDialogComponent implements Spreads
 
     // @VisibleForTesting.
     final SpreadsheetDeltaLabelsTableComponent table;
+
+    // create...........................................................................................................
+
+    private void refreshCreate() {
+        this.create.clearValue()
+            .setTextContent("Create");
+    }
+
+    private final SpreadsheetLabelCreateAnchorComponent create;
 
     // close............................................................................................................
 
@@ -145,6 +160,7 @@ public final class SpreadsheetLabelMappingListDialogComponent implements Spreads
     public void refresh(final RefreshContext context) {
         final HistoryToken historyToken = context.historyToken();
 
+        this.refreshCreate();
         this.refreshClose(historyToken);
 
         this.refreshTable(historyToken);
