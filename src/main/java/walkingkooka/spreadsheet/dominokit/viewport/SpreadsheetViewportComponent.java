@@ -66,6 +66,7 @@ import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequi
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormulaHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormulaMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellParserSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
@@ -313,10 +314,29 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     // formulaComponent.................................................................................................
 
     private SpreadsheetViewportFormulaComponent formula() {
-        return SpreadsheetViewportFormulaComponent.with(this.context);
+        SpreadsheetViewportFormulaComponent component = SpreadsheetViewportFormulaComponent.with(this.context);
+
+        component.element()
+            .addEventListener(
+                EventType.contextmenu.getName(),
+                this::onFormulaContextMenu
+            );
+
+        return component;
     }
 
     private final SpreadsheetViewportFormulaComponent formula;
+
+    private void onFormulaContextMenu(final Event event) {
+        event.preventDefault();
+
+        final SpreadsheetViewportComponentContext context = this.context;
+
+        context.pushHistoryToken(
+            context.historyToken()
+                .menu()
+        );
+    }
 
     /**
      * Place formula links at the bottom/right of formula component.
@@ -579,20 +599,24 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
      */
     private void renderContextMenu(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
                                    final RefreshContext context) {
-        final AnchoredSpreadsheetSelection anchored = historyToken.anchoredSelection();
-        final SpreadsheetSelection selection = anchored.selection();
-        final Optional<Element> maybeElement = this.findElement(
-            this.context.spreadsheetViewportCache()
-                .resolveIfLabel(
-                    selection
-                ).focused(anchored.anchor())
-        );
+        final Element element;
 
-        if (maybeElement.isPresent()) {
+        if (historyToken instanceof SpreadsheetCellFormulaMenuHistoryToken) {
+            element = this.formula.element();
+        } else {
+            final AnchoredSpreadsheetSelection anchored = historyToken.anchoredSelection();
+
+            element = this.findElement(
+                this.context.spreadsheetViewportCache()
+                    .resolveIfLabel(
+                        anchored.selection()
+                    ).focused(anchored.anchor())
+            ).orElse(null);
+        }
+
+        if (null != element) {
             final SpreadsheetContextMenu menu = SpreadsheetContextMenu.wrap(
-                SpreadsheetContextMenuTargets.element(
-                    maybeElement.get()
-                ),
+                SpreadsheetContextMenuTargets.element(element),
                 context
             );
 
@@ -1045,6 +1069,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         }
 
         if (historyToken instanceof SpreadsheetCellMenuHistoryToken ||
+            historyToken instanceof SpreadsheetCellFormulaMenuHistoryToken ||
             historyToken instanceof SpreadsheetColumnMenuHistoryToken ||
             historyToken instanceof SpreadsheetRowMenuHistoryToken) {
             this.renderContextMenu(
