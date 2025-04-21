@@ -112,6 +112,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
+                "            \"Create\" [#/1/SpreadsheetName222/create-label] id=labels-create-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName222] id=labels-close-Link\n"
         );
     }
@@ -160,6 +161,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
+                "            \"Create\" [#/1/SpreadsheetName222/create-label] id=labels-create-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName222] id=labels-close-Link\n"
         );
 
@@ -205,7 +207,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
                 "                  \"A1LABEL\" [#/1/SpreadsheetName222/label/A1LABEL] id=labels-labels-A1LABEL-Link\n" +
-                "                  \"=1+2\" [#/1/SpreadsheetName222/cell/A1LABEL/formula] id=labels-labels-A1LABEL-formula-Link\n" + // <---formula shouldnt be replaced by cell reference
+                "                  \"=1+2\" [#/1/SpreadsheetName222/cell/A1LABEL/formula] id=labels-labels-A1LABEL-formula-Link\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
                 "                    SpreadsheetLinkListComponent\n" +
@@ -233,6 +235,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
+                "            \"Create\" [#/1/SpreadsheetName222/create-label] id=labels-create-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName222] id=labels-close-Link\n"
         );
     }
@@ -281,6 +284,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
+                "            \"Create\" [#/1/SpreadsheetName222/create-label] id=labels-create-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName222] id=labels-close-Link\n"
         );
 
@@ -356,6 +360,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
+                "            \"Create\" [#/1/SpreadsheetName222/create-label] id=labels-create-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName222] id=labels-close-Link\n"
         );
     }
