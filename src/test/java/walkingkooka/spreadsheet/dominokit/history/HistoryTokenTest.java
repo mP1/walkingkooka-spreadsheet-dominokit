@@ -2906,6 +2906,18 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellFormulaMenu() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/formula/menu",
+            HistoryToken.cellFormulaMenu(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellFormulaSave() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/cell/A1/formula/save/=1+2",
