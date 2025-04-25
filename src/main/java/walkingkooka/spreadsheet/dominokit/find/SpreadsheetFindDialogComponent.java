@@ -79,6 +79,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         this.parser = this.parser();
         this.style = this.style();
         this.value = this.value();
+        this.validator = this.validator();
         this.formattedValue = this.formattedValue();
 
         this.find = this.anchor("Find");
@@ -125,6 +126,9 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
             SpreadsheetRowComponent.columnSpan4()
                 .appendChild(this.style)
                 .appendChild(this.value)
+                .appendChild(this.validator)
+        ).appendChild(
+            SpreadsheetRowComponent.columnSpan4()
                 .appendChild(this.formattedValue)
         ).appendChild(this.query)
             .appendChild(
@@ -246,6 +250,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
             this.parser.value(),
             this.style.value(),
             this.value.value(),
+            this.validator.value(),
             this.formattedValue.value()
         );
 
@@ -389,6 +394,16 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     }
 
     final ConditionRightSpreadsheetFormulaParserTokenComponent value;
+
+    // validator........................................................................................................
+
+    private TextMatchComponent validator() {
+        return textMatchComponent(
+            "Validator"
+        );
+    }
+
+    final TextMatchComponent validator;
 
     // formattedValue...................................................................................................
 
