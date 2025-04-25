@@ -44,11 +44,11 @@ import java.util.Optional;
 
 
 /**
- * A {@link SpreadsheetMetadataPanelComponentItem} for {@link SpreadsheetMetadataPropertyName#DATETIME_OFFSET}
+ * A {@link SpreadsheetMetadataPanelComponentItem} for {@link SpreadsheetMetadataPropertyName#DATE_TIME_OFFSET}
  */
 final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends SpreadsheetMetadataPanelComponentItem<Long> {
 
-    private final static SpreadsheetMetadataPropertyName<Long> PROPERTY_NAME = SpreadsheetMetadataPropertyName.DATETIME_OFFSET;
+    private final static SpreadsheetMetadataPropertyName<Long> PROPERTY_NAME = SpreadsheetMetadataPropertyName.DATE_TIME_OFFSET;
 
     /**
      * The save value for the 1900 link
