@@ -181,7 +181,7 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
                                           final SpreadsheetMetadataPanelComponentContext context) {
         this(
             propertyName,
-            Optional.empty(), // no specific label, label will be kebab to title case
+            Optional.empty(), // no specific label, label will be camelCase to title case
             context
         );
     }
@@ -381,8 +381,9 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
      */
     String label() {
         return this.label.orElseGet(
-            () -> CaseKind.kebabToTitle(
-                this.propertyName.value()
+            () -> CaseKind.CAMEL.change(
+                this.propertyName.value(),
+                CaseKind.TITLE
             )
         );
     }
