@@ -48,6 +48,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "", // style
             "", // value
+            "", // validator
             "", // formattedValue
             ""
         );
@@ -62,6 +63,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "", // style
             "", // value
+            "", // validator
             "", // formattedValue
             "textMatch(\"*formula*\",cellFormula())"
         );
@@ -76,6 +78,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "", // style
             "", // value
+            "", // validator
             "", // formattedValue
             "textMatch(\"*formatter*\",cellFormatter())"
         );
@@ -90,6 +93,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "*parser*", // parser
             "", // style
             "", // value
+            "", // validator
             "", // formattedValue
             "textMatch(\"*parser*\",cellParser())"
         );
@@ -104,6 +108,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "*style*", // style
             "", // value
+            "", // validator
             "", // formattedValue
             "textMatch(\"*style*\",cellStyle())"
         );
@@ -118,6 +123,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "", // style
             "<111", // value
+            "", // validator
             "", // formattedValue
             "cellValue()<111"
         );
@@ -132,6 +138,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "", // style
             "", // value
+            "", // validator
             "*formattedValue*", // formattedValue
             "textMatch(\"*formattedValue*\",cellFormattedValue())"
         );
@@ -148,6 +155,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "", // style
             "", // value
+            "", // validator
             "", // formattedValue
             "oldQuery()"
         );
@@ -162,6 +170,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "", // style
             "", // value
+            "", // validator
             "", // formattedValue
             "OR(oldQuery(),textMatch(\"*formula*\",cellFormula()))"
         );
@@ -176,6 +185,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "", // style
             "", // value
+            "", // validator
             "", // formattedValue
             "OR(oldQuery(),textMatch(\"*formatter*\",cellFormatter()))"
         );
@@ -190,6 +200,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "*parser*", // parser
             "", // style
             "", // value
+            "", // validator
             "", // formattedValue
             "OR(oldQuery(),textMatch(\"*parser*\",cellParser()))"
         );
@@ -204,6 +215,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "*style*", // style
             "", // value
+            "", // validator
             "", // formattedValue
             "OR(oldQuery(),textMatch(\"*style*\",cellStyle()))"
         );
@@ -218,6 +230,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "", // style
             "<111", // value
+            "", // validator
             "", // formattedValue
             "OR(oldQuery(),cellValue()<111)"
         );
@@ -232,6 +245,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "", // style
             "", // value
+            "", // validator
             "*formattedValue*", // formattedValue
             "OR(oldQuery(),textMatch(\"*formattedValue*\",cellFormattedValue()))"
         );
@@ -248,6 +262,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "", // style
             "", // value
+            "", // validator
             "", // formattedValue
             "textMatch(\"*new*\",cellFormula())"
         );
@@ -262,6 +277,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "", // style
             "", // value
+            "", // validator
             "", // formattedValue
             "textMatch(\"*new*\",cellFormatter())"
         );
@@ -276,6 +292,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "*new*", // parser
             "", // style
             "", // value
+            "", // validator
             "", // formattedValue
             "textMatch(\"*new*\",cellParser())"
         );
@@ -290,6 +307,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "*new*", // style
             "", // value
+            "", // validator
             "", // formattedValue
             "textMatch(\"*new*\",cellStyle())"
         );
@@ -304,6 +322,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "", // style
             ">222", // value
+            "", // validator
             "", // formattedValue
             "cellValue()>222"
         );
@@ -318,6 +337,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "", // style
             "<333", // value
+            "", // validator
             "", // formattedValue
             "cellValue()<333"
         );
@@ -332,6 +352,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "", // style
             "", // value
+            "", // validator
             "*new*", // formattedValue
             "textMatch(\"*new*\",cellFormattedValue())"
         );
@@ -348,6 +369,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "", // style
             "", // value
+            "", // validator
             "", // formattedValue
             "1+textMatch(\"*new*\",cellFormula())"
         );
@@ -362,6 +384,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "", // style
             "", // value
+            "", // validator
             "", // formattedValue
             "1+textMatch(\"*new*\",cellFormatter())"
         );
@@ -376,6 +399,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "*new*", // parser
             "", // style
             "", // value
+            "", // validator
             "", // formattedValue
             "1+textMatch(\"*new*\",cellParser())"
         );
@@ -390,6 +414,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "*new*", // style
             "", // value
+            "", // validator
             "", // formattedValue
             "1+textMatch(\"*new*\",cellStyle())"
         );
@@ -404,6 +429,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "", // style
             "<333", // value
+            "", // validator
             "", // formattedValue
             "cellValue()<333"
         );
@@ -418,6 +444,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "", // style
             "<333", // value
+            "", // validator
             "", // formattedValue
             "999+(cellValue()<333)"
         );
@@ -432,6 +459,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "", // style
             "<333", // value
+            "", // validator
             "", // formattedValue
             "999+(cellValue()<333)"
         );
@@ -446,6 +474,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "", // style
             "", // value
+            "", // validator
             "*new*", // formattedValue
             "1+textMatch(\"*new*\",cellFormattedValue())"
         );
@@ -460,6 +489,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "", // style
             "", // value
+            "", // validator
             "*new*", // formattedValue
             "1+22+textMatch(\"*new*\",cellFormattedValue())"
         );
@@ -476,6 +506,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "", // style
             "", // value
+            "", // validator
             "", // formattedValue
             "OR(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter()))"
         );
@@ -490,6 +521,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "*parser*", // parser
             "", // style
             "", // value
+            "", // validator
             "", // formattedValue
             "OR(textMatch(\"*formula*\",cellFormula()),OR(textMatch(\"*formatter*\",cellFormatter()),textMatch(\"*parser*\",cellParser())))"
         );
@@ -504,6 +536,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "*parser*", // parser
             "*style*", // style
             "", // value
+            "", // validator
             "", // formattedValue
             "OR(textMatch(\"*parser*\",cellParser()),textMatch(\"*style*\",cellStyle()))"
         );
@@ -518,6 +551,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "", // style
             "<10", // value
+            "", // validator
             "*formattedValue*", // formattedValue
             "OR(cellValue()<10,textMatch(\"*formattedValue*\",cellFormattedValue()))"
         );
@@ -532,8 +566,9 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "*parser*", // parser
             "*style*", // style
             "<10", // value
+            "*validator*", // validator
             "*formattedValue*", // formattedValue
-            "OR(textMatch(\"*formula*\",cellFormula()),OR(textMatch(\"*formatted*\",cellFormatter()),OR(textMatch(\"*parser*\",cellParser()),OR(textMatch(\"*style*\",cellStyle()),OR(cellValue()<10,textMatch(\"*formattedValue*\",cellFormattedValue()))))))"
+            "OR(textMatch(\"*formula*\",cellFormula()),OR(textMatch(\"*formatted*\",cellFormatter()),OR(textMatch(\"*parser*\",cellParser()),OR(textMatch(\"*style*\",cellStyle()),OR(cellValue()<10,OR(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue())))))))"
         );
     }
 
@@ -548,6 +583,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "", // style
             "", // value
+            "", // validator
             "", // formattedValue
             "OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter())))"
         );
@@ -562,6 +598,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "*parser*", // parser
             "", // style
             "", // value
+            "", // validator
             "", // formattedValue
             "OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),OR(textMatch(\"*formatter*\",cellFormatter()),textMatch(\"*parser*\",cellParser()))))"
         );
@@ -576,8 +613,24 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "*parser*", // parser
             "*style*", // style
             "", // value
+            "", // validator
             "", // formattedValue
             "OR(oldQuery(),OR(textMatch(\"*parser*\",cellParser()),textMatch(\"*style*\",cellStyle())))"
+        );
+    }
+
+    @Test
+    public void testQueryWithNotEmptyAndValidator() {
+        this.queryAndCheck(
+            "oldQuery()", // query
+            "", // formula
+            "", // formatter
+            "", // parser
+            "", // style
+            "", // value
+            "*validator123*", // validator
+            "", // formattedValue
+            "OR(oldQuery(),textMatch(\"*validator123*\",cellValidator()))"
         );
     }
 
@@ -590,6 +643,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // parser
             "", // style
             "<10", // value
+            "", // validator
             "*formattedValue*", // formattedValue
             "OR(oldQuery(),OR(cellValue()<10,textMatch(\"*formattedValue*\",cellFormattedValue())))"
         );
@@ -604,8 +658,9 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "*parser*", // parser
             "*style*", // style
             "<10", // value
+            "*validator*", // validator
             "*formattedValue*", // formattedValue
-            "OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),OR(textMatch(\"*formatted*\",cellFormatter()),OR(textMatch(\"*parser*\",cellParser()),OR(textMatch(\"*style*\",cellStyle()),OR(cellValue()<10,textMatch(\"*formattedValue*\",cellFormattedValue())))))))"
+            "OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),OR(textMatch(\"*formatted*\",cellFormatter()),OR(textMatch(\"*parser*\",cellParser()),OR(textMatch(\"*style*\",cellStyle()),OR(cellValue()<10,OR(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue()))))))))"
         );
     }
 
@@ -615,6 +670,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
                                final String parser,
                                final String style,
                                final String value,
+                               final String validator,
                                final String formattedValue,
                                final String expected) {
         this.queryAndCheck(
@@ -637,6 +693,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
                         SPREADSHEET_PARSER_CONTEXT
                     ).cast(ConditionRightSpreadsheetFormulaParserToken.class)
             ),
+            textMatch(validator),
             textMatch(formattedValue),
             expected
         );
@@ -656,6 +713,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
                                final Optional<TextMatch> parser,
                                final Optional<TextMatch> style,
                                final Optional<ConditionRightSpreadsheetFormulaParserToken> value,
+                               final Optional<TextMatch> validator,
                                final Optional<TextMatch> formattedValue,
                                final String expected) {
         this.checkEquals(
@@ -668,6 +726,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
                     parser,
                     style,
                     value,
+                    validator,
                     formattedValue
                 )
             )
