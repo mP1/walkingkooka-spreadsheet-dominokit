@@ -150,6 +150,9 @@ import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContextDelegator;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
+import walkingkooka.validation.form.provider.FormHandlerInfoSet;
+import walkingkooka.validation.form.provider.FormHandlerProvider;
+import walkingkooka.validation.form.provider.FormHandlerProviders;
 import walkingkooka.validation.provider.ValidatorInfoSet;
 import walkingkooka.validation.provider.ValidatorProvider;
 import walkingkooka.validation.provider.ValidatorProviders;
@@ -213,6 +216,7 @@ public class App implements EntryPoint,
             SpreadsheetComparatorProviders.empty(),
             SpreadsheetExporterProviders.empty(),
             SpreadsheetFormatterProviders.empty(),
+            FormHandlerProviders.empty(),
             SpreadsheetImporterProviders.empty(),
             SpreadsheetParserProviders.empty(),
             ValidatorProviders.empty()
@@ -287,6 +291,9 @@ public class App implements EntryPoint,
         );
         this.spreadsheetFormatterInfoSet = SpreadsheetFormatterInfoSet.EMPTY;
         this.addSpreadsheetFormatterFetcherWatcher(this);
+
+        // formHandler
+        this.formHandlerInfoSet = FormHandlerInfoSet.EMPTY;
 
         // importer
         this.spreadsheetImporterFetcherWatchers = SpreadsheetImporterFetcherWatchers.empty();
@@ -834,6 +841,10 @@ public class App implements EntryPoint,
         // nop
     }
 
+    // FormHandlerFetcher...............................................................................................
+
+    private FormHandlerInfoSet formHandlerInfoSet;
+
     // SpreadsheetImporterFetcher.......................................................................................
 
     @Override
@@ -1089,6 +1100,13 @@ public class App implements EntryPoint,
             SpreadsheetFormatterProviders.spreadsheetFormatPattern()
         );
 
+        final FormHandlerProvider formHandlerProvider = FormHandlerProviders.mergedMapped(
+            this.formHandlerInfoSet.renameIfPresent(
+                FormHandlerInfoSet.EMPTY
+            ),
+            FormHandlerProviders.validation()
+        );
+
         final SpreadsheetImporterProvider spreadsheetImporterProvider = SpreadsheetImporterProviders.mergedMapped(
             this.spreadsheetImporterInfoSet.renameIfPresent(
                 SpreadsheetImporterInfoSet.EMPTY
@@ -1128,6 +1146,7 @@ public class App implements EntryPoint,
                 spreadsheetComparatorProvider,
                 spreadsheetExporterProvider,
                 spreadsheetFormatterProvider,
+                formHandlerProvider,
                 spreadsheetImporterProvider,
                 spreadsheetParserProvider,
                 validatorProvider
@@ -1139,6 +1158,7 @@ public class App implements EntryPoint,
             spreadsheetComparatorProvider,
             spreadsheetExporterProvider,
             spreadsheetFormatterProvider,
+            formHandlerProvider,
             spreadsheetImporterProvider,
             spreadsheetParserProvider,
             validatorProvider
