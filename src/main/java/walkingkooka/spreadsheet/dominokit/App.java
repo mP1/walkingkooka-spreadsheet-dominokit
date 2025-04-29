@@ -112,6 +112,7 @@ import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterInfoSet;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterProvider;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterProviders;
+import walkingkooka.spreadsheet.expression.SpreadsheetExpressionEvaluationContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContextDelegator;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContexts;
@@ -1074,7 +1075,7 @@ public class App implements EntryPoint,
             SpreadsheetExporterProviders.empty()
         );
 
-        final ExpressionFunctionProvider expressionFunctionProvider = ExpressionFunctionProviders.mergedMapped(
+        final ExpressionFunctionProvider<SpreadsheetExpressionEvaluationContext> expressionFunctionProvider = ExpressionFunctionProviders.mergedMapped(
             this.expressionFunctionInfoSet.renameIfPresent(
                 ExpressionFunctionInfoSet.EMPTY
             ),
