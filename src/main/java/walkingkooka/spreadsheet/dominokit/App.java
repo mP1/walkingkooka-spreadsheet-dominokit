@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit;
 import com.google.gwt.core.client.EntryPoint;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Headers;
+import walkingkooka.InvalidCharacterException;
 import walkingkooka.convert.CanConvert;
 import walkingkooka.convert.ConverterContexts;
 import walkingkooka.convert.provider.ConverterInfoSet;
@@ -139,6 +140,8 @@ import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMen
 import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
+import walkingkooka.text.cursor.TextCursor;
+import walkingkooka.text.cursor.parser.Parser;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionProvider;
@@ -1032,6 +1035,15 @@ public class App implements EntryPoint,
     private SpreadsheetFormatterContext formatterContext;
 
     // SpreadsheetParserContext.........................................................................................
+
+    @Override
+    public InvalidCharacterException invalidCharacterException(final Parser<?> parser,
+                                                               final TextCursor cursor) {
+        return this.parserContext.invalidCharacterException(
+            parser,
+            cursor
+        );
+    }
 
     @Override
     public char valueSeparator() {
