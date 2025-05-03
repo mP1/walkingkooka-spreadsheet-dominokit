@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import walkingkooka.Either;
+import walkingkooka.InvalidCharacterException;
 import walkingkooka.color.Color;
 import walkingkooka.convert.Converter;
 import walkingkooka.environment.EnvironmentValueName;
@@ -61,6 +62,8 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
+import walkingkooka.text.cursor.TextCursor;
+import walkingkooka.text.cursor.parser.Parser;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallUnmarshallContext;
@@ -572,6 +575,12 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     }
 
     // SpreadsheetParserContext.........................................................................................
+
+    @Override
+    public InvalidCharacterException invalidCharacterException(final Parser<?> parser,
+                                                               final TextCursor cursor) {
+        throw new UnsupportedOperationException();
+    }
 
     @Override
     public char valueSeparator() {
