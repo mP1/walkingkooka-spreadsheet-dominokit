@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.condition;
 
 import org.dominokit.domino.ui.forms.validations.ValidationResult;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
-import walkingkooka.InvalidCharacterException;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
@@ -50,8 +49,6 @@ final class ConditionRightSpreadsheetFormulaParserTokenComponentValidator implem
             );
 
             message = null;
-        } catch (final InvalidCharacterException invalidCharacterException) {
-            message = invalidCharacterException.getShortMessage();
         } catch (final Exception fail) {
             message = fail.getMessage();
         }

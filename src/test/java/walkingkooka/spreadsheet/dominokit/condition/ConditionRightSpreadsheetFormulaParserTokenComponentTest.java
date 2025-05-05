@@ -59,7 +59,7 @@ public final class ConditionRightSpreadsheetFormulaParserTokenComponentTest impl
                 "    SpreadsheetTextBox\n" +
                 "      [1+2]\n" +
                 "      Errors\n" +
-                "        Invalid character '1' at 0\n"
+                "        Invalid character '1' at 0 expected (\"=\" | \"<>\" | \">=\" | \">\" | \"<=\" | \"<\"), [WHITESPACE], CONDITION_RIGHT_VALUE_OR_EXPRESSION_REQUIRED, [WHITESPACE]\n"
         );
     }
 
