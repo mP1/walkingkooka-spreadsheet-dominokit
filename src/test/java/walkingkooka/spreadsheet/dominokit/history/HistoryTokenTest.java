@@ -4184,11 +4184,11 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameMetadataPropertyName() {
         this.parseStringAndCheck(
-            "/123/SpreadsheetName456/spreadsheet/decimalSeparator",
+            "/123/SpreadsheetName456/spreadsheet/defaultYear",
             HistoryToken.metadataPropertySelect(
                 ID,
                 NAME,
-                SpreadsheetMetadataPropertyName.DECIMAL_SEPARATOR
+                SpreadsheetMetadataPropertyName.DEFAULT_YEAR
             )
         );
     }
@@ -4196,11 +4196,11 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameMetadataPropertyNameSaveInvalid() {
         this.parseStringAndCheck(
-            "/123/SpreadsheetName456/spreadsheet/decimalSeparator/save/123",
+            "/123/SpreadsheetName456/spreadsheet/defaultYear/save/XYZ",
             HistoryToken.metadataPropertySelect(
                 ID,
                 NAME,
-                SpreadsheetMetadataPropertyName.DECIMAL_SEPARATOR
+                SpreadsheetMetadataPropertyName.DEFAULT_YEAR
             )
         );
     }
@@ -4208,11 +4208,11 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameMetadataPropertyNameSaveWithoutValue() {
         this.parseStringAndCheck(
-            "/123/SpreadsheetName456/spreadsheet/decimalSeparator/save/",
+            "/123/SpreadsheetName456/spreadsheet/defaultYear/save/",
             HistoryToken.metadataPropertySave(
                 ID,
                 NAME,
-                SpreadsheetMetadataPropertyName.DECIMAL_SEPARATOR,
+                SpreadsheetMetadataPropertyName.DEFAULT_YEAR,
                 Optional.empty()
             )
         );
@@ -4221,14 +4221,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameMetadataPropertyNameSave() {
         this.parseStringAndCheck(
-            "/123/SpreadsheetName456/spreadsheet/decimalSeparator/save/.",
+            "/123/SpreadsheetName456/spreadsheet/defaultYear/save/1950",
             HistoryToken.metadataPropertySave(
                 ID,
                 NAME,
-                SpreadsheetMetadataPropertyName.DECIMAL_SEPARATOR,
-                Optional.of(
-                    '.'
-                )
+                SpreadsheetMetadataPropertyName.DEFAULT_YEAR,
+                Optional.of(1950)
             )
         );
     }
