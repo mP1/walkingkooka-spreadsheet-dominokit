@@ -93,13 +93,6 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         items.add(this.precision());
         items.add(this.roundingMode());
 
-        items.add(this.currencySymbol());
-        items.add(this.decimalSeparator());
-        items.add(this.exponentSymbol());
-        items.add(this.groupSeparator());
-        items.add(this.negativeSign());
-        items.add(this.percentageSymbol());
-        items.add(this.positiveSign());
         items.add(this.valueSeparator());
 
         items.add(this.dateTimeOffset());
@@ -246,60 +239,6 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         return this.enumValue(
             SpreadsheetMetadataPropertyName.ROUNDING_MODE,
             Lists.of(RoundingMode.values())
-        );
-    }
-
-    private SpreadsheetMetadataPanelComponentItem<?> currencySymbol() {
-        return text(
-            SpreadsheetMetadataPropertyName.CURRENCY_SYMBOL
-        );
-    }
-
-    private SpreadsheetMetadataPanelComponentItem<?> decimalSeparator() {
-        return readOnlyText(
-            SpreadsheetMetadataPropertyName.DECIMAL_SEPARATOR,
-            Optional.empty(),
-            Object::toString
-        );
-    }
-
-    private SpreadsheetMetadataPanelComponentItem<?> exponentSymbol() {
-        return readOnlyText(
-            SpreadsheetMetadataPropertyName.EXPONENT_SYMBOL,
-            Optional.empty(),
-            Object::toString
-        );
-    }
-
-    private SpreadsheetMetadataPanelComponentItem<?> groupSeparator() {
-        return readOnlyText(
-            SpreadsheetMetadataPropertyName.GROUP_SEPARATOR,
-            Optional.empty(),
-            Object::toString
-        );
-    }
-
-    private SpreadsheetMetadataPanelComponentItem<?> negativeSign() {
-        return readOnlyText(
-            SpreadsheetMetadataPropertyName.NEGATIVE_SIGN,
-            Optional.empty(),
-            Object::toString
-        );
-    }
-
-    private SpreadsheetMetadataPanelComponentItem<?> percentageSymbol() {
-        return readOnlyText(
-            SpreadsheetMetadataPropertyName.PERCENTAGE_SYMBOL,
-            Optional.empty(),
-            Object::toString
-        );
-    }
-
-    private SpreadsheetMetadataPanelComponentItem<?> positiveSign() {
-        return readOnlyText(
-            SpreadsheetMetadataPropertyName.POSITIVE_SIGN,
-            Optional.empty(),
-            Object::toString
         );
     }
 
