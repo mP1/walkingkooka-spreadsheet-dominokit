@@ -283,7 +283,7 @@ public class App implements EntryPoint,
             this.expressionFunctionFetcherWatchers,
             this
         );
-        this.expressionFunctionInfoSet = ExpressionFunctionInfoSet.EMPTY;
+        this.expressionFunctionInfoSet = SpreadsheetExpressionFunctions.EMPTY_INFO_SET;
         this.addExpressionFunctionFetcherWatcher(this);
 
         // formatter
@@ -1100,7 +1100,7 @@ public class App implements EntryPoint,
 
         final ExpressionFunctionProvider<SpreadsheetExpressionEvaluationContext> expressionFunctionProvider = ExpressionFunctionProviders.mergedMapped(
             this.expressionFunctionInfoSet.renameIfPresent(
-                ExpressionFunctionInfoSet.EMPTY
+                SpreadsheetExpressionFunctions.EMPTY_INFO_SET
             ),
             ExpressionFunctionProviders.empty(SpreadsheetExpressionFunctions.NAME_CASE_SENSITIVITY) // TODO should have a non empty EFP
         );

@@ -21,6 +21,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.expression.SpreadsheetExpressionFunctions;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionProviders;
 
@@ -35,7 +36,7 @@ public final class ExpressionFunctionInfoSetComponentTest implements FormValueCo
 
         this.checkEquals(
             infos,
-            ExpressionFunctionInfoSet.parse(infos.text())
+            SpreadsheetExpressionFunctions.parseInfoSet(infos.text())
         );
     }
 
