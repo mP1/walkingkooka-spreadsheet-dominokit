@@ -42,7 +42,6 @@ import walkingkooka.plugin.ProviderContexts;
 import walkingkooka.plugin.store.Plugin;
 import walkingkooka.plugin.store.PluginSet;
 import walkingkooka.plugin.store.PluginStores;
-import walkingkooka.spreadsheet.SpreadsheetExpressionFunctionNames;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
@@ -114,6 +113,7 @@ import walkingkooka.spreadsheet.export.SpreadsheetExporterInfoSet;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterProvider;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterProviders;
 import walkingkooka.spreadsheet.expression.SpreadsheetExpressionEvaluationContext;
+import walkingkooka.spreadsheet.expression.SpreadsheetExpressionFunctions;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContextDelegator;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContexts;
@@ -215,7 +215,7 @@ public class App implements EntryPoint,
 
         this.spreadsheetProvider = SpreadsheetProviders.basic(
             ConverterProviders.empty(),
-            ExpressionFunctionProviders.empty(SpreadsheetExpressionFunctionNames.CASE_SENSITIVITY),
+            ExpressionFunctionProviders.empty(SpreadsheetExpressionFunctions.NAME_CASE_SENSITIVITY),
             SpreadsheetComparatorProviders.empty(),
             SpreadsheetExporterProviders.empty(),
             SpreadsheetFormatterProviders.empty(),
@@ -1102,7 +1102,7 @@ public class App implements EntryPoint,
             this.expressionFunctionInfoSet.renameIfPresent(
                 ExpressionFunctionInfoSet.EMPTY
             ),
-            ExpressionFunctionProviders.empty(SpreadsheetExpressionFunctionNames.CASE_SENSITIVITY) // TODO should have a non empty EFP
+            ExpressionFunctionProviders.empty(SpreadsheetExpressionFunctions.NAME_CASE_SENSITIVITY) // TODO should have a non empty EFP
         );
 
         final SpreadsheetFormatterProvider spreadsheetFormatterProvider = SpreadsheetFormatterProviders.mergedMapped(
