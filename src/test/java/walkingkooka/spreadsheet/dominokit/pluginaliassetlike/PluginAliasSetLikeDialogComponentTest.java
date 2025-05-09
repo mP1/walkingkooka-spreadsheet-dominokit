@@ -31,6 +31,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
+import walkingkooka.spreadsheet.expression.SpreadsheetExpressionFunctions;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
@@ -61,11 +62,11 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
     HistoryTokenTesting,
     SpreadsheetMetadataTesting {
 
-    private final static ExpressionFunctionAlias ALIAS1 = ExpressionFunctionAlias.parse("name1");
+    private final static ExpressionFunctionAlias ALIAS1 = SpreadsheetExpressionFunctions.parseAlias("name1");
 
-    private final static ExpressionFunctionAlias ALIAS2 = ExpressionFunctionAlias.parse("name2");
+    private final static ExpressionFunctionAlias ALIAS2 = SpreadsheetExpressionFunctions.parseAlias("name2");
 
-    private final static ExpressionFunctionAlias ALIAS3 = ExpressionFunctionAlias.parse("name3");
+    private final static ExpressionFunctionAlias ALIAS3 = SpreadsheetExpressionFunctions.parseAlias("name3");
 
     @Test
     public void testEmptyTextRefreshAndTreePrint() {
