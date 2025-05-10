@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.expression.SpreadsheetExpressionFunctions;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.expression.ExpressionFunctionName;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionAlias;
@@ -56,8 +57,8 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlElementC
     public void testRefreshNoneRemovable() {
         final RemovePluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = RemovePluginAliasSetLikeComponent.empty("base-id-123-remove-");
         component.refresh(
-            ExpressionFunctionAliasSet.EMPTY, // present
-            ExpressionFunctionAliasSet.parse("name1, name2, name3"), // provider
+            SpreadsheetExpressionFunctions.EMPTY_ALIAS_SET, // present
+            SpreadsheetExpressionFunctions.parseAliasSet("name1, name2, name3"), // provider
             CONTEXT
         );
 
@@ -72,8 +73,8 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlElementC
     public void testRefreshSomeRemovable() {
         final RemovePluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = RemovePluginAliasSetLikeComponent.empty("base-id-123-remove-");
         component.refresh(
-            ExpressionFunctionAliasSet.parse("name1, name2"), // present
-            ExpressionFunctionAliasSet.parse("name1, name2, name3, name4"), // provider
+            SpreadsheetExpressionFunctions.parseAliasSet("name1, name2"), // present
+            SpreadsheetExpressionFunctions.parseAliasSet("name1, name2, name3, name4"), // provider
             this.context()
         );
 
@@ -95,8 +96,8 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlElementC
     public void testRefreshAllRemovable() {
         final RemovePluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = RemovePluginAliasSetLikeComponent.empty("base-id-123-remove-");
         component.refresh(
-            ExpressionFunctionAliasSet.parse("name1, name2, name3"), // present
-            ExpressionFunctionAliasSet.parse("name1, name2, name3"), // provider
+            SpreadsheetExpressionFunctions.parseAliasSet("name1, name2, name3"), // present
+            SpreadsheetExpressionFunctions.parseAliasSet("name1, name2, name3"), // provider
             CONTEXT
         );
 
@@ -121,8 +122,8 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlElementC
         final RemovePluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = RemovePluginAliasSetLikeComponent.empty("base-id-123-remove-");
         component.setFilter((t) -> t.toString().contains("name"));
         component.refresh(
-            ExpressionFunctionAliasSet.parse("name1, name2, missing3"), // present
-            ExpressionFunctionAliasSet.parse("name1, name2, missing3"), // provider
+            SpreadsheetExpressionFunctions.parseAliasSet("name1, name2, missing3"), // present
+            SpreadsheetExpressionFunctions.parseAliasSet("name1, name2, missing3"), // provider
             CONTEXT
         );
 
@@ -145,8 +146,8 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlElementC
     public void testRefreshAllRemovableIncludesAliases() {
         final RemovePluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = RemovePluginAliasSetLikeComponent.empty("base-id-123-remove-");
         component.refresh(
-            ExpressionFunctionAliasSet.parse("alias1 name1"), // present
-            ExpressionFunctionAliasSet.parse("name1"), // provider
+            SpreadsheetExpressionFunctions.parseAliasSet("alias1 name1"), // present
+            SpreadsheetExpressionFunctions.parseAliasSet("name1"), // provider
             CONTEXT
         );
 
@@ -168,8 +169,8 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlElementC
     public void testRefreshAllRemovableIncludesAliases2() {
         final RemovePluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = RemovePluginAliasSetLikeComponent.empty("base-id-123-remove-");
         component.refresh(
-            ExpressionFunctionAliasSet.parse("alias1 name1"), // present
-            ExpressionFunctionAliasSet.parse("name1, name2"), // provider
+            SpreadsheetExpressionFunctions.parseAliasSet("alias1 name1"), // present
+            SpreadsheetExpressionFunctions.parseAliasSet("name1, name2"), // provider
             CONTEXT
         );
 
@@ -191,8 +192,8 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlElementC
     public void testRefreshAllRemovableIncludesAliases3() {
         final RemovePluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = RemovePluginAliasSetLikeComponent.empty("base-id-123-remove-");
         component.refresh(
-            ExpressionFunctionAliasSet.parse("name1, alias2 name2, alias3 name3 https://example.com/name3"), // present
-            ExpressionFunctionAliasSet.parse("name1, name2, name3"), // provider
+            SpreadsheetExpressionFunctions.parseAliasSet("name1, alias2 name2, alias3 name3 https://example.com/name3"), // present
+            SpreadsheetExpressionFunctions.parseAliasSet("name1, name2, name3"), // provider
             CONTEXT
         );
 
