@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.expression.SpreadsheetExpressionFunctions;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.expression.ExpressionFunctionName;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionAlias;
@@ -56,8 +57,8 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlElementComp
     public void testRefreshNoneAdded() {
         final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-add-");
         component.refresh(
-            ExpressionFunctionAliasSet.parse("name1, name2, name3"), // present
-            ExpressionFunctionAliasSet.parse("name1, name2, name3"), // provider
+            SpreadsheetExpressionFunctions.parseAliasSet("name1, name2, name3"), // present
+            SpreadsheetExpressionFunctions.parseAliasSet("name1, name2, name3"), // provider
             CONTEXT
         );
 
@@ -72,8 +73,8 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlElementComp
     public void testRefreshNoneAddedWithAliases() {
         final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-add-");
         component.refresh(
-            ExpressionFunctionAliasSet.parse("alias1 name1"), // present
-            ExpressionFunctionAliasSet.parse("name1"), // provider
+            SpreadsheetExpressionFunctions.parseAliasSet("alias1 name1"), // present
+            SpreadsheetExpressionFunctions.parseAliasSet("name1"), // provider
             CONTEXT
         );
 
@@ -88,8 +89,8 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlElementComp
     public void testRefreshNoneAddedWithAliases2() {
         final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-add-");
         component.refresh(
-            ExpressionFunctionAliasSet.parse("alias1 name1, name2, name3"), // present
-            ExpressionFunctionAliasSet.parse("name1, name2, name3"), // provider
+            SpreadsheetExpressionFunctions.parseAliasSet("alias1 name1, name2, name3"), // present
+            SpreadsheetExpressionFunctions.parseAliasSet("name1, name2, name3"), // provider
             CONTEXT
         );
 
@@ -104,8 +105,8 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlElementComp
     public void testRefreshSomeAdded() {
         final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-add-");
         component.refresh(
-            ExpressionFunctionAliasSet.parse("name1, name2"), // present
-            ExpressionFunctionAliasSet.parse("name1, name2, name3, name4"), // provider
+            SpreadsheetExpressionFunctions.parseAliasSet("name1, name2"), // present
+            SpreadsheetExpressionFunctions.parseAliasSet("name1, name2, name3, name4"), // provider
             this.context()
         );
 
@@ -128,8 +129,8 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlElementComp
     public void testRefreshAllAdded() {
         final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-add-");
         component.refresh(
-            ExpressionFunctionAliasSet.parse(""), // present
-            ExpressionFunctionAliasSet.parse("name1"), // provider
+            SpreadsheetExpressionFunctions.parseAliasSet(""), // present
+            SpreadsheetExpressionFunctions.parseAliasSet("name1"), // provider
             CONTEXT
         );
 
@@ -151,8 +152,8 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlElementComp
     public void testRefreshAllAdded2() {
         final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-add-");
         component.refresh(
-            ExpressionFunctionAliasSet.parse(""), // present
-            ExpressionFunctionAliasSet.parse("name1, name2, name3"), // provider
+            SpreadsheetExpressionFunctions.parseAliasSet(""), // present
+            SpreadsheetExpressionFunctions.parseAliasSet("name1, name2, name3"), // provider
             CONTEXT
         );
 
@@ -177,8 +178,8 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlElementComp
         final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-add-");
         component.setFilter((t) -> t.toString().contains("name"));
         component.refresh(
-            ExpressionFunctionAliasSet.parse(""), // present
-            ExpressionFunctionAliasSet.parse("name1, name2, hidden3"), // provider
+            SpreadsheetExpressionFunctions.parseAliasSet(""), // present
+            SpreadsheetExpressionFunctions.parseAliasSet("name1, name2, hidden3"), // provider
             CONTEXT
         );
 
@@ -201,8 +202,8 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlElementComp
     public void testRefreshSomeAddedIncludesAliases1() {
         final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-add-");
         component.refresh(
-            ExpressionFunctionAliasSet.parse("alias1 name1"), // present
-            ExpressionFunctionAliasSet.parse("name1, name2"), // provider
+            SpreadsheetExpressionFunctions.parseAliasSet("alias1 name1"), // present
+            SpreadsheetExpressionFunctions.parseAliasSet("name1, name2"), // provider
             CONTEXT
         );
 
@@ -224,8 +225,8 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlElementComp
     public void testRefreshSomeAddedIncludesAliases2() {
         final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-add-");
         component.refresh(
-            ExpressionFunctionAliasSet.parse("name1, alias2 name2, alias3 name3 https://example.com/name3"), // present
-            ExpressionFunctionAliasSet.parse("name1, name2, name3, name4"), // provider
+            SpreadsheetExpressionFunctions.parseAliasSet("name1, alias2 name2, alias3 name3 https://example.com/name3"), // present
+            SpreadsheetExpressionFunctions.parseAliasSet("name1, name2, name3, name4"), // provider
             CONTEXT
         );
 

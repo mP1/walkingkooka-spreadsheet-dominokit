@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
 import walkingkooka.spreadsheet.dominokit.function.ExpressionFunctionAliasSetComponent;
+import walkingkooka.spreadsheet.expression.SpreadsheetExpressionFunctions;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.expression.ExpressionFunctionName;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionAlias;
@@ -58,7 +59,7 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextExpressionFunct
 
     @Override
     public final ExpressionFunctionAliasSet emptyAliasSetLike() {
-        return ExpressionFunctionAliasSet.EMPTY;
+        return SpreadsheetExpressionFunctions.EMPTY_ALIAS_SET;
     }
 
     @Override final void loadPluginInfoSetLike0(final SpreadsheetId id) {
@@ -118,7 +119,7 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextExpressionFunct
 
         return context.spreadsheetMetadata()
             .get(SpreadsheetMetadataPropertyName.FUNCTIONS)
-            .orElse(ExpressionFunctionAliasSet.EMPTY)
+            .orElse(SpreadsheetExpressionFunctions.EMPTY_ALIAS_SET)
             .keepAliasOrNameAll(
                 context.systemSpreadsheetProvider()
                     .expressionFunctionInfos()
