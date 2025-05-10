@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.function;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.expression.SpreadsheetExpressionFunctions;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 
 public final class ExpressionFunctionInfoSetComponent implements ValueSpreadsheetTextBoxWrapper<ExpressionFunctionInfoSetComponent, ExpressionFunctionInfoSet> {
@@ -30,7 +31,7 @@ public final class ExpressionFunctionInfoSetComponent implements ValueSpreadshee
 
     private ExpressionFunctionInfoSetComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-            ExpressionFunctionInfoSet::parse,
+            SpreadsheetExpressionFunctions::parseInfoSet,
             ExpressionFunctionInfoSet::text
         );
     }
