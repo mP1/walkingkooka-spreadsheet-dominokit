@@ -1516,7 +1516,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetMetadataPropertyName() {
-        final SpreadsheetMetadataPropertyName<?> metadataProperty = SpreadsheetMetadataPropertyName.GROUP_SEPARATOR;
+        final SpreadsheetMetadataPropertyName<?> metadataProperty = SpreadsheetMetadataPropertyName.ROUNDING_MODE;
 
         this.checkEquals(
             HistoryToken.metadataPropertySelect(
