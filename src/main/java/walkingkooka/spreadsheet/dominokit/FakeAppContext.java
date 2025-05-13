@@ -555,7 +555,7 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     }
 
     @Override
-    public char percentageSymbol() {
+    public char percentSymbol() {
         throw new UnsupportedOperationException();
     }
 
