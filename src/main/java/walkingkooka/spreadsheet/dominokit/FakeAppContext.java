@@ -555,7 +555,27 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     }
 
     @Override
+    public String infinitySymbol() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public char monetaryDecimalSeparator() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public String nanSymbol() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public char percentSymbol() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public char permillSymbol() {
         throw new UnsupportedOperationException();
     }
 
@@ -566,6 +586,11 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public char positiveSign() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public char zeroDigit() {
         throw new UnsupportedOperationException();
     }
 
