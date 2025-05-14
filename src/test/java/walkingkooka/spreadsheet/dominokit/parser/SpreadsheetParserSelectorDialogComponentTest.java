@@ -1521,6 +1521,11 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
             }
 
             @Override
+            public char monetaryDecimalSeparator() {
+                return SPREADSHEET_FORMATTER_CONTEXT.monetaryDecimalSeparator();
+            }
+
+            @Override
             public char percentSymbol() {
                 return SPREADSHEET_FORMATTER_CONTEXT.percentSymbol();
             }
