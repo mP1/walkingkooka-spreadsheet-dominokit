@@ -491,19 +491,19 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                    Currency\n" +
                 "                  \"$#,##0.00\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
-                "                    $123.50\n" +
+                "                    $123*50\n" +
                 "                ROW 10\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
                 "                    Currency\n" +
                 "                  \"$#,##0.00\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
-                "                    $-123.50\n" +
+                "                    $-123*50\n" +
                 "                ROW 11\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
                 "                    Currency\n" +
                 "                  \"$#,##0.00\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
-                "                    $0.00\n" +
+                "                    $0*00\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
@@ -1088,19 +1088,19 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                    Currency\n" +
                 "                  \"$#,##0.00\" [#/1/Spreadsheet123/spreadsheet/numberFormatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
-                "                    $123.50\n" +
+                "                    $123*50\n" +
                 "                ROW 10\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
                 "                    Currency\n" +
                 "                  \"$#,##0.00\" [#/1/Spreadsheet123/spreadsheet/numberFormatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
-                "                    $-123.50\n" +
+                "                    $-123*50\n" +
                 "                ROW 11\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
                 "                    Currency\n" +
                 "                  \"$#,##0.00\" [#/1/Spreadsheet123/spreadsheet/numberFormatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
-                "                    $0.00\n" +
+                "                    $0*00\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
@@ -1731,6 +1731,11 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
             @Override
             public char groupSeparator() {
                 return SPREADSHEET_FORMATTER_CONTEXT.groupSeparator();
+            }
+
+            @Override
+            public char monetaryDecimalSeparator() {
+                return '*';
             }
 
             @Override
