@@ -1539,6 +1539,11 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
             public char positiveSign() {
                 return SPREADSHEET_FORMATTER_CONTEXT.positiveSign();
             }
+
+            @Override
+            public char zeroDigit() {
+                return SPREADSHEET_FORMATTER_CONTEXT.zeroDigit();
+            }
         };
     }
 
