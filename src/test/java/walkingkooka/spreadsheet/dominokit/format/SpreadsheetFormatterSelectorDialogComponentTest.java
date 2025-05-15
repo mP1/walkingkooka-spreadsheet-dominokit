@@ -1753,6 +1753,11 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 return SPREADSHEET_FORMATTER_CONTEXT.positiveSign();
             }
 
+            @Override
+            public char zeroDigit() {
+                return SPREADSHEET_FORMATTER_CONTEXT.zeroDigit();
+            }
+
             // SpreadsheetFormatterProvider.............................................................................
 
             @Override
