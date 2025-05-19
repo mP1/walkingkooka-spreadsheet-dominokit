@@ -21,6 +21,7 @@ import walkingkooka.Either;
 import walkingkooka.InvalidCharacterException;
 import walkingkooka.color.Color;
 import walkingkooka.convert.Converter;
+import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.email.EmailAddress;
@@ -517,6 +518,11 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public int twoToFourDigitYear(final int year) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public DateTimeSymbols dateTimeSymbols() {
         throw new UnsupportedOperationException();
     }
 
