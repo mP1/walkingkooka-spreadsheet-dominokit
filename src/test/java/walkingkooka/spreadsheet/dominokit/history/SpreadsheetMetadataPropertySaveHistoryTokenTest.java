@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Locale;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -138,6 +139,23 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
                 SpreadsheetMetadataPropertyName.DEFAULT_YEAR,
                 Optional.of(
                     49
+                )
+            )
+        );
+    }
+
+    @Test
+    public void testParseLocale() {
+        final Locale locale = Locale.forLanguageTag("en-AU");
+
+        this.parseAndCheck(
+            "/123/SpreadsheetName456/spreadsheet/locale/save/" + HistoryToken.saveUrlFragmentValue(locale),
+            SpreadsheetMetadataPropertySaveHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetMetadataPropertyName.LOCALE,
+                Optional.of(
+                    locale
                 )
             )
         );

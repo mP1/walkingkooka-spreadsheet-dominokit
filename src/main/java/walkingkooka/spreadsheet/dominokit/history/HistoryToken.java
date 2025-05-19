@@ -66,6 +66,7 @@ import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -4176,7 +4177,8 @@ public abstract class HistoryToken implements HasUrlFragment,
             );
     }
 
-    private static UrlFragment saveUrlFragmentValue(final Object value) {
+    // @VisibleForTesting
+    static UrlFragment saveUrlFragmentValue(final Object value) {
         return null == value ?
             UrlFragment.EMPTY :
             value instanceof UrlFragment ?
@@ -4187,7 +4189,12 @@ public abstract class HistoryToken implements HasUrlFragment,
                     value instanceof Optional ?
                         saveUrlFragmentValueOptional((Optional<?>) value) :
                         UrlFragment.with(
-                            String.valueOf(value)
+                            String.valueOf(
+                                value instanceof Locale ?
+                                    // toLanguageTag = EN-AU while Locale#toString EN_AU
+                                    ((Locale) value).toLanguageTag() :
+                                    value
+                            )
                         );
     }
 
