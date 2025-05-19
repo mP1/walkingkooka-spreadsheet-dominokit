@@ -18,18 +18,31 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.CanBeEmpty;
 import walkingkooka.Cast;
 import walkingkooka.color.Color;
 import walkingkooka.math.DecimalNumberSymbols;
+import walkingkooka.plugin.PluginNameSet;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.SpreadsheetViewportRectangle;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
+import walkingkooka.spreadsheet.export.SpreadsheetExporterAliasSet;
+import walkingkooka.spreadsheet.expression.SpreadsheetExpressionFunctions;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
+import walkingkooka.spreadsheet.importer.SpreadsheetImporterAliasSet;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
+import walkingkooka.text.CharSequences;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.text.TextStylePropertyName;
+import walkingkooka.validation.form.provider.FormHandlerAliasSet;
 
 import java.text.DecimalFormatSymbols;
+import java.util.Collection;
 import java.util.Locale;
 import java.util.Optional;
 
@@ -299,6 +312,103 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
                 )
             )
         );
+    }
+
+    @Test
+    public void testParseAllSpreadsheetMetadataProperties() {
+        final SpreadsheetMetadata metadata = SpreadsheetMetadataTesting.METADATA_EN_AU.set(
+            SpreadsheetMetadataPropertyName.CLIPBOARD_EXPORTER,
+            SpreadsheetExporterAliasSet.parse("clipboard-exporter1")
+        ).set(
+            SpreadsheetMetadataPropertyName.CLIPBOARD_IMPORTER,
+            SpreadsheetImporterAliasSet.parse("clipboard-importer1")
+        ).set(
+            SpreadsheetMetadataPropertyName.FIND_FUNCTIONS,
+            SpreadsheetExpressionFunctions.parseAliasSet("find-function1")
+        ).set(
+            SpreadsheetMetadataPropertyName.FIND_HIGHLIGHTING,
+            true
+        ).set(
+            SpreadsheetMetadataPropertyName.FIND_QUERY,
+            SpreadsheetCellQuery.parse("findQuery2()")
+        ).set(
+            SpreadsheetMetadataPropertyName.FORM_HANDLERS,
+            FormHandlerAliasSet.parse("form-handler3")
+        ).set(
+            SpreadsheetMetadataPropertyName.FORMULA_FUNCTIONS,
+            SpreadsheetExpressionFunctions.parseAliasSet("formulaFunction1")
+        ).set(
+            SpreadsheetMetadataPropertyName.FROZEN_COLUMNS,
+            SpreadsheetSelection.parseColumnRange("A:B")
+        ).set(
+            SpreadsheetMetadataPropertyName.FROZEN_ROWS,
+            SpreadsheetSelection.parseRowRange("1:2")
+        ).set(
+            SpreadsheetMetadataPropertyName.FUNCTIONS,
+            SpreadsheetExpressionFunctions.parseAliasSet("functions4")
+        ).set(
+            SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES,
+            false
+        ).set(
+            SpreadsheetMetadataPropertyName.PLUGINS,
+            PluginNameSet.parse("plugins5")
+        ).set(
+            SpreadsheetMetadataPropertyName.VIEWPORT,
+            SpreadsheetViewport.with(SpreadsheetViewportRectangle.parse("A1:100:200"))
+        );
+
+        // verify that SpreadsheetMetadata has all properties
+        for (final SpreadsheetMetadataPropertyName<?> propertyName : SpreadsheetMetadataPropertyName.ALL) {
+            if(SpreadsheetMetadataPropertyName.SPREADSHEET_ID == propertyName) {
+                continue;
+            }
+            if(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME == propertyName) {
+                continue;
+            }
+            if(SpreadsheetMetadataPropertyName.AUDIT_INFO == propertyName) {
+                continue;
+            }
+            if(SpreadsheetMetadataPropertyName.STYLE == propertyName) {
+                continue;
+            }
+
+            final Object value = metadata.getOrFail(propertyName);
+            if (value instanceof Collection) {
+                final Collection<?> collection = (Collection<?>) value;
+                if(collection.isEmpty()) {
+                    continue;
+                }
+                this.checkEquals(
+                    false,
+                    collection.isEmpty(),
+                    propertyName::toString
+                );
+            }
+            if (value instanceof CanBeEmpty) {
+                final CanBeEmpty canBeEmpty = (CanBeEmpty) value;
+                this.checkEquals(
+                    false,
+                    canBeEmpty.isEmpty(),
+                    propertyName::toString
+                );
+            }
+
+            System.out.println(propertyName);
+            System.out.println("  " + CharSequences.quoteIfChars(value));
+            System.out.println("  " + "/123/SpreadsheetName456/spreadsheet/" + propertyName.value() + "/save/" + HistoryToken.saveUrlFragmentValue(value));
+
+            this.parseAndCheck(
+                "/123/SpreadsheetName456/spreadsheet/" + propertyName.value() + "/save/" + HistoryToken.saveUrlFragmentValue(value),
+                SpreadsheetMetadataPropertySaveHistoryToken.with(
+                    ID,
+                    NAME,
+                    propertyName,
+                    Optional.of(
+                        Cast.to(value)
+                    )
+                )
+            );
+        }
     }
 
     // clearAction.....................................................................................................
