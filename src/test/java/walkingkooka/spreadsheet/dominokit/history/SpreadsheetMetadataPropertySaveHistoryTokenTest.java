@@ -130,6 +130,21 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
     }
 
     @Test
+    public void testUrlFragmentFrozenRows() {
+        this.urlFragmentAndCheck(
+            SpreadsheetMetadataPropertySaveHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetMetadataPropertyName.FROZEN_ROWS,
+                Optional.of(
+                    SpreadsheetSelection.parseRowRange("1:2")
+                )
+            ),
+            "/123/SpreadsheetName456/spreadsheet/frozenRows/save/1:2"
+        );
+    }
+
+    @Test
     public void testParseDateFormatter() {
         this.parseAndCheck(
             "/123/SpreadsheetName456/spreadsheet/dateFormatter/save/date-format-pattern%20yymmdd",
@@ -170,6 +185,21 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
                 SpreadsheetMetadataPropertyName.FROZEN_COLUMNS,
                 Optional.of(
                     SpreadsheetSelection.parseColumnRange("A:B")
+                )
+            )
+        );
+    }
+
+    @Test
+    public void testParseFrozenRows() {
+        this.parseAndCheck(
+            "/123/SpreadsheetName456/spreadsheet/frozenRows/save/1:2",
+            SpreadsheetMetadataPropertySaveHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetMetadataPropertyName.FROZEN_ROWS,
+                Optional.of(
+                    SpreadsheetSelection.parseRowRange("1:2")
                 )
             )
         );
