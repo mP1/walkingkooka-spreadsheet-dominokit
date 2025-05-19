@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.Cast;
 import walkingkooka.Value;
+import walkingkooka.color.Color;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.plugin.PluginName;
@@ -53,6 +54,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.CharacterConstant;
+import walkingkooka.text.HasText;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
 import walkingkooka.text.cursor.TextCursors;
@@ -4193,7 +4195,10 @@ public abstract class HistoryToken implements HasUrlFragment,
                                 value instanceof Locale ?
                                     // toLanguageTag = EN-AU while Locale#toString EN_AU
                                     ((Locale) value).toLanguageTag() :
-                                    value
+                                    // need to avoid Color#text which returns rgb function and not #rgb
+                                    false == value instanceof Color && value instanceof HasText ?
+                                        ((HasText) value).text() :
+                                        value
                             )
                         );
     }
