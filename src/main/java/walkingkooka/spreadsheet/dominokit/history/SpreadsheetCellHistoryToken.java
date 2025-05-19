@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.SpreadsheetUrlFragments;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
@@ -49,8 +50,10 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
     }
 
     @Override //
-    final UrlFragment anchoredSelectionUrlFragment() {
-        return this.cellUrlFragment();
+    final UrlFragment selectionUrlFragment() {
+        return SpreadsheetUrlFragments.CELL.appendSlashThen(
+            this.anchoredSelection.urlFragment()
+        ).appendSlashThen(this.cellUrlFragment());
     }
 
     abstract UrlFragment cellUrlFragment();

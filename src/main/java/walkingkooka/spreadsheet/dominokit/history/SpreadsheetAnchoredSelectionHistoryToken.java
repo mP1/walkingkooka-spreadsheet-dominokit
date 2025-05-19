@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
@@ -45,7 +44,7 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
         return this.anchoredSelection;
     }
 
-    private final AnchoredSpreadsheetSelection anchoredSelection;
+    final AnchoredSpreadsheetSelection anchoredSelection;
 
     @Override //
     final HistoryToken replaceIdAndName(final SpreadsheetId id,
@@ -60,16 +59,6 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
     abstract HistoryToken replaceIdNameAnchoredSelection(final SpreadsheetId id,
                                                          final SpreadsheetName name,
                                                          final AnchoredSpreadsheetSelection anchoredSelection);
-
-    @Override //
-    final UrlFragment selectionUrlFragment() {
-        return this.anchoredSelection.urlFragment()
-            .appendSlashThen(
-                this.anchoredSelectionUrlFragment()
-            );
-    }
-
-    abstract UrlFragment anchoredSelectionUrlFragment();
 
     // sort.............................................................................................................
 
