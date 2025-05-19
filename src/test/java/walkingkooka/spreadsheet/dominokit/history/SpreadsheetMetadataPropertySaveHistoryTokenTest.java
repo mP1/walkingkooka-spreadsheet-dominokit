@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.color.Color;
+import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -28,6 +29,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 import java.util.Optional;
 
@@ -115,6 +117,24 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
     }
 
     @Test
+    public void testUrlFragmentDecimalNumberSymbols() {
+        this.urlFragmentAndCheck(
+            SpreadsheetMetadataPropertySaveHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_SYMBOLS,
+                Optional.of(
+                    DecimalNumberSymbols.fromDecimalFormatSymbols(
+                        '+',
+                        new DecimalFormatSymbols(Locale.US)
+                    )
+                )
+            ),
+            "/123/SpreadsheetName456/spreadsheet/decimalNumberSymbols/save/-,+,0,$,.,E,%22,%22,%E2%88%9E,.,NaN,%25,%E2%80%B0"
+        );
+    }
+
+    @Test
     public void testUrlFragmentFrozenColumns() {
         this.urlFragmentAndCheck(
             SpreadsheetMetadataPropertySaveHistoryToken.with(
@@ -155,6 +175,24 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
                 Optional.of(
                     SpreadsheetPattern.parseDateFormatPattern("yymmdd")
                         .spreadsheetFormatterSelector()
+                )
+            )
+        );
+    }
+
+    @Test
+    public void testParseDecimalNumberSymbols() {
+        this.parseAndCheck(
+            "/123/SpreadsheetName456/spreadsheet/decimalNumberSymbols/save/-,+,0,$,.,E,%22,%22,%E2%88%9E,.,NaN,%25,%E2%80%B0",
+            SpreadsheetMetadataPropertySaveHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_SYMBOLS,
+                Optional.of(
+                    DecimalNumberSymbols.fromDecimalFormatSymbols(
+                        '+',
+                        new DecimalFormatSymbols(Locale.US)
+                    )
                 )
             )
         );
