@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -114,6 +115,21 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
     }
 
     @Test
+    public void testUrlFragmentFrozenColumns() {
+        this.urlFragmentAndCheck(
+            SpreadsheetMetadataPropertySaveHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetMetadataPropertyName.FROZEN_COLUMNS,
+                Optional.of(
+                    SpreadsheetSelection.parseColumnRange("A:B")
+                )
+            ),
+            "/123/SpreadsheetName456/spreadsheet/frozenColumns/save/A:B"
+        );
+    }
+
+    @Test
     public void testParseDateFormatter() {
         this.parseAndCheck(
             "/123/SpreadsheetName456/spreadsheet/dateFormatter/save/date-format-pattern%20yymmdd",
@@ -139,6 +155,21 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
                 SpreadsheetMetadataPropertyName.DEFAULT_YEAR,
                 Optional.of(
                     49
+                )
+            )
+        );
+    }
+
+    @Test
+    public void testParseFrozenColumns() {
+        this.parseAndCheck(
+            "/123/SpreadsheetName456/spreadsheet/frozenColumns/save/A:B",
+            SpreadsheetMetadataPropertySaveHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetMetadataPropertyName.FROZEN_COLUMNS,
+                Optional.of(
+                    SpreadsheetSelection.parseColumnRange("A:B")
                 )
             )
         );
