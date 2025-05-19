@@ -22,6 +22,7 @@ import walkingkooka.InvalidCharacterException;
 import walkingkooka.color.Color;
 import walkingkooka.convert.Converter;
 import walkingkooka.environment.EnvironmentValueName;
+import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.plugin.store.PluginStore;
@@ -591,6 +592,11 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public char zeroDigit() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public DecimalNumberSymbols decimalNumberSymbols() {
         throw new UnsupportedOperationException();
     }
 
