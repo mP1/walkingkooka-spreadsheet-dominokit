@@ -83,5 +83,5 @@ final class SpreadsheetToolbarComponentItemAnchorTextStyleClear extends Spreadsh
             );
     }
 
-    private static final TextStylePropertyName<Void> PROPERTY = TextStylePropertyName.ALL;
+    private static final TextStylePropertyName<Void> PROPERTY = TextStylePropertyName.WILDCARD;
 }

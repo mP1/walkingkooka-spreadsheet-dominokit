@@ -73,13 +73,13 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
     // HasUrlFragment...................................................................................................
 
     @Test
-    public void testUrlFragmentCellAll() {
+    public void testUrlFragmentCellWildcard() {
         this.urlFragmentAndCheck(
             SpreadsheetCellStyleSaveHistoryToken.with(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                TextStylePropertyName.ALL,
+                TextStylePropertyName.WILDCARD,
                 Optional.empty()
             ),
             "/123/SpreadsheetName456/cell/A1/style/*/save/"

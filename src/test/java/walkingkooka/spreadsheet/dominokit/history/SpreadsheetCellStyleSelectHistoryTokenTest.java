@@ -76,13 +76,13 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
     // urlFragment.....................................................................................................
 
     @Test
-    public void testUrlFragmentCellAll() {
+    public void testUrlFragmentCellWildcard() {
         this.urlFragmentAndCheck(
             SpreadsheetCellStyleSelectHistoryToken.with(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                TextStylePropertyName.ALL
+                TextStylePropertyName.WILDCARD
             ),
             "/123/SpreadsheetName456/cell/A1/style/*"
         );

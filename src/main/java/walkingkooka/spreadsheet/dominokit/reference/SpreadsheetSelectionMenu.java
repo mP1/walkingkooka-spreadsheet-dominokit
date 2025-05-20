@@ -406,7 +406,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                    final SpreadsheetContextMenu menu,
                                    final SpreadsheetSelectionMenuContext context) {
         menu.item(
-            historyToken.style(TextStylePropertyName.ALL)
+            historyToken.style(TextStylePropertyName.WILDCARD)
                 .clearSaveValue()
                 .contextMenuItem(
                     context.idPrefix() + "clear-style" + SpreadsheetElementIds.MENU_ITEM,
