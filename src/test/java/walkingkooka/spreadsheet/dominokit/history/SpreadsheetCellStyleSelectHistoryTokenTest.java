@@ -119,7 +119,7 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
 
     @Test
     public void testUrlFragmentAllTextStylePropertyNames() {
-        for (final TextStylePropertyName<?> propertyName : TextStylePropertyName.values()) {
+        for (final TextStylePropertyName<?> propertyName : TextStylePropertyName.VALUES) {
             final SpreadsheetCellStyleSelectHistoryToken<?> token = SpreadsheetCellStyleSelectHistoryToken.with(
                 ID,
                 NAME,
@@ -134,8 +134,22 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
     }
 
     @Test
+    public void testUrlFragmentWildcard() {
+        final SpreadsheetCellStyleSelectHistoryToken<?> token = SpreadsheetCellStyleSelectHistoryToken.with(
+            ID,
+            NAME,
+            CELL.setDefaultAnchor(),
+            TextStylePropertyName.WILDCARD
+        );
+        this.urlFragmentAndCheck(
+            token,
+            token.urlFragment()
+        );
+    }
+
+    @Test
     public void testParseAllTextStylePropertyNames() {
-        for (final TextStylePropertyName<?> propertyName : TextStylePropertyName.values()) {
+        for (final TextStylePropertyName<?> propertyName : TextStylePropertyName.VALUES) {
             final SpreadsheetCellStyleSelectHistoryToken<?> token = SpreadsheetCellStyleSelectHistoryToken.with(
                 ID,
                 NAME,
@@ -147,6 +161,20 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
                 token
             );
         }
+    }
+
+    @Test
+    public void testParseWildcard() {
+        final SpreadsheetCellStyleSelectHistoryToken<?> token = SpreadsheetCellStyleSelectHistoryToken.with(
+            ID,
+            NAME,
+            CELL.setDefaultAnchor(),
+            TextStylePropertyName.WILDCARD
+        );
+        this.parseAndCheck(
+            token.urlFragment(),
+            token
+        );
     }
 
     // clearAction......................................................................................................
