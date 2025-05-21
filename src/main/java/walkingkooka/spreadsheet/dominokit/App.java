@@ -1178,6 +1178,7 @@ public class App implements EntryPoint,
 
         try {
             this.formatterContext = metadata.spreadsheetFormatterContext(
+                SpreadsheetMetadata.NO_CELL,
                 this.viewportCache, // SpreadsheetLabelNameResolver
                 converterProvider,// ConverterProvider
                 spreadsheetFormatterProvider, // SpreadsheetFormatterProvider
