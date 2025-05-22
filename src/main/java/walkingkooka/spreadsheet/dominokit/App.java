@@ -1191,6 +1191,7 @@ public class App implements EntryPoint,
 
         try {
             this.parserContext = metadata.spreadsheetParserContext(
+                SpreadsheetMetadata.NO_CELL,
                 this // HasNow
             );
         } catch (final RuntimeException cause) {

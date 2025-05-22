@@ -307,7 +307,10 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         final SpreadsheetFindDialogComponentContext context = this.context;
         final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
 
-        return metadata.spreadsheetParserContext(context);
+        return metadata.spreadsheetParserContext(
+            SpreadsheetMetadata.NO_CELL,
+            context
+        );
     }
 
     /**
