@@ -237,7 +237,10 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                     SPREADSHEET_PARSER_PROVIDER,
                     PROVIDER_CONTEXT
                 ),
-                metadata.spreadsheetParserContext(NOW)
+                metadata.spreadsheetParserContext(
+                    SpreadsheetMetadata.NO_CELL,
+                    NOW
+                )
             )
         );
     }
@@ -281,7 +284,10 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
             SpreadsheetFormula.parse(
                 TextCursors.charSequence(text),
                 pattern.parser(),
-                METADATA.spreadsheetParserContext(NOW)
+                METADATA.spreadsheetParserContext(
+                    SpreadsheetMetadata.NO_CELL,
+                    NOW
+                )
             )
         );
     }
@@ -330,7 +336,10 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
             SpreadsheetFormula.parse(
                 TextCursors.charSequence(text),
                 pattern.parser(),
-                METADATA.spreadsheetParserContext(NOW)
+                METADATA.spreadsheetParserContext(
+                    SpreadsheetMetadata.NO_CELL,
+                    NOW
+                )
             )
         );
     }
@@ -346,7 +355,10 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                     SPREADSHEET_PARSER_PROVIDER,
                     PROVIDER_CONTEXT
                 ),
-                METADATA.spreadsheetParserContext(NOW)
+                METADATA.spreadsheetParserContext(
+                    SpreadsheetMetadata.NO_CELL,
+                    NOW
+                )
             )
         );
     }
