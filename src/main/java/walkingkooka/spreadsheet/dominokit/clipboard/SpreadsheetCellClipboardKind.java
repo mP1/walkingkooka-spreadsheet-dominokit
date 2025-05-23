@@ -590,6 +590,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
     private final static List<SpreadsheetCellClipboardKind> VALUES = Lists.of(
         CELL,
         FORMULA,
+        DATE_TIME_SYMBOLS,
         FORMATTER,
         PARSER,
         STYLE,
