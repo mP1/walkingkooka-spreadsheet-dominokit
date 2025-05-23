@@ -62,6 +62,7 @@ import walkingkooka.tree.json.JsonNode;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
+import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.List;
 import java.util.Map;
@@ -731,6 +732,17 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
             selection,
             cellToStyles,
             SpreadsheetDelta::cellsStylePatch
+        );
+    }
+
+    public void patchCellsValidator(final SpreadsheetId id,
+                                    final SpreadsheetSelection selection,
+                                    final Map<SpreadsheetCellReference, Optional<ValidatorSelector>> cellToValidators) {
+        this.patchCellsWithMap(
+            id,
+            selection,
+            cellToValidators,
+            SpreadsheetDelta::cellsValidatorPatch
         );
     }
 
