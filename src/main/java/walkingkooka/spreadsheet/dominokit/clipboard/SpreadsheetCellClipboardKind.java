@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.clipboard;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.datetime.DateTimeSymbols;
+import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.net.header.HasMediaType;
@@ -234,6 +235,57 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                 toMap(
                     range,
                     SpreadsheetCell::dateTimeSymbols
+                )
+            );
+        }
+    },
+
+    /**
+     * The clipboard value is cells to {@link DecimalNumberSymbols}.
+     */
+    DECIMAL_NUMBER_SYMBOLS(
+        DecimalNumberSymbols.class,
+        SpreadsheetCell::decimalNumberSymbols,
+        "decimalNumberSymbols"
+    ) {
+        @Override
+        JsonNode marshall(final SpreadsheetCell cell,
+                          final JsonNodeMarshallContext context) {
+            return marshallCellToOptionalValue(
+                cell,
+                cell.decimalNumberSymbols(),
+                context
+            );
+        }
+
+        @Override //
+        SpreadsheetCell unmarshall(final JsonNode node,
+                                   final AppContext context) {
+            return SpreadsheetSelection.parseCell(
+                node.name()
+                    .value()
+            ).setFormula(
+                SpreadsheetFormula.EMPTY
+            ).setDecimalNumberSymbols(
+                Optional.ofNullable(
+                    context.unmarshall(
+                        node,
+                        DecimalNumberSymbols.class
+                    )
+                )
+            );
+        }
+
+        @Override
+        public void saveOrUpdateCells(final SpreadsheetDeltaFetcher fetcher,
+                                      final SpreadsheetId id,
+                                      final SpreadsheetCellRange range) {
+            fetcher.patchCellsDecimalNumberSymbols(
+                id,
+                range.range(),
+                toMap(
+                    range,
+                    SpreadsheetCell::decimalNumberSymbols
                 )
             );
         }
@@ -591,6 +643,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
         CELL,
         FORMULA,
         DATE_TIME_SYMBOLS,
+        DECIMAL_NUMBER_SYMBOLS,
         FORMATTER,
         PARSER,
         STYLE,
