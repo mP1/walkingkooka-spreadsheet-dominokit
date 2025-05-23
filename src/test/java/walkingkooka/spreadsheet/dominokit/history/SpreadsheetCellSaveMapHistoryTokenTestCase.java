@@ -50,9 +50,8 @@ public abstract class SpreadsheetCellSaveMapHistoryTokenTestCase<T extends Sprea
                 .collect(
                     Collectors.toMap(
                         entry -> entry.getKey().toString(),
-                        entry -> MARSHALL_CONTEXT.marshall(
+                        entry -> MARSHALL_CONTEXT.marshallOptional(
                             Optional.class.cast(entry.getValue())
-                                .orElse(null)
                         )
                     )
                 )

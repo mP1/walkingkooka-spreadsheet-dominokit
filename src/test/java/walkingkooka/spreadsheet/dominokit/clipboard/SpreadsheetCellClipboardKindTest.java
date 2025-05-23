@@ -783,15 +783,15 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
 
     @Test
     public void testUnmarshallFormatter() {
-        final SpreadsheetFormatterSelector formatter = SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/dd")
-            .spreadsheetFormatterSelector();
+        final Optional<SpreadsheetFormatterSelector> formatter = Optional.of(
+            SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/dd")
+            .spreadsheetFormatterSelector()
+        );
 
         this.unmarshallAndCheck(
             SpreadsheetCellClipboardKind.FORMATTER,
-            APP_CONTEXT.marshall(formatter),
-            EMPTY_FORMULA.setFormatter(
-                Optional.of(formatter)
-            )
+            APP_CONTEXT.marshallOptional(formatter),
+            EMPTY_FORMULA.setFormatter(formatter)
         );
     }
 
@@ -806,15 +806,15 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
 
     @Test
     public void testUnmarshallParser() {
-        final SpreadsheetParserSelector parser = SpreadsheetPattern.parseDateParsePattern("yyyy/mm/dd")
-            .spreadsheetParserSelector();
+        final Optional<SpreadsheetParserSelector> parser = Optional.of(
+            SpreadsheetPattern.parseDateParsePattern("yyyy/mm/dd")
+            .spreadsheetParserSelector()
+        );
 
         this.unmarshallAndCheck(
             SpreadsheetCellClipboardKind.PARSER,
-            APP_CONTEXT.marshall(parser),
-            EMPTY_FORMULA.setParser(
-                Optional.of(parser)
-            )
+            APP_CONTEXT.marshallOptional(parser),
+            EMPTY_FORMULA.setParser(parser)
         );
     }
 
