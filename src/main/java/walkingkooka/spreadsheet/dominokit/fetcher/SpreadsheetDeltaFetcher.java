@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 import walkingkooka.collect.iterable.Iterables;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.datetime.DateTimeSymbols;
+import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.UrlPath;
@@ -653,11 +654,11 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         // GET /api/spreadsheet/{SpreadsheetId}/label/*?offset=1&count=1
         this.get(
             SpreadsheetMetadataFetcher.url(
-                    id
-                ).appendPath(
-                    UrlPath.EMPTY.append(
-                        SpreadsheetHateosResourceNames.LABEL.toUrlPathName()
-                    ).append(UrlPathName.WILDCARD)
+                id
+            ).appendPath(
+                UrlPath.EMPTY.append(
+                    SpreadsheetHateosResourceNames.LABEL.toUrlPathName()
+                ).append(UrlPathName.WILDCARD)
             ).setQuery(
                 offsetAndCountQueryString(
                     offset,
@@ -686,6 +687,17 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
             selection,
             cellToDateTimeSymbols,
             SpreadsheetDelta::cellsDateTimeSymbolsPatch
+        );
+    }
+
+    public void patchCellsDecimalNumberSymbols(final SpreadsheetId id,
+                                               final SpreadsheetSelection selection,
+                                               final Map<SpreadsheetCellReference, Optional<DecimalNumberSymbols>> cellToDecimalNumberSymbols) {
+        this.patchCellsWithMap(
+            id,
+            selection,
+            cellToDecimalNumberSymbols,
+            SpreadsheetDelta::cellsDecimalNumberSymbolsPatch
         );
     }
 
