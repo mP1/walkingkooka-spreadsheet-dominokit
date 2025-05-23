@@ -46,6 +46,7 @@ import walkingkooka.tree.json.JsonPropertyName;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
+import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Arrays;
 import java.util.List;
@@ -478,6 +479,57 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                                       final SpreadsheetCellRange range) {
             throw new UnsupportedOperationException("Pasting formattedValue not supported");
         }
+    },
+
+    /**
+     * The clipboard value is a cells to {@link ValidatorSelector}.
+     */
+    VALIDATOR(
+        ValidatorSelector.class,
+        SpreadsheetCell::validator,
+        "validator"
+    ) {
+        @Override
+        JsonNode marshall(final SpreadsheetCell cell,
+                          final JsonNodeMarshallContext context) {
+            return marshallCellToOptionalValue(
+                cell,
+                cell.validator(),
+                context
+            );
+        }
+
+        @Override //
+        SpreadsheetCell unmarshall(final JsonNode node,
+                                   final AppContext context) {
+            return SpreadsheetSelection.parseCell(
+                node.name()
+                    .value()
+            ).setFormula(
+                SpreadsheetFormula.EMPTY
+            ).setValidator(
+                Optional.ofNullable(
+                    context.unmarshall(
+                        node,
+                        ValidatorSelector.class
+                    )
+                )
+            );
+        }
+
+        @Override
+        public void saveOrUpdateCells(final SpreadsheetDeltaFetcher fetcher,
+                                      final SpreadsheetId id,
+                                      final SpreadsheetCellRange range) {
+            fetcher.patchCellsValidator(
+                id,
+                range.range(),
+                toMap(
+                    range,
+                    SpreadsheetCell::validator
+                )
+            );
+        }
     };
 
     private static JsonNode marshallCellToOptionalValue(final SpreadsheetCell cell,
@@ -647,6 +699,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
         FORMATTER,
         PARSER,
         STYLE,
-        FORMATTED_VALUE
+        FORMATTED_VALUE,
+        VALIDATOR
     );
 }
