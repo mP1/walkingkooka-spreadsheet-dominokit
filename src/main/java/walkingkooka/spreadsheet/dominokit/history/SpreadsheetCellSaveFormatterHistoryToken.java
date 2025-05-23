@@ -95,9 +95,7 @@ public final class SpreadsheetCellSaveFormatterHistoryToken extends SpreadsheetC
 
     @Override
     JsonNode saveValueUrlFragmentValueToJson(final Optional<SpreadsheetFormatterSelector> value) {
-        return MARSHALL_CONTEXT.marshall(
-            value.orElse(null)
-        );
+        return MARSHALL_CONTEXT.marshallOptional(value);
     }
 
     // HistoryTokenWatcher..............................................................................................

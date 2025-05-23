@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.clipboard;
 
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
+import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.net.header.HasMediaType;
@@ -182,6 +183,57 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                 toMap(
                     range,
                     SpreadsheetCell::formula
+                )
+            );
+        }
+    },
+
+    /**
+     * The clipboard value is cells to {@link walkingkooka.datetime.DateTimeSymbols}.
+     */
+    DATE_TIME_SYMBOLS(
+        DateTimeSymbols.class,
+        SpreadsheetCell::dateTimeSymbols,
+        "dateTimeSymbols"
+    ) {
+        @Override
+        JsonNode marshall(final SpreadsheetCell cell,
+                          final JsonNodeMarshallContext context) {
+            return marshallCellToOptionalValue(
+                cell,
+                cell.dateTimeSymbols(),
+                context
+            );
+        }
+
+        @Override //
+        SpreadsheetCell unmarshall(final JsonNode node,
+                                   final AppContext context) {
+            return SpreadsheetSelection.parseCell(
+                node.name()
+                    .value()
+            ).setFormula(
+                SpreadsheetFormula.EMPTY
+            ).setDateTimeSymbols(
+                Optional.ofNullable(
+                    context.unmarshall(
+                        node,
+                        DateTimeSymbols.class
+                    )
+                )
+            );
+        }
+
+        @Override
+        public void saveOrUpdateCells(final SpreadsheetDeltaFetcher fetcher,
+                                      final SpreadsheetId id,
+                                      final SpreadsheetCellRange range) {
+            fetcher.patchCellsDateTimeSymbols(
+                id,
+                range.range(),
+                toMap(
+                    range,
+                    SpreadsheetCell::dateTimeSymbols
                 )
             );
         }

@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.collect.iterable.Iterables;
 import walkingkooka.collect.set.Sets;
+import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.UrlPath;
@@ -674,6 +675,17 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
             selection,
             cellToFormulas,
             SpreadsheetDelta::cellsFormulaPatch
+        );
+    }
+
+    public void patchCellsDateTimeSymbols(final SpreadsheetId id,
+                                          final SpreadsheetSelection selection,
+                                          final Map<SpreadsheetCellReference, Optional<DateTimeSymbols>> cellToDateTimeSymbols) {
+        this.patchCellsWithMap(
+            id,
+            selection,
+            cellToDateTimeSymbols,
+            SpreadsheetDelta::cellsDateTimeSymbolsPatch
         );
     }
 
