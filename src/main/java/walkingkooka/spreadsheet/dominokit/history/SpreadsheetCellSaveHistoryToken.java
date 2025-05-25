@@ -99,17 +99,17 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
         );
     }
 
-    static <VV> Map<SpreadsheetCellReference, VV> parseMapWithNullableTypedValues(final TextCursor cursor) {
-        final Map<SpreadsheetCellReference, VV> values = Maps.sorted();
+    static <VV> Map<SpreadsheetCellReference, Optional<VV>> parseCellToOptionalMap(final TextCursor cursor,
+                                                                                   final Class<VV> optionalValueType) {
+        final Map<SpreadsheetCellReference, Optional<VV>> values = Maps.sorted();
 
         for (final JsonNode keyAndValue : JsonNode.parse(parseAll(cursor))
             .objectOrFail().children()) {
             values.put(
                 SpreadsheetSelection.parseCell(keyAndValue.name().value()),
-                (VV) Optional.ofNullable(
-                    UNMARSHALL_CONTEXT.unmarshallWithType(
-                        keyAndValue
-                    )
+                UNMARSHALL_CONTEXT.unmarshallOptional(
+                    keyAndValue,
+                    optionalValueType
                 )
             );
         }

@@ -17,10 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.text.TextStyle;
@@ -104,13 +107,25 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                     )
                 );
                 break;
+            case DATE_TIME_SYMBOLS_STRING:
+                result = cellSaveDateTimeSymbols(
+                    this.id(),
+                    this.name(),
+                    this.anchoredSelection(),
+                    SpreadsheetCellSaveHistoryToken.parseCellToOptionalMap(
+                        cursor,
+                        DateTimeSymbols.class
+                    )
+                );
+                break;
             case FORMATTER_STRING:
                 result = cellSaveFormatter(
                     this.id(),
                     this.name(),
                     this.anchoredSelection(),
-                    SpreadsheetCellSaveHistoryToken.parseMapWithNullableTypedValues(
-                        cursor
+                    SpreadsheetCellSaveHistoryToken.parseCellToOptionalMap(
+                        cursor,
+                        SpreadsheetFormatterSelector.class
                     )
                 );
                 break;
@@ -130,8 +145,9 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                     this.id(),
                     this.name(),
                     this.anchoredSelection(),
-                    SpreadsheetCellSaveHistoryToken.parseMapWithNullableTypedValues(
-                        cursor
+                    SpreadsheetCellSaveHistoryToken.parseCellToOptionalMap(
+                        cursor,
+                        SpreadsheetParserSelector.class
                     )
                 );
                 break;
