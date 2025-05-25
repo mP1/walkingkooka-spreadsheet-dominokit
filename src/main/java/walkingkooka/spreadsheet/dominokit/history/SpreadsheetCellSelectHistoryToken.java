@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.datetime.DateTimeSymbols;
+import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -115,6 +116,17 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                     SpreadsheetCellSaveHistoryToken.parseCellToOptionalMap(
                         cursor,
                         DateTimeSymbols.class
+                    )
+                );
+                break;
+            case DECIMAL_NUMBER_SYMBOLS_STRING:
+                result = cellSaveDecimalNumberSymbols(
+                    this.id(),
+                    this.name(),
+                    this.anchoredSelection(),
+                    SpreadsheetCellSaveHistoryToken.parseCellToOptionalMap(
+                        cursor,
+                        DecimalNumberSymbols.class
                     )
                 );
                 break;

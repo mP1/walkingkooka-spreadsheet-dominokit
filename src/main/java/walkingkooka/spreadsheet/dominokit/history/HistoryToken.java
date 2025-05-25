@@ -699,6 +699,21 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
+     * {@see SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken}
+     */
+    public static SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken cellSaveDecimalNumberSymbols(final SpreadsheetId id,
+                                                                                                   final SpreadsheetName name,
+                                                                                                   final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                                                   final Map<SpreadsheetCellReference, Optional<DecimalNumberSymbols>> value) {
+        return SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken.with(
+            id,
+            name,
+            anchoredSelection,
+            value
+        );
+    }
+
+    /**
      * {@see SpreadsheetCellSaveFormatterHistoryToken}
      */
     public static SpreadsheetCellSaveFormatterHistoryToken cellSaveFormatter(final SpreadsheetId id,
@@ -3576,11 +3591,12 @@ public abstract class HistoryToken implements HasUrlFragment,
                                 final Map<?, ?> map = Cast.to(valueOrNull);
                                 if (false == map.isEmpty()) {
                                     final int cssSaveDateTimeSymbols = 1;
-                                    final int cssSaveFormatter = 2;
-                                    final int cssSaveFormula = 4;
-                                    final int cssSaveParser = 8;
-                                    final int cssSaveStyle = 16;
-                                    int cellSaveMode = cssSaveDateTimeSymbols | cssSaveFormatter | cssSaveFormula | cssSaveParser | cssSaveStyle;
+                                    final int cssSaveDecimalNumberSymbols = 2;
+                                    final int cssSaveFormatter = 4;
+                                    final int cssSaveFormula = 8;
+                                    final int cssSaveParser = 16;
+                                    final int cssSaveStyle = 32;
+                                    int cellSaveMode = cssSaveDateTimeSymbols | cssSaveDecimalNumberSymbols | cssSaveFormatter | cssSaveFormula | cssSaveParser | cssSaveStyle;
 
                                     for (final Object mapValue : map.values()) {
                                         // ignore nulls
@@ -3591,13 +3607,17 @@ public abstract class HistoryToken implements HasUrlFragment,
                                                 if(mapValueOptionalValue instanceof DateTimeSymbols) {
                                                     cellSaveMode = cssSaveDateTimeSymbols & cellSaveMode;
                                                 } else {
-                                                    if (mapValueOptionalValue instanceof SpreadsheetFormatterSelector) {
-                                                        cellSaveMode = cssSaveFormatter & cellSaveMode;
+                                                    if(mapValueOptionalValue instanceof DecimalNumberSymbols) {
+                                                        cellSaveMode = cssSaveDecimalNumberSymbols & cellSaveMode;
                                                     } else {
-                                                        if (mapValueOptionalValue instanceof SpreadsheetParserSelector) {
-                                                            cellSaveMode = cssSaveParser & cellSaveMode;
+                                                        if (mapValueOptionalValue instanceof SpreadsheetFormatterSelector) {
+                                                            cellSaveMode = cssSaveFormatter & cellSaveMode;
                                                         } else {
-                                                            cellSaveMode = 0;
+                                                            if (mapValueOptionalValue instanceof SpreadsheetParserSelector) {
+                                                                cellSaveMode = cssSaveParser & cellSaveMode;
+                                                            } else {
+                                                                cellSaveMode = 0;
+                                                            }
                                                         }
                                                     }
                                                 }
@@ -3622,6 +3642,14 @@ public abstract class HistoryToken implements HasUrlFragment,
                                     switch (cellSaveMode) {
                                         case cssSaveDateTimeSymbols:
                                             historyToken = HistoryToken.cellSaveDateTimeSymbols(
+                                                id,
+                                                name,
+                                                spreadsheetSelection,
+                                                Cast.to(valueOrNull)
+                                            );
+                                            break;
+                                        case cssSaveDecimalNumberSymbols:
+                                            historyToken = HistoryToken.cellSaveDecimalNumberSymbols(
                                                 id,
                                                 name,
                                                 spreadsheetSelection,
