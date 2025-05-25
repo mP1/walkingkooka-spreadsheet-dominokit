@@ -918,7 +918,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
             ).setQuery(
                 this.context.viewportAndWindowQueryString()
             ),
-            this.toJson(delta)
+            this.requestBody(delta)
         );
     }
 
@@ -926,7 +926,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                             final JsonNode delta) {
         this.patch(
             url,
-            this.toJson(delta)
+            this.requestBody(delta)
         );
     }
 
@@ -934,7 +934,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                             final SpreadsheetDelta delta) {
         this.patch(
             url,
-            this.toJson(delta)
+            this.requestBody(delta)
         );
     }
 
@@ -942,7 +942,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                            final SpreadsheetDelta delta) {
         this.post(
             url,
-            this.toJson(delta)
+            this.requestBody(delta)
         );
     }
 
