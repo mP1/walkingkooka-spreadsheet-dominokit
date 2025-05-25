@@ -867,15 +867,9 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                                       final SpreadsheetSelection selection,
                                       final TextStylePropertyName<T> name,
                                       final Optional<T> value) {
-        final AppContext context = this.context;
-
-        this.patchDelta(
-            url(
-                id,
-                selection
-            ).setQuery(
-                context.viewportAndWindowQueryString()
-            ),
+        this.patchDeltaWithViewportAndWindowQueryString(
+            id,
+            selection,
             SpreadsheetDelta.stylePatch(
                 name.stylePatch(
                     value.orElse(null)
