@@ -59,7 +59,6 @@ import walkingkooka.spreadsheet.server.delta.SpreadsheetDeltaUrlQueryParameters;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
-import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.provider.ValidatorSelector;
@@ -69,7 +68,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
-import java.util.function.BiFunction;
 
 /**
  * A Fetcher (yes as in the WindowResizeWatcher's fetch object) that provides numerous CRUD and PATCH operations for a {@link SpreadsheetDelta}.
@@ -672,92 +670,90 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     public void patchCellsFormula(final SpreadsheetId id,
                                   final SpreadsheetSelection selection,
                                   final Map<SpreadsheetCellReference, SpreadsheetFormula> cellToFormulas) {
-        this.patchCellsWithMap(
+        this.patchDeltaWithViewportAndWindowQueryString(
             id,
             selection,
-            cellToFormulas,
-            SpreadsheetDelta::cellsFormulaPatch
+            SpreadsheetDelta.cellsFormulaPatch(
+                cellToFormulas,
+                this.context
+            )
         );
     }
 
     public void patchCellsDateTimeSymbols(final SpreadsheetId id,
                                           final SpreadsheetSelection selection,
                                           final Map<SpreadsheetCellReference, Optional<DateTimeSymbols>> cellToDateTimeSymbols) {
-        this.patchCellsWithMap(
+        this.patchDeltaWithViewportAndWindowQueryString(
             id,
             selection,
-            cellToDateTimeSymbols,
-            SpreadsheetDelta::cellsDateTimeSymbolsPatch
+            SpreadsheetDelta.cellsDateTimeSymbolsPatch(
+                cellToDateTimeSymbols,
+                this.context
+            )
         );
     }
 
     public void patchCellsDecimalNumberSymbols(final SpreadsheetId id,
                                                final SpreadsheetSelection selection,
                                                final Map<SpreadsheetCellReference, Optional<DecimalNumberSymbols>> cellToDecimalNumberSymbols) {
-        this.patchCellsWithMap(
+        this.patchDeltaWithViewportAndWindowQueryString(
             id,
             selection,
-            cellToDecimalNumberSymbols,
-            SpreadsheetDelta::cellsDecimalNumberSymbolsPatch
+            SpreadsheetDelta.cellsDecimalNumberSymbolsPatch(
+                cellToDecimalNumberSymbols,
+                this.context
+            )
         );
     }
 
     public void patchCellsFormatter(final SpreadsheetId id,
                                     final SpreadsheetSelection selection,
                                     final Map<SpreadsheetCellReference, Optional<SpreadsheetFormatterSelector>> cellToFormatters) {
-        this.patchCellsWithMap(
+        this.patchDeltaWithViewportAndWindowQueryString(
             id,
             selection,
-            cellToFormatters,
-            SpreadsheetDelta::cellsFormatterPatch
+            SpreadsheetDelta.cellsFormatterPatch(
+                cellToFormatters,
+                this.context
+            )
         );
     }
 
     public void patchCellsParser(final SpreadsheetId id,
                                  final SpreadsheetSelection selection,
                                  final Map<SpreadsheetCellReference, Optional<SpreadsheetParserSelector>> cellToParsers) {
-        this.patchCellsWithMap(
+        this.patchDeltaWithViewportAndWindowQueryString(
             id,
             selection,
-            cellToParsers,
-            SpreadsheetDelta::cellsParserPatch
+            SpreadsheetDelta.cellsParserPatch(
+                cellToParsers,
+                this.context
+            )
         );
     }
 
     public void patchCellsStyle(final SpreadsheetId id,
                                 final SpreadsheetSelection selection,
                                 final Map<SpreadsheetCellReference, TextStyle> cellToStyles) {
-        this.patchCellsWithMap(
+        this.patchDeltaWithViewportAndWindowQueryString(
             id,
             selection,
-            cellToStyles,
-            SpreadsheetDelta::cellsStylePatch
+            SpreadsheetDelta.cellsStylePatch(
+                cellToStyles,
+                this.context
+            )
         );
     }
 
     public void patchCellsValidator(final SpreadsheetId id,
                                     final SpreadsheetSelection selection,
                                     final Map<SpreadsheetCellReference, Optional<ValidatorSelector>> cellToValidators) {
-        this.patchCellsWithMap(
-            id,
-            selection,
-            cellToValidators,
-            SpreadsheetDelta::cellsValidatorPatch
-        );
-    }
-
-    private <T> void patchCellsWithMap(final SpreadsheetId id,
-                                       final SpreadsheetSelection selection,
-                                       final Map<SpreadsheetCellReference, T> cellToStyles,
-                                       final BiFunction<Map<SpreadsheetCellReference, T>, JsonNodeMarshallContext, JsonNode> patcher) {
-        final AppContext context = this.context;
-
         this.patchDeltaWithViewportAndWindowQueryString(
             id,
             selection,
-            patcher.apply(
-                cellToStyles,
-                context
+            SpreadsheetDelta.cellsValidatorPatch(
+                cellToValidators,
+                this.context
             )
         );
     }
