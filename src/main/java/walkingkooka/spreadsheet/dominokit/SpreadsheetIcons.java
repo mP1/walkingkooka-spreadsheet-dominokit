@@ -170,7 +170,7 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
     }
 
     public static MdiIcon dateTimeSymbols() {
-        return Icons.calendar_text();
+        return Icons.earth();
     }
 
     public static MdiIcon decimalNumberSymbols() {
