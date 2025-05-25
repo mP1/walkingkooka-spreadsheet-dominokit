@@ -71,6 +71,15 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
     }
 
     /**
+     * {@see SpreadsheetToolbarComponentItemAnchorDecimalNumberSymbols}
+     */
+    static SpreadsheetToolbarComponentItem<?> decimalNumberSymbols(final SpreadsheetToolbarComponentContext context) {
+        return SpreadsheetToolbarComponentItemAnchorDecimalNumberSymbols.with(
+            context
+        );
+    }
+
+    /**
      * {@see SpreadsheetToolbarComponentItemLinkCellFind}
      */
     static SpreadsheetToolbarComponentItem<?> findCells(final SpreadsheetToolbarComponentContext context) {

@@ -216,6 +216,9 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-format-text \"Parsing\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/parser] id=toolbar-parser-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Parser(s)...\"\n" +
+                "      mdi-earth \"DecimalNumberSymbols\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/decimalNumberSymbols] id=toolbar-decimal-number-symbols-Link\n" +
+                "        SpreadsheetTooltipComponent\n" +
+                "          \"DecimalNumberSymbols...\"\n" +
                 "      mdi-format-clear \"Clear styling\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/*/save/] CHECKED id=toolbar-*-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Clear styling\"\n" +

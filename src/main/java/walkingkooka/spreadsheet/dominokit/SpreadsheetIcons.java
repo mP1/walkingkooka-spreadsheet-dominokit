@@ -173,6 +173,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.calendar_text();
     }
 
+    public static MdiIcon decimalNumberSymbols() {
+        return Icons.earth();
+    }
+
     public static MdiIcon formatter() {
         return Icons.format_text();
     }
