@@ -847,6 +847,21 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
+    public <T> void patchStyleProperty(final SpreadsheetId id,
+                                       final SpreadsheetSelection selection,
+                                       final TextStylePropertyName<T> name,
+                                       final Optional<T> value) {
+        this.patchDeltaWithViewportAndWindowQueryString(
+            id,
+            selection,
+            SpreadsheetDelta.stylePatch(
+                name.stylePatch(
+                    value.orElse(null)
+                )
+            )
+        );
+    }
+
     public void saveCells(final SpreadsheetId id,
                           final SpreadsheetSelection selection,
                           final Set<SpreadsheetCell> cells) {
@@ -860,21 +875,6 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                 context.viewportAndWindowQueryString()
             ),
             SpreadsheetDelta.EMPTY.setCells(cells)
-        );
-    }
-
-    public <T> void saveStyleProperty(final SpreadsheetId id,
-                                      final SpreadsheetSelection selection,
-                                      final TextStylePropertyName<T> name,
-                                      final Optional<T> value) {
-        this.patchDeltaWithViewportAndWindowQueryString(
-            id,
-            selection,
-            SpreadsheetDelta.stylePatch(
-                name.stylePatch(
-                    value.orElse(null)
-                )
-            )
         );
     }
 
