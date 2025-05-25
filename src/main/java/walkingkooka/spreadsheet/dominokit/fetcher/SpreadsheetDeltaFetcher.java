@@ -783,6 +783,9 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
+    /**
+     * Performs a PATCH on the formula text for the given selection, leaving all other cell properties unchanged.
+     */
     public void patchFormulaText(final SpreadsheetId id,
                                  final SpreadsheetSelection selection,
                                  final String formulaText) {
