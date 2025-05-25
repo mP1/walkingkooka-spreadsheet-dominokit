@@ -169,6 +169,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.content_cut();
     }
 
+    public static MdiIcon dateTimeSymbols() {
+        return Icons.calendar_text();
+    }
+
     public static MdiIcon formatter() {
         return Icons.format_text();
     }

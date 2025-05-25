@@ -210,6 +210,9 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-format-text \"Formatting\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/formatter] id=toolbar-formatter-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Formatting...\"\n" +
+                "      mdi-calendar-text \"DateTimeSymbols\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/dateTimeSymbols] id=toolbar-dateTimeSymbols-Link\n" +
+                "        SpreadsheetTooltipComponent\n" +
+                "          \"DateTimeSymbols...\"\n" +
                 "      mdi-format-text \"Parsing\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/parser] id=toolbar-parser-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Parser(s)...\"\n" +
