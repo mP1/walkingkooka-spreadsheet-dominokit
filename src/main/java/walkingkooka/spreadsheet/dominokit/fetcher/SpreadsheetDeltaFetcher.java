@@ -807,6 +807,8 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
             url(
                 id,
                 selection
+            ).setQuery(
+                context.viewportAndWindowQueryString()
             ),
             SpreadsheetDelta.parserPatch(
                 parser,
