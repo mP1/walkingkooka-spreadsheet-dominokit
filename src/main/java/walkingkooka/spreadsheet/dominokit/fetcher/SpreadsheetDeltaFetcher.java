@@ -783,6 +783,33 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
+    public void patchFormulaText(final SpreadsheetId id,
+                                 final SpreadsheetSelection selection,
+                                 final String formulaText) {
+        final AppContext context = this.context;
+
+        // PATCH cell with new formula
+        this.patchDelta(
+            url(
+                id,
+                selection
+            ).setQuery(
+                context.viewportAndWindowQueryString()
+            ),
+            SpreadsheetDelta.EMPTY.setCells(
+                Sets.of(
+                    context.resolveIfLabel(selection)
+                        .toCell()
+                        .setFormula(
+                            SpreadsheetFormula.EMPTY.setText(
+                                formulaText
+                            )
+                        )
+                )
+            )
+        );
+    }
+
     public void patchFormatter(final SpreadsheetId id,
                                final SpreadsheetSelection selection,
                                final Optional<SpreadsheetFormatterSelector> formatter) {
@@ -844,33 +871,6 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                 context.viewportAndWindowQueryString()
             ),
             SpreadsheetDelta.EMPTY.setCells(cells)
-        );
-    }
-
-    public void saveFormulaText(final SpreadsheetId id,
-                                final SpreadsheetSelection selection,
-                                final String formulaText) {
-        final AppContext context = this.context;
-
-        // PATCH cell with new formula
-        this.patchDelta(
-            url(
-                id,
-                selection
-            ).setQuery(
-                context.viewportAndWindowQueryString()
-            ),
-            SpreadsheetDelta.EMPTY.setCells(
-                Sets.of(
-                    context.resolveIfLabel(selection)
-                        .toCell()
-                        .setFormula(
-                            SpreadsheetFormula.EMPTY.setText(
-                                formulaText
-                            )
-                        )
-                )
-            )
         );
     }
 
