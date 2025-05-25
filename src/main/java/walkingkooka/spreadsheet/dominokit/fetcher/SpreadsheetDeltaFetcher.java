@@ -874,25 +874,6 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
-    public void saveParser(final SpreadsheetId id,
-                           final SpreadsheetSelection selection,
-                           final Optional<SpreadsheetParserSelector> parser) {
-        final AppContext context = this.context;
-
-        this.patchDelta(
-            url(
-                id,
-                selection
-            ).setQuery(
-                context.viewportAndWindowQueryString()
-            ),
-            SpreadsheetDelta.parserPatch(
-                parser,
-                context
-            )
-        );
-    }
-
     public <T> void saveStyleProperty(final SpreadsheetId id,
                                       final SpreadsheetSelection selection,
                                       final TextStylePropertyName<T> name,
