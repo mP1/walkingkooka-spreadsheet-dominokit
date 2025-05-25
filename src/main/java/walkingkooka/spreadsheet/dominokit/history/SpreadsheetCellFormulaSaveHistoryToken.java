@@ -99,7 +99,7 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
         context.pushHistoryToken(previous);
 
         context.spreadsheetDeltaFetcher()
-            .saveFormulaText(
+            .patchFormulaText(
                 this.id(),
                 this.anchoredSelection().selection(),
                 this.text
