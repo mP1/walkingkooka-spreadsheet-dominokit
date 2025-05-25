@@ -752,18 +752,12 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                                        final BiFunction<Map<SpreadsheetCellReference, T>, JsonNodeMarshallContext, JsonNode> patcher) {
         final AppContext context = this.context;
 
-        this.post(
-            url(
-                id,
-                selection
-            ).setQuery(
-                context.viewportAndWindowQueryString()
-            ),
-            FetcherRequestBody.string(
-                patcher.apply(
-                    cellToStyles,
-                    this.context
-                ).toString()
+        this.patchDeltaWithViewportAndWindowQueryString(
+            id,
+            selection,
+            patcher.apply(
+                cellToStyles,
+                context
             )
         );
     }
