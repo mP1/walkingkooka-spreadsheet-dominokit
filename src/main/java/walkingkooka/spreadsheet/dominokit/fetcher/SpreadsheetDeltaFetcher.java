@@ -790,6 +790,8 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
             url(
                 id,
                 selection
+            ).setQuery(
+                context.viewportAndWindowQueryString()
             ),
             SpreadsheetDelta.formatterPatch(
                 formatter,
