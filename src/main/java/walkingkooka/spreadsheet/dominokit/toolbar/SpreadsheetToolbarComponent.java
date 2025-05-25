@@ -139,7 +139,7 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
             SpreadsheetToolbarComponentItem.textCaseLowercase(context),
             SpreadsheetToolbarComponentItem.textCaseUppercase(context),
             // format/pattern
-            SpreadsheetToolbarComponentItem.formatPattern(context),
+            SpreadsheetToolbarComponentItem.formatter(context),
             SpreadsheetToolbarComponentItem.dateTimeSymbols(context),
             SpreadsheetToolbarComponentItem.parsePattern(context),
             // clear
