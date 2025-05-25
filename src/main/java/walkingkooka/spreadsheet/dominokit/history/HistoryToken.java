@@ -21,6 +21,7 @@ import walkingkooka.Cast;
 import walkingkooka.Value;
 import walkingkooka.color.Color;
 import walkingkooka.datetime.DateTimeSymbols;
+import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.plugin.PluginName;
@@ -154,6 +155,10 @@ public abstract class HistoryToken implements HasUrlFragment,
     final static String CUT_STRING = "cut";
 
     final static UrlFragment CUT = UrlFragment.parse(CUT_STRING);
+
+    final static String DECIMAL_NUMBER_SYMBOLS_STRING = "decimalNumberSymbols";
+
+    final static UrlFragment DECIMAL_NUMBER_SYMBOLS = UrlFragment.parse(DECIMAL_NUMBER_SYMBOLS_STRING);
 
     final static String DELETE_STRING = "delete";
 
@@ -368,6 +373,47 @@ public abstract class HistoryToken implements HasUrlFragment,
                                                                                                  final SpreadsheetName name,
                                                                                                  final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellDateTimeSymbolsUnselectHistoryToken.with(
+            id,
+            name,
+            anchoredSelection
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken}
+     */
+    public static SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken cellDecimalNumberSymbolsSave(final SpreadsheetId id,
+                                                                                                   final SpreadsheetName name,
+                                                                                                   final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                                                   final Optional<DecimalNumberSymbols> decimalNumberSymbols) {
+        return SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken.with(
+            id,
+            name,
+            anchoredSelection,
+            decimalNumberSymbols
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellDecimalNumberSymbolsSelectHistoryToken}
+     */
+    public static SpreadsheetCellDecimalNumberSymbolsSelectHistoryToken cellDecimalNumberSymbolsSelect(final SpreadsheetId id,
+                                                                                                       final SpreadsheetName name,
+                                                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
+        return SpreadsheetCellDecimalNumberSymbolsSelectHistoryToken.with(
+            id,
+            name,
+            anchoredSelection
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellDecimalNumberSymbolsUnselectHistoryToken}
+     */
+    public static SpreadsheetCellDecimalNumberSymbolsUnselectHistoryToken cellDecimalNumberSymbolsUnselect(final SpreadsheetId id,
+                                                                                                           final SpreadsheetName name,
+                                                                                                           final AnchoredSpreadsheetSelection anchoredSelection) {
+        return SpreadsheetCellDecimalNumberSymbolsUnselectHistoryToken.with(
             id,
             name,
             anchoredSelection
@@ -636,7 +682,7 @@ public abstract class HistoryToken implements HasUrlFragment,
             value
         );
     }
-    
+
     /**
      * {@see SpreadsheetCellSaveFormatterHistoryToken}
      */
@@ -1862,7 +1908,27 @@ public abstract class HistoryToken implements HasUrlFragment,
                 dateTimeSymbols.anchoredSelection()
             );
         }
-        
+
+        if (this instanceof SpreadsheetCellDecimalNumberSymbolsSelectHistoryToken) {
+            final SpreadsheetCellDecimalNumberSymbolsSelectHistoryToken decimalNumberSymbols = (SpreadsheetCellDecimalNumberSymbolsSelectHistoryToken) this;
+
+            closed = cellSelect(
+                decimalNumberSymbols.id(),
+                decimalNumberSymbols.name(),
+                decimalNumberSymbols.anchoredSelection()
+            );
+        }
+
+        if (this instanceof SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken) {
+            final SpreadsheetCellDecimalNumberSymbolsHistoryToken decimalNumberSymbols = (SpreadsheetCellDecimalNumberSymbolsHistoryToken) this;
+
+            closed = cellDecimalNumberSymbolsSelect(
+                decimalNumberSymbols.id(),
+                decimalNumberSymbols.name(),
+                decimalNumberSymbols.anchoredSelection()
+            );
+        }
+
         if (this instanceof SpreadsheetCellFormatterSelectHistoryToken) {
             final SpreadsheetCellFormatterSelectHistoryToken formatter = (SpreadsheetCellFormatterSelectHistoryToken) this;
 
@@ -2130,7 +2196,10 @@ public abstract class HistoryToken implements HasUrlFragment,
                 this.cast(PluginNameHistoryToken.class).name()
             );
         } else {
-            if (this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken || this instanceof SpreadsheetCellFormatterHistoryToken || this instanceof SpreadsheetCellParserHistoryToken) {
+            if (this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken ||
+                this instanceof SpreadsheetCellDecimalNumberSymbolsHistoryToken ||
+                this instanceof SpreadsheetCellFormatterHistoryToken ||
+                this instanceof SpreadsheetCellParserHistoryToken) {
                 historyToken = this.clearSaveValue();
             } else {
                 if (this instanceof SpreadsheetCellHistoryToken && false == this instanceof SpreadsheetCellLabelHistoryToken) {
@@ -2193,6 +2262,28 @@ public abstract class HistoryToken implements HasUrlFragment,
             final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
 
             historyToken = HistoryToken.cellDateTimeSymbolsSelect(
+                cell.id(),
+                cell.name(),
+                cell.anchoredSelection()
+            );
+
+        } else {
+            historyToken = this;
+        }
+
+        return historyToken;
+    }
+
+    /**
+     * If possible selects a {@link DecimalNumberSymbols} {@link HistoryToken}.
+     */
+    public final HistoryToken decimalNumberSymbols() {
+        HistoryToken historyToken;
+
+        if (this instanceof SpreadsheetCellSelectHistoryToken || this instanceof SpreadsheetCellMenuHistoryToken) {
+            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
+
+            historyToken = HistoryToken.cellDecimalNumberSymbolsSelect(
                 cell.id(),
                 cell.name(),
                 cell.anchoredSelection()
@@ -3563,7 +3654,20 @@ public abstract class HistoryToken implements HasUrlFragment,
                             Cast.to(value)
                         );
                     }
-                    
+
+                    if (this instanceof SpreadsheetCellDecimalNumberSymbolsHistoryToken) {
+                        if (null != valueOrNull && false == valueOrNull instanceof DecimalNumberSymbols) {
+                            throw new IllegalArgumentException("Invalid value");
+                        }
+
+                        historyToken = HistoryToken.cellDecimalNumberSymbolsSave(
+                            id,
+                            name,
+                            spreadsheetSelection,
+                            Cast.to(value)
+                        );
+                    }
+
                     if (this instanceof SpreadsheetCellFormatterHistoryToken) {
                         if (null != valueOrNull && false == valueOrNull instanceof SpreadsheetFormatterSelector) {
                             throw new IllegalArgumentException("Invalid value");
@@ -3779,106 +3883,122 @@ public abstract class HistoryToken implements HasUrlFragment,
                                         );
                                     }
                                 } else {
-                                    if (this instanceof SpreadsheetCellFormatterHistoryToken) {
-                                        if (false == this instanceof SpreadsheetCellFormatterUnselectHistoryToken) {
-                                            saved = HistoryToken.cellFormatterSave(
+                                    if (this instanceof SpreadsheetCellDecimalNumberSymbolsHistoryToken) {
+                                        if (false == this instanceof SpreadsheetCellDecimalNumberSymbolsUnselectHistoryToken) {
+                                            saved = HistoryToken.cellDecimalNumberSymbolsSave(
                                                 id,
                                                 name,
                                                 anchoredSpreadsheetSelection,
                                                 Optional.ofNullable(
                                                     value.isEmpty() ?
                                                         null :
-                                                        SpreadsheetFormatterSelector.parse(value)
+                                                        DecimalNumberSymbols.parse(value)
                                                 )
                                             );
                                         }
                                     } else {
-                                        if (this instanceof SpreadsheetCellFindHistoryToken) {
-                                            saved = HistoryToken.cellFind(
-                                                id,
-                                                name,
-                                                anchoredSpreadsheetSelection,
-                                                SpreadsheetCellFindQuery.parse(value)
-                                            );
-                                        } else {
-                                            if (this instanceof SpreadsheetCellFormulaHistoryToken) {
-                                                saved = HistoryToken.cellFormulaSave(
+
+                                        if (this instanceof SpreadsheetCellFormatterHistoryToken) {
+                                            if (false == this instanceof SpreadsheetCellFormatterUnselectHistoryToken) {
+                                                saved = HistoryToken.cellFormatterSave(
                                                     id,
                                                     name,
                                                     anchoredSpreadsheetSelection,
-                                                    value
+                                                    Optional.ofNullable(
+                                                        value.isEmpty() ?
+                                                            null :
+                                                            SpreadsheetFormatterSelector.parse(value)
+                                                    )
+                                                );
+                                            }
+                                        } else {
+                                            if (this instanceof SpreadsheetCellFindHistoryToken) {
+                                                saved = HistoryToken.cellFind(
+                                                    id,
+                                                    name,
+                                                    anchoredSpreadsheetSelection,
+                                                    SpreadsheetCellFindQuery.parse(value)
                                                 );
                                             } else {
-                                                if (this instanceof SpreadsheetCellLabelHistoryToken) {
-                                                    saved = value.isEmpty() ?
-                                                        this.clearAction() :
-                                                        this.setLabelName(
-                                                            Optional.of(
-                                                                SpreadsheetSelection.labelName(value)
-                                                            )
-                                                        );
+                                                if (this instanceof SpreadsheetCellFormulaHistoryToken) {
+                                                    saved = HistoryToken.cellFormulaSave(
+                                                        id,
+                                                        name,
+                                                        anchoredSpreadsheetSelection,
+                                                        value
+                                                    );
                                                 } else {
-                                                    if (this instanceof SpreadsheetCellParserHistoryToken) {
-                                                        if (false == this instanceof SpreadsheetCellParserUnselectHistoryToken) {
-                                                            saved = HistoryToken.cellParserSave(
-                                                                id,
-                                                                name,
-                                                                anchoredSpreadsheetSelection,
-                                                                Optional.ofNullable(
-                                                                    value.isEmpty() ?
-                                                                        null :
-                                                                        SpreadsheetParserSelector.parse(value)
+                                                    if (this instanceof SpreadsheetCellLabelHistoryToken) {
+                                                        saved = value.isEmpty() ?
+                                                            this.clearAction() :
+                                                            this.setLabelName(
+                                                                Optional.of(
+                                                                    SpreadsheetSelection.labelName(value)
                                                                 )
                                                             );
-                                                        }
                                                     } else {
-                                                        if (this instanceof SpreadsheetCellSaveCellHistoryToken) {
-                                                            final SpreadsheetCellSaveCellHistoryToken spreadsheetCellSaveCellHistoryToken = this.cast(SpreadsheetCellSaveCellHistoryToken.class);
-                                                            saved = spreadsheetCellSaveCellHistoryToken.replace(
-                                                                id,
-                                                                name,
-                                                                anchoredSpreadsheetSelection,
-                                                                SpreadsheetCellSaveHistoryToken.parseCells(
-                                                                    TextCursors.charSequence(value)
-                                                                )
-                                                            );
-                                                        } else {
-                                                            if (this instanceof SpreadsheetCellSaveMapHistoryToken) {
-                                                                final SpreadsheetCellSaveMapHistoryToken<Map<?, ?>> spreadsheetCellSaveMapHistoryToken = this.cast(SpreadsheetCellSaveMapHistoryToken.class);
-                                                                saved = spreadsheetCellSaveMapHistoryToken.replace(
+                                                        if (this instanceof SpreadsheetCellParserHistoryToken) {
+                                                            if (false == this instanceof SpreadsheetCellParserUnselectHistoryToken) {
+                                                                saved = HistoryToken.cellParserSave(
                                                                     id,
                                                                     name,
                                                                     anchoredSpreadsheetSelection,
-                                                                    spreadsheetCellSaveMapHistoryToken.parseSaveValue(
+                                                                    Optional.ofNullable(
+                                                                        value.isEmpty() ?
+                                                                            null :
+                                                                            SpreadsheetParserSelector.parse(value)
+                                                                    )
+                                                                );
+                                                            }
+                                                        } else {
+                                                            if (this instanceof SpreadsheetCellSaveCellHistoryToken) {
+                                                                final SpreadsheetCellSaveCellHistoryToken spreadsheetCellSaveCellHistoryToken = this.cast(SpreadsheetCellSaveCellHistoryToken.class);
+                                                                saved = spreadsheetCellSaveCellHistoryToken.replace(
+                                                                    id,
+                                                                    name,
+                                                                    anchoredSpreadsheetSelection,
+                                                                    SpreadsheetCellSaveHistoryToken.parseCells(
                                                                         TextCursors.charSequence(value)
                                                                     )
                                                                 );
                                                             } else {
-                                                                if (this instanceof SpreadsheetCellSortHistoryToken) {
-                                                                    saved = HistoryToken.cellSortSave(
+                                                                if (this instanceof SpreadsheetCellSaveMapHistoryToken) {
+                                                                    final SpreadsheetCellSaveMapHistoryToken<Map<?, ?>> spreadsheetCellSaveMapHistoryToken = this.cast(SpreadsheetCellSaveMapHistoryToken.class);
+                                                                    saved = spreadsheetCellSaveMapHistoryToken.replace(
                                                                         id,
                                                                         name,
                                                                         anchoredSpreadsheetSelection,
-                                                                        SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(value)
+                                                                        spreadsheetCellSaveMapHistoryToken.parseSaveValue(
+                                                                            TextCursors.charSequence(value)
+                                                                        )
                                                                     );
                                                                 } else {
-                                                                    if (this instanceof SpreadsheetCellStyleSelectHistoryToken) {
-                                                                        final SpreadsheetCellStyleSelectHistoryToken<?> spreadsheetCellStyleSelectHistoryToken = this.cast(SpreadsheetCellStyleSelectHistoryToken.class);
-                                                                        final TextStylePropertyName<?> propertyName = spreadsheetCellStyleSelectHistoryToken.propertyName();
-
-                                                                        saved = cellStyleSave(
+                                                                    if (this instanceof SpreadsheetCellSortHistoryToken) {
+                                                                        saved = HistoryToken.cellSortSave(
                                                                             id,
                                                                             name,
                                                                             anchoredSpreadsheetSelection,
-                                                                            propertyName,
-                                                                            Cast.to(
-                                                                                Optional.ofNullable(
-                                                                                    value.isEmpty() ?
-                                                                                        null :
-                                                                                        propertyName.parseValue(value)
-                                                                                )
-                                                                            )
+                                                                            SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(value)
                                                                         );
+                                                                    } else {
+                                                                        if (this instanceof SpreadsheetCellStyleSelectHistoryToken) {
+                                                                            final SpreadsheetCellStyleSelectHistoryToken<?> spreadsheetCellStyleSelectHistoryToken = this.cast(SpreadsheetCellStyleSelectHistoryToken.class);
+                                                                            final TextStylePropertyName<?> propertyName = spreadsheetCellStyleSelectHistoryToken.propertyName();
+
+                                                                            saved = cellStyleSave(
+                                                                                id,
+                                                                                name,
+                                                                                anchoredSpreadsheetSelection,
+                                                                                propertyName,
+                                                                                Cast.to(
+                                                                                    Optional.ofNullable(
+                                                                                        value.isEmpty() ?
+                                                                                            null :
+                                                                                            propertyName.parseValue(value)
+                                                                                    )
+                                                                                )
+                                                                            );
+                                                                        }
                                                                     }
                                                                 }
                                                             }
@@ -4124,7 +4244,16 @@ public abstract class HistoryToken implements HasUrlFragment,
                 dateTimeSymbols.anchoredSelection()
             );
         }
-        
+
+        if (this instanceof SpreadsheetCellDecimalNumberSymbolsSelectHistoryToken) {
+            final SpreadsheetCellDecimalNumberSymbolsSelectHistoryToken decimalNumberSymbols = this.cast(SpreadsheetCellDecimalNumberSymbolsSelectHistoryToken.class);
+            historyToken = cellDecimalNumberSymbolsUnselect(
+                decimalNumberSymbols.id(),
+                decimalNumberSymbols.name(),
+                decimalNumberSymbols.anchoredSelection()
+            );
+        }
+
         if (this instanceof SpreadsheetCellFormatterSelectHistoryToken) {
             final SpreadsheetCellFormatterSelectHistoryToken formatter = this.cast(SpreadsheetCellFormatterSelectHistoryToken.class);
             historyToken = cellFormatterUnselect(

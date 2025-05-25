@@ -39,6 +39,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
+import java.net.URLEncoder;
 import java.util.Arrays;
 import java.util.Optional;
 import java.util.OptionalInt;
@@ -981,6 +982,10 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     // factory..........................................................................................................
 
     abstract T createHistoryToken();
+
+    static String urlEncode(final Object object) {
+        return URLEncoder.encode(object.toString());
+    }
 
     // equals...........................................................................................................
 
