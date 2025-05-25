@@ -872,25 +872,6 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
-    public void saveFormatter(final SpreadsheetId id,
-                              final SpreadsheetSelection selection,
-                              final Optional<SpreadsheetFormatterSelector> formatter) {
-        final AppContext context = this.context;
-
-        this.patchDelta(
-            url(
-                id,
-                selection
-            ).setQuery(
-                context.viewportAndWindowQueryString()
-            ),
-            SpreadsheetDelta.formatterPatch(
-                formatter,
-                context
-            )
-        );
-    }
-
     public void saveParser(final SpreadsheetId id,
                            final SpreadsheetSelection selection,
                            final Optional<SpreadsheetParserSelector> parser) {
