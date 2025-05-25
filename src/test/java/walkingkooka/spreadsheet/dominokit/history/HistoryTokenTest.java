@@ -4385,20 +4385,6 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         );
     }
 
-    // ClassTesting.....................................................................................................
-
-    @Override
-    public Class<HistoryToken> type() {
-        return HistoryToken.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
-    }
-
-    // ClassTesting.....................................................................................................
-
     @Override
     public HistoryToken parseString(final String urlFragment) {
         return HistoryToken.parseString(urlFragment);
@@ -4416,5 +4402,17 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
 
     private String urlEncode(final Object object) {
         return URLEncoder.encode(object.toString());
+    }
+
+    // class............................................................................................................
+
+    @Override
+    public Class<HistoryToken> type() {
+        return HistoryToken.class;
+    }
+
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PUBLIC;
     }
 }
