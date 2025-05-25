@@ -193,7 +193,7 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
                               final JsonNode node) {
         this.patch(
             url(id),
-            this.toJson(
+            this.requestBody(
                 node
             )
         );
@@ -205,7 +205,7 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
 
         this.patch(
             url(id),
-            this.toJson(
+            this.requestBody(
                 metadata
             )
         );

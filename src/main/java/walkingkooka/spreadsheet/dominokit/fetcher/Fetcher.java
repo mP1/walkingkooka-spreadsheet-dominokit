@@ -328,7 +328,7 @@ abstract public class Fetcher<W extends FetcherWatcher> {
     /**
      * Parses the JSON String into the requested type.
      */
-    final FetcherRequestBody<String> toJson(final Object value) {
+    final FetcherRequestBody<String> requestBody(final Object value) {
         return FetcherRequestBody.string(
             this.context.marshall(
                 value
