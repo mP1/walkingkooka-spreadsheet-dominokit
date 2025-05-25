@@ -809,7 +809,20 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
             )
         );
     }
-    
+
+    public void patchDecimalNumberSymbols(final SpreadsheetId id,
+                                          final SpreadsheetSelection selection,
+                                          final Optional<DecimalNumberSymbols> decimalNumberSymbols) {
+        this.patchDeltaWithViewportAndWindowQueryString(
+            id,
+            selection,
+            SpreadsheetDelta.decimalNumberSymbolsPatch(
+                decimalNumberSymbols,
+                this.context
+            )
+        );
+    }
+
     public void patchFormatter(final SpreadsheetId id,
                                final SpreadsheetSelection selection,
                                final Optional<SpreadsheetFormatterSelector> formatter) {

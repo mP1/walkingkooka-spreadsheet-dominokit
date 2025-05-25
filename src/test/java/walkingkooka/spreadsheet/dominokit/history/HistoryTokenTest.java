@@ -53,6 +53,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.test.ParseStringTesting;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.net.URLEncoder;
 import java.util.Optional;
 import java.util.OptionalInt;
 
@@ -3041,6 +3042,58 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             )
         );
     }
+
+    // cell/decimalNumberSymbols........................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellDecimalNumberSymbols() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/decimalNumberSymbols",
+            HistoryToken.cellDecimalNumberSymbolsSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellDecimalNumberSymbolsToolbar() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/decimalNumberSymbols/toolbar",
+            HistoryToken.cellDecimalNumberSymbolsUnselect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellDecimalNumberSymbolsSaveEmpty() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/decimalNumberSymbols/save/",
+            HistoryToken.cellDecimalNumberSymbolsSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                Optional.empty()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellDecimalNumberSymbolsSave() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/decimalNumberSymbols/save/" + urlEncode(DECIMAL_NUMBER_SYMBOLS.text()),
+            HistoryToken.cellDecimalNumberSymbolsSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                Optional.of(DECIMAL_NUMBER_SYMBOLS)
+            )
+        );
+    }
     
     // cell/formatter/parser............................................................................................
 
@@ -4364,6 +4417,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Override
     public RuntimeException parseStringFailedExpected(final RuntimeException thrown) {
         throw new UnsupportedOperationException();
+    }
+
+    private String urlEncode(final Object object) {
+        return URLEncoder.encode(object.toString());
     }
 
     private AppContext appContext() {

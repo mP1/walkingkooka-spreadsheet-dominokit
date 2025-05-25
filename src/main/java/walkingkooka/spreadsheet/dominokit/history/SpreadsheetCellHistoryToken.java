@@ -97,6 +97,9 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             case DATE_TIME_SYMBOLS_STRING:
                 result = this.dateTimeSymbols();
                 break;
+            case DECIMAL_NUMBER_SYMBOLS_STRING:
+                result = this.decimalNumberSymbols();
+                break;
             case DELETE_STRING:
                 result = this.delete();
                 break;
