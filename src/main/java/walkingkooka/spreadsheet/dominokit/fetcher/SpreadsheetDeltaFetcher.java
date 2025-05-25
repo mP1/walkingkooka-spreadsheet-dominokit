@@ -918,22 +918,6 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
-    private void patchDelta(final AbsoluteOrRelativeUrl url,
-                            final JsonNode delta) {
-        this.patch(
-            url,
-            this.requestBody(delta)
-        );
-    }
-
-    private void patchDelta(final AbsoluteOrRelativeUrl url,
-                            final SpreadsheetDelta delta) {
-        this.patch(
-            url,
-            this.requestBody(delta)
-        );
-    }
-
     private void postDelta(final AbsoluteOrRelativeUrl url,
                            final SpreadsheetDelta delta) {
         this.post(
