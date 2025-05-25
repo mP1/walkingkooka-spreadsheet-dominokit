@@ -82,7 +82,7 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
     /**
      * {@link SpreadsheetToolbarComponentItemAnchorFormatter}
      */
-    static SpreadsheetToolbarComponentItem<?> formatPattern(final SpreadsheetToolbarComponentContext context) {
+    static SpreadsheetToolbarComponentItem<?> formatter(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorFormatter.with(context);
     }
 
