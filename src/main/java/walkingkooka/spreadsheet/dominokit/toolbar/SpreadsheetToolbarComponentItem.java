@@ -138,7 +138,7 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
     /**
      * {@link SpreadsheetToolbarComponentItemAnchorParser}
      */
-    static SpreadsheetToolbarComponentItem<?> parsePattern(final SpreadsheetToolbarComponentContext context) {
+    static SpreadsheetToolbarComponentItem<?> parser(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorParser.with(context);
     }
 
