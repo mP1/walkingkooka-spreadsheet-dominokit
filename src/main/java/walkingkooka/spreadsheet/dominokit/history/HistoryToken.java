@@ -126,10 +126,6 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     public final static String ENABLE = "enable";
 
-    final static String DATE_TIME_SYMBOLS_STRING = "dateTimeSymbols";
-
-    final static UrlFragment DATE_TIME_SYMBOLS = UrlFragment.parse(DATE_TIME_SYMBOLS_STRING);
-
     final static String CELL_STRING = SpreadsheetHateosResourceNames.CELL_STRING;
 
     final static UrlFragment CELL = UrlFragment.parse(CELL_STRING);
@@ -155,6 +151,10 @@ public abstract class HistoryToken implements HasUrlFragment,
     final static String CUT_STRING = "cut";
 
     final static UrlFragment CUT = UrlFragment.parse(CUT_STRING);
+
+    final static String DATE_TIME_SYMBOLS_STRING = "dateTimeSymbols";
+
+    final static UrlFragment DATE_TIME_SYMBOLS = UrlFragment.parse(DATE_TIME_SYMBOLS_STRING);
 
     final static String DECIMAL_NUMBER_SYMBOLS_STRING = "decimalNumberSymbols";
 
