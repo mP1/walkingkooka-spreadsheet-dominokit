@@ -26,13 +26,8 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
-import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
-import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -4421,44 +4416,5 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
 
     private String urlEncode(final Object object) {
         return URLEncoder.encode(object.toString());
-    }
-
-    private AppContext appContext() {
-        return new FakeAppContext() {
-            @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                return null;
-            }
-
-            @Override
-            public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
-                return null;
-            }
-
-            @Override
-            public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
-                return null;
-            }
-
-            @Override
-            public SpreadsheetViewportCache spreadsheetViewportCache() {
-                return this.viewportCache;
-            }
-
-            private final SpreadsheetViewportCache viewportCache = SpreadsheetViewportCache.empty(this);
-
-            @Override
-            public HistoryToken historyToken() {
-                return HistoryToken.spreadsheetSelect(
-                    ID,
-                    NAME
-                );
-            }
-
-            @Override
-            public void debug(final Object... values) {
-                // nop
-            }
-        };
     }
 }
