@@ -140,6 +140,7 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
             SpreadsheetToolbarComponentItem.textCaseUppercase(context),
             // format/pattern
             SpreadsheetToolbarComponentItem.formatPattern(context),
+            SpreadsheetToolbarComponentItem.dateTimeSymbols(context),
             SpreadsheetToolbarComponentItem.parsePattern(context),
             // clear
             SpreadsheetToolbarComponentItem.clearStyle(context),
@@ -242,6 +243,10 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
             value.map(
                 v -> '-' + v.toString().toUpperCase()
             ).orElse("");
+    }
+
+    public static String dateTimeSymbolsId() {
+        return TOOLBAR_ID_PREFIX + "dateTimeSymbols";
     }
 
     public static String findCellsId() {

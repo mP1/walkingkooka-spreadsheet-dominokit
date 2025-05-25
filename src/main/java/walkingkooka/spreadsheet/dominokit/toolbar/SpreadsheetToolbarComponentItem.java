@@ -62,6 +62,15 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
     }
 
     /**
+     * {@see SpreadsheetToolbarComponentItemAnchorDateTimeSymbols}
+     */
+    static SpreadsheetToolbarComponentItem<?> dateTimeSymbols(final SpreadsheetToolbarComponentContext context) {
+        return SpreadsheetToolbarComponentItemAnchorDateTimeSymbols.with(
+            context
+        );
+    }
+
+    /**
      * {@see SpreadsheetToolbarComponentItemLinkCellFind}
      */
     static SpreadsheetToolbarComponentItem<?> findCells(final SpreadsheetToolbarComponentContext context) {
