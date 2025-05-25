@@ -883,7 +883,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
                                     final HistoryToken expected) {
         if (token.equals(expected)) {
             assertSame(
-                expected,
+                token,
                 token.setSaveValue(save),
                 () -> token + " setSaveValue " + save + " should have returned same not different instance"
             );
