@@ -91,7 +91,7 @@ public final class SpreadsheetCellFormatterSaveHistoryToken extends SpreadsheetC
         context.pushHistoryToken(previous);
 
         context.spreadsheetDeltaFetcher()
-            .saveFormatter(
+            .patchFormatter(
                 this.id(),
                 this.anchoredSelection().selection(),
                 this.spreadsheetFormatterSelector
