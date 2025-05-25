@@ -797,6 +797,19 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
+    public void patchDateTimeSymbols(final SpreadsheetId id,
+                                     final SpreadsheetSelection selection,
+                                     final Optional<DateTimeSymbols> dateTimeSymbols) {
+        this.patchDeltaWithViewportAndWindowQueryString(
+            id,
+            selection,
+            SpreadsheetDelta.dateTimeSymbolsPatch(
+                dateTimeSymbols,
+                this.context
+            )
+        );
+    }
+    
     public void patchFormatter(final SpreadsheetId id,
                                final SpreadsheetSelection selection,
                                final Optional<SpreadsheetFormatterSelector> formatter) {
