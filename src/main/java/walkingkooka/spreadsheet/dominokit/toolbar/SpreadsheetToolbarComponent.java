@@ -141,7 +141,7 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
             // format/pattern
             SpreadsheetToolbarComponentItem.formatter(context),
             SpreadsheetToolbarComponentItem.dateTimeSymbols(context),
-            SpreadsheetToolbarComponentItem.parsePattern(context),
+            SpreadsheetToolbarComponentItem.parser(context),
             // clear
             SpreadsheetToolbarComponentItem.clearStyle(context),
             // metadata properties
