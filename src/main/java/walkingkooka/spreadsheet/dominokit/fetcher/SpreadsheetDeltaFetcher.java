@@ -771,11 +771,9 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     public void patchFormula(final SpreadsheetId id,
                              final SpreadsheetSelection selection,
                              final SpreadsheetFormula formula) {
-        this.patchDelta(
-            url(
-                id,
-                selection
-            ),
+        this.patchDeltaWithViewportAndWindowQueryString(
+            id,
+            selection,
             SpreadsheetDelta.formulaPatch(
                 formula,
                 this.context
