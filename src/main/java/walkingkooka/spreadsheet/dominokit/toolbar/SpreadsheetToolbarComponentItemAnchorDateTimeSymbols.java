@@ -28,7 +28,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import java.util.Optional;
 
 /**
- * A link ui that may exist withing a toolbar, which actives the formatter dialog
+ * A link ui that may exist withing a toolbar, which actives the {@link walkingkooka.datetime.DateTimeSymbols} dialog
  */
 final class SpreadsheetToolbarComponentItemAnchorDateTimeSymbols extends SpreadsheetToolbarComponentItemAnchor<SpreadsheetToolbarComponentItemAnchorDateTimeSymbols>
     implements SpreadsheetCellComponentLifecycle,
