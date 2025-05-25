@@ -3586,11 +3586,9 @@ public abstract class HistoryToken implements HasUrlFragment,
         }
 
         // if historyToken is equal to this, return this, dont want to return a new instance if its equal
-        return null != historyToken ?
-            this.equals(historyToken) ?
-                this :
-                historyToken :
-            this;
+        return null == historyToken || this.equals(historyToken) ?
+            this :
+            historyToken;
     }
 
     /**
