@@ -37,6 +37,7 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
@@ -58,7 +59,9 @@ import java.util.OptionalInt;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class HistoryTokenTest implements ClassTesting<HistoryToken>, ParseStringTesting<HistoryToken> {
+public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
+    ParseStringTesting<HistoryToken>,
+    SpreadsheetMetadataTesting {
 
     private final static SpreadsheetId ID = SpreadsheetId.parse("123");
 
@@ -2983,6 +2986,58 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                     OptionalInt.of(111), // offset
                     OptionalInt.of(222) // count
                 )
+            )
+        );
+    }
+
+    // cell/dateTimeSymbols.............................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellDateTimeSymbols() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/dateTimeSymbols",
+            HistoryToken.cellDateTimeSymbolsSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellDateTimeSymbolsToolbar() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/dateTimeSymbols/toolbar",
+            HistoryToken.cellDateTimeSymbolsUnselect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellDateTimeSymbolsSaveEmpty() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/dateTimeSymbols/save/",
+            HistoryToken.cellDateTimeSymbolsSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                Optional.empty()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellDateTimeSymbolsSave() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/dateTimeSymbols/save/" + DATE_TIME_SYMBOLS.text(),
+            HistoryToken.cellDateTimeSymbolsSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                Optional.of(DATE_TIME_SYMBOLS)
             )
         );
     }
