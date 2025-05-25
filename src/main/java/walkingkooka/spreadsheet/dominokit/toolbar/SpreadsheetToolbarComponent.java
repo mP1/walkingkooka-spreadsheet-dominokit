@@ -142,6 +142,7 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
             SpreadsheetToolbarComponentItem.formatter(context),
             SpreadsheetToolbarComponentItem.dateTimeSymbols(context),
             SpreadsheetToolbarComponentItem.parser(context),
+            SpreadsheetToolbarComponentItem.decimalNumberSymbols(context),
             // clear
             SpreadsheetToolbarComponentItem.clearStyle(context),
             // metadata properties
@@ -247,6 +248,10 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
 
     public static String dateTimeSymbolsId() {
         return TOOLBAR_ID_PREFIX + "dateTimeSymbols";
+    }
+
+    public static String decimalNumberSymbolsId() {
+        return TOOLBAR_ID_PREFIX + "decimal-number-symbols";
     }
 
     public static String findCellsId() {
