@@ -247,7 +247,7 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
     }
 
     public static String dateTimeSymbolsId() {
-        return TOOLBAR_ID_PREFIX + "dateTimeSymbols";
+        return TOOLBAR_ID_PREFIX + "date-time-symbols";
     }
 
     public static String decimalNumberSymbolsId() {
