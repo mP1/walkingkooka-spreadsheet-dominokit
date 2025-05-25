@@ -792,13 +792,9 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         final AppContext context = this.context;
 
         // PATCH cell with new formula
-        this.patchDelta(
-            url(
-                id,
-                selection
-            ).setQuery(
-                context.viewportAndWindowQueryString()
-            ),
+        this.patchDeltaWithViewportAndWindowQueryString(
+            id,
+            selection,
             SpreadsheetDelta.EMPTY.setCells(
                 Sets.of(
                     context.resolveIfLabel(selection)
@@ -911,6 +907,20 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     private void patchDeltaWithViewportAndWindowQueryString(final SpreadsheetId id,
                                                             final SpreadsheetSelection selection,
                                                             final JsonNode delta) {
+        this.patch(
+            url(
+                id,
+                selection
+            ).setQuery(
+                this.context.viewportAndWindowQueryString()
+            ),
+            this.requestBody(delta)
+        );
+    }
+
+    private void patchDeltaWithViewportAndWindowQueryString(final SpreadsheetId id,
+                                                            final SpreadsheetSelection selection,
+                                                            final SpreadsheetDelta delta) {
         this.patch(
             url(
                 id,
