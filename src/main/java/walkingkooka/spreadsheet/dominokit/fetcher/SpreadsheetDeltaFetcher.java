@@ -816,13 +816,9 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     public void patchFormatter(final SpreadsheetId id,
                                final SpreadsheetSelection selection,
                                final Optional<SpreadsheetFormatterSelector> formatter) {
-        this.patchDelta(
-            url(
-                id,
-                selection
-            ).setQuery(
-                context.viewportAndWindowQueryString()
-            ),
+        this.patchDeltaWithViewportAndWindowQueryString(
+            id,
+            selection,
             SpreadsheetDelta.formatterPatch(
                 formatter,
                 this.context
@@ -833,13 +829,9 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     public void patchParser(final SpreadsheetId id,
                             final SpreadsheetSelection selection,
                             final Optional<SpreadsheetParserSelector> parser) {
-        this.patchDelta(
-            url(
-                id,
-                selection
-            ).setQuery(
-                context.viewportAndWindowQueryString()
-            ),
+        this.patchDeltaWithViewportAndWindowQueryString(
+            id,
+            selection,
             SpreadsheetDelta.parserPatch(
                 parser,
                 this.context
@@ -850,11 +842,9 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     public void patchStyle(final SpreadsheetId id,
                            final SpreadsheetSelection selection,
                            final JsonNode style) {
-        this.patchDelta(
-            url(
-                id,
-                selection
-            ),
+        this.patchDeltaWithViewportAndWindowQueryString(
+            id,
+            selection,
             SpreadsheetDelta.stylePatch(
                 style
             )
@@ -915,6 +905,20 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                         comparators.text()
                     )
             )
+        );
+    }
+
+    private void patchDeltaWithViewportAndWindowQueryString(final SpreadsheetId id,
+                                                            final SpreadsheetSelection selection,
+                                                            final JsonNode delta) {
+        this.patch(
+            url(
+                id,
+                selection
+            ).setQuery(
+                this.context.viewportAndWindowQueryString()
+            ),
+            this.toJson(delta)
         );
     }
 
