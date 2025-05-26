@@ -550,7 +550,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         this.delete(
             url(
                 id,
-                checkViewport(viewport)
+                Objects.requireNonNull(viewport, "viewport")
                     .anchoredSelection()
                     .get()
                     .selection()
@@ -985,12 +985,6 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                     labelName.value()
                 )
             );
-    }
-
-    // checkXXX.........................................................................................................
-
-    private static SpreadsheetViewport checkViewport(final SpreadsheetViewport viewport) {
-        return Objects.requireNonNull(viewport, "viewport");
     }
 
     // Fetcher.........................................................................................................
