@@ -17,25 +17,63 @@
 
 package walkingkooka.spreadsheet.dominokit.csv;
 
+import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.CsvStringList;
+import walkingkooka.spreadsheet.dominokit.value.SpreadsheetValidators;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+
+import java.util.Objects;
 
 /**
  * A component that will be used to support entry text entry of lists of days, months etc as a CSV text.
  */
 public final class CsvStringListComponent implements ValueSpreadsheetTextBoxWrapper<CsvStringListComponent, CsvStringList> {
 
-    public static CsvStringListComponent empty() {
-        return new CsvStringListComponent();
+    public final static boolean INCLUSIVE = true;
+
+    public final static boolean EXCLUSIVE = false;
+
+    public static CsvStringListComponent empty(final int min,
+                                               final int max,
+                                               final boolean inclusive) {
+        return new CsvStringListComponent(
+            min,
+            max,
+            inclusive
+        );
     }
 
-    private CsvStringListComponent() {
+    private CsvStringListComponent(final int min,
+                                   final int max,
+                                   final boolean inclusive) {
         this.textBox = ValueSpreadsheetTextBox.with(
-            CsvStringList::parse,
+            CsvStringListComponentParserFunction.with(
+                min,
+                max,
+                inclusive
+            ),
             CsvStringList::text
         );
     }
+
+    public Validator<CsvStringListComponent> validator() {
+        return this.validator;
+    }
+
+    public CsvStringListComponent setValidator(final Validator<CsvStringListComponent> validator) {
+        Objects.requireNonNull(validator, "validator");
+
+        this.valueSpreadsheetTextBox()
+            .setValidator(
+                SpreadsheetValidators.tryCatch(CsvStringList::parse)
+            );
+        this.validator = validator;
+
+        return this;
+    }
+
+    private Validator<CsvStringListComponent> validator;
 
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 

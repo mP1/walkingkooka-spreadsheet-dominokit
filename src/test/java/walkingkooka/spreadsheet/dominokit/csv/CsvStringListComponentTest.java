@@ -49,9 +49,9 @@ public final class CsvStringListComponentTest implements FormValueComponentTesti
     }
 
     @Test
-    public void testSetStringValue() {
+    public void testSetStringValueInclusive() {
         this.treePrintAndCheck(
-            CsvStringListComponent.empty()
+            CsvStringListComponent.empty(2, 12, CsvStringListComponent.INCLUSIVE)
                 .setStringValue(
                     Optional.of(
                         MONTH_NAMES_LIST.text()
@@ -75,8 +75,11 @@ public final class CsvStringListComponentTest implements FormValueComponentTesti
 
             this.checkEquals(
                 monthNames,
-                CsvStringListComponent.empty()
-                    .setStringValue(
+                CsvStringListComponent.empty(
+                        12,
+                        13,
+                        CsvStringListComponent.INCLUSIVE
+                    ).setStringValue(
                         Optional.of(
                             monthNames.text()
                         )
@@ -89,12 +92,15 @@ public final class CsvStringListComponentTest implements FormValueComponentTesti
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-            CsvStringListComponent.empty()
-                .setStringValue(
-                    Optional.of(
-                        "Monday,\"Tuesday"
-                    )
-                ),
+            CsvStringListComponent.empty(
+                2,
+                4,
+                CsvStringListComponent.INCLUSIVE
+            ).setStringValue(
+                Optional.of(
+                    "Monday,\"Tuesday"
+                )
+            ),
             "CsvStringListComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
                 "    SpreadsheetTextBox\n" +
@@ -104,11 +110,78 @@ public final class CsvStringListComponentTest implements FormValueComponentTesti
         );
     }
 
+    @Test
+    public void testSetStringValueWithLessThan() {
+        this.treePrintAndCheck(
+            CsvStringListComponent.empty(
+                2,
+                4,
+                CsvStringListComponent.INCLUSIVE
+            ).setStringValue(
+                Optional.of(
+                    "Monday"
+                )
+            ),
+            "CsvStringListComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [Monday]\n" +
+                "      Errors\n" +
+                "        Require 2 or more\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithMoreThanInclusive() {
+        this.treePrintAndCheck(
+            CsvStringListComponent.empty(
+                2,
+                3,
+                CsvStringListComponent.INCLUSIVE
+            ).setStringValue(
+                Optional.of(
+                    "Monday, Tuesday, Wednesday, Thursday"
+                )
+            ),
+            "CsvStringListComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [Monday, Tuesday, Wednesday, Thursday]\n" +
+                "      Errors\n" +
+                "        Require 3 or less\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithMoreThanExclusive() {
+        this.treePrintAndCheck(
+            CsvStringListComponent.empty(
+                2,
+                4,
+                CsvStringListComponent.EXCLUSIVE
+            ).setStringValue(
+                Optional.of(
+                    "Monday, Tuesday, Wednesday, Thursday"
+                )
+            ),
+            "CsvStringListComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [Monday, Tuesday, Wednesday, Thursday]\n" +
+                "      Errors\n" +
+                "        Require less than 4\n"
+        );
+    }
+
     // ValueComponent...................................................................................................
 
     @Override
     public CsvStringListComponent createComponent() {
-        return CsvStringListComponent.empty();
+        return CsvStringListComponent.empty(
+            2,
+            4,
+            CsvStringListComponent.EXCLUSIVE
+        );
     }
 
     // class............................................................................................................
