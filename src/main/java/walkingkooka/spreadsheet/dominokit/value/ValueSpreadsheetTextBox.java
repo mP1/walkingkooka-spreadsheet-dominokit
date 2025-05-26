@@ -143,6 +143,10 @@ public final class ValueSpreadsheetTextBox<T> implements FormValueComponent<HTML
 
     private boolean required;
 
+    public Validator<Optional<String>> validator() {
+        return this.validator;
+    }
+
     public ValueSpreadsheetTextBox<T> setValidator(final Validator<Optional<String>> validator) {
         this.textBox.setValidator(validator);
         this.validator = validator;
