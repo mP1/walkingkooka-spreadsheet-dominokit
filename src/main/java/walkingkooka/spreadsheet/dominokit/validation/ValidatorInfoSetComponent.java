@@ -37,7 +37,7 @@ public final class ValidatorInfoSetComponent implements ValueSpreadsheetTextBoxW
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<ValidatorInfoSet> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<ValidatorInfoSet> valueSpreadsheetTextBox() {
         return this.textBox;
     }
 

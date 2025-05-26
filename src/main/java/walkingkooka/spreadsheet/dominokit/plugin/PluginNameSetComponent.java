@@ -37,7 +37,7 @@ public final class PluginNameSetComponent implements ValueSpreadsheetTextBoxWrap
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<PluginNameSet> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<PluginNameSet> valueSpreadsheetTextBox() {
         return this.textBox;
     }
 

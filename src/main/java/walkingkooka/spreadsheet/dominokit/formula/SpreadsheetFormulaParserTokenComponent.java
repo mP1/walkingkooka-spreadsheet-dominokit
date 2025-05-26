@@ -54,7 +54,7 @@ public final class SpreadsheetFormulaParserTokenComponent implements ValueSpread
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<SpreadsheetFormulaParserToken> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<SpreadsheetFormulaParserToken> valueSpreadsheetTextBox() {
         return this.textBox;
     }
 

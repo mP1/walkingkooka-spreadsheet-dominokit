@@ -45,7 +45,7 @@ public final class SpreadsheetColumnOrRowReferenceComponent implements ValueSpre
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<SpreadsheetColumnOrRowReferenceOrRange> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<SpreadsheetColumnOrRowReferenceOrRange> valueSpreadsheetTextBox() {
         return this.textBox;
     }
 

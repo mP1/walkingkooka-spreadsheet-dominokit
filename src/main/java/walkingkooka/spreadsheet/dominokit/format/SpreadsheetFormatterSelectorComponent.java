@@ -41,7 +41,7 @@ public final class SpreadsheetFormatterSelectorComponent implements ValueSpreads
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<SpreadsheetFormatterSelector> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<SpreadsheetFormatterSelector> valueSpreadsheetTextBox() {
         return this.textBox;
     }
 

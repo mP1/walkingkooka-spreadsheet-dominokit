@@ -37,7 +37,7 @@ public final class ConverterInfoSetComponent implements ValueSpreadsheetTextBoxW
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<ConverterInfoSet> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<ConverterInfoSet> valueSpreadsheetTextBox() {
         return this.textBox;
     }
 

@@ -37,7 +37,7 @@ public final class SpreadsheetFormatterAliasSetComponent implements ValueSpreads
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<SpreadsheetFormatterAliasSet> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<SpreadsheetFormatterAliasSet> valueSpreadsheetTextBox() {
         return this.textBox;
     }
 

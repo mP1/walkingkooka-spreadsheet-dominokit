@@ -42,7 +42,7 @@ public final class FormHandlerSelectorComponent implements ValueSpreadsheetTextB
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<FormHandlerSelector> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<FormHandlerSelector> valueSpreadsheetTextBox() {
         return this.textBox;
     }
 

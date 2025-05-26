@@ -42,7 +42,7 @@ public final class SpreadsheetExpressionReferenceComponent implements ValueSprea
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<SpreadsheetExpressionReference> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<SpreadsheetExpressionReference> valueSpreadsheetTextBox() {
         return this.textBox;
     }
 

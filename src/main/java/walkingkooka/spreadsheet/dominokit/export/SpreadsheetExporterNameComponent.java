@@ -42,7 +42,7 @@ public final class SpreadsheetExporterNameComponent implements ValueSpreadsheetT
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<SpreadsheetExporterName> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<SpreadsheetExporterName> valueSpreadsheetTextBox() {
         return this.textBox;
     }
 

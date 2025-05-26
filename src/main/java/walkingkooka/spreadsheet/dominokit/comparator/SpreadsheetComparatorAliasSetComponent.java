@@ -37,7 +37,7 @@ public final class SpreadsheetComparatorAliasSetComponent implements ValueSpread
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<SpreadsheetComparatorAliasSet> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<SpreadsheetComparatorAliasSet> valueSpreadsheetTextBox() {
         return this.textBox;
     }
 

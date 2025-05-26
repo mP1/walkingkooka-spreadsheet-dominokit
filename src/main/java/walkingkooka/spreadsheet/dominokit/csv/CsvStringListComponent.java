@@ -40,7 +40,7 @@ public final class CsvStringListComponent implements ValueSpreadsheetTextBoxWrap
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<CsvStringList> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<CsvStringList> valueSpreadsheetTextBox() {
         return this.textBox;
     }
 

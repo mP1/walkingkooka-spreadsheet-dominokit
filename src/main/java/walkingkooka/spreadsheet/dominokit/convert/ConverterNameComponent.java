@@ -41,7 +41,7 @@ public final class ConverterNameComponent implements ValueSpreadsheetTextBoxWrap
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<ConverterName> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<ConverterName> valueSpreadsheetTextBox() {
         return this.textBox;
     }
 

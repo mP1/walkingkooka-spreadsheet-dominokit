@@ -43,7 +43,7 @@ public final class SpreadsheetCellRangeReferenceComponent implements ValueSpread
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<SpreadsheetCellRangeReference> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<SpreadsheetCellRangeReference> valueSpreadsheetTextBox() {
         return this.textBox;
     }
 
