@@ -965,7 +965,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         return SpreadsheetMetadataFetcher.url(id)
             .appendPath(
                 UrlPath.parse(
-                    checkSelection(selection)
+                    Objects.requireNonNull(selection, "selection")
                         .cellColumnOrRowText()
                 )
             ).appendPath(
@@ -988,10 +988,6 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     }
 
     // checkXXX.........................................................................................................
-
-    private static SpreadsheetSelection checkSelection(final SpreadsheetSelection selection) {
-        return Objects.requireNonNull(selection, "selection");
-    }
 
     private static SpreadsheetViewport checkViewport(final SpreadsheetViewport viewport) {
         return Objects.requireNonNull(viewport, "viewport");
