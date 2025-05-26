@@ -44,7 +44,7 @@ public final class SpreadsheetFormulaComponent implements ValueSpreadsheetTextBo
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<SpreadsheetFormula> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<SpreadsheetFormula> valueSpreadsheetTextBox() {
         return this.textBox;
     }
 

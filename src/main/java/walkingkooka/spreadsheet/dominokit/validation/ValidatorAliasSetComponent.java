@@ -37,7 +37,7 @@ public final class ValidatorAliasSetComponent implements ValueSpreadsheetTextBox
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<ValidatorAliasSet> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<ValidatorAliasSet> valueSpreadsheetTextBox() {
         return this.textBox;
     }
 

@@ -43,7 +43,7 @@ public final class ExpressionFunctionAliasSetComponent implements ValueSpreadshe
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<ExpressionFunctionAliasSet> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<ExpressionFunctionAliasSet> valueSpreadsheetTextBox() {
         return this.textBox;
     }
 

@@ -39,7 +39,7 @@ public final class ExpressionFunctionInfoSetComponent implements ValueSpreadshee
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<ExpressionFunctionInfoSet> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<ExpressionFunctionInfoSet> valueSpreadsheetTextBox() {
         return this.textBox;
     }
 

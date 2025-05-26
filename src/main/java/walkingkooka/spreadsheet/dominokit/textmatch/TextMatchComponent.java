@@ -46,7 +46,7 @@ public final class TextMatchComponent implements ValueSpreadsheetTextBoxWrapper<
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<TextMatch> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<TextMatch> valueSpreadsheetTextBox() {
         return this.textBox;
     }
 

@@ -37,7 +37,7 @@ public final class SpreadsheetExporterInfoSetComponent implements ValueSpreadshe
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<SpreadsheetExporterInfoSet> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<SpreadsheetExporterInfoSet> valueSpreadsheetTextBox() {
         return this.textBox;
     }
 

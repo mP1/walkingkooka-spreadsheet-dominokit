@@ -42,7 +42,7 @@ public final class ValidatorNameComponent implements ValueSpreadsheetTextBoxWrap
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<ValidatorName> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<ValidatorName> valueSpreadsheetTextBox() {
         return this.textBox;
     }
 

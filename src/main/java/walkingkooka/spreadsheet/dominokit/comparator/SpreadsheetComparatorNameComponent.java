@@ -41,7 +41,7 @@ public final class SpreadsheetComparatorNameComponent implements ValueSpreadshee
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<SpreadsheetComparatorName> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<SpreadsheetComparatorName> valueSpreadsheetTextBox() {
         return this.textBox;
     }
 

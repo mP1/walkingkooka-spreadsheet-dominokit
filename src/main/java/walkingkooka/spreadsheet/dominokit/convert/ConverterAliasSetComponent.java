@@ -37,7 +37,7 @@ public final class ConverterAliasSetComponent implements ValueSpreadsheetTextBox
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<ConverterAliasSet> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<ConverterAliasSet> valueSpreadsheetTextBox() {
         return this.textBox;
     }
 

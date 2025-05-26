@@ -42,7 +42,7 @@ public final class ExpressionFunctionNameComponent implements ValueSpreadsheetTe
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<ExpressionFunctionName> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<ExpressionFunctionName> valueSpreadsheetTextBox() {
         return this.textBox;
     }
 

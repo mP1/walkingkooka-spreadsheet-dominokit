@@ -42,7 +42,7 @@ public final class ValidatorSelectorComponent implements ValueSpreadsheetTextBox
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<ValidatorSelector> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<ValidatorSelector> valueSpreadsheetTextBox() {
         return this.textBox;
     }
 

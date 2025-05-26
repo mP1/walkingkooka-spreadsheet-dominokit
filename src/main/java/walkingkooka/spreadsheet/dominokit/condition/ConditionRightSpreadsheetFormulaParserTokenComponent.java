@@ -51,7 +51,7 @@ public final class ConditionRightSpreadsheetFormulaParserTokenComponent implemen
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<ConditionRightSpreadsheetFormulaParserToken> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<ConditionRightSpreadsheetFormulaParserToken> valueSpreadsheetTextBox() {
         return this.textBox;
     }
 

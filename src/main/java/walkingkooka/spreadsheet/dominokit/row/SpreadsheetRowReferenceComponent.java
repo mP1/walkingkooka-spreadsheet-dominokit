@@ -43,7 +43,7 @@ public final class SpreadsheetRowReferenceComponent implements ValueSpreadsheetT
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<SpreadsheetRowReference> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<SpreadsheetRowReference> valueSpreadsheetTextBox() {
         return this.textBox;
     }
 

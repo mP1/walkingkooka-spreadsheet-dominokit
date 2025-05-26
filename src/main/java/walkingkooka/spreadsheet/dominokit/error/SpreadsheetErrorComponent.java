@@ -40,7 +40,7 @@ public final class SpreadsheetErrorComponent implements ValueSpreadsheetTextBoxW
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<SpreadsheetError> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<SpreadsheetError> valueSpreadsheetTextBox() {
         return this.textBox;
     }
 
