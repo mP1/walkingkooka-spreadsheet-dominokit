@@ -132,6 +132,27 @@ public final class CsvStringListComponentTest implements FormValueComponentTesti
     }
 
     @Test
+    public void testSetStringValueWithLessThanWhenMinEqMax() {
+        this.treePrintAndCheck(
+            CsvStringListComponent.empty(
+                2,
+                2,
+                CsvStringListComponent.INCLUSIVE
+            ).setStringValue(
+                Optional.of(
+                    "Monday"
+                )
+            ),
+            "CsvStringListComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [Monday]\n" +
+                "      Errors\n" +
+                "        Require 2\n"
+        );
+    }
+
+    @Test
     public void testSetStringValueWithMoreThanInclusive() {
         this.treePrintAndCheck(
             CsvStringListComponent.empty(
@@ -149,6 +170,27 @@ public final class CsvStringListComponentTest implements FormValueComponentTesti
                 "      [Monday, Tuesday, Wednesday, Thursday]\n" +
                 "      Errors\n" +
                 "        Require 3 or less\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithMoreThanInclusiveWhenMinEqMax() {
+        this.treePrintAndCheck(
+            CsvStringListComponent.empty(
+                2,
+                2,
+                CsvStringListComponent.INCLUSIVE
+            ).setStringValue(
+                Optional.of(
+                    "Monday, Tuesday, Wednesday, Thursday"
+                )
+            ),
+            "CsvStringListComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [Monday, Tuesday, Wednesday, Thursday]\n" +
+                "      Errors\n" +
+                "        Require 2\n"
         );
     }
 
