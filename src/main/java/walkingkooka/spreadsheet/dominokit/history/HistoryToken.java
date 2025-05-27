@@ -1635,6 +1635,26 @@ public abstract class HistoryToken implements HasUrlFragment,
             .orElse("");
     }
 
+    static OptionalInt parseOptionalInt(final TextCursor cursor) {
+        final OptionalInt value;
+
+        final Optional<String> maybeComponent = parseComponent(cursor);
+        if (maybeComponent.isPresent()) {
+            final String string = maybeComponent.get();
+            if (string.isEmpty()) {
+                value = OptionalInt.empty();
+            } else {
+                value = OptionalInt.of(
+                    Integer.parseInt(string)
+                );
+            }
+        } else {
+            value = OptionalInt.empty();
+        }
+
+        return value;
+    }
+
     // ctor.............................................................................................................
 
     /**
@@ -2280,6 +2300,19 @@ public abstract class HistoryToken implements HasUrlFragment,
         return historyToken;
     }
 
+    private static HistoryToken parseDelete(final TextCursor cursor) {
+        HistoryToken historyToken = SPREADSHEET_LIST_SELECT_HISTORY_TOKEN;
+
+        final Optional<String> maybeComponent = parseComponent(cursor);
+        if (maybeComponent.isPresent()) {
+            historyToken = HistoryToken.spreadsheetListDelete(
+                SpreadsheetId.parse(maybeComponent.get())
+            );
+        }
+
+        return historyToken;
+    }
+
     // DateTimeSymbols..................................................................................................
 
     /**
@@ -2304,6 +2337,8 @@ public abstract class HistoryToken implements HasUrlFragment,
         return historyToken;
     }
 
+    // decimalNumberSymbols.............................................................................................
+
     /**
      * If possible selects a {@link DecimalNumberSymbols} {@link HistoryToken}.
      */
@@ -2321,19 +2356,6 @@ public abstract class HistoryToken implements HasUrlFragment,
 
         } else {
             historyToken = this;
-        }
-
-        return historyToken;
-    }
-
-    private static HistoryToken parseDelete(final TextCursor cursor) {
-        HistoryToken historyToken = SPREADSHEET_LIST_SELECT_HISTORY_TOKEN;
-
-        final Optional<String> maybeComponent = parseComponent(cursor);
-        if (maybeComponent.isPresent()) {
-            historyToken = HistoryToken.spreadsheetListDelete(
-                SpreadsheetId.parse(maybeComponent.get())
-            );
         }
 
         return historyToken;
@@ -2363,7 +2385,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         return historyToken;
     }
 
-    // FORMATTER........................................................................................................
+    // FORMULA..........................................................................................................
 
     public final HistoryToken formula() {
         HistoryToken historyToken = this;
@@ -3231,26 +3253,6 @@ public abstract class HistoryToken implements HasUrlFragment,
         }
 
         return after;
-    }
-
-    static OptionalInt parseOptionalInt(final TextCursor cursor) {
-        final OptionalInt value;
-
-        final Optional<String> maybeComponent = parseComponent(cursor);
-        if (maybeComponent.isPresent()) {
-            final String string = maybeComponent.get();
-            if (string.isEmpty()) {
-                value = OptionalInt.empty();
-            } else {
-                value = OptionalInt.of(
-                    Integer.parseInt(string)
-                );
-            }
-        } else {
-            value = OptionalInt.empty();
-        }
-
-        return value;
     }
 
     final HistoryToken parseOffsetAndCount(final TextCursor text) {
