@@ -61,14 +61,21 @@ final class CsvStringListComponentParserFunction implements Function<String, Csv
         final int count = list.size();
 
         final int minLength = this.minLength;
-        if (count < minLength) {
-            throw new IllegalArgumentException("Require " + minLength + " or more");
-        } else {
-            final int maxLength = this.maxLength;
+        final int maxLength = this.maxLength;
 
+        String orMore = "";
+        String orLess = "";
+        if(minLength != maxLength) {
+            orLess = " or less";
+            orMore = " or more";
+        }
+
+        if (count < minLength) {
+            throw new IllegalArgumentException("Require " + minLength + orMore);
+        } else {
             if (this.inclusive) {
                 if (count > maxLength) {
-                    throw new IllegalArgumentException("Require " + maxLength + " or less");
+                    throw new IllegalArgumentException("Require " + maxLength + orLess);
                 }
             } else {
                 if (count >= maxLength) {
