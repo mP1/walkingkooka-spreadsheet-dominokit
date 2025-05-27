@@ -66,10 +66,10 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
         SpreadsheetId.with(1)
     );
 
-    // refresh..........................................................................................................
+    // onHistoryTokenChange.............................................................................................
 
     @Test
-    public void testRefreshEmptyTable() {
+    public void testOnHistoryTokenChangeEmptyTable() {
         final HistoryToken historyToken = HistoryToken.parseString(
             "/1/SpreadsheetName222/label"
         );
@@ -118,7 +118,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
     }
 
     @Test
-    public void testRefreshNonEmptyTable() {
+    public void testOnHistoryTokenChangeNonEmptyTable() {
         final HistoryToken historyToken = HistoryToken.parseString(
             "/1/SpreadsheetName222/label"
         );
@@ -241,7 +241,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
     }
 
     @Test
-    public void testRefreshNonEmptyTableWithOffset() {
+    public void testOnHistoryTokenChangeNonEmptyTableWithOffset() {
         final HistoryToken historyToken = HistoryToken.parseString(
             "/1/SpreadsheetName222/label/*/offset/1"
         );
