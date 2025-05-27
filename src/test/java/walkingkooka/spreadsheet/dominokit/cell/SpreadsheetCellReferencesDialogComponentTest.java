@@ -54,10 +54,10 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
     SpreadsheetCellReferencesDialogComponentContext>,
     SpreadsheetMetadataTesting {
 
-    // refresh..........................................................................................................
+    // onHistoryTokenChange.............................................................................................
 
     @Test
-    public void testRefreshEmptyTable() {
+    public void testOnHistoryTokenChangeRefreshEmptyTable() {
         final HistoryToken historyToken = HistoryToken.parseString(
             "/123/SpreadsheetName456/cell/A1/references"
         );
@@ -100,7 +100,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
     }
 
     @Test
-    public void testRefreshNonEmptyTable() {
+    public void testOnHistoryTokenChangeRefreshNonEmptyTable() {
         final HistoryToken historyToken = HistoryToken.parseString(
             "/123/SpreadsheetName456/cell/A1/references"
         );
