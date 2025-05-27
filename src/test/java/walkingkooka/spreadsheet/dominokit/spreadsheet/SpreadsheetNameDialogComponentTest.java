@@ -19,8 +19,6 @@ package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
@@ -32,12 +30,8 @@ public final class SpreadsheetNameDialogComponentTest implements SpreadsheetDial
     SpreadsheetNameDialogComponentContext>,
     SpreadsheetMetadataTesting {
 
-    private final static SpreadsheetId ID = SpreadsheetId.with(1);
-
-    private final static SpreadsheetName NAME = SpreadsheetName.with("spreadsheetName123");
-
     @Test
-    public void testOpenUsesHistoryTokenName() {
+    public void testOnHistoryTokenChangeOpenUsesHistoryTokenName() {
         final AppContext context = new FakeAppContext() {
 
             @Override
@@ -48,8 +42,8 @@ public final class SpreadsheetNameDialogComponentTest implements SpreadsheetDial
             @Override
             public HistoryToken historyToken() {
                 return HistoryToken.spreadsheetRenameSelect(
-                    ID,
-                    NAME
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME
                 );
             }
         };
@@ -68,15 +62,17 @@ public final class SpreadsheetNameDialogComponentTest implements SpreadsheetDial
                 "      SpreadsheetNameComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
-                "            [spreadsheetName123] id=spreadsheetName-TextBox\n" +
+                "            [SpreadsheetName1] id=spreadsheetName-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/spreadsheetName123/rename/save/spreadsheetName123] id=spreadsheetName-save-Link\n" +
+                "            \"Save\" [#/1/SpreadsheetName1/rename/save/SpreadsheetName1] id=spreadsheetName-save-Link\n" +
                 "            \"Undo\" DISABLED id=spreadsheetName-undo-Link\n" +
-                "            \"Close\" [#/1/spreadsheetName123] id=spreadsheetName-close-Link\n"
+                "            \"Close\" [#/1/SpreadsheetName1] id=spreadsheetName-close-Link\n"
         );
     }
+
+    // class............................................................................................................
 
     @Override
     public Class<SpreadsheetNameDialogComponent> type() {
