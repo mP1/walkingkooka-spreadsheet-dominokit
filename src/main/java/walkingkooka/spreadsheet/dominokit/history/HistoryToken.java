@@ -4340,32 +4340,33 @@ public abstract class HistoryToken implements HasUrlFragment,
     public final HistoryToken unfreeze() {
         HistoryToken historyToken = this;
 
-        if (this instanceof SpreadsheetCellHistoryToken) {
-            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
+        if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
+            final SpreadsheetAnchoredSelectionHistoryToken anchored = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
+            final SpreadsheetId id = anchored.id();
+            final SpreadsheetName name = anchored.name();
+            final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = anchored.anchoredSelection();
 
-            historyToken = cellUnfreeze(
-                cell.id(),
-                cell.name(),
-                cell.anchoredSelection()
-            );
-        } else {
-            if (this instanceof SpreadsheetColumnHistoryToken) {
-                final SpreadsheetColumnHistoryToken column = this.cast(SpreadsheetColumnHistoryToken.class);
-
-                historyToken = columnUnfreeze(
-                    column.id(),
-                    column.name(),
-                    column.anchoredSelection()
+            if (this instanceof SpreadsheetCellHistoryToken) {
+                historyToken = cellUnfreeze(
+                    id,
+                    name,
+                    anchoredSpreadsheetSelection
                 );
             } else {
-                if (this instanceof SpreadsheetRowHistoryToken) {
-                    final SpreadsheetRowHistoryToken row = this.cast(SpreadsheetRowHistoryToken.class);
-
-                    historyToken = rowUnfreeze(
-                        row.id(),
-                        row.name(),
-                        row.anchoredSelection()
+                if (this instanceof SpreadsheetColumnHistoryToken) {
+                    historyToken = columnUnfreeze(
+                        id,
+                        name,
+                        anchoredSpreadsheetSelection
                     );
+                } else {
+                    if (this instanceof SpreadsheetRowHistoryToken) {
+                        historyToken = rowUnfreeze(
+                            id,
+                            name,
+                            anchoredSpreadsheetSelection
+                        );
+                    }
                 }
             }
         }
