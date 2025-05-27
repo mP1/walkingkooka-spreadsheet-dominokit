@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -29,6 +30,58 @@ public final class AppContextSpreadsheetNameDialogComponentContextSpreadsheetLis
         assertThrows(
             NullPointerException.class,
             () -> AppContextSpreadsheetNameDialogComponentContextSpreadsheetListRename.with(null)
+        );
+    }
+
+    // isMatch..........................................................................................................
+
+    @Test
+    public void testIsMatchWithSpreadsheetListRenameSelectHistoryToken() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.spreadsheetListRenameSelect(
+                SPREADSHEET_ID
+            ),
+            true
+        );
+    }
+
+
+    @Test
+    public void testIsMatchWithSpreadsheetListRenameSaveHistoryToken() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.spreadsheetListRenameSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
+            ),
+            false
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetRenameSelectHistoryToken() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.spreadsheetRenameSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
+            ),
+            false
+        );
+    }
+
+
+    @Test
+    public void testIsMatchWithSpreadsheetRenameSaveHistoryToken() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.spreadsheetRenameSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SPREADSHEET_NAME
+            ),
+            false
         );
     }
 
