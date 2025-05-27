@@ -26,7 +26,7 @@ import walkingkooka.text.printer.TreePrintable;
  * also given to the provided {@link AppContext}. This will be necessary for components that have children that also register themselves as {@link HistoryTokenWatcher}.
  */
 public interface HistoryTokenAwareComponentLifecycleTesting<T extends HistoryTokenAwareComponentLifecycle & TreePrintable> extends ComponentLifecycleTesting<T>,
-    ComponentLifecycleMatcherTesting {
+    ComponentLifecycleMatcherTesting<T> {
 
     HistoryToken NOT_MATCHED = HistoryToken.parseString("/not-matched-123");
 

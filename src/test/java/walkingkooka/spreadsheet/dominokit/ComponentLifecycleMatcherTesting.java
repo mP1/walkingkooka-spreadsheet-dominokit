@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.test.Testing;
 
-public interface ComponentLifecycleMatcherTesting extends Testing {
+public interface ComponentLifecycleMatcherTesting<T extends ComponentLifecycleMatcher> extends Testing {
 
     default void shouldIgnoreAndCheck(final ComponentLifecycleMatcher matcher,
                                       final HistoryToken token,
