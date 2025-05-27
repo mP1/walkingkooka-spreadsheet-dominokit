@@ -19,6 +19,8 @@ package walkingkooka.spreadsheet.dominokit.comparator;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -29,6 +31,47 @@ public final class SpreadsheetComparatorNameListDialogComponentContextSortCompar
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetComparatorNameListDialogComponentContextSortComparators.with(null)
+        );
+    }
+
+    // isMatch..........................................................................................................
+
+    @Test
+    public void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenSortComparators() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.metadataPropertySelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetMetadataPropertyName.SORT_COMPARATORS
+            ),
+            true
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenComparators() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.metadataPropertySelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetMetadataPropertyName.COMPARATORS
+            ),
+            false
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenFunctions() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.metadataPropertySelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetMetadataPropertyName.FUNCTIONS
+            ),
+            false
         );
     }
 
