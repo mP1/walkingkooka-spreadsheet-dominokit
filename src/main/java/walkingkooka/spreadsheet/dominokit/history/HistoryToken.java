@@ -2235,51 +2235,56 @@ public abstract class HistoryToken implements HasUrlFragment,
                 this.cast(PluginNameHistoryToken.class).name()
             );
         } else {
-            if (this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken ||
-                this instanceof SpreadsheetCellDecimalNumberSymbolsHistoryToken ||
-                this instanceof SpreadsheetCellFormatterHistoryToken ||
-                this instanceof SpreadsheetCellParserHistoryToken) {
-                historyToken = this.clearSaveValue();
-            } else {
-                if (this instanceof SpreadsheetCellHistoryToken && false == this instanceof SpreadsheetCellLabelHistoryToken) {
-                    final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
+            if (this instanceof SpreadsheetSelectionHistoryToken) {
+                final SpreadsheetSelectionHistoryToken spreadsheetSelectionHistoryToken = this.cast(SpreadsheetSelectionHistoryToken.class);
+                final SpreadsheetId id = spreadsheetSelectionHistoryToken.id();
+                final SpreadsheetName name = spreadsheetSelectionHistoryToken.name();
 
-                    historyToken = cellDelete(
-                        cell.id(),
-                        cell.name(),
-                        cell.anchoredSelection()
-                    );
-                } else {
-                    if (this instanceof SpreadsheetColumnHistoryToken) {
-                        final SpreadsheetColumnHistoryToken column = this.cast(SpreadsheetColumnHistoryToken.class);
-
-                        historyToken = columnDelete(
-                            column.id(),
-                            column.name(),
-                            column.anchoredSelection()
-                        );
+                if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
+                    if (this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken ||
+                        this instanceof SpreadsheetCellDecimalNumberSymbolsHistoryToken ||
+                        this instanceof SpreadsheetCellFormatterHistoryToken ||
+                        this instanceof SpreadsheetCellParserHistoryToken) {
+                        historyToken = this.clearSaveValue();
                     } else {
-                        if (this instanceof SpreadsheetRowHistoryToken) {
-                            final SpreadsheetRowHistoryToken row = this.cast(SpreadsheetRowHistoryToken.class);
+                        final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
+                            .anchoredSelection();
 
-                            historyToken = rowDelete(
-                                row.id(),
-                                row.name(),
-                                row.anchoredSelection()
+                        if (this instanceof SpreadsheetCellHistoryToken && false == this instanceof SpreadsheetCellLabelHistoryToken) {
+                            historyToken = cellDelete(
+                                id,
+                                name,
+                                anchoredSpreadsheetSelection
                             );
                         } else {
-                            if (this instanceof SpreadsheetLabelMappingHistoryToken) {
-                                final SpreadsheetLabelMappingHistoryToken labelMapping = this.cast(SpreadsheetLabelMappingHistoryToken.class);
-                                final Optional<SpreadsheetLabelName> labelName = labelMapping.labelName();
-
-                                if (labelName.isPresent()) {
-                                    historyToken = labelMappingDelete(
-                                        labelMapping.id(),
-                                        labelMapping.name(),
-                                        labelName.get()
+                            if (this instanceof SpreadsheetColumnHistoryToken) {
+                                historyToken = columnDelete(
+                                    id,
+                                    name,
+                                    anchoredSpreadsheetSelection
+                                );
+                            } else {
+                                if (this instanceof SpreadsheetRowHistoryToken) {
+                                    historyToken = rowDelete(
+                                        id,
+                                        name,
+                                        anchoredSpreadsheetSelection
                                     );
                                 }
                             }
+                        }
+                    }
+                } else {
+                    if (this instanceof SpreadsheetLabelMappingHistoryToken) {
+                        final Optional<SpreadsheetLabelName> labelName = this.cast(SpreadsheetLabelMappingHistoryToken.class)
+                            .labelName();
+
+                        if (labelName.isPresent()) {
+                            historyToken = labelMappingDelete(
+                                id,
+                                name,
+                                labelName.get()
+                            );
                         }
                     }
                 }
