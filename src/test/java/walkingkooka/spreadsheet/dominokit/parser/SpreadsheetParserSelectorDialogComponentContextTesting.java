@@ -17,7 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.parser;
 
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextTesting;
 
-public interface SpreadsheetParserSelectorDialogComponentContextTesting<C extends SpreadsheetParserSelectorDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C> {
+public interface SpreadsheetParserSelectorDialogComponentContextTesting<C extends SpreadsheetParserSelectorDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C>,
+    ComponentLifecycleMatcherTesting<C> {
 }
