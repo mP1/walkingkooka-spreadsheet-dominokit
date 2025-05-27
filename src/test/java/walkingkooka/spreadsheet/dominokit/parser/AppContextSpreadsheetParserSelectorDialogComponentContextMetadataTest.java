@@ -19,6 +19,11 @@ package walkingkooka.spreadsheet.dominokit.parser;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -32,6 +37,74 @@ public final class AppContextSpreadsheetParserSelectorDialogComponentContextMeta
         );
     }
 
+    // isMatch..........................................................................................................
+
+    @Test
+    public void testIsMatchWithSpreadsheetCellSelectHistoryToken() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            false
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetCellParserSelectHistoryToken() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.cellParserSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            false
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetMetadataPropertyNameSelectHistoryTokenDateParser() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.metadataPropertySelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetMetadataPropertyName.DATE_PARSER
+            ),
+            true
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetMetadataPropertyNameSelectHistoryTokenDateFormatter() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.metadataPropertySelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetMetadataPropertyName.DATE_FORMATTER
+            ),
+            false
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetMetadataPropertyNameSaveHistoryTokenDateParser() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.metadataPropertySave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetMetadataPropertyName.DATE_PARSER,
+                Optional.empty()
+            ),
+            false
+        );
+    }
+    
     @Override
     public AppContextSpreadsheetParserSelectorDialogComponentContextMetadata createContext() {
         return AppContextSpreadsheetParserSelectorDialogComponentContextMetadata.with(AppContexts.fake());
