@@ -50,8 +50,8 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
     public void testIsMatchSpreadsheetCellSelectHistoryToken() {
         this.isMatchAndCheck(
             HistoryToken.cellSelect(
-                SpreadsheetId.with(1),
-                SpreadsheetName.with("SpreadsheetName123"),
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor()
             ),
             true
@@ -70,8 +70,8 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
     public void testIsMatchSpreadsheetSelectHistoryToken() {
         this.isMatchAndCheck(
             HistoryToken.spreadsheetSelect(
-                SpreadsheetId.with(1),
-                SpreadsheetName.with("SpreadsheetName123")
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             ),
             true
         );
