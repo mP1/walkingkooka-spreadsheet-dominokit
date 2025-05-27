@@ -97,7 +97,7 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlElemen
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 "=1"
             ),
-            true
+            false
         );
     }
 
