@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -40,6 +41,95 @@ import java.util.Locale;
 
 public final class SpreadsheetLabelMappingDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetLabelMappingDialogComponent,
     SpreadsheetLabelMappingDialogComponentContext> {
+
+    // isMatch..........................................................................................................
+
+    @Test
+    public void testIsMatchWithSpreadsheetLabelMappingCreateHistoryToken() {
+        this.isMatchAndCheck2(
+            HistoryToken.labelMappingCreate(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
+            ),
+            true
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetLabelMappingDeleteHistoryToken() {
+        this.isMatchAndCheck2(
+            HistoryToken.labelMappingDelete(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.labelName("HelloLabel")
+            ),
+            false
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetLabelMappingListHistoryToken() {
+        this.isMatchAndCheck2(
+            HistoryToken.labelMappingList(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                HistoryTokenOffsetAndCount.EMPTY
+            ),
+            false
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetCellLabelSaveHistoryToken() {
+        this.isMatchAndCheck2(
+            HistoryToken.cellLabelSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor(),
+                SpreadsheetSelection.labelName("HelloLabel")
+            ),
+            false
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetCellLabelSelectHistoryToken() {
+        this.isMatchAndCheck2(
+            HistoryToken.cellLabelSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            true
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetCellSelectSelectHistoryToken() {
+        this.isMatchAndCheck2(
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            false
+        );
+    }
+
+    private void isMatchAndCheck2(final HistoryToken historyToken,
+                                  final boolean expected) {
+        this.isMatchAndCheck(
+            SpreadsheetLabelMappingDialogComponent.with(
+                this.context(
+                    appContext(historyToken)
+                )
+            ),
+            historyToken,
+            expected
+        );
+    }
+
+    // onHistoryTokenChange.............................................................................................
 
     @Test
     public void testOnHistoryTokenChangeSpreadsheetLabelMappingCreateHistoryToken() {
@@ -299,6 +389,12 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
     }
 
     private static FakeAppContext appContext(final String historyToken) {
+        return appContext(
+            HistoryToken.parseString(historyToken)
+        );
+    }
+
+    private static FakeAppContext appContext(final HistoryToken historyToken) {
         return new FakeAppContext() {
 
             @Override
@@ -318,7 +414,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
 
             @Override
             public HistoryToken historyToken() {
-                return HistoryToken.parseString(historyToken);
+                return historyToken;
             }
 
             @Override
