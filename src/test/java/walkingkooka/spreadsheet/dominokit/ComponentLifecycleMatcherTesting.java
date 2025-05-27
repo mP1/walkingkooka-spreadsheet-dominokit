@@ -46,5 +46,13 @@ public interface ComponentLifecycleMatcherTesting<T extends ComponentLifecycleMa
             matcher.isMatch(token),
             token::toString
         );
+
+        if(expected) {
+            this.checkEquals(
+                false,
+                matcher.shouldIgnore(token),
+                token::toString
+            );
+        }
     }
 }

@@ -165,7 +165,8 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return token instanceof SpreadsheetCellHistoryToken;
+        return token instanceof SpreadsheetCellHistoryToken &&
+            false == token instanceof SpreadsheetCellFormulaSaveHistoryToken;
     }
 
     @Override
