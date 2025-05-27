@@ -17,10 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.test.Testing;
 
 public interface ComponentLifecycleMatcherTesting<T extends ComponentLifecycleMatcher> extends Testing {
+
+    SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1);
+
+    SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("SpreadsheetName1");
 
     default void shouldIgnoreAndCheck(final ComponentLifecycleMatcher matcher,
                                       final HistoryToken token,
