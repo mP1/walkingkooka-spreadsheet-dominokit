@@ -22,6 +22,8 @@ import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesDialogCo
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponent;
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.datetimesymbols.DateTimeSymbolsDialogComponent;
+import walkingkooka.spreadsheet.dominokit.datetimesymbols.DateTimeSymbolsDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.find.SpreadsheetFindDialogComponent;
 import walkingkooka.spreadsheet.dominokit.find.SpreadsheetFindDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterSelectorDialogComponent;
@@ -65,6 +67,8 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
 
         metadata(context);
 
+        dateTimeSymbols(context);
+
         columnAndRow(context);
 
         cellReferences(context);
@@ -87,6 +91,15 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
     private static void columnAndRow(final AppContext context) {
         SpreadsheetColumnRowInsertCountDialogComponent.with(
             SpreadsheetColumnRowInsertCountDialogComponentContexts.appContext(context)
+        );
+    }
+
+    private static void dateTimeSymbols(final AppContext context) {
+        DateTimeSymbolsDialogComponent.with(
+            DateTimeSymbolsDialogComponentContexts.cell(context)
+        );
+        DateTimeSymbolsDialogComponent.with(
+            DateTimeSymbolsDialogComponentContexts.metadata(context)
         );
     }
 
