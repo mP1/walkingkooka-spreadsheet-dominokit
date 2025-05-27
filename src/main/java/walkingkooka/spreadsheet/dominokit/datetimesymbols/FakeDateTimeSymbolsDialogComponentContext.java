@@ -45,6 +45,11 @@ public class FakeDateTimeSymbolsDialogComponentContext extends FakeSpreadsheetDi
     }
 
     @Override
+    public Optional<DateTimeSymbols> loadDateTimeSymbols() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public void save(final Optional<DateTimeSymbols> symbols) {
         throw new UnsupportedOperationException();
     }

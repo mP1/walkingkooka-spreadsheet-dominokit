@@ -18,14 +18,28 @@
 package walkingkooka.spreadsheet.dominokit.datetimesymbols;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.set.Sets;
+import walkingkooka.datetime.DateTimeSymbols;
+import walkingkooka.net.Url;
+import walkingkooka.net.http.HttpMethod;
+import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
+import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
-public final class AppContextSpreadsheetCellDateTimeSymbolsDialogComponentContextTest implements DateTimeSymbolsDialogComponentContextTesting<AppContextSpreadsheetCellDateTimeSymbolsDialogComponentContext> {
+public final class AppContextSpreadsheetCellDateTimeSymbolsDialogComponentContextTest implements DateTimeSymbolsDialogComponentContextTesting<AppContextSpreadsheetCellDateTimeSymbolsDialogComponentContext>,
+    SpreadsheetMetadataTesting {
 
     @Test
     public void testIsMatchWhenSpreadsheetCellDateTimeSymbolsSaveHistoryToken() {
@@ -90,6 +104,79 @@ public final class AppContextSpreadsheetCellDateTimeSymbolsDialogComponentContex
                 SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_SYMBOLS
             ),
             false
+        );
+    }
+
+    // load.............................................................................................................
+
+    @Test
+    public void testLoadDateTimeSymbols() {
+        final Optional<DateTimeSymbols> dateTimeSymbols = Optional.of(DATE_TIME_SYMBOLS);
+
+        final SpreadsheetCell cell = SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
+            .setDateTimeSymbols(dateTimeSymbols);
+
+        final AppContext appContext = new FakeAppContext() {
+            @Override
+            public SpreadsheetViewportCache spreadsheetViewportCache() {
+                return cache;
+            }
+
+            final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty(this);
+
+            @Override
+            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                return null;
+            }
+
+            @Override
+            public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+                return null;
+            }
+
+            @Override
+            public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+                return null;
+            }
+
+            @Override
+            public HistoryToken historyToken() {
+                return HistoryToken.cellDateTimeSymbolsSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    SpreadsheetSelection.A1.setDefaultAnchor()
+                );
+            }
+
+            @Override
+            public void debug(final Object... values) {
+                // NOP
+            }
+        };
+
+        appContext.spreadsheetViewportCache()
+                .onSpreadsheetMetadata(
+                    METADATA_EN_AU.set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, SPREADSHEET_ID),
+                    appContext
+                );
+
+        appContext.spreadsheetViewportCache()
+            .onSpreadsheetDelta(
+                HttpMethod.GET,
+                Url.parseRelative("/api/spreadsheet/1/cell/*"),
+                SpreadsheetDelta.EMPTY.setCells(
+                    Sets.of(
+                        cell
+                    )
+                ),
+                appContext
+            );
+
+        this.loadDateTimeSymbolsAndCheck(
+            AppContextSpreadsheetCellDateTimeSymbolsDialogComponentContext.with(
+                appContext
+            ),
+            dateTimeSymbols
         );
     }
 

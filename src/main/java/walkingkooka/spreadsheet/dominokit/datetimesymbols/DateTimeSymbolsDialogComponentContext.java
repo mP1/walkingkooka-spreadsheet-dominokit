@@ -36,6 +36,10 @@ public interface DateTimeSymbolsDialogComponentContext extends
      */
     String dialogTitle();
 
+    /**
+     * Gets the current {@link DateTimeSymbols}
+     */
+    Optional<DateTimeSymbols> loadDateTimeSymbols();
 
     /**
      * Saves the given value, preparing the {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken}

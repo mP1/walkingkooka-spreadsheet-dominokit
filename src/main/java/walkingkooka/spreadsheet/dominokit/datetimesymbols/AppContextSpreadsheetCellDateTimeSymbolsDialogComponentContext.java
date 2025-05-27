@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.datetimesymbols;
 
 import walkingkooka.datetime.DateTimeSymbols;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
@@ -50,6 +51,18 @@ final class AppContextSpreadsheetCellDateTimeSymbolsDialogComponentContext imple
     @Override
     public String dialogTitle() {
         return DateTimeSymbols.class.getSimpleName();
+    }
+
+    @Override
+    public Optional<DateTimeSymbols> loadDateTimeSymbols() {
+        final AppContext context = this.context;
+
+        return context.spreadsheetViewportCache()
+            .cell(
+                context.historyToken()
+                    .selection()
+                    .get()
+            ).flatMap(SpreadsheetCell::dateTimeSymbols);
     }
 
     @Override
