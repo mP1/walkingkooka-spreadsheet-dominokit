@@ -1636,23 +1636,14 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     static OptionalInt parseOptionalInt(final TextCursor cursor) {
-        final OptionalInt value;
-
-        final Optional<String> maybeComponent = parseComponent(cursor);
-        if (maybeComponent.isPresent()) {
-            final String string = maybeComponent.get();
-            if (string.isEmpty()) {
-                value = OptionalInt.empty();
-            } else {
-                value = OptionalInt.of(
-                    Integer.parseInt(string)
-                );
-            }
-        } else {
-            value = OptionalInt.empty();
-        }
-
-        return value;
+        return parseComponent(cursor)
+            .map(
+                (final String token) -> token.isEmpty() ?
+                    OptionalInt.empty() :
+                    OptionalInt.of(
+                        Integer.parseInt(token)
+                    )
+            ).orElse(OptionalInt.empty());
     }
 
     // ctor.............................................................................................................
