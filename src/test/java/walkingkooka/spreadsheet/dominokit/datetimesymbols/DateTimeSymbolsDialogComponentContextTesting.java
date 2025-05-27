@@ -17,11 +17,22 @@
 
 package walkingkooka.spreadsheet.dominokit.datetimesymbols;
 
+import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextTesting;
 
+import java.util.Optional;
+
 public interface DateTimeSymbolsDialogComponentContextTesting<C extends DateTimeSymbolsDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C>,
     ComponentLifecycleMatcherTesting<C> {
+
+    default void loadDateTimeSymbolsAndCheck(final C context,
+                                             final Optional<DateTimeSymbols> expected) {
+        this.checkEquals(
+            expected,
+            context.loadDateTimeSymbols()
+        );
+    }
 
     @Override
     default String typeNameSuffix() {
