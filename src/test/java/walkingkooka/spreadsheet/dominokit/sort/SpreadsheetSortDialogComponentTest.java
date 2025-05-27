@@ -49,7 +49,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
 
     // should have one *EMPTY* SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent
     @Test
-    public void testCellEmpty() {
+    public void testOnHistoryTokenChangeWhenCellEmpty() {
         this.onHistoryTokenChangeAndCheck(
             this.cellAppContext(
                 "B2:C3",
@@ -90,7 +90,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
 
     // The first column is invalid so should include an ERROR MESSAGE
     @Test
-    public void testCellInvalidColumn() {
+    public void testOnHistoryTokenChangeWhenCellInvalidColumn() {
         this.onHistoryTokenChangeAndCheck(
             this.cellAppContext(
                 "B2:C3",
@@ -169,7 +169,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
 
     // The first column is invalid so should include an ERROR MESSAGE
     @Test
-    public void testCellInvalidRow() {
+    public void testOnHistoryTokenChangeWhenCellInvalidRow() {
         this.onHistoryTokenChangeAndCheck(
             this.cellAppContext(
                 "B2:C3",
@@ -249,7 +249,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
     // should have two SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent
     // the first with "B" and an empty second.
     @Test
-    public void testCellColumn() {
+    public void testOnHistoryTokenChangeWhenCellColumn() {
         this.onHistoryTokenChangeAndCheck(
             this.cellAppContext(
                 "B2:C3",
@@ -323,7 +323,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
     }
 
     @Test
-    public void testCellColumnEqualsSign() {
+    public void testOnHistoryTokenChangeWhenCellColumnEqualsSign() {
         this.onHistoryTokenChangeAndCheck(
             this.cellAppContext(
                 "B2:C3",
@@ -399,7 +399,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
     // should only have 2x SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent because there are only
     // 2 columns in the range.
     @Test
-    public void testCellColumnComparatorName() {
+    public void testOnHistoryTokenChangeWhenCellColumnComparatorName() {
         this.onHistoryTokenChangeAndCheck(
             this.cellAppContext(
                 "B2:C3",
@@ -473,7 +473,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
     }
 
     @Test
-    public void testCellColumnComparatorNameComparatorName() {
+    public void testOnHistoryTokenChangeWhenCellColumnComparatorNameComparatorName() {
         this.onHistoryTokenChangeAndCheck(
             this.cellAppContext(
                 "B2:C3",
@@ -548,7 +548,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
     }
 
     @Test
-    public void testCellColumnComparatorNameColumnComparatorName() {
+    public void testOnHistoryTokenChangeWhenCellColumnComparatorNameColumnComparatorName() {
         this.onHistoryTokenChangeAndCheck(
             this.cellAppContext(
                 "B2:C3",
@@ -648,7 +648,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
     // contains a duplicate COLUMN in the expression so the 2nd SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent
     // should have an error
     @Test
-    public void testCellWithDuplicateColumn() {
+    public void testOnHistoryTokenChangeWhenCellWithDuplicateColumn() {
         this.onHistoryTokenChangeAndCheck(
             this.cellAppContext(
                 "B2:C3",
@@ -751,7 +751,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
 
     // Must have 3 SpreadsheetColumnOrRowSpreadsheetComparatorName: B, C, *EMPTY*
     @Test
-    public void testCellWith2ColumnsAndColumnComparatorNameColumnComparatorName() {
+    public void testOnHistoryTokenChangeWhenCellWith2ColumnsAndColumnComparatorNameColumnComparatorName() {
         this.onHistoryTokenChangeAndCheck(
             this.cellAppContext(
                 "B2:D4",
