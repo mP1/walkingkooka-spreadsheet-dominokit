@@ -1154,14 +1154,14 @@ public abstract class HistoryToken implements HasUrlFragment,
     /**
      * {@see PluginListReloadHistoryToken}
      */
-    public static PluginListHistoryToken pluginListReload(final HistoryTokenOffsetAndCount offsetAndCount) {
+    public static PluginListReloadHistoryToken pluginListReload(final HistoryTokenOffsetAndCount offsetAndCount) {
         return PluginListReloadHistoryToken.with(offsetAndCount);
     }
 
     /**
      * {@see PluginListSelectHistoryToken}
      */
-    public static PluginListHistoryToken pluginListSelect(final HistoryTokenOffsetAndCount offsetAndCount) {
+    public static PluginListSelectHistoryToken pluginListSelect(final HistoryTokenOffsetAndCount offsetAndCount) {
         return PluginListSelectHistoryToken.with(offsetAndCount);
     }
 
