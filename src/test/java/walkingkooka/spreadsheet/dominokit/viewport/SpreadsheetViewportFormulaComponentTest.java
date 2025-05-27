@@ -25,6 +25,7 @@ import walkingkooka.net.http.HttpMethod;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
@@ -46,10 +47,91 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import java.util.Arrays;
 
 public final class SpreadsheetViewportFormulaComponentTest implements HtmlElementComponentTesting<SpreadsheetViewportFormulaComponent, HTMLFieldSetElement>,
+    ComponentLifecycleMatcherTesting<SpreadsheetViewportFormulaComponent>,
     SpreadsheetMetadataTesting {
 
     private final static SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1);
     private final static SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("Name222");
+
+    // isMatch..........................................................................................................
+
+    @Test
+    public void testIsMatchWithSpreadsheetCellSelectHistoryToken() {
+        this.isMatchAndCheck(
+            SpreadsheetViewportFormulaComponent.with(
+                new TestSpreadsheetViewportFormulaComponentContext()
+            ),
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            true
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetCellFormulaSelectHistoryToken() {
+        this.isMatchAndCheck(
+            SpreadsheetViewportFormulaComponent.with(
+                new TestSpreadsheetViewportFormulaComponentContext()
+            ),
+            HistoryToken.cellFormula(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            true
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetCellFormulaSaveHistoryToken() {
+        this.isMatchAndCheck(
+            SpreadsheetViewportFormulaComponent.with(
+                new TestSpreadsheetViewportFormulaComponentContext()
+            ),
+            HistoryToken.cellFormulaSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor(),
+                "=1"
+            ),
+            true
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetColumnSelectHistoryToken() {
+        this.isMatchAndCheck(
+            SpreadsheetViewportFormulaComponent.with(
+                new TestSpreadsheetViewportFormulaComponentContext()
+            ),
+            HistoryToken.columnSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.column()
+                    .setDefaultAnchor()
+            ),
+            false
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetRowSelectHistoryToken() {
+        this.isMatchAndCheck(
+            SpreadsheetViewportFormulaComponent.with(
+                new TestSpreadsheetViewportFormulaComponentContext()
+            ),
+            HistoryToken.rowSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.row()
+                    .setDefaultAnchor()
+            ),
+            false
+        );
+    }
 
     @Test
     public void testRefresh() {
