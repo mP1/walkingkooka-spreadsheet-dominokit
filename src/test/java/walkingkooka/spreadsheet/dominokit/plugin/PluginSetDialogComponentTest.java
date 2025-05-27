@@ -331,10 +331,6 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
         private final PluginStore pluginStore = PluginStores.treeMap();
     }
 
-    private PluginSetDialogComponent dialog(final PluginSetDialogComponentContext context) {
-        return PluginSetDialogComponent.with(context);
-    }
-
     // ClassTesting.....................................................................................................
 
     @Override
