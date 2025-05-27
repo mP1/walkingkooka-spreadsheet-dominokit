@@ -35,6 +35,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellReferencesHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
@@ -53,6 +55,47 @@ import java.util.Set;
 public final class SpreadsheetCellReferencesDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetCellReferencesDialogComponent,
     SpreadsheetCellReferencesDialogComponentContext>,
     SpreadsheetMetadataTesting {
+
+    // isMatch..........................................................................................................
+
+    @Test
+    public void testIsMatchWithSpreadsheetCellReferencesHistoryToken() {
+        final SpreadsheetCellReferencesHistoryToken historyToken = HistoryToken.cellReferences(
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
+            SpreadsheetSelection.A1.setDefaultAnchor(),
+            HistoryTokenOffsetAndCount.EMPTY
+        );
+
+        this.isMatchAndCheck(
+            SpreadsheetCellReferencesDialogComponent.with(
+                new TestSpreadsheetCellReferencesDialogComponentContext(
+                    this.appContext(historyToken)
+                )
+            ),
+            historyToken,
+            true
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetCellSelectHistoryToken() {
+        final SpreadsheetCellSelectHistoryToken historyToken = HistoryToken.cellSelect(
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
+            SpreadsheetSelection.A1.setDefaultAnchor()
+        );
+
+        this.isMatchAndCheck(
+            SpreadsheetCellReferencesDialogComponent.with(
+                new TestSpreadsheetCellReferencesDialogComponentContext(
+                    this.appContext(historyToken)
+                )
+            ),
+            historyToken,
+            false
+        );
+    }
 
     // onHistoryTokenChange.............................................................................................
 
