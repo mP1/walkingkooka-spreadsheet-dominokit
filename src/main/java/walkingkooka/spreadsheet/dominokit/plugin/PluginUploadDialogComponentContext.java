@@ -18,8 +18,10 @@
 package walkingkooka.spreadsheet.dominokit.plugin;
 
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
 
-public interface PluginUploadDialogComponentContext extends HasPluginFetcherWatchers,
+public interface PluginUploadDialogComponentContext extends SpreadsheetDialogComponentContext,
+    HasPluginFetcherWatchers,
     RefreshContext {
 }
