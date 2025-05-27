@@ -19,6 +19,10 @@ package walkingkooka.spreadsheet.dominokit.insert;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+
+import java.util.OptionalInt;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -29,6 +33,156 @@ public final class AppContextSpreadsheetColumnRowInsertCountDialogComponentConte
         assertThrows(
             NullPointerException.class,
             () -> AppContextSpreadsheetColumnRowInsertCountDialogComponentContext.with(null)
+        );
+    }
+
+    // isMatch..........................................................................................................
+
+    @Test
+    public void testIsMatchWithSpreadsheetColumnInsertAfterHistoryTokenWithCount() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.columnInsertAfter(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.column()
+                    .setDefaultAnchor(),
+                OptionalInt.of(1)
+            ),
+            false
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetColumnInsertAfterHistoryTokenWithoutCount() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.columnInsertAfter(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.column()
+                    .setDefaultAnchor(),
+                OptionalInt.empty()
+            ),
+            true
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetColumnInsertBeforeHistoryTokenWithCount() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.columnInsertBefore(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.column()
+                    .setDefaultAnchor(),
+                OptionalInt.of(1)
+            ),
+            false
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetColumnInsertBeforeHistoryTokenWithoutCount() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.columnInsertBefore(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.column()
+                    .setDefaultAnchor(),
+                OptionalInt.empty()
+            ),
+            true
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetColumnSelectHistoryToken() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.columnSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.column()
+                    .setDefaultAnchor()
+            ),
+            false
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetRowInsertAfterHistoryTokenWithCount() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.rowInsertAfter(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.row()
+                    .setDefaultAnchor(),
+                OptionalInt.of(1)
+            ),
+            false
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetRowInsertAfterHistoryTokenWithoutCount() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.rowInsertAfter(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.row()
+                    .setDefaultAnchor(),
+                OptionalInt.empty()
+            ),
+            true
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetRowInsertBeforeHistoryTokenWithCount() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.rowInsertBefore(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.row()
+                    .setDefaultAnchor(),
+                OptionalInt.of(1)
+            ),
+            false
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetRowInsertBeforeHistoryTokenWithoutCount() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.rowInsertBefore(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.row()
+                    .setDefaultAnchor(),
+                OptionalInt.empty()
+            ),
+            true
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetRowSelectHistoryToken() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.rowSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.row()
+                    .setDefaultAnchor()
+            ),
+            false
         );
     }
 

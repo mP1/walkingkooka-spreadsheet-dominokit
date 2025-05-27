@@ -17,7 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.insert;
 
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextTesting;
 
-public interface SpreadsheetColumnRowInsertCountDialogComponentContextTesting<C extends SpreadsheetColumnRowInsertCountDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C> {
+public interface SpreadsheetColumnRowInsertCountDialogComponentContextTesting<C extends SpreadsheetColumnRowInsertCountDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C>,
+    ComponentLifecycleMatcherTesting<C> {
 }
