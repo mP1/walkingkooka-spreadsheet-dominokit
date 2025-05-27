@@ -35,6 +35,7 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -42,6 +43,56 @@ import java.util.Optional;
 
 public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareComponentLifecycleTesting<SpreadsheetToolbarComponent>,
     SpreadsheetMetadataTesting {
+
+    // isMatch..........................................................................................................
+
+    @Test
+    public void testIsMatchSpreadsheetCellSelectHistoryToken() {
+        this.isMatchAndCheck(
+            HistoryToken.cellSelect(
+                SpreadsheetId.with(1),
+                SpreadsheetName.with("SpreadsheetName123"),
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            true
+        );
+    }
+
+    @Test
+    public void testIsMatchSpreadsheetCreateHistoryToken() {
+        this.isMatchAndCheck(
+            HistoryToken.spreadsheetCreate(),
+            false
+        );
+    }
+
+    @Test
+    public void testIsMatchSpreadsheetSelectHistoryToken() {
+        this.isMatchAndCheck(
+            HistoryToken.spreadsheetSelect(
+                SpreadsheetId.with(1),
+                SpreadsheetName.with("SpreadsheetName123")
+            ),
+            true
+        );
+    }
+
+    private void isMatchAndCheck(final HistoryToken historyToken,
+                                 final boolean expected) {
+        this.isMatchAndCheck(
+            SpreadsheetToolbarComponent.with(
+                SpreadsheetToolbarComponentContexts.appContext(
+                    this.appContext(
+                        HistoryTokenWatchers.empty(),
+                        historyToken
+                            .toString()
+                    )
+                )
+            ),
+            historyToken,
+            expected
+        );
+    }
 
     // id...............................................................................................................
 
