@@ -33,8 +33,10 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifec
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.PluginListSelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.PluginSelectHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 
 import java.util.Locale;
@@ -43,6 +45,46 @@ import java.util.TreeSet;
 public final class PluginSetDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<PluginSetDialogComponent,
     SpreadsheetComparatorNameListDialogComponentContext>,
     SpreadsheetMetadataTesting {
+
+    // isMatch..........................................................................................................
+
+    @Test
+    public void testIsMatchWithPluginListSelectHistoryToken() {
+        final PluginListSelectHistoryToken historyToken = HistoryToken.pluginListSelect(
+            HistoryTokenOffsetAndCount.EMPTY
+        );
+
+        final PluginSetDialogComponent dialog = PluginSetDialogComponent.with(
+            PluginSetDialogComponentContexts.appContext(
+                new TestAppContext(historyToken)
+            )
+        );
+
+        this.isMatchAndCheck(
+            dialog,
+            historyToken,
+            true
+        );
+    }
+
+    @Test
+    public void testIsMatchWithPluginNameHistoryToken() {
+        final PluginSelectHistoryToken historyToken = HistoryToken.pluginSelect(
+            PluginName.with("Hello")
+        );
+
+        final PluginSetDialogComponent dialog = PluginSetDialogComponent.with(
+            PluginSetDialogComponentContexts.appContext(
+                new TestAppContext(historyToken)
+            )
+        );
+
+        this.isMatchAndCheck(
+            dialog,
+            historyToken,
+            false
+        );
+    }
 
     // onHistoryToken...................................................................................................
     
@@ -258,8 +300,11 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
     final static class TestAppContext extends FakeAppContext {
 
         TestAppContext(final String historyToken) {
-            this.historyToken = HistoryToken.parseString(historyToken)
-                .cast(PluginListSelectHistoryToken.class);
+            this(HistoryToken.parseString(historyToken));
+        }
+
+        TestAppContext(final HistoryToken historyToken) {
+            this.historyToken = historyToken;
         }
 
         @Override
