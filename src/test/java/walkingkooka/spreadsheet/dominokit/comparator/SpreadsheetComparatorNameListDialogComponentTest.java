@@ -32,7 +32,7 @@ public final class SpreadsheetComparatorNameListDialogComponentTest implements S
     SpreadsheetMetadataTesting {
 
     @Test
-    public void testRefresh() {
+    public void testOnHistoryTokenChange() {
         final AppContext context = this.appContext(
             "/1/Spreadsheet123/spreadsheet/sortComparators"
         );
