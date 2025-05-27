@@ -4289,40 +4289,44 @@ public abstract class HistoryToken implements HasUrlFragment,
     public final HistoryToken toolbar() {
         HistoryToken historyToken = this;
 
-        if (this instanceof SpreadsheetCellDateTimeSymbolsSelectHistoryToken) {
-            final SpreadsheetCellDateTimeSymbolsSelectHistoryToken dateTimeSymbols = this.cast(SpreadsheetCellDateTimeSymbolsSelectHistoryToken.class);
-            historyToken = cellDateTimeSymbolsUnselect(
-                dateTimeSymbols.id(),
-                dateTimeSymbols.name(),
-                dateTimeSymbols.anchoredSelection()
-            );
-        }
+        if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
+            final SpreadsheetAnchoredSelectionHistoryToken spreadsheetAnchoredSelectionHistoryToken = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
 
-        if (this instanceof SpreadsheetCellDecimalNumberSymbolsSelectHistoryToken) {
-            final SpreadsheetCellDecimalNumberSymbolsSelectHistoryToken decimalNumberSymbols = this.cast(SpreadsheetCellDecimalNumberSymbolsSelectHistoryToken.class);
-            historyToken = cellDecimalNumberSymbolsUnselect(
-                decimalNumberSymbols.id(),
-                decimalNumberSymbols.name(),
-                decimalNumberSymbols.anchoredSelection()
-            );
-        }
+            final SpreadsheetId id = spreadsheetAnchoredSelectionHistoryToken.id();
+            final SpreadsheetName name = spreadsheetAnchoredSelectionHistoryToken.name();
+            final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = spreadsheetAnchoredSelectionHistoryToken.anchoredSelection();
 
-        if (this instanceof SpreadsheetCellFormatterSelectHistoryToken) {
-            final SpreadsheetCellFormatterSelectHistoryToken formatter = this.cast(SpreadsheetCellFormatterSelectHistoryToken.class);
-            historyToken = cellFormatterUnselect(
-                formatter.id(),
-                formatter.name(),
-                formatter.anchoredSelection()
-            );
-        }
+            if (this instanceof SpreadsheetCellDateTimeSymbolsSelectHistoryToken) {
+                historyToken = cellDateTimeSymbolsUnselect(
+                    id,
+                    name,
+                    anchoredSpreadsheetSelection
+                );
+            }
 
-        if (this instanceof SpreadsheetCellParserSelectHistoryToken) {
-            final SpreadsheetCellParserSelectHistoryToken parser = this.cast(SpreadsheetCellParserSelectHistoryToken.class);
-            historyToken = cellParserUnselect(
-                parser.id(),
-                parser.name(),
-                parser.anchoredSelection()
-            );
+            if (this instanceof SpreadsheetCellDecimalNumberSymbolsSelectHistoryToken) {
+                historyToken = cellDecimalNumberSymbolsUnselect(
+                    id,
+                    name,
+                    anchoredSpreadsheetSelection
+                );
+            }
+
+            if (this instanceof SpreadsheetCellFormatterSelectHistoryToken) {
+                historyToken = cellFormatterUnselect(
+                    id,
+                    name,
+                    anchoredSpreadsheetSelection
+                );
+            }
+
+            if (this instanceof SpreadsheetCellParserSelectHistoryToken) {
+                historyToken = cellParserUnselect(
+                    id,
+                    name,
+                    anchoredSpreadsheetSelection
+                );
+            }
         }
 
         return historyToken;
