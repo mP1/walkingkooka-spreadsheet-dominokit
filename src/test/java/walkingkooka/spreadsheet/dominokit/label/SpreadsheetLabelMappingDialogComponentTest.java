@@ -42,7 +42,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
     SpreadsheetLabelMappingDialogComponentContext> {
 
     @Test
-    public void testSpreadsheetLabelMappingCreateHistoryToken() {
+    public void testOnHistoryTokenChangeSpreadsheetLabelMappingCreateHistoryToken() {
         this.onHistoryTokenChangeAndCheck(
             "/1/SpreadsheetName111/create-label",
             "SpreadsheetLabelMappingDialogComponent\n" +
@@ -72,7 +72,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
 
     // http://localhost:12345/index.html#/1/Untitled/cell/A1/label
     @Test
-    public void testSpreadsheetLabelMappingSelectHistoryTokenWithCell() {
+    public void testOnHistoryTokenChangeSpreadsheetLabelMappingSelectHistoryTokenWithCell() {
         this.onHistoryTokenChangeAndCheck(
             "/1/SpreadsheetName111/cell/A1/label",
             "SpreadsheetLabelMappingDialogComponent\n" +
@@ -100,7 +100,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
 
     // http://localhost:12345/index.html#/1/Untitled/cell/B2:C3/label
     @Test
-    public void testSpreadsheetLabelMappingSelectHistoryTokenWIthCellRange() {
+    public void testOnHistoryTokenChangeSpreadsheetLabelMappingSelectHistoryTokenWIthCellRange() {
         this.onHistoryTokenChangeAndCheck(
             "/1/SpreadsheetName111/cell/B2:C3/label",
             "SpreadsheetLabelMappingDialogComponent\n" +
@@ -128,7 +128,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
 
     // http://localhost:12345/index.html#/1/Untitled/cell/Label123/label
     @Test
-    public void testSpreadsheetLabelMappingSelectHistoryTokenWithLabel() {
+    public void testOnHistoryTokenChangeSpreadsheetLabelMappingSelectHistoryTokenWithLabel() {
         this.onHistoryTokenChangeAndCheck(
             "/1/SpreadsheetName111/cell/Label123/label",
             "SpreadsheetLabelMappingDialogComponent\n" +
@@ -155,7 +155,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
     }
 
     @Test
-    public void testSpreadsheetLabelMappingCreateHistoryTokenAndHistoryTokenRefresh() {
+    public void testOnHistoryTokenChangeSpreadsheetLabelMappingCreateHistoryTokenAndHistoryTokenRefresh() {
         final AppContext context = appContext("/1/SpreadsheetName111/create-label");
 
         final SpreadsheetLabelMappingDialogComponent dialog = this.dialog(
@@ -220,7 +220,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
     }
 
     @Test
-    public void testSpreadsheetLabelMappingSelectHistoryTokenWithLabelNameAndSpreadsheetDeltaRefresh() {
+    public void testOnHistoryTokenChangeSpreadsheetLabelMappingSelectHistoryTokenWithLabelNameAndSpreadsheetDeltaRefresh() {
         final AppContext context = appContext("/1/SpreadsheetName111/label/Label999");
 
         final SpreadsheetLabelMappingDialogComponent dialog = this.dialog(
