@@ -17,7 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.label;
 
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextTesting;
 
-public interface SpreadsheetLabelMappingListDialogComponentContextTesting<C extends SpreadsheetLabelMappingListDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C> {
+public interface SpreadsheetLabelMappingListDialogComponentContextTesting<C extends SpreadsheetLabelMappingListDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C>,
+    ComponentLifecycleMatcherTesting<C> {
+
+    @Override
+    default String typeNameSuffix() {
+        return SpreadsheetLabelMappingListDialogComponentContext.class.getSimpleName();
+    }
 }
