@@ -3587,13 +3587,13 @@ public abstract class HistoryToken implements HasUrlFragment,
                             if (valueOrNull instanceof Map) {
                                 final Map<?, ?> map = Cast.to(valueOrNull);
                                 if (false == map.isEmpty()) {
-                                    final int cssSaveDateTimeSymbols = 1;
-                                    final int cssSaveDecimalNumberSymbols = 2;
-                                    final int cssSaveFormatter = 4;
-                                    final int cssSaveFormula = 8;
-                                    final int cssSaveParser = 16;
-                                    final int cssSaveStyle = 32;
-                                    int cellSaveMode = cssSaveDateTimeSymbols | cssSaveDecimalNumberSymbols | cssSaveFormatter | cssSaveFormula | cssSaveParser | cssSaveStyle;
+                                    final int MODE_DATE_TIME_SYMBOLS = 1;
+                                    final int MODE_DECIMAL_NUMBER_SYMBOLS = 2;
+                                    final int MODE_FORMATTER = 4;
+                                    final int MODE_FORMULA = 8;
+                                    final int MODE_PARSER = 16;
+                                    final int MODE_STYLE = 32;
+                                    int mode = MODE_DATE_TIME_SYMBOLS | MODE_DECIMAL_NUMBER_SYMBOLS | MODE_FORMATTER | MODE_FORMULA | MODE_PARSER | MODE_STYLE;
 
                                     for (final Object mapValue : map.values()) {
                                         // ignore nulls
@@ -3602,18 +3602,18 @@ public abstract class HistoryToken implements HasUrlFragment,
                                             if (mapValueOptional.isPresent()) {
                                                 Object mapValueOptionalValue = mapValueOptional.get();
                                                 if(mapValueOptionalValue instanceof DateTimeSymbols) {
-                                                    cellSaveMode = cssSaveDateTimeSymbols & cellSaveMode;
+                                                    mode = MODE_DATE_TIME_SYMBOLS & mode;
                                                 } else {
                                                     if(mapValueOptionalValue instanceof DecimalNumberSymbols) {
-                                                        cellSaveMode = cssSaveDecimalNumberSymbols & cellSaveMode;
+                                                        mode = MODE_DECIMAL_NUMBER_SYMBOLS & mode;
                                                     } else {
                                                         if (mapValueOptionalValue instanceof SpreadsheetFormatterSelector) {
-                                                            cellSaveMode = cssSaveFormatter & cellSaveMode;
+                                                            mode = MODE_FORMATTER & mode;
                                                         } else {
                                                             if (mapValueOptionalValue instanceof SpreadsheetParserSelector) {
-                                                                cellSaveMode = cssSaveParser & cellSaveMode;
+                                                                mode = MODE_PARSER & mode;
                                                             } else {
-                                                                cellSaveMode = 0;
+                                                                mode = 0;
                                                             }
                                                         }
                                                     }
@@ -3621,23 +3621,23 @@ public abstract class HistoryToken implements HasUrlFragment,
                                             }
                                         } else {
                                             if (mapValue instanceof String) {
-                                                cellSaveMode = cssSaveFormula & cellSaveMode;
+                                                mode = MODE_FORMULA & mode;
                                             } else {
                                                 if (mapValue instanceof TextStyle) {
-                                                    cellSaveMode = cssSaveStyle & cellSaveMode;
+                                                    mode = MODE_STYLE & mode;
                                                 } else {
-                                                    cellSaveMode = 0;
+                                                    mode = 0;
                                                     break;
                                                 }
                                             }
                                         }
 
-                                        if (0 == cellSaveMode) {
+                                        if (0 == mode) {
                                             break;
                                         }
                                     }
-                                    switch (cellSaveMode) {
-                                        case cssSaveDateTimeSymbols:
+                                    switch (mode) {
+                                        case MODE_DATE_TIME_SYMBOLS:
                                             historyToken = HistoryToken.cellSaveDateTimeSymbols(
                                                 id,
                                                 name,
@@ -3645,7 +3645,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                                                 Cast.to(valueOrNull)
                                             );
                                             break;
-                                        case cssSaveDecimalNumberSymbols:
+                                        case MODE_DECIMAL_NUMBER_SYMBOLS:
                                             historyToken = HistoryToken.cellSaveDecimalNumberSymbols(
                                                 id,
                                                 name,
@@ -3653,7 +3653,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                                                 Cast.to(valueOrNull)
                                             );
                                             break;
-                                        case cssSaveFormatter:
+                                        case MODE_FORMATTER:
                                             historyToken = HistoryToken.cellSaveFormatter(
                                                 id,
                                                 name,
@@ -3661,7 +3661,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                                                 Cast.to(valueOrNull)
                                             );
                                             break;
-                                        case cssSaveFormula:
+                                        case MODE_FORMULA:
                                             historyToken = HistoryToken.cellSaveFormula(
                                                 id,
                                                 name,
@@ -3669,7 +3669,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                                                 Cast.to(valueOrNull)
                                             );
                                             break;
-                                        case cssSaveParser:
+                                        case MODE_PARSER:
                                             historyToken = HistoryToken.cellSaveParser(
                                                 id,
                                                 name,
@@ -3677,7 +3677,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                                                 Cast.to(valueOrNull)
                                             );
                                             break;
-                                        case cssSaveStyle:
+                                        case MODE_STYLE:
                                             historyToken = HistoryToken.cellSaveStyle(
                                                 id,
                                                 name,
