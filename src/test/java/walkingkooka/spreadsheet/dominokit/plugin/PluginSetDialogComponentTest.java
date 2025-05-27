@@ -44,8 +44,10 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
     SpreadsheetComparatorNameListDialogComponentContext>,
     SpreadsheetMetadataTesting {
 
+    // onHistoryToken...................................................................................................
+    
     @Test
-    public void testWithoutPlugins() {
+    public void testOnHistoryTokenChangeWithoutPlugins() {
         final TestAppContext appContext = new TestAppContext("/plugin/*");
 
         final PluginSetDialogComponentContext context = PluginSetDialogComponentContexts.appContext(appContext);
@@ -85,7 +87,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
     }
 
     @Test
-    public void testTableFullOfPlugins() {
+    public void testOnHistoryTokenChangeTableFullOfPlugins() {
         final TestAppContext appContext = new TestAppContext("/plugin/*/count/3");
         appContext.savePlugins(4);
 
@@ -207,7 +209,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
     }
 
     @Test
-    public void testTableFullOfPluginsOffset1() {
+    public void testOnHistoryTokenChangeTableFullOfPluginsOffset1() {
         final TestAppContext appContext = new TestAppContext("/plugin/*/offset/1/count/3");
         appContext.savePlugins(1 + 3 + 1);
 
