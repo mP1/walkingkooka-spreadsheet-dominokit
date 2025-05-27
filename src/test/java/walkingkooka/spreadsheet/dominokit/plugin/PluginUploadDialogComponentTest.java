@@ -34,6 +34,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.PluginSelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.PluginUploadSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.PluginUploadSelectHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 
@@ -45,8 +47,67 @@ public final class PluginUploadDialogComponentTest implements SpreadsheetDialogC
     PluginUploadDialogComponentContext>,
     SpreadsheetMetadataTesting {
 
+    // isMatch..........................................................................................................
+
     @Test
-    public void testBeforeSelectingFile() {
+    public void testIsMatchWithPluginSelectHistoryToken() {
+        final PluginSelectHistoryToken historyToken = HistoryToken.pluginSelect(
+            PluginName.with("HelloPlugin")
+        );
+
+        final PluginUploadDialogComponent dialog = PluginUploadDialogComponent.with(
+            this.pluginDialogComponentContext(
+                new TestAppContext(historyToken)
+            )
+        );
+
+        this.isMatchAndCheck(
+            dialog,
+            historyToken,
+            false
+        );
+    }
+
+    @Test
+    public void testIsMatchWithPluginUploadSelectHistoryToken() {
+        final PluginUploadSelectHistoryToken historyToken = HistoryToken.pluginUploadSelect();
+
+        final PluginUploadDialogComponent dialog = PluginUploadDialogComponent.with(
+            this.pluginDialogComponentContext(
+                new TestAppContext(historyToken)
+            )
+        );
+
+        this.isMatchAndCheck(
+            dialog,
+            historyToken,
+            true
+        );
+    }
+
+    @Test
+    public void testIsMatchWithPluginUploadSaveHistoryToken() {
+        final PluginUploadSaveHistoryToken historyToken = HistoryToken.pluginUploadSave(
+            BrowserFile.parse("base64/filename123")
+        );
+
+        final PluginUploadDialogComponent dialog = PluginUploadDialogComponent.with(
+            this.pluginDialogComponentContext(
+                new TestAppContext(historyToken)
+            )
+        );
+
+        this.isMatchAndCheck(
+            dialog,
+            historyToken,
+            false
+        );
+    }
+
+    // onHistoryTokenChange.............................................................................................
+
+    @Test
+    public void testOnHistoryTokenChangeBeforeSelectingFile() {
         final TestAppContext context = new TestAppContext("/plugin-upload/");
         final PluginUploadDialogComponent dialog = PluginUploadDialogComponent.with(
             this.pluginDialogComponentContext(context)
@@ -86,7 +147,7 @@ public final class PluginUploadDialogComponentTest implements SpreadsheetDialogC
     // 12	2	File last modification date
     @Test
     @DisabledIfSystemProperty(named = "github-actions", matches = "true")
-    public void testAfterSelectingFile() {
+    public void testOnHistoryTokenChangeAfterSelectingFile() {
         final TestAppContext context = new TestAppContext("/plugin-upload/");
         context.savePlugins(4);
 
@@ -148,8 +209,13 @@ public final class PluginUploadDialogComponentTest implements SpreadsheetDialogC
     final static class TestAppContext extends FakeAppContext {
 
         TestAppContext(final String historyToken) {
-            this.historyToken = HistoryToken.parseString(historyToken)
-                .cast(PluginUploadSelectHistoryToken.class);
+            this(
+                HistoryToken.parseString(historyToken)
+            );
+        }
+
+        TestAppContext(final HistoryToken historyToken) {
+            this.historyToken = historyToken;
         }
 
         @Override
