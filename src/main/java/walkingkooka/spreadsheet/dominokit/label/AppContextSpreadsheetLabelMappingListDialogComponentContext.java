@@ -96,4 +96,9 @@ abstract class AppContextSpreadsheetLabelMappingListDialogComponentContext imple
     }
 
     final AppContext context;
+
+    @Override
+    public final String toString() {
+        return this.context.toString();
+    }
 }
