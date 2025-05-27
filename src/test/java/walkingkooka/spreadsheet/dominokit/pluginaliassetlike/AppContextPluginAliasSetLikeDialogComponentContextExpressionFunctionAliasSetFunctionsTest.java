@@ -17,7 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.expression.ExpressionFunctionName;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionAlias;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliasSet;
@@ -32,6 +35,35 @@ public final class AppContextPluginAliasSetLikeDialogComponentContextExpressionF
     ExpressionFunctionSelector,
     ExpressionFunctionAlias,
     ExpressionFunctionAliasSet> {
+
+    // isMatch..........................................................................................................
+
+    @Test
+    public void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenConverters() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.metadataPropertySelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetMetadataPropertyName.CONVERTERS
+            ),
+            false
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenFunctions() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.metadataPropertySelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetMetadataPropertyName.FUNCTIONS
+            ),
+            true
+        );
+    }
+
     @Override
     public AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFunctions createContext() {
         return AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFunctions.with(AppContexts.fake());

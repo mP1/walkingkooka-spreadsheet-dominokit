@@ -17,13 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterAlias;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterAliasSet;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterInfo;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterInfoSet;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterName;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterSelector;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 public final class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetExporterAliasSetExportersTest implements PluginAliasSetLikeDialogComponentContextTesting<AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetExporterAliasSetExporters,
     SpreadsheetExporterName,
@@ -32,6 +35,35 @@ public final class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheet
     SpreadsheetExporterSelector,
     SpreadsheetExporterAlias,
     SpreadsheetExporterAliasSet> {
+
+    // isMatch..........................................................................................................
+
+    @Test
+    public void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenConverters() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.metadataPropertySelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetMetadataPropertyName.CONVERTERS
+            ),
+            false
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenExporters() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.metadataPropertySelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetMetadataPropertyName.EXPORTERS
+            ),
+            true
+        );
+    }
+
     @Override
     public AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetExporterAliasSetExporters createContext() {
         return AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetExporterAliasSetExporters.with(AppContexts.fake());

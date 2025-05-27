@@ -36,7 +36,6 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -278,7 +277,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
     // save should not open or close the dialog.
     @Override
     public boolean shouldIgnore(final HistoryToken token) {
-        return token instanceof SpreadsheetMetadataPropertySaveHistoryToken;
+        return this.context.shouldIgnore(token);
     }
 
     @Override

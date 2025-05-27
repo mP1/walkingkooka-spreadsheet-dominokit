@@ -17,13 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterAlias;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterAliasSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 public final class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetFormatterAliasSetFormattersTest implements PluginAliasSetLikeDialogComponentContextTesting<AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetFormatterAliasSetFormatters,
     SpreadsheetFormatterName,
@@ -32,6 +35,35 @@ public final class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheet
     SpreadsheetFormatterSelector,
     SpreadsheetFormatterAlias,
     SpreadsheetFormatterAliasSet> {
+
+    // isMatch..........................................................................................................
+
+    @Test
+    public void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenConverters() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.metadataPropertySelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetMetadataPropertyName.CONVERTERS
+            ),
+            false
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenFormatters() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.metadataPropertySelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetMetadataPropertyName.FORMATTERS
+            ),
+            true
+        );
+    }
+
     @Override
     public AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetFormatterAliasSetFormatters createContext() {
         return AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetFormatterAliasSetFormatters.with(AppContexts.fake());

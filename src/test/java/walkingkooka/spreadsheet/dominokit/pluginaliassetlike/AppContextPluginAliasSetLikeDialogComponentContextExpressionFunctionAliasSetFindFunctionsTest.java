@@ -17,7 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.expression.ExpressionFunctionName;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionAlias;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliasSet;
@@ -35,6 +38,34 @@ public final class AppContextPluginAliasSetLikeDialogComponentContextExpressionF
     @Override
     public AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFindFunctions createContext() {
         return AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFindFunctions.with(AppContexts.fake());
+    }
+
+    // isMatch..........................................................................................................
+
+    @Test
+    public void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenFindFunctions() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.metadataPropertySelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetMetadataPropertyName.FIND_FUNCTIONS
+            ),
+            true
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenFunctions() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.metadataPropertySelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetMetadataPropertyName.FUNCTIONS
+            ),
+            false
+        );
     }
 
     // Context..........................................................................................................

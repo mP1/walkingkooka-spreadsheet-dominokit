@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentConte
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -49,6 +50,13 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContext<N extends Name
 
     AppContextPluginAliasSetLikeDialogComponentContext(final AppContext context) {
         this.context = Objects.requireNonNull(context, "context");
+    }
+
+    // ComponentLifecycleMatcher........................................................................................
+
+    @Override
+    public final boolean shouldIgnore(final HistoryToken token) {
+        return token instanceof SpreadsheetMetadataPropertySaveHistoryToken;
     }
 
     // PluginAliasSetLikeDialogComponentContext..............................................................................

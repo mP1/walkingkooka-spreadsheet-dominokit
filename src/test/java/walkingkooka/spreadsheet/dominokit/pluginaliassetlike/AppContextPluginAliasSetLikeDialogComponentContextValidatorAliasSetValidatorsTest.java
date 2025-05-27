@@ -18,7 +18,10 @@
 package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.validation.provider.ValidatorAlias;
 import walkingkooka.validation.provider.ValidatorAliasSet;
 import walkingkooka.validation.provider.ValidatorInfo;
@@ -33,6 +36,35 @@ public final class AppContextPluginAliasSetLikeDialogComponentContextValidatorAl
     ValidatorSelector,
     ValidatorAlias,
     ValidatorAliasSet> {
+
+    // isMatch..........................................................................................................
+
+    @Test
+    public void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenConverters() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.metadataPropertySelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetMetadataPropertyName.CONVERTERS
+            ),
+            false
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenValidators() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.metadataPropertySelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetMetadataPropertyName.VALIDATORS
+            ),
+            true
+        );
+    }
+
     @Override
     public AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidators createContext() {
         return AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidators.with(AppContexts.fake());

@@ -49,6 +49,11 @@ public class FakePluginAliasSetLikeDialogComponentContext<N extends Name & Compa
     }
 
     @Override
+    public boolean shouldIgnore(final HistoryToken token) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public ValueSpreadsheetTextBoxWrapper<?, AS> textBox() {
         throw new UnsupportedOperationException();
     }
