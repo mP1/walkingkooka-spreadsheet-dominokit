@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifec
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfo;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
@@ -42,6 +43,38 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
     SpreadsheetComparatorNameListDialogComponentContext> {
 
     private final static PluginName PLUGIN_NAME = PluginName.with("TestPluginName111");
+
+    // isMatch..........................................................................................................
+
+    @Test
+    public void testIsMatchWithPluginSelectHistoryToken() {
+        this.isMatchAndCheck(
+            this.dialog(
+                this.pluginDialogComponentContext(
+                    new TestAppContext("/plugin/" + PLUGIN_NAME)
+                )
+            ),
+            HistoryToken.pluginSelect(PLUGIN_NAME),
+            true
+        );
+    }
+
+    @Test
+    public void testIsMatchWithPluginListSelectHistoryToken() {
+        this.isMatchAndCheck(
+            this.dialog(
+                this.pluginDialogComponentContext(
+                    new TestAppContext("/plugin/")
+                )
+            ),
+            HistoryToken.pluginListSelect(
+                HistoryTokenOffsetAndCount.EMPTY
+            ),
+            false
+        );
+    }
+
+    // render...........................................................................................................
 
     @Test
     public void testEmptyBeforeLoadingJarEntryInfoList() {
