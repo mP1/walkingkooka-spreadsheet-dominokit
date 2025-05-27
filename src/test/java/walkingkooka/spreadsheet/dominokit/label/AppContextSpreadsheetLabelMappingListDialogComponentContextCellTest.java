@@ -54,6 +54,19 @@ public final class AppContextSpreadsheetLabelMappingListDialogComponentContextCe
         );
     }
 
+    @Test
+    public void testIsMatchWithSpreadsheetLabelMappingSelectHistoryToken() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.labelMappingSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.labelName("HelloLabel")
+            ),
+            false
+        );
+    }
+
     @Override
     public void testTypeNaming() {
         throw new UnsupportedOperationException();
