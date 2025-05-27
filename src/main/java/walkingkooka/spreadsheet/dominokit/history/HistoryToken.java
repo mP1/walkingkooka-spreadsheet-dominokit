@@ -1875,159 +1875,157 @@ public abstract class HistoryToken implements HasUrlFragment,
     public final HistoryToken close() {
         HistoryToken closed = this;
 
-        if (this instanceof PluginListSelectHistoryToken) {
-            closed = this.clearAction();
-        }
+        if (this instanceof PluginHistoryToken) {
+            if (this instanceof PluginListSelectHistoryToken) {
+                closed = this.clearAction();
+            }
 
-        if (this instanceof PluginSelectHistoryToken) {
-            closed = this.clearAction();
-        }
+            if (this instanceof PluginSelectHistoryToken) {
+                closed = this.clearAction();
+            }
 
-        // must come after PluginSelectHistoryToken
-        if (this instanceof PluginFileViewHistoryToken) {
-            closed = this.clearAction();
-        }
+            // must come after PluginSelectHistoryToken
+            if (this instanceof PluginFileViewHistoryToken) {
+                closed = this.clearAction();
+            }
 
-        if (this instanceof PluginUploadSelectHistoryToken) {
-            closed = this.clearAction();
-        }
+            if (this instanceof PluginUploadSelectHistoryToken) {
+                closed = this.clearAction();
+            }
 
-        if (this instanceof PluginUploadSaveHistoryToken) {
-            closed = this.clearAction();
-        }
+            if (this instanceof PluginUploadSaveHistoryToken) {
+                closed = this.clearAction();
+            }
+        } else {
+            if (this instanceof SpreadsheetNameHistoryToken) {
+                final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+                final SpreadsheetId id = spreadsheetNameHistoryToken.id();
+                final SpreadsheetName name = spreadsheetNameHistoryToken.name();
 
-        if (this instanceof SpreadsheetCellFindHistoryToken) {
-            closed = this.clearAction();
-        }
+                if (this instanceof SpreadsheetCellFindHistoryToken) {
+                    closed = this.clearAction();
+                }
 
-        if (this instanceof SpreadsheetCellLabelHistoryToken) {
-            final SpreadsheetCellLabelHistoryToken cellLabelSelectHistoryToken = this.cast(SpreadsheetCellLabelHistoryToken.class);
-            closed = cellLabelSelectHistoryToken.selectionSelect();
-        }
+                if (this instanceof SpreadsheetCellLabelHistoryToken) {
+                    closed = this.cast(SpreadsheetCellLabelHistoryToken.class)
+                        .selectionSelect();
+                }
 
-        if (this instanceof SpreadsheetCellLabelsHistoryToken) {
-            final SpreadsheetCellLabelsHistoryToken cellLabelsHistoryToken = this.cast(SpreadsheetCellLabelsHistoryToken.class);
-            closed = cellLabelsHistoryToken.selectionSelect();
-        }
+                if (this instanceof SpreadsheetCellLabelsHistoryToken) {
+                    closed = this.cast(SpreadsheetCellLabelsHistoryToken.class)
+                        .selectionSelect();
+                }
 
-        if (this instanceof SpreadsheetCellReferencesHistoryToken) {
-            closed = this.clearAction();
-        }
+                if (this instanceof SpreadsheetCellReferencesHistoryToken) {
+                    closed = this.clearAction();
+                }
 
-        if (this instanceof SpreadsheetCellSortHistoryToken || this instanceof SpreadsheetColumnSortHistoryToken || this instanceof SpreadsheetRowSortHistoryToken) {
-            closed = this.clearAction();
-        }
+                if (this instanceof SpreadsheetCellSortHistoryToken || this instanceof SpreadsheetColumnSortHistoryToken || this instanceof SpreadsheetRowSortHistoryToken) {
+                    closed = this.clearAction();
+                }
 
-        if (this instanceof SpreadsheetColumnInsertHistoryToken || this instanceof SpreadsheetRowInsertHistoryToken) {
-            closed = this.clearAction();
-        }
+                if (this instanceof SpreadsheetColumnInsertHistoryToken || this instanceof SpreadsheetRowInsertHistoryToken) {
+                    closed = this.clearAction();
+                }
 
-        if (this instanceof SpreadsheetLabelMappingHistoryToken) {
-            final SpreadsheetLabelMappingHistoryToken label = (SpreadsheetLabelMappingHistoryToken) this;
-            closed = spreadsheetSelect(
-                label.id(),
-                label.name()
-            );
-        }
+                if (this instanceof SpreadsheetLabelMappingHistoryToken) {
+                    closed = spreadsheetSelect(
+                        id,
+                        name
+                    );
+                }
 
-        if (this instanceof SpreadsheetCellDateTimeSymbolsSelectHistoryToken) {
-            final SpreadsheetCellDateTimeSymbolsSelectHistoryToken dateTimeSymbols = (SpreadsheetCellDateTimeSymbolsSelectHistoryToken) this;
+                if (this instanceof SpreadsheetCellDateTimeSymbolsSelectHistoryToken) {
+                    closed = cellSelect(
+                        id,
+                        name,
+                        this.cast(SpreadsheetCellDateTimeSymbolsSelectHistoryToken.class)
+                            .anchoredSelection()
+                    );
+                }
 
-            closed = cellSelect(
-                dateTimeSymbols.id(),
-                dateTimeSymbols.name(),
-                dateTimeSymbols.anchoredSelection()
-            );
-        }
+                if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
+                    final AnchoredSpreadsheetSelection anchoredSelection = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
+                        .anchoredSelection();
 
-        if (this instanceof SpreadsheetCellDateTimeSymbolsSaveHistoryToken) {
-            final SpreadsheetCellDateTimeSymbolsHistoryToken dateTimeSymbols = (SpreadsheetCellDateTimeSymbolsHistoryToken) this;
+                    if (this instanceof SpreadsheetCellDateTimeSymbolsSaveHistoryToken) {
+                        closed = cellDateTimeSymbolsSelect(
+                            id,
+                            name,
+                            anchoredSelection
+                        );
+                    }
 
-            closed = cellDateTimeSymbolsSelect(
-                dateTimeSymbols.id(),
-                dateTimeSymbols.name(),
-                dateTimeSymbols.anchoredSelection()
-            );
-        }
+                    if (this instanceof SpreadsheetCellDecimalNumberSymbolsSelectHistoryToken) {
+                        closed = cellSelect(
+                            id,
+                            name,
+                            anchoredSelection
+                        );
+                    }
 
-        if (this instanceof SpreadsheetCellDecimalNumberSymbolsSelectHistoryToken) {
-            final SpreadsheetCellDecimalNumberSymbolsSelectHistoryToken decimalNumberSymbols = (SpreadsheetCellDecimalNumberSymbolsSelectHistoryToken) this;
+                    if (this instanceof SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken) {
+                        closed = cellDecimalNumberSymbolsSelect(
+                            id,
+                            name,
+                            anchoredSelection
+                        );
+                    }
 
-            closed = cellSelect(
-                decimalNumberSymbols.id(),
-                decimalNumberSymbols.name(),
-                decimalNumberSymbols.anchoredSelection()
-            );
-        }
+                    if (this instanceof SpreadsheetCellFormatterSelectHistoryToken) {
+                        closed = cellSelect(
+                            id,
+                            name,
+                            anchoredSelection
+                        );
+                    }
 
-        if (this instanceof SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken) {
-            final SpreadsheetCellDecimalNumberSymbolsHistoryToken decimalNumberSymbols = (SpreadsheetCellDecimalNumberSymbolsHistoryToken) this;
+                    if (this instanceof SpreadsheetCellFormatterSaveHistoryToken) {
+                        final SpreadsheetCellFormatterHistoryToken formatter = (SpreadsheetCellFormatterHistoryToken) this;
 
-            closed = cellDecimalNumberSymbolsSelect(
-                decimalNumberSymbols.id(),
-                decimalNumberSymbols.name(),
-                decimalNumberSymbols.anchoredSelection()
-            );
-        }
+                        closed = cellFormatterSelect(
+                            formatter.id(),
+                            formatter.name(),
+                            formatter.anchoredSelection()
+                        );
+                    }
 
-        if (this instanceof SpreadsheetCellFormatterSelectHistoryToken) {
-            final SpreadsheetCellFormatterSelectHistoryToken formatter = (SpreadsheetCellFormatterSelectHistoryToken) this;
+                    if (this instanceof SpreadsheetCellParserSelectHistoryToken) {
+                        closed = cellSelect(
+                            id,
+                            name,
+                            anchoredSelection
+                        );
+                    }
 
-            closed = cellSelect(
-                formatter.id(),
-                formatter.name(),
-                formatter.anchoredSelection()
-            );
-        }
+                    if (this instanceof SpreadsheetCellParserSaveHistoryToken) {
+                        closed = cellParserSelect(
+                            id,
+                            name,
+                            anchoredSelection
+                        );
+                    }
+                } else {
+                    if (this instanceof SpreadsheetMetadataPropertyHistoryToken) {
+                        closed = metadataSelect(
+                            id,
+                            name
+                        );
+                    }
 
-        if (this instanceof SpreadsheetCellFormatterSaveHistoryToken) {
-            final SpreadsheetCellFormatterHistoryToken formatter = (SpreadsheetCellFormatterHistoryToken) this;
+                    if (this instanceof SpreadsheetRenameHistoryToken) {
+                        closed = spreadsheetSelect(
+                            id,
+                            name
+                        );
+                    }
+                }
 
-            closed = cellFormatterSelect(
-                formatter.id(),
-                formatter.name(),
-                formatter.anchoredSelection()
-            );
-        }
-
-        if (this instanceof SpreadsheetCellParserSelectHistoryToken) {
-            final SpreadsheetCellParserSelectHistoryToken parser = (SpreadsheetCellParserSelectHistoryToken) this;
-
-            closed = cellSelect(
-                parser.id(),
-                parser.name(),
-                parser.anchoredSelection()
-            );
-        }
-
-        if (this instanceof SpreadsheetCellParserSaveHistoryToken) {
-            final SpreadsheetCellParserHistoryToken parser = (SpreadsheetCellParserHistoryToken) this;
-
-            closed = cellParserSelect(
-                parser.id(),
-                parser.name(),
-                parser.anchoredSelection()
-            );
-        }
-
-        if (this instanceof SpreadsheetListRenameHistoryToken) {
-            closed = spreadsheetListSelect(HistoryTokenOffsetAndCount.EMPTY);
-        }
-
-        if (this instanceof SpreadsheetMetadataPropertyHistoryToken) {
-            final SpreadsheetMetadataPropertyHistoryToken<?> metadata = (SpreadsheetMetadataPropertyHistoryToken<?>) this;
-            closed = metadataSelect(
-                metadata.id(),
-                metadata.name()
-            );
-        }
-
-        if (this instanceof SpreadsheetRenameHistoryToken) {
-            final SpreadsheetRenameHistoryToken rename = this.cast(SpreadsheetRenameHistoryToken.class);
-            closed = spreadsheetSelect(
-                rename.id(),
-                rename.name()
-            );
+            } else {
+                if (this instanceof SpreadsheetListRenameHistoryToken) {
+                    closed = spreadsheetListSelect(HistoryTokenOffsetAndCount.EMPTY);
+                }
+            }
         }
 
         return closed;
