@@ -50,6 +50,68 @@ import java.util.TreeSet;
 public final class PluginNameSetDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<PluginNameSetDialogComponent, PluginNameSetDialogComponentContext>,
     HistoryTokenTesting,
     SpreadsheetMetadataTesting {
+
+    // isMatch..........................................................................................................
+
+    @Test
+    public void testIsMatchWithPluginSelectHistoryToken() {
+        final HistoryToken historyToken = HistoryToken.metadataPropertySelect(
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
+            SpreadsheetMetadataPropertyName.PLUGINS
+        );
+
+        final AppContext context = new FakeAppContext() {
+            @Override
+            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                return null;
+            }
+
+            @Override
+            public HistoryToken historyToken() {
+                return historyToken;
+            }
+        };
+
+        this.isMatchAndCheck(
+            PluginNameSetDialogComponent.with(
+                this.dialogContext(context)
+            ),
+            context.historyToken(),
+            true
+        );
+    }
+
+    @Test
+    public void testIsMatchWithPluginListSelectHistoryToken() {
+        final HistoryToken historyToken = HistoryToken.spreadsheetSelect(
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME
+        );
+
+        final AppContext context = new FakeAppContext() {
+            @Override
+            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                return null;
+            }
+
+            @Override
+            public HistoryToken historyToken() {
+                return historyToken;
+            }
+        };
+
+        this.isMatchAndCheck(
+            PluginNameSetDialogComponent.with(
+                this.dialogContext(context)
+            ),
+            context.historyToken(),
+            false
+        );
+    }
+
+    // render...........................................................................................................
+
     @Test
     public void testEmptyTextRefresh() {
         final AppContext context = this.appContext(
