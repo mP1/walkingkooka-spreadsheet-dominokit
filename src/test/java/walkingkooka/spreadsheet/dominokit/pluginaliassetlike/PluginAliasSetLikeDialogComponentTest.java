@@ -227,6 +227,11 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
             }
 
             @Override
+            public boolean shouldIgnore(final HistoryToken token) {
+                return false;
+            }
+
+            @Override
             public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
                 return () -> {
                 };

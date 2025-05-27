@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.convert.provider.ConverterAlias;
 import walkingkooka.convert.provider.ConverterAliasSet;
 import walkingkooka.convert.provider.ConverterInfo;
@@ -24,6 +25,8 @@ import walkingkooka.convert.provider.ConverterInfoSet;
 import walkingkooka.convert.provider.ConverterName;
 import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 public final class AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSetConvertersTest implements PluginAliasSetLikeDialogComponentContextTesting<AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSetConverters,
     ConverterName,
@@ -32,6 +35,35 @@ public final class AppContextPluginAliasSetLikeDialogComponentContextConverterAl
     ConverterSelector,
     ConverterAlias,
     ConverterAliasSet> {
+
+    // isMatch..........................................................................................................
+
+    @Test
+    public void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenConverters() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.metadataPropertySelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetMetadataPropertyName.CONVERTERS
+            ),
+            true
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenFunctions() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.metadataPropertySelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetMetadataPropertyName.FUNCTIONS
+            ),
+            false
+        );
+    }
+
     @Override
     public AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSetConverters createContext() {
         return AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSetConverters.with(AppContexts.fake());

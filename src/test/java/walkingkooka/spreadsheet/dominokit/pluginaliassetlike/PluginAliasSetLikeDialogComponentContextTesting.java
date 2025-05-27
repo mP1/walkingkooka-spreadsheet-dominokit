@@ -17,18 +17,50 @@
 
 package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.naming.Name;
 import walkingkooka.plugin.PluginAliasLike;
 import walkingkooka.plugin.PluginAliasSetLike;
 import walkingkooka.plugin.PluginInfoLike;
 import walkingkooka.plugin.PluginInfoSetLike;
 import walkingkooka.plugin.PluginSelectorLike;
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextTesting;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 public interface PluginAliasSetLikeDialogComponentContextTesting<C extends PluginAliasSetLikeDialogComponentContext<N, I, IS, S, A, AS>, N extends Name & Comparable<N>,
     I extends PluginInfoLike<I, N>,
     IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
     S extends PluginSelectorLike<N>,
     A extends PluginAliasLike<N, S, A>,
-    AS extends PluginAliasSetLike<N, I, IS, S, A, AS>> extends SpreadsheetDialogComponentContextTesting<C> {
+    AS extends PluginAliasSetLike<N, I, IS, S, A, AS>> extends SpreadsheetDialogComponentContextTesting<C>,
+    ComponentLifecycleMatcherTesting<C> {
+
+    @Test
+    default void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenWrong() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.metadataPropertySelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetMetadataPropertyName.SPREADSHEET_ID
+            ),
+            false
+        );
+    }
+
+    @Test
+    default void testIsMatchWithSpreadsheetCellSelectHistoryToken() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            false
+        );
+    }
 }

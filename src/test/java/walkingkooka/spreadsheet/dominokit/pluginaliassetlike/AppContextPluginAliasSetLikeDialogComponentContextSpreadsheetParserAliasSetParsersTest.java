@@ -18,7 +18,10 @@
 package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserAlias;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserAliasSet;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
@@ -33,6 +36,35 @@ public final class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheet
     SpreadsheetParserSelector,
     SpreadsheetParserAlias,
     SpreadsheetParserAliasSet> {
+
+    // isMatch..........................................................................................................
+
+    @Test
+    public void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenConverters() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.metadataPropertySelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetMetadataPropertyName.CONVERTERS
+            ),
+            false
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenParsers() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.metadataPropertySelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetMetadataPropertyName.PARSERS
+            ),
+            true
+        );
+    }
+
     @Override
     public AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetParserAliasSetParsers createContext() {
         return AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetParserAliasSetParsers.with(AppContexts.fake());

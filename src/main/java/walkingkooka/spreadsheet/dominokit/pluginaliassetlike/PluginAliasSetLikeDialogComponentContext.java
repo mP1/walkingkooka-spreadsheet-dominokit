@@ -24,10 +24,10 @@ import walkingkooka.plugin.PluginInfoLike;
 import walkingkooka.plugin.PluginInfoSetLike;
 import walkingkooka.plugin.PluginSelectorLike;
 import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.focus.CanGiveFocus;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
@@ -42,7 +42,9 @@ public interface PluginAliasSetLikeDialogComponentContext<N extends Name & Compa
     S extends PluginSelectorLike<N>,
     A extends PluginAliasLike<N, S, A>,
     AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
-    extends CanGiveFocus,
+    extends
+    ComponentLifecycleMatcher,
+    CanGiveFocus,
     SpreadsheetDialogComponentContext,
     AddPluginAliasSetLikeComponentContext,
     RemovePluginAliasSetLikeComponentContext {
@@ -51,11 +53,6 @@ public interface PluginAliasSetLikeDialogComponentContext<N extends Name & Compa
      * Returns the dialog title.
      */
     String dialogTitle();
-
-    /**
-     * Returns true if this metadata property is selected by the {@link HistoryToken}.
-     */
-    boolean isMatch(final HistoryToken token);
 
     /**
      * Creates a textbox that will be used to edit the {@link PluginInfoSetLike}.
