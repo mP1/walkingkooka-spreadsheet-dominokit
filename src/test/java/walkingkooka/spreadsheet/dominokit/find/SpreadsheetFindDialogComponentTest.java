@@ -35,6 +35,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
@@ -55,6 +57,53 @@ import java.util.Set;
 public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetFindDialogComponent,
     SpreadsheetFindDialogComponentContext>,
     SpreadsheetMetadataTesting {
+
+    // isMatch..........................................................................................................
+
+    @Test
+    public void testIsMatchWithSpreadsheetCellFindHistoryToken() {
+        final SpreadsheetCellFindHistoryToken historyToken = HistoryToken.cellFind(
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
+            SpreadsheetSelection.A1.setDefaultAnchor(),
+            SpreadsheetCellFindQuery.empty()
+        );
+
+        this.isMatchAndCheck(
+            SpreadsheetFindDialogComponent.with(
+                new TestSpreadsheetFindDialogComponentContext(
+                    this.appContext(
+                        Optional.empty(), // no highlighting query
+                        historyToken
+                    )
+                )
+            ),
+            historyToken,
+            true
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetCellSelectHistoryToken() {
+        final SpreadsheetCellSelectHistoryToken historyToken = HistoryToken.cellSelect(
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
+            SpreadsheetSelection.A1.setDefaultAnchor()
+        );
+
+        this.isMatchAndCheck(
+            SpreadsheetFindDialogComponent.with(
+                new TestSpreadsheetFindDialogComponentContext(
+                    this.appContext(
+                        Optional.empty(), // no highlighting query
+                        historyToken
+                    )
+                )
+            ),
+            historyToken,
+            false
+        );
+    }
 
     // onHistoryTokenChange.............................................................................................
 
