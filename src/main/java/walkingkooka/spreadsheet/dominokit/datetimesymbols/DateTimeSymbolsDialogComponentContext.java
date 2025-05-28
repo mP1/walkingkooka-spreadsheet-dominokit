@@ -43,7 +43,6 @@ public interface DateTimeSymbolsDialogComponentContext extends
 
     /**
      * Saves the given value, preparing the {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken}
-     * which will cause the column/row to be inserted.
      */
     void save(final Optional<DateTimeSymbols> symbols);
 }
