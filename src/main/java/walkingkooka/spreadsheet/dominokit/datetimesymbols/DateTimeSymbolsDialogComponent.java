@@ -400,15 +400,6 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
         return this.anchor("Save");
     }
 
-    private void refreshSave() {
-        this.save.setHistoryToken(
-            Optional.of(
-                this.context.historyToken()
-                    .setSaveValue(this.dateTimeSymbols.value())
-            )
-        );
-    }
-
     private final HistoryTokenAnchorComponent save;
 
     // clear.............................................................................................................
