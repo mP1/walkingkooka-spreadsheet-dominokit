@@ -412,9 +412,7 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
         this.clear.setHistoryToken(
             Optional.of(
                 this.context.historyToken()
-                    .setSaveValue(
-                        this.context.loadDateTimeSymbols()
-                    )
+                    .clearSaveValue()
             )
         );
     }

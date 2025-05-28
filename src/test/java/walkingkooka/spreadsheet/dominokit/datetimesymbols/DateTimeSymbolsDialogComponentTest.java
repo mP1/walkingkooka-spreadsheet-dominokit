@@ -93,7 +93,7 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/SpreadsheetName1/spreadsheet/dateTimeSymbols/save/%22am,pm%22,%22January,February,March,April,May,June,July,August,September,October,November,December%22,%22Jan.,Feb.,Mar.,Apr.,May,Jun.,Jul.,Aug.,Sep.,Oct.,Nov.,Dec.%22,%22Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday%22,%22Sun.,Mon.,Tue.,Wed.,Thu.,Fri.,Sat.%22] id=dateTimeSymbols-save-Link\n" +
-                "            \"Clear\" [#/1/SpreadsheetName1/spreadsheet/dateTimeSymbols/save/%22am,pm%22,%22January,February,March,April,May,June,July,August,September,October,November,December%22,%22Jan.,Feb.,Mar.,Apr.,May,Jun.,Jul.,Aug.,Sep.,Oct.,Nov.,Dec.%22,%22Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday%22,%22Sun.,Mon.,Tue.,Wed.,Thu.,Fri.,Sat.%22] id=dateTimeSymbols-clear-Link\n" +
+                "            \"Clear\" [#/1/SpreadsheetName1/spreadsheet/dateTimeSymbols/save/] id=dateTimeSymbols-clear-Link\n" +
                 "            \"Undo\" [#/1/SpreadsheetName1/spreadsheet/dateTimeSymbols/save/%22am,pm%22,%22January,February,March,April,May,June,July,August,September,October,November,December%22,%22Jan.,Feb.,Mar.,Apr.,May,Jun.,Jul.,Aug.,Sep.,Oct.,Nov.,Dec.%22,%22Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday%22,%22Sun.,Mon.,Tue.,Wed.,Thu.,Fri.,Sat.%22] id=dateTimeSymbols-undo-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName1/spreadsheet] id=dateTimeSymbols-close-Link\n"
         );
