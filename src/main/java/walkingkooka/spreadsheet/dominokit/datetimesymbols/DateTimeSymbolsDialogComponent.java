@@ -35,7 +35,6 @@ import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.function.Function;
 
 /**
  * A model dialog that includes numerous form fields supporting the editing on individual {@link walkingkooka.datetime.DateTimeSymbols}
@@ -149,12 +148,6 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
         );
     }
 
-    private void refreshAmpms() {
-        this.ampms.setValue(
-            toText(DateTimeSymbols::ampms)
-        );
-    }
-
     private final CsvStringListComponent ampms;
 
     // monthNames.......................................................................................................
@@ -212,19 +205,6 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
     }
 
     private final CsvStringListComponent weekDayNameAbbreviations;
-
-    /**
-     * Returns an individual {@link CsvStringList} for an single {@link DateTimeSymbols} property.
-     */
-    private Optional<CsvStringList> toText(final Function<DateTimeSymbols, List<String>> getter) {
-        return this.context.loadDateTimeSymbols()
-            .map(
-                (DateTimeSymbols dateTimeSymbols) ->
-                    CsvStringList.EMPTY.setElements(
-                        getter.apply(dateTimeSymbols)
-                    )
-            );
-    }
 
     private CsvStringListComponent csvStringListComponent(final String id,
                                                           final String label,
