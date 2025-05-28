@@ -25,6 +25,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.convert.provider.ConverterAliasSet;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.environment.AuditInfo;
+import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.plugin.PluginNameSet;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAliasSet;
@@ -109,6 +110,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         items.add(this.dateTimeFormatter());
         items.add(this.dateTimeParser());
 
+        items.add(this.decimalNumberSymbols());
         items.add(this.numberFormatter());
         items.add(this.numberParser());
 
@@ -301,6 +303,12 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     private SpreadsheetMetadataPanelComponentItem<SpreadsheetParserSelector> dateTimeParser() {
         return link(
             SpreadsheetMetadataPropertyName.DATE_TIME_PARSER
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<DecimalNumberSymbols> decimalNumberSymbols() {
+        return link(
+            SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_SYMBOLS
         );
     }
 
