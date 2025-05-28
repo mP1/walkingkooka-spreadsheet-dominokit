@@ -65,13 +65,11 @@ public interface FormValueComponent<E extends HTMLElement, V, C extends FormValu
     }
 
     /**
-     * Clears the value, helper text and errors. Useful when resetting a component to look empty.
+     * Clears the value. Any validator messages because the value is empty/missing will appear.
      */
     @Override
     default C clear() {
-        return this.clearValue()
-            .clearHelperText()
-            .clearErrors();
+        return this.clearValue();
     }
 
     /**
