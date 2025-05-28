@@ -24,6 +24,8 @@ import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameLi
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.datetimesymbols.DateTimeSymbolsDialogComponent;
 import walkingkooka.spreadsheet.dominokit.datetimesymbols.DateTimeSymbolsDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.decimalnumbersymbols.DecimalNumberSymbolsDialogComponent;
+import walkingkooka.spreadsheet.dominokit.decimalnumbersymbols.DecimalNumberSymbolsDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.find.SpreadsheetFindDialogComponent;
 import walkingkooka.spreadsheet.dominokit.find.SpreadsheetFindDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterSelectorDialogComponent;
@@ -69,6 +71,8 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
 
         dateTimeSymbols(context);
 
+        decimalNumberSymbols(context);
+
         columnAndRow(context);
 
         cellReferences(context);
@@ -100,6 +104,15 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
         );
         DateTimeSymbolsDialogComponent.with(
             DateTimeSymbolsDialogComponentContexts.metadata(context)
+        );
+    }
+
+    private static void decimalNumberSymbols(final AppContext context) {
+        DecimalNumberSymbolsDialogComponent.with(
+            DecimalNumberSymbolsDialogComponentContexts.cell(context)
+        );
+        DecimalNumberSymbolsDialogComponent.with(
+            DecimalNumberSymbolsDialogComponentContexts.metadata(context)
         );
     }
 

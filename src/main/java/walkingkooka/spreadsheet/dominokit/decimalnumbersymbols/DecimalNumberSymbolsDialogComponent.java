@@ -1,0 +1,691 @@
+/*
+ * Copyright 2023 Miroslav Pokorny (github.com/mP1)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+package walkingkooka.spreadsheet.dominokit.decimalnumbersymbols;
+
+import walkingkooka.Cast;
+import walkingkooka.EmptyTextException;
+import walkingkooka.NeverError;
+import walkingkooka.math.DecimalNumberSymbols;
+import walkingkooka.predicate.character.CharPredicate;
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
+import walkingkooka.spreadsheet.dominokit.character.CharacterComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
+import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.value.SpreadsheetValidators;
+
+import java.util.Objects;
+import java.util.Optional;
+
+/**
+ * A model dialog that includes numerous form fields supporting the editing on individual {@link DecimalNumberSymbols}
+ * which are aggregated and then saved.
+ * <pre>
+ * - negativeSign textbox
+ * - positiveSign textbox
+ * - zeroDigit textbox
+ * - currencySymbol textbox
+ * - decimalSeparator textbox
+ * - exponentSymbol textbox
+ * - groupSeparator textbox
+ * - infinitySymbol textbox
+ * - monetaryDecimalSeparator text
+ * - nanSymbol textbox
+ * - percentSymbol textbox
+ * - permillSymbol textbox
+ * - decimalNumberSymbols textBox
+ * - save link
+ * - clear link
+ * - undo link
+ * - close link
+ * </pre>
+ */
+public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDialogComponentLifecycle,
+    LoadedSpreadsheetMetadataRequired,
+    ComponentLifecycleMatcherDelegator {
+
+    /**
+     * Creates a new {@link DecimalNumberSymbolsDialogComponent}.
+     */
+    public static DecimalNumberSymbolsDialogComponent with(final DecimalNumberSymbolsDialogComponentContext context) {
+        Objects.requireNonNull(context, "context");
+
+        return new DecimalNumberSymbolsDialogComponent(context);
+    }
+
+    private DecimalNumberSymbolsDialogComponent(final DecimalNumberSymbolsDialogComponentContext context) {
+        this.context = context;
+
+        this.negativeSign = this.negativeSign();
+        this.positiveSign = this.positiveSign();
+        this.zeroDigit = this.zeroDigit();
+
+        this.currencySymbol = this.currencySymbol();
+        this.decimalSeparator = this.decimalSeparator();
+        this.exponentSymbol = this.exponentSymbol();
+        this.groupSeparator = this.groupSeparator();
+        this.infinitySymbol = this.infinitySymbol();
+        this.monetaryDecimalSeparator = this.monetaryDecimalSeparator();
+        this.nanSymbol = this.nanSymbol();
+        this.percentSymbol = this.percentSymbol();
+        this.permillSymbol = this.permillSymbol();
+
+        this.decimalNumberSymbols = this.decimalNumberSymbols();
+
+        this.save = this.save();
+        this.clear = this.clearAnchor();
+        this.undo = this.undoAnchor();
+        this.close = this.closeAnchor();
+
+        this.dialog = this.dialogCreate();
+
+        context.addHistoryTokenWatcher(this);
+    }
+
+    // dialog...........................................................................................................
+
+    private SpreadsheetDialogComponent dialogCreate() {
+        final DecimalNumberSymbolsDialogComponentContext context = this.context;
+
+        return SpreadsheetDialogComponent.smallerPrompt(
+            ID + SpreadsheetElementIds.DIALOG,
+            context.dialogTitle(),
+            true, // includeClose
+            context
+        ).appendChild(
+            SpreadsheetFlexLayout.row()
+                .appendChild(this.negativeSign)
+                .appendChild(this.positiveSign)
+                .appendChild(this.zeroDigit)
+                .appendChild(this.currencySymbol)
+                .appendChild(this.decimalSeparator)
+                .appendChild(this.exponentSymbol)
+                .appendChild(this.groupSeparator)
+                .appendChild(this.infinitySymbol)
+                .appendChild(this.monetaryDecimalSeparator)
+                .appendChild(this.nanSymbol)
+                .appendChild(this.percentSymbol)
+                .appendChild(this.permillSymbol)
+                .appendChild(this.decimalNumberSymbols)
+        ).appendChild(
+            SpreadsheetLinkListComponent.empty()
+                .appendChild(this.save)
+                .appendChild(this.clear)
+                .appendChild(this.undo)
+                .appendChild(this.close)
+        );
+    }
+
+    private final SpreadsheetDialogComponent dialog;
+
+    private final DecimalNumberSymbolsDialogComponentContext context;
+
+    @Override
+    public SpreadsheetDialogComponent dialog() {
+        return this.dialog;
+    }
+
+    // id...............................................................................................................
+
+    @Override
+    public String idPrefix() {
+        return ID_PREFIX;
+    }
+
+    private final static String ID = "decimalNumberSymbols";
+
+    private final static String ID_PREFIX = ID + "-";
+
+    // negativeSign.....................................................................................................
+
+    private CharacterComponent negativeSign() {
+        return characterComponent(
+            "negativeSign", // id
+            "Negative sign", // label
+            DecimalNumberSymbols.SYMBOL,
+            NEGATIVE_SIGN_PROPERTY_INDEX
+        );
+    }
+
+    private final CharacterComponent negativeSign;
+
+    // positiveSign.....................................................................................................
+
+    private CharacterComponent positiveSign() {
+        return characterComponent(
+            "positiveSign", // id
+            "Positive sign", // label
+            DecimalNumberSymbols.SYMBOL,
+            POSITIVE_SIGN_PROPERTY_INDEX
+        );
+    }
+
+    private final CharacterComponent positiveSign;
+
+    // zeroDigit........................................................................................................
+
+    private CharacterComponent zeroDigit() {
+        return characterComponent(
+            "zeroDigit", // id
+            "Zero digit", // label
+            DecimalNumberSymbols.ZERO_DIGIT,
+            ZERO_DIGIT_PROPERTY_INDEX
+        );
+    }
+
+    private final CharacterComponent zeroDigit;
+
+    // currencySymbol...................................................................................................
+
+    private SpreadsheetTextBox currencySymbol() {
+        return stringComponent(
+            "currencySymbol", // id
+            "Currency", // label
+            CURRENCY_SYMBOL_PROPERTY_INDEX
+        );
+    }
+
+    private final SpreadsheetTextBox currencySymbol;
+
+    // decimalSeparator.................................................................................................
+
+    private CharacterComponent decimalSeparator() {
+        return characterComponent(
+            "decimalSeparator", // id
+            "Decimal separator", // label
+            DecimalNumberSymbols.SYMBOL,
+            DECIMAL_SEPARATOR_PROPERTY_INDEX
+        );
+    }
+
+    private final CharacterComponent decimalSeparator;
+
+    // exponentSymbol...................................................................................................
+
+    private SpreadsheetTextBox exponentSymbol() {
+        return stringComponent(
+            "exponentSymbol", // id
+            "Exponent", // label
+            EXPONENT_SYMBOL_PROPERTY_INDEX
+        );
+    }
+
+    private final SpreadsheetTextBox exponentSymbol;
+
+    // groupingSeparator................................................................................................
+
+    private CharacterComponent groupSeparator() {
+        return characterComponent(
+            "groupSeparator", // id
+            "Group separator", // label
+            DecimalNumberSymbols.SYMBOL,
+            GROUP_SEPARATOR_PROPERTY_INDEX
+        );
+    }
+
+    private final CharacterComponent groupSeparator;
+
+    // infinitySymbol...................................................................................................
+
+    private SpreadsheetTextBox infinitySymbol() {
+        return stringComponent(
+            "infinitySymbol", // id
+            "Infinity", // label
+            INFINITY_SYMBOL_PROPERTY_INDEX
+        );
+    }
+
+    private final SpreadsheetTextBox infinitySymbol;
+
+    // monetaryDecimalSeparator.........................................................................................
+
+    private CharacterComponent monetaryDecimalSeparator() {
+        return characterComponent(
+            "monetaryDecimalSeparator", // id
+            "Monetary decimal separator", // label
+            DecimalNumberSymbols.SYMBOL,
+            MONETARY_DECIMAL_SEPARATOR_PROPERTY_INDEX
+        );
+    }
+
+    private final CharacterComponent monetaryDecimalSeparator;
+
+    // nanSymbol........................................................................................................
+
+    private SpreadsheetTextBox nanSymbol() {
+        return stringComponent(
+            "nanSymbol", // id
+            "Nan", // label
+            NAN_SYMBOL_PROPERTY_INDEX
+        );
+    }
+
+    private final SpreadsheetTextBox nanSymbol;
+
+    // percentSymbol....................................................................................................
+
+    private CharacterComponent percentSymbol() {
+        return characterComponent(
+            "percentSymbol", // id
+            "Percent symbol", // label
+            DecimalNumberSymbols.SYMBOL,
+            PERCENT_SYMBOL_PROPERTY_INDEX
+        );
+    }
+
+    private final CharacterComponent percentSymbol;
+
+    // permillSymbol....................................................................................................
+
+    private CharacterComponent permillSymbol() {
+        return characterComponent(
+            "permillSymbol", // id
+            "Permill symbol", // label
+            DecimalNumberSymbols.PERMILL_SYMBOL,
+            PERMILL_SYMBOL_PROPERTY_INDEX
+        );
+    }
+
+    private final CharacterComponent permillSymbol;
+
+    private CharacterComponent characterComponent(final String id,
+                                                  final String label,
+                                                  final CharPredicate predicate,
+                                                  final int propertyIndex) {
+        return CharacterComponent.empty(
+                label,
+                predicate,
+                "Invalid character" // TODO message should have more detail about what characters are valid.
+            ).setId(ID + id + SpreadsheetElementIds.TEXT_BOX)
+            .setLabel(label)
+            .addChangeListener(
+                (Optional<Character> oldValue, Optional<Character> newValue) ->
+                    this.refreshDecimalNumberSymbols(
+                        propertyIndex,
+                        newValue
+                    )
+            );
+    }
+
+    private SpreadsheetTextBox stringComponent(final String id,
+                                               final String label,
+                                               final int propertyIndex) {
+        return SpreadsheetTextBox.empty()
+            .setId(ID + id + SpreadsheetElementIds.TEXT_BOX)
+            .setLabel(label)
+            .setValidator(SpreadsheetValidators.required())
+            .clearIcon()
+            .addChangeListener(
+                (Optional<String> oldValue, Optional<String> newValue) ->
+                    this.refreshDecimalNumberSymbols(
+                        propertyIndex,
+                        newValue
+                    )
+            );
+    }
+
+    /**
+     * Target for a {@link CharacterComponent} onchange event to update {@link #decimalNumberSymbols}.
+     */
+    private void refreshDecimalNumberSymbols(final int propertyIndex,
+                                             final Optional<?> value) {
+        try {
+            Optional<Character> negativeSign = this.negativeSign.value();
+            Optional<Character> positiveSign = this.positiveSign.value();
+            Optional<Character> zeroDigit = this.zeroDigit.value();
+            Optional<String> currencySymbol = this.currencySymbol.value();
+            Optional<Character> decimalSeparator = this.decimalSeparator.value();
+            Optional<String> exponentSymbol = this.exponentSymbol.value();
+            Optional<Character> groupSeparator = this.groupSeparator.value();
+            Optional<String> infinitySymbol = this.infinitySymbol.value();
+            Optional<Character> monetaryDecimalSeparator = this.monetaryDecimalSeparator.value();
+            Optional<String> nanSymbol = this.nanSymbol.value();
+            Optional<Character> percentSymbol = this.percentSymbol.value();
+            Optional<Character> permillSymbol = this.permillSymbol.value();
+
+            switch (propertyIndex) {
+                case NEGATIVE_SIGN_PROPERTY_INDEX:
+                    negativeSign = Cast.to(value);
+                    break;
+                case POSITIVE_SIGN_PROPERTY_INDEX:
+                    positiveSign = Cast.to(value);
+                    break;
+                case ZERO_DIGIT_PROPERTY_INDEX:
+                    zeroDigit = Cast.to(value);
+                    break;
+                case CURRENCY_SYMBOL_PROPERTY_INDEX:
+                    currencySymbol = Cast.to(value);
+                    break;
+                case DECIMAL_SEPARATOR_PROPERTY_INDEX:
+                    decimalSeparator = Cast.to(value);
+                    break;
+                case EXPONENT_SYMBOL_PROPERTY_INDEX:
+                    exponentSymbol = Cast.to(value);
+                    break;
+                case GROUP_SEPARATOR_PROPERTY_INDEX:
+                    groupSeparator = Cast.to(value);
+                    break;
+                case INFINITY_SYMBOL_PROPERTY_INDEX:
+                    infinitySymbol = Cast.to(value);
+                    break;
+                case MONETARY_DECIMAL_SEPARATOR_PROPERTY_INDEX:
+                    monetaryDecimalSeparator = Cast.to(value);
+                    break;
+                case NAN_SYMBOL_PROPERTY_INDEX:
+                    nanSymbol = Cast.to(value);
+                    break;
+                case PERCENT_SYMBOL_PROPERTY_INDEX:
+                    percentSymbol = Cast.to(value);
+                    break;
+                case PERMILL_SYMBOL_PROPERTY_INDEX:
+                    permillSymbol = Cast.to(value);
+                    break;
+                default:
+                    NeverError.unhandledCase(
+                        propertyIndex,
+                        NEGATIVE_SIGN_PROPERTY_INDEX,
+                        POSITIVE_SIGN_PROPERTY_INDEX,
+                        ZERO_DIGIT_PROPERTY_INDEX,
+                        CURRENCY_SYMBOL_PROPERTY_INDEX,
+                        DECIMAL_SEPARATOR_PROPERTY_INDEX,
+                        EXPONENT_SYMBOL_PROPERTY_INDEX,
+                        GROUP_SEPARATOR_PROPERTY_INDEX,
+                        INFINITY_SYMBOL_PROPERTY_INDEX,
+                        MONETARY_DECIMAL_SEPARATOR_PROPERTY_INDEX,
+                        NAN_SYMBOL_PROPERTY_INDEX,
+                        PERCENT_SYMBOL_PROPERTY_INDEX,
+                        PERMILL_SYMBOL_PROPERTY_INDEX
+                    );
+            }
+
+            final DecimalNumberSymbols decimalNumberSymbols = DecimalNumberSymbols.with(
+                negativeSign.orElseThrow(() -> new EmptyTextException("Negative sign")),
+                positiveSign.orElseThrow(() -> new EmptyTextException("Positive sign")),
+                zeroDigit.orElseThrow(() -> new EmptyTextException("Zero digit")),
+                currencySymbol.orElse(""),
+                decimalSeparator.orElseThrow(() -> new EmptyTextException("Decimal separator")),
+                exponentSymbol.orElse(""),
+                groupSeparator.orElseThrow(() -> new EmptyTextException("Group separator")),
+                infinitySymbol.orElse(""),
+                monetaryDecimalSeparator.orElseThrow(() -> new EmptyTextException("Monetary decimal separator")),
+                nanSymbol.orElse(""),
+                percentSymbol.orElseThrow(() -> new EmptyTextException("Percent symbol")),
+                permillSymbol.orElseThrow(() -> new EmptyTextException("Permill symbol"))
+            );
+
+            this.decimalNumberSymbols.setValue(
+                Optional.of(decimalNumberSymbols)
+            );
+
+            this.refreshDecimalNumberSymbolsComponentsAndSave(
+                Optional.of(decimalNumberSymbols)
+            );
+
+        } catch (final RuntimeException ignore) {
+            // unable to update #decimalNumberSymbols
+            ignore.printStackTrace();
+        }
+    }
+
+    private final static int NEGATIVE_SIGN_PROPERTY_INDEX = 1;
+
+    private final static int POSITIVE_SIGN_PROPERTY_INDEX = 2;
+
+    private final static int ZERO_DIGIT_PROPERTY_INDEX = 3;
+
+    private final static int CURRENCY_SYMBOL_PROPERTY_INDEX = 4;
+
+    private final static int DECIMAL_SEPARATOR_PROPERTY_INDEX = 5;
+
+    private final static int EXPONENT_SYMBOL_PROPERTY_INDEX = 6;
+
+    private final static int GROUP_SEPARATOR_PROPERTY_INDEX = 7;
+
+    private final static int INFINITY_SYMBOL_PROPERTY_INDEX = 8;
+
+    private final static int MONETARY_DECIMAL_SEPARATOR_PROPERTY_INDEX = 9;
+
+    private final static int NAN_SYMBOL_PROPERTY_INDEX = 10;
+
+    private final static int PERCENT_SYMBOL_PROPERTY_INDEX = 11;
+
+    private final static int PERMILL_SYMBOL_PROPERTY_INDEX = 12;
+
+    // decimalNumberSymbols..................................................................................................
+
+    private DecimalNumberSymbolsComponent decimalNumberSymbols() {
+        return DecimalNumberSymbolsComponent.empty()
+            .setLabel("Date Time Symbols")
+            .addChangeListener(
+                (Optional<DecimalNumberSymbols> oldValue, Optional<DecimalNumberSymbols> newValue) -> {
+                    this.refreshDecimalNumberSymbolsComponentsAndSave(newValue);
+                }
+            );
+    }
+
+    /**
+     * Refreshes other components after a {@link #decimalNumberSymbols} change listener event using its new {@link DecimalNumberSymbols}.
+     */
+    private void refreshDecimalNumberSymbolsComponentsAndSave(final Optional<DecimalNumberSymbols> maybeDecimalNumberSymbols) {
+        if (maybeDecimalNumberSymbols.isPresent()) {
+            final DecimalNumberSymbols decimalNumberSymbols = maybeDecimalNumberSymbols.get();
+
+            this.positiveSign.setValue(
+                toValue(
+                    decimalNumberSymbols.positiveSign()
+                )
+            );
+            this.negativeSign.setValue(
+                toValue(
+                    decimalNumberSymbols.negativeSign()
+                )
+            );
+            this.zeroDigit.setValue(
+                toValue(
+                    decimalNumberSymbols.zeroDigit()
+                )
+            );
+            this.currencySymbol.setValue(
+                toValue(
+                    decimalNumberSymbols.currencySymbol()
+                )
+            );
+            this.decimalSeparator.setValue(
+                toValue(
+                    decimalNumberSymbols.decimalSeparator()
+                )
+            );
+            this.exponentSymbol.setValue(
+                toValue(
+                    decimalNumberSymbols.exponentSymbol()
+                )
+            );
+            this.groupSeparator.setValue(
+                toValue(
+                    decimalNumberSymbols.groupSeparator()
+                )
+            );
+            this.infinitySymbol.setValue(
+                toValue(
+                    decimalNumberSymbols.infinitySymbol()
+                )
+            );
+            this.monetaryDecimalSeparator.setValue(
+                toValue(
+                    decimalNumberSymbols.monetaryDecimalSeparator()
+                )
+            );
+            this.nanSymbol.setValue(
+                toValue(
+                    decimalNumberSymbols.nanSymbol()
+                )
+            );
+            this.percentSymbol.setValue(
+                toValue(
+                    decimalNumberSymbols.percentSymbol()
+                )
+            );
+            this.permillSymbol.setValue(
+                toValue(
+                    decimalNumberSymbols.permillSymbol()
+                )
+            );
+
+            this.save.setHistoryToken(
+                Optional.of(
+                    this.context.historyToken()
+                        .setSaveValue(
+                            Optional.of(decimalNumberSymbols)
+                        )
+                )
+            );
+            this.save.enabled();
+        } else {
+            this.clear();
+            this.save.disabled();
+        }
+    }
+
+    private static <T> Optional<T> toValue(final T c) {
+        return Optional.of(c);
+    }
+
+    private void clear() {
+        this.negativeSign.clearValue();
+        this.positiveSign.clearValue();
+        this.zeroDigit.clearValue();
+        this.currencySymbol.clearValue();
+        this.decimalSeparator.clearValue();
+        this.exponentSymbol.clearValue();
+        this.groupSeparator.clearValue();
+        this.infinitySymbol.clearValue();
+        this.monetaryDecimalSeparator.clearValue();
+        this.percentSymbol.clearValue();
+        this.permillSymbol.clearValue();
+        this.decimalNumberSymbols.clearValue();
+    }
+
+    private final DecimalNumberSymbolsComponent decimalNumberSymbols;
+
+    // save.............................................................................................................
+
+    private HistoryTokenAnchorComponent save() {
+        return this.anchor("Save");
+    }
+
+    private final HistoryTokenAnchorComponent save;
+
+    // clear.............................................................................................................
+
+    private HistoryTokenAnchorComponent clearAnchor() {
+        return this.anchor("Clear");
+    }
+
+    private void refreshClear() {
+        this.clear.setHistoryToken(
+            Optional.of(
+                this.context.historyToken()
+                    .clearSaveValue()
+            )
+        );
+    }
+
+    private final HistoryTokenAnchorComponent clear;
+
+    // undo.............................................................................................................
+
+    private HistoryTokenAnchorComponent undoAnchor() {
+        return this.anchor("Undo");
+    }
+
+    private void refreshUndo() {
+        this.undo.setHistoryToken(
+            Optional.of(
+                this.context.historyToken()
+                    .setSaveValue(
+                        this.context.loadDecimalNumberSymbols()
+                    )
+            )
+        );
+    }
+
+    private final HistoryTokenAnchorComponent undo;
+
+    // close............................................................................................................
+
+    private void refreshClose() {
+        this.close.setHistoryToken(
+            Optional.of(
+                this.context.historyToken()
+                    .close()
+            )
+        );
+    }
+
+    private final HistoryTokenAnchorComponent close;
+
+    // HistoryTokenAwareComponentLifecycle..............................................................................
+
+    @Override
+    public ComponentLifecycleMatcher componentLifecycleMatcher() {
+        return this.context;
+    }
+
+    @Override
+    public void dialogReset() {
+        this.clear();
+    }
+
+    /**
+     * Give focus to the AM PM field.
+     */
+    @Override
+    public void openGiveFocus(final RefreshContext context) {
+        context.giveFocus(
+            this.positiveSign::focus
+        );
+    }
+
+    /**
+     * Refreshes all components from the current {@link DecimalNumberSymbols} which may be the cell or metadata property.
+     */
+    @Override
+    public void refresh(final RefreshContext context) {
+        final Optional<DecimalNumberSymbols> decimalNumberSymbols = this.context.loadDecimalNumberSymbols();
+        this.decimalNumberSymbols.setValue(decimalNumberSymbols);
+        this.refreshDecimalNumberSymbolsComponentsAndSave(decimalNumberSymbols);
+
+        this.refreshClear();
+        this.refreshUndo();
+        this.refreshClose();
+    }
+
+    // Object...........................................................................................................
+
+    @Override
+    public String toString() {
+        return this.dialog.toString();
+    }
+}
