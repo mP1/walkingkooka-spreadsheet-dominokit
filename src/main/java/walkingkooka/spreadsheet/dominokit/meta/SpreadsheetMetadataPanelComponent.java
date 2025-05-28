@@ -23,6 +23,7 @@ import org.dominokit.domino.ui.elements.TableElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.convert.provider.ConverterAliasSet;
+import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.environment.AuditInfo;
 import walkingkooka.plugin.PluginNameSet;
 import walkingkooka.spreadsheet.SpreadsheetId;
@@ -101,6 +102,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
 
         items.add(this.generalFormatNumberDigitCount());
 
+        items.add(this.dateTimeSymbols());
         items.add(this.dateFormatter());
         items.add(this.dateParser());
 
@@ -269,6 +271,12 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
             SpreadsheetMetadataPropertyName.TWO_DIGIT_YEAR,
             0,
             99
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<DateTimeSymbols> dateTimeSymbols() {
+        return link(
+            SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS
         );
     }
 
