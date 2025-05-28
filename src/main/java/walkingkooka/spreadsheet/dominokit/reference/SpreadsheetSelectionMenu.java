@@ -123,6 +123,12 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                 context
             );
 
+            dateTimeSymbols(
+                historyToken,
+                menu,
+                context
+            );
+
             hideIfZero(
                 historyToken,
                 menu,
@@ -295,6 +301,28 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         );
 
         subMenu.disableIfEmpty();
+    }
+
+    private static void dateTimeSymbols(final HistoryToken historyToken,
+                                        final SpreadsheetContextMenu menu,
+                                        final SpreadsheetSelectionMenuContext context) {
+        menu.item(
+            SpreadsheetContextMenuItem.with(
+                    context.idPrefix() + "dateTimeSymbols" + SpreadsheetElementIds.MENU_ITEM,
+                    "DateTimeSymbols"
+                ).icon(
+                    Optional.of(
+                        SpreadsheetIcons.dateTimeSymbols()
+                    )
+                )
+                .historyToken(
+                    Optional.of(
+                        historyToken.setMetadataPropertyName(
+                            SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS
+                        )
+                    )
+                )
+        );
     }
 
     private static void hideIfZero(final HistoryToken historyToken,
