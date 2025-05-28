@@ -117,7 +117,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                 context
             );
 
-            format(
+            formatter(
                 historyToken,
                 menu,
                 context
@@ -280,9 +280,9 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         );
     }
 
-    private static void format(final HistoryToken historyToken,
-                               final SpreadsheetContextMenu menu,
-                               final SpreadsheetSelectionMenuContext context) {
+    private static void formatter(final HistoryToken historyToken,
+                                  final SpreadsheetContextMenu menu,
+                                  final SpreadsheetSelectionMenuContext context) {
         final SpreadsheetContextMenu subMenu = menu.subMenu(
             context.idPrefix() + "menu" + SpreadsheetElementIds.SUB_MENU,
             "Formatter"
