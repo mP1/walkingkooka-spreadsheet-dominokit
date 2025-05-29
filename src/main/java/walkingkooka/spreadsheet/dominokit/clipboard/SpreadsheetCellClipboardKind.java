@@ -217,11 +217,9 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
             ).setFormula(
                 SpreadsheetFormula.EMPTY
             ).setDateTimeSymbols(
-                Optional.ofNullable(
-                    context.unmarshall(
-                        node,
-                        DateTimeSymbols.class
-                    )
+                context.unmarshallOptional(
+                    node,
+                    DateTimeSymbols.class
                 )
             );
         }
@@ -268,11 +266,9 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
             ).setFormula(
                 SpreadsheetFormula.EMPTY
             ).setDecimalNumberSymbols(
-                Optional.ofNullable(
-                    context.unmarshall(
-                        node,
-                        DecimalNumberSymbols.class
-                    )
+                context.unmarshallOptional(
+                    node,
+                    DecimalNumberSymbols.class
                 )
             );
         }
@@ -319,11 +315,9 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
             ).setFormula(
                 SpreadsheetFormula.EMPTY
             ).setFormatter(
-                Optional.ofNullable(
-                    context.unmarshall(
-                        node,
-                        SpreadsheetFormatterSelector.class
-                    )
+                context.unmarshallOptional(
+                    node,
+                    SpreadsheetFormatterSelector.class
                 )
             );
         }
@@ -370,11 +364,9 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
             ).setFormula(
                 SpreadsheetFormula.EMPTY
             ).setParser(
-                Optional.ofNullable(
-                    context.unmarshall(
-                        node,
-                        SpreadsheetParserSelector.class
-                    )
+                context.unmarshallOptional(
+                    node,
+                    SpreadsheetParserSelector.class
                 )
             );
         }
@@ -467,9 +459,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
             ).setFormula(
                 SpreadsheetFormula.EMPTY
             ).setFormattedValue(
-                Optional.ofNullable(
-                    context.unmarshallWithType(node)
-                )
+                context.<TextNode>unmarshallOptionalWithType(node)
             );
         }
 
@@ -508,11 +498,9 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
             ).setFormula(
                 SpreadsheetFormula.EMPTY
             ).setValidator(
-                Optional.ofNullable(
-                    context.unmarshall(
-                        node,
-                        ValidatorSelector.class
-                    )
+                context.unmarshallOptional(
+                    node,
+                    ValidatorSelector.class
                 )
             );
         }
@@ -702,4 +690,8 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
         FORMATTED_VALUE,
         VALIDATOR
     );
+
+    static {
+        TextNode.text("Hello");
+    }
 }
