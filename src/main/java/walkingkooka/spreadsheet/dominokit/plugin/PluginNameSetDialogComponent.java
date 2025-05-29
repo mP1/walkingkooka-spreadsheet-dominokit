@@ -38,6 +38,7 @@ import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequi
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.dominokit.value.HistoryTokenSaveValueAnchorComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
@@ -86,8 +87,9 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
                 (oldValue, newValue) -> this.onTextBox(this.text())
             );
 
-        this.save = this.anchor("Save");
-        this.reset = this.anchor("Reset");
+        this.save = this.saveValueAnchor(context)
+            .autoDisableWhenMissingValue();
+        this.undo = this.undoAnchor(context);
         this.close = this.closeAnchor();
 
         this.dialog = this.dialogCreate();
@@ -123,7 +125,7 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
             .appendChild(
                 SpreadsheetLinkListComponent.empty()
                     .appendChild(this.save)
-                    .appendChild(this.reset)
+                    .appendChild(this.undo)
                     .appendChild(this.close)
             );
     }
@@ -162,7 +164,7 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
                 newValue.orElse(null)
             )
         );
-        this.refreshNonReset();
+        this.refreshLinks();
     }
 
     private final RemovePluginNameSetComponent remove;
@@ -187,7 +189,7 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
      */
     private void onTextBox(final String text) {
         try {
-            this.refreshNonReset(
+            this.refreshLinks(
                 PluginNameSet.parse(text)
             );
         } catch (final RuntimeException parseFailed) {
@@ -221,12 +223,12 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
     /**
      * A SAVE link which will be updated each time the {@link #textBox} is also updated.
      */
-    private final HistoryTokenAnchorComponent save;
+    private final HistoryTokenSaveValueAnchorComponent<PluginNameSet> save;
 
     /**
      * A RESET link which saves the original {@link PluginNameSet} value when the dialog appeared
      */
-    private final HistoryTokenAnchorComponent reset;
+    private final HistoryTokenSaveValueAnchorComponent<PluginNameSet> undo;
 
     /**
      * A CLOSE link which will close the dialog.
@@ -320,7 +322,7 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
     public void openGiveFocus(final RefreshContext context) {
         final PluginNameSetDialogComponentContext dialogContext = this.context;
 
-        this.refreshReset(
+        this.refreshUndo(
             dialogContext.spreadsheetMetadata()
                 .get(SpreadsheetMetadataPropertyName.PLUGINS)
                 .orElse(PluginNameSet.EMPTY)
@@ -346,12 +348,9 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
         );
     }
 
-    private void refreshReset(final PluginNameSet plugins) {
-        this.reset.setHistoryToken(
-            Optional.of(
-                this.context.historyToken()
-                    .setSaveValue(plugins.text())
-            )
+    private void refreshUndo(final PluginNameSet plugins) {
+        this.undo.setValue(
+            Optional.of(plugins)
         );
     }
 
@@ -360,17 +359,17 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
      */
     @Override
     public void refresh(final RefreshContext context) {
-        this.refreshNonReset();
+        this.refreshLinks();
     }
 
-    private void refreshNonReset() {
+    private void refreshLinks() {
         final Optional<PluginNameSet> pluginNames = this.textBox.value();
-        this.refreshNonReset(
+        this.refreshLinks(
             pluginNames.orElse(PluginNameSet.EMPTY)
         );
     }
 
-    private void refreshNonReset(final PluginNameSet currentPluginNames) {
+    private void refreshLinks(final PluginNameSet currentPluginNames) {
         final PluginNameSetDialogComponentContext context = this.context;
 
         final HistoryToken historyToken = context.historyToken();
@@ -389,12 +388,8 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
             context
         );
 
-        this.save.setHistoryToken(
-            Optional.of(
-                historyToken.setSaveValue(
-                    currentPluginNames.text()
-                )
-            )
+        this.save.setValue(
+            Optional.of(currentPluginNames)
         );
 
         this.close.setHistoryToken(
