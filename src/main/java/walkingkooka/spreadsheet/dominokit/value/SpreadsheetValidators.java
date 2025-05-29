@@ -44,6 +44,13 @@ public final class SpreadsheetValidators implements PublicStaticHelper {
     }
 
     /**
+     * {@see SpreadsheetRequiredStringValidator}
+     */
+    public static Validator<Optional<String>> required() {
+        return SpreadsheetRequiredStringValidator.INSTANCE;
+    }
+
+    /**
      * {@see TryCatchConsumerStringValidator}
      */
     public static Validator<Optional<String>> tryCatch(final Consumer<String> consumer) {
