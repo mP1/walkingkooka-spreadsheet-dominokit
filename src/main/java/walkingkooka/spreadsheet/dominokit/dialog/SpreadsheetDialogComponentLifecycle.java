@@ -75,7 +75,7 @@ public interface SpreadsheetDialogComponentLifecycle extends HistoryTokenAwareCo
                 "Save" +
                 SpreadsheetElementIds.LINK,
             historyContext
-        );
+        ).setTextContent("Save");
     }
 
     // HistoryTokenAwareComponentLifecycle..............................................................................................
