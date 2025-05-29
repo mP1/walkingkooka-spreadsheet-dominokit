@@ -109,7 +109,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/] id=pluginAliasSet-save-Link\n" +
-                "            \"Reset\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=pluginAliasSet-reset-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=pluginAliasSet-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginAliasSet-close-Link\n"
         );
     }
@@ -165,7 +165,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1] id=pluginAliasSet-save-Link\n" +
-                "            \"Reset\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=pluginAliasSet-reset-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=pluginAliasSet-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginAliasSet-close-Link\n"
         );
     }
