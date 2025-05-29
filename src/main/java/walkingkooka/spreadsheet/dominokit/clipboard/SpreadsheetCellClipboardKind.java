@@ -46,6 +46,7 @@ import walkingkooka.tree.json.JsonPropertyName;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
+import walkingkooka.validation.ValidationValueTypeName;
 import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Arrays;
@@ -472,6 +473,58 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
     },
 
     /**
+     * The clipboard value is a formatted text.
+     */
+    VALUE_TYPE(
+        ValidationValueTypeName.class,
+        (SpreadsheetCell cell) -> cell.formula()
+            .valueType(),
+        "value-type"
+    ) {
+        @Override
+        JsonNode marshall(final SpreadsheetCell cell,
+                          final JsonNodeMarshallContext context) {
+            return SpreadsheetCellClipboardKind.marshallCellToOptionalValue(
+                cell,
+                cell.formula()
+                    .valueType(),
+                context
+            );
+        }
+
+        @Override //
+        SpreadsheetCell unmarshall(final JsonNode node,
+                                   final AppContext context) {
+            return SpreadsheetSelection.parseCell(
+                node.name()
+                    .value()
+            ).setFormula(
+                SpreadsheetFormula.EMPTY.setValueType(
+                    context.unmarshallOptional(
+                        node,
+                        ValidationValueTypeName.class
+                    )
+                )
+            );
+        }
+
+        @Override
+        public void saveOrUpdateCells(final SpreadsheetDeltaFetcher fetcher,
+                                      final SpreadsheetId id,
+                                      final SpreadsheetCellRange range) {
+            fetcher.patchCellsValueType(
+                id,
+                range.range(),
+                toMap(
+                    range,
+                    (SpreadsheetCell cell) -> cell.formula()
+                        .valueType()
+                )
+            );
+        }
+    },
+
+    /**
      * The clipboard value is a cells to {@link ValidatorSelector}.
      */
     VALIDATOR(
@@ -688,6 +741,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
         PARSER,
         STYLE,
         FORMATTED_VALUE,
+        VALUE_TYPE,
         VALIDATOR
     );
 

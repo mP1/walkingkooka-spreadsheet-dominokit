@@ -51,6 +51,7 @@ import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
+import walkingkooka.validation.ValidationValueTypeName;
 
 import java.util.Optional;
 import java.util.Set;
@@ -68,6 +69,9 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
 
     private final static SpreadsheetCell CELL = SpreadsheetSelection.A1.setFormula(
         SpreadsheetFormula.EMPTY.setText("=1+2")
+            .setValueType(
+                Optional.of(ValidationValueTypeName.with("HelloValueType"))
+            )
     ).setFormatter(
         Optional.of(
             SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN.spreadsheetFormatterSelector()
@@ -269,6 +273,30 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
             SpreadsheetCellClipboardKind.FORMATTED_VALUE,
             cell,
             cell.formattedValue()
+        );
+    }
+
+    @Test
+    public void testToValueWithValueType() {
+        this.toValueAndCheck(
+            SpreadsheetCellClipboardKind.VALUE_TYPE,
+            CELL,
+            CELL.formula()
+                .valueType()
+        );
+    }
+
+    @Test
+    public void testToValueWithValueTypeEmpty() {
+        final SpreadsheetCell cell = CELL.setFormula(
+            CELL.formula()
+                .setValueType(SpreadsheetFormula.NO_VALUE_TYPE)
+        );
+
+        this.toValueAndCheck(
+            SpreadsheetCellClipboardKind.VALUE_TYPE,
+            cell,
+            SpreadsheetFormula.NO_VALUE_TYPE
         );
     }
 
