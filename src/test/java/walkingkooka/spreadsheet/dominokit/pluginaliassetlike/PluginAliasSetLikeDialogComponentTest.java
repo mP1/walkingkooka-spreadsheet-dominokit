@@ -69,7 +69,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
     private final static ExpressionFunctionAlias ALIAS3 = SpreadsheetExpressionFunctions.parseAlias("name3");
 
     @Test
-    public void testEmptyTextRefreshAndTreePrint() {
+    public void testOnHistoryTokenChangeSpreadsheetMetadataPropertySelectHistoryTokenWithEmptyText() {
         final AppContext context = this.appContext(
             HistoryToken.parseString("/1/Spreadsheet123/spreadsheet/formulaFunctions"),
             SpreadsheetExpressionFunctions.EMPTY_ALIAS_SET.setElements(
@@ -115,7 +115,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
     }
 
     @Test
-    public void testRefreshAndTreePrint() {
+    public void testOnHistoryTokenChangeSpreadsheetMetadataPropertySelectHistoryToken() {
         final AppContext context = this.appContext(
             HistoryToken.parseString("/1/Spreadsheet123/spreadsheet/formulaFunctions/"),
             SpreadsheetExpressionFunctions.EMPTY_ALIAS_SET.setElements(
