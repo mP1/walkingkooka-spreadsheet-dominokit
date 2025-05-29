@@ -66,7 +66,7 @@ public interface SpreadsheetDialogComponentLifecycle extends HistoryTokenAwareCo
     default HistoryTokenSaveValueAnchorComponent clearValueAnchor(final HistoryContext historyContext) {
         return HistoryTokenSaveValueAnchorComponent.with(
             this.idPrefix() +
-                "Clear" +
+                "clear" +
                 SpreadsheetElementIds.LINK,
             historyContext
         ).setTextContent("Clear");
@@ -85,7 +85,7 @@ public interface SpreadsheetDialogComponentLifecycle extends HistoryTokenAwareCo
     default HistoryTokenSaveValueAnchorComponent saveValueAnchor(final HistoryContext historyContext) {
         return HistoryTokenSaveValueAnchorComponent.with(
             this.idPrefix() +
-                "Save" +
+                "save" +
                 SpreadsheetElementIds.LINK,
             historyContext
         ).setTextContent("Save");
@@ -97,7 +97,7 @@ public interface SpreadsheetDialogComponentLifecycle extends HistoryTokenAwareCo
     default HistoryTokenSaveValueAnchorComponent undoAnchor(final HistoryContext historyContext) {
         return HistoryTokenSaveValueAnchorComponent.with(
             this.idPrefix() +
-                "Undo" +
+                "undo" +
                 SpreadsheetElementIds.LINK,
             historyContext
         ).setTextContent("Undo");
