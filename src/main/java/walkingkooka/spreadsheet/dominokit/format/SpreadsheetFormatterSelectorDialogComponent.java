@@ -109,7 +109,8 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
 
         this.textBox = this.textBox();
 
-        this.save = this.saveValueAnchor(context);
+        this.save = this.saveValueAnchor(context)
+            .autoDisableWhenMissingValue();
         this.undo = this.undoAnchor(context);
         this.clear = this.clearValueAnchor(context);
         this.close = this.closeAnchor();
@@ -318,7 +319,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
                 edit.selector()
             );
         } else {
-            this.save.setDisabled(true);
+            this.save.clearValue();
         }
 
         this.refreshTitleTabsClearClose();
