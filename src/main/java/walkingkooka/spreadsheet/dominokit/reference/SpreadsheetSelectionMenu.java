@@ -87,6 +87,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         // ----
         // FORMATTER
         // DATE TIME SYMBOLS
+        // DECIMAL NUMBER SYMBOLS
         // HIDE ZERO VALUES
         // -----
         // CLEAR
@@ -125,6 +126,12 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             );
 
             dateTimeSymbols(
+                historyToken,
+                menu,
+                context
+            );
+
+            decimalNumberSymbols(
                 historyToken,
                 menu,
                 context
@@ -320,6 +327,27 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                     Optional.of(
                         historyToken.setMetadataPropertyName(
                             SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS
+                        )
+                    )
+                )
+        );
+    }
+
+    private static void decimalNumberSymbols(final HistoryToken historyToken,
+                                             final SpreadsheetContextMenu menu,
+                                             final SpreadsheetSelectionMenuContext context) {
+        menu.item(
+            SpreadsheetContextMenuItem.with(
+                    context.idPrefix() + "decimalNumberSymbols" + SpreadsheetElementIds.MENU_ITEM,
+                    "DecimalNumberSymbols"
+                ).icon(
+                    Optional.of(
+                        SpreadsheetIcons.decimalNumberSymbols()
+                    )
+                ).historyToken(
+                    Optional.of(
+                        historyToken.setMetadataPropertyName(
+                            SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_SYMBOLS
                         )
                     )
                 )
@@ -1055,7 +1083,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             selectionNotLabel = null;
         }
 
-        if(null != selectionNotLabel) {
+        if (null != selectionNotLabel) {
             final boolean columns = selection.isColumnOrColumnRange();
 
             if (columns || selection.isExternalReference()) {
@@ -1088,7 +1116,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             selectionNotLabel = null;
         }
 
-        if(null != selectionNotLabel) {
+        if (null != selectionNotLabel) {
             final boolean rows = selection.isRowOrRowRange();
             if (rows || selection.isExternalReference()) {
 
