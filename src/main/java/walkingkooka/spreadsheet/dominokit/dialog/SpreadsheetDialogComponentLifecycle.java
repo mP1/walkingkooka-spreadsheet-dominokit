@@ -59,6 +59,19 @@ public interface SpreadsheetDialogComponentLifecycle extends HistoryTokenAwareCo
             .setTextContent(text);
     }
 
+
+    /**
+     * Creates a {@link HistoryTokenSaveValueAnchorComponent} with a label of "Clear".
+     */
+    default HistoryTokenSaveValueAnchorComponent clearValueAnchor(final HistoryContext historyContext) {
+        return HistoryTokenSaveValueAnchorComponent.with(
+            this.idPrefix() +
+                "Clear" +
+                SpreadsheetElementIds.LINK,
+            historyContext
+        ).setTextContent("Clear");
+    }
+
     /**
      * Factory that creates an Anchor which will close, it will need to be updated with a closed {@link HistoryToken}.
      */
