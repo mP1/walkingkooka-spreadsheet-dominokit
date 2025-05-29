@@ -122,10 +122,10 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
     public void testSetStringValue() {
         this.treePrintAndCheck(
             this.createComponent(
-                    HistoryToken.pluginSelect(
-                        PluginName.with("Plugin1")
-                    )
-                ).setStringValue("Plugin2"),
+                HistoryToken.pluginSelect(
+                    PluginName.with("Plugin1")
+                )
+            ).setStringValue("Plugin2"),
             "\"Save\" [#/plugin/Plugin1/save/Plugin2] id=HistoryTokenSaveValueAnchorComponent-Link"
         );
     }
@@ -140,6 +140,75 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
                 ).setTextContent("Action123")
                 .setStringValue("Plugin2"),
             "\"Action123\" [#/plugin/Plugin1/save/Plugin2] id=HistoryTokenSaveValueAnchorComponent-Link"
+        );
+    }
+
+    // autoDisableWhenMissingValue......................................................................................
+
+    @Test
+    public void testAutoDisableWhenMissingValueSetValue() {
+        this.treePrintAndCheck(
+            this.createComponent()
+                .autoDisableWhenMissingValue()
+                .setValue(
+                    Optional.of(
+                        Color.parse("#123456")
+                    )
+                ),
+            "\"Save\" [#/1/SpreadsheetName1/cell/A1/style/color/save/%23123456] id=HistoryTokenSaveValueAnchorComponent-Link"
+        );
+    }
+
+    @Test
+    public void testAutoDisableWhenMissingValueClearValue() {
+        this.treePrintAndCheck(
+            this.createComponent()
+                .autoDisableWhenMissingValue()
+                .clearValue(),
+            "\"Save\" DISABLED id=HistoryTokenSaveValueAnchorComponent-Link"
+        );
+    }
+
+    @Test
+    public void testAutoDisableWhenMissingValueClearValueSetValue() {
+        this.treePrintAndCheck(
+            this.createComponent()
+                .autoDisableWhenMissingValue()
+                .clearValue()
+                .setValue(
+                    Optional.of(
+                        Color.parse("#123456")
+                    )
+                ),
+            "\"Save\" [#/1/SpreadsheetName1/cell/A1/style/color/save/%23123456] id=HistoryTokenSaveValueAnchorComponent-Link"
+        );
+    }
+
+    @Test
+    public void testAutoDisableWhenMissingValueSetStringValueNotEmptyString() {
+        this.treePrintAndCheck(
+            this.createComponent(
+                    HistoryToken.pluginSelect(
+                        PluginName.with("Plugin1")
+                    )
+                )
+                .autoDisableWhenMissingValue()
+                .setStringValue("Hello"),
+            "\"Save\" [#/plugin/Plugin1/save/Hello] id=HistoryTokenSaveValueAnchorComponent-Link"
+        );
+    }
+
+    @Test
+    public void testAutoDisableWhenMissingValueSetStringValueEmptyString() {
+        this.treePrintAndCheck(
+            this.createComponent(
+                    HistoryToken.pluginSelect(
+                        PluginName.with("Plugin1")
+                    )
+                )
+                .autoDisableWhenMissingValue()
+                .setStringValue(""),
+            "\"Save\" DISABLED id=HistoryTokenSaveValueAnchorComponent-Link"
         );
     }
 
