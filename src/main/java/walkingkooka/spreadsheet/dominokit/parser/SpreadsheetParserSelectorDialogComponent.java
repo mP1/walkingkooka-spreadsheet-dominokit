@@ -42,6 +42,7 @@ import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
 import walkingkooka.spreadsheet.dominokit.patternkind.SpreadsheetPatternKindTabsComponent;
 import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorTokenComponent;
 import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorTokenComponent;
+import walkingkooka.spreadsheet.dominokit.value.HistoryTokenSaveValueAnchorComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSample;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -106,9 +107,10 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
 
         this.textBox = this.textBox(ID);
 
-        this.save = this.anchor("Save");
-        this.undo = this.anchor("Undo");
-        this.clear = this.anchor("Clear");
+        this.save = this.saveValueAnchor(context)
+            .autoDisableWhenMissingValue();
+        this.undo = this.undoAnchor(context);
+        this.clear = this.clearValueAnchor(context);
         this.close = this.closeAnchor();
 
         this.dialog = this.dialogCreate();
@@ -314,16 +316,11 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
         // enable SAVE if no error exists
         final String text = this.text();
         if (text.isEmpty() || hasNoError) {
-            this.save.setHistoryToken(
-                Optional.of(
-                    context.historyToken()
-                        .setSaveValue(
-                            edit.selector()
-                        )
-                )
+            this.save.setValue(
+                edit.selector()
             );
         } else {
-            this.save.setDisabled(true);
+            this.save.clearValue();
         }
 
         this.refreshTitleTabsClearClose();
@@ -334,17 +331,17 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
     /**
      * A SAVE link which will be updated each time the {@link #textBox} is also updated.
      */
-    private final HistoryTokenAnchorComponent save;
+    private final HistoryTokenSaveValueAnchorComponent<SpreadsheetParserSelector> save;
 
     /**
      * A UNDO link which will be updated each time the {@link #textBox} is saved.
      */
-    private final HistoryTokenAnchorComponent undo;
+    private final HistoryTokenSaveValueAnchorComponent<SpreadsheetParserSelector> undo;
 
     /**
      * A CLEAR link which will save an empty {@link SpreadsheetParserSelector}.
      */
-    private final HistoryTokenAnchorComponent clear;
+    private final HistoryTokenSaveValueAnchorComponent<SpreadsheetParserSelector> clear;
 
     /**
      * A CLOSE link which will close the dialog.
@@ -403,12 +400,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
         final String undo = this.context.undo();
         this.setText(undo);
 
-        this.undo.setHistoryToken(
-            Optional.of(
-                context.historyToken()
-                    .setSaveValue(undo)
-            )
-        );
+        this.undo.setStringValue(undo);
 
         this.refreshTitleTabsClearClose();
     }
@@ -434,11 +426,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
             )
         );
 
-        this.clear.setHistoryToken(
-            Optional.of(
-                historyToken.clearSaveValue()
-            )
-        );
+        this.clear.clearValue();
 
         this.close.setHistoryToken(
             Optional.of(
