@@ -95,7 +95,8 @@ public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDia
 
         this.decimalNumberSymbols = this.decimalNumberSymbols();
 
-        this.save = this.saveValueAnchor(context);
+        this.save = this.saveValueAnchor(context)
+            .autoDisableWhenMissingValue();
         this.clear = this.clearValueAnchor(context);
         this.undo = this.undoAnchor(context);
         this.close = this.closeAnchor();
@@ -533,10 +534,8 @@ public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDia
             this.save.setValue(
                 Optional.of(decimalNumberSymbols)
             );
-            this.save.enabled();
         } else {
             this.clear();
-            this.save.disabled();
         }
     }
 
