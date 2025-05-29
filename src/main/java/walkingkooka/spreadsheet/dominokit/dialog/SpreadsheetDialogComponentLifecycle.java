@@ -78,6 +78,18 @@ public interface SpreadsheetDialogComponentLifecycle extends HistoryTokenAwareCo
         ).setTextContent("Save");
     }
 
+    /**
+     * Creates a {@link HistoryTokenSaveValueAnchorComponent}.
+     */
+    default HistoryTokenSaveValueAnchorComponent undoAnchor(final HistoryContext historyContext) {
+        return HistoryTokenSaveValueAnchorComponent.with(
+            this.idPrefix() +
+                "Undo" +
+                SpreadsheetElementIds.LINK,
+            historyContext
+        ).setTextContent("Undo");
+    }
+
     // HistoryTokenAwareComponentLifecycle..............................................................................................
 
     /**
