@@ -37,6 +37,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.dominokit.value.HistoryTokenSaveValueAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.CharSequences;
@@ -107,8 +108,9 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
                 (oldValue, newValue) -> this.onTextBox(this.text())
             );
 
-        this.save = this.anchor("Save");
-        this.reset = this.anchor("Reset");
+        this.save = this.saveValueAnchor(context)
+            .autoDisableWhenMissingValue();
+        this.undo = this.undoAnchor(context);
         this.close = this.closeAnchor();
 
         this.dialog = this.dialogCreate();
@@ -116,7 +118,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
 
     private void onProviderAliasSet(final AS providerInfos) {
         if (this.isOpen()) {
-            this.refreshNonResetLinks();
+            this.refreshLinks();
         }
     }
 
@@ -150,7 +152,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
             .appendChild(
                 SpreadsheetLinkListComponent.empty()
                     .appendChild(this.save)
-                    .appendChild(this.reset)
+                    .appendChild(this.undo)
                     .appendChild(this.close)
             );
     }
@@ -171,7 +173,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
                 newValue.orElse(null)
             )
         );
-        this.refreshNonResetLinks();
+        this.refreshLinks();
     }
 
     private final AddPluginAliasSetLikeComponent<N, I, IS, S, A, AS> add;
@@ -185,7 +187,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
                 newValue.orElse(null)
             )
         );
-        this.refreshNonResetLinks();
+        this.refreshLinks();
     }
 
     private final RemovePluginAliasSetLikeComponent<N, I, IS, S, A, AS> remove;
@@ -210,7 +212,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
      */
     private void onTextBox(final String text) {
         try {
-            this.refreshNonResetLinks(
+            this.refreshLinks(
                 this.context.parseAliasSetLike(text)
             );
         } catch (final RuntimeException parseFailed) {
@@ -244,12 +246,12 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
     /**
      * A SAVE link which will be updated each time the {@link #textBox} is also updated.
      */
-    private final HistoryTokenAnchorComponent save;
+    private final HistoryTokenSaveValueAnchorComponent<AS> save;
 
     /**
-     * A RESET link which saves the original {@link PluginAliasSetLike} value when the dialog appeared
+     * A UNDO link which saves the original {@link PluginAliasSetLike} value when the dialog appeared
      */
-    private final HistoryTokenAnchorComponent reset;
+    private final HistoryTokenSaveValueAnchorComponent<AS> undo;
 
     /**
      * A CLOSE link which will close the dialog.
@@ -296,18 +298,15 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
             this.textBox::focus
         );
 
-        this.refreshReset(this.context.providerAliasSetLike());
+        this.refreshUndo(this.context.providerAliasSetLike());
 
         // load the latest ProviderAliasSetLike
         this.context.loadProviderInfoSetLike();
     }
 
-    private void refreshReset(final AS aliases) {
-        this.reset.setHistoryToken(
-            Optional.of(
-                this.context.historyToken()
-                    .setSaveValue(aliases.text())
-            )
+    private void refreshUndo(final AS aliases) {
+        this.undo.setValue(
+            Optional.of(aliases)
         );
     }
 
@@ -316,17 +315,17 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
      */
     @Override
     public void refresh(final RefreshContext context) {
-        this.refreshNonResetLinks();
+        this.refreshLinks();
     }
 
-    private void refreshNonResetLinks() {
+    private void refreshLinks() {
         final Optional<AS> metadataAliases = this.textBox.value();
-        this.refreshNonResetLinks(
+        this.refreshLinks(
             metadataAliases.orElse(this.context.emptyAliasSetLike())
         );
     }
 
-    private void refreshNonResetLinks(final AS metadataAliases) {
+    private void refreshLinks(final AS metadataAliases) {
         final PluginAliasSetLikeDialogComponentContext<N, I, IS, S, A, AS> context = this.context;
 
         final HistoryToken historyToken = context.historyToken();
@@ -345,12 +344,8 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
             context
         );
 
-        this.save.setHistoryToken(
-            Optional.of(
-                historyToken.setSaveValue(
-                    metadataAliases.text()
-                )
-            )
+        this.save.setValue(
+            Optional.of(metadataAliases)
         );
 
         this.close.setHistoryToken(
