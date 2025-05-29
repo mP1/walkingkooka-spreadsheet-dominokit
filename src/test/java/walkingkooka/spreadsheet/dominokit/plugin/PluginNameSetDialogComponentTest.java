@@ -148,7 +148,7 @@ public final class PluginNameSetDialogComponentTest implements SpreadsheetDialog
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=pluginNameSet-save-Link\n" +
-                "            \"Reset\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-reset-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginNameSet-close-Link\n"
         );
     }
@@ -195,7 +195,7 @@ public final class PluginNameSetDialogComponentTest implements SpreadsheetDialog
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-save-Link\n" +
-                "            \"Reset\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-reset-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginNameSet-close-Link\n"
         );
     }
@@ -243,7 +243,7 @@ public final class PluginNameSetDialogComponentTest implements SpreadsheetDialog
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-save-Link\n" +
-                "            \"Reset\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-reset-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginNameSet-close-Link\n"
         );
     }
