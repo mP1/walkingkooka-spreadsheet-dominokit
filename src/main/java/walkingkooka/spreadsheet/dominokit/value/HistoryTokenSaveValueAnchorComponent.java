@@ -78,7 +78,7 @@ public final class HistoryTokenSaveValueAnchorComponent<T> implements ValueHisto
         );
     }
 
-    public HistoryTokenSaveValueAnchorComponent setStringValue(final String value) {
+    public HistoryTokenSaveValueAnchorComponent<T> setStringValue(final String value) {
         this.historyTokenAnchorComponent.setHistoryToken(
             Optional.of(
                 this.context.historyToken()
