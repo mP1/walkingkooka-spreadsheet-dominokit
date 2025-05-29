@@ -21,8 +21,10 @@ import org.dominokit.domino.ui.dialogs.Dialog;
 import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.value.HistoryTokenSaveValueAnchorComponent;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -62,6 +64,18 @@ public interface SpreadsheetDialogComponentLifecycle extends HistoryTokenAwareCo
      */
     default HistoryTokenAnchorComponent closeAnchor() {
         return this.anchor("Close");
+    }
+
+    /**
+     * Creates a {@link HistoryTokenSaveValueAnchorComponent}.
+     */
+    default HistoryTokenSaveValueAnchorComponent saveValueAnchor(final HistoryContext historyContext) {
+        return HistoryTokenSaveValueAnchorComponent.with(
+            this.idPrefix() +
+                "Save" +
+                SpreadsheetElementIds.LINK,
+            historyContext
+        );
     }
 
     // HistoryTokenAwareComponentLifecycle..............................................................................................
