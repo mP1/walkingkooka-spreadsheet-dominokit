@@ -85,8 +85,9 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         // -----
         // STYLE
         // ----
-        // FORMAT
-        // PARSE
+        // FORMATTER
+        // DATE TIME SYMBOLS
+        // HIDE ZERO VALUES
         // -----
         // CLEAR
         // DELETE
