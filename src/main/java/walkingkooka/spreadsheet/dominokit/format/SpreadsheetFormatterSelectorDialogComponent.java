@@ -41,6 +41,7 @@ import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
 import walkingkooka.spreadsheet.dominokit.patternkind.SpreadsheetPatternKindTabsComponent;
 import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorTokenComponent;
 import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorTokenComponent;
+import walkingkooka.spreadsheet.dominokit.value.HistoryTokenSaveValueAnchorComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSample;
@@ -108,9 +109,9 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
 
         this.textBox = this.textBox();
 
-        this.save = this.anchor("Save");
-        this.undo = this.anchor("Undo");
-        this.clear = this.anchor("Clear");
+        this.save = this.saveValueAnchor(context);
+        this.undo = this.undoAnchor(context);
+        this.clear = this.clearValueAnchor(context);
         this.close = this.closeAnchor();
 
         this.dialog = this.dialogCreate();
@@ -313,13 +314,8 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
         // enable SAVE if no error exists
         final String text = this.text();
         if (text.isEmpty() || hasNoError) {
-            this.save.setHistoryToken(
-                Optional.of(
-                    context.historyToken()
-                        .setSaveValue(
-                            edit.selector()
-                        )
-                )
+            this.save.setValue(
+                edit.selector()
             );
         } else {
             this.save.setDisabled(true);
@@ -340,17 +336,17 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
     /**
      * A SAVE link which will be updated each time the {@link #textBox} is also updated.
      */
-    private final HistoryTokenAnchorComponent save;
+    private final HistoryTokenSaveValueAnchorComponent<SpreadsheetFormatterSelector> save;
 
     /**
      * A UNDO link which will be updated each time the {@link SpreadsheetFormatterSelector} is saved.
      */
-    private final HistoryTokenAnchorComponent undo;
+    private final HistoryTokenSaveValueAnchorComponent<SpreadsheetFormatterSelector> undo;
 
     /**
      * A CLEAR link which will save an empty {@link SpreadsheetFormatterSelector}.
      */
-    private final HistoryTokenAnchorComponent clear;
+    private final HistoryTokenSaveValueAnchorComponent<SpreadsheetFormatterSelector> clear;
 
     /**
      * A CLOSE link which will close the dialog.
@@ -409,12 +405,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
         final String undo = this.context.undo();
         this.setText(undo);
 
-        this.undo.setHistoryToken(
-            Optional.of(
-                context.historyToken()
-                    .setSaveValue(undo)
-            )
-        );
+        this.undo.setStringValue(undo);
 
         this.refreshTitleTabsClearClose();
     }
@@ -440,11 +431,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
             )
         );
 
-        this.clear.setHistoryToken(
-            Optional.of(
-                historyToken.clearSaveValue()
-            )
-        );
+        this.clear.clearValue();
 
         this.close.setHistoryToken(
             Optional.of(
