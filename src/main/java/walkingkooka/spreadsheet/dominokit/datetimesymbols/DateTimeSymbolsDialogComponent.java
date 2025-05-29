@@ -79,7 +79,8 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
 
         this.dateTimeSymbols = this.dateTimeSymbols();
 
-        this.save = this.saveValueAnchor(context);
+        this.save = this.saveValueAnchor(context)
+            .autoDisableWhenMissingValue();
         this.clear = this.clearValueAnchor(context);
         this.undo = this.undoAnchor(context);
         this.close = this.closeAnchor();
@@ -367,7 +368,7 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
         this.weekDayNameAbbreviations.clearValue();
         this.dateTimeSymbols.clearValue();
 
-        this.save.disabled();
+        this.save.clearValue();
     }
 
     private final DateTimeSymbolsComponent dateTimeSymbols;
