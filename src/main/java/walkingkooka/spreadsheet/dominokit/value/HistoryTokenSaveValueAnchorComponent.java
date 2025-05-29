@@ -21,6 +21,7 @@ import walkingkooka.Cast;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -53,6 +54,8 @@ public final class HistoryTokenSaveValueAnchorComponent<T> implements ValueHisto
         this.context = Objects.requireNonNull(context, "context");
 
         this.setTextContent("Save");
+
+        this.autoDisableWhenMissingValue = false;
     }
 
     /**
@@ -72,6 +75,9 @@ public final class HistoryTokenSaveValueAnchorComponent<T> implements ValueHisto
         if (false == (historyToken.getClass().getSimpleName().contains("Save"))) {
             historyToken = null;
         }
+        if(this.autoDisableWhenMissingValue && false == value.isPresent()) {
+            historyToken = null;
+        }
 
         anchor.setHistoryToken(
             Optional.ofNullable(historyToken)
@@ -80,15 +86,27 @@ public final class HistoryTokenSaveValueAnchorComponent<T> implements ValueHisto
 
     public HistoryTokenSaveValueAnchorComponent<T> setStringValue(final String value) {
         this.historyTokenAnchorComponent.setHistoryToken(
-            Optional.of(
-                this.context.historyToken()
-                    .setSaveValue(value)
+            Optional.ofNullable(
+                this.autoDisableWhenMissingValue && CharSequences.isNullOrEmpty(value) ?
+                    null :
+                    this.context.historyToken()
+                        .setSaveValue(value)
             )
         );
         return this;
     }
 
     private final HistoryTokenAnchorComponent historyTokenAnchorComponent;
+
+    /**
+     * Will disable the link if setValue is given a {@link Optional#empty()}.
+     */
+    public HistoryTokenSaveValueAnchorComponent<T> autoDisableWhenMissingValue() {
+        this.autoDisableWhenMissingValue = true;
+        return this;
+    }
+
+    private boolean autoDisableWhenMissingValue;
 
     // AnchorComponentDelegator.........................................................................................
 
