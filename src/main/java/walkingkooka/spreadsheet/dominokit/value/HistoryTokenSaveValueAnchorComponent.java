@@ -41,8 +41,10 @@ public final class HistoryTokenSaveValueAnchorComponent<T> implements ValueHisto
 
     private HistoryTokenSaveValueAnchorComponent(final String id,
                                                  final HistoryContext context) {
+        this.historyTokenAnchorComponent = HistoryTokenAnchorComponent.empty();
+
         this.component = ValueHistoryTokenAnchorComponent.with(
-            HistoryTokenAnchorComponent.empty(),
+            this.historyTokenAnchorComponent,
             this::getter,
             this::setter
         );
@@ -78,6 +80,18 @@ public final class HistoryTokenSaveValueAnchorComponent<T> implements ValueHisto
             Optional.ofNullable(historyToken)
         );
     }
+
+    public HistoryTokenSaveValueAnchorComponent setStringValue(final String value) {
+        this.historyTokenAnchorComponent.setHistoryToken(
+            Optional.of(
+                this.context.historyToken()
+                    .setSaveValue(value)
+            )
+        );
+        return this;
+    }
+
+    private final HistoryTokenAnchorComponent historyTokenAnchorComponent;
 
     // AnchorComponentDelegator.........................................................................................
 

@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.value;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.color.Color;
+import walkingkooka.plugin.PluginName;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -104,6 +105,31 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
                     )
                 ),
             "\"Hello\" [#/1/SpreadsheetName1/cell/A1/style/color/save/%23123456] id=HistoryTokenSaveValueAnchorComponent-Link"
+        );
+    }
+
+    @Test
+    public void testSetStringValue() {
+        this.treePrintAndCheck(
+            this.createComponent(
+                    HistoryToken.pluginSelect(
+                        PluginName.with("Plugin1")
+                    )
+                ).setStringValue("Plugin2"),
+            "\"Save\" [#/plugin/Plugin1/save/Plugin2] id=HistoryTokenSaveValueAnchorComponent-Link"
+        );
+    }
+
+    @Test
+    public void testSetStringValueSetTextContent() {
+        this.treePrintAndCheck(
+            this.createComponent(
+                    HistoryToken.pluginSelect(
+                        PluginName.with("Plugin1")
+                    )
+                ).setTextContent("Action123")
+                .setStringValue("Plugin2"),
+            "\"Action123\" [#/plugin/Plugin1/save/Plugin2] id=HistoryTokenSaveValueAnchorComponent-Link"
         );
     }
 
