@@ -77,6 +77,16 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
         this.treePrintAndCheck(
             this.createComponent()
                 .clearValue(),
+            "\"Save\" [#/1/SpreadsheetName1/cell/A1/style/color/save/] id=HistoryTokenSaveValueAnchorComponent-Link"
+        );
+    }
+
+    @Test
+    public void testClearValueDisabled() {
+        this.treePrintAndCheck(
+            this.createComponent()
+                .clearValue()
+                .disabled(),
             "\"Save\" DISABLED id=HistoryTokenSaveValueAnchorComponent-Link"
         );
     }
