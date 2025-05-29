@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.datetimesymbols;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
@@ -46,7 +47,8 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS
-            )
+            ),
+            DATE_TIME_SYMBOLS
         );
 
         this.onHistoryTokenChangeAndCheck(
@@ -99,7 +101,79 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
         );
     }
 
-    private AppContext appContext(final HistoryToken historyToken) {
+    @Test
+    public void testOnHistoryTokenWithSpreadsheetMetadataPropertySelectHistoryTokenMissingDateTimeSymbols() {
+        final AppContext context = this.appContext(
+            HistoryToken.metadataPropertySelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS
+            ),
+            null // missing DateTimeSymbols
+        );
+
+        this.onHistoryTokenChangeAndCheck(
+            DateTimeSymbolsDialogComponent.with(
+                DateTimeSymbolsDialogComponentContexts.metadata(context)
+            ),
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            context,
+            "DateTimeSymbolsDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    DateTimeSymbols\n" +
+                "    id=dateTimeSymbols-Dialog includeClose=true\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          CsvStringListComponent\n" +
+                "            ValueSpreadsheetTextBox\n" +
+                "              SpreadsheetTextBox\n" +
+                "                AM/PM [] id=dateTimeSymbolsampms-TextBox\n" +
+                "                Errors\n" +
+                "                  Require 2\n" +
+                "          CsvStringListComponent\n" +
+                "            ValueSpreadsheetTextBox\n" +
+                "              SpreadsheetTextBox\n" +
+                "                Month names [] id=dateTimeSymbolsmonthNames-TextBox\n" +
+                "                Errors\n" +
+                "                  Require 12 or more\n" +
+                "          CsvStringListComponent\n" +
+                "            ValueSpreadsheetTextBox\n" +
+                "              SpreadsheetTextBox\n" +
+                "                Month name abbreviations [] id=dateTimeSymbolsmonthNameAbbreviations-TextBox\n" +
+                "                Errors\n" +
+                "                  Require 12 or more\n" +
+                "          CsvStringListComponent\n" +
+                "            ValueSpreadsheetTextBox\n" +
+                "              SpreadsheetTextBox\n" +
+                "                Week day names [] id=dateTimeSymbolsweekDayNames-TextBox\n" +
+                "          CsvStringListComponent\n" +
+                "            ValueSpreadsheetTextBox\n" +
+                "              SpreadsheetTextBox\n" +
+                "                Week day names Abbreviations [] id=dateTimeSymbolsweekDayNameAbbreviations-TextBox\n" +
+                "                Errors\n" +
+                "                  Require 7\n" +
+                "          DateTimeSymbolsComponent\n" +
+                "            ValueSpreadsheetTextBox\n" +
+                "              SpreadsheetTextBox\n" +
+                "                Date Time Symbols []\n" +
+                "                Errors\n" +
+                "                  Expected 5 tokens but got 0\n" +
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" DISABLED id=dateTimeSymbols-save-Link\n" +
+                "            \"Clear\" [#/1/SpreadsheetName1/spreadsheet/dateTimeSymbols/save/] id=dateTimeSymbols-clear-Link\n" +
+                "            \"Undo\" [#/1/SpreadsheetName1/spreadsheet/dateTimeSymbols/save/] id=dateTimeSymbols-undo-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName1/spreadsheet] id=dateTimeSymbols-close-Link\n"
+        );
+    }
+
+    private AppContext appContext(final HistoryToken historyToken,
+                                  final DateTimeSymbols dateTimeSymbols) {
         return new FakeAppContext() {
 
             @Override
@@ -127,6 +201,9 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
                 return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
                     SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                     SPREADSHEET_ID
+                ).setOrRemove(
+                    SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS,
+                    dateTimeSymbols
                 );
             }
 

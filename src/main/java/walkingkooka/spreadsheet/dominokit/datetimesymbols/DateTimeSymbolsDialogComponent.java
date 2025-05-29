@@ -349,7 +349,7 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
                             Optional.of(dateTimeSymbols)
                         )
                 )
-            );
+            ).enabled();
         } else {
             this.clear();
         }
@@ -370,6 +370,8 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
         this.weekDayNames.clear();
         this.weekDayNameAbbreviations.clearValue();
         this.dateTimeSymbols.clearValue();
+
+        this.save.disabled();
     }
 
     private final DateTimeSymbolsComponent dateTimeSymbols;
