@@ -494,64 +494,40 @@ public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDia
             final DecimalNumberSymbols decimalNumberSymbols = maybeDecimalNumberSymbols.get();
 
             this.positiveSign.setValue(
-                toValue(
-                    decimalNumberSymbols.positiveSign()
-                )
+                Optional.of(decimalNumberSymbols.positiveSign())
             );
             this.negativeSign.setValue(
-                toValue(
-                    decimalNumberSymbols.negativeSign()
-                )
+                Optional.of(decimalNumberSymbols.negativeSign())
             );
             this.zeroDigit.setValue(
-                toValue(
-                    decimalNumberSymbols.zeroDigit()
-                )
+                Optional.of(decimalNumberSymbols.zeroDigit())
             );
             this.currencySymbol.setValue(
-                toValue(
-                    decimalNumberSymbols.currencySymbol()
-                )
+                Optional.of(decimalNumberSymbols.currencySymbol())
             );
             this.decimalSeparator.setValue(
-                toValue(
-                    decimalNumberSymbols.decimalSeparator()
-                )
+                Optional.of(decimalNumberSymbols.decimalSeparator())
             );
             this.exponentSymbol.setValue(
-                toValue(
-                    decimalNumberSymbols.exponentSymbol()
-                )
+                Optional.of(decimalNumberSymbols.exponentSymbol())
             );
             this.groupSeparator.setValue(
-                toValue(
-                    decimalNumberSymbols.groupSeparator()
-                )
+                Optional.of(decimalNumberSymbols.groupSeparator())
             );
             this.infinitySymbol.setValue(
-                toValue(
-                    decimalNumberSymbols.infinitySymbol()
-                )
+                Optional.of(decimalNumberSymbols.infinitySymbol())
             );
             this.monetaryDecimalSeparator.setValue(
-                toValue(
-                    decimalNumberSymbols.monetaryDecimalSeparator()
-                )
+                Optional.of(decimalNumberSymbols.monetaryDecimalSeparator())
             );
             this.nanSymbol.setValue(
-                toValue(
-                    decimalNumberSymbols.nanSymbol()
-                )
+                Optional.of(decimalNumberSymbols.nanSymbol())
             );
             this.percentSymbol.setValue(
-                toValue(
-                    decimalNumberSymbols.percentSymbol()
-                )
+                Optional.of(decimalNumberSymbols.percentSymbol())
             );
             this.permillSymbol.setValue(
-                toValue(
-                    decimalNumberSymbols.permillSymbol()
-                )
+                Optional.of(decimalNumberSymbols.permillSymbol())
             );
 
             this.save.setValue(
@@ -562,10 +538,6 @@ public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDia
             this.clear();
             this.save.disabled();
         }
-    }
-
-    private static <T> Optional<T> toValue(final T c) {
-        return Optional.of(c);
     }
 
     private void clear() {
