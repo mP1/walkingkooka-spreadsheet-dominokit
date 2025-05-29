@@ -33,6 +33,7 @@ import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.dominokit.value.HistoryTokenSaveValueAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetValidators;
 
@@ -94,9 +95,9 @@ public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDia
 
         this.decimalNumberSymbols = this.decimalNumberSymbols();
 
-        this.save = this.save();
-        this.clear = this.clearAnchor();
-        this.undo = this.undoAnchor();
+        this.save = this.saveValueAnchor(context);
+        this.clear = this.clearValueAnchor(context);
+        this.undo = this.undoAnchor(context);
         this.close = this.closeAnchor();
 
         this.dialog = this.dialogCreate();
@@ -553,13 +554,8 @@ public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDia
                 )
             );
 
-            this.save.setHistoryToken(
-                Optional.of(
-                    this.context.historyToken()
-                        .setSaveValue(
-                            Optional.of(decimalNumberSymbols)
-                        )
-                )
+            this.save.setValue(
+                Optional.of(decimalNumberSymbols)
             );
             this.save.enabled();
         } else {
@@ -591,47 +587,25 @@ public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDia
 
     // save.............................................................................................................
 
-    private HistoryTokenAnchorComponent save() {
-        return this.anchor("Save");
-    }
+    private final HistoryTokenSaveValueAnchorComponent<DecimalNumberSymbols> save;
 
-    private final HistoryTokenAnchorComponent save;
-
-    // clear.............................................................................................................
-
-    private HistoryTokenAnchorComponent clearAnchor() {
-        return this.anchor("Clear");
-    }
+    // clear............................................................................................................
 
     private void refreshClear() {
-        this.clear.setHistoryToken(
-            Optional.of(
-                this.context.historyToken()
-                    .clearSaveValue()
-            )
-        );
+        this.clear.clearValue();
     }
 
-    private final HistoryTokenAnchorComponent clear;
+    private final HistoryTokenSaveValueAnchorComponent<DecimalNumberSymbols> clear;
 
     // undo.............................................................................................................
 
-    private HistoryTokenAnchorComponent undoAnchor() {
-        return this.anchor("Undo");
-    }
-
     private void refreshUndo() {
-        this.undo.setHistoryToken(
-            Optional.of(
-                this.context.historyToken()
-                    .setSaveValue(
-                        this.context.loadDecimalNumberSymbols()
-                    )
-            )
+        this.undo.setValue(
+            this.context.loadDecimalNumberSymbols()
         );
     }
 
-    private final HistoryTokenAnchorComponent undo;
+    private final HistoryTokenSaveValueAnchorComponent<DecimalNumberSymbols> undo;
 
     // close............................................................................................................
 
