@@ -31,6 +31,7 @@ import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.dominokit.value.HistoryTokenSaveValueAnchorComponent;
 
 import java.util.List;
 import java.util.Objects;
@@ -78,9 +79,9 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
 
         this.dateTimeSymbols = this.dateTimeSymbols();
 
-        this.save = this.save();
-        this.clear = this.clearAnchor();
-        this.undo = this.undoAnchor();
+        this.save = this.saveValueAnchor(context);
+        this.clear = this.clearValueAnchor(context);
+        this.undo = this.undoAnchor(context);
         this.close = this.closeAnchor();
 
         this.dialog = this.dialogCreate();
@@ -342,14 +343,9 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
                     dateTimeSymbols.weekDayNameAbbreviations()
                 )
             );
-            this.save.setHistoryToken(
-                Optional.of(
-                    this.context.historyToken()
-                        .setSaveValue(
-                            Optional.of(dateTimeSymbols)
-                        )
-                )
-            ).enabled();
+            this.save.setValue(
+                Optional.of(dateTimeSymbols)
+            );
         } else {
             this.clear();
         }
@@ -378,47 +374,25 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
 
     // save.............................................................................................................
 
-    private HistoryTokenAnchorComponent save() {
-        return this.anchor("Save");
-    }
-
-    private final HistoryTokenAnchorComponent save;
+    private final HistoryTokenSaveValueAnchorComponent<DateTimeSymbols> save;
 
     // clear.............................................................................................................
 
-    private HistoryTokenAnchorComponent clearAnchor() {
-        return this.anchor("Clear");
-    }
-
     private void refreshClear() {
-        this.clear.setHistoryToken(
-            Optional.of(
-                this.context.historyToken()
-                    .clearSaveValue()
-            )
-        );
+        this.clear.clearValue();
     }
 
-    private final HistoryTokenAnchorComponent clear;
+    private final HistoryTokenSaveValueAnchorComponent<DateTimeSymbols> clear;
 
     // undo.............................................................................................................
 
-    private HistoryTokenAnchorComponent undoAnchor() {
-        return this.anchor("Undo");
-    }
-
     private void refreshUndo() {
-        this.undo.setHistoryToken(
-            Optional.of(
-                this.context.historyToken()
-                    .setSaveValue(
-                        this.context.loadDateTimeSymbols()
-                    )
-            )
+        this.undo.setValue(
+            this.context.loadDateTimeSymbols()
         );
     }
 
-    private final HistoryTokenAnchorComponent undo;
+    private final HistoryTokenSaveValueAnchorComponent<DateTimeSymbols> undo;
 
     // close............................................................................................................
 
