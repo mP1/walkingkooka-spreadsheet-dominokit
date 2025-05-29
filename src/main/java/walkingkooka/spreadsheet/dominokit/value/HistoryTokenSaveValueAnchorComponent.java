@@ -48,6 +48,8 @@ public final class HistoryTokenSaveValueAnchorComponent<T> implements ValueHisto
         );
         this.setId(id);
         this.context = Objects.requireNonNull(context, "context");
+
+        this.setTextContent("Save");
     }
 
     /**
@@ -74,7 +76,7 @@ public final class HistoryTokenSaveValueAnchorComponent<T> implements ValueHisto
 
         anchor.setHistoryToken(
             Optional.ofNullable(historyToken)
-        ).setTextContent("Save");
+        );
     }
 
     // AnchorComponentDelegator.........................................................................................

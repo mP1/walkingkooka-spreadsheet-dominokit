@@ -80,6 +80,33 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
         );
     }
 
+    @Test
+    public void testSetValueSetTextContent() {
+        this.treePrintAndCheck(
+            this.createComponent()
+                .setValue(
+                    Optional.of(
+                        Color.parse("#123456")
+                    )
+                ).setTextContent("Clear"),
+            "\"Clear\" [#/1/SpreadsheetName1/cell/A1/style/color/save/%23123456] id=HistoryTokenSaveValueAnchorComponent-Link"
+        );
+    }
+
+    @Test
+    public void testSetTextContentSetValue() {
+        this.treePrintAndCheck(
+            this.createComponent()
+                .setTextContent("Hello")
+                .setValue(
+                    Optional.of(
+                        Color.parse("#123456")
+                    )
+                ),
+            "\"Hello\" [#/1/SpreadsheetName1/cell/A1/style/color/save/%23123456] id=HistoryTokenSaveValueAnchorComponent-Link"
+        );
+    }
+
     // ValueComponent...................................................................................................
 
     @Override
