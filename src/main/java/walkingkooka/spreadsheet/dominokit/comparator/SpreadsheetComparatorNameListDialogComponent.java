@@ -32,6 +32,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.dominokit.value.HistoryTokenSaveValueAnchorComponent;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
@@ -66,9 +67,9 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
 
         this.textBox = this.textBox();
 
-        this.save = this.anchor("Save");
-        this.undo = this.anchor("Undo");
-        this.clear = this.anchor("Clear");
+        this.save = this.saveValueAnchor(context);
+        this.undo = this.undoAnchor(context);
+        this.clear = this.clearValueAnchor(context);
         this.close = this.closeAnchor();
 
         this.dialog = this.dialogCreate();
@@ -136,12 +137,7 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
      * Handles updates to the {@link SpreadsheetComparatorNameListComponent}
      */
     private void onTextBox(final String text) {
-        this.save.setHistoryToken(
-            Optional.of(
-                this.context.historyToken()
-                    .setSaveValue(text)
-            )
-        );
+        this.save.setStringValue(text);
     }
 
     /**
@@ -170,17 +166,17 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
     /**
      * A SAVE link which will be updated each time the {@link #textBox} is also updated.
      */
-    private final HistoryTokenAnchorComponent save;
+    private final HistoryTokenSaveValueAnchorComponent<String> save;
 
     /**
      * A UNDO link which will be updated each time the {@link SpreadsheetComparatorNameList} is saved.
      */
-    private final HistoryTokenAnchorComponent undo;
+    private final HistoryTokenSaveValueAnchorComponent<String> undo;
 
     /**
      * A CLEAR link which will save an empty {@link SpreadsheetComparatorNameList}.
      */
-    private final HistoryTokenAnchorComponent clear;
+    private final HistoryTokenSaveValueAnchorComponent<String> clear;
 
     /**
      * A CLOSE link which will close the dialog.
@@ -227,12 +223,7 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
         final String undo = this.context.undo();
         this.setText(undo);
 
-        this.undo.setHistoryToken(
-            Optional.of(
-                context.historyToken()
-                    .setSaveValue(undo)
-            )
-        );
+        this.undo.setStringValue(undo);
 
         this.refreshTitleAndLinks();
     }
@@ -246,11 +237,7 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
             context.dialogTitle()
         );
 
-        this.clear.setHistoryToken(
-            Optional.of(
-                historyToken.clearSaveValue()
-            )
-        );
+        this.clear.clearValue();
 
         this.close.setHistoryToken(
             Optional.of(
