@@ -27,7 +27,8 @@ import java.util.Optional;
 
 /**
  * Creates a {@link HistoryTokenSaveValueAnchorComponent}, that is a link that when clicked saves the current value.
- * The value which must be a {@link T} will create a link which pushes a {@link HistoryTokenSaveValueAnchorComponent}.
+ * Note setting a clear or empty value does NOT disable the link, this must be done by {@link #disabled()} and
+ * enabled using {@link #enabled()}.
  */
 public final class HistoryTokenSaveValueAnchorComponent<T> implements ValueHistoryTokenAnchorComponentDelegator<HistoryTokenSaveValueAnchorComponent<T>, T> {
 
@@ -66,14 +67,10 @@ public final class HistoryTokenSaveValueAnchorComponent<T> implements ValueHisto
 
     private void setter(final Optional<T> value,
                         final HistoryTokenAnchorComponent anchor) {
-        HistoryToken historyToken = null;
-
-        if (value.isPresent()) {
-            historyToken = this.context.historyToken()
-                .setSaveValue(value);
-            if (false == (historyToken.getClass().getSimpleName().contains("Save"))) {
-                historyToken = null;
-            }
+        HistoryToken historyToken = this.context.historyToken()
+            .setSaveValue(value);
+        if (false == (historyToken.getClass().getSimpleName().contains("Save"))) {
+            historyToken = null;
         }
 
         anchor.setHistoryToken(
