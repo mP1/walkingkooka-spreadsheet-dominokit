@@ -246,6 +246,13 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
+                "  \"Value type\" id=test-valueType-SubMenu\n" +
+                "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
+                "    \"Date\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
+                "    \"Date Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/dateTime] id=test-valueTypes-dateTime-MenuItem\n" +
+                "    \"Number\" [/1/SpreadsheetName-1/cell/A1/valueType/save/number] id=test-valueTypes-number-MenuItem\n" +
+                "    \"Text\" [/1/SpreadsheetName-1/cell/A1/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
+                "    \"Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
                 "  -----\n" +
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
@@ -477,6 +484,13 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Date Format Pattern recent-3C\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date-format-pattern%20recent-3C] id=test-formatter-recent-2-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
+                "  \"Value type\" id=test-valueType-SubMenu\n" +
+                "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
+                "    \"Date\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
+                "    \"Date Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/dateTime] id=test-valueTypes-dateTime-MenuItem\n" +
+                "    \"Number\" [/1/SpreadsheetName-1/cell/A1/valueType/save/number] id=test-valueTypes-number-MenuItem\n" +
+                "    \"Text\" [/1/SpreadsheetName-1/cell/A1/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
+                "    \"Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
                 "  -----\n" +
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
@@ -703,6 +717,13 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
+                "  \"Value type\" id=test-valueType-SubMenu\n" +
+                "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
+                "    \"Date\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
+                "    \"Date Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/dateTime] id=test-valueTypes-dateTime-MenuItem\n" +
+                "    \"Number\" [/1/SpreadsheetName-1/cell/A1/valueType/save/number] id=test-valueTypes-number-MenuItem\n" +
+                "    \"Text\" [/1/SpreadsheetName-1/cell/A1/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
+                "    \"Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
                 "  -----\n" +
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
@@ -944,6 +965,13 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
+                "  \"Value type\" id=test-valueType-SubMenu\n" +
+                "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
+                "    \"Date\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
+                "    \"Date Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/dateTime] id=test-valueTypes-dateTime-MenuItem\n" +
+                "    \"Number\" [/1/SpreadsheetName-1/cell/A1/valueType/save/number] id=test-valueTypes-number-MenuItem\n" +
+                "    \"Text\" [/1/SpreadsheetName-1/cell/A1/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
+                "    \"Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
                 "  -----\n" +
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
@@ -1198,6 +1226,13 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Date Format Pattern recent-1A\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date-format-pattern%20recent-1A] id=test-formatter-recent-0-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
+                "  \"Value type\" id=test-valueType-SubMenu\n" +
+                "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
+                "    \"Date\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
+                "    \"Date Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/dateTime] id=test-valueTypes-dateTime-MenuItem\n" +
+                "    \"Number\" [/1/SpreadsheetName-1/cell/A1/valueType/save/number] id=test-valueTypes-number-MenuItem\n" +
+                "    \"Text\" [/1/SpreadsheetName-1/cell/A1/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
+                "    \"Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
                 "  -----\n" +
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
@@ -1416,6 +1451,13 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
+                "  \"Value type\" id=test-valueType-SubMenu\n" +
+                "    \"Boolean\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
+                "    \"Date\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
+                "    \"Date Time\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/dateTime] id=test-valueTypes-dateTime-MenuItem\n" +
+                "    \"Number\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/number] id=test-valueTypes-number-MenuItem\n" +
+                "    \"Text\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
+                "    \"Time\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
                 "  -----\n" +
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/delete] id=test-delete-MenuItem\n" +
@@ -1730,6 +1772,13 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/Label123/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/Label123/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
+                "  \"Value type\" id=test-valueType-SubMenu\n" +
+                "    \"Boolean\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
+                "    \"Date\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
+                "    \"Date Time\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/dateTime] id=test-valueTypes-dateTime-MenuItem\n" +
+                "    \"Number\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/number] id=test-valueTypes-number-MenuItem\n" +
+                "    \"Text\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
+                "    \"Time\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
                 "  -----\n" +
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/Label123/delete] id=test-delete-MenuItem\n" +
@@ -1949,6 +1998,13 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
+                "  \"Value type\" id=test-valueType-SubMenu\n" +
+                "    \"Boolean\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
+                "    \"Date\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
+                "    \"Date Time\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/dateTime] id=test-valueTypes-dateTime-MenuItem\n" +
+                "    \"Number\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/number] id=test-valueTypes-number-MenuItem\n" +
+                "    \"Text\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
+                "    \"Time\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
                 "  -----\n" +
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/UnknownLabel/delete] id=test-delete-MenuItem\n" +
