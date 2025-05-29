@@ -298,7 +298,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                   final SpreadsheetContextMenu menu,
                                   final SpreadsheetSelectionMenuContext context) {
         final SpreadsheetContextMenu subMenu = menu.subMenu(
-            context.idPrefix() + "menu" + SpreadsheetElementIds.SUB_MENU,
+            context.idPrefix() + "formatter" + SpreadsheetElementIds.SUB_MENU,
             "Formatter"
         );
 

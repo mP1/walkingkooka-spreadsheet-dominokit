@@ -239,7 +239,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
-                "  \"Formatter\" id=test-menu-SubMenu\n" +
+                "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/spreadsheet/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/spreadsheet/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
@@ -463,7 +463,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
-                "  \"Formatter\" id=test-menu-SubMenu\n" +
+                "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                 "    -----\n" +
                 "    \"Date Format Pattern recent-1A\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date-format-pattern%20recent-1A] id=test-formatter-recent-0-MenuItem\n" +
@@ -690,7 +690,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
-                "  \"Formatter\" id=test-menu-SubMenu\n" +
+                "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/spreadsheet/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/spreadsheet/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
@@ -928,7 +928,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Set Color #123456\" [/1/SpreadsheetName-1/cell/A1/style/color/save/%23123456] id=test-recent-style-0-MenuItem\n" +
                 "    \"Set Text Align CENTER\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/CENTER] id=test-recent-style-0-MenuItem\n" +
                 "    \"Clear Vertical Align\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/] id=test-recent-style-0-MenuItem\n" +
-                "  \"Formatter\" id=test-menu-SubMenu\n" +
+                "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/spreadsheet/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/spreadsheet/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
@@ -1171,7 +1171,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
-                "  \"Formatter\" id=test-menu-SubMenu\n" +
+                "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    \"Date Format Pattern\" id=test-formatter-date-format-pattern-SubMenu\n" +
                 "      \"Short\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date-format-pattern%20yy/mm/dd] id=test-formatter-date-format-pattern-MenuItem\n" +
                 "      \"Medium\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date-format-pattern%20yyyy/mm/ddd] id=test-formatter-date-format-pattern-MenuItem\n" +
@@ -1394,7 +1394,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/*/save/] id=test-clear-style-MenuItem\n" +
-                "  \"Formatter\" id=test-menu-SubMenu\n" +
+                "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/spreadsheet/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/spreadsheet/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
@@ -1705,7 +1705,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/Label123/style/*/save/] id=test-clear-style-MenuItem\n" +
-                "  \"Formatter\" id=test-menu-SubMenu\n" +
+                "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/spreadsheet/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/spreadsheet/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
@@ -1921,7 +1921,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/*/save/] id=test-clear-style-MenuItem\n" +
-                "  \"Formatter\" id=test-menu-SubMenu\n" +
+                "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/spreadsheet/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/spreadsheet/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
