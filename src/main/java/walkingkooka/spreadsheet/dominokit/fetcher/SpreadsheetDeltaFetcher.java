@@ -754,16 +754,6 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
-    public void patchFormula(final SpreadsheetId id,
-                             final SpreadsheetSelection selection,
-                             final JsonNode formula) {
-        this.patchDeltaWithViewportAndWindowQueryString(
-            id,
-            selection,
-            SpreadsheetDelta.formulaPatch(formula)
-        );
-    }
-
     public void patchDateTimeSymbols(final SpreadsheetId id,
                                      final SpreadsheetSelection selection,
                                      final Optional<DateTimeSymbols> dateTimeSymbols) {
@@ -800,6 +790,16 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                 formatter,
                 this.context
             )
+        );
+    }
+
+    public void patchFormula(final SpreadsheetId id,
+                             final SpreadsheetSelection selection,
+                             final JsonNode formula) {
+        this.patchDeltaWithViewportAndWindowQueryString(
+            id,
+            selection,
+            SpreadsheetDelta.formulaPatch(formula)
         );
     }
 
