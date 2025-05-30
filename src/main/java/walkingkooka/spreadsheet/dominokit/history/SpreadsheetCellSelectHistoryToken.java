@@ -142,7 +142,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                 );
                 break;
             case FORMULA_STRING:
-                result = cellSaveFormula(
+                result = cellSaveFormulaText(
                     this.id(),
                     this.name(),
                     this.anchoredSelection(),

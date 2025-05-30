@@ -223,7 +223,7 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
         this.setSaveValueAndCheck(
             this.createHistoryToken(),
             Optional.of(value),
-            HistoryToken.cellSaveFormula(
+            HistoryToken.cellSaveFormulaText(
                 ID,
                 NAME,
                 SELECTION,

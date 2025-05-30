@@ -37,13 +37,13 @@ import java.util.Map;
  * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/save/formula/multi formatter patch as json.
  * </pre>
  */
-public final class SpreadsheetCellSaveFormulaHistoryToken extends SpreadsheetCellSaveMapHistoryToken<String> {
+public final class SpreadsheetCellSaveFormulaTextHistoryToken extends SpreadsheetCellSaveMapHistoryToken<String> {
 
-    static SpreadsheetCellSaveFormulaHistoryToken with(final SpreadsheetId id,
-                                                       final SpreadsheetName name,
-                                                       final AnchoredSpreadsheetSelection anchoredSelection,
-                                                       final Map<SpreadsheetCellReference, String> value) {
-        return new SpreadsheetCellSaveFormulaHistoryToken(
+    static SpreadsheetCellSaveFormulaTextHistoryToken with(final SpreadsheetId id,
+                                                           final SpreadsheetName name,
+                                                           final AnchoredSpreadsheetSelection anchoredSelection,
+                                                           final Map<SpreadsheetCellReference, String> value) {
+        return new SpreadsheetCellSaveFormulaTextHistoryToken(
             id,
             name,
             anchoredSelection,
@@ -51,10 +51,10 @@ public final class SpreadsheetCellSaveFormulaHistoryToken extends SpreadsheetCel
         );
     }
 
-    private SpreadsheetCellSaveFormulaHistoryToken(final SpreadsheetId id,
-                                                   final SpreadsheetName name,
-                                                   final AnchoredSpreadsheetSelection anchoredSelection,
-                                                   final Map<SpreadsheetCellReference, String> value) {
+    private SpreadsheetCellSaveFormulaTextHistoryToken(final SpreadsheetId id,
+                                                       final SpreadsheetName name,
+                                                       final AnchoredSpreadsheetSelection anchoredSelection,
+                                                       final Map<SpreadsheetCellReference, String> value) {
         super(
             id,
             name,
@@ -72,11 +72,11 @@ public final class SpreadsheetCellSaveFormulaHistoryToken extends SpreadsheetCel
     }
 
     @Override
-    SpreadsheetCellSaveFormulaHistoryToken replace(final SpreadsheetId id,
-                                                   final SpreadsheetName name,
-                                                   final AnchoredSpreadsheetSelection anchoredSelection,
-                                                   final Map<SpreadsheetCellReference, String> value) {
-        return new SpreadsheetCellSaveFormulaHistoryToken(
+    SpreadsheetCellSaveFormulaTextHistoryToken replace(final SpreadsheetId id,
+                                                       final SpreadsheetName name,
+                                                       final AnchoredSpreadsheetSelection anchoredSelection,
+                                                       final Map<SpreadsheetCellReference, String> value) {
+        return new SpreadsheetCellSaveFormulaTextHistoryToken(
             id,
             name,
             anchoredSelection,
