@@ -105,7 +105,7 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
 
             if (context.hideZeroValues()) {
                 final Object value = cell.formula()
-                    .value()
+                    .errorOrValue()
                     .orElse(null);
 
                 if (ExpressionNumber.is(value) &&
