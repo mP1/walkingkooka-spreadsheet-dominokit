@@ -60,6 +60,7 @@ import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
+import walkingkooka.validation.ValidationValueTypeName;
 import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.List;
@@ -839,6 +840,18 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                 name.stylePatch(
                     value.orElse(null)
                 )
+            )
+        );
+    }
+
+    public void patchValueType(final SpreadsheetId id,
+                               final SpreadsheetSelection selection,
+                               final Optional<ValidationValueTypeName> valueType) {
+        this.patchDeltaWithViewportAndWindowQueryString(
+            id,
+            selection,
+            SpreadsheetDelta.valueTypePatch(
+                valueType
             )
         );
     }
