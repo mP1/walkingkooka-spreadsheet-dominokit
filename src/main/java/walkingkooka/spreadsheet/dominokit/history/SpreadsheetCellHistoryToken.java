@@ -21,7 +21,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetUrlFragments;
-import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -57,28 +56,6 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
     }
 
     abstract UrlFragment cellUrlFragment();
-
-    // sort.............................................................................................................
-
-    @Override //
-    final HistoryToken setSortEdit0(final String comparators) {
-        return HistoryToken.cellSortEdit(
-            this.id(),
-            this.name(),
-            this.anchoredSelection(),
-            comparators
-        );
-    }
-
-    @Override //
-    final HistoryToken setSortSave0(final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparators) {
-        return HistoryToken.cellSortSave(
-            this.id(),
-            this.name(),
-            this.anchoredSelection(),
-            comparators
-        );
-    }
 
     // parse............................................................................................................
 
