@@ -344,9 +344,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                     )
                 ).historyToken(
                     Optional.of(
-                        historyToken.setMetadataPropertyName(
-                            SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_SYMBOLS
-                        )
+                        historyToken.decimalNumberSymbols()
                     )
                 )
         );
