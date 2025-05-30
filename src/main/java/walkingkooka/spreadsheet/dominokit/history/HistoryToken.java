@@ -69,6 +69,7 @@ import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
+import walkingkooka.validation.ValidationValueTypeName;
 
 import java.util.Locale;
 import java.util.Map;
@@ -273,6 +274,10 @@ public abstract class HistoryToken implements HasUrlFragment,
     final static String UNFREEZE_STRING = "unfreeze";
 
     final static UrlFragment UNFREEZE = UrlFragment.parse(UNFREEZE_STRING);
+
+    final static String VALUE_TYPE_STRING = "valueType";
+
+    final static UrlFragment VALUE_TYPE = UrlFragment.parse(VALUE_TYPE_STRING);
 
     final static String WILDCARD_STRING = "*";
 
@@ -853,6 +858,47 @@ public abstract class HistoryToken implements HasUrlFragment,
         );
     }
 
+    /**
+     * {@see SpreadsheetCellValueTypeSaveHistoryToken}
+     */
+    public static SpreadsheetCellValueTypeSaveHistoryToken cellValueTypeSave(final SpreadsheetId id,
+                                                                             final SpreadsheetName name,
+                                                                             final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                             final Optional<ValidationValueTypeName> valueType) {
+        return SpreadsheetCellValueTypeSaveHistoryToken.with(
+            id,
+            name,
+            anchoredSelection,
+            valueType
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellValueTypeSelectHistoryToken}
+     */
+    public static SpreadsheetCellValueTypeSelectHistoryToken cellValueTypeSelect(final SpreadsheetId id,
+                                                                                 final SpreadsheetName name,
+                                                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
+        return SpreadsheetCellValueTypeSelectHistoryToken.with(
+            id,
+            name,
+            anchoredSelection
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellValueTypeUnselectHistoryToken}
+     */
+    public static SpreadsheetCellValueTypeUnselectHistoryToken cellValueTypeUnselect(final SpreadsheetId id,
+                                                                                     final SpreadsheetName name,
+                                                                                     final AnchoredSpreadsheetSelection anchoredSelection) {
+        return SpreadsheetCellValueTypeUnselectHistoryToken.with(
+            id,
+            name,
+            anchoredSelection
+        );
+    }
+    
     /**
      * {@see SpreadsheetColumnSelectHistoryToken}
      */
@@ -2002,6 +2048,22 @@ public abstract class HistoryToken implements HasUrlFragment,
                             anchoredSelection
                         );
                     }
+
+                    if (this instanceof SpreadsheetCellValueTypeSelectHistoryToken) {
+                        closed = cellSelect(
+                            id,
+                            name,
+                            anchoredSelection
+                        );
+                    }
+
+                    if (this instanceof SpreadsheetCellValueTypeSaveHistoryToken) {
+                        closed = cellValueTypeSelect(
+                            id,
+                            name,
+                            anchoredSelection
+                        );
+                    }
                 } else {
                     if (this instanceof SpreadsheetMetadataPropertyHistoryToken) {
                         closed = metadataSelect(
@@ -2241,7 +2303,8 @@ public abstract class HistoryToken implements HasUrlFragment,
                     if (this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken ||
                         this instanceof SpreadsheetCellDecimalNumberSymbolsHistoryToken ||
                         this instanceof SpreadsheetCellFormatterHistoryToken ||
-                        this instanceof SpreadsheetCellParserHistoryToken) {
+                        this instanceof SpreadsheetCellParserHistoryToken ||
+                        this instanceof SpreadsheetCellValueTypeHistoryToken) {
                         historyToken = this.clearSaveValue();
                     } else {
                         final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
@@ -3782,6 +3845,19 @@ public abstract class HistoryToken implements HasUrlFragment,
                             value
                         );
                     }
+
+                    if (this instanceof SpreadsheetCellValueTypeHistoryToken) {
+                        if (null != valueOrNull && false == valueOrNull instanceof ValidationValueTypeName) {
+                            throw new IllegalArgumentException("Invalid value");
+                        }
+
+                        historyToken = HistoryToken.cellValueTypeSave(
+                            id,
+                            name,
+                            spreadsheetSelection,
+                            Cast.to(value)
+                        );
+                    }
                 }
 
                 if (this instanceof SpreadsheetColumnSortHistoryToken) {
@@ -4048,6 +4124,21 @@ public abstract class HistoryToken implements HasUrlFragment,
                                                                                     )
                                                                                 )
                                                                             );
+                                                                        } else {
+                                                                            if (this instanceof SpreadsheetCellValueTypeHistoryToken) {
+                                                                                if (false == this instanceof SpreadsheetCellValueTypeUnselectHistoryToken) {
+                                                                                    saved = HistoryToken.cellValueTypeSave(
+                                                                                        id,
+                                                                                        name,
+                                                                                        anchoredSpreadsheetSelection,
+                                                                                        Optional.ofNullable(
+                                                                                            value.isEmpty() ?
+                                                                                                null :
+                                                                                                ValidationValueTypeName.with(value)
+                                                                                        )
+                                                                                    );
+                                                                                }
+                                                                            }
                                                                         }
                                                                     }
                                                                 }
@@ -4324,6 +4415,14 @@ public abstract class HistoryToken implements HasUrlFragment,
                     anchoredSpreadsheetSelection
                 );
             }
+
+            if (this instanceof SpreadsheetCellValueTypeSelectHistoryToken) {
+                historyToken = cellValueTypeUnselect(
+                    id,
+                    name,
+                    anchoredSpreadsheetSelection
+                );
+            }
         }
 
         return historyToken;
@@ -4385,6 +4484,32 @@ public abstract class HistoryToken implements HasUrlFragment,
 
         return Optional.ofNullable(token);
     }
+
+    // valueType........................................................................................................
+
+    /**
+     * If possible selects a {@link ValidationValueTypeName} {@link HistoryToken}.
+     */
+    public final HistoryToken valueType() {
+        HistoryToken historyToken;
+
+        if (this instanceof SpreadsheetCellSelectHistoryToken || this instanceof SpreadsheetCellMenuHistoryToken) {
+            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
+
+            historyToken = HistoryToken.cellValueTypeSelect(
+                cell.id(),
+                cell.name(),
+                cell.anchoredSelection()
+            );
+
+        } else {
+            historyToken = this;
+        }
+
+        return historyToken;
+    }
+
+    // shouldIgnore.....................................................................................................
 
     /**
      * Temporary {@link HistoryToken} which perform an immediate action and probably return the previous {@link HistoryToken}
