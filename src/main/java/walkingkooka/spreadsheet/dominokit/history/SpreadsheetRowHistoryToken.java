@@ -21,7 +21,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetUrlFragments;
-import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolvers;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -58,28 +57,6 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
     @Override
     public final HistoryToken clearAction() {
         return this.selectionSelect();
-    }
-
-    // sort.............................................................................................................
-
-    @Override //
-    final HistoryToken setSortEdit0(final String comparators) {
-        return HistoryToken.rowSortEdit(
-            this.id(),
-            this.name(),
-            this.anchoredSelection(),
-            comparators
-        );
-    }
-
-    @Override //
-    final HistoryToken setSortSave0(final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparators) {
-        return HistoryToken.rowSortSave(
-            this.id(),
-            this.name(),
-            this.anchoredSelection(),
-            comparators
-        );
     }
 
     // parse............................................................................................................

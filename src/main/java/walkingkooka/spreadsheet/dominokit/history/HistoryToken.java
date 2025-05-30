@@ -4263,22 +4263,98 @@ public abstract class HistoryToken implements HasUrlFragment,
     public final HistoryToken setSortEdit(final String comparatorNames) {
         Objects.requireNonNull(comparatorNames, "comparatorNames");
 
-        return this.setIfSpreadsheetAnchoredSelectionHistoryTokenWithValue(
-            SpreadsheetAnchoredSelectionHistoryToken::setSortEdit0,
-            comparatorNames
-        );
+        HistoryToken token = this;
+
+        if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
+            final SpreadsheetAnchoredSelectionHistoryToken anchoredSelectionHistoryToken = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
+
+            final SpreadsheetId id = anchoredSelectionHistoryToken.id();
+            final SpreadsheetName name = anchoredSelectionHistoryToken.name();
+            final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = anchoredSelectionHistoryToken.anchoredSelection();
+
+            if (this instanceof SpreadsheetCellHistoryToken) {
+                token = HistoryToken.cellSortEdit(
+                    id,
+                    name,
+                    anchoredSpreadsheetSelection,
+                    comparatorNames
+                );
+            }
+
+            if (this instanceof SpreadsheetColumnHistoryToken) {
+                token = HistoryToken.columnSortEdit(
+                    id,
+                    name,
+                    anchoredSpreadsheetSelection,
+                    comparatorNames
+                );
+            }
+
+            if (this instanceof SpreadsheetRowHistoryToken) {
+                token = HistoryToken.rowSortEdit(
+                    id,
+                    name,
+                    anchoredSpreadsheetSelection,
+                    comparatorNames
+                );
+            }
+
+            if (token.equals(this)) {
+                token = this;
+            }
+        }
+
+        return token;
     }
 
     /**
-     * if possible creates a sort edit, otherwise returns this.
+     * if possible creates a sort save, otherwise returns this.
      */
     public final HistoryToken setSortSave(final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames) {
         Objects.requireNonNull(comparatorNames, "comparatorNames");
 
-        return this.setIfSpreadsheetAnchoredSelectionHistoryTokenWithValue(
-            SpreadsheetAnchoredSelectionHistoryToken::setSortSave0,
-            comparatorNames
-        );
+        HistoryToken token = this;
+
+        if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
+            final SpreadsheetAnchoredSelectionHistoryToken anchoredSelectionHistoryToken = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
+
+            final SpreadsheetId id = anchoredSelectionHistoryToken.id();
+            final SpreadsheetName name = anchoredSelectionHistoryToken.name();
+            final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = anchoredSelectionHistoryToken.anchoredSelection();
+
+            if (this instanceof SpreadsheetCellHistoryToken) {
+                token = HistoryToken.cellSortSave(
+                    id,
+                    name,
+                    anchoredSpreadsheetSelection,
+                    comparatorNames
+                );
+            }
+
+            if (this instanceof SpreadsheetColumnHistoryToken) {
+                token = HistoryToken.columnSortSave(
+                    id,
+                    name,
+                    anchoredSpreadsheetSelection,
+                    comparatorNames
+                );
+            }
+
+            if (this instanceof SpreadsheetRowHistoryToken) {
+                token = HistoryToken.rowSortSave(
+                    id,
+                    name,
+                    anchoredSpreadsheetSelection,
+                    comparatorNames
+                );
+            }
+
+            if (token.equals(this)) {
+                token = this;
+            }
+        }
+
+        return token;
     }
 
     public final Optional<SpreadsheetFormatterSelector> spreadsheetFormatterSelector() {
@@ -4514,24 +4590,6 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     // HELPERS..........................................................................................................
-
-    private <T> HistoryToken setIfSpreadsheetAnchoredSelectionHistoryTokenWithValue(final BiFunction<SpreadsheetAnchoredSelectionHistoryToken, T, HistoryToken> setter,
-                                                                                    final T value) {
-        HistoryToken token = this;
-
-        if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
-            token = setter.apply(
-                this.cast(SpreadsheetAnchoredSelectionHistoryToken.class),
-                value
-            );
-
-            if (token.equals(this)) {
-                token = this;
-            }
-        }
-
-        return token;
-    }
 
     /**
      * Type safe cast to the given {@link Class literal}.
