@@ -55,7 +55,7 @@ public final class SpreadsheetFormulaComponentExpressionParserFunctionTest imple
         this.applyAndCheck(
             text,
             SpreadsheetFormula.EMPTY.setText(text)
-                .setExpressionValue(
+                .setValue(
                     Optional.of(
                         SpreadsheetErrorKind.ERROR.setMessage(
                             "End of text at (5,1) expected LAMBDA_FUNCTION | NAMED_FUNCTION | \"true\" | \"false\" | LABEL | CELL_RANGE | CELL | GROUP | NEGATIVE | \"#.#E+#;#.#%;#.#;#%;#\" | TEXT | \"#NULL!\" | \"#DIV/0!\" | \"#VALUE!\" | \"#REF!\" | \"#NAME?\" | \"#NAME?\" | \"#NUM!\" | \"#N/A\" | \"#ERROR\" | \"#SPILL!\" | \"#CALC!\""
@@ -72,7 +72,7 @@ public final class SpreadsheetFormulaComponentExpressionParserFunctionTest imple
         this.applyAndCheck(
             text,
             SpreadsheetFormula.EMPTY.setText(text)
-                .setExpressionValue(
+                .setValue(
                     Optional.of(
                         SpreadsheetErrorKind.ERROR.setMessage(
                             "Invalid character \'<\' at (1,1) expected BINARY_EXPRESSION | LAMBDA_FUNCTION | NAMED_FUNCTION | \"true\" | \"false\" | LABEL | CELL_RANGE | CELL | GROUP | NEGATIVE | \"#.#E+#;#.#%;#.#;#%;#\" | TEXT | \"#NULL!\" | \"#DIV/0!\" | \"#VALUE!\" | \"#REF!\" | \"#NAME?\" | \"#NAME?\" | \"#NUM!\" | \"#N/A\" | \"#ERROR\" | \"#SPILL!\" | \"#CALC!\""
