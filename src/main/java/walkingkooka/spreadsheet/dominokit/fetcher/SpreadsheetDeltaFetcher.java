@@ -760,40 +760,11 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
 
     public void patchFormula(final SpreadsheetId id,
                              final SpreadsheetSelection selection,
-                             final SpreadsheetFormula formula) {
+                             final JsonNode formula) {
         this.patchDeltaWithViewportAndWindowQueryString(
             id,
             selection,
-            SpreadsheetDelta.formulaPatch(
-                formula,
-                this.context
-            )
-        );
-    }
-
-    /**
-     * Performs a PATCH on the formula text for the given selection, leaving all other cell properties unchanged.
-     */
-    public void patchFormulaText(final SpreadsheetId id,
-                                 final SpreadsheetSelection selection,
-                                 final String formulaText) {
-        final AppContext context = this.context;
-
-        // PATCH cell with new formula
-        this.patchDeltaWithViewportAndWindowQueryString(
-            id,
-            selection,
-            SpreadsheetDelta.EMPTY.setCells(
-                Sets.of(
-                    context.resolveIfLabel(selection)
-                        .toCell()
-                        .setFormula(
-                            SpreadsheetFormula.EMPTY.setText(
-                                formulaText
-                            )
-                        )
-                )
-            )
+            SpreadsheetDelta.formulaPatch(formula)
         );
     }
 

@@ -26,7 +26,6 @@ import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextWriteWatcher
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardTextItem;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher;
-import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -126,7 +125,7 @@ public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCe
                             fetcher.patchFormula(
                                 id,
                                 selection,
-                                SpreadsheetFormula.EMPTY // delete formulas
+                                JsonNode.nullNode() // delete formulas
                             );
                             break;
                         case FORMATTER:
