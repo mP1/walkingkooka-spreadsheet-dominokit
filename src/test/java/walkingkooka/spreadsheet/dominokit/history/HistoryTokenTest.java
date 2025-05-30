@@ -47,6 +47,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.test.ParseStringTesting;
 import walkingkooka.tree.text.TextStylePropertyName;
+import walkingkooka.validation.ValidationValueTypeName;
 
 import java.net.URLEncoder;
 import java.util.Optional;
@@ -3317,6 +3318,60 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         );
     }
 
+    // cell/valueType...................................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellValueType() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/valueType",
+            HistoryToken.cellValueTypeSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellValueTypeToolbar() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/valueType/toolbar",
+            HistoryToken.cellValueTypeUnselect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellValueTypeSaveEmpty() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/valueType/save/",
+            HistoryToken.cellValueTypeSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                Optional.empty()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellValueTypeSave() {
+        final ValidationValueTypeName valueType = ValidationValueTypeName.with("hello-value-type");
+
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/valueType/save/" + urlEncode(valueType.value()),
+            HistoryToken.cellValueTypeSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                Optional.of(valueType)
+            )
+        );
+    }
+    
     // column.............................................................................................................
 
     @Test

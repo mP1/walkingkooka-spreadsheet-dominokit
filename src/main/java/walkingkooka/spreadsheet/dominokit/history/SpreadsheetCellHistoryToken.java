@@ -154,6 +154,9 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             case UNFREEZE_STRING:
                 result = this.unfreeze();
                 break;
+            case VALUE_TYPE_STRING:
+                result = this.valueType();
+                break;
             default:
                 cursor.end();
                 result = this; // ignore
