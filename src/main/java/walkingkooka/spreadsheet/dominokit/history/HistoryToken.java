@@ -1935,21 +1935,20 @@ public abstract class HistoryToken implements HasUrlFragment,
                     );
                 }
 
-                if (this instanceof SpreadsheetCellDateTimeSymbolsSelectHistoryToken) {
-                    closed = cellSelect(
-                        id,
-                        name,
-                        this.cast(SpreadsheetCellDateTimeSymbolsSelectHistoryToken.class)
-                            .anchoredSelection()
-                    );
-                }
-
                 if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
                     final AnchoredSpreadsheetSelection anchoredSelection = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
                         .anchoredSelection();
 
                     if (this instanceof SpreadsheetCellDateTimeSymbolsSaveHistoryToken) {
                         closed = cellDateTimeSymbolsSelect(
+                            id,
+                            name,
+                            anchoredSelection
+                        );
+                    }
+
+                    if (this instanceof SpreadsheetCellDateTimeSymbolsSelectHistoryToken) {
+                        closed = cellSelect(
                             id,
                             name,
                             anchoredSelection
@@ -1981,12 +1980,10 @@ public abstract class HistoryToken implements HasUrlFragment,
                     }
 
                     if (this instanceof SpreadsheetCellFormatterSaveHistoryToken) {
-                        final SpreadsheetCellFormatterHistoryToken formatter = (SpreadsheetCellFormatterHistoryToken) this;
-
                         closed = cellFormatterSelect(
-                            formatter.id(),
-                            formatter.name(),
-                            formatter.anchoredSelection()
+                            id,
+                            name,
+                            anchoredSelection
                         );
                     }
 
