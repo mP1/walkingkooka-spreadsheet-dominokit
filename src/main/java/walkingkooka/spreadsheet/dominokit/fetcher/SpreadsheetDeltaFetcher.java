@@ -41,7 +41,6 @@ import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
@@ -667,16 +666,13 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
-    public void patchCellsFormula(final SpreadsheetId id,
-                                  final SpreadsheetSelection selection,
-                                  final Map<SpreadsheetCellReference, SpreadsheetFormula> cellToFormulas) {
+    public void patchCellsFormulaText(final SpreadsheetId id,
+                                      final SpreadsheetSelection selection,
+                                      final Map<SpreadsheetCellReference, String> cellToFormulaTexts) {
         this.patchDeltaWithViewportAndWindowQueryString(
             id,
             selection,
-            SpreadsheetDelta.cellsFormulaPatch(
-                cellToFormulas,
-                this.context
-            )
+            SpreadsheetDelta.cellsFormulaTextPatch(cellToFormulaTexts)
         );
     }
 
