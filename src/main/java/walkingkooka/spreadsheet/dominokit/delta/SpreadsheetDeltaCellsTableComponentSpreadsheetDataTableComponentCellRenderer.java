@@ -106,7 +106,7 @@ final class SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCell
     private SpreadsheetTextComponent renderCellValue(final SpreadsheetCell cell) {
         return SpreadsheetTextComponent.with(
             cell.formula()
-                .value()
+                .errorOrValue()
                 .map(Object::toString)
         );
     }
