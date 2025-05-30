@@ -779,6 +779,21 @@ public abstract class HistoryToken implements HasUrlFragment,
         );
     }
 
+    /**
+     * {@see SpreadsheetCellSaveValueTypeHistoryToken}
+     */
+    public static SpreadsheetCellSaveValueTypeHistoryToken cellSaveValueType(final SpreadsheetId id,
+                                                                             final SpreadsheetName name,
+                                                                             final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                             final Map<SpreadsheetCellReference, Optional<ValidationValueTypeName>> cellToValueType) {
+        return SpreadsheetCellSaveValueTypeHistoryToken.with(
+            id,
+            name,
+            anchoredSelection,
+            cellToValueType
+        );
+    }
+    
     // cell sort........................................................................................................
 
     /**
@@ -3653,7 +3668,9 @@ public abstract class HistoryToken implements HasUrlFragment,
                                     final int MODE_FORMULA = 8;
                                     final int MODE_PARSER = 16;
                                     final int MODE_STYLE = 32;
-                                    int mode = MODE_DATE_TIME_SYMBOLS | MODE_DECIMAL_NUMBER_SYMBOLS | MODE_FORMATTER | MODE_FORMULA | MODE_PARSER | MODE_STYLE;
+                                    final int MODE_VALUE_TYPE = 64;
+
+                                    int mode = MODE_DATE_TIME_SYMBOLS | MODE_DECIMAL_NUMBER_SYMBOLS | MODE_FORMATTER | MODE_FORMULA | MODE_PARSER | MODE_STYLE | MODE_VALUE_TYPE;
 
                                     for (final Object mapValue : map.values()) {
                                         // ignore nulls
@@ -3673,7 +3690,11 @@ public abstract class HistoryToken implements HasUrlFragment,
                                                             if (mapValueOptionalValue instanceof SpreadsheetParserSelector) {
                                                                 mode = MODE_PARSER & mode;
                                                             } else {
-                                                                mode = 0;
+                                                                if (mapValueOptionalValue instanceof ValidationValueTypeName) {
+                                                                    mode = MODE_VALUE_TYPE & mode;
+                                                                } else {
+                                                                    mode = 0;
+                                                                }
                                                             }
                                                         }
                                                     }
@@ -3739,6 +3760,14 @@ public abstract class HistoryToken implements HasUrlFragment,
                                             break;
                                         case MODE_STYLE:
                                             historyToken = HistoryToken.cellSaveStyle(
+                                                id,
+                                                name,
+                                                spreadsheetSelection,
+                                                Cast.to(valueOrNull)
+                                            );
+                                            break;
+                                        case MODE_VALUE_TYPE:
+                                            historyToken = HistoryToken.cellSaveValueType(
                                                 id,
                                                 name,
                                                 spreadsheetSelection,
