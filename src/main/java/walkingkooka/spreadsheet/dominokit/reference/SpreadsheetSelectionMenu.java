@@ -22,6 +22,7 @@ import org.dominokit.domino.ui.utils.DominoElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.SpreadsheetValues;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetHotKeys;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
@@ -53,6 +54,7 @@ import walkingkooka.tree.text.TextStyleProperty;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.tree.text.TextTransform;
 import walkingkooka.tree.text.VerticalAlign;
+import walkingkooka.validation.ValidationValueTypeName;
 
 import java.util.List;
 import java.util.Map;
@@ -88,6 +90,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         // FORMATTER
         // DATE TIME SYMBOLS
         // DECIMAL NUMBER SYMBOLS
+        // VALUE TYPE
         // HIDE ZERO VALUES
         // -----
         // CLEAR
@@ -100,6 +103,8 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         // -------
         // FREEZE
         // UNFREEZE
+        // -----
+        // VALUE TYPES
         // -------
         // LABELS
 
@@ -132,6 +137,12 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             );
 
             decimalNumberSymbols(
+                historyToken,
+                menu,
+                context
+            );
+
+            valueTypes(
                 historyToken,
                 menu,
                 context
@@ -374,6 +385,42 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                     )
                 ).checked(hidden)
         );
+    }
+
+    // valueTypes.......................................................................................................
+
+    private static void valueTypes(final HistoryToken historyToken,
+                                   final SpreadsheetContextMenu menu,
+                                   final SpreadsheetSelectionMenuContext context) {
+        final SpreadsheetContextMenu subMenu = menu.subMenu(
+            context.idPrefix() + "valueType" + SpreadsheetElementIds.SUB_MENU,
+            "Value type"
+        );
+
+        final String idPrefix = context.idPrefix() + "valueTypes-";
+
+        for (final ValidationValueTypeName type : SpreadsheetValues.ALL) {
+            final String typeMenuId = idPrefix + type.value();
+
+            subMenu.item(
+                SpreadsheetContextMenuItem.with(
+                    typeMenuId + SpreadsheetElementIds.MENU_ITEM,
+                    CaseKind.CAMEL.change(
+                        type.text(),
+                        CaseKind.TITLE
+                    )
+                ).historyToken(
+                    Optional.of(
+                        historyToken.valueType()
+                            .setSaveValue(
+                                Optional.of(type)
+                            )
+                    )
+                )
+            );
+        }
+
+        subMenu.disableIfEmpty();
     }
 
     // ALIGNMENT
@@ -1154,6 +1201,8 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             )
         );
     }
+
+    // labels...........................................................................................................
 
     private static void label(final HistoryToken historyToken,
                               final SpreadsheetSelection selection,
