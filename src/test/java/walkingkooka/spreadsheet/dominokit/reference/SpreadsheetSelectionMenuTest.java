@@ -241,7 +241,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
-                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/spreadsheet/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
+                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/spreadsheet/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
                 "  -----\n" +
@@ -469,7 +469,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Date Format Pattern recent-1A\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date-format-pattern%20recent-1A] id=test-formatter-recent-0-MenuItem\n" +
                 "    \"Date Format Pattern recent-2B\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date-format-pattern%20recent-2B] id=test-formatter-recent-1-MenuItem\n" +
                 "    \"Date Format Pattern recent-3C\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date-format-pattern%20recent-3C] id=test-formatter-recent-2-MenuItem\n" +
-                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/spreadsheet/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
+                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/spreadsheet/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
                 "  -----\n" +
@@ -692,7 +692,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
-                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/spreadsheet/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
+                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/spreadsheet/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
                 "  -----\n" +
@@ -930,7 +930,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Clear Vertical Align\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/] id=test-recent-style-0-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
-                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/spreadsheet/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
+                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/spreadsheet/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
                 "  -----\n" +
@@ -1181,7 +1181,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                 "    -----\n" +
                 "    \"Date Format Pattern recent-1A\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date-format-pattern%20recent-1A] id=test-formatter-recent-0-MenuItem\n" +
-                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/spreadsheet/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
+                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/spreadsheet/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
                 "  -----\n" +
@@ -1396,7 +1396,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/formatter] id=test-formatter-edit-MenuItem\n" +
-                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/spreadsheet/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
+                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/spreadsheet/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
                 "  -----\n" +
@@ -1707,7 +1707,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/Label123/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/formatter] id=test-formatter-edit-MenuItem\n" +
-                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/spreadsheet/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
+                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/Label123/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/spreadsheet/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
                 "  -----\n" +
@@ -1923,7 +1923,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/formatter] id=test-formatter-edit-MenuItem\n" +
-                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/spreadsheet/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
+                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/spreadsheet/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
                 "  -----\n" +

@@ -325,9 +325,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                 )
                 .historyToken(
                     Optional.of(
-                        historyToken.setMetadataPropertyName(
-                            SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS
-                        )
+                        historyToken.dateTimeSymbols()
                     )
                 )
         );
