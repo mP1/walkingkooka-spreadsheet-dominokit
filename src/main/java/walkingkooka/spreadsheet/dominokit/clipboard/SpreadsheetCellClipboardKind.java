@@ -179,12 +179,12 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
         public void saveOrUpdateCells(final SpreadsheetDeltaFetcher fetcher,
                                       final SpreadsheetId id,
                                       final SpreadsheetCellRange range) {
-            fetcher.patchCellsFormula(
+            fetcher.patchCellsFormulaText(
                 id,
                 range.range(),
                 toMap(
                     range,
-                    SpreadsheetCell::formula
+                    (SpreadsheetCell cell) -> cell.formula().text()
                 )
             );
         }

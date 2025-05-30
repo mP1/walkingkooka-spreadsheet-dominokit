@@ -22,7 +22,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.text.cursor.TextCursor;
@@ -102,20 +101,11 @@ public final class SpreadsheetCellSaveFormulaHistoryToken extends SpreadsheetCel
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        final Map<SpreadsheetCellReference, SpreadsheetFormula> cellToFormula = Maps.sorted();
-
-        this.value().forEach(
-            (cell, formulaString) -> cellToFormula.put(
-                cell,
-                SpreadsheetFormula.EMPTY.setText(formulaString)
-            )
-        );
-
         context.spreadsheetDeltaFetcher()
-            .patchCellsFormula(
+            .patchCellsFormulaText(
                 this.id(),
                 this.anchoredSelection().selection(),
-                cellToFormula
+                this.value()
             );
         context.pushHistoryToken(previous);
     }
