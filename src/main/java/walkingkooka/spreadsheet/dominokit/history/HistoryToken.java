@@ -730,13 +730,13 @@ public abstract class HistoryToken implements HasUrlFragment,
 
 
     /**
-     * {@see SpreadsheetCellSaveFormulaHistoryToken}
+     * {@see SpreadsheetCellSaveFormulaTextHistoryToken}
      */
-    public static SpreadsheetCellSaveFormulaHistoryToken cellSaveFormula(final SpreadsheetId id,
-                                                                         final SpreadsheetName name,
-                                                                         final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                         final Map<SpreadsheetCellReference, String> formulas) {
-        return SpreadsheetCellSaveFormulaHistoryToken.with(
+    public static SpreadsheetCellSaveFormulaTextHistoryToken cellSaveFormulaText(final SpreadsheetId id,
+                                                                                 final SpreadsheetName name,
+                                                                                 final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                                 final Map<SpreadsheetCellReference, String> formulas) {
+        return SpreadsheetCellSaveFormulaTextHistoryToken.with(
             id,
             name,
             anchoredSelection,
@@ -3662,7 +3662,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                                             );
                                             break;
                                         case MODE_FORMULA:
-                                            historyToken = HistoryToken.cellSaveFormula(
+                                            historyToken = HistoryToken.cellSaveFormulaText(
                                                 id,
                                                 name,
                                                 spreadsheetSelection,

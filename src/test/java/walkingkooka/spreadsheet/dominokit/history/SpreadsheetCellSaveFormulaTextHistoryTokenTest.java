@@ -30,13 +30,13 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetCellSaveFormulaHistoryTokenTest extends SpreadsheetCellSaveMapHistoryTokenTestCase<SpreadsheetCellSaveFormulaHistoryToken> {
+public final class SpreadsheetCellSaveFormulaTextHistoryTokenTest extends SpreadsheetCellSaveMapHistoryTokenTestCase<SpreadsheetCellSaveFormulaTextHistoryToken> {
 
     @Test
     public void testWithSaveFormulasOutsideRangeFails() {
         final IllegalArgumentException thrown = assertThrows(
             IllegalArgumentException.class,
-            () -> SpreadsheetCellSaveFormulaHistoryToken.with(
+            () -> SpreadsheetCellSaveFormulaTextHistoryToken.with(
                 ID,
                 NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
@@ -58,7 +58,7 @@ public final class SpreadsheetCellSaveFormulaHistoryTokenTest extends Spreadshee
     public void testWithSaveFormulasOutsideRangeFails2() {
         final IllegalArgumentException thrown = assertThrows(
             IllegalArgumentException.class,
-            () -> SpreadsheetCellSaveFormulaHistoryToken.with(
+            () -> SpreadsheetCellSaveFormulaTextHistoryToken.with(
                 ID,
                 NAME,
                 SpreadsheetSelection.parseCellRange("A2:A3").setDefaultAnchor(),
@@ -98,7 +98,7 @@ public final class SpreadsheetCellSaveFormulaHistoryTokenTest extends Spreadshee
     public void testParseOneCell() {
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/save/formula/{\"A1\":\"=1\"}",
-            SpreadsheetCellSaveFormulaHistoryToken.with(
+            SpreadsheetCellSaveFormulaTextHistoryToken.with(
                 ID,
                 NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
@@ -114,7 +114,7 @@ public final class SpreadsheetCellSaveFormulaHistoryTokenTest extends Spreadshee
     public void testParseSeveralCells() {
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1:A2/save/formula/{\"A1\":\"=1\",\"A2\":\"=2\"}",
-            SpreadsheetCellSaveFormulaHistoryToken.with(
+            SpreadsheetCellSaveFormulaTextHistoryToken.with(
                 ID,
                 NAME,
                 SpreadsheetSelection.parseCellRange("A1:A2")
@@ -136,7 +136,7 @@ public final class SpreadsheetCellSaveFormulaHistoryTokenTest extends Spreadshee
             "'ABC"
         );
         this.urlFragmentAndCheck(
-            SpreadsheetCellSaveFormulaHistoryToken.with(
+            SpreadsheetCellSaveFormulaTextHistoryToken.with(
                 ID,
                 NAME,
                 SELECTION,
@@ -154,7 +154,7 @@ public final class SpreadsheetCellSaveFormulaHistoryTokenTest extends Spreadshee
         );
 
         this.urlFragmentAndCheck(
-            SpreadsheetCellSaveFormulaHistoryToken.with(
+            SpreadsheetCellSaveFormulaTextHistoryToken.with(
                 ID,
                 NAME,
                 SELECTION,
@@ -176,7 +176,7 @@ public final class SpreadsheetCellSaveFormulaHistoryTokenTest extends Spreadshee
         );
 
         this.urlFragmentAndCheck(
-            SpreadsheetCellSaveFormulaHistoryToken.with(
+            SpreadsheetCellSaveFormulaTextHistoryToken.with(
                 ID,
                 NAME,
                 SpreadsheetSelection.parseCellRange("A1:A3")
@@ -199,7 +199,7 @@ public final class SpreadsheetCellSaveFormulaHistoryTokenTest extends Spreadshee
         this.setSaveValueAndCheck(
             this.createHistoryToken(),
             Optional.of(value),
-            HistoryToken.cellSaveFormula(
+            HistoryToken.cellSaveFormulaText(
                 ID,
                 NAME,
                 SELECTION,
@@ -209,10 +209,10 @@ public final class SpreadsheetCellSaveFormulaHistoryTokenTest extends Spreadshee
     }
 
     @Override
-    SpreadsheetCellSaveFormulaHistoryToken createHistoryToken(final SpreadsheetId id,
-                                                              final SpreadsheetName name,
-                                                              final AnchoredSpreadsheetSelection anchoredSelection) {
-        return SpreadsheetCellSaveFormulaHistoryToken.with(
+    SpreadsheetCellSaveFormulaTextHistoryToken createHistoryToken(final SpreadsheetId id,
+                                                                  final SpreadsheetName name,
+                                                                  final AnchoredSpreadsheetSelection anchoredSelection) {
+        return SpreadsheetCellSaveFormulaTextHistoryToken.with(
             id,
             name,
             anchoredSelection,
@@ -224,7 +224,7 @@ public final class SpreadsheetCellSaveFormulaHistoryTokenTest extends Spreadshee
     }
 
     @Override
-    public Class<SpreadsheetCellSaveFormulaHistoryToken> type() {
-        return SpreadsheetCellSaveFormulaHistoryToken.class;
+    public Class<SpreadsheetCellSaveFormulaTextHistoryToken> type() {
+        return SpreadsheetCellSaveFormulaTextHistoryToken.class;
     }
 }
