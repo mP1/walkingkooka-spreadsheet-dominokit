@@ -38,7 +38,7 @@ public abstract class SpreadsheetCellValueTypeHistoryToken extends SpreadsheetCe
 
     final Optional<ValidationValueTypeName> valueType;
 
-    @Override // /cell/A1/formatter
+    @Override // /cell/A1/valueType
     final UrlFragment cellUrlFragment() {
         return VALUE_TYPE.appendSlashThen(
             this.valueTypeUrlFragment()
