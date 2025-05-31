@@ -370,6 +370,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.format_underline();
     }
 
+    public static MdiIcon validator() {
+        return Icons.sign_yield();
+    }
+
     public static MdiIcon verticalAlignTop() {
         return Icons.format_align_top();
     }
