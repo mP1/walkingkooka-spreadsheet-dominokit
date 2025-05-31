@@ -357,17 +357,23 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                              final SpreadsheetSelectionMenuContext context) {
         menu.item(
             SpreadsheetContextMenuItem.with(
-                    context.idPrefix() + "decimalNumberSymbols" + SpreadsheetElementIds.MENU_ITEM,
-                    "DecimalNumberSymbols"
-                ).icon(
-                    Optional.of(
-                        SpreadsheetIcons.decimalNumberSymbols()
-                    )
-                ).historyToken(
-                    Optional.of(
-                        historyToken.decimalNumberSymbols()
-                    )
+                context.idPrefix() +
+                    "decimalNumberSymbols" +
+                    SpreadsheetElementIds.MENU_ITEM,
+                "DecimalNumberSymbols"
+            ).icon(
+                Optional.of(
+                    SpreadsheetIcons.decimalNumberSymbols()
                 )
+            ).historyToken(
+                Optional.of(
+                    historyToken.decimalNumberSymbols()
+                )
+            ).checked(
+                context.selectionSummary()
+                    .flatMap(SpreadsheetCell::decimalNumberSymbols)
+                    .isPresent()
+            )
         );
     }
 
