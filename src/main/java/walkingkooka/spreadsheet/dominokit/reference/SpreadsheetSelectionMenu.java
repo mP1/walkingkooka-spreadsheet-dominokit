@@ -22,6 +22,7 @@ import org.dominokit.domino.ui.utils.DominoElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetValues;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetHotKeys;
@@ -399,6 +400,9 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
 
         final String idPrefix = context.idPrefix() + "valueTypes-";
 
+        final SpreadsheetCell summary = context.selectionSummary()
+            .orElse(null);
+
         for (final ValidationValueTypeName type : SpreadsheetValues.ALL) {
             final String typeMenuId = idPrefix + type.value();
 
@@ -415,6 +419,14 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                             .setSaveValue(
                                 Optional.of(type)
                             )
+                    )
+                ).checked(
+                    type.equals(
+                        null == summary ?
+                            null :
+                            summary.formula()
+                                .valueType()
+                                .orElse(null)
                     )
                 )
             );
