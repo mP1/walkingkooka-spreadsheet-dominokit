@@ -100,6 +100,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
         context.addSpreadsheetMetadataFetcherWatcher(this);
 
         this.spreadsheetId = null;
+        this.selectionSummary = SpreadsheetSelectionSummary.EMPTY;
     }
 
     /**
@@ -491,11 +492,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
         return this.selectionSummary;
     }
 
-    private SpreadsheetSelectionSummary selectionSummary = SpreadsheetSelectionSummary.with(
-        Optional.empty(),
-        Optional.empty(),
-        TextStyle.EMPTY
-    );
+    private SpreadsheetSelectionSummary selectionSummary;
 
     /**
      * The {@link SpreadsheetSelection} for the given currently cached {@link #selectionSummary}.
