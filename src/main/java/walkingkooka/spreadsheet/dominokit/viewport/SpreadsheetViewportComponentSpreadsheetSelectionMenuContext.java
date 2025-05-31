@@ -38,6 +38,9 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
 import walkingkooka.tree.text.TextStyleProperty;
+import walkingkooka.validation.provider.ValidatorAlias;
+import walkingkooka.validation.provider.ValidatorAliasSet;
+import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.List;
 import java.util.Optional;
@@ -55,12 +58,14 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
                                                                             final List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorsMenus,
                                                                             final List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors,
                                                                             final List<TextStyleProperty<?>> recentTextStyleProperties,
+                                                                            final List<ValidatorSelector> recentValidatorSelectors,
                                                                             final SpreadsheetViewportComponentContext context) {
         return new SpreadsheetViewportComponentSpreadsheetSelectionMenuContext(
             recentSpreadsheetFormatterSelectors,
             spreadsheetFormatterSelectorsMenus,
             recentSpreadsheetParserSelectors,
             recentTextStyleProperties,
+            recentValidatorSelectors,
             context
         );
     }
@@ -69,6 +74,7 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
                                                                         final List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorsMenus,
                                                                         final List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors,
                                                                         final List<TextStyleProperty<?>> recentTextStyleProperties,
+                                                                        final List<ValidatorSelector> recentValidatorSelectors,
                                                                         final SpreadsheetViewportComponentContext context) {
         this.recentSpreadsheetFormatterSelectors = recentSpreadsheetFormatterSelectors;
         this.spreadsheetFormatterSelectorsMenus = spreadsheetFormatterSelectorsMenus;
@@ -76,6 +82,8 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
         this.recentSpreadsheetParserSelectors = recentSpreadsheetParserSelectors;
 
         this.recentTextStyleProperties = recentTextStyleProperties;
+
+        this.recentValidatorSelectors = recentValidatorSelectors;
 
         this.context = context;
     }
@@ -95,6 +103,21 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
                 .filter(sortComparators::contains)
                 .collect(Collectors.toList())
         );
+    }
+
+    @Override
+    public List<ValidatorSelector> validatorSelectors() {
+        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
+
+        final ValidatorAliasSet validators = metadata.get(SpreadsheetMetadataPropertyName.VALIDATOR_VALIDATORS)
+            .orElse(ValidatorAliasSet.EMPTY);
+
+        return metadata.get(SpreadsheetMetadataPropertyName.VALIDATORS)
+                .orElse(ValidatorAliasSet.EMPTY)
+                .stream()
+                .map((final ValidatorAlias v) -> v.selector().orElse(null))
+                .filter((final ValidatorSelector s) -> null != s && validators.containsAliasOrName(s.name()))
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -138,6 +161,13 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     }
 
     private final List<TextStyleProperty<?>> recentTextStyleProperties;
+
+    @Override
+    public List<ValidatorSelector> recentValidatorSelectors() {
+        return this.recentValidatorSelectors;
+    }
+
+    private final List<ValidatorSelector> recentValidatorSelectors;
 
     @Override
     public String idPrefix() {

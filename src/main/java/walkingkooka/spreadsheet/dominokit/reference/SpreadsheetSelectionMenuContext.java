@@ -32,6 +32,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
 import walkingkooka.tree.text.TextStyleProperty;
 import walkingkooka.tree.text.TextStylePropertyName;
+import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.List;
 import java.util.Objects;
@@ -80,6 +81,16 @@ public interface SpreadsheetSelectionMenuContext extends Context,
      * Returns recent {@link TextStyleProperty}
      */
     List<TextStyleProperty<?>> recentTextStyleProperties();
+
+    /**
+     * Returns all available {@link ValidatorSelector}
+     */
+    List<ValidatorSelector> validatorSelectors();
+
+    /**
+     * Returns recent {@link ValidatorSelector}.
+     */
+    List<ValidatorSelector> recentValidatorSelectors();
 
     /**
      * Returns the id prefix which should be assigned to items in the menu.
