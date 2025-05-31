@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.reference;
 
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuItem;
@@ -72,7 +73,7 @@ final class SpreadsheetSelectionMenuFormatter {
             historyToken,
             menu,
             idPrefix,
-            context.spreadsheetFormatterSelectorsMenus()
+            context
         );
 
         menu.separator();
@@ -89,15 +90,16 @@ final class SpreadsheetSelectionMenuFormatter {
             historyToken,
             menu,
             idPrefix,
-            context.recentSpreadsheetFormatterSelectors()
+            context
         );
     }
 
     private static void buildSpreadsheetFormatterSelectorsMenus(final HistoryToken historyToken,
                                                                 final SpreadsheetContextMenu menu,
                                                                 final String idPrefix,
-                                                                final List<SpreadsheetFormatterSelectorMenu> menus) {
-        final Map<SpreadsheetFormatterName, List<SpreadsheetFormatterSelectorMenu>> nameToMenus = menus.stream()
+                                                                final SpreadsheetSelectionMenuContext context) {
+        final Map<SpreadsheetFormatterName, List<SpreadsheetFormatterSelectorMenu>> nameToMenus = context.spreadsheetFormatterSelectorsMenus()
+            .stream()
             .collect(
                 Collectors.toMap(
                     (SpreadsheetFormatterSelectorMenu m) -> m.selector().name(),
@@ -113,6 +115,10 @@ final class SpreadsheetSelectionMenuFormatter {
                 )
             );
 
+        final SpreadsheetFormatterSelector cellFormatter = context.selectionSummary()
+            .flatMap(SpreadsheetCell::formatter)
+            .orElse(null);
+
         // sort SpreadsheetFormatterName
         for (final Entry<SpreadsheetFormatterName, List<SpreadsheetFormatterSelectorMenu>> nameAndMenus : new TreeMap<>(nameToMenus).entrySet()) {
             final SpreadsheetFormatterName name = nameAndMenus.getKey();
@@ -126,6 +132,8 @@ final class SpreadsheetSelectionMenuFormatter {
             );
 
             for (final SpreadsheetFormatterSelectorMenu spreadsheetFormatterSelectorMenu : nameAndMenus.getValue()) {
+                final SpreadsheetFormatterSelector selector = spreadsheetFormatterSelectorMenu.selector();
+
                 nameMenu.item(
                     SpreadsheetContextMenuItem.with(
                         nameMenuId + SpreadsheetElementIds.MENU_ITEM,
@@ -133,10 +141,11 @@ final class SpreadsheetSelectionMenuFormatter {
                     ).historyToken(
                         Optional.of(
                             historyToken.setSaveValue(
-                                spreadsheetFormatterSelectorMenu.selector()
-                                    .toString()
+                                selector.toString()
                             )
                         )
+                    ).checked(
+                        selector.equals(cellFormatter)
                     )
                 );
             }
@@ -161,11 +170,15 @@ final class SpreadsheetSelectionMenuFormatter {
     private static void buildRecents(final HistoryToken historyToken,
                                      final SpreadsheetContextMenu menu,
                                      final String idPrefix,
-                                     final List<SpreadsheetFormatterSelector> selectors) {
+                                     final SpreadsheetSelectionMenuContext context) {
 
         int i = 0;
 
-        for (final SpreadsheetFormatterSelector selector : selectors) {
+        final SpreadsheetFormatterSelector cellFormatter = context.selectionSummary()
+            .flatMap(SpreadsheetCell::formatter)
+            .orElse(null);
+
+        for (final SpreadsheetFormatterSelector selector : context.recentSpreadsheetFormatterSelectors()) {
             final String label = CaseKind.kebabToTitle(
                 selector.name()
                     .value()
@@ -185,6 +198,8 @@ final class SpreadsheetSelectionMenuFormatter {
                             selector.text()
                         )
                     )
+                ).checked(
+                    selector.equals(cellFormatter)
                 )
             );
 
