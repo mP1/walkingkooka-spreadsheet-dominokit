@@ -42,7 +42,6 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -422,9 +421,8 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     private OptionalInt rowCount = OptionalInt.empty();
 
     /**
-     * Returns a {@link SpreadsheetCell} which will be updated as selections change and can be used to tick numerous
-     * menu items. The {@link SpreadsheetCell#reference()} will be incorrect for {@link SpreadsheetCellRange} and
-     * {@link SpreadsheetLabelName}.
+     * Returns a {@link SpreadsheetCell} which merges all properties from matching cells. Note if any properties
+     * are different that will be cleared.
      */
     public Optional<SpreadsheetCell> selectionSummary() {
         if (null == this.selectionSummary) {
@@ -433,63 +431,59 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
             final SpreadsheetSelection selectionNotLabel = this.selectionNotLabel.orElse(null);
 
             if (null != selectionNotLabel) {
-                final Set<SpreadsheetFormatterSelector> formatters = Sets.hash();
-                final Set<SpreadsheetParserSelector> parsers = Sets.hash();
-                final Map<TextStylePropertyName<?>, Set<Object>> styleNameToValues = Maps.sorted();
+                Optional<SpreadsheetFormatterSelector> formatter = null;
+                Optional<SpreadsheetParserSelector> parser = null;
+                Map<TextStylePropertyName<?>, Object> styleNameToValues = null;
 
                 for (final SpreadsheetCell cell : this.cells.values()) {
                     if (selectionNotLabel.test(cell.reference())) {
-                        cell.formatter().ifPresent(formatters::add);
-                        cell.parser().ifPresent(parsers::add);
 
-                        for (final Entry<TextStylePropertyName<?>, Object> styleNameAndValue : cell.style().value().entrySet()) {
-                            final TextStylePropertyName<?> styleName = styleNameAndValue.getKey();
+                        if (null == selectionSummary) {
+                            selectionSummary = cell;
 
-                            Set<Object> values = styleNameToValues.get(styleName);
-                            if (null == values) {
-                                values = Sets.hash();
-                                styleNameToValues.put(
-                                    styleName,
-                                    values
-                                );
+                            formatter = cell.formatter();
+                            parser = cell.parser();
+
+                            styleNameToValues = Maps.sorted();
+                            styleNameToValues.putAll(
+                                cell.style()
+                                    .value()
+                            );
+                        } else {
+                            if (false == selectionSummary.formatter().equals(cell.formatter())) {
+                                formatter = SpreadsheetCell.NO_FORMATTER;
+                            }
+                            if (false == selectionSummary.parser().equals(cell.parser())) {
+                                parser = SpreadsheetCell.NO_PARSER;
                             }
 
-                            values.add(
-                                styleNameAndValue.getValue()
-                            );
+                            // clear any properties that have different values.
+                            final TextStyle style = cell.style();
+
+                            for (final Entry<TextStylePropertyName<?>, Object> styleNameAndValue : styleNameToValues.entrySet()) {
+                                final TextStylePropertyName<?> styleName = styleNameAndValue.getKey();
+                                if (false == Objects.equals(
+                                    styleNameAndValue.getValue(), style.get(styleName).orElse(null)
+                                )) {
+                                    styleNameAndValue.setValue(null);
+                                }
+                            }
                         }
                     }
                 }
 
-                final SpreadsheetFormatterSelector formatter = formatters.size() == 1 ?
-                    formatters.iterator().next() :
-                    null;
-
-                final SpreadsheetParserSelector parser = parsers.size() == 1 ?
-                    parsers.iterator().next() :
-                    null;
-
-                final Map<TextStylePropertyName<?>, Object> styleNameToValue = Maps.sorted();
-                for (final Entry<TextStylePropertyName<?>, Set<Object>> styleNameAndValue : styleNameToValues.entrySet()) {
-                    final Set<Object> values = styleNameAndValue.getValue();
-
-                    if (values.size() == 1) {
-                        styleNameToValue.put(
-                            styleNameAndValue.getKey(),
-                            values.iterator().next()
-                        );
+                if (null != selectionSummary) {
+                    for (Iterator<Entry<TextStylePropertyName<?>, Object>> i = styleNameToValues.entrySet().iterator(); i.hasNext(); ) {
+                        final Entry<TextStylePropertyName<?>, Object> nameAndValue = i.next();
+                        if (null == nameAndValue.getValue()) {
+                            i.remove();
+                        }
                     }
-                }
 
-                if (formatters.size() + parsers.size() + styleNameToValues.size() > 0) {
-                    selectionSummary = selectionNotLabel.toCell()
-                        .setFormula(SpreadsheetFormula.EMPTY)
-                        .setFormatter(
-                            Optional.ofNullable(formatter)
-                        ).setParser(
-                            Optional.ofNullable(parser)
-                        ).setStyle(
-                            TextStyle.EMPTY.setValues(styleNameToValue)
+                    selectionSummary = selectionSummary.setFormatter(formatter)
+                        .setParser(parser)
+                        .setStyle(
+                            TextStyle.EMPTY.setValues(styleNameToValues)
                         );
                 }
             }
