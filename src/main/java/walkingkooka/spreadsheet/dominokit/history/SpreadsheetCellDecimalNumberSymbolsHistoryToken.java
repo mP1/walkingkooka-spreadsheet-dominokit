@@ -38,7 +38,7 @@ public abstract class SpreadsheetCellDecimalNumberSymbolsHistoryToken extends Sp
 
     final Optional<DecimalNumberSymbols> decimalNumberSymbols;
 
-    @Override // /cell/A1/formatter
+    @Override // /cell/A1/dateTimeSymbols
     final UrlFragment cellUrlFragment() {
         return DECIMAL_NUMBER_SYMBOLS.appendSlashThen(
             this.decimalNumberSymbolsUrlFragment()
