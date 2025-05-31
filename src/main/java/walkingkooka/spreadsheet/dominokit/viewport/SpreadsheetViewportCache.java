@@ -42,6 +42,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -58,6 +59,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
+import walkingkooka.validation.ValidationValueTypeName;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -434,6 +436,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                 Optional<SpreadsheetFormatterSelector> formatter = null;
                 Optional<SpreadsheetParserSelector> parser = null;
                 Map<TextStylePropertyName<?>, Object> styleNameToValues = null;
+                Optional<ValidationValueTypeName> valueType = null;
 
                 for (final SpreadsheetCell cell : this.cells.values()) {
                     if (selectionNotLabel.test(cell.reference())) {
@@ -443,6 +446,8 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
                             formatter = cell.formatter();
                             parser = cell.parser();
+                            valueType = cell.formula()
+                                .valueType();
 
                             styleNameToValues = Maps.sorted();
                             styleNameToValues.putAll(
@@ -455,6 +460,9 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                             }
                             if (false == parser.equals(cell.parser())) {
                                 parser = SpreadsheetCell.NO_PARSER;
+                            }
+                            if (false == valueType.equals(cell.formula().valueType())) {
+                                valueType = SpreadsheetFormula.NO_VALUE_TYPE;
                             }
 
                             // clear any properties that have different values.
@@ -484,6 +492,9 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                         .setParser(parser)
                         .setStyle(
                             TextStyle.EMPTY.setValues(styleNameToValues)
+                        ).setFormula(
+                            selectionSummary.formula()
+                                .setValueType(valueType)
                         );
                 }
             }
