@@ -65,6 +65,7 @@ import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Map;
 import java.util.Map.Entry;
@@ -3899,6 +3900,10 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                     ).setStyle(
                         TextStyle.EMPTY.set(colorName, color1)
                             .set(textAlign, align2)
+                    ).setValidator(
+                        Optional.of(
+                            ValidatorSelector.parse("ignored-validator")
+                        )
                     )
                 )
             ),
@@ -3941,6 +3946,8 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final TextStylePropertyName<TextAlign> textAlign = TextStylePropertyName.TEXT_ALIGN;
         final TextAlign align1 = TextAlign.LEFT;
 
+        final ValidatorSelector validator = ValidatorSelector.parse("hello-validator");
+
         final ValidationValueTypeName valueType = ValidationValueTypeName.with("hello-value-type");
 
         final SpreadsheetCellReference a2 = SpreadsheetSelection.parseCell("A2");
@@ -3958,6 +3965,8 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                         Optional.of(formatter1)
                     ).setStyle(
                         TextStyle.EMPTY.set(colorName, color1)
+                    ).setValidator(
+                        Optional.of(validator)
                     ),
                     a2.setFormula(
                         SpreadsheetFormula.EMPTY.setValueType(
@@ -3968,6 +3977,8 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                     ).setStyle(
                         TextStyle.EMPTY.set(colorName, color1)
                             .set(textAlign, align1)
+                    ).setValidator(
+                        Optional.of(validator)
                     )
                 )
             ),
@@ -3990,6 +4001,8 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                     ).setStyle(
                         TextStyle.EMPTY.set(colorName, color1)
                             .set(textAlign, align2)
+                    ).setValidator(
+                        Optional.of(validator)
                     )
                 )
             ),
@@ -4002,9 +4015,10 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                     SpreadsheetFormula.EMPTY.setValueType(
                         Optional.of(valueType)
                     )
-                )
-                .setStyle(
+                ).setStyle(
                     TextStyle.EMPTY.set(colorName, color1)
+                ).setValidator(
+                    Optional.of(validator)
                 )
         );
     }
