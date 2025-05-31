@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.toolbar;
 
 import elemental2.dom.Event;
 import org.dominokit.domino.ui.icons.Icon;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.text.CharSequences;
@@ -98,9 +99,10 @@ final class SpreadsheetToolbarComponentItemAnchorTextStyleProperty<T> extends Sp
 
         final T saveValue = this.context.spreadsheetViewportCache()
             .selectionSummary()
-            .style()
-            .get(this.propertyName)
-            .orElse(null);
+            .flatMap(
+                (SpreadsheetCell c) -> c.style()
+                    .get(propertyName)
+            ).orElse(null);
 
         final boolean selected = propertyValue.equals(saveValue);
 

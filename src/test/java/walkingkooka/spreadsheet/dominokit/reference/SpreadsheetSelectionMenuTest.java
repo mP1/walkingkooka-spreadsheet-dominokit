@@ -24,6 +24,7 @@ import walkingkooka.collect.set.Sets;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
@@ -36,7 +37,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowHistoryToken;
-import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetSelectionSummary;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetNumberParsePattern;
@@ -2688,8 +2688,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             }
 
             @Override
-            public SpreadsheetSelectionSummary selectionSummary() {
-                return SpreadsheetSelectionSummary.EMPTY;
+            public Optional<SpreadsheetCell> selectionSummary() {
+                return NO_SELECTION_SUMMARY;
             }
 
             @Override

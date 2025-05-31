@@ -18,10 +18,10 @@
 package walkingkooka.spreadsheet.dominokit.reference;
 
 import walkingkooka.Context;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetSelectionSummary;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
@@ -35,6 +35,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 /**
@@ -85,10 +86,12 @@ public interface SpreadsheetSelectionMenuContext extends Context,
      */
     String idPrefix();
 
+    Optional<SpreadsheetCell> NO_SELECTION_SUMMARY = Optional.empty();
+
     /**
-     * Returns the active {@link SpreadsheetSelectionSummary}
+     * Returns the active {@link SpreadsheetCell}
      */
-    SpreadsheetSelectionSummary selectionSummary();
+    Optional<SpreadsheetCell> selectionSummary();
 
     /**
      * Used to test if a style is present with the given value. This will typically be used to include a check mark
@@ -99,11 +102,13 @@ public interface SpreadsheetSelectionMenuContext extends Context,
         Objects.requireNonNull(stylePropertyName, "stylePropertyName");
         Objects.requireNonNull(value, "value");
 
-        return value.equals(
-            this.selectionSummary()
-                .style()
-                .get(stylePropertyName)
-                .orElse(null)
-        );
+        final SpreadsheetCell cell = this.selectionSummary()
+            .orElse(null);
+        return null != cell &&
+            value.equals(
+                cell.style()
+                    .get(stylePropertyName)
+                    .orElse(null)
+            );
     }
 }
