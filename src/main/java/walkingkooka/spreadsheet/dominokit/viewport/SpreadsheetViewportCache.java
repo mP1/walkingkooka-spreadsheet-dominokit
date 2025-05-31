@@ -450,10 +450,10 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                                     .value()
                             );
                         } else {
-                            if (false == selectionSummary.formatter().equals(cell.formatter())) {
+                            if (false == formatter.equals(cell.formatter())) {
                                 formatter = SpreadsheetCell.NO_FORMATTER;
                             }
-                            if (false == selectionSummary.parser().equals(cell.parser())) {
+                            if (false == parser.equals(cell.parser())) {
                                 parser = SpreadsheetCell.NO_PARSER;
                             }
 
