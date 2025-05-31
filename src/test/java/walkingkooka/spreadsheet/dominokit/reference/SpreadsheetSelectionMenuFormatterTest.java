@@ -22,6 +22,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.contextmenu.FakeSpreadsheetSelectionMenuContext;
@@ -31,6 +32,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -62,7 +64,8 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
                 SpreadsheetFormatterSelector.parse("date-format-pattern recent-1A"),
                 SpreadsheetFormatterSelector.parse("date-format-pattern recent-2B")
             ),
-            Lists.empty()
+            Lists.empty(),
+            Optional.empty() // selectionSummary
         );
 
         final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
@@ -87,6 +90,60 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
                 "  \"Edit...\" [/1/Spreadsheet123/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  -----\n" +
                 "  \"Date Format Pattern recent-1A\" [/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20recent-1A] id=test-formatter-recent-0-MenuItem\n" +
+                "  \"Date Format Pattern recent-2B\" [/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20recent-2B] id=test-formatter-recent-1-MenuItem\n"
+        );
+    }
+
+    @Test
+    public void testBuildRecentsChecked() {
+        final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
+            SpreadsheetId.with(1),
+            SpreadsheetName.with("Spreadsheet123"),
+            AnchoredSpreadsheetSelection.with(
+                SpreadsheetSelection.A1,
+                SpreadsheetViewportAnchor.NONE
+            )
+        );
+
+        final SpreadsheetFormatterSelector matchedSelector = SpreadsheetFormatterSelector.parse("date-format-pattern recent-1A");
+
+        final SpreadsheetSelectionMenuContext context = this.context(
+            historyToken,
+            Lists.of(
+                matchedSelector,
+                SpreadsheetFormatterSelector.parse("date-format-pattern recent-2B")
+            ), // recent
+            Lists.empty(), // menu
+            Optional.of(
+                SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
+                    .setFormatter(
+                        Optional.of(matchedSelector)
+                    )
+            ) // selectionSummary
+        );
+
+        final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
+            Menu.create(
+                "Cell-MenuId",
+                "Cell A1 Menu",
+                Optional.empty(), // no icon
+                Optional.empty() // no badge
+            ),
+            context
+        );
+
+        SpreadsheetSelectionMenuFormatter.build(
+            historyToken,
+            menu,
+            context
+        );
+
+        this.treePrintAndCheck(
+            menu,
+            "\"Cell A1 Menu\" id=Cell-MenuId\n" +
+                "  \"Edit...\" [/1/Spreadsheet123/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
+                "  -----\n" +
+                "  \"Date Format Pattern recent-1A\" [/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20recent-1A] CHECKED id=test-formatter-recent-0-MenuItem\n" +
                 "  \"Date Format Pattern recent-2B\" [/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20recent-2B] id=test-formatter-recent-1-MenuItem\n"
         );
     }
@@ -120,7 +177,8 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
                     "Default text",
                     SpreadsheetFormatterSelector.DEFAULT_TEXT_FORMAT
                 )
-            )
+            ),
+            Optional.empty() // selectionSummary
         );
 
         final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
@@ -144,6 +202,75 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Date Format Pattern\" id=test-formatter-date-format-pattern-SubMenu\n" +
                 "    \"Short\" [/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20yy/mm/dd] id=test-formatter-date-format-pattern-MenuItem\n" +
+                "    \"Medium\" [/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20yyyy/mm/ddd] id=test-formatter-date-format-pattern-MenuItem\n" +
+                "  \"Text Format Pattern\" id=test-formatter-text-format-pattern-SubMenu\n" +
+                "    \"Default text\" [/1/Spreadsheet123/cell/A1/formatter/save/text-format-pattern%20@] id=test-formatter-text-format-pattern-MenuItem\n" +
+                "  -----\n" +
+                "  \"Edit...\" [/1/Spreadsheet123/cell/A1/formatter] id=test-formatter-edit-MenuItem\n"
+        );
+    }
+
+    @Test
+    public void testBuildMenusChecked() {
+        final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
+            SpreadsheetId.with(1),
+            SpreadsheetName.with("Spreadsheet123"),
+            AnchoredSpreadsheetSelection.with(
+                SpreadsheetSelection.A1,
+                SpreadsheetViewportAnchor.NONE
+            )
+        );
+
+        final SpreadsheetFormatterSelector selected = SpreadsheetPattern.parseDateFormatPattern("yy/mm/dd")
+            .spreadsheetFormatterSelector();
+
+        final SpreadsheetSelectionMenuContext context = this.context(
+            historyToken,
+            Lists.empty(),
+            Lists.of(
+                SpreadsheetFormatterSelectorMenu.with(
+                    "Short",
+                    selected
+                ),
+                SpreadsheetFormatterSelectorMenu.with(
+                    "Medium",
+                    SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/ddd")
+                        .spreadsheetFormatterSelector()
+                ),
+                SpreadsheetFormatterSelectorMenu.with(
+                    "Default text",
+                    SpreadsheetFormatterSelector.DEFAULT_TEXT_FORMAT
+                )
+            ),
+            Optional.of(
+                SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
+                    .setFormatter(
+                        Optional.of(selected)
+                    )
+            ) // selectionSummary
+        );
+
+        final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
+            Menu.create(
+                "Cell-MenuId",
+                "Cell A1 Menu",
+                Optional.empty(), // no icon
+                Optional.empty() // no badge
+            ),
+            context
+        );
+
+        SpreadsheetSelectionMenuFormatter.build(
+            historyToken,
+            menu,
+            context
+        );
+
+        this.treePrintAndCheck(
+            menu,
+            "\"Cell A1 Menu\" id=Cell-MenuId\n" +
+                "  \"Date Format Pattern\" id=test-formatter-date-format-pattern-SubMenu\n" +
+                "    \"Short\" [/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20yy/mm/dd] CHECKED id=test-formatter-date-format-pattern-MenuItem\n" +
                 "    \"Medium\" [/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20yyyy/mm/ddd] id=test-formatter-date-format-pattern-MenuItem\n" +
                 "  \"Text Format Pattern\" id=test-formatter-text-format-pattern-SubMenu\n" +
                 "    \"Default text\" [/1/Spreadsheet123/cell/A1/formatter/save/text-format-pattern%20@] id=test-formatter-text-format-pattern-MenuItem\n" +
@@ -199,7 +326,8 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
                     SpreadsheetPattern.parseDateTimeFormatPattern("yyyy/mmm/dddd")
                         .spreadsheetFormatterSelector()
                 )
-            )
+            ),
+            Optional.empty() // selectionSummary
         );
 
         final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
@@ -240,7 +368,8 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
 
     private SpreadsheetSelectionMenuContext context(final HistoryToken historyToken,
                                                     final List<SpreadsheetFormatterSelector> recentFormatters,
-                                                    final List<SpreadsheetFormatterSelectorMenu> menus) {
+                                                    final List<SpreadsheetFormatterSelectorMenu> menus,
+                                                    final Optional<SpreadsheetCell> selectionSummary) {
         return new FakeSpreadsheetSelectionMenuContext() {
 
             @Override
@@ -261,6 +390,11 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
             @Override
             public List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorsMenus() {
                 return menus;
+            }
+
+            @Override
+            public Optional<SpreadsheetCell> selectionSummary() {
+                return selectionSummary;
             }
         };
     }
