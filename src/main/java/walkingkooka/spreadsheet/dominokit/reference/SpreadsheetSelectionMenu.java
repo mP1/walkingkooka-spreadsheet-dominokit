@@ -334,18 +334,21 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                         final SpreadsheetSelectionMenuContext context) {
         menu.item(
             SpreadsheetContextMenuItem.with(
-                    context.idPrefix() + "dateTimeSymbols" + SpreadsheetElementIds.MENU_ITEM,
-                    "DateTimeSymbols"
-                ).icon(
-                    Optional.of(
-                        SpreadsheetIcons.dateTimeSymbols()
-                    )
+                context.idPrefix() + "dateTimeSymbols" + SpreadsheetElementIds.MENU_ITEM,
+                "DateTimeSymbols"
+            ).icon(
+                Optional.of(
+                    SpreadsheetIcons.dateTimeSymbols()
                 )
-                .historyToken(
-                    Optional.of(
-                        historyToken.dateTimeSymbols()
-                    )
+            ).historyToken(
+                Optional.of(
+                    historyToken.dateTimeSymbols()
                 )
+            ).checked(
+                context.selectionSummary()
+                    .flatMap(SpreadsheetCell::dateTimeSymbols)
+                    .isPresent()
+            )
         );
     }
 
