@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
 import walkingkooka.tree.text.TextStyleProperty;
+import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.List;
 import java.util.Optional;
@@ -69,6 +70,16 @@ public class FakeSpreadsheetSelectionMenuContext extends FakeHistoryContext impl
 
     @Override
     public List<TextStyleProperty<?>> recentTextStyleProperties() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public List<ValidatorSelector> validatorSelectors() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public List<ValidatorSelector> recentValidatorSelectors() {
         throw new UnsupportedOperationException();
     }
 

@@ -149,6 +149,12 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                 context
             );
 
+            validator(
+                historyToken,
+                menu,
+                context
+            );
+
             hideIfZero(
                 historyToken,
                 menu,
@@ -388,6 +394,25 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         );
     }
 
+    // validator........................................................................................................
+
+    private static void validator(final HistoryToken historyToken,
+                                  final SpreadsheetContextMenu menu,
+                                  final SpreadsheetSelectionMenuContext context) {
+        final SpreadsheetContextMenu subMenu = menu.subMenu(
+            context.idPrefix() + "validator" + SpreadsheetElementIds.SUB_MENU,
+            "Validator"
+        );
+
+        SpreadsheetSelectionMenuValidator.build(
+            historyToken.cast(SpreadsheetAnchoredSelectionHistoryToken.class),
+            subMenu,
+            context
+        );
+
+        subMenu.disableIfEmpty();
+    }
+    
     // valueTypes.......................................................................................................
 
     private static void valueTypes(final HistoryToken historyToken,
