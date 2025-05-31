@@ -17,10 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.contextmenu;
 
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetSelectionMenuContext;
-import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetSelectionSummary;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
@@ -78,7 +78,7 @@ public class FakeSpreadsheetSelectionMenuContext extends FakeHistoryContext impl
     }
 
     @Override
-    public SpreadsheetSelectionSummary selectionSummary() {
+    public Optional<SpreadsheetCell> selectionSummary() {
         throw new UnsupportedOperationException();
     }
 

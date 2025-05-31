@@ -42,6 +42,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -100,7 +101,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
         context.addSpreadsheetMetadataFetcherWatcher(this);
 
         this.spreadsheetId = null;
-        this.selectionSummary = SpreadsheetSelectionSummary.EMPTY;
+        this.selectionSummary = null;
     }
 
     /**
@@ -421,13 +422,15 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     private OptionalInt rowCount = OptionalInt.empty();
 
     /**
-     * Returns a {@link SpreadsheetSelectionSummary} that is up-to-date for the current selection and present cells.
-     * If a value is present the menu item or icon will be ticked/selected otherwise it will be clear.
+     * Returns a {@link SpreadsheetCell} which will be updated as selections change and can be used to tick numerous
+     * menu items. The {@link SpreadsheetCell#reference()} will be incorrect for {@link SpreadsheetCellRange} and
+     * {@link SpreadsheetLabelName}.
      */
-    public SpreadsheetSelectionSummary selectionSummary() {
+    public Optional<SpreadsheetCell> selectionSummary() {
         if (null == this.selectionSummary) {
+            SpreadsheetCell selectionSummary = null;
+
             final SpreadsheetSelection selectionNotLabel = this.selectionNotLabel.orElse(null);
-            SpreadsheetSelectionSummary selectionSummary = SpreadsheetSelectionSummary.EMPTY;
 
             if (null != selectionNotLabel) {
                 final Set<SpreadsheetFormatterSelector> formatters = Sets.hash();
@@ -479,20 +482,32 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                 }
 
                 if (formatters.size() + parsers.size() + styleNameToValues.size() > 0) {
-                    selectionSummary = SpreadsheetSelectionSummary.with(
-                        Optional.ofNullable(formatter), // format
-                        Optional.ofNullable(parser), // parse
-                        TextStyle.EMPTY.setValues(styleNameToValue) // style
-                    );
+                    selectionSummary = selectionNotLabel.toCell()
+                        .setFormula(SpreadsheetFormula.EMPTY)
+                        .setFormatter(
+                            Optional.ofNullable(formatter)
+                        ).setParser(
+                            Optional.ofNullable(parser)
+                        ).setStyle(
+                            TextStyle.EMPTY.setValues(styleNameToValue)
+                        );
                 }
             }
 
-            this.selectionSummary = selectionSummary;
+            this.selectionSummary = Optional.ofNullable(
+                null == selectionSummary || selectionSummary.isEmpty() ?
+                    null :
+                    selectionSummary
+            );
         }
+
         return this.selectionSummary;
     }
 
-    private SpreadsheetSelectionSummary selectionSummary;
+    /**
+     * This field will be cleared or made null whenever the selection changes or new data arrives.
+     */
+    private Optional<SpreadsheetCell> selectionSummary;
 
     /**
      * The {@link SpreadsheetSelection} for the given currently cached {@link #selectionSummary}.

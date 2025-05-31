@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.collect.set.Sets;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAlias;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAliasSet;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
@@ -151,7 +152,7 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     }
 
     @Override
-    public SpreadsheetSelectionSummary selectionSummary() {
+    public Optional<SpreadsheetCell> selectionSummary() {
         return this.context.spreadsheetViewportCache()
             .selectionSummary();
     }
