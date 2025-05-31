@@ -48,6 +48,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.test.ParseStringTesting;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.net.URLEncoder;
 import java.util.Optional;
@@ -3314,6 +3315,60 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                 Optional.of(
                     Color.parse("#123456")
                 )
+            )
+        );
+    }
+
+    // cell/validator...................................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellValidator() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/validator",
+            HistoryToken.cellValidatorSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellValidatorToolbar() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/validator/toolbar",
+            HistoryToken.cellValidatorUnselect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellValidatorSaveEmpty() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/validator/save/",
+            HistoryToken.cellValidatorSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                Optional.empty()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellValidatorSave() {
+        final ValidatorSelector validator = ValidatorSelector.parse("hello-validator");
+
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/validator/save/" + urlEncode(validator.toString()),
+            HistoryToken.cellValidatorSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                Optional.of(validator)
             )
         );
     }
