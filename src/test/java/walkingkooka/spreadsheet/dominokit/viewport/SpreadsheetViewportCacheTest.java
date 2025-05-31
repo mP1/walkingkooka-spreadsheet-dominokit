@@ -3316,7 +3316,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             HistoryToken.cellSelect(
                 ID1,
                 NAME,
-                SpreadsheetSelection.parseCellRange("A1:B2")
+                SpreadsheetSelection.parseCellRange("A1:A2")
                     .setDefaultAnchor()
             )
         );
@@ -3345,12 +3345,6 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                     SpreadsheetSelection.parseCell("B1")
                         .setFormula(
                             SpreadsheetFormula.EMPTY
-                        ),
-                    SpreadsheetSelection.parseCell("C3")
-                        .setFormula(
-                            SpreadsheetFormula.EMPTY
-                        ).setFormatter(
-                            Optional.of(text)
                         )
                 )
             ),
@@ -3408,13 +3402,6 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
 
         this.selectionSummaryAndCheck(
             cache
-//            SpreadsheetSelectionSummary.with(
-//                Optional.empty(), // format
-//                Optional.empty(), // parse
-//                TextStyle.EMPTY // style
-//            )
-//            SpreadsheetSelection.parseCell("A2")
-//                .setFormula(SpreadsheetFormula.EMPTY)
         );
     }
 
@@ -3427,7 +3414,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             HistoryToken.cellSelect(
                 ID1,
                 NAME,
-                SpreadsheetSelection.parseCellRange("A1:B2")
+                SpreadsheetSelection.parseCellRange("A1:A2")
                     .setDefaultAnchor()
             )
         );
@@ -3453,11 +3440,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                         ).setParser(
                             Optional.of(date)
                         ),
-                    SpreadsheetSelection.parseCell("B1")
-                        .setFormula(
-                            SpreadsheetFormula.EMPTY
-                        ),
-                    SpreadsheetSelection.parseCell("C3")
+                    SpreadsheetSelection.parseCell("A3")
                         .setFormula(
                             SpreadsheetFormula.EMPTY
                         ).setParser(
@@ -3519,13 +3502,6 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
 
         this.selectionSummaryAndCheck(
             cache
-//            SpreadsheetSelectionSummary.with(
-//                Optional.empty(), // format
-//                Optional.empty(), // parse
-//                TextStyle.EMPTY // style
-//            )
-//            SpreadsheetSelection.parseCell("A2")
-//                .setFormula(SpreadsheetFormula.EMPTY)
         );
     }
 
@@ -3544,12 +3520,16 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
         final TextStylePropertyName<Color> colorName = TextStylePropertyName.COLOR;
-        final Color color1 = Color.parse("#111");
         final Color color2 = Color.parse("#222");
 
         final TextStylePropertyName<TextAlign> textAlign = TextStylePropertyName.TEXT_ALIGN;
         final TextAlign align1 = TextAlign.LEFT;
         final TextAlign align2 = TextAlign.RIGHT;
+
+        TextStyle textStyle = TextStyle.EMPTY.set(
+            colorName,
+            Color.parse("#111")
+        );
 
         cache.onSpreadsheetDelta(
             METHOD,
@@ -3559,28 +3539,25 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                     SpreadsheetSelection.A1.setFormula(
                         SpreadsheetFormula.EMPTY
                     ).setStyle(
-                        TextStyle.EMPTY.set(colorName, color1)
-                            .set(textAlign, align1)
+                        textStyle.set(textAlign, align1)
                     ),
                     SpreadsheetSelection.parseCell("A2")
                         .setFormula(
                             SpreadsheetFormula.EMPTY
                         ).setStyle(
-                            TextStyle.EMPTY.set(colorName, color1)
-                                .set(textAlign, align1)
+                            textStyle.set(textAlign, align1)
                         ),
                     SpreadsheetSelection.parseCell("B1")
                         .setFormula(
                             SpreadsheetFormula.EMPTY
                         ).setStyle(
-                            TextStyle.EMPTY
+                            textStyle.set(textAlign, align2)
                         ),
                     SpreadsheetSelection.parseCell("C3")
                         .setFormula(
                             SpreadsheetFormula.EMPTY
                         ).setStyle(
-                            TextStyle.EMPTY.set(colorName, color2)
-                                .set(textAlign, align2)
+                            textStyle
                         )
                 )
             ),
@@ -3591,15 +3568,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             cache,
             SpreadsheetSelection.A1
                 .setFormula(SpreadsheetFormula.EMPTY)
-                .setStyle(
-                    TextStyle.EMPTY.set(
-                        colorName,
-                        color1
-                    ).set(
-                        textAlign,
-                        align1
-                    )
-                )
+                .setStyle(textStyle)
         );
     }
 
@@ -3650,13 +3619,6 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
 
         this.selectionSummaryAndCheck(
             cache
-//            SpreadsheetSelectionSummary.with(
-//                Optional.empty(), // format
-//                Optional.empty(), // parse
-//                TextStyle.EMPTY // style
-//            )
-//            SpreadsheetSelection.parseCell("A2")
-//                .setFormula(SpreadsheetFormula.EMPTY)
         );
     }
 
@@ -4026,7 +3988,6 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
                 .setStyle(
                     TextStyle.EMPTY.set(colorName, color1)
-                        .set(textAlign, align2)
                 )
         );
     }
