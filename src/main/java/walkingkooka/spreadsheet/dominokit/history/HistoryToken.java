@@ -785,6 +785,21 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
+     * {@see SpreadsheetCellSaveValidatorHistoryToken}
+     */
+    public static SpreadsheetCellSaveValidatorHistoryToken cellSaveValidator(final SpreadsheetId id,
+                                                                             final SpreadsheetName name,
+                                                                             final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                             final Map<SpreadsheetCellReference, Optional<ValidatorSelector>> cellToValidator) {
+        return SpreadsheetCellSaveValidatorHistoryToken.with(
+            id,
+            name,
+            anchoredSelection,
+            cellToValidator
+        );
+    }
+    
+    /**
      * {@see SpreadsheetCellSaveValueTypeHistoryToken}
      */
     public static SpreadsheetCellSaveValueTypeHistoryToken cellSaveValueType(final SpreadsheetId id,
@@ -3733,9 +3748,10 @@ public abstract class HistoryToken implements HasUrlFragment,
                                     final int MODE_FORMULA = 8;
                                     final int MODE_PARSER = 16;
                                     final int MODE_STYLE = 32;
-                                    final int MODE_VALUE_TYPE = 64;
+                                    final int MODE_VALIDATOR = 64;
+                                    final int MODE_VALUE_TYPE = 128;
 
-                                    int mode = MODE_DATE_TIME_SYMBOLS | MODE_DECIMAL_NUMBER_SYMBOLS | MODE_FORMATTER | MODE_FORMULA | MODE_PARSER | MODE_STYLE | MODE_VALUE_TYPE;
+                                    int mode = MODE_DATE_TIME_SYMBOLS | MODE_DECIMAL_NUMBER_SYMBOLS | MODE_FORMATTER | MODE_FORMULA | MODE_PARSER | MODE_STYLE | MODE_VALIDATOR | MODE_VALUE_TYPE;
 
                                     for (final Object mapValue : map.values()) {
                                         // ignore nulls
@@ -3755,10 +3771,14 @@ public abstract class HistoryToken implements HasUrlFragment,
                                                             if (mapValueOptionalValue instanceof SpreadsheetParserSelector) {
                                                                 mode = MODE_PARSER & mode;
                                                             } else {
-                                                                if (mapValueOptionalValue instanceof ValidationValueTypeName) {
-                                                                    mode = MODE_VALUE_TYPE & mode;
+                                                                if (mapValueOptionalValue instanceof ValidatorSelector) {
+                                                                    mode = MODE_VALIDATOR & mode;
                                                                 } else {
-                                                                    mode = 0;
+                                                                    if (mapValueOptionalValue instanceof ValidationValueTypeName) {
+                                                                        mode = MODE_VALUE_TYPE & mode;
+                                                                    } else {
+                                                                        mode = 0;
+                                                                    }
                                                                 }
                                                             }
                                                         }
@@ -3825,6 +3845,14 @@ public abstract class HistoryToken implements HasUrlFragment,
                                             break;
                                         case MODE_STYLE:
                                             historyToken = HistoryToken.cellSaveStyle(
+                                                id,
+                                                name,
+                                                spreadsheetSelection,
+                                                Cast.to(valueOrNull)
+                                            );
+                                            break;
+                                        case MODE_VALIDATOR:
+                                            historyToken = HistoryToken.cellSaveValidator(
                                                 id,
                                                 name,
                                                 spreadsheetSelection,

@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.provider.ValidatorSelector;
 
 /**
  * This token selects one or more cells for viewing or editing.
@@ -172,6 +173,17 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                     SpreadsheetCellSaveHistoryToken.parseMap(
                         cursor,
                         TextStyle.class
+                    )
+                );
+                break;
+            case VALIDATOR_STRING:
+                result = cellSaveValidator(
+                    this.id(),
+                    this.name(),
+                    this.anchoredSelection(),
+                    SpreadsheetCellSaveHistoryToken.parseCellToOptionalMap(
+                        cursor,
+                        ValidatorSelector.class
                     )
                 );
                 break;
