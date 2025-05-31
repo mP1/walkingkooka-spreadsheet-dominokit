@@ -38,7 +38,7 @@ public abstract class SpreadsheetCellDateTimeSymbolsHistoryToken extends Spreads
 
     final Optional<DateTimeSymbols> dateTimeSymbols;
 
-    @Override // /cell/A1/formatter
+    @Override // /cell/A1/dateTimeSymbols
     final UrlFragment cellUrlFragment() {
         return DATE_TIME_SYMBOLS.appendSlashThen(
             this.dateTimeSymbolsUrlFragment()
