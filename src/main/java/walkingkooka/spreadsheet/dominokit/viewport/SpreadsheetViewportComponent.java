@@ -152,10 +152,11 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
         this.root = this.root();
 
-        this.recentFormatter = this.recentFormatterOrParserSaves(
+        this.recentFormatterSelectors = this.recentFormatterOrParserSaves(
             historyToken -> Optional.ofNullable(
                 historyToken instanceof SpreadsheetCellFormatterSaveHistoryToken ?
-                    historyToken.cast(SpreadsheetCellFormatterSaveHistoryToken.class).spreadsheetFormatterSelector()
+                    historyToken.cast(SpreadsheetCellFormatterSaveHistoryToken.class)
+                        .spreadsheetFormatterSelector()
                         .orElse(null) :
                     null
             ),
@@ -164,10 +165,11 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
         this.spreadsheetFormatterSelectorMenus = null;
 
-        this.recentParser = this.recentFormatterOrParserSaves(
+        this.recentParserSelectors = this.recentFormatterOrParserSaves(
             historyToken -> Optional.ofNullable(
                 historyToken instanceof SpreadsheetCellParserSaveHistoryToken ?
-                    historyToken.cast(SpreadsheetCellParserSaveHistoryToken.class).spreadsheetParserSelector()
+                    historyToken.cast(SpreadsheetCellParserSaveHistoryToken.class)
+                        .spreadsheetParserSelector()
                         .orElse(null) :
                     null
             ),
@@ -629,9 +631,9 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                 historyToken,
                 menu,
                 SpreadsheetViewportComponentSpreadsheetSelectionMenuContext.with(
-                    this.recentFormatter.values(),
+                    this.recentFormatterSelectors.values(),
                     spreadsheetFormatterSelectorMenus,
-                    this.recentParser.values(),
+                    this.recentParserSelectors.values(),
                     this.recentTextStyleProperties.values(),
                     this.context
                 )
@@ -641,14 +643,14 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         }
     }
 
-    private final HistoryTokenRecorder<SpreadsheetFormatterSelector> recentFormatter;
+    private final HistoryTokenRecorder<SpreadsheetFormatterSelector> recentFormatterSelectors;
 
     /**
      * This should be updated each time the {@link SpreadsheetMetadataPropertyName#FORMATTERS} property changes.
      */
     private List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorMenus;
 
-    private final HistoryTokenRecorder<SpreadsheetParserSelector> recentParser;
+    private final HistoryTokenRecorder<SpreadsheetParserSelector> recentParserSelectors;
 
     /**
      * Records {@link TextStyleProperty} saves.
