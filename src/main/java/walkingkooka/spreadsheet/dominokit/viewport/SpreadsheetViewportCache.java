@@ -60,6 +60,7 @@ import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -436,6 +437,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                 Optional<SpreadsheetFormatterSelector> formatter = null;
                 Optional<SpreadsheetParserSelector> parser = null;
                 Map<TextStylePropertyName<?>, Object> styleNameToValues = null;
+                Optional<ValidatorSelector> validator = null;
                 Optional<ValidationValueTypeName> valueType = null;
 
                 for (final SpreadsheetCell cell : this.cells.values()) {
@@ -446,6 +448,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
                             formatter = cell.formatter();
                             parser = cell.parser();
+                            validator = cell.validator();
                             valueType = cell.formula()
                                 .valueType();
 
@@ -460,6 +463,9 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                             }
                             if (false == parser.equals(cell.parser())) {
                                 parser = SpreadsheetCell.NO_PARSER;
+                            }
+                            if (false == validator.equals(cell.validator())) {
+                                validator = SpreadsheetCell.NO_VALIDATOR;
                             }
                             if (false == valueType.equals(cell.formula().valueType())) {
                                 valueType = SpreadsheetFormula.NO_VALUE_TYPE;
@@ -495,7 +501,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                         ).setFormula(
                             selectionSummary.formula()
                                 .setValueType(valueType)
-                        );
+                        ).setValidator(validator);
                 }
             }
 
