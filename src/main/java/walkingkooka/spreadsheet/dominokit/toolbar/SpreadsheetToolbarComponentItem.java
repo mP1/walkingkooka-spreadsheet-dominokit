@@ -297,6 +297,13 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         );
     }
 
+    /**
+     * {@link SpreadsheetToolbarComponentItemAnchorValidator}
+     */
+    static SpreadsheetToolbarComponentItem<?> validator(final SpreadsheetToolbarComponentContext context) {
+        return SpreadsheetToolbarComponentItemAnchorValidator.with(context);
+    }
+
     static SpreadsheetToolbarComponentItem<?> verticalAlignTop(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
             TextStylePropertyName.VERTICAL_ALIGN,
