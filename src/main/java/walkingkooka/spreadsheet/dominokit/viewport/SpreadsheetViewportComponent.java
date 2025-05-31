@@ -643,6 +643,9 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         }
     }
 
+    /**
+     * Watches {@link HistoryToken} events for {@link SpreadsheetFormatterSelector} saves adding new entry.
+     */
     private final HistoryTokenRecorder<SpreadsheetFormatterSelector> recentFormatterSelectors;
 
     /**
@@ -650,10 +653,13 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
      */
     private List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorMenus;
 
+    /**
+     * Watches {@link HistoryToken} events for {@link SpreadsheetParserSelector} saves adding new entry.
+     */
     private final HistoryTokenRecorder<SpreadsheetParserSelector> recentParserSelectors;
 
     /**
-     * Records {@link TextStyleProperty} saves.
+     * Watches {@link HistoryToken} events for {@link TextStyleProperty} saves adding new entry.
      */
     private final HistoryTokenRecorder<TextStyleProperty<?>> recentTextStyleProperties;
 
