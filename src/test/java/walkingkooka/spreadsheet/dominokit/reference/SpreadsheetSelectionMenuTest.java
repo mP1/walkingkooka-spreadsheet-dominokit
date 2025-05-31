@@ -38,7 +38,6 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowHistoryToken;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetNumberParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
@@ -1025,9 +1024,6 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             SpreadsheetName.with("SpreadsheetName-1"), // name
             SpreadsheetSelection.A1.setDefaultAnchor()
         );
-
-        final SpreadsheetDateFormatPattern formatPattern = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy");
-        final SpreadsheetNumberParsePattern parsePattern = SpreadsheetPattern.parseNumberParsePattern("$0.00");
 
         final SpreadsheetSelectionMenuContext context = this.context(
             token,
