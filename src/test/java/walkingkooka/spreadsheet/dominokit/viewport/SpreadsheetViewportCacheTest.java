@@ -64,6 +64,7 @@ import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
+import walkingkooka.validation.ValidationValueTypeName;
 
 import java.util.Map;
 import java.util.Map.Entry;
@@ -3888,7 +3889,11 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                             .set(textAlign, align2)
                     ),
                     a2.setFormula(
-                        SpreadsheetFormula.EMPTY
+                        SpreadsheetFormula.EMPTY.setValueType(
+                            Optional.of(
+                                ValidationValueTypeName.with("ignored")
+                            )
+                        )
                     ).setFormatter(
                         Optional.of(formatter2)
                     ).setStyle(
@@ -3936,6 +3941,8 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final TextStylePropertyName<TextAlign> textAlign = TextStylePropertyName.TEXT_ALIGN;
         final TextAlign align1 = TextAlign.LEFT;
 
+        final ValidationValueTypeName valueType = ValidationValueTypeName.with("hello-value-type");
+
         final SpreadsheetCellReference a2 = SpreadsheetSelection.parseCell("A2");
 
         cache.onSpreadsheetDelta(
@@ -3944,14 +3951,18 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             SpreadsheetDelta.EMPTY.setCells(
                 Sets.of(
                     SpreadsheetSelection.A1.setFormula(
-                        SpreadsheetFormula.EMPTY
+                        SpreadsheetFormula.EMPTY.setValueType(
+                            Optional.of(valueType)
+                        )
                     ).setFormatter(
                         Optional.of(formatter1)
                     ).setStyle(
                         TextStyle.EMPTY.set(colorName, color1)
                     ),
                     a2.setFormula(
-                        SpreadsheetFormula.EMPTY
+                        SpreadsheetFormula.EMPTY.setValueType(
+                            Optional.of(valueType)
+                        )
                     ).setFormatter(
                         Optional.of(formatter2)
                     ).setStyle(
@@ -3971,7 +3982,9 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             SpreadsheetDelta.EMPTY.setCells(
                 Sets.of(
                     a2.setFormula(
-                        SpreadsheetFormula.EMPTY
+                        SpreadsheetFormula.EMPTY.setValueType(
+                            Optional.of(valueType)
+                        )
                     ).setFormatter(
                         Optional.of(formatter2)
                     ).setStyle(
@@ -3985,7 +3998,11 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
 
         this.selectionSummaryAndCheck(
             cache,
-            SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
+            SpreadsheetSelection.A1.setFormula(
+                    SpreadsheetFormula.EMPTY.setValueType(
+                        Optional.of(valueType)
+                    )
+                )
                 .setStyle(
                     TextStyle.EMPTY.set(colorName, color1)
                 )
