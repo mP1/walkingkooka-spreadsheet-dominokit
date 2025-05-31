@@ -93,24 +93,27 @@ final class SpreadsheetToolbarComponentItemAnchorTextStyleProperty<T> extends Sp
 
     @Override
     public void refresh(final RefreshContext context) {
+        final TextStylePropertyName<T> propertyName = this.propertyName;
+        final T propertyValue = this.propertyValue;
+
         final T saveValue = this.context.spreadsheetViewportCache()
             .selectionSummary()
             .style()
             .get(this.propertyName)
             .orElse(null);
 
-        final boolean selected = this.propertyValue.equals(saveValue);
+        final boolean selected = propertyValue.equals(saveValue);
 
         this.anchor.setHistoryToken(
             context.historyToken()
                 .anchoredSelectionHistoryTokenOrEmpty()
                 .map(
-                    t -> t.style(this.propertyName)
+                    t -> t.style(propertyName)
                         .setSaveValue(
                             save(
                                 selected ?
                                     null :
-                                    this.propertyValue
+                                    propertyValue
                             )
                         )
                 )
