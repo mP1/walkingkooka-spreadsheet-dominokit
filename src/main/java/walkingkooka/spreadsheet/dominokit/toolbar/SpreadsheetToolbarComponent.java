@@ -145,6 +145,8 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
             SpreadsheetToolbarComponentItem.decimalNumberSymbols(context),
             // clear
             SpreadsheetToolbarComponentItem.clearStyle(context),
+            // validator
+            SpreadsheetToolbarComponentItem.validator(context),
             // metadata properties
             SpreadsheetToolbarComponentItem.hideZeroValues(context),
             // finding/sorting/highlighting
@@ -296,6 +298,10 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
 
     public static String swaggerId() {
         return TOOLBAR_ID_PREFIX + "swagger";
+    }
+
+    public static String validatorId() {
+        return TOOLBAR_ID_PREFIX + "validator ch";
     }
 
     final static String TOOLBAR_ID_PREFIX = "toolbar-";
