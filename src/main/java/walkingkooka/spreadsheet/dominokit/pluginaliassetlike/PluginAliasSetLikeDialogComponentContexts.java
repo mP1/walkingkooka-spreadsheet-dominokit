@@ -163,6 +163,13 @@ public final class PluginAliasSetLikeDialogComponentContexts implements PublicSt
     }
 
     /**
+     * {@see AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidatorValidators}
+     */
+    public static PluginAliasSetLikeDialogComponentContext<ValidatorName, ValidatorInfo, ValidatorInfoSet, ValidatorSelector, ValidatorAlias, ValidatorAliasSet> validatorValidators(final AppContext context) {
+        return AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidatorValidators.with(context);
+    }
+
+    /**
      * Stop creation
      */
     private PluginAliasSetLikeDialogComponentContexts() {
