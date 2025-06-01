@@ -379,7 +379,7 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
     /**
      * Getter that returns the label if one is present or generates by converting property name to title case.
      */
-    String label() {
+    final String label() {
         return this.label.orElseGet(
             () -> CaseKind.CAMEL.change(
                 this.propertyName.value(),
