@@ -34,9 +34,6 @@ final class SpreadsheetMetadataPanelComponentItemNumber extends SpreadsheetMetad
                                                             final int min,
                                                             final int max,
                                                             final SpreadsheetMetadataPanelComponentContext context) {
-        checkPropertyName(propertyName);
-        checkContext(context);
-
         return new SpreadsheetMetadataPanelComponentItemNumber(
             propertyName,
             min,

@@ -38,11 +38,6 @@ final class SpreadsheetMetadataPanelComponentItemReadOnlyText<T> extends Spreads
                                                                          final Optional<String> label,
                                                                          final Function<T, String> formatter,
                                                                          final SpreadsheetMetadataPanelComponentContext context) {
-        checkPropertyName(propertyName);
-        Objects.requireNonNull(label, "label");
-        Objects.requireNonNull(formatter, "formatter");
-        checkContext(context);
-
         return new SpreadsheetMetadataPanelComponentItemReadOnlyText<>(
             propertyName,
             label,
@@ -60,7 +55,7 @@ final class SpreadsheetMetadataPanelComponentItemReadOnlyText<T> extends Spreads
             label,
             context
         );
-        this.formatter = formatter;
+        this.formatter = Objects.requireNonNull(formatter, "formatter");
 
         this.element = ElementsFactory.elements.div()
             .setPaddingTop("5px")

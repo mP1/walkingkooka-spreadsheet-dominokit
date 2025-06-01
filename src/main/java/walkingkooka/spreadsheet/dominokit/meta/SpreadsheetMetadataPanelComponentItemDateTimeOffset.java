@@ -64,8 +64,6 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
      * Factory that creates a new {@link SpreadsheetMetadataPanelComponentItemDateTimeOffset}.
      */
     static SpreadsheetMetadataPanelComponentItemDateTimeOffset with(final SpreadsheetMetadataPanelComponentContext context) {
-        checkContext(context);
-
         return new SpreadsheetMetadataPanelComponentItemDateTimeOffset(
             context
         );

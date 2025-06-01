@@ -32,9 +32,6 @@ final class SpreadsheetMetadataPanelComponentItemText extends SpreadsheetMetadat
 
     static SpreadsheetMetadataPanelComponentItemText with(final SpreadsheetMetadataPropertyName<String> propertyName,
                                                           final SpreadsheetMetadataPanelComponentContext context) {
-        checkPropertyName(propertyName);
-        checkContext(context);
-
         return new SpreadsheetMetadataPanelComponentItemText(
             propertyName,
             context

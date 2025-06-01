@@ -31,8 +31,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 final class SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount extends SpreadsheetMetadataPanelComponentItem<Integer> {
 
     static SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount with(final SpreadsheetMetadataPanelComponentContext context) {
-        checkContext(context);
-
         return new SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount(
             context
         );

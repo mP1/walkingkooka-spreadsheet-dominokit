@@ -39,8 +39,6 @@ import java.util.Optional;
 final class SpreadsheetMetadataPanelComponentItemPrecision extends SpreadsheetMetadataPanelComponentItem<Integer> {
 
     static SpreadsheetMetadataPanelComponentItemPrecision with(final SpreadsheetMetadataPanelComponentContext context) {
-        checkContext(context);
-
         return new SpreadsheetMetadataPanelComponentItemPrecision(
             context
         );
