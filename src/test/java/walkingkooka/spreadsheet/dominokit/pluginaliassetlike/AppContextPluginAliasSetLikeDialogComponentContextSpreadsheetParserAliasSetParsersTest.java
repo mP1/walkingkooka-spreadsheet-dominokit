@@ -70,11 +70,9 @@ public final class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheet
         return AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetParserAliasSetParsers.with(AppContexts.fake());
     }
 
-    // Context..........................................................................................................
-
     @Override
-    public String typeNameSuffix() {
-        return SpreadsheetParserAliasSet.class.getSimpleName() + "Parsers";
+    public SpreadsheetMetadataPropertyName<SpreadsheetParserAliasSet> metadataPropertyName() {
+        return SpreadsheetMetadataPropertyName.PARSERS;
     }
 
     // Class............................................................................................................

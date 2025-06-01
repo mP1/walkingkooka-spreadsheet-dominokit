@@ -22,7 +22,6 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.text.CaseKind;
 import walkingkooka.validation.provider.ValidatorAlias;
 import walkingkooka.validation.provider.ValidatorAliasSet;
 import walkingkooka.validation.provider.ValidatorInfo;
@@ -66,33 +65,14 @@ public final class AppContextPluginAliasSetLikeDialogComponentContextValidatorAl
         );
     }
 
-    @Test
-    public void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenValidatorValidators() {
-        this.isMatchAndCheck(
-            this.createContext(),
-            HistoryToken.metadataPropertySelect(
-                SPREADSHEET_ID,
-                SPREADSHEET_NAME,
-                SpreadsheetMetadataPropertyName.VALIDATOR_VALIDATORS
-            ),
-            true
-        );
-    }
-
     @Override
     public AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidatorValidators createContext() {
         return AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidatorValidators.with(AppContexts.fake());
     }
 
-    // Context..........................................................................................................
-
     @Override
-    public String typeNameSuffix() {
-        return ValidatorAliasSet.class.getSimpleName() +
-            CaseKind.CAMEL.change(
-                SpreadsheetMetadataPropertyName.VALIDATOR_VALIDATORS.text(),
-                CaseKind.PASCAL
-            );
+    public SpreadsheetMetadataPropertyName<ValidatorAliasSet> metadataPropertyName() {
+        return SpreadsheetMetadataPropertyName.VALIDATOR_VALIDATORS;
     }
 
     // Class............................................................................................................

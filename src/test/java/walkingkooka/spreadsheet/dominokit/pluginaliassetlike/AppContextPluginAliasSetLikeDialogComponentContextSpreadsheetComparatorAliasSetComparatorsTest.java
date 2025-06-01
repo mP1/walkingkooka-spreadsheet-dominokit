@@ -51,29 +51,14 @@ public final class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheet
         );
     }
 
-    @Test
-    public void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenComparators() {
-        this.isMatchAndCheck(
-            this.createContext(),
-            HistoryToken.metadataPropertySelect(
-                SPREADSHEET_ID,
-                SPREADSHEET_NAME,
-                SpreadsheetMetadataPropertyName.COMPARATORS
-            ),
-            true
-        );
-    }
-
     @Override
     public AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetComparatorAliasSetComparators createContext() {
         return AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetComparatorAliasSetComparators.with(AppContexts.fake());
     }
 
-    // Context..........................................................................................................
-
     @Override
-    public String typeNameSuffix() {
-        return SpreadsheetComparatorAliasSet.class.getSimpleName() + "Comparators";
+    public SpreadsheetMetadataPropertyName<SpreadsheetComparatorAliasSet> metadataPropertyName() {
+        return SpreadsheetMetadataPropertyName.COMPARATORS;
     }
 
     // Class............................................................................................................

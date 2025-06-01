@@ -39,19 +39,6 @@ public final class AppContextPluginAliasSetLikeDialogComponentContextConverterAl
     // isMatch..........................................................................................................
 
     @Test
-    public void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenConverters() {
-        this.isMatchAndCheck(
-            this.createContext(),
-            HistoryToken.metadataPropertySelect(
-                SPREADSHEET_ID,
-                SPREADSHEET_NAME,
-                SpreadsheetMetadataPropertyName.CONVERTERS
-            ),
-            true
-        );
-    }
-
-    @Test
     public void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenFunctions() {
         this.isMatchAndCheck(
             this.createContext(),
@@ -69,11 +56,9 @@ public final class AppContextPluginAliasSetLikeDialogComponentContextConverterAl
         return AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSetConverters.with(AppContexts.fake());
     }
 
-    // Context..........................................................................................................
-
     @Override
-    public String typeNameSuffix() {
-        return ConverterAliasSet.class.getSimpleName() + "Converters";
+    public SpreadsheetMetadataPropertyName<ConverterAliasSet> metadataPropertyName() {
+        return SpreadsheetMetadataPropertyName.CONVERTERS;
     }
 
     // Class............................................................................................................

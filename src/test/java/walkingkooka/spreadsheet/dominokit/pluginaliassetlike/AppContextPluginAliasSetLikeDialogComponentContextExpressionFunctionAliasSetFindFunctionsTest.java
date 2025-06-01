@@ -43,19 +43,6 @@ public final class AppContextPluginAliasSetLikeDialogComponentContextExpressionF
     // isMatch..........................................................................................................
 
     @Test
-    public void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenFindFunctions() {
-        this.isMatchAndCheck(
-            this.createContext(),
-            HistoryToken.metadataPropertySelect(
-                SPREADSHEET_ID,
-                SPREADSHEET_NAME,
-                SpreadsheetMetadataPropertyName.FIND_FUNCTIONS
-            ),
-            true
-        );
-    }
-
-    @Test
     public void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenFunctions() {
         this.isMatchAndCheck(
             this.createContext(),
@@ -68,11 +55,9 @@ public final class AppContextPluginAliasSetLikeDialogComponentContextExpressionF
         );
     }
 
-    // Context..........................................................................................................
-
     @Override
-    public String typeNameSuffix() {
-        return ExpressionFunctionAliasSet.class.getSimpleName() + "FindFunctions";
+    public SpreadsheetMetadataPropertyName<ExpressionFunctionAliasSet> metadataPropertyName() {
+        return SpreadsheetMetadataPropertyName.FIND_FUNCTIONS;
     }
 
     // Class............................................................................................................

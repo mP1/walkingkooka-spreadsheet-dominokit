@@ -51,29 +51,14 @@ public final class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheet
         );
     }
 
-    @Test
-    public void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenFormatters() {
-        this.isMatchAndCheck(
-            this.createContext(),
-            HistoryToken.metadataPropertySelect(
-                SPREADSHEET_ID,
-                SPREADSHEET_NAME,
-                SpreadsheetMetadataPropertyName.FORMATTERS
-            ),
-            true
-        );
-    }
-
     @Override
     public AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetFormatterAliasSetFormatters createContext() {
         return AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetFormatterAliasSetFormatters.with(AppContexts.fake());
     }
 
-    // Context..........................................................................................................
-
     @Override
-    public String typeNameSuffix() {
-        return SpreadsheetFormatterAliasSet.class.getSimpleName() + "Formatters";
+    public SpreadsheetMetadataPropertyName<SpreadsheetFormatterAliasSet> metadataPropertyName() {
+        return SpreadsheetMetadataPropertyName.FORMATTERS;
     }
 
     // Class............................................................................................................
