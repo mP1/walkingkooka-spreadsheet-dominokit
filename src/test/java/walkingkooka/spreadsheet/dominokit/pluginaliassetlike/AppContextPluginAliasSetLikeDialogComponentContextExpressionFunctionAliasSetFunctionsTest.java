@@ -51,29 +51,14 @@ public final class AppContextPluginAliasSetLikeDialogComponentContextExpressionF
         );
     }
 
-    @Test
-    public void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenFunctions() {
-        this.isMatchAndCheck(
-            this.createContext(),
-            HistoryToken.metadataPropertySelect(
-                SPREADSHEET_ID,
-                SPREADSHEET_NAME,
-                SpreadsheetMetadataPropertyName.FUNCTIONS
-            ),
-            true
-        );
-    }
-
     @Override
     public AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFunctions createContext() {
         return AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFunctions.with(AppContexts.fake());
     }
 
-    // Context..........................................................................................................
-
     @Override
-    public String typeNameSuffix() {
-        return ExpressionFunctionAliasSet.class.getSimpleName() + "Functions";
+    public SpreadsheetMetadataPropertyName<ExpressionFunctionAliasSet> metadataPropertyName() {
+        return SpreadsheetMetadataPropertyName.FUNCTIONS;
     }
 
     // Class............................................................................................................

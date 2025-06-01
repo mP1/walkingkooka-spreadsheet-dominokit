@@ -52,29 +52,14 @@ public final class AppContextPluginAliasSetLikeDialogComponentContextValidatorAl
         );
     }
 
-    @Test
-    public void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenValidators() {
-        this.isMatchAndCheck(
-            this.createContext(),
-            HistoryToken.metadataPropertySelect(
-                SPREADSHEET_ID,
-                SPREADSHEET_NAME,
-                SpreadsheetMetadataPropertyName.VALIDATORS
-            ),
-            true
-        );
-    }
-
     @Override
     public AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidators createContext() {
         return AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidators.with(AppContexts.fake());
     }
 
-    // Context..........................................................................................................
-
     @Override
-    public String typeNameSuffix() {
-        return ValidatorAliasSet.class.getSimpleName() + "Validators";
+    public SpreadsheetMetadataPropertyName<ValidatorAliasSet> metadataPropertyName() {
+        return SpreadsheetMetadataPropertyName.VALIDATORS;
     }
 
     // Class............................................................................................................

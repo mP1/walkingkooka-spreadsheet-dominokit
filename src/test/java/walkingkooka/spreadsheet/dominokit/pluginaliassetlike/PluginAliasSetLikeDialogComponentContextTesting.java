@@ -29,6 +29,9 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentConte
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.text.CaseKind;
+
+import java.util.Optional;
 
 public interface PluginAliasSetLikeDialogComponentContextTesting<C extends PluginAliasSetLikeDialogComponentContext<N, I, IS, S, A, AS>, N extends Name & Comparable<N>,
     I extends PluginInfoLike<I, N>,
@@ -63,4 +66,47 @@ public interface PluginAliasSetLikeDialogComponentContextTesting<C extends Plugi
             false
         );
     }
+
+    @Test
+    default void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenWithMetadataPropertyName() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.metadataPropertySelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                this.metadataPropertyName()
+            ),
+            true
+        );
+    }
+
+    @Test
+    default void testIsMatchWithSpreadsheetMetadataPropertySaveHistoryTokenWithMetadataPropertyName() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.metadataPropertySave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                this.metadataPropertyName(),
+                Optional.empty()
+            ),
+            false
+        );
+    }
+
+    // Context..........................................................................................................
+
+    @Override
+    default String typeNameSuffix() {
+        final SpreadsheetMetadataPropertyName<AS> name = this.metadataPropertyName();
+
+        return name.type()
+            .getSimpleName() +
+            CaseKind.CAMEL.change(
+                name.text(),
+                CaseKind.PASCAL
+            );
+    }
+
+    SpreadsheetMetadataPropertyName<AS> metadataPropertyName();
 }
