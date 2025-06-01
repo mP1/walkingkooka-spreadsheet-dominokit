@@ -195,6 +195,9 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
         PluginAliasSetLikeDialogComponent.with(
             PluginAliasSetLikeDialogComponentContexts.validators(context)
         );
+        PluginAliasSetLikeDialogComponent.with(
+            PluginAliasSetLikeDialogComponentContexts.validatorValidators(context)
+        );
     }
 
     private static void parser(final AppContext context) {
