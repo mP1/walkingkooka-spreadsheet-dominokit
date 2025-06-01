@@ -59,6 +59,7 @@ import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallUnmarshallContext;
+import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContextPreProcessor;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -238,4 +239,9 @@ public interface AppContext extends CanGiveFocus,
      * This will be used to provide ENABLE | DISABLE links when editing any {@link SpreadsheetMetadata} {@link walkingkooka.plugin.PluginInfoSetLike}.
      */
     SpreadsheetProvider systemSpreadsheetProvider();
+
+    @Override
+    default AppContext setPreProcessor(final JsonNodeUnmarshallContextPreProcessor processor) {
+        throw new UnsupportedOperationException();
+    }
 }

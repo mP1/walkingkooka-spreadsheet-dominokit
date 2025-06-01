@@ -33,6 +33,7 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterContextDelegator;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviderDelegator;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
+import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContextPreProcessor;
 
 import java.time.LocalDateTime;
 
@@ -62,6 +63,11 @@ abstract class AppContextSpreadsheetFormatterSelectorDialogComponentContext impl
     @Override
     public final SpreadsheetFormatterContext spreadsheetFormatterContext() {
         return this.context;
+    }
+
+    @Override
+    public SpreadsheetFormatterSelectorDialogComponentContext setPreProcessor(final JsonNodeUnmarshallContextPreProcessor processor) {
+        throw new UnsupportedOperationException();
     }
 
     // SpreadsheetFormatterProvider.....................................................................................
