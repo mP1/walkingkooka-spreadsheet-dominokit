@@ -134,7 +134,9 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         items.add(this.formatters());
         items.add(this.importers());
         items.add(this.parsers());
+
         items.add(this.validators());
+        items.add(this.validatorValidators());
 
         // TODO extract TABLE
         final TBodyElement tBody = ElementsFactory.elements.tbody();
@@ -411,6 +413,12 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     private SpreadsheetMetadataPanelComponentItem<ValidatorAliasSet> validators() {
         return link(
             SpreadsheetMetadataPropertyName.VALIDATORS
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<ValidatorAliasSet> validatorValidators() {
+        return link(
+            SpreadsheetMetadataPropertyName.VALIDATOR_VALIDATORS
         );
     }
 
