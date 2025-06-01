@@ -41,10 +41,6 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
     static <T extends Enum<T>> SpreadsheetMetadataPanelComponentItemEnum<T> with(final SpreadsheetMetadataPropertyName<T> propertyName,
                                                                                  final List<T> values,
                                                                                  final SpreadsheetMetadataPanelComponentContext context) {
-        checkPropertyName(propertyName);
-        Objects.requireNonNull(values, "values");
-        checkContext(context);
-
         return new SpreadsheetMetadataPanelComponentItemEnum<>(
             propertyName,
             values,
@@ -59,6 +55,8 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
             propertyName,
             context
         );
+
+        Objects.requireNonNull(values, "values");
 
         this.list = this.uListElement();
 

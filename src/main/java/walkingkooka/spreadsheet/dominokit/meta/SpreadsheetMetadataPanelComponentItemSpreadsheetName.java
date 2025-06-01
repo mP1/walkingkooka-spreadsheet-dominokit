@@ -30,8 +30,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 final class SpreadsheetMetadataPanelComponentItemSpreadsheetName extends SpreadsheetMetadataPanelComponentItem<SpreadsheetName> {
 
     static SpreadsheetMetadataPanelComponentItemSpreadsheetName with(final SpreadsheetMetadataPanelComponentContext context) {
-        checkContext(context);
-
         return new SpreadsheetMetadataPanelComponentItemSpreadsheetName(
             context
         );

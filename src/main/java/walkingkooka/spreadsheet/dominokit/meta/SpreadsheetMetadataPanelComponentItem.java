@@ -67,8 +67,6 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
      * {@see SpreadsheetMetadataPanelComponentItemDateTimeOffset}
      */
     static SpreadsheetMetadataPanelComponentItemDateTimeOffset dateTimeOffset(final SpreadsheetMetadataPanelComponentContext context) {
-        checkContext(context);
-
         return SpreadsheetMetadataPanelComponentItemDateTimeOffset.with(
             context
         );
@@ -153,25 +151,16 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
         );
     }
 
-    // factory helpers..................................................................................................
-
-    static void checkPropertyName(final SpreadsheetMetadataPropertyName<?> propertyName) {
-        Objects.requireNonNull(propertyName, "propertyName");
-    }
-
-    static void checkContext(final SpreadsheetMetadataPanelComponentContext context) {
-        Objects.requireNonNull(context, "context");
-    }
-
     /**
      * Package private ctor to limit sub-classing.
      */
     SpreadsheetMetadataPanelComponentItem(final SpreadsheetMetadataPropertyName<T> propertyName,
                                           final Optional<String> label,
                                           final SpreadsheetMetadataPanelComponentContext context) {
-        this.propertyName = propertyName;
-        this.label = label;
-        this.context = context;
+        this.propertyName = Objects.requireNonNull(propertyName, "propertyName");
+        this.label = Objects.requireNonNull(label, "label");
+        this.context = Objects.requireNonNull(context, "context");
+        ;
     }
 
     /**
