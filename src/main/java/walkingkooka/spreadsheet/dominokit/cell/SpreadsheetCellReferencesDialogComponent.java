@@ -28,7 +28,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellReferencesHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellReferenceListHistoryToken;
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 
@@ -102,7 +102,7 @@ public final class SpreadsheetCellReferencesDialogComponent implements Spreadshe
 
     // close............................................................................................................
 
-    private void refreshClose(final SpreadsheetCellReferencesHistoryToken token) {
+    private void refreshClose(final SpreadsheetCellReferenceListHistoryToken token) {
         this.close.setHistoryToken(
             Optional.of(token.close())
         );
@@ -129,7 +129,7 @@ public final class SpreadsheetCellReferencesDialogComponent implements Spreadshe
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return token instanceof SpreadsheetCellReferencesHistoryToken;
+        return token instanceof SpreadsheetCellReferenceListHistoryToken;
     }
 
     @Override
@@ -148,8 +148,8 @@ public final class SpreadsheetCellReferencesDialogComponent implements Spreadshe
      */
     @Override
     public void refresh(final RefreshContext context) {
-        final SpreadsheetCellReferencesHistoryToken historyToken = context.historyToken()
-            .cast(SpreadsheetCellReferencesHistoryToken.class);
+        final SpreadsheetCellReferenceListHistoryToken historyToken = context.historyToken()
+            .cast(SpreadsheetCellReferenceListHistoryToken.class);
 
         this.refreshClose(historyToken);
         this.refreshTable(historyToken);
@@ -165,8 +165,8 @@ public final class SpreadsheetCellReferencesDialogComponent implements Spreadshe
     private void references(final HistoryTokenOffsetAndCount offsetAndCount) {
         final SpreadsheetCellReferencesDialogComponentContext context = this.context;
 
-        final SpreadsheetCellReferencesHistoryToken historyToken = context.historyToken()
-            .cast(SpreadsheetCellReferencesHistoryToken.class);
+        final SpreadsheetCellReferenceListHistoryToken historyToken = context.historyToken()
+            .cast(SpreadsheetCellReferenceListHistoryToken.class);
 
         final SpreadsheetId id = historyToken.id();
         final SpreadsheetCellRangeReference cells = historyToken.anchoredSelection()

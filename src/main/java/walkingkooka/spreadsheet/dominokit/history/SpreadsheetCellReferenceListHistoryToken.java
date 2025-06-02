@@ -32,13 +32,13 @@ import java.util.Objects;
  * /1/SpreadsheetName222/cell/A1/references/offset/1/count/2
  * </pre>
  */
-public final class SpreadsheetCellReferencesHistoryToken extends SpreadsheetCellHistoryToken {
+public final class SpreadsheetCellReferenceListHistoryToken extends SpreadsheetCellHistoryToken {
 
-    static SpreadsheetCellReferencesHistoryToken with(final SpreadsheetId id,
-                                                      final SpreadsheetName name,
-                                                      final AnchoredSpreadsheetSelection anchoredSelection,
-                                                      final HistoryTokenOffsetAndCount offsetAndCount) {
-        return new SpreadsheetCellReferencesHistoryToken(
+    static SpreadsheetCellReferenceListHistoryToken with(final SpreadsheetId id,
+                                                         final SpreadsheetName name,
+                                                         final AnchoredSpreadsheetSelection anchoredSelection,
+                                                         final HistoryTokenOffsetAndCount offsetAndCount) {
+        return new SpreadsheetCellReferenceListHistoryToken(
             id,
             name,
             anchoredSelection,
@@ -46,10 +46,10 @@ public final class SpreadsheetCellReferencesHistoryToken extends SpreadsheetCell
         );
     }
 
-    private SpreadsheetCellReferencesHistoryToken(final SpreadsheetId id,
-                                                  final SpreadsheetName name,
-                                                  final AnchoredSpreadsheetSelection anchoredSelection,
-                                                  final HistoryTokenOffsetAndCount offsetAndCount) {
+    private SpreadsheetCellReferenceListHistoryToken(final SpreadsheetId id,
+                                                     final SpreadsheetName name,
+                                                     final AnchoredSpreadsheetSelection anchoredSelection,
+                                                     final HistoryTokenOffsetAndCount offsetAndCount) {
         super(
             id,
             name,
