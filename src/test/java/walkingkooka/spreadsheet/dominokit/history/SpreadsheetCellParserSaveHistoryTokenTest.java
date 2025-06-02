@@ -70,7 +70,7 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
-            RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
             "/123/SpreadsheetName456/cell/B2:C3/top-left/parser/save/date-parse-pattern yyyy-mm-dd"
         );
     }

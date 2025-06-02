@@ -69,7 +69,7 @@ public final class SpreadsheetCellLabelsHistoryTokenTest extends SpreadsheetCell
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
-            RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
             "/123/SpreadsheetName456/cell/B2:C3/top-left/labels"
         );
     }
@@ -159,7 +159,7 @@ public final class SpreadsheetCellLabelsHistoryTokenTest extends SpreadsheetCell
             SpreadsheetCellLabelsHistoryToken.with(
                 ID,
                 NAME,
-                RANGE.setDefaultAnchor(),
+                CELL_RANGE.setDefaultAnchor(),
                 HistoryTokenOffsetAndCount.EMPTY
             )
         );
@@ -172,7 +172,7 @@ public final class SpreadsheetCellLabelsHistoryTokenTest extends SpreadsheetCell
             SpreadsheetCellLabelsHistoryToken.with(
                 ID,
                 NAME,
-                RANGE.setDefaultAnchor(),
+                CELL_RANGE.setDefaultAnchor(),
                 HistoryTokenOffsetAndCount.EMPTY
             )
         );

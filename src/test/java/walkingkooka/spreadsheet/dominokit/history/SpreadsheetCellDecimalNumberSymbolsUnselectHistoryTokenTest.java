@@ -36,7 +36,7 @@ public final class SpreadsheetCellDecimalNumberSymbolsUnselectHistoryTokenTest e
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
-            RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
             "/123/SpreadsheetName456/cell/B2:C3/top-left/decimalNumberSymbols/toolbar"
         );
     }

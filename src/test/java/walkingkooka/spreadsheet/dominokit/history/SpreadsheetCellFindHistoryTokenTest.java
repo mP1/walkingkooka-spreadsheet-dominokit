@@ -134,7 +134,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck2(
-            RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
             "/123/SpreadsheetName456/cell/B2:C3/top-left/find"
         );
     }
