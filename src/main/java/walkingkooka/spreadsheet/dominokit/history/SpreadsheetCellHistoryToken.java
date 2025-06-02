@@ -28,6 +28,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolvers;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
+import walkingkooka.validation.ValidationValueTypeName;
 
 import java.util.Optional;
 
@@ -134,8 +135,11 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             case VALIDATOR_STRING:
                 result = this.validator();
                 break;
+            case VALUE_STRING:
+                result = this.parseValue(cursor);
+                break;
             case VALUE_TYPE_STRING:
-                result = this.valueType();
+                result = this.valueTypeHistoryToken();
                 break;
             default:
                 cursor.end();
@@ -219,6 +223,18 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
         }
 
         return this.labels(offsetAndCount);
+    }
+
+    private HistoryToken parseValue(final TextCursor cursor) {
+        final String valueTypeString = parseComponentOrNull(cursor);
+
+        return this.setValueType(
+            Optional.ofNullable(
+                null == valueTypeString ?
+                    null :
+                    ValidationValueTypeName.with(valueTypeString)
+            )
+        );
     }
 
     private static String parseComponentOrNull(final TextCursor cursor) {

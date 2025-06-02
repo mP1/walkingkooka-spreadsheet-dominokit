@@ -3373,6 +3373,63 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         );
     }
 
+    // cell/value.......................................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellValue() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/value",
+            HistoryToken.cellValue(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                Optional.empty()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellValueValueType() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/value/text",
+            HistoryToken.cellValue(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                Optional.of(ValidationValueTypeName.TEXT)
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellRangeValueValueType() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1:A2/value/text",
+            HistoryToken.cellValue(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A1:A2")
+                    .setDefaultAnchor(),
+                Optional.of(ValidationValueTypeName.TEXT)
+            )
+        );
+    }
+
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameLabelValueValueType() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/Label123/value/text",
+            HistoryToken.cellValue(
+                ID,
+                NAME,
+                SpreadsheetSelection.labelName("Label123")
+                    .setDefaultAnchor(),
+                Optional.of(ValidationValueTypeName.TEXT)
+            )
+        );
+    }
+
     // cell/valueType...................................................................................................
 
     @Test

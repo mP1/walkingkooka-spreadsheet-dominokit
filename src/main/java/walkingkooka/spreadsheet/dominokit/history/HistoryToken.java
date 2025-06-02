@@ -279,7 +279,11 @@ public abstract class HistoryToken implements HasUrlFragment,
     final static String VALIDATOR_STRING = "validator";
 
     final static UrlFragment VALIDATOR = UrlFragment.parse(VALIDATOR_STRING);
-    
+
+    final static String VALUE_STRING = "value";
+
+    final static UrlFragment VALUE = UrlFragment.parse(VALUE_STRING);
+
     final static String VALUE_TYPE_STRING = "valueType";
 
     final static UrlFragment VALUE_TYPE = UrlFragment.parse(VALUE_TYPE_STRING);
@@ -892,6 +896,25 @@ public abstract class HistoryToken implements HasUrlFragment,
             anchoredSelection
         );
     }
+
+    // cellValue........................................................................................................
+
+    /**
+     * {@see SpreadsheetCellValueHistoryToken}
+     */
+    public static SpreadsheetCellValueHistoryToken cellValue(final SpreadsheetId id,
+                                                             final SpreadsheetName name,
+                                                             final AnchoredSpreadsheetSelection anchoredSelection,
+                                                             final Optional<ValidationValueTypeName> valueType) {
+        return SpreadsheetCellValueHistoryToken.with(
+            id,
+            name,
+            anchoredSelection,
+            valueType
+        );
+    }
+
+    // cellValueType....................................................................................................
 
     /**
      * {@see SpreadsheetCellValueTypeSaveHistoryToken}
@@ -2046,6 +2069,11 @@ public abstract class HistoryToken implements HasUrlFragment,
 
                 if (this instanceof SpreadsheetCellSortHistoryToken || this instanceof SpreadsheetColumnSortHistoryToken || this instanceof SpreadsheetRowSortHistoryToken) {
                     closed = this.clearAction();
+                }
+
+                if (this instanceof SpreadsheetCellValueHistoryToken) {
+                    closed = this.cast(SpreadsheetCellValueHistoryToken.class)
+                        .selectionSelect();
                 }
 
                 if (this instanceof SpreadsheetColumnInsertHistoryToken || this instanceof SpreadsheetRowInsertHistoryToken) {
@@ -4708,10 +4736,40 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     // valueType........................................................................................................
 
+    public final Optional<ValidationValueTypeName> valueType() {
+        return this instanceof SpreadsheetCellValueHistoryToken ?
+                this.cast(SpreadsheetCellValueHistoryToken.class).valueType :
+            Optional.<ValidationValueTypeName>empty();
+    }
+
+    public final HistoryToken setValueType(final Optional<ValidationValueTypeName> valueType) {
+        final HistoryToken historyToken;
+
+        if (this instanceof SpreadsheetCellHistoryToken) {
+            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
+
+            historyToken = HistoryToken.cellValue(
+                cell.id(),
+                cell.name(),
+                cell.anchoredSelection(),
+                valueType
+            );
+
+        } else {
+            historyToken = this;
+        }
+
+        return this.equals(historyToken) ?
+            this :
+            historyToken;
+    }
+
+    // valueType........................................................................................................
+
     /**
      * If possible selects a {@link ValidationValueTypeName} {@link HistoryToken}.
      */
-    public final HistoryToken valueType() {
+    public final HistoryToken valueTypeHistoryToken() {
         HistoryToken historyToken;
 
         if (this instanceof SpreadsheetCellSelectHistoryToken || this instanceof SpreadsheetCellMenuHistoryToken) {
