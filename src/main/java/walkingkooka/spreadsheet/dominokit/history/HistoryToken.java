@@ -655,13 +655,13 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
-     * {@see SpreadsheetCellReferencesHistoryToken}
+     * {@see SpreadsheetCellReferenceListHistoryToken}
      */
-    public static SpreadsheetCellReferencesHistoryToken cellReferences(final SpreadsheetId id,
-                                                                       final SpreadsheetName name,
-                                                                       final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                       final HistoryTokenOffsetAndCount offsetAndCount) {
-        return SpreadsheetCellReferencesHistoryToken.with(
+    public static SpreadsheetCellReferenceListHistoryToken cellReferences(final SpreadsheetId id,
+                                                                          final SpreadsheetName name,
+                                                                          final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                          final HistoryTokenOffsetAndCount offsetAndCount) {
+        return SpreadsheetCellReferenceListHistoryToken.with(
             id,
             name,
             anchoredSelection,
@@ -2063,7 +2063,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                         .selectionSelect();
                 }
 
-                if (this instanceof SpreadsheetCellReferencesHistoryToken) {
+                if (this instanceof SpreadsheetCellReferenceListHistoryToken) {
                     closed = this.clearAction();
                 }
 
@@ -2235,8 +2235,8 @@ public abstract class HistoryToken implements HasUrlFragment,
                 .offsetAndCount
                 .count;
         }
-        if (this instanceof SpreadsheetCellReferencesHistoryToken) {
-            count = this.cast(SpreadsheetCellReferencesHistoryToken.class)
+        if (this instanceof SpreadsheetCellReferenceListHistoryToken) {
+            count = this.cast(SpreadsheetCellReferenceListHistoryToken.class)
                 .offsetAndCount
                 .count;
         }
@@ -2322,12 +2322,12 @@ public abstract class HistoryToken implements HasUrlFragment,
                         );
                     }
 
-                    if (this instanceof SpreadsheetCellReferencesHistoryToken) {
+                    if (this instanceof SpreadsheetCellReferenceListHistoryToken) {
                         with = cellReferences(
                             id,
                             name,
                             anchored,
-                            this.cast(SpreadsheetCellReferencesHistoryToken.class)
+                            this.cast(SpreadsheetCellReferenceListHistoryToken.class)
                                 .offsetAndCount
                                 .setCount(count)
                         );
@@ -3323,8 +3323,8 @@ public abstract class HistoryToken implements HasUrlFragment,
                         .offsetAndCount
                         .offset;
                 } else {
-                    if (this instanceof SpreadsheetCellReferencesHistoryToken) {
-                        offset = this.cast(SpreadsheetCellReferencesHistoryToken.class).offsetAndCount.offset;
+                    if (this instanceof SpreadsheetCellReferenceListHistoryToken) {
+                        offset = this.cast(SpreadsheetCellReferenceListHistoryToken.class).offsetAndCount.offset;
                     } else {
                         if (this instanceof SpreadsheetLabelMappingListHistoryToken) {
                             offset = this.cast(SpreadsheetLabelMappingListHistoryToken.class)
@@ -3404,12 +3404,12 @@ public abstract class HistoryToken implements HasUrlFragment,
                                 .setOffset(offset)
                         );
                     }
-                    if (this instanceof SpreadsheetCellReferencesHistoryToken) {
+                    if (this instanceof SpreadsheetCellReferenceListHistoryToken) {
                         after = cellReferences(
                             id,
                             name,
                             anchored,
-                            this.cast(SpreadsheetCellReferencesHistoryToken.class)
+                            this.cast(SpreadsheetCellReferenceListHistoryToken.class)
                                 .offsetAndCount
                                 .setOffset(offset)
                         );

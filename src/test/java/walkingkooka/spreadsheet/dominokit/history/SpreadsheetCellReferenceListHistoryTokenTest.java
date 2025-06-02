@@ -42,7 +42,7 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetCellReferencesHistoryTokenTest extends SpreadsheetCellHistoryTokenTestCase<SpreadsheetCellReferencesHistoryToken> {
+public final class SpreadsheetCellReferenceListHistoryTokenTest extends SpreadsheetCellHistoryTokenTestCase<SpreadsheetCellReferenceListHistoryToken> {
 
     // with.............................................................................................................
 
@@ -50,7 +50,7 @@ public final class SpreadsheetCellReferencesHistoryTokenTest extends Spreadsheet
     public void testWithNullReferencesFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetCellReferencesHistoryToken.with(
+            () -> SpreadsheetCellReferenceListHistoryToken.with(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
@@ -73,7 +73,7 @@ public final class SpreadsheetCellReferencesHistoryTokenTest extends Spreadsheet
         final int count = 123;
 
         this.countAndCheck(
-            SpreadsheetCellReferencesHistoryToken.with(
+            SpreadsheetCellReferenceListHistoryToken.with(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
@@ -89,7 +89,7 @@ public final class SpreadsheetCellReferencesHistoryTokenTest extends Spreadsheet
 
     @Test
     public void testSetCountWithSame() {
-        final SpreadsheetCellReferencesHistoryToken historyToken = this.createHistoryToken();
+        final SpreadsheetCellReferenceListHistoryToken historyToken = this.createHistoryToken();
 
         assertSame(
             historyToken,
@@ -104,7 +104,7 @@ public final class SpreadsheetCellReferencesHistoryTokenTest extends Spreadsheet
         this.setCountAndCheck(
             this.createHistoryToken(),
             count,
-            SpreadsheetCellReferencesHistoryToken.with(
+            SpreadsheetCellReferenceListHistoryToken.with(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
@@ -127,7 +127,7 @@ public final class SpreadsheetCellReferencesHistoryTokenTest extends Spreadsheet
         final int offset = 123;
 
         this.offsetAndCheck(
-            SpreadsheetCellReferencesHistoryToken.with(
+            SpreadsheetCellReferenceListHistoryToken.with(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
@@ -143,7 +143,7 @@ public final class SpreadsheetCellReferencesHistoryTokenTest extends Spreadsheet
 
     @Test
     public void testSetOffsetWithSame() {
-        final SpreadsheetCellReferencesHistoryToken historyToken = this.createHistoryToken();
+        final SpreadsheetCellReferenceListHistoryToken historyToken = this.createHistoryToken();
 
         assertSame(
             historyToken,
@@ -158,7 +158,7 @@ public final class SpreadsheetCellReferencesHistoryTokenTest extends Spreadsheet
         this.setOffsetAndCheck(
             this.createHistoryToken(),
             offset,
-            SpreadsheetCellReferencesHistoryToken.with(
+            SpreadsheetCellReferenceListHistoryToken.with(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
@@ -204,7 +204,7 @@ public final class SpreadsheetCellReferencesHistoryTokenTest extends Spreadsheet
     public void testParseCell() {
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/references",
-            SpreadsheetCellReferencesHistoryToken.with(
+            SpreadsheetCellReferenceListHistoryToken.with(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
@@ -217,7 +217,7 @@ public final class SpreadsheetCellReferencesHistoryTokenTest extends Spreadsheet
     public void testParseCellOffset() {
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/references/offset/123",
-            SpreadsheetCellReferencesHistoryToken.with(
+            SpreadsheetCellReferenceListHistoryToken.with(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
@@ -232,7 +232,7 @@ public final class SpreadsheetCellReferencesHistoryTokenTest extends Spreadsheet
     public void testParseCellCount() {
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/references/count/123",
-            SpreadsheetCellReferencesHistoryToken.with(
+            SpreadsheetCellReferenceListHistoryToken.with(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
@@ -247,7 +247,7 @@ public final class SpreadsheetCellReferencesHistoryTokenTest extends Spreadsheet
     public void testParseCellOffsetAndCount() {
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/references/offset/123/count/456",
-            SpreadsheetCellReferencesHistoryToken.with(
+            SpreadsheetCellReferenceListHistoryToken.with(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
@@ -264,7 +264,7 @@ public final class SpreadsheetCellReferencesHistoryTokenTest extends Spreadsheet
     public void testParseCellRange() {
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/B2:C3/references",
-            SpreadsheetCellReferencesHistoryToken.with(
+            SpreadsheetCellReferenceListHistoryToken.with(
                 ID,
                 NAME,
                 CELL_RANGE.setDefaultAnchor(),
@@ -277,7 +277,7 @@ public final class SpreadsheetCellReferencesHistoryTokenTest extends Spreadsheet
     public void testParseCellRangeAndAnchor() {
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/B2:C3/references",
-            SpreadsheetCellReferencesHistoryToken.with(
+            SpreadsheetCellReferenceListHistoryToken.with(
                 ID,
                 NAME,
                 CELL_RANGE.setDefaultAnchor(),
@@ -290,7 +290,7 @@ public final class SpreadsheetCellReferencesHistoryTokenTest extends Spreadsheet
     public void testParseCellRangeStar() {
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/*/references",
-            SpreadsheetCellReferencesHistoryToken.with(
+            SpreadsheetCellReferenceListHistoryToken.with(
                 ID,
                 NAME,
                 SpreadsheetSelection.ALL_CELLS.setDefaultAnchor(),
@@ -303,7 +303,7 @@ public final class SpreadsheetCellReferencesHistoryTokenTest extends Spreadsheet
     public void testParseCellRangeStarAndAnchor() {
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/*/bottom-right/references",
-            SpreadsheetCellReferencesHistoryToken.with(
+            SpreadsheetCellReferenceListHistoryToken.with(
                 ID,
                 NAME,
                 SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT),
@@ -497,10 +497,10 @@ public final class SpreadsheetCellReferencesHistoryTokenTest extends Spreadsheet
     }
 
     @Override
-    SpreadsheetCellReferencesHistoryToken createHistoryToken(final SpreadsheetId id,
-                                                             final SpreadsheetName name,
-                                                             final AnchoredSpreadsheetSelection selection) {
-        return SpreadsheetCellReferencesHistoryToken.with(
+    SpreadsheetCellReferenceListHistoryToken createHistoryToken(final SpreadsheetId id,
+                                                                final SpreadsheetName name,
+                                                                final AnchoredSpreadsheetSelection selection) {
+        return SpreadsheetCellReferenceListHistoryToken.with(
             id,
             name,
             selection,
@@ -511,7 +511,7 @@ public final class SpreadsheetCellReferencesHistoryTokenTest extends Spreadsheet
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetCellReferencesHistoryToken> type() {
-        return SpreadsheetCellReferencesHistoryToken.class;
+    public Class<SpreadsheetCellReferenceListHistoryToken> type() {
+        return SpreadsheetCellReferenceListHistoryToken.class;
     }
 }
