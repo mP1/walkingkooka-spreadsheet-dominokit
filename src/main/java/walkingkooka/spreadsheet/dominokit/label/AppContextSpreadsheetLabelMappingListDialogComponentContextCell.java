@@ -21,7 +21,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLabelsHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLabelListHistoryToken;
 
 final class AppContextSpreadsheetLabelMappingListDialogComponentContextCell extends AppContextSpreadsheetLabelMappingListDialogComponentContext {
 
@@ -54,6 +54,6 @@ final class AppContextSpreadsheetLabelMappingListDialogComponentContextCell exte
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return token instanceof SpreadsheetCellLabelsHistoryToken;
+        return token instanceof SpreadsheetCellLabelListHistoryToken;
     }
 }
