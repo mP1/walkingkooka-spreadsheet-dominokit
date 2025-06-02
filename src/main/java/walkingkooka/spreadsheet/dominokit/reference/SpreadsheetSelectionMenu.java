@@ -92,6 +92,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         // DATE TIME SYMBOLS
         // DECIMAL NUMBER SYMBOLS
         // VALUE TYPE
+        // VALUE
         // HIDE ZERO VALUES
         // -----
         // CLEAR
@@ -144,6 +145,12 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             );
 
             valueTypes(
+                historyToken,
+                menu,
+                context
+            );
+
+            value(
                 historyToken,
                 menu,
                 context
@@ -468,6 +475,54 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
 
         subMenu.disableIfEmpty();
     }
+
+    // value............................................................................................................
+
+    private static void value(final HistoryToken historyToken,
+                              final SpreadsheetContextMenu menu,
+                              final SpreadsheetSelectionMenuContext context) {
+        final SpreadsheetContextMenu subMenu = menu.subMenu(
+            context.idPrefix() + "value" + SpreadsheetElementIds.SUB_MENU,
+            "Value"
+        );
+
+        final String idPrefix = context.idPrefix() + "value-";
+
+        final SpreadsheetCell summary = context.selectionSummary()
+            .orElse(null);
+
+        for (final ValidationValueTypeName type : SpreadsheetValues.ALL) {
+            final String typeMenuId = idPrefix + type.value();
+
+            subMenu.item(
+                SpreadsheetContextMenuItem.with(
+                    typeMenuId + SpreadsheetElementIds.MENU_ITEM,
+                    CaseKind.CAMEL.change(
+                        type.text(),
+                        CaseKind.TITLE
+                    )
+                ).historyToken(
+                    Optional.of(
+                        historyToken.setValueType(
+                            Optional.of(type)
+                        )
+                    )
+                ).checked(
+                    type.equals(
+                        null == summary ?
+                            null :
+                            summary.formula()
+                                .valueType()
+                                .orElse(null)
+                    )
+                )
+            );
+        }
+
+        subMenu.disableIfEmpty();
+    }
+
+    // style............................................................................................................
 
     // ALIGNMENT
     // VERTICAL ALIGNMENT
