@@ -113,7 +113,7 @@ public final class SpreadsheetCellValueHistoryTokenTest extends SpreadsheetCellH
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
-            RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
             "/123/SpreadsheetName456/cell/B2:C3/top-left/value/hello-value-type"
         );
     }
@@ -169,7 +169,7 @@ public final class SpreadsheetCellValueHistoryTokenTest extends SpreadsheetCellH
             SpreadsheetCellValueHistoryToken.with(
                 ID,
                 NAME,
-                RANGE.setDefaultAnchor(),
+                CELL_RANGE.setDefaultAnchor(),
                 Optional.empty()
             )
         );

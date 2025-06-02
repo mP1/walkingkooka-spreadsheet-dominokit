@@ -73,9 +73,9 @@ public abstract class SpreadsheetCellLabelHistoryTokenTestCase<T extends Spreads
             this.createHistoryToken(
                 ID,
                 NAME,
-                RANGE.setDefaultAnchor()
+                CELL_RANGE.setDefaultAnchor()
             ),
-            RANGE
+            CELL_RANGE
         );
     }
 
@@ -100,7 +100,7 @@ public abstract class SpreadsheetCellLabelHistoryTokenTestCase<T extends Spreads
 
     @Test
     public final void testSetLabelMappingReferenceWhenCellRangeWithSameCellRange() {
-        this.setLabelMappingReferenceAndCheck(RANGE);
+        this.setLabelMappingReferenceAndCheck(CELL_RANGE);
     }
 
     @Test
@@ -123,8 +123,8 @@ public abstract class SpreadsheetCellLabelHistoryTokenTestCase<T extends Spreads
     @Test
     public final void testSetLabelMappingReferenceWhenCellRangeWithDifferentCellRange() {
         this.setLabelMappingReferenceAndCheck(
-            RANGE,
-            RANGE.add(
+            CELL_RANGE,
+            CELL_RANGE.add(
                 10,
                 10
             )

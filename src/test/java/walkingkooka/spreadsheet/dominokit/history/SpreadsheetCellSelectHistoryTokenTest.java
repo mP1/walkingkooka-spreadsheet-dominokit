@@ -50,7 +50,7 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
-            RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
             "/123/SpreadsheetName456/cell/B2:C3/top-left"
         );
     }
@@ -92,7 +92,7 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
             SpreadsheetCellSelectHistoryToken.with(
                 ID,
                 NAME,
-                RANGE.setDefaultAnchor()
+                CELL_RANGE.setDefaultAnchor()
             )
         );
     }
@@ -104,7 +104,7 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
             SpreadsheetCellSelectHistoryToken.with(
                 ID,
                 NAME,
-                RANGE.setDefaultAnchor()
+                CELL_RANGE.setDefaultAnchor()
             )
         );
     }

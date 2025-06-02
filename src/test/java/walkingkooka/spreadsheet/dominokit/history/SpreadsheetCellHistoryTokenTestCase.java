@@ -34,7 +34,7 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
 
     final static SpreadsheetCellReference CELL = SpreadsheetSelection.A1;
 
-    final static SpreadsheetCellRangeReference RANGE = SpreadsheetSelection.parseCellRange("B2:C3");
+    final static SpreadsheetCellRangeReference CELL_RANGE = SpreadsheetSelection.parseCellRange("B2:C3");
 
     final static AnchoredSpreadsheetSelection SELECTION = CELL.setDefaultAnchor();
 
