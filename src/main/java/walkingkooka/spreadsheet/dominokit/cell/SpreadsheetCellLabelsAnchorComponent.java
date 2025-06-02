@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLabelsHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLabelListHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 
@@ -59,7 +59,7 @@ public final class SpreadsheetCellLabelsAnchorComponent implements AnchorCompone
      */
     private Optional<SpreadsheetExpressionReference> getter(final HistoryTokenAnchorComponent anchor) {
         return anchor.historyToken()
-            .map(t -> t.cast(SpreadsheetCellLabelsHistoryToken.class)
+            .map(t -> t.cast(SpreadsheetCellLabelListHistoryToken.class)
                 .anchoredSelection()
                 .selection()
                 .toExpressionReference()
@@ -75,7 +75,7 @@ public final class SpreadsheetCellLabelsAnchorComponent implements AnchorCompone
             historyToken = this.context.historyToken()
                 .setSelection(value)
                 .labels(HistoryTokenOffsetAndCount.EMPTY);
-            if (false == (historyToken instanceof SpreadsheetCellLabelsHistoryToken)) {
+            if (false == (historyToken instanceof SpreadsheetCellLabelListHistoryToken)) {
                 historyToken = null;
             }
             text = value.get()

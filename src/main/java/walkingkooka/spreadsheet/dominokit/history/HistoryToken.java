@@ -558,13 +558,13 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
-     * {@see SpreadsheetCellLabelsHistoryToken}
+     * {@see SpreadsheetCellLabelListHistoryToken}
      */
-    public static SpreadsheetCellLabelsHistoryToken cellLabels(final SpreadsheetId id,
-                                                               final SpreadsheetName name,
-                                                               final AnchoredSpreadsheetSelection anchoredSelection,
-                                                               final HistoryTokenOffsetAndCount offsetAndCount) {
-        return SpreadsheetCellLabelsHistoryToken.with(
+    public static SpreadsheetCellLabelListHistoryToken cellLabels(final SpreadsheetId id,
+                                                                  final SpreadsheetName name,
+                                                                  final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                  final HistoryTokenOffsetAndCount offsetAndCount) {
+        return SpreadsheetCellLabelListHistoryToken.with(
             id,
             name,
             anchoredSelection,
@@ -2058,8 +2058,8 @@ public abstract class HistoryToken implements HasUrlFragment,
                         .selectionSelect();
                 }
 
-                if (this instanceof SpreadsheetCellLabelsHistoryToken) {
-                    closed = this.cast(SpreadsheetCellLabelsHistoryToken.class)
+                if (this instanceof SpreadsheetCellLabelListHistoryToken) {
+                    closed = this.cast(SpreadsheetCellLabelListHistoryToken.class)
                         .selectionSelect();
                 }
 
@@ -2230,8 +2230,8 @@ public abstract class HistoryToken implements HasUrlFragment,
                 .offsetAndCount
                 .count();
         }
-        if (this instanceof SpreadsheetCellLabelsHistoryToken) {
-            count = this.cast(SpreadsheetCellLabelsHistoryToken.class)
+        if (this instanceof SpreadsheetCellLabelListHistoryToken) {
+            count = this.cast(SpreadsheetCellLabelListHistoryToken.class)
                 .offsetAndCount
                 .count;
         }
@@ -2311,12 +2311,12 @@ public abstract class HistoryToken implements HasUrlFragment,
                     final AnchoredSpreadsheetSelection anchored = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
                         .anchoredSelection();
 
-                    if (this instanceof SpreadsheetCellLabelsHistoryToken) {
+                    if (this instanceof SpreadsheetCellLabelListHistoryToken) {
                         with = cellLabels(
                             id,
                             name,
                             anchored,
-                            this.cast(SpreadsheetCellLabelsHistoryToken.class)
+                            this.cast(SpreadsheetCellLabelListHistoryToken.class)
                                 .offsetAndCount
                                 .setCount(count)
                         );
@@ -3318,8 +3318,8 @@ public abstract class HistoryToken implements HasUrlFragment,
             if (this instanceof SpreadsheetListHistoryToken) {
                 offset = this.cast(SpreadsheetListHistoryToken.class).offsetAndCount.offset;
             } else {
-                if (this instanceof SpreadsheetCellLabelsHistoryToken) {
-                    offset = this.cast(SpreadsheetCellLabelsHistoryToken.class)
+                if (this instanceof SpreadsheetCellLabelListHistoryToken) {
+                    offset = this.cast(SpreadsheetCellLabelListHistoryToken.class)
                         .offsetAndCount
                         .offset;
                 } else {
@@ -3394,12 +3394,12 @@ public abstract class HistoryToken implements HasUrlFragment,
                     final AnchoredSpreadsheetSelection anchored = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
                         .anchoredSelection();
 
-                    if (this instanceof SpreadsheetCellLabelsHistoryToken) {
+                    if (this instanceof SpreadsheetCellLabelListHistoryToken) {
                         after = cellLabels(
                             id,
                             name,
                             anchored,
-                            this.cast(SpreadsheetCellLabelsHistoryToken.class)
+                            this.cast(SpreadsheetCellLabelListHistoryToken.class)
                                 .offsetAndCount
                                 .setOffset(offset)
                         );

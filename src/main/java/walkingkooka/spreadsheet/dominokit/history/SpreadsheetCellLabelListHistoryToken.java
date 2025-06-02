@@ -32,13 +32,13 @@ import java.util.Objects;
  * /1/SpreadsheetName222/cell/A1/labels/offset/1/count/2
  * </pre>
  */
-public final class SpreadsheetCellLabelsHistoryToken extends SpreadsheetCellHistoryToken {
+public final class SpreadsheetCellLabelListHistoryToken extends SpreadsheetCellHistoryToken {
 
-    static SpreadsheetCellLabelsHistoryToken with(final SpreadsheetId id,
-                                                  final SpreadsheetName name,
-                                                  final AnchoredSpreadsheetSelection anchoredSelection,
-                                                  final HistoryTokenOffsetAndCount offsetAndCount) {
-        return new SpreadsheetCellLabelsHistoryToken(
+    static SpreadsheetCellLabelListHistoryToken with(final SpreadsheetId id,
+                                                     final SpreadsheetName name,
+                                                     final AnchoredSpreadsheetSelection anchoredSelection,
+                                                     final HistoryTokenOffsetAndCount offsetAndCount) {
+        return new SpreadsheetCellLabelListHistoryToken(
             id,
             name,
             anchoredSelection,
@@ -46,10 +46,10 @@ public final class SpreadsheetCellLabelsHistoryToken extends SpreadsheetCellHist
         );
     }
 
-    private SpreadsheetCellLabelsHistoryToken(final SpreadsheetId id,
-                                              final SpreadsheetName name,
-                                              final AnchoredSpreadsheetSelection anchoredSelection,
-                                              final HistoryTokenOffsetAndCount offsetAndCount) {
+    private SpreadsheetCellLabelListHistoryToken(final SpreadsheetId id,
+                                                 final SpreadsheetName name,
+                                                 final AnchoredSpreadsheetSelection anchoredSelection,
+                                                 final HistoryTokenOffsetAndCount offsetAndCount) {
         super(
             id,
             name,
