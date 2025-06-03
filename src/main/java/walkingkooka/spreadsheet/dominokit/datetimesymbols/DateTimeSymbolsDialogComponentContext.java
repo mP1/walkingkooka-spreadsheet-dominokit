@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.datetimesymbols;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingDialogComponent;
 
 import java.util.Optional;
@@ -50,4 +52,14 @@ public interface DateTimeSymbolsDialogComponentContext extends
      * Saves the given value, preparing the {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken}
      */
     void save(final Optional<DateTimeSymbols> symbols);
+
+    /**
+     * Adds a {@link SpreadsheetDeltaFetcherWatcher}.
+     */
+    Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher);
+
+    /**
+     * Adds a {@link SpreadsheetMetadataFetcherWatcher}.
+     */
+    Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher);
 }

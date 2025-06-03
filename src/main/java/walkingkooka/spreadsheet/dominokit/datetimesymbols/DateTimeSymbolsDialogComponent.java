@@ -20,6 +20,9 @@ package walkingkooka.spreadsheet.dominokit.datetimesymbols;
 import walkingkooka.NeverError;
 import walkingkooka.collect.list.CsvStringList;
 import walkingkooka.datetime.DateTimeSymbols;
+import walkingkooka.net.AbsoluteOrRelativeUrl;
+import walkingkooka.net.http.HttpMethod;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
@@ -27,15 +30,22 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.csv.CsvStringListComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
 import walkingkooka.spreadsheet.dominokit.value.HistoryTokenSaveValueAnchorComponent;
+import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * A model dialog that includes numerous form fields supporting the editing on individual {@link walkingkooka.datetime.DateTimeSymbols}
@@ -55,7 +65,11 @@ import java.util.Optional;
  */
 public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogComponentLifecycle,
     LoadedSpreadsheetMetadataRequired,
-    ComponentLifecycleMatcherDelegator {
+    ComponentLifecycleMatcherDelegator,
+    SpreadsheetDeltaFetcherWatcher,
+    SpreadsheetMetadataFetcherWatcher,
+    NopFetcherWatcher,
+    NopEmptyResponseFetcherWatcher {
 
     /**
      * Creates a new {@link DateTimeSymbolsDialogComponent}.
@@ -88,6 +102,8 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
         this.dialog = this.dialogCreate();
 
         context.addHistoryTokenWatcher(this);
+        context.addSpreadsheetDeltaFetcherWatcher(this);
+        context.addSpreadsheetMetadataFetcherWatcher(this);
     }
 
     // dialog...........................................................................................................
@@ -442,6 +458,30 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
         this.refreshClear();
         this.refreshUndo();
         this.refreshClose();
+    }
+
+    // SpreadsheetDeltaFetcherWatcher...................................................................................
+
+    // eventually refresh will read the updated *CELL* from the cache
+    @Override
+    public void onSpreadsheetDelta(final HttpMethod method,
+                                   final AbsoluteOrRelativeUrl url,
+                                   final SpreadsheetDelta delta,
+                                   final AppContext context) {
+        this.refreshIfOpen(context);
+    }
+
+    // SpreadsheetMetadataFetcherWatcher................................................................................
+    @Override
+    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
+                                      final AppContext context) {
+        this.refreshIfOpen(context);
+    }
+
+    @Override
+    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
+                                         final AppContext context) {
+        // Ignore many
     }
 
     // Object...........................................................................................................

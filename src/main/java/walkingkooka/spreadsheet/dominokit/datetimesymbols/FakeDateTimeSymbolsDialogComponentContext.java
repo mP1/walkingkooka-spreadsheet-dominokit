@@ -19,6 +19,8 @@ package walkingkooka.spreadsheet.dominokit.datetimesymbols;
 
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.spreadsheet.dominokit.dialog.FakeSpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 
 import java.util.Optional;
@@ -56,6 +58,16 @@ public class FakeDateTimeSymbolsDialogComponentContext extends FakeSpreadsheetDi
 
     @Override
     public void save(final Optional<DateTimeSymbols> symbols) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 }
