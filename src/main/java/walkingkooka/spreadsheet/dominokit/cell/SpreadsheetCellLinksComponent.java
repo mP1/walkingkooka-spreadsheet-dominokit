@@ -42,6 +42,11 @@ public final class SpreadsheetCellLinksComponent implements HtmlElementComponent
 
     private SpreadsheetCellLinksComponent(final String id,
                                           final SpreadsheetCellLinksComponentContext context) {
+        this.value = SpreadsheetCellValueAnchorComponent.with(
+            id + "value" + SpreadsheetElementIds.LINK,
+            context
+        );
+
         this.createLabel = SpreadsheetCellCreateLabelSelectAnchorComponent.with(
             id + "createLabel" + SpreadsheetElementIds.LINK,
             context
@@ -63,6 +68,7 @@ public final class SpreadsheetCellLinksComponent implements HtmlElementComponent
         );
 
         this.root = SpreadsheetLinkListComponent.empty()
+            .appendChild(this.value)
             .appendChild(this.createLabel)
             .appendChild(this.labels)
             .appendChild(this.references)
@@ -78,6 +84,8 @@ public final class SpreadsheetCellLinksComponent implements HtmlElementComponent
     public SpreadsheetCellLinksComponent setValue(final Optional<SpreadsheetExpressionReference> value) {
         Objects.requireNonNull(value, "value");
 
+        this.value.setValue(value)
+            .setTextContent("Value");
         this.createLabel.setValue(value)
             .setTextContent("Create Label");
         this.labels.setValue(value)
@@ -93,6 +101,8 @@ public final class SpreadsheetCellLinksComponent implements HtmlElementComponent
     public SpreadsheetCellLinksComponent clearValue() {
         return this.setValue(Optional.empty());
     }
+
+    private final SpreadsheetCellValueAnchorComponent value;
 
     private final SpreadsheetCellCreateLabelSelectAnchorComponent createLabel;
 

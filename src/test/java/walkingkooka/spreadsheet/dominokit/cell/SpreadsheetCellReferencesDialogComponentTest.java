@@ -233,6 +233,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
                 "                    SpreadsheetLinkListComponent\n" +
                 "                      SpreadsheetFlexLayout\n" +
                 "                        ROW\n" +
+                "                          \"Value\" [#/123/SpreadsheetName456/cell/A1/value] id=references-cells-A1-value-Link\n" +
                 "                          \"Create Label\" [#/123/SpreadsheetName456/cell/A1/label] id=references-cells-A1-createLabel-Link\n" +
                 "                          \"Labels\" [#/123/SpreadsheetName456/cell/A1/labels] (0) id=references-cells-A1-label-Link\n" +
                 "                          \"References\" [#/123/SpreadsheetName456/cell/A1/references] (0) id=references-cells-A1-references-Link\n" +
