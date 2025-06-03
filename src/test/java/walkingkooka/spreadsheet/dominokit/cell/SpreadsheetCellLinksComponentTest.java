@@ -55,6 +55,7 @@ public final class SpreadsheetCellLinksComponentTest implements HtmlElementCompo
                 "  SpreadsheetLinkListComponent\n" +
                 "    SpreadsheetFlexLayout\n" +
                 "      ROW\n" +
+                "        \"Value\" DISABLED id=cells-value-Link\n" +
                 "        \"Create Label\" DISABLED id=cells-createLabel-Link\n" +
                 "        \"Labels\" DISABLED id=cells-label-Link\n" +
                 "        \"References\" DISABLED id=cells-references-Link\n" +
@@ -102,6 +103,7 @@ public final class SpreadsheetCellLinksComponentTest implements HtmlElementCompo
                 "  SpreadsheetLinkListComponent\n" +
                 "    SpreadsheetFlexLayout\n" +
                 "      ROW\n" +
+                "        \"Value\" [#/1/SpreadsheetName222/cell/A1/value] id=cells-value-Link\n" +
                 "        \"Create Label\" [#/1/SpreadsheetName222/cell/A1/label] id=cells-createLabel-Link\n" +
                 "        \"Labels\" [#/1/SpreadsheetName222/cell/A1/labels] (1) id=cells-label-Link\n" +
                 "        \"References\" [#/1/SpreadsheetName222/cell/A1/references] (2) id=cells-references-Link\n" +
