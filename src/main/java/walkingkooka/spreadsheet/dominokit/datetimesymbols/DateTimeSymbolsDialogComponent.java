@@ -95,6 +95,9 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
 
         this.save = this.saveValueAnchor(context)
             .autoDisableWhenMissingValue();
+
+        this.copyDefaults = this.copyDefaultValueAnchor(context);
+
         this.clear = this.clearValueAnchor(context);
         this.undo = this.undoAnchor(context);
         this.close = this.closeAnchor();
@@ -129,6 +132,7 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
                 .appendChild(this.save)
                 .appendChild(this.clear)
                 .appendChild(this.undo)
+                .appendChild(this.copyDefaults)
                 .appendChild(this.close)
         );
     }
@@ -393,6 +397,27 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
 
     private final HistoryTokenSaveValueAnchorComponent<DateTimeSymbols> save;
 
+    // copyDefaults.....................................................................................................
+
+    /**
+     * This link will copy the {@link DateTimeSymbols} from the locale etc.
+     */
+    private HistoryTokenSaveValueAnchorComponent<DateTimeSymbols> copyDefaultValueAnchor(final DateTimeSymbolsDialogComponentContext context) {
+        return HistoryTokenSaveValueAnchorComponent.<DateTimeSymbols>with(
+            this.idPrefix() +
+                "copyDefaults" +
+                SpreadsheetElementIds.LINK,
+            context
+        ).setTextContent("Copy Defaults");
+    }
+
+    private void refreshCopyDefaults() {
+        this.copyDefaults.setValue(
+            this.context.copyDateTimeSymbols()
+        );
+    }
+
+    private final HistoryTokenSaveValueAnchorComponent<DateTimeSymbols> copyDefaults;
     // clear.............................................................................................................
 
     private void refreshClear() {
@@ -455,6 +480,7 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
         this.dateTimeSymbols.setValue(dateTimeSymbols);
         this.refreshDateTimeSymbolsComponentsAndSave(dateTimeSymbols);
 
+        this.refreshCopyDefaults();
         this.refreshClear();
         this.refreshUndo();
         this.refreshClose();
