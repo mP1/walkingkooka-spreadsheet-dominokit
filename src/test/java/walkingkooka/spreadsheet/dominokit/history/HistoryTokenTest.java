@@ -3376,14 +3376,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     // cell/value.......................................................................................................
 
     @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellValue() {
+    public void testParseSpreadsheetIdSpreadsheetNameCellValueMissingValueType() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/cell/A1/value",
-            HistoryToken.cellValue(
+            HistoryToken.cellValueUnselect(
                 ID,
                 NAME,
-                CELL.setDefaultAnchor(),
-                Optional.empty()
+                CELL.setDefaultAnchor()
             )
         );
     }
@@ -3392,11 +3391,11 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     public void testParseSpreadsheetIdSpreadsheetNameCellValueValueType() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/cell/A1/value/text",
-            HistoryToken.cellValue(
+            HistoryToken.cellValueSelect(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                Optional.of(ValidationValueTypeName.TEXT)
+                ValidationValueTypeName.TEXT
             )
         );
     }
@@ -3405,12 +3404,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     public void testParseSpreadsheetIdSpreadsheetNameCellRangeValueValueType() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/cell/A1:A2/value/text",
-            HistoryToken.cellValue(
+            HistoryToken.cellValueSelect(
                 ID,
                 NAME,
                 SpreadsheetSelection.parseCellRange("A1:A2")
                     .setDefaultAnchor(),
-                Optional.of(ValidationValueTypeName.TEXT)
+                ValidationValueTypeName.TEXT
             )
         );
     }
@@ -3420,12 +3419,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     public void testParseSpreadsheetIdSpreadsheetNameLabelValueValueType() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/cell/Label123/value/text",
-            HistoryToken.cellValue(
+            HistoryToken.cellValueSelect(
                 ID,
                 NAME,
                 SpreadsheetSelection.labelName("Label123")
                     .setDefaultAnchor(),
-                Optional.of(ValidationValueTypeName.TEXT)
+                ValidationValueTypeName.TEXT
             )
         );
     }

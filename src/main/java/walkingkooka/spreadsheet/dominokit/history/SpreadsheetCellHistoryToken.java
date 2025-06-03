@@ -228,7 +228,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
     private HistoryToken parseValue(final TextCursor cursor) {
         final String valueTypeString = parseComponentOrNull(cursor);
 
-        return this.setValueType(
+        return this.setValue(
             Optional.ofNullable(
                 null == valueTypeString ?
                     null :
