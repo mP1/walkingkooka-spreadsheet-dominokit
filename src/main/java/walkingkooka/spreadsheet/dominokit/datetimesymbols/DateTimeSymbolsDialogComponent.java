@@ -364,7 +364,7 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
         this.ampms.clearValue();
         this.monthNames.clearValue();
         this.monthNameAbbreviations.clearValue();
-        this.weekDayNames.clear();
+        this.weekDayNames.clearValue();
         this.weekDayNameAbbreviations.clearValue();
         this.dateTimeSymbols.clearValue();
 
