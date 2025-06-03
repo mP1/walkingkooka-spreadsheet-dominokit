@@ -104,6 +104,25 @@ public final class AppContextSpreadsheetMetadataPropertyDateTimeSymbolsDialogCom
         );
     }
 
+    // copyDateTimeSymbols..............................................................................................
+
+    @Test
+    public void testCopyDateTimeSymbols() {
+        final AppContext appContext = new FakeAppContext() {
+
+            @Override
+            public SpreadsheetMetadata spreadsheetMetadata() {
+                return METADATA_EN_AU.set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, SPREADSHEET_ID)
+                    .set(SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS, DATE_TIME_SYMBOLS);
+            }
+        };
+
+        this.copyDateTimeSymbolsAndCheck(
+            AppContextSpreadsheetMetadataPropertyDateTimeSymbolsDialogComponentContext.with(appContext),
+            Optional.empty()
+        );
+    }
+
     // load.............................................................................................................
 
     @Test

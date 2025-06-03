@@ -52,6 +52,15 @@ public class AppContextSpreadsheetMetadataPropertyDateTimeSymbolsDialogComponent
         return DateTimeSymbols.class.getSimpleName();
     }
 
+    /**
+     * There is no source to copy when editing the {@link SpreadsheetMetadata}.
+     */
+    // TODO support copy values using SpreadsheetMetadataPropertyName#LOCALE
+    @Override
+    public Optional<DateTimeSymbols> copyDateTimeSymbols() {
+        return Optional.empty();
+    }
+
     @Override
     public Optional<DateTimeSymbols> loadDateTimeSymbols() {
         return this.context.spreadsheetMetadata()

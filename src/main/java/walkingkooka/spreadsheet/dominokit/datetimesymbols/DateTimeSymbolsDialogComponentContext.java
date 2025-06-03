@@ -37,6 +37,11 @@ public interface DateTimeSymbolsDialogComponentContext extends
     String dialogTitle();
 
     /**
+     * Used by "Copy Default" link as the source value.
+     */
+    Optional<DateTimeSymbols> copyDateTimeSymbols();
+
+    /**
      * Gets the current {@link DateTimeSymbols}
      */
     Optional<DateTimeSymbols> loadDateTimeSymbols();
