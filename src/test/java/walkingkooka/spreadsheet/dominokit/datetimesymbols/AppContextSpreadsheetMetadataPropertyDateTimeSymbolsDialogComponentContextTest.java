@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.datetimesymbols;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.datetime.DateTimeSymbols;
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
@@ -27,7 +26,6 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
-import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
@@ -128,9 +126,6 @@ public final class AppContextSpreadsheetMetadataPropertyDateTimeSymbolsDialogCom
     @Test
     public void testLoadDateTimeSymbols() {
         final Optional<DateTimeSymbols> dateTimeSymbols = Optional.of(DATE_TIME_SYMBOLS);
-
-        final SpreadsheetCell cell = SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
-            .setDateTimeSymbols(dateTimeSymbols);
 
         final AppContext appContext = new FakeAppContext() {
             @Override
