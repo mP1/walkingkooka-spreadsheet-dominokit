@@ -559,12 +559,14 @@ public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDia
         this.negativeSign.clearValue();
         this.positiveSign.clearValue();
         this.zeroDigit.clearValue();
+
         this.currencySymbol.clearValue();
         this.decimalSeparator.clearValue();
         this.exponentSymbol.clearValue();
         this.groupSeparator.clearValue();
         this.infinitySymbol.clearValue();
         this.monetaryDecimalSeparator.clearValue();
+        this.nanSymbol.clearValue();
         this.percentSymbol.clearValue();
         this.permillSymbol.clearValue();
         this.decimalNumberSymbols.clearValue();
