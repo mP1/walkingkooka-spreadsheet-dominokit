@@ -871,6 +871,19 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
+    public void patchValue(final SpreadsheetId id,
+                           final SpreadsheetSelection selection,
+                           final Optional<Object> value) {
+        this.patchDeltaWithViewportAndWindowQueryString(
+            id,
+            selection,
+            SpreadsheetDelta.valuePatch(
+                value,
+                this.context
+            )
+        );
+    }
+
     public void patchValueType(final SpreadsheetId id,
                                final SpreadsheetSelection selection,
                                final Optional<ValidationValueTypeName> valueType) {
