@@ -111,6 +111,9 @@ public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDia
 
         this.save = this.saveValueAnchor(context)
             .autoDisableWhenMissingValue();
+
+        this.copyDefaults = this.copyDefaultValueAnchor(context);
+
         this.clear = this.clearValueAnchor(context);
         this.undo = this.undoAnchor(context);
         this.close = this.closeAnchor();
@@ -152,6 +155,7 @@ public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDia
                 .appendChild(this.save)
                 .appendChild(this.clear)
                 .appendChild(this.undo)
+                .appendChild(this.copyDefaults)
                 .appendChild(this.close)
         );
     }
@@ -578,6 +582,29 @@ public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDia
 
     private final HistoryTokenSaveValueAnchorComponent<DecimalNumberSymbols> save;
 
+    // copyDefaults.....................................................................................................
+
+    /**
+     * This link will copy the {@link DecimalNumberSymbols} from the locale etc.
+     */
+    private HistoryTokenSaveValueAnchorComponent<DecimalNumberSymbols> copyDefaultValueAnchor(final DecimalNumberSymbolsDialogComponentContext context) {
+        return HistoryTokenSaveValueAnchorComponent.<DecimalNumberSymbols>with(
+                this.idPrefix() +
+                    "copyDefaults" +
+                    SpreadsheetElementIds.LINK,
+                context
+            ).setTextContent("Copy Defaults")
+            .autoDisableWhenMissingValue();
+    }
+
+    private void refreshCopyDefaults() {
+        this.copyDefaults.setValue(
+            this.context.copyDecimalNumberSymbols()
+        );
+    }
+
+    private final HistoryTokenSaveValueAnchorComponent<DecimalNumberSymbols> copyDefaults;
+    
     // clear............................................................................................................
 
     private void refreshClear() {
@@ -640,6 +667,7 @@ public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDia
         this.decimalNumberSymbols.setValue(decimalNumberSymbols);
         this.refreshDecimalNumberSymbolsComponentsAndSave(decimalNumberSymbols);
 
+        this.refreshCopyDefaults();
         this.refreshClear();
         this.refreshUndo();
         this.refreshClose();

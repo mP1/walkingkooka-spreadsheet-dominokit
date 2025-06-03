@@ -47,6 +47,11 @@ public class FakeDecimalNumberSymbolsDialogComponentContext extends FakeSpreadsh
     }
 
     @Override
+    public Optional<DecimalNumberSymbols> copyDecimalNumberSymbols() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public Optional<DecimalNumberSymbols> loadDecimalNumberSymbols() {
         throw new UnsupportedOperationException();
     }
