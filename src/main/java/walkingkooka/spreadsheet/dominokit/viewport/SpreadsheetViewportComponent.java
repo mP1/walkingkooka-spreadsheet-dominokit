@@ -138,7 +138,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     private SpreadsheetViewportComponent(final SpreadsheetViewportComponentContext context) {
         this.context = context;
 
-        this.formula = this.formula();
+        this.formula = this.createFormula();
         this.formulaCellLinks = this.formulaCellLinks();
 
         this.table = this.table();
@@ -328,7 +328,10 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
     // formulaComponent.................................................................................................
 
-    private SpreadsheetViewportFormulaComponent formula() {
+    /**
+     * Factory that creates the {@link SpreadsheetViewportFormulaComponent}
+     */
+    private SpreadsheetViewportFormulaComponent createFormula() {
         SpreadsheetViewportFormulaComponent component = SpreadsheetViewportFormulaComponent.with(this.context);
 
         component.element()
@@ -338,6 +341,13 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
             );
 
         return component;
+    }
+
+    /**
+     * Getter that returns the embedded {@link SpreadsheetViewportFormulaComponent}.
+     */
+    public SpreadsheetViewportFormulaComponent formula() {
+        return this.formula;
     }
 
     private final SpreadsheetViewportFormulaComponent formula;
