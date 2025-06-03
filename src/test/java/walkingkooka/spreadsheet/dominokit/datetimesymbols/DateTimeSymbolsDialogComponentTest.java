@@ -42,6 +42,80 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
     // onHistoryToken...................................................................................................
 
     @Test
+    public void testOnHistoryTokenWithSpreadsheetCellDateTimeSymbolsSelectHistoryToken() {
+        final AppContext context = this.appContext(
+            HistoryToken.cellDateTimeSymbolsSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            DATE_TIME_SYMBOLS
+        );
+
+        this.onHistoryTokenChangeAndCheck(
+            DateTimeSymbolsDialogComponent.with(
+                DateTimeSymbolsDialogComponentContexts.cell(context)
+            ),
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            context,
+            "DateTimeSymbolsDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    DateTimeSymbols\n" +
+                "    id=dateTimeSymbols-Dialog includeClose=true\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          CsvStringListComponent\n" +
+                "            ValueSpreadsheetTextBox\n" +
+                "              SpreadsheetTextBox\n" +
+                "                AM/PM [] id=dateTimeSymbolsampms-TextBox\n" +
+                "                Errors\n" +
+                "                  Require 2\n" +
+                "          CsvStringListComponent\n" +
+                "            ValueSpreadsheetTextBox\n" +
+                "              SpreadsheetTextBox\n" +
+                "                Month names [] id=dateTimeSymbolsmonthNames-TextBox\n" +
+                "                Errors\n" +
+                "                  Require 12 or more\n" +
+                "          CsvStringListComponent\n" +
+                "            ValueSpreadsheetTextBox\n" +
+                "              SpreadsheetTextBox\n" +
+                "                Month name abbreviations [] id=dateTimeSymbolsmonthNameAbbreviations-TextBox\n" +
+                "                Errors\n" +
+                "                  Require 12 or more\n" +
+                "          CsvStringListComponent\n" +
+                "            ValueSpreadsheetTextBox\n" +
+                "              SpreadsheetTextBox\n" +
+                "                Week day names [] id=dateTimeSymbolsweekDayNames-TextBox\n" +
+                "                Errors\n" +
+                "                  Require 7\n" +
+                "          CsvStringListComponent\n" +
+                "            ValueSpreadsheetTextBox\n" +
+                "              SpreadsheetTextBox\n" +
+                "                Week day names Abbreviations [] id=dateTimeSymbolsweekDayNameAbbreviations-TextBox\n" +
+                "                Errors\n" +
+                "                  Require 7\n" +
+                "          DateTimeSymbolsComponent\n" +
+                "            ValueSpreadsheetTextBox\n" +
+                "              SpreadsheetTextBox\n" +
+                "                Date Time Symbols []\n" +
+                "                Errors\n" +
+                "                  Expected 5 tokens but got 0\n" +
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" DISABLED id=dateTimeSymbols-save-Link\n" +
+                "            \"Clear\" [#/1/SpreadsheetName1/cell/A1/dateTimeSymbols/save/] id=dateTimeSymbols-clear-Link\n" +
+                "            \"Undo\" [#/1/SpreadsheetName1/cell/A1/dateTimeSymbols/save/] id=dateTimeSymbols-undo-Link\n" +
+                "            \"Copy Defaults\" [#/1/SpreadsheetName1/cell/A1/dateTimeSymbols/save/%22am,pm%22,%22January,February,March,April,May,June,July,August,September,October,November,December%22,%22Jan.,Feb.,Mar.,Apr.,May,Jun.,Jul.,Aug.,Sep.,Oct.,Nov.,Dec.%22,%22Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday%22,%22Sun.,Mon.,Tue.,Wed.,Thu.,Fri.,Sat.%22] id=dateTimeSymbols-copyDefaults-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName1/cell/A1] id=dateTimeSymbols-close-Link\n"
+        );
+    }
+
+    @Test
     public void testOnHistoryTokenWithSpreadsheetMetadataPropertySelectHistoryTokenDateTimeSymbols() {
         final AppContext context = this.appContext(
             HistoryToken.metadataPropertySelect(
@@ -98,7 +172,7 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
                 "            \"Save\" [#/1/SpreadsheetName1/spreadsheet/dateTimeSymbols/save/%22am,pm%22,%22January,February,March,April,May,June,July,August,September,October,November,December%22,%22Jan.,Feb.,Mar.,Apr.,May,Jun.,Jul.,Aug.,Sep.,Oct.,Nov.,Dec.%22,%22Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday%22,%22Sun.,Mon.,Tue.,Wed.,Thu.,Fri.,Sat.%22] id=dateTimeSymbols-save-Link\n" +
                 "            \"Clear\" [#/1/SpreadsheetName1/spreadsheet/dateTimeSymbols/save/] id=dateTimeSymbols-clear-Link\n" +
                 "            \"Undo\" [#/1/SpreadsheetName1/spreadsheet/dateTimeSymbols/save/%22am,pm%22,%22January,February,March,April,May,June,July,August,September,October,November,December%22,%22Jan.,Feb.,Mar.,Apr.,May,Jun.,Jul.,Aug.,Sep.,Oct.,Nov.,Dec.%22,%22Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday%22,%22Sun.,Mon.,Tue.,Wed.,Thu.,Fri.,Sat.%22] id=dateTimeSymbols-undo-Link\n" +
-                "            \"Copy Defaults\" [#/1/SpreadsheetName1/spreadsheet/dateTimeSymbols/save/] id=dateTimeSymbols-copyDefaults-Link\n" +
+                "            \"Copy Defaults\" DISABLED id=dateTimeSymbols-copyDefaults-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName1/spreadsheet] id=dateTimeSymbols-close-Link\n"
         );
     }
@@ -172,7 +246,7 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
                 "            \"Save\" DISABLED id=dateTimeSymbols-save-Link\n" +
                 "            \"Clear\" [#/1/SpreadsheetName1/spreadsheet/dateTimeSymbols/save/] id=dateTimeSymbols-clear-Link\n" +
                 "            \"Undo\" [#/1/SpreadsheetName1/spreadsheet/dateTimeSymbols/save/] id=dateTimeSymbols-undo-Link\n" +
-                "            \"Copy Defaults\" [#/1/SpreadsheetName1/spreadsheet/dateTimeSymbols/save/] id=dateTimeSymbols-copyDefaults-Link\n" +
+                "            \"Copy Defaults\" DISABLED id=dateTimeSymbols-copyDefaults-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName1/spreadsheet] id=dateTimeSymbols-close-Link\n"
         );
     }
