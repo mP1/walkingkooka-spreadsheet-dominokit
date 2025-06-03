@@ -3900,7 +3900,11 @@ public abstract class HistoryToken implements HasUrlFragment,
                                     }
                                 }
                             } else {
-                                throw new IllegalArgumentException("Invalid value");
+                                if(null == valueOrNull) {
+                                    historyToken = this.clearAction();
+                                } else {
+                                    throw new IllegalArgumentException("Invalid value");
+                                }
                             }
                         }
                     }
