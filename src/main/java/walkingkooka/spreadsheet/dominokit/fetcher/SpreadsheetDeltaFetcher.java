@@ -930,20 +930,6 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
-    private void patchDeltaWithViewportAndWindowQueryString(final SpreadsheetId id,
-                                                            final SpreadsheetSelection selection,
-                                                            final SpreadsheetDelta delta) {
-        this.patch(
-            url(
-                id,
-                selection
-            ).setQuery(
-                this.context.viewportAndWindowQueryString()
-            ),
-            this.requestBody(delta)
-        );
-    }
-
     private void postDelta(final AbsoluteOrRelativeUrl url,
                            final SpreadsheetDelta delta) {
         this.post(
