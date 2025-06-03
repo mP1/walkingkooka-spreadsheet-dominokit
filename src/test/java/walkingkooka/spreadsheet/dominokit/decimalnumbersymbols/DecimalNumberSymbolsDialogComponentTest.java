@@ -199,6 +199,8 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
                 "                  Empty \"Monetary decimal separator\"\n" +
                 "          SpreadsheetTextBox\n" +
                 "            Nan [] id=decimalNumberSymbolsnanSymbol-TextBox\n" +
+                "            Errors\n" +
+                "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
