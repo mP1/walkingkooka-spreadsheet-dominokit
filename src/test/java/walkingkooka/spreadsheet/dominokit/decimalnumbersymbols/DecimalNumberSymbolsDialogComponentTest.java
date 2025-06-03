@@ -42,6 +42,106 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
     // onHistoryToken...................................................................................................
 
     @Test
+    public void testOnHistoryTokenWithSpreadsheetCellDecimalNumberSymbolsSelectHistoryToken() {
+        final AppContext context = this.appContext(
+            HistoryToken.cellDecimalNumberSymbolsSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            DECIMAL_NUMBER_SYMBOLS
+        );
+
+        this.onHistoryTokenChangeAndCheck(
+            DecimalNumberSymbolsDialogComponent.with(
+                DecimalNumberSymbolsDialogComponentContexts.metadata(context)
+            ),
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            context,
+            "DecimalNumberSymbolsDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    DecimalNumberSymbols\n" +
+                "    id=decimalNumberSymbols-Dialog includeClose=true CLOSED\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          CharacterComponent\n" +
+                "            ValueSpreadsheetTextBox\n" +
+                "              SpreadsheetTextBox\n" +
+                "                Negative sign [] id=decimalNumberSymbolsnegativeSign-TextBox\n" +
+                "                Errors\n" +
+                "                  Empty \"Negative sign\"\n" +
+                "          CharacterComponent\n" +
+                "            ValueSpreadsheetTextBox\n" +
+                "              SpreadsheetTextBox\n" +
+                "                Positive sign [] id=decimalNumberSymbolspositiveSign-TextBox\n" +
+                "                Errors\n" +
+                "                  Empty \"Positive sign\"\n" +
+                "          CharacterComponent\n" +
+                "            ValueSpreadsheetTextBox\n" +
+                "              SpreadsheetTextBox\n" +
+                "                Zero digit [] id=decimalNumberSymbolszeroDigit-TextBox\n" +
+                "                Errors\n" +
+                "                  Empty \"Zero digit\"\n" +
+                "          SpreadsheetTextBox\n" +
+                "            Currency [] id=decimalNumberSymbolscurrencySymbol-TextBox\n" +
+                "          CharacterComponent\n" +
+                "            ValueSpreadsheetTextBox\n" +
+                "              SpreadsheetTextBox\n" +
+                "                Decimal separator [] id=decimalNumberSymbolsdecimalSeparator-TextBox\n" +
+                "                Errors\n" +
+                "                  Empty \"Decimal separator\"\n" +
+                "          SpreadsheetTextBox\n" +
+                "            Exponent [] id=decimalNumberSymbolsexponentSymbol-TextBox\n" +
+                "          CharacterComponent\n" +
+                "            ValueSpreadsheetTextBox\n" +
+                "              SpreadsheetTextBox\n" +
+                "                Group separator [] id=decimalNumberSymbolsgroupSeparator-TextBox\n" +
+                "                Errors\n" +
+                "                  Empty \"Group separator\"\n" +
+                "          SpreadsheetTextBox\n" +
+                "            Infinity [] id=decimalNumberSymbolsinfinitySymbol-TextBox\n" +
+                "          CharacterComponent\n" +
+                "            ValueSpreadsheetTextBox\n" +
+                "              SpreadsheetTextBox\n" +
+                "                Monetary decimal separator [] id=decimalNumberSymbolsmonetaryDecimalSeparator-TextBox\n" +
+                "                Errors\n" +
+                "                  Empty \"Monetary decimal separator\"\n" +
+                "          SpreadsheetTextBox\n" +
+                "            Nan [] id=decimalNumberSymbolsnanSymbol-TextBox\n" +
+                "          CharacterComponent\n" +
+                "            ValueSpreadsheetTextBox\n" +
+                "              SpreadsheetTextBox\n" +
+                "                Percent symbol [] id=decimalNumberSymbolspercentSymbol-TextBox\n" +
+                "                Errors\n" +
+                "                  Empty \"Percent symbol\"\n" +
+                "          CharacterComponent\n" +
+                "            ValueSpreadsheetTextBox\n" +
+                "              SpreadsheetTextBox\n" +
+                "                Permill symbol [] id=decimalNumberSymbolspermillSymbol-TextBox\n" +
+                "                Errors\n" +
+                "                  Empty \"Permill symbol\"\n" +
+                "          DecimalNumberSymbolsComponent\n" +
+                "            ValueSpreadsheetTextBox\n" +
+                "              SpreadsheetTextBox\n" +
+                "                Date Time Symbols []\n" +
+                "                Errors\n" +
+                "                  Expected 12 tokens but got 0\n" +
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" DISABLED id=decimalNumberSymbols-save-Link\n" +
+                "            \"Clear\" DISABLED id=decimalNumberSymbols-clear-Link\n" +
+                "            \"Undo\" DISABLED id=decimalNumberSymbols-undo-Link\n" +
+                "            \"Copy Defaults\" DISABLED id=decimalNumberSymbols-copyDefaults-Link\n" +
+                "            \"Close\" DISABLED id=decimalNumberSymbols-close-Link\n"
+        );
+    }
+
+    @Test
     public void testOnHistoryTokenWithSpreadsheetMetadataPropertySelectHistoryTokenDecimalNumberSymbols() {
         final AppContext context = this.appContext(
             HistoryToken.metadataPropertySelect(
@@ -118,6 +218,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
                 "            \"Save\" [#/1/SpreadsheetName1/spreadsheet/decimalNumberSymbols/save/-,+,0,$,.,e,%22,%22,%E2%88%9E,.,NaN,%25,%E2%80%B0] id=decimalNumberSymbols-save-Link\n" +
                 "            \"Clear\" [#/1/SpreadsheetName1/spreadsheet/decimalNumberSymbols/save/] id=decimalNumberSymbols-clear-Link\n" +
                 "            \"Undo\" [#/1/SpreadsheetName1/spreadsheet/decimalNumberSymbols/save/-,+,0,$,.,e,%22,%22,%E2%88%9E,.,NaN,%25,%E2%80%B0] id=decimalNumberSymbols-undo-Link\n" +
+                "            \"Copy Defaults\" DISABLED id=decimalNumberSymbols-copyDefaults-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName1/spreadsheet] id=decimalNumberSymbols-close-Link\n"
         );
     }
@@ -225,6 +326,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
                 "            \"Save\" DISABLED id=decimalNumberSymbols-save-Link\n" +
                 "            \"Clear\" [#/1/SpreadsheetName1/spreadsheet/decimalNumberSymbols/save/] id=decimalNumberSymbols-clear-Link\n" +
                 "            \"Undo\" [#/1/SpreadsheetName1/spreadsheet/decimalNumberSymbols/save/] id=decimalNumberSymbols-undo-Link\n" +
+                "            \"Copy Defaults\" DISABLED id=decimalNumberSymbols-copyDefaults-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName1/spreadsheet] id=decimalNumberSymbols-close-Link\n"
         );
     }

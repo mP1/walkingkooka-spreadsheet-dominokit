@@ -38,6 +38,11 @@ public interface DecimalNumberSymbolsDialogComponentContext extends
     String dialogTitle();
 
     /**
+     * An alternative {@link DecimalNumberSymbols} to copy to the dialog being edited.
+     */
+    Optional<DecimalNumberSymbols> copyDecimalNumberSymbols();
+
+    /**
      * Gets the current {@link DecimalNumberSymbols}
      */
     Optional<DecimalNumberSymbols> loadDecimalNumberSymbols();

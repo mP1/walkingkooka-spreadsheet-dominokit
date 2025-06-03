@@ -55,6 +55,11 @@ public class AppContextSpreadsheetMetadataPropertyDecimalNumberSymbolsDialogComp
     }
 
     @Override
+    public Optional<DecimalNumberSymbols> copyDecimalNumberSymbols() {
+        return Optional.empty();
+    }
+
+    @Override
     public Optional<DecimalNumberSymbols> loadDecimalNumberSymbols() {
         return this.context.spreadsheetMetadata()
             .get(SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_SYMBOLS);
