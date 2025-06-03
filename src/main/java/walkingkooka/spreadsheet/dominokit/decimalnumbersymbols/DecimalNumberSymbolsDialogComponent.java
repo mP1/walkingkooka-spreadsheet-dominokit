@@ -21,7 +21,10 @@ import walkingkooka.Cast;
 import walkingkooka.EmptyTextException;
 import walkingkooka.NeverError;
 import walkingkooka.math.DecimalNumberSymbols;
+import walkingkooka.net.AbsoluteOrRelativeUrl;
+import walkingkooka.net.http.HttpMethod;
 import walkingkooka.predicate.character.CharPredicate;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
@@ -29,6 +32,10 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.character.CharacterComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
@@ -36,9 +43,12 @@ import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
 import walkingkooka.spreadsheet.dominokit.value.HistoryTokenSaveValueAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetValidators;
+import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * A model dialog that includes numerous form fields supporting the editing on individual {@link DecimalNumberSymbols}
@@ -65,7 +75,11 @@ import java.util.Optional;
  */
 public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDialogComponentLifecycle,
     LoadedSpreadsheetMetadataRequired,
-    ComponentLifecycleMatcherDelegator {
+    ComponentLifecycleMatcherDelegator,
+    SpreadsheetDeltaFetcherWatcher,
+    SpreadsheetMetadataFetcherWatcher,
+    NopFetcherWatcher,
+    NopEmptyResponseFetcherWatcher {
 
     /**
      * Creates a new {@link DecimalNumberSymbolsDialogComponent}.
@@ -104,6 +118,8 @@ public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDia
         this.dialog = this.dialogCreate();
 
         context.addHistoryTokenWatcher(this);
+        context.addSpreadsheetDeltaFetcherWatcher(this);
+        context.addSpreadsheetMetadataFetcherWatcher(this);
     }
 
     // dialog...........................................................................................................
@@ -625,6 +641,30 @@ public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDia
         this.refreshClear();
         this.refreshUndo();
         this.refreshClose();
+    }
+
+    // SpreadsheetDeltaFetcherWatcher...................................................................................
+
+    // eventually refresh will read the updated *CELL* from the cache
+    @Override
+    public void onSpreadsheetDelta(final HttpMethod method,
+                                   final AbsoluteOrRelativeUrl url,
+                                   final SpreadsheetDelta delta,
+                                   final AppContext context) {
+        this.refreshIfOpen(context);
+    }
+
+    // SpreadsheetMetadataFetcherWatcher................................................................................
+    @Override
+    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
+                                      final AppContext context) {
+        this.refreshIfOpen(context);
+    }
+
+    @Override
+    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
+                                         final AppContext context) {
+        // Ignore many
     }
 
     // Object...........................................................................................................
