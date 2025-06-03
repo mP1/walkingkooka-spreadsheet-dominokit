@@ -408,7 +408,8 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
                 "copyDefaults" +
                 SpreadsheetElementIds.LINK,
             context
-        ).setTextContent("Copy Defaults");
+        ).setTextContent("Copy Defaults")
+            .autoDisableWhenMissingValue();
     }
 
     private void refreshCopyDefaults() {
