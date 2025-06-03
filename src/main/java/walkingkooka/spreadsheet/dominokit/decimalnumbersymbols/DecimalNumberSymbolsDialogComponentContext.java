@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.decimalnumbersymbols;
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 
 import java.util.Optional;
 
@@ -44,4 +46,14 @@ public interface DecimalNumberSymbolsDialogComponentContext extends
      * Saves the given value, preparing the {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken}
      */
     void save(final Optional<DecimalNumberSymbols> symbols);
+
+    /**
+     * Adds a {@link SpreadsheetDeltaFetcherWatcher}.
+     */
+    Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher);
+
+    /**
+     * Adds a {@link SpreadsheetMetadataFetcherWatcher}.
+     */
+    Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher);
 }
