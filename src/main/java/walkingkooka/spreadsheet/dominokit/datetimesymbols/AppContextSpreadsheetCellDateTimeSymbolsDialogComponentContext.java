@@ -54,6 +54,12 @@ final class AppContextSpreadsheetCellDateTimeSymbolsDialogComponentContext imple
     }
 
     @Override
+    public Optional<DateTimeSymbols> copyDateTimeSymbols() {
+        return this.context.spreadsheetMetadata()
+            .get(SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS);
+    }
+
+    @Override
     public Optional<DateTimeSymbols> loadDateTimeSymbols() {
         final AppContext context = this.context;
 

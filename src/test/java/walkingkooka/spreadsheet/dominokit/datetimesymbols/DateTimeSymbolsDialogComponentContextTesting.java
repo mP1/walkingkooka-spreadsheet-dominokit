@@ -26,6 +26,29 @@ import java.util.Optional;
 public interface DateTimeSymbolsDialogComponentContextTesting<C extends DateTimeSymbolsDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C>,
     ComponentLifecycleMatcherTesting<C> {
 
+    default void copyDateTimeSymbolsAndCheck(final C context) {
+        this.copyDateTimeSymbolsAndCheck(
+            context,
+            Optional.empty()
+        );
+    }
+
+    default void copyDateTimeSymbolsAndCheck(final C context,
+                                             final DateTimeSymbols expected) {
+        this.copyDateTimeSymbolsAndCheck(
+            context,
+            Optional.of(expected)
+        );
+    }
+
+    default void copyDateTimeSymbolsAndCheck(final C context,
+                                             final Optional<DateTimeSymbols> expected) {
+        this.checkEquals(
+            expected,
+            context.copyDateTimeSymbols()
+        );
+    }
+
     default void loadDateTimeSymbolsAndCheck(final C context,
                                              final Optional<DateTimeSymbols> expected) {
         this.checkEquals(
