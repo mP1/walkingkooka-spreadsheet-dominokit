@@ -150,6 +150,8 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Week day names [] id=dateTimeSymbolsweekDayNames-TextBox\n" +
+                "                Errors\n" +
+                "                  Require 7\n" +
                 "          CsvStringListComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
