@@ -275,6 +275,14 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
         );
     }
 
+    @Test
+    public void testSetSaveValueWithOptionalEmpty() {
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            Optional.empty()
+        );
+    }
+
     // setLabel.........................................................................................................
 
     @Test
