@@ -761,7 +761,10 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         this.patchDeltaWithViewportAndWindowQueryString(
             id,
             selection,
-            SpreadsheetDelta.cellsValueTypePatch(cellToValueTypes)
+            SpreadsheetDelta.cellsValueTypePatch(
+                cellToValueTypes,
+                this.context
+            )
         );
     }
 
@@ -875,7 +878,8 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
             id,
             selection,
             SpreadsheetDelta.valueTypePatch(
-                valueType
+                valueType,
+                this.context
             )
         );
     }
