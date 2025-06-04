@@ -4782,6 +4782,30 @@ public abstract class HistoryToken implements HasUrlFragment,
         return Optional.ofNullable(token);
     }
 
+    // validator........................................................................................................
+
+    /**
+     * If possible selects a {@link ValidatorSelector} {@link HistoryToken}.
+     */
+    public final HistoryToken validator() {
+        HistoryToken historyToken;
+
+        if (this instanceof SpreadsheetCellSelectHistoryToken || this instanceof SpreadsheetCellMenuHistoryToken) {
+            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
+
+            historyToken = HistoryToken.cellValidatorSelect(
+                cell.id(),
+                cell.name(),
+                cell.anchoredSelection()
+            );
+
+        } else {
+            historyToken = this;
+        }
+
+        return historyToken;
+    }
+
     // value............................................................................................................
 
     public final HistoryToken setValue(final Optional<ValidationValueTypeName> valueType) {
@@ -4856,30 +4880,6 @@ public abstract class HistoryToken implements HasUrlFragment,
             final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
 
             historyToken = HistoryToken.cellValueTypeSelect(
-                cell.id(),
-                cell.name(),
-                cell.anchoredSelection()
-            );
-
-        } else {
-            historyToken = this;
-        }
-
-        return historyToken;
-    }
-
-    // validator........................................................................................................
-
-    /**
-     * If possible selects a {@link ValidatorSelector} {@link HistoryToken}.
-     */
-    public final HistoryToken validator() {
-        HistoryToken historyToken;
-
-        if (this instanceof SpreadsheetCellSelectHistoryToken || this instanceof SpreadsheetCellMenuHistoryToken) {
-            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
-
-            historyToken = HistoryToken.cellValidatorSelect(
                 cell.id(),
                 cell.name(),
                 cell.anchoredSelection()
