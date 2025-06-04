@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import com.google.gwt.core.client.GWT;
 import walkingkooka.Cast;
 import walkingkooka.Value;
 import walkingkooka.color.Color;
@@ -3761,6 +3762,10 @@ public abstract class HistoryToken implements HasUrlFragment,
         Objects.requireNonNull(value, "value");
 
         final Object valueOrNull = value.orElse(null);
+
+        if(valueOrNull != null) {
+            GWT.log("@@setSaveValue " + valueOrNull.getClass().getName() + " " + valueOrNull + " " + this);
+        }
 
         HistoryToken historyToken = null;
 

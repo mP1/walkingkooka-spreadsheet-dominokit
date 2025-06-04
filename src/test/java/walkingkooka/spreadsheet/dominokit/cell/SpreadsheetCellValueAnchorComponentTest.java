@@ -19,12 +19,13 @@ package walkingkooka.spreadsheet.dominokit.cell;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentTesting;
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.validation.ValidationValueTypeName;
 
 import java.util.Optional;
 
@@ -50,7 +51,7 @@ public final class SpreadsheetCellValueAnchorComponentTest implements AnchorComp
         this.treePrintAndCheck(
             SpreadsheetCellValueAnchorComponent.with(
                 "cell-value-anchor-id",
-                HistoryContexts.fake()
+                SpreadsheetCellValueAnchorComponentContexts.fake()
             ).clearValue(),
             "\"Value\" DISABLED id=cell-value-anchor-id"
         );
@@ -79,7 +80,20 @@ public final class SpreadsheetCellValueAnchorComponentTest implements AnchorComp
                         SpreadsheetSelection.A1
                     )
                 ),
-            "\"A1\" [#/1/SpreadsheetName222/cell/A1/value] id=cell-value-anchor-id"
+            "\"A1\" [#/1/SpreadsheetName222/cell/A1/value/text] id=cell-value-anchor-id"
+        );
+    }
+
+    @Test
+    public void testSetValueWithCellWhenValueTypeUnavailable() {
+        this.treePrintAndCheck(
+            this.createComponent()
+                .setValue(
+                    Optional.of(
+                        SpreadsheetSelection.parseCell("Z99")
+                    )
+                ),
+            "\"Z99\" DISABLED id=cell-value-anchor-id"
         );
     }
 
@@ -92,7 +106,7 @@ public final class SpreadsheetCellValueAnchorComponentTest implements AnchorComp
                         SpreadsheetSelection.parseCellRange("B2:C3")
                     )
                 ),
-            "\"B2:C3\" [#/1/SpreadsheetName222/cell/B2:C3/bottom-right/value] id=cell-value-anchor-id"
+            "\"B2:C3\" [#/1/SpreadsheetName222/cell/B2:C3/bottom-right/value/text] id=cell-value-anchor-id"
         );
     }
 
@@ -105,7 +119,7 @@ public final class SpreadsheetCellValueAnchorComponentTest implements AnchorComp
                         SpreadsheetSelection.labelName("Label9999")
                     )
                 ),
-            "\"Label9999\" [#/1/SpreadsheetName222/cell/Label9999/value] id=cell-value-anchor-id"
+            "\"Label9999\" [#/1/SpreadsheetName222/cell/Label9999/value/text] id=cell-value-anchor-id"
         );
     }
 
@@ -117,10 +131,26 @@ public final class SpreadsheetCellValueAnchorComponentTest implements AnchorComp
     private SpreadsheetCellValueAnchorComponent createComponent(final String currentHistoryToken) {
         return SpreadsheetCellValueAnchorComponent.with(
             "cell-value-anchor-id",
-            new FakeHistoryContext() {
+            new FakeSpreadsheetCellLinksComponentContext() {
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.parseString(currentHistoryToken);
+                }
+
+                @Override
+                public Optional<SpreadsheetCell> cell(final SpreadsheetSelection selection) {
+                    return Optional.ofNullable(
+                        selection.toString().equals("Z99") ?
+                            null :
+                            SpreadsheetSelection.A1.setFormula(
+                                SpreadsheetFormula.EMPTY.setText("=1")
+                                    .setValueType(
+                                        Optional.of(
+                                            ValidationValueTypeName.TEXT
+                                        )
+                                    )
+                            )
+                    );
                 }
 
                 @Override

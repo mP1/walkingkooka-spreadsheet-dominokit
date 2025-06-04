@@ -18,10 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.delta;
 
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 import java.util.Set;
@@ -36,12 +38,14 @@ public final class SpreadsheetDeltaCellsTableComponentContexts implements Public
                                                                    final Function<SpreadsheetExpressionReference, Set<SpreadsheetLabelName>> cellToLabels,
                                                                    final Function<SpreadsheetExpressionReference, Set<SpreadsheetExpressionReference>> cellToReferences,
                                                                    final Function<SpreadsheetExpressionReference, Optional<String>> cellToFormulaText,
+                                                                   final Function<SpreadsheetSelection, Optional<SpreadsheetCell>> selectionToCell,
                                                                    final HistoryContext historyContext) {
         return BasicSpreadsheetDeltaCellsTableComponentContext.with(
             hasSpreadsheetDeltaFetcherWatchers,
             cellToLabels,
             cellToReferences,
             cellToFormulaText,
+            selectionToCell,
             historyContext
         );
     }

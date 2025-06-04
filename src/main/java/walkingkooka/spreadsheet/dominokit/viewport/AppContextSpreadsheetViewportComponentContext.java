@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.ProviderContextDelegator;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviderDelegator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -139,6 +140,12 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
     @Override
     public void giveFocus(final Runnable focus) {
         this.context.giveFocus(focus);
+    }
+
+    @Override
+    public Optional<SpreadsheetCell> cell(final SpreadsheetSelection selection) {
+        return this.spreadsheetViewportCache()
+            .cell(selection);
     }
 
     @Override

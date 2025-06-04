@@ -21,13 +21,16 @@ import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.validation.ValidationValueTypeName;
 
 import java.util.Optional;
 import java.util.Set;
@@ -80,6 +83,17 @@ public final class SpreadsheetCellLinksComponentTest implements HtmlElementCompo
                     }
 
                     @Override
+                    public Optional<SpreadsheetCell> cell(final SpreadsheetSelection selection) {
+                        return Optional.of(
+                            selection.toCell().setFormula(
+                                SpreadsheetFormula.EMPTY.setValueType(
+                                    Optional.of(ValidationValueTypeName.TEXT)
+                                )
+                            )
+                        );
+                    }
+
+                    @Override
                     public Set<SpreadsheetLabelName> cellLabels(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
                         return Sets.of(
                             SpreadsheetSelection.labelName("A1LABEL")
@@ -103,7 +117,7 @@ public final class SpreadsheetCellLinksComponentTest implements HtmlElementCompo
                 "  SpreadsheetLinkListComponent\n" +
                 "    SpreadsheetFlexLayout\n" +
                 "      ROW\n" +
-                "        \"Value\" [#/1/SpreadsheetName222/cell/A1/value] id=cells-value-Link\n" +
+                "        \"Value\" [#/1/SpreadsheetName222/cell/A1/value/text] id=cells-value-Link\n" +
                 "        \"Create Label\" [#/1/SpreadsheetName222/cell/A1/label] id=cells-createLabel-Link\n" +
                 "        \"Labels\" [#/1/SpreadsheetName222/cell/A1/labels] (1) id=cells-label-Link\n" +
                 "        \"References\" [#/1/SpreadsheetName222/cell/A1/references] (2) id=cells-references-Link\n" +

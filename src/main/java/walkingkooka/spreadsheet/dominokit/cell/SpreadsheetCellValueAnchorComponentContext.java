@@ -18,25 +18,15 @@
 package walkingkooka.spreadsheet.dominokit.cell;
 
 import walkingkooka.spreadsheet.SpreadsheetCell;
-import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
-import java.util.Set;
 
-public class FakeSpreadsheetCellLinksComponentContext extends FakeSpreadsheetCellLabelsAnchorComponentContext implements SpreadsheetCellLinksComponentContext {
+public interface SpreadsheetCellValueAnchorComponentContext extends HistoryContext {
 
-    public FakeSpreadsheetCellLinksComponentContext() {
-        super();
-    }
-
-    @Override
-    public Optional<SpreadsheetCell> cell(final SpreadsheetSelection selection) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Set<SpreadsheetExpressionReference> cellReferences(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
-        throw new UnsupportedOperationException();
-    }
+    /**
+     * Returns the {@link SpreadsheetCell} identified by the given {@link SpreadsheetSelection}.
+     */
+    Optional<SpreadsheetCell> cell(final SpreadsheetSelection selection);
 }

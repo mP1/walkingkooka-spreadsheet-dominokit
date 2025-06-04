@@ -23,6 +23,7 @@ import walkingkooka.collect.set.Sets;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -49,6 +50,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.validation.ValidationValueTypeName;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -580,6 +582,9 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 Sets.of(
                     SpreadsheetSelection.A1.setFormula(
                         SpreadsheetFormula.EMPTY.setText("=1")
+                            .setValueType(
+                                Optional.of(ValidationValueTypeName.TEXT)
+                            )
                     ),
                     SpreadsheetSelection.parseCell("B2")
                         .setFormula(
@@ -697,7 +702,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
                 "                  \"A1\" [#/123/SpreadsheetName456/cell/A1] id=find-cells-A1-Link\n" +
-                "                  \"=1\" [#/123/SpreadsheetName456/cell/A1/formula] id=find-cells-A1-formula-Link\n" +
+                "                  \"A1\" [#/123/SpreadsheetName456/cell/A1/formula] id=find-cells-A1-formula-Link\n" +
                 "                  SpreadsheetTextComponent\n" +
                 "                    \"\"\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
@@ -705,7 +710,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                    SpreadsheetLinkListComponent\n" +
                 "                      SpreadsheetFlexLayout\n" +
                 "                        ROW\n" +
-                "                          \"Value\" [#/123/SpreadsheetName456/cell/A1/value] id=find-cells-A1-value-Link\n" +
+                "                          \"Value\" [#/123/SpreadsheetName456/cell/A1/value/text] id=find-cells-A1-value-Link\n" +
                 "                          \"Create Label\" [#/123/SpreadsheetName456/cell/A1/label] id=find-cells-A1-createLabel-Link\n" +
                 "                          \"Labels\" [#/123/SpreadsheetName456/cell/A1/labels] (3) id=find-cells-A1-label-Link\n" +
                 "                          \"References\" [#/123/SpreadsheetName456/cell/A1/references] (1) id=find-cells-A1-references-Link\n" +
@@ -720,7 +725,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                    SpreadsheetLinkListComponent\n" +
                 "                      SpreadsheetFlexLayout\n" +
                 "                        ROW\n" +
-                "                          \"Value\" [#/123/SpreadsheetName456/cell/B2/value] id=find-cells-B2-value-Link\n" +
+                "                          \"Value\" DISABLED id=find-cells-B2-value-Link\n" +
                 "                          \"Create Label\" [#/123/SpreadsheetName456/cell/B2/label] id=find-cells-B2-createLabel-Link\n" +
                 "                          \"Labels\" [#/123/SpreadsheetName456/cell/B2/labels] (0) id=find-cells-B2-label-Link\n" +
                 "                          \"References\" [#/123/SpreadsheetName456/cell/B2/references] (0) id=find-cells-B2-references-Link\n" +
@@ -2064,6 +2069,12 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
         @Override
         public SpreadsheetMetadata spreadsheetMetadata() {
             return this.context.spreadsheetMetadata();
+        }
+
+        @Override
+        public Optional<SpreadsheetCell> cell(final SpreadsheetSelection selection) {
+            return this.context.spreadsheetViewportCache()
+                .cell(selection);
         }
 
         @Override

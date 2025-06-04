@@ -17,10 +17,20 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.reflect.PublicStaticHelper;
 
-public interface SpreadsheetCellLinksComponentContext extends SpreadsheetCellLabelsAnchorComponentContext,
-    SpreadsheetCellReferencesAnchorComponentContext,
-    SpreadsheetCellValueAnchorComponentContext,
-    HistoryContext {
+public final class SpreadsheetCellValueAnchorComponentContexts implements PublicStaticHelper {
+
+    /**
+     * {@see FakeSpreadsheetCellValueAnchorComponentContext}
+     */
+    public static SpreadsheetCellValueAnchorComponentContext fake() {
+        return new FakeSpreadsheetCellValueAnchorComponentContext();
+    }
+    /**
+     * Stop creation
+     */
+    private SpreadsheetCellValueAnchorComponentContexts() {
+        throw new UnsupportedOperationException();
+    }
 }
