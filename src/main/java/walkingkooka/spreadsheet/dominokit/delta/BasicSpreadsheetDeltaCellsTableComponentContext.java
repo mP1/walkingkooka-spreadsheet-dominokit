@@ -18,12 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.delta;
 
 import walkingkooka.ToStringBuilder;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -38,12 +40,14 @@ final class BasicSpreadsheetDeltaCellsTableComponentContext implements Spreadshe
                                                                 final Function<SpreadsheetExpressionReference, Set<SpreadsheetLabelName>> cellToLabels,
                                                                 final Function<SpreadsheetExpressionReference, Set<SpreadsheetExpressionReference>> cellToReferences,
                                                                 final Function<SpreadsheetExpressionReference, Optional<String>> cellToFormulaText,
+                                                                final Function<SpreadsheetSelection, Optional<SpreadsheetCell>> selectionToCell,
                                                                 final HistoryContext historyContext) {
         return new BasicSpreadsheetDeltaCellsTableComponentContext(
             Objects.requireNonNull(hasSpreadsheetDeltaFetcherWatchers, "hasSpreadsheetDeltaFetcherWatchers"),
             Objects.requireNonNull(cellToLabels, "cellToLabels"),
             Objects.requireNonNull(cellToReferences, "cellToReferences"),
             Objects.requireNonNull(cellToFormulaText, "cellToFormulaText"),
+            Objects.requireNonNull(selectionToCell, "selectionToCell"),
             Objects.requireNonNull(historyContext, "historyContext")
         );
     }
@@ -52,12 +56,14 @@ final class BasicSpreadsheetDeltaCellsTableComponentContext implements Spreadshe
                                                            final Function<SpreadsheetExpressionReference, Set<SpreadsheetLabelName>> cellToLabels,
                                                            final Function<SpreadsheetExpressionReference, Set<SpreadsheetExpressionReference>> cellToReferences,
                                                            final Function<SpreadsheetExpressionReference, Optional<String>> cellToFormulaText,
+                                                           final Function<SpreadsheetSelection, Optional<SpreadsheetCell>> selectionToCell,
                                                            final HistoryContext historyContext) {
         this.hasSpreadsheetDeltaFetcherWatchers = hasSpreadsheetDeltaFetcherWatchers;
 
         this.cellToLabels = cellToLabels;
         this.cellToReferences = cellToReferences;
         this.cellToFormulaText = cellToFormulaText;
+        this.selectionToCell = selectionToCell;
 
         this.historyContext = historyContext;
     }
@@ -99,6 +105,16 @@ final class BasicSpreadsheetDeltaCellsTableComponentContext implements Spreadshe
 
     private final Function<SpreadsheetExpressionReference, Set<SpreadsheetExpressionReference>> cellToReferences;
 
+
+    // SpreadsheetCellValueAnchorComponentContext.......................................................................
+
+    @Override
+    public Optional<SpreadsheetCell> cell(final SpreadsheetSelection selection) {
+        return this.selectionToCell.apply(selection);
+    }
+
+    private final Function<SpreadsheetSelection, Optional<SpreadsheetCell>> selectionToCell;
+
     // SpreadsheetFormulaSelectAnchorComponentContext...................................................................
 
     @Override
@@ -123,6 +139,8 @@ final class BasicSpreadsheetDeltaCellsTableComponentContext implements Spreadshe
             .value(this.cellToReferences)
             .label("cellToFormulaText")
             .value(this.cellToFormulaText)
+            .label("selectionToCell")
+            .value(this.selectionToCell)
             .build();
     }
 }

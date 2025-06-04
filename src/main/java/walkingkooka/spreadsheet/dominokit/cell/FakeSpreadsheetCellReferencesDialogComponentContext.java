@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.dialog.FakeSpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
@@ -25,6 +26,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 import java.util.Set;
@@ -75,6 +77,13 @@ public class FakeSpreadsheetCellReferencesDialogComponentContext extends FakeSpr
 
     @Override
     public Optional<String> formulaText(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+        throw new UnsupportedOperationException();
+    }
+
+    // SpreadsheetCellValueAnchorComponentContext.......................................................................
+
+    @Override
+    public Optional<SpreadsheetCell> cell(final SpreadsheetSelection selection) {
         throw new UnsupportedOperationException();
     }
 }

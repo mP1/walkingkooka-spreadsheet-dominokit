@@ -18,13 +18,16 @@
 package walkingkooka.spreadsheet.dominokit.delta;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.validation.ValidationValueTypeName;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -68,6 +71,22 @@ public final class BasicSpreadsheetDeltaCellsTableComponentContextTest implement
         throw new UnsupportedOperationException();
     };
 
+    private final static Function<SpreadsheetSelection, Optional<SpreadsheetCell>> SELECTION_TO_CELL = (SpreadsheetSelection selection) -> {
+        Objects.requireNonNull(selection, "selection");
+
+        if(selection.equals(SpreadsheetSelection.A1)) {
+            return Optional.of(
+                SpreadsheetSelection.A1.setFormula(
+                    SpreadsheetFormula.EMPTY.setValueType(
+                        Optional.of(ValidationValueTypeName.TEXT)
+                    )
+                )
+            );
+        }
+
+        throw new UnsupportedOperationException();
+    };
+
     private final static HistoryContext HISTORY_CONTEXT = HistoryContexts.fake();
 
     // with.............................................................................................................
@@ -81,6 +100,7 @@ public final class BasicSpreadsheetDeltaCellsTableComponentContextTest implement
                 CELL_TO_LABELS,
                 CELL_TO_REFERENCES,
                 CELL_TO_FORMULA_TEXT,
+                SELECTION_TO_CELL,
                 HISTORY_CONTEXT
             )
         );
@@ -95,6 +115,7 @@ public final class BasicSpreadsheetDeltaCellsTableComponentContextTest implement
                 null,
                 CELL_TO_REFERENCES,
                 CELL_TO_FORMULA_TEXT,
+                SELECTION_TO_CELL,
                 HISTORY_CONTEXT
             )
         );
@@ -109,6 +130,7 @@ public final class BasicSpreadsheetDeltaCellsTableComponentContextTest implement
                 CELL_TO_LABELS,
                 null,
                 CELL_TO_FORMULA_TEXT,
+                SELECTION_TO_CELL,
                 HISTORY_CONTEXT
             )
         );
@@ -122,6 +144,22 @@ public final class BasicSpreadsheetDeltaCellsTableComponentContextTest implement
                 HAS_SPREADSHEET_DELTA_FETCHER_WATCHERS,
                 CELL_TO_LABELS,
                 CELL_TO_REFERENCES,
+                null,
+                SELECTION_TO_CELL,
+                HISTORY_CONTEXT
+            )
+        );
+    }
+
+    @Test
+    public void testWithNullSelectionToCellFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> BasicSpreadsheetDeltaCellsTableComponentContext.with(
+                HAS_SPREADSHEET_DELTA_FETCHER_WATCHERS,
+                CELL_TO_LABELS,
+                CELL_TO_REFERENCES,
+                CELL_TO_FORMULA_TEXT,
                 null,
                 HISTORY_CONTEXT
             )
@@ -137,6 +175,7 @@ public final class BasicSpreadsheetDeltaCellsTableComponentContextTest implement
                 CELL_TO_LABELS,
                 CELL_TO_REFERENCES,
                 CELL_TO_FORMULA_TEXT,
+                SELECTION_TO_CELL,
                 null
             )
         );
@@ -173,6 +212,7 @@ public final class BasicSpreadsheetDeltaCellsTableComponentContextTest implement
             CELL_TO_LABELS,
             CELL_TO_REFERENCES,
             CELL_TO_FORMULA_TEXT,
+            SELECTION_TO_CELL,
             HISTORY_CONTEXT
         );
     }

@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.find;
 
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.ProviderContextDelegator;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
@@ -32,6 +33,7 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserProviderDelegator;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -80,6 +82,14 @@ final class AppContextSpreadsheetFindDialogComponentContext implements Spreadshe
     public Optional<String> formulaText(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
         return this.context.spreadsheetViewportCache()
             .formulaText(spreadsheetExpressionReference);
+    }
+
+    // SpreadsheetCellValueAnchorComponentContext.......................................................................
+
+    @Override
+    public Optional<SpreadsheetCell> cell(final SpreadsheetSelection selection) {
+        return this.context.spreadsheetViewportCache()
+            .cell(selection);
     }
 
     // HasNow...........................................................................................................

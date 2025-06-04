@@ -17,13 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValueHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponentDelegator;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+import walkingkooka.validation.ValidationValueTypeName;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -36,7 +37,7 @@ import java.util.Optional;
 public final class SpreadsheetCellValueAnchorComponent implements ValueHistoryTokenAnchorComponentDelegator<SpreadsheetCellValueAnchorComponent, SpreadsheetExpressionReference> {
 
     public static SpreadsheetCellValueAnchorComponent with(final String id,
-                                                           final HistoryContext context) {
+                                                           final SpreadsheetCellValueAnchorComponentContext context) {
         return new SpreadsheetCellValueAnchorComponent(
             id,
             context
@@ -44,7 +45,7 @@ public final class SpreadsheetCellValueAnchorComponent implements ValueHistoryTo
     }
 
     private SpreadsheetCellValueAnchorComponent(final String id,
-                                                final HistoryContext context) {
+                                                final SpreadsheetCellValueAnchorComponentContext context) {
         this.component = ValueHistoryTokenAnchorComponent.with(
             HistoryTokenAnchorComponent.empty(),
             this::getter,
@@ -72,10 +73,14 @@ public final class SpreadsheetCellValueAnchorComponent implements ValueHistoryTo
         HistoryToken historyToken = null;
 
         if (value.isPresent()) {
-            historyToken = this.context.historyToken()
+            final SpreadsheetCellValueAnchorComponentContext context = this.context;
+            final Optional<ValidationValueTypeName> valueType = context.cell(value.get())
+                .flatMap((SpreadsheetCell cell) -> cell.formula().valueType());
+
+            historyToken = context.historyToken()
                 .setSelection(value)
-                .setValue(Optional.empty());
-            if (false == (historyToken instanceof SpreadsheetCellValueHistoryToken)) {
+                .setValue(valueType);
+            if (false == valueType.isPresent() || false == (historyToken instanceof SpreadsheetCellValueHistoryToken)) {
                 historyToken = null;
             }
             text = value.get()
@@ -99,7 +104,7 @@ public final class SpreadsheetCellValueAnchorComponent implements ValueHistoryTo
     // @VisibleForTesting
     final ValueHistoryTokenAnchorComponent<SpreadsheetExpressionReference> component;
 
-    final HistoryContext context;
+    final SpreadsheetCellValueAnchorComponentContext context;
 
     // toString.........................................................................................................
 

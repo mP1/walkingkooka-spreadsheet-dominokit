@@ -23,6 +23,7 @@ import walkingkooka.collect.set.Sets;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
@@ -47,6 +48,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.validation.ValidationValueTypeName;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -184,6 +186,11 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
                 "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=references-close-Link\n"
         );
 
+        context.metadataFetcherWatchers.onSpreadsheetMetadata(
+            context.spreadsheetMetadata(),
+            context
+        );
+
         context.deltaFetcherWatchers.onSpreadsheetDelta(
             HttpMethod.GET,
             Url.parseRelative("/api/spreadsheet/1/cell/A1/"),
@@ -191,6 +198,9 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
                 Sets.of(
                     SpreadsheetSelection.A1.setFormula(
                         SpreadsheetFormula.EMPTY.setText("=1+2")
+                            .setValueType(
+                                Optional.of(ValidationValueTypeName.TEXT)
+                            )
                     )
                 )
             ).setReferences(
@@ -233,10 +243,10 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
                 "                    SpreadsheetLinkListComponent\n" +
                 "                      SpreadsheetFlexLayout\n" +
                 "                        ROW\n" +
-                "                          \"Value\" [#/1/SpreadsheetName456/cell/A1/value] id=references-cells-A1-value-Link\n" +
+                "                          \"Value\" [#/1/SpreadsheetName456/cell/A1/value/text] id=references-cells-A1-value-Link\n" +
                 "                          \"Create Label\" [#/1/SpreadsheetName456/cell/A1/label] id=references-cells-A1-createLabel-Link\n" +
                 "                          \"Labels\" [#/1/SpreadsheetName456/cell/A1/labels] (0) id=references-cells-A1-label-Link\n" +
-                "                          \"References\" [#/1/SpreadsheetName456/cell/A1/references] (0) id=references-cells-A1-references-Link\n" +
+                "                          \"References\" [#/1/SpreadsheetName456/cell/A1/references] (2) id=references-cells-A1-references-Link\n" +
                 "                          \"Delete\" [#/1/SpreadsheetName456/cell/A1/delete] id=references-cells-A1-delete-Link\n" +
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
@@ -296,7 +306,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
 
         @Override
         public SpreadsheetMetadata spreadsheetMetadata() {
-            return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
+            return METADATA_EN_AU.set(
                 SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                 SPREADSHEET_ID
             ).set(
@@ -344,6 +354,12 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
         @Override
         public SpreadsheetMetadata spreadsheetMetadata() {
             return this.context.spreadsheetMetadata();
+        }
+
+        @Override
+        public Optional<SpreadsheetCell> cell(final SpreadsheetSelection selection) {
+            return this.context.spreadsheetViewportCache()
+                .cell(selection);
         }
 
         @Override
