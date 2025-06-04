@@ -897,6 +897,49 @@ public abstract class HistoryToken implements HasUrlFragment,
         );
     }
 
+    // cell ValidatorSelector...........................................................................................
+
+    /**
+     * {@see SpreadsheetCellValidatorSaveHistoryToken}
+     */
+    public static SpreadsheetCellValidatorSaveHistoryToken cellValidatorSave(final SpreadsheetId id,
+                                                                             final SpreadsheetName name,
+                                                                             final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                             final Optional<ValidatorSelector> validatorSelector) {
+        return SpreadsheetCellValidatorSaveHistoryToken.with(
+            id,
+            name,
+            anchoredSelection,
+            validatorSelector
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellValidatorSelectHistoryToken}
+     */
+    public static SpreadsheetCellValidatorSelectHistoryToken cellValidatorSelect(final SpreadsheetId id,
+                                                                                 final SpreadsheetName name,
+                                                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
+        return SpreadsheetCellValidatorSelectHistoryToken.with(
+            id,
+            name,
+            anchoredSelection
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellValidatorUnselectHistoryToken}
+     */
+    public static SpreadsheetCellValidatorUnselectHistoryToken cellValidatorUnselect(final SpreadsheetId id,
+                                                                                     final SpreadsheetName name,
+                                                                                     final AnchoredSpreadsheetSelection anchoredSelection) {
+        return SpreadsheetCellValidatorUnselectHistoryToken.with(
+            id,
+            name,
+            anchoredSelection
+        );
+    }
+
     // cellValue........................................................................................................
 
     /**
@@ -957,48 +1000,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         );
     }
 
-    // cell ValidatorSelector...........................................................................................
-
-    /**
-     * {@see SpreadsheetCellValidatorSaveHistoryToken}
-     */
-    public static SpreadsheetCellValidatorSaveHistoryToken cellValidatorSave(final SpreadsheetId id,
-                                                                             final SpreadsheetName name,
-                                                                             final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                             final Optional<ValidatorSelector> validatorSelector) {
-        return SpreadsheetCellValidatorSaveHistoryToken.with(
-            id,
-            name,
-            anchoredSelection,
-            validatorSelector
-        );
-    }
-
-    /**
-     * {@see SpreadsheetCellValidatorSelectHistoryToken}
-     */
-    public static SpreadsheetCellValidatorSelectHistoryToken cellValidatorSelect(final SpreadsheetId id,
-                                                                                 final SpreadsheetName name,
-                                                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
-        return SpreadsheetCellValidatorSelectHistoryToken.with(
-            id,
-            name,
-            anchoredSelection
-        );
-    }
-
-    /**
-     * {@see SpreadsheetCellValidatorUnselectHistoryToken}
-     */
-    public static SpreadsheetCellValidatorUnselectHistoryToken cellValidatorUnselect(final SpreadsheetId id,
-                                                                                     final SpreadsheetName name,
-                                                                                     final AnchoredSpreadsheetSelection anchoredSelection) {
-        return SpreadsheetCellValidatorUnselectHistoryToken.with(
-            id,
-            name,
-            anchoredSelection
-        );
-    }
+    // column...........................................................................................................
 
     /**
      * {@see SpreadsheetColumnSelectHistoryToken}
