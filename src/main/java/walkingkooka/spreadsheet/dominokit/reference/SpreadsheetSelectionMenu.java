@@ -456,7 +456,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                     )
                 ).historyToken(
                     Optional.of(
-                        historyToken.valueTypeHistoryToken()
+                        historyToken.setValueType()
                             .setSaveValue(
                                 Optional.of(type)
                             )
