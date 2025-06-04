@@ -31,6 +31,7 @@ import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetHateosResourceNames;
 import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.SpreadsheetViewportRectangle;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
@@ -58,6 +59,7 @@ import walkingkooka.spreadsheet.server.delta.SpreadsheetDeltaUrlQueryParameters;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
+import walkingkooka.tree.json.JsonPropertyName;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.ValidationValueTypeName;
@@ -871,18 +873,51 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
+    /**
+     * Performs a PATCH after building a FORMULA PATCH using the given value type and JSON.
+     */
     public void patchValue(final SpreadsheetId id,
                            final SpreadsheetSelection selection,
-                           final Optional<Object> value) {
+                           final ValidationValueTypeName valueType,
+                           final String value) {
         this.patchDeltaWithViewportAndWindowQueryString(
             id,
             selection,
-            SpreadsheetDelta.valuePatch(
-                value,
-                this.context
+            patchValuePatch(
+                valueType,
+                value
             )
         );
     }
+
+    // @VisibleForTesting
+    JsonNode patchValuePatch(final ValidationValueTypeName valueType,
+                             final String value) {
+        final AppContext context = this.context;
+
+        return SpreadsheetDelta.formulaPatch(
+            JsonNode.object()
+                .set(
+                    VALUE,
+                    context.marshallWithType(
+                        context.unmarshall(
+                            value.isEmpty() ?
+                                JsonNode.nullNode() :
+                                JsonNode.parse(value),
+                            SpreadsheetValueType.toClass(valueType)
+                                .orElseThrow(() -> new IllegalStateException("Unsupported " + valueType))
+                        )
+                    )
+                )
+        );
+    }
+
+    /**
+     * Used to construct a PATCH
+     */
+    private final static JsonPropertyName TYPE = JsonPropertyName.with("type");
+
+    private final static JsonPropertyName VALUE = JsonPropertyName.with("value");
 
     public void patchValueType(final SpreadsheetId id,
                                final SpreadsheetSelection selection,

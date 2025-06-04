@@ -39,7 +39,19 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigationList;
 import walkingkooka.test.Testing;
+import walkingkooka.tree.expression.ExpressionNumberKind;
+import walkingkooka.tree.json.JsonNode;
+import walkingkooka.tree.json.JsonString;
+import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
+import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
+import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
+import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
+import walkingkooka.validation.ValidationValueTypeName;
 
+import java.math.MathContext;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Optional;
 import java.util.OptionalInt;
 
@@ -114,6 +126,280 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                 url
             ),
             () -> method + " " + url
+        );
+    }
+
+    // patchValuePatch..................................................................................................
+
+    @Test
+    public void testPatchValueWithBooleanTrue() {
+        this.patchValuePatchAndCheck(
+            SpreadsheetValueType.BOOLEAN,
+            true,
+            "{\n" +
+                "  \"formula\": {\n" +
+                "    \"value\": true\n" +
+                "  }\n" +
+                "}"
+        );
+    }
+
+    @Test
+    public void testPatchValueWithBooleanFalse() {
+        this.patchValuePatchAndCheck(
+            SpreadsheetValueType.BOOLEAN,
+            false,
+            "{\n" +
+                "  \"formula\": {\n" +
+                "    \"value\": false\n" +
+                "  }\n" +
+                "}"
+        );
+    }
+
+    @Test
+    public void testPatchValueWithCell() {
+        this.patchValuePatchAndCheck(
+            SpreadsheetValueType.CELL,
+            SpreadsheetSelection.A1,
+            "{\n" +
+                "  \"formula\": {\n" +
+                "    \"value\": {\n" +
+                "      \"type\": \"spreadsheet-cell-reference\",\n" +
+                "      \"value\": \"A1\"\n" +
+                "    }\n" +
+                "  }\n" +
+                "}"
+        );
+    }
+
+    @Test
+    public void testPatchValueWithCellRange() {
+        this.patchValuePatchAndCheck(
+            SpreadsheetValueType.CELL_RANGE,
+            SpreadsheetSelection.A1,
+            "{\n" +
+                "  \"formula\": {\n" +
+                "    \"value\": {\n" +
+                "      \"type\": \"spreadsheet-cell-range-reference\",\n" +
+                "      \"value\": \"A1\"\n" +
+                "    }\n" +
+                "  }\n" +
+                "}"
+        );
+    }
+
+    @Test
+    public void testPatchValueWithColumn() {
+        this.patchValuePatchAndCheck(
+            SpreadsheetValueType.COLUMN,
+            SpreadsheetSelection.parseColumn("AB"),
+            "{\n" +
+                "  \"formula\": {\n" +
+                "    \"value\": {\n" +
+                "      \"type\": \"spreadsheet-column-reference\",\n" +
+                "      \"value\": \"AB\"\n" +
+                "    }\n" +
+                "  }\n" +
+                "}"
+        );
+    }
+
+    @Test
+    public void testPatchValueWithColumnRange() {
+        this.patchValuePatchAndCheck(
+            SpreadsheetValueType.COLUMN_RANGE,
+            SpreadsheetSelection.parseColumnRange("C:D"),
+            "{\n" +
+                "  \"formula\": {\n" +
+                "    \"value\": {\n" +
+                "      \"type\": \"spreadsheet-column-range-reference\",\n" +
+                "      \"value\": \"C:D\"\n" +
+                "    }\n" +
+                "  }\n" +
+                "}"
+        );
+    }
+
+    @Test
+    public void testPatchValueWithDate() {
+        this.patchValuePatchAndCheck(
+            SpreadsheetValueType.DATE,
+            LocalDate.of(1999, 12, 31),
+            "{\n" +
+                "  \"formula\": {\n" +
+                "    \"value\": {\n" +
+                "      \"type\": \"local-date\",\n" +
+                "      \"value\": \"1999-12-31\"\n" +
+                "    }\n" +
+                "  }\n" +
+                "}"
+        );
+    }
+
+    @Test
+    public void testPatchValueWithDateTime() {
+        this.patchValuePatchAndCheck(
+            SpreadsheetValueType.DATE_TIME,
+            LocalDateTime.of(1999, 12, 31, 12, 58, 59),
+            "{\n" +
+                "  \"formula\": {\n" +
+                "    \"value\": {\n" +
+                "      \"type\": \"local-date-time\",\n" +
+                "      \"value\": \"1999-12-31T12:58:59\"\n" +
+                "    }\n" +
+                "  }\n" +
+                "}"
+        );
+    }
+
+    @Test
+    public void testPatchValueWithLabel() {
+        this.patchValuePatchAndCheck(
+            SpreadsheetValueType.LABEL,
+            SpreadsheetSelection.labelName("HelloLabel"),
+            "{\n" +
+                "  \"formula\": {\n" +
+                "    \"value\": {\n" +
+                "      \"type\": \"spreadsheet-label-name\",\n" +
+                "      \"value\": \"HelloLabel\"\n" +
+                "    }\n" +
+                "  }\n" +
+                "}"
+        );
+    }
+
+    @Test
+    public void testPatchValueWithNumber() {
+        this.patchValuePatchAndCheck(
+            SpreadsheetValueType.NUMBER,
+            ExpressionNumberKind.BIG_DECIMAL.create(123),
+            "{\n" +
+                "  \"formula\": {\n" +
+                "    \"value\": {\n" +
+                "      \"type\": \"expression-number\",\n" +
+                "      \"value\": \"123\"\n" +
+                "    }\n" +
+                "  }\n" +
+                "}"
+        );
+    }
+
+    @Test
+    public void testPatchValueWithRow() {
+        this.patchValuePatchAndCheck(
+            SpreadsheetValueType.ROW,
+            SpreadsheetSelection.parseRow("1"),
+            "{\n" +
+                "  \"formula\": {\n" +
+                "    \"value\": {\n" +
+                "      \"type\": \"spreadsheet-row-reference\",\n" +
+                "      \"value\": \"1\"\n" +
+                "    }\n" +
+                "  }\n" +
+                "}"
+        );
+    }
+
+    @Test
+    public void testPatchValueWithRowRange() {
+        this.patchValuePatchAndCheck(
+            SpreadsheetValueType.ROW_RANGE,
+            SpreadsheetSelection.parseRowRange("2:3"),
+            "{\n" +
+                "  \"formula\": {\n" +
+                "    \"value\": {\n" +
+                "      \"type\": \"spreadsheet-row-range-reference\",\n" +
+                "      \"value\": \"2:3\"\n" +
+                "    }\n" +
+                "  }\n" +
+                "}"
+        );
+    }
+
+    @Test
+    public void testPatchValueWithText() {
+        this.patchValuePatchAndCheck(
+            SpreadsheetValueType.TEXT,
+            "HelloText",
+            "{\n" +
+                "  \"formula\": {\n" +
+                "    \"value\": \"HelloText\"\n" +
+                "  }\n" +
+                "}"
+        );
+    }
+
+    @Test
+    public void testPatchValueWithTime() {
+        this.patchValuePatchAndCheck(
+            SpreadsheetValueType.TIME,
+            LocalTime.of(12, 58, 59),
+            "{\n" +
+                "  \"formula\": {\n" +
+                "    \"value\": {\n" +
+                "      \"type\": \"local-time\",\n" +
+                "      \"value\": \"12:58:59\"\n" +
+                "    }\n" +
+                "  }\n" +
+                "}"
+        );
+    }
+
+    private void patchValuePatchAndCheck(final String valueType,
+                                         final Object value,
+                                         final String expected) {
+        this.patchValuePatchAndCheck2(
+            valueType,
+            Optional.of(value),
+            expected
+        );
+    }
+
+    private void patchValuePatchAndCheck2(final String valueType,
+                                          final Optional<Object> value,
+                                          final String expected) {
+        this.patchValuePatchAndCheck2(
+            ValidationValueTypeName.with(valueType),
+            JsonNodeMarshallContexts.basic()
+                .marshallOptional(value)
+                .toString(),
+            JsonNode.parse(expected)
+        );
+    }
+
+    private void patchValuePatchAndCheck2(final ValidationValueTypeName valueType,
+                                          final String value,
+                                          final JsonNode expected) {
+        this.checkEquals(
+            expected,
+            SpreadsheetDeltaFetcher.with(
+                SpreadsheetDeltaFetcherWatchers.empty(),
+                new FakeAppContext() {
+
+                    @Override
+                    public Optional<JsonString> typeName(final Class<?> type) {
+                        return this.jsonNodeUnmarshallContext()
+                            .typeName(type);
+                    }
+
+                    @Override
+                    public JsonNodeMarshallContext jsonNodeMarshallContext() {
+                        return JsonNodeMarshallContexts.basic();
+                    }
+
+                    @Override
+                    public JsonNodeUnmarshallContext jsonNodeUnmarshallContext() {
+                        return JsonNodeUnmarshallContexts.basic(
+                            ExpressionNumberKind.BIG_DECIMAL,
+                            MathContext.UNLIMITED
+                        );
+                    }
+                }
+            ).patchValuePatch(
+                valueType,
+                value
+            )
         );
     }
 
