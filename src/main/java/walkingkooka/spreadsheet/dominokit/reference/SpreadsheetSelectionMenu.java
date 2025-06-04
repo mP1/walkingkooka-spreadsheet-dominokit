@@ -23,6 +23,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.SpreadsheetValues;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetHotKeys;
@@ -491,30 +492,37 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         final SpreadsheetCell summary = context.selectionSummary()
             .orElse(null);
 
-        for (final ValidationValueTypeName type : SpreadsheetValues.ALL) {
-            final String typeMenuId = idPrefix + type.value();
+        // compute valueType to check once and test within loop below.
+        ValidationValueTypeName checked = null;
+        if (null != summary) {
+            final Object value = summary.formula()
+                .value()
+                .orElse(null);
+            if (null != value) {
+                checked = SpreadsheetValueType.toValueType(
+                    value.getClass()
+                );
+            }
+        }
+
+        for (final ValidationValueTypeName valueType : SpreadsheetValues.ALL) {
+            final String typeMenuId = idPrefix + valueType.value();
 
             subMenu.item(
                 SpreadsheetContextMenuItem.with(
                     typeMenuId + SpreadsheetElementIds.MENU_ITEM,
                     CaseKind.CAMEL.change(
-                        type.text(),
+                        valueType.text(),
                         CaseKind.TITLE
                     )
                 ).historyToken(
                     Optional.of(
                         historyToken.setValue(
-                            Optional.of(type)
+                            Optional.of(valueType)
                         )
                     )
                 ).checked(
-                    type.equals(
-                        null == summary ?
-                            null :
-                            summary.formula()
-                                .valueType()
-                                .orElse(null)
-                    )
+                    valueType.equals(checked)
                 )
             );
         }
