@@ -503,7 +503,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                     )
                 ).historyToken(
                     Optional.of(
-                        historyToken.setValueType(
+                        historyToken.setValue(
                             Optional.of(type)
                         )
                     )

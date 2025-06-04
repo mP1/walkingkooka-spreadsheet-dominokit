@@ -74,7 +74,7 @@ public final class SpreadsheetCellValueAnchorComponent implements ValueHistoryTo
         if (value.isPresent()) {
             historyToken = this.context.historyToken()
                 .setSelection(value)
-                .setValueType(Optional.empty());
+                .setValue(Optional.empty());
             if (false == (historyToken instanceof SpreadsheetCellValueHistoryToken)) {
                 historyToken = null;
             }
