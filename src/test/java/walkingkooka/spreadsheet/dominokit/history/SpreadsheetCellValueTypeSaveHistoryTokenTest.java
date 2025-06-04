@@ -36,7 +36,7 @@ public final class SpreadsheetCellValueTypeSaveHistoryTokenTest extends Spreadsh
     );
 
     @Test
-    public void testWithNullSpreadsheetFormatterSelectorFails() {
+    public void testWithNullValueTypeFails() {
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetCellValueTypeSaveHistoryToken.with(
