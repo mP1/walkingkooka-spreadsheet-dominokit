@@ -139,7 +139,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                 result = this.parseValue(cursor);
                 break;
             case VALUE_TYPE_STRING:
-                result = this.valueTypeHistoryToken();
+                result = this.setValueType();
                 break;
             default:
                 cursor.end();

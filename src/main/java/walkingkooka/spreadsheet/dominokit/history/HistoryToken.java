@@ -4868,12 +4868,10 @@ public abstract class HistoryToken implements HasUrlFragment,
             Optional.empty();
     }
 
-    // valueType........................................................................................................
-
     /**
      * If possible selects a {@link ValidationValueTypeName} {@link HistoryToken}.
      */
-    public final HistoryToken valueTypeHistoryToken() {
+    public final HistoryToken setValueType() {
         HistoryToken historyToken;
 
         if (this instanceof SpreadsheetCellSelectHistoryToken || this instanceof SpreadsheetCellMenuHistoryToken) {
