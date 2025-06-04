@@ -102,7 +102,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
     @Test
     public void testOnHistoryTokenChangeRefreshEmptyTable() {
         final HistoryToken historyToken = HistoryToken.parseString(
-            "/123/SpreadsheetName456/cell/A1/references"
+            "/1/SpreadsheetName456/cell/A1/references"
         );
 
         final AppContext context = this.appContext(historyToken);
@@ -138,14 +138,14 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=references-close-Link\n"
+                "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=references-close-Link\n"
         );
     }
 
     @Test
     public void testOnHistoryTokenChangeRefreshNonEmptyTable() {
         final HistoryToken historyToken = HistoryToken.parseString(
-            "/123/SpreadsheetName456/cell/A1/references"
+            "/1/SpreadsheetName456/cell/A1/references"
         );
 
         final TestAppContext context = this.appContext(historyToken);
@@ -181,12 +181,12 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=references-close-Link\n"
+                "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=references-close-Link\n"
         );
 
         context.deltaFetcherWatchers.onSpreadsheetDelta(
             HttpMethod.GET,
-            Url.parseRelative("/api/spreadsheet/123/cell/A1/"),
+            Url.parseRelative("/api/spreadsheet/1/cell/A1/"),
             SpreadsheetDelta.EMPTY.setCells(
                 Sets.of(
                     SpreadsheetSelection.A1.setFormula(
@@ -224,8 +224,8 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
                 "                Links\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
-                "                  \"A1\" [#/123/SpreadsheetName456/cell/A1] id=references-cells-A1-Link\n" +
-                "                  \"A1\" [#/123/SpreadsheetName456/cell/A1/formula] id=references-cells-A1-formula-Link\n" +
+                "                  \"A1\" [#/1/SpreadsheetName456/cell/A1] id=references-cells-A1-Link\n" +
+                "                  \"A1\" [#/1/SpreadsheetName456/cell/A1/formula] id=references-cells-A1-formula-Link\n" +
                 "                  SpreadsheetTextComponent\n" +
                 "                    \"\"\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
@@ -233,11 +233,11 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
                 "                    SpreadsheetLinkListComponent\n" +
                 "                      SpreadsheetFlexLayout\n" +
                 "                        ROW\n" +
-                "                          \"Value\" [#/123/SpreadsheetName456/cell/A1/value] id=references-cells-A1-value-Link\n" +
-                "                          \"Create Label\" [#/123/SpreadsheetName456/cell/A1/label] id=references-cells-A1-createLabel-Link\n" +
-                "                          \"Labels\" [#/123/SpreadsheetName456/cell/A1/labels] (0) id=references-cells-A1-label-Link\n" +
-                "                          \"References\" [#/123/SpreadsheetName456/cell/A1/references] (0) id=references-cells-A1-references-Link\n" +
-                "                          \"Delete\" [#/123/SpreadsheetName456/cell/A1/delete] id=references-cells-A1-delete-Link\n" +
+                "                          \"Value\" [#/1/SpreadsheetName456/cell/A1/value] id=references-cells-A1-value-Link\n" +
+                "                          \"Create Label\" [#/1/SpreadsheetName456/cell/A1/label] id=references-cells-A1-createLabel-Link\n" +
+                "                          \"Labels\" [#/1/SpreadsheetName456/cell/A1/labels] (0) id=references-cells-A1-label-Link\n" +
+                "                          \"References\" [#/1/SpreadsheetName456/cell/A1/references] (0) id=references-cells-A1-references-Link\n" +
+                "                          \"Delete\" [#/1/SpreadsheetName456/cell/A1/delete] id=references-cells-A1-delete-Link\n" +
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
@@ -248,7 +248,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=references-close-Link\n"
+                "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=references-close-Link\n"
         );
     }
 
@@ -298,7 +298,10 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
         public SpreadsheetMetadata spreadsheetMetadata() {
             return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
                 SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                SpreadsheetId.parse("123")
+                SPREADSHEET_ID
+            ).set(
+                SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
+                SPREADSHEET_NAME
             );
         }
 
