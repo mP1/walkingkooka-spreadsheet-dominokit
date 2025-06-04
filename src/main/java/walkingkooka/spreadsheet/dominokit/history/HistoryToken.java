@@ -802,7 +802,7 @@ public abstract class HistoryToken implements HasUrlFragment,
             cellToValidator
         );
     }
-    
+
     /**
      * {@see SpreadsheetCellSaveValueTypeHistoryToken}
      */
@@ -817,7 +817,7 @@ public abstract class HistoryToken implements HasUrlFragment,
             cellToValueType
         );
     }
-    
+
     // cell sort........................................................................................................
 
     /**
@@ -999,7 +999,7 @@ public abstract class HistoryToken implements HasUrlFragment,
             anchoredSelection
         );
     }
-    
+
     /**
      * {@see SpreadsheetColumnSelectHistoryToken}
      */
@@ -2170,7 +2170,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                             anchoredSelection
                         );
                     }
-                    
+
                     if (this instanceof SpreadsheetCellValueTypeSelectHistoryToken) {
                         closed = cellSelect(
                             id,
@@ -3787,10 +3787,10 @@ public abstract class HistoryToken implements HasUrlFragment,
                                             final Optional<?> mapValueOptional = (Optional<?>) mapValue;
                                             if (mapValueOptional.isPresent()) {
                                                 Object mapValueOptionalValue = mapValueOptional.get();
-                                                if(mapValueOptionalValue instanceof DateTimeSymbols) {
+                                                if (mapValueOptionalValue instanceof DateTimeSymbols) {
                                                     mode = MODE_DATE_TIME_SYMBOLS & mode;
                                                 } else {
-                                                    if(mapValueOptionalValue instanceof DecimalNumberSymbols) {
+                                                    if (mapValueOptionalValue instanceof DecimalNumberSymbols) {
                                                         mode = MODE_DECIMAL_NUMBER_SYMBOLS & mode;
                                                     } else {
                                                         if (mapValueOptionalValue instanceof SpreadsheetFormatterSelector) {
@@ -3900,7 +3900,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                                     }
                                 }
                             } else {
-                                if(null == valueOrNull) {
+                                if (null == valueOrNull) {
                                     historyToken = this.clearAction();
                                 } else {
                                     throw new IllegalArgumentException("Invalid value");
@@ -4012,7 +4012,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                             Cast.to(value)
                         );
                     }
-                    
+
                     if (this instanceof SpreadsheetCellValueTypeHistoryToken) {
                         if (null != valueOrNull && false == valueOrNull instanceof ValidationValueTypeName) {
                             throw new IllegalArgumentException("Invalid value");
@@ -4306,7 +4306,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                                         )
                                     );
                                 }
-                                
+
                                 if (this instanceof SpreadsheetCellValueTypeHistoryToken && false == this instanceof SpreadsheetCellValueTypeUnselectHistoryToken) {
                                     saved = HistoryToken.cellValueTypeSave(
                                         id,
@@ -4742,7 +4742,7 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     public final Optional<ValidationValueTypeName> valueType() {
         return this instanceof SpreadsheetCellValueHistoryToken ?
-                this.cast(SpreadsheetCellValueHistoryToken.class).valueType :
+            this.cast(SpreadsheetCellValueHistoryToken.class).valueType :
             Optional.<ValidationValueTypeName>empty();
     }
 
