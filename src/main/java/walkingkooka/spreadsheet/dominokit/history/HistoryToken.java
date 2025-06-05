@@ -4461,6 +4461,15 @@ public abstract class HistoryToken implements HasUrlFragment,
             saved;
     }
 
+    /**
+     * Returns true if this {@link HistoryToken} contains a save value.
+     */
+    public boolean isSave() {
+        return this.getClass()
+            .getSimpleName()
+            .contains("Save");
+    }
+
     // SELECTION........................................................................................................
 
     public Optional<SpreadsheetSelection> selection() {
