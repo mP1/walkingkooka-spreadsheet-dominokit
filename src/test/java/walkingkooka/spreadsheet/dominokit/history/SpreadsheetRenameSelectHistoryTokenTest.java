@@ -21,6 +21,8 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetRenameSelectHistoryTokenTest extends SpreadsheetRenameHistoryTokenTestCase<SpreadsheetRenameSelectHistoryToken> {
@@ -59,12 +61,27 @@ public final class SpreadsheetRenameSelectHistoryTokenTest extends SpreadsheetRe
     }
 
     @Test
-    public void testSetSaveValue() {
+    public void testSetSaveValueWithString() {
         final SpreadsheetName renameTo = SpreadsheetName.with("RenameToSpreadsheetName567");
 
         this.setSaveValueAndCheck(
             this.createHistoryToken(),
             renameTo.toString(),
+            HistoryToken.spreadsheetRenameSave(
+                ID,
+                NAME,
+                renameTo
+            )
+        );
+    }
+
+    @Test
+    public void testSetSaveValueWithSpreadsheetName() {
+        final SpreadsheetName renameTo = SpreadsheetName.with("RenameToSpreadsheetName567");
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            Optional.of(renameTo),
             HistoryToken.spreadsheetRenameSave(
                 ID,
                 NAME,
