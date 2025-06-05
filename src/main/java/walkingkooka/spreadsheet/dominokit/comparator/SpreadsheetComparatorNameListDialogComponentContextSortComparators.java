@@ -27,9 +27,9 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySav
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CaseKind;
-import walkingkooka.text.HasText;
 
 import java.util.Objects;
+import java.util.Optional;
 
 final class SpreadsheetComparatorNameListDialogComponentContextSortComparators implements SpreadsheetComparatorNameListDialogComponentContext,
     SpreadsheetDialogComponentContextDelegator {
@@ -67,11 +67,9 @@ final class SpreadsheetComparatorNameListDialogComponentContextSortComparators i
     }
 
     @Override
-    public String undo() {
+    public Optional<SpreadsheetComparatorNameList> undo() {
         return this.context.spreadsheetMetadata()
-            .get(PROPERTY_NAME)
-            .map(HasText::text)
-            .orElse("");
+            .get(PROPERTY_NAME);
     }
 
     @Override

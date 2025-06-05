@@ -17,9 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.comparator;
 
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameList;
 import walkingkooka.spreadsheet.dominokit.dialog.FakeSpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+
+import java.util.Optional;
 
 public class FakeSpreadsheetComparatorNameListDialogComponentContext extends FakeSpreadsheetDialogComponentContext implements SpreadsheetComparatorNameListDialogComponentContext {
     @Override
@@ -38,7 +41,7 @@ public class FakeSpreadsheetComparatorNameListDialogComponentContext extends Fak
     }
 
     @Override
-    public String undo() {
+    public Optional<SpreadsheetComparatorNameList> undo() {
         throw new UnsupportedOperationException();
     }
 

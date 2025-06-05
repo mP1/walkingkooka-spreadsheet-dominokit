@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.comparator;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameList;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
@@ -26,6 +27,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+
+import java.util.Optional;
 
 public final class SpreadsheetComparatorNameListDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetComparatorNameListDialogComponent,
     SpreadsheetComparatorNameListDialogComponentContext>,
@@ -62,8 +65,10 @@ public final class SpreadsheetComparatorNameListDialogComponentTest implements S
                 }
 
                 @Override
-                public String undo() {
-                    return "day-of-month";
+                public Optional<SpreadsheetComparatorNameList> undo() {
+                    return Optional.of(
+                        SpreadsheetComparatorNameList.parse("day-of-month")
+                    );
                 }
             }
         );
