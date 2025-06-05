@@ -3786,12 +3786,19 @@ public abstract class HistoryToken implements HasUrlFragment,
             final SpreadsheetId id = nameHistoryToken.id();
             final SpreadsheetName name = nameHistoryToken.name();
 
-            if(this instanceof SpreadsheetRenameHistoryToken && value.isPresent()) {
-                historyToken = HistoryToken.spreadsheetRenameSave(
-                    id,
-                    name,
-                    (SpreadsheetName) value.get()
-                );
+            if (this instanceof SpreadsheetRenameHistoryToken) {
+                if (value.isPresent()) {
+                    historyToken = HistoryToken.spreadsheetRenameSave(
+                        id,
+                        name,
+                        (SpreadsheetName) value.get()
+                    );
+                } else {
+                    historyToken = HistoryToken.spreadsheetRenameSelect(
+                        id,
+                        name
+                    );
+                }
             }
 
             if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
@@ -4391,7 +4398,6 @@ public abstract class HistoryToken implements HasUrlFragment,
                                 }
                             }
                         }
-
                         if (this instanceof SpreadsheetLabelMappingSelectHistoryToken) {
                             saved = labelMappingSave(
                                 id,
@@ -4404,12 +4410,19 @@ public abstract class HistoryToken implements HasUrlFragment,
                             );
                         }
                     } else {
-                        if (this instanceof SpreadsheetRenameSelectHistoryToken) {
-                            saved = HistoryToken.spreadsheetRenameSave(
-                                id,
-                                name,
-                                SpreadsheetName.with(value)
-                            );
+                        if (this instanceof SpreadsheetRenameHistoryToken) {
+                            if (value.isEmpty()) {
+                                saved = HistoryToken.spreadsheetRenameSelect(
+                                    id,
+                                    name
+                                );
+                            } else {
+                                saved = HistoryToken.spreadsheetRenameSave(
+                                    id,
+                                    name,
+                                    SpreadsheetName.with(value)
+                                );
+                            }
                         }
                     }
                 } else {
@@ -4423,7 +4436,9 @@ public abstract class HistoryToken implements HasUrlFragment,
             }
         }
 
-        return saved;
+        return this.equals(saved) ?
+            this :
+            saved;
     }
 
     // SELECTION........................................................................................................
