@@ -203,16 +203,31 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
         return SpreadsheetFormatterSelectorComponent.empty()
             .setId(ID + SpreadsheetElementIds.TEXT_BOX)
             .addKeyupListener(
-                (e) -> this.onTextBox(this.text())
+                (event) -> this.refreshSaveLink(
+                    this.textBox.value()
+                )
             ).addChangeListener(
-                (oldValue, newValue) -> this.onTextBox(this.text())
+                (oldValue, newValue) ->
+                    this.refreshSaveLink(newValue)
             );
+    }
+
+    // @VisibleForTesting
+    void setText(final String text) {
+        this.textBox.setStringValue(
+            Optional.ofNullable(
+                text.isEmpty() ?
+                    null :
+                    text
+            )
+        );
+        this.refreshEdit(text);
     }
 
     /**
      * Handles updates to the {@link SpreadsheetFormatterSelectorComponent}
      */
-    private void onTextBox(final String text) {
+    private void refreshEdit(final String text) {
         final SpreadsheetFormatterSelectorDialogComponentContext context = this.context;
 
         final SpreadsheetFormatterSelectorEdit edit = SpreadsheetFormatterSelectorEdit.parse(
@@ -229,22 +244,6 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
                 context
             );
         }
-    }
-
-    /**
-     * Retrieves the current {@link SpreadsheetFormatterSelector}.
-     */
-    private String text() {
-        return this.textBox.stringValue()
-            .orElse("");
-    }
-
-    // @VisibleForTesting
-    void setText(final String text) {
-        this.textBox.setStringValue(
-            Optional.of(text)
-        );
-        this.onTextBox(text);
     }
 
     /**
@@ -313,8 +312,10 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
         );
 
         // enable SAVE if no error exists
-        final String text = this.text();
-        if (text.isEmpty() || hasNoError) {
+        //final String text = this.text();
+        //if (text.isEmpty() || hasNoError) {
+
+        if (this.textBox.stringValue().isEmpty() || hasNoError) {
             this.save.setValue(
                 edit.selector()
             );
@@ -333,6 +334,22 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
     }
 
     // dialog links.....................................................................................................
+
+    void refreshSaveLink(final Optional<SpreadsheetFormatterSelector> selector) {
+        final SpreadsheetFormatterSelectorComponent textBox = this.textBox;
+
+        textBox.validate();
+        if (textBox.hasErrors()) {
+            this.save.disabled();
+        } else {
+            this.save.setValue(selector);
+        }
+
+        this.refreshEdit(
+            textBox.stringValue()
+                .orElse("")
+        );
+    }
 
     /**
      * A SAVE link which will be updated each time the {@link #textBox} is also updated.
@@ -403,10 +420,10 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
     @Override
     public void refresh(final RefreshContext context) {
         // setText will trigger a refresh of table, appender, removeOrReplace
-        final String undo = this.context.undo();
-        this.setText(undo);
-
-        this.undo.setStringValue(undo);
+        final Optional<SpreadsheetFormatterSelector> undo = this.context.undo();
+        this.textBox.setValue(undo);
+        this.refreshSaveLink(undo);
+        this.undo.setValue(undo);
 
         this.refreshTitleTabsClearClose();
     }

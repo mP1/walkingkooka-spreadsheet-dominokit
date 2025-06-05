@@ -26,7 +26,10 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.dominokit.focus.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.patternkind.SpreadsheetPatternKindTabsComponentContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEditContext;
+
+import java.util.Optional;
 
 /**
  * A {@link walkingkooka.Context} tht accompanies a {@link SpreadsheetFormatterSelectorDialogComponent} provided various inputs.
@@ -52,9 +55,9 @@ public interface SpreadsheetFormatterSelectorDialogComponentContext extends CanG
     boolean shouldShowTabs();
 
     /**
-     * Provides the UNDO text.
+     * Provides the UNDO
      */
-    String undo();
+    Optional<SpreadsheetFormatterSelector> undo();
 
     /**
      * Invokes the server end point
