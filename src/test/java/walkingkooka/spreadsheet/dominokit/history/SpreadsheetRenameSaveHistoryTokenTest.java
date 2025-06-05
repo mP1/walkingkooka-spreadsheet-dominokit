@@ -21,6 +21,8 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 
+import java.util.Optional;
+
 public final class SpreadsheetRenameSaveHistoryTokenTest extends SpreadsheetRenameHistoryTokenTestCase<SpreadsheetRenameSaveHistoryToken> {
 
     private final static SpreadsheetName RENAME_TO = SpreadsheetName.with("RenameToSpreadsheetName567");
@@ -45,6 +47,57 @@ public final class SpreadsheetRenameSaveHistoryTokenTest extends SpreadsheetRena
     public void testClearAction() {
         this.clearActionAndCheck(
             this.createHistoryToken(),
+            HistoryToken.spreadsheetRenameSelect(
+                ID,
+                NAME
+            )
+        );
+    }
+
+    // setSaveValue.....................................................................................................
+
+    @Test
+    public void testSetSaveValueWithNotEmptyString() {
+        final SpreadsheetName renameTo = SpreadsheetName.with("RenameToSpreadsheetName567");
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            renameTo.toString()
+        );
+    }
+
+    @Test
+    public void testSetSaveValueWithEmptyString() {
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            "",
+            HistoryToken.spreadsheetRenameSelect(
+                ID,
+                NAME
+            )
+        );
+    }
+
+    @Test
+    public void testSetSaveValueWithSpreadsheetName() {
+        final SpreadsheetName renameTo = SpreadsheetName.with("RenameToSpreadsheetName567");
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            Optional.of(renameTo),
+            HistoryToken.spreadsheetRenameSave(
+                ID,
+                NAME,
+                renameTo
+            )
+        );
+    }
+
+    @Test
+    public void testSetSaveValueWithEmptyOptional() {
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            Optional.empty(),
             HistoryToken.spreadsheetRenameSelect(
                 ID,
                 NAME
