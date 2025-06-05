@@ -26,7 +26,10 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetParserFetcherWatche
 import walkingkooka.spreadsheet.dominokit.focus.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.patternkind.SpreadsheetPatternKindTabsComponentContext;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEditContext;
+
+import java.util.Optional;
 
 /**
  * A {@link walkingkooka.Context} tht accompanies a {@link SpreadsheetParserSelectorDialogComponent} provided various inputs.
@@ -58,9 +61,9 @@ public interface SpreadsheetParserSelectorDialogComponentContext extends CanGive
     void loadSpreadsheetParsersEdit(final String text);
 
     /**
-     * Provides the UNDO text.
+     * Provides the UNDO.
      */
-    String undo();
+    Optional<SpreadsheetParserSelector> undo();
 
     /**
      * Adds a {@link SpreadsheetDeltaFetcherWatcher}.

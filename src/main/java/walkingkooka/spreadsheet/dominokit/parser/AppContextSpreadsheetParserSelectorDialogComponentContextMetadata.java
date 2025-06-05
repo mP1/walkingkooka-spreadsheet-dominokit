@@ -17,13 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.parser;
 
+import walkingkooka.Cast;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.text.CaseKind;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * A {@link SpreadsheetParserSelectorDialogComponentContext} for editing a metadata parser.
@@ -67,15 +70,16 @@ final class AppContextSpreadsheetParserSelectorDialogComponentContextMetadata ex
      * and then reads the value for its {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName}.
      */
     @Override
-    public String undo() {
-        return this.context.spreadsheetMetadata()
-            .getIgnoringDefaults(
-                this.historyToken()
-                    .patternKind()
-                    .get()
-                    .spreadsheetMetadataPropertyName()
-            ).map(Object::toString)
-            .orElse("");
+    public Optional<SpreadsheetParserSelector> undo() {
+        return Cast.to(
+            this.context.spreadsheetMetadata()
+                .getIgnoringDefaults(
+                    this.historyToken()
+                        .patternKind()
+                        .get()
+                        .spreadsheetMetadataPropertyName()
+                )
+        );
     }
 
     // ComponentLifecycleMatcher........................................................................................

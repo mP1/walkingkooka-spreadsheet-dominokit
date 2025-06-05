@@ -45,6 +45,7 @@ import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelector
 import walkingkooka.spreadsheet.dominokit.value.HistoryTokenSaveValueAnchorComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSample;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
@@ -105,7 +106,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
 
         this.removeOrReplace = RemoveOrReplacePluginSelectorTokenComponent.empty(ID + "-removeOrReplace-");
 
-        this.textBox = this.textBox(ID);
+        this.textBox = this.textBox();
 
         this.save = this.saveValueAnchor(context)
             .autoDisableWhenMissingValue();
@@ -195,20 +196,38 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
     /**
      * Creates a text box to edit the {@link SpreadsheetParserSelector} and installs a few value change type listeners
      */
-    private SpreadsheetParserSelectorComponent textBox(final String id) {
+    /**
+     * Creates a text box to edit the {@link SpreadsheetFormatterSelector} and installs a few value change type listeners
+     */
+    private SpreadsheetParserSelectorComponent textBox() {
         return SpreadsheetParserSelectorComponent.empty()
             .setId(ID + SpreadsheetElementIds.TEXT_BOX)
             .addKeyupListener(
-                (e) -> this.onTextBox(this.text())
+                (event) -> this.refreshSaveLink(
+                    this.textBox.value()
+                )
             ).addChangeListener(
-                (oldValue, newValue) -> this.onTextBox(this.text())
+                (oldValue, newValue) ->
+                    this.refreshSaveLink(newValue)
             );
+    }
+
+    // @VisibleForTesting
+    void setText(final String text) {
+        this.textBox.setStringValue(
+            Optional.ofNullable(
+                text.isEmpty() ?
+                    null :
+                    text
+            )
+        );
+        this.refreshEdit(text);
     }
 
     /**
      * Handles updates to the {@link SpreadsheetParserSelectorComponent}
      */
-    private void onTextBox(final String text) {
+    private void refreshEdit(final String text) {
         final SpreadsheetParserSelectorDialogComponentContext context = this.context;
 
         final SpreadsheetParserSelectorEdit edit = SpreadsheetParserSelectorEdit.parse(
@@ -225,22 +244,6 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
                 context
             );
         }
-    }
-
-    /**
-     * Retrieves the current {@link SpreadsheetParserSelector}.
-     */
-    private String text() {
-        return this.textBox.stringValue()
-            .orElse("");
-    }
-
-    // @VisibleForTesting
-    void setText(final String text) {
-        this.textBox.setStringValue(
-            Optional.of(text)
-        );
-        this.onTextBox(text);
     }
 
     /**
@@ -314,8 +317,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
         );
 
         // enable SAVE if no error exists
-        final String text = this.text();
-        if (text.isEmpty() || hasNoError) {
+        if (this.textBox.stringValue().isEmpty() || hasNoError) {
             this.save.setValue(
                 edit.selector()
             );
@@ -328,6 +330,22 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
 
     // dialog links.....................................................................................................
 
+    void refreshSaveLink(final Optional<SpreadsheetParserSelector> selector) {
+        final SpreadsheetParserSelectorComponent textBox = this.textBox;
+
+        textBox.validate();
+        if (textBox.hasErrors()) {
+            this.save.disabled();
+        } else {
+            this.save.setValue(selector);
+        }
+
+        this.refreshEdit(
+            textBox.stringValue()
+                .orElse("")
+        );
+    }
+    
     /**
      * A SAVE link which will be updated each time the {@link #textBox} is also updated.
      */
@@ -396,11 +414,10 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
      */
     @Override
     public void refresh(final RefreshContext context) {
-        // setText will trigger a refresh of table, appender, removeOrReplace
-        final String undo = this.context.undo();
-        this.setText(undo);
-
-        this.undo.setStringValue(undo);
+        final Optional<SpreadsheetParserSelector> undo = this.context.undo();
+        this.textBox.setValue(undo);
+        this.refreshSaveLink(undo);
+        this.undo.setValue(undo);
 
         this.refreshTitleTabsClearClose();
     }
