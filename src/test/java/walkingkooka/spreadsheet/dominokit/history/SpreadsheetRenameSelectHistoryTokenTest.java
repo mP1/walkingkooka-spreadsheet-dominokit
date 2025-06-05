@@ -90,6 +90,14 @@ public final class SpreadsheetRenameSelectHistoryTokenTest extends SpreadsheetRe
         );
     }
 
+    @Test
+    public void testSetSaveValueWithEmptyOptional() {
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            Optional.empty()
+        );
+    }
+
     @Override
     SpreadsheetRenameSelectHistoryToken createHistoryToken(final SpreadsheetId id,
                                                            final SpreadsheetName name) {
