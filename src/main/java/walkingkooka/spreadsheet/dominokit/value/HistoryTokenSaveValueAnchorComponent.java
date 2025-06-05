@@ -72,7 +72,7 @@ public final class HistoryTokenSaveValueAnchorComponent<T> implements ValueHisto
                         final HistoryTokenAnchorComponent anchor) {
         HistoryToken historyToken = this.context.historyToken()
             .setSaveValue(value);
-        if (false == (historyToken.getClass().getSimpleName().contains("Save"))) {
+        if (false == (historyToken.isSave())) {
             historyToken = null;
         }
         if(this.autoDisableWhenMissingValue && false == value.isPresent()) {
