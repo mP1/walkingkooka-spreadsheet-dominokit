@@ -21,7 +21,6 @@ import walkingkooka.Cast;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -43,10 +42,8 @@ public final class HistoryTokenSaveValueAnchorComponent<T> implements ValueHisto
 
     private HistoryTokenSaveValueAnchorComponent(final String id,
                                                  final HistoryContext context) {
-        this.historyTokenAnchorComponent = HistoryTokenAnchorComponent.empty();
-
         this.component = ValueHistoryTokenAnchorComponent.with(
-            this.historyTokenAnchorComponent,
+            HistoryTokenAnchorComponent.empty(),
             this::getter,
             this::setter
         );
@@ -83,20 +80,6 @@ public final class HistoryTokenSaveValueAnchorComponent<T> implements ValueHisto
             Optional.ofNullable(historyToken)
         );
     }
-
-    public HistoryTokenSaveValueAnchorComponent<T> setStringValue(final String value) {
-        this.historyTokenAnchorComponent.setHistoryToken(
-            Optional.ofNullable(
-                this.autoDisableWhenMissingValue && CharSequences.isNullOrEmpty(value) ?
-                    null :
-                    this.context.historyToken()
-                        .setSaveValue(value)
-            )
-        );
-        return this;
-    }
-
-    private final HistoryTokenAnchorComponent historyTokenAnchorComponent;
 
     /**
      * Will disable the link if setValue is given a {@link Optional#empty()}.
