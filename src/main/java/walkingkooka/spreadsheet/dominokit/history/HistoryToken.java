@@ -3780,356 +3780,370 @@ public abstract class HistoryToken implements HasUrlFragment,
             }
         }
 
-        if (this instanceof SpreadsheetNameHistoryToken) {
-            final SpreadsheetNameHistoryToken nameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+        if (this instanceof SpreadsheetIdHistoryToken) {
+            final SpreadsheetId id = this.cast(SpreadsheetIdHistoryToken.class)
+                .id();
 
-            final SpreadsheetId id = nameHistoryToken.id();
-            final SpreadsheetName name = nameHistoryToken.name();
-
-            if (this instanceof SpreadsheetRenameHistoryToken) {
+            if (this instanceof SpreadsheetListRenameHistoryToken) {
                 if (value.isPresent()) {
-                    historyToken = HistoryToken.spreadsheetRenameSave(
+                    historyToken = HistoryToken.spreadsheetListRenameSave(
                         id,
-                        name,
                         (SpreadsheetName) value.get()
                     );
                 } else {
-                    historyToken = HistoryToken.spreadsheetRenameSelect(
-                        id,
-                        name
-                    );
+                    historyToken = HistoryToken.spreadsheetListRenameSelect(id);
                 }
             }
 
-            if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
-                final AnchoredSpreadsheetSelection spreadsheetSelection = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
-                    .anchoredSelection();
+            if (this instanceof SpreadsheetNameHistoryToken) {
+                final SpreadsheetName name = this.cast(SpreadsheetNameHistoryToken.class)
+                    .name();
 
-                if (this instanceof SpreadsheetCellHistoryToken) {
-                    if (this instanceof SpreadsheetCellSelectHistoryToken || this instanceof SpreadsheetCellSaveHistoryToken) {
-                        if (valueOrNull instanceof Set) {
-                            historyToken = HistoryToken.cellSaveCell(
-                                id,
-                                name,
-                                spreadsheetSelection,
-                                Cast.to(valueOrNull) // Set<SpreadsheetCell>
-                            );
-                        } else {
-                            if (valueOrNull instanceof Map) {
-                                final Map<?, ?> map = Cast.to(valueOrNull);
-                                if (false == map.isEmpty()) {
-                                    final int MODE_DATE_TIME_SYMBOLS = 1;
-                                    final int MODE_DECIMAL_NUMBER_SYMBOLS = 2;
-                                    final int MODE_FORMATTER = 4;
-                                    final int MODE_FORMULA = 8;
-                                    final int MODE_PARSER = 16;
-                                    final int MODE_STYLE = 32;
-                                    final int MODE_VALIDATOR = 64;
-                                    final int MODE_VALUE_TYPE = 128;
+                if (this instanceof SpreadsheetRenameHistoryToken) {
+                    if (value.isPresent()) {
+                        historyToken = HistoryToken.spreadsheetRenameSave(
+                            id,
+                            name,
+                            (SpreadsheetName) value.get()
+                        );
+                    } else {
+                        historyToken = HistoryToken.spreadsheetRenameSelect(
+                            id,
+                            name
+                        );
+                    }
+                }
 
-                                    int mode = MODE_DATE_TIME_SYMBOLS | MODE_DECIMAL_NUMBER_SYMBOLS | MODE_FORMATTER | MODE_FORMULA | MODE_PARSER | MODE_STYLE | MODE_VALIDATOR | MODE_VALUE_TYPE;
+                if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
+                    final AnchoredSpreadsheetSelection spreadsheetSelection = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
+                        .anchoredSelection();
 
-                                    for (final Object mapValue : map.values()) {
-                                        // ignore nulls
-                                        if (mapValue instanceof Optional) {
-                                            final Optional<?> mapValueOptional = (Optional<?>) mapValue;
-                                            if (mapValueOptional.isPresent()) {
-                                                Object mapValueOptionalValue = mapValueOptional.get();
-                                                if (mapValueOptionalValue instanceof DateTimeSymbols) {
-                                                    mode = MODE_DATE_TIME_SYMBOLS & mode;
-                                                } else {
-                                                    if (mapValueOptionalValue instanceof DecimalNumberSymbols) {
-                                                        mode = MODE_DECIMAL_NUMBER_SYMBOLS & mode;
+                    if (this instanceof SpreadsheetCellHistoryToken) {
+                        if (this instanceof SpreadsheetCellSelectHistoryToken || this instanceof SpreadsheetCellSaveHistoryToken) {
+                            if (valueOrNull instanceof Set) {
+                                historyToken = HistoryToken.cellSaveCell(
+                                    id,
+                                    name,
+                                    spreadsheetSelection,
+                                    Cast.to(valueOrNull) // Set<SpreadsheetCell>
+                                );
+                            } else {
+                                if (valueOrNull instanceof Map) {
+                                    final Map<?, ?> map = Cast.to(valueOrNull);
+                                    if (false == map.isEmpty()) {
+                                        final int MODE_DATE_TIME_SYMBOLS = 1;
+                                        final int MODE_DECIMAL_NUMBER_SYMBOLS = 2;
+                                        final int MODE_FORMATTER = 4;
+                                        final int MODE_FORMULA = 8;
+                                        final int MODE_PARSER = 16;
+                                        final int MODE_STYLE = 32;
+                                        final int MODE_VALIDATOR = 64;
+                                        final int MODE_VALUE_TYPE = 128;
+
+                                        int mode = MODE_DATE_TIME_SYMBOLS | MODE_DECIMAL_NUMBER_SYMBOLS | MODE_FORMATTER | MODE_FORMULA | MODE_PARSER | MODE_STYLE | MODE_VALIDATOR | MODE_VALUE_TYPE;
+
+                                        for (final Object mapValue : map.values()) {
+                                            // ignore nulls
+                                            if (mapValue instanceof Optional) {
+                                                final Optional<?> mapValueOptional = (Optional<?>) mapValue;
+                                                if (mapValueOptional.isPresent()) {
+                                                    Object mapValueOptionalValue = mapValueOptional.get();
+                                                    if (mapValueOptionalValue instanceof DateTimeSymbols) {
+                                                        mode = MODE_DATE_TIME_SYMBOLS & mode;
                                                     } else {
-                                                        if (mapValueOptionalValue instanceof SpreadsheetFormatterSelector) {
-                                                            mode = MODE_FORMATTER & mode;
+                                                        if (mapValueOptionalValue instanceof DecimalNumberSymbols) {
+                                                            mode = MODE_DECIMAL_NUMBER_SYMBOLS & mode;
                                                         } else {
-                                                            if (mapValueOptionalValue instanceof SpreadsheetParserSelector) {
-                                                                mode = MODE_PARSER & mode;
+                                                            if (mapValueOptionalValue instanceof SpreadsheetFormatterSelector) {
+                                                                mode = MODE_FORMATTER & mode;
                                                             } else {
-                                                                if (mapValueOptionalValue instanceof ValidatorSelector) {
-                                                                    mode = MODE_VALIDATOR & mode;
+                                                                if (mapValueOptionalValue instanceof SpreadsheetParserSelector) {
+                                                                    mode = MODE_PARSER & mode;
                                                                 } else {
-                                                                    if (mapValueOptionalValue instanceof ValidationValueTypeName) {
-                                                                        mode = MODE_VALUE_TYPE & mode;
+                                                                    if (mapValueOptionalValue instanceof ValidatorSelector) {
+                                                                        mode = MODE_VALIDATOR & mode;
                                                                     } else {
-                                                                        mode = 0;
+                                                                        if (mapValueOptionalValue instanceof ValidationValueTypeName) {
+                                                                            mode = MODE_VALUE_TYPE & mode;
+                                                                        } else {
+                                                                            mode = 0;
+                                                                        }
                                                                     }
                                                                 }
                                                             }
                                                         }
                                                     }
                                                 }
-                                            }
-                                        } else {
-                                            if (mapValue instanceof String) {
-                                                mode = MODE_FORMULA & mode;
                                             } else {
-                                                if (mapValue instanceof TextStyle) {
-                                                    mode = MODE_STYLE & mode;
+                                                if (mapValue instanceof String) {
+                                                    mode = MODE_FORMULA & mode;
                                                 } else {
-                                                    mode = 0;
-                                                    break;
+                                                    if (mapValue instanceof TextStyle) {
+                                                        mode = MODE_STYLE & mode;
+                                                    } else {
+                                                        mode = 0;
+                                                        break;
+                                                    }
                                                 }
                                             }
-                                        }
 
-                                        if (0 == mode) {
-                                            break;
+                                            if (0 == mode) {
+                                                break;
+                                            }
+                                        }
+                                        switch (mode) {
+                                            case MODE_DATE_TIME_SYMBOLS:
+                                                historyToken = HistoryToken.cellSaveDateTimeSymbols(
+                                                    id,
+                                                    name,
+                                                    spreadsheetSelection,
+                                                    Cast.to(valueOrNull)
+                                                );
+                                                break;
+                                            case MODE_DECIMAL_NUMBER_SYMBOLS:
+                                                historyToken = HistoryToken.cellSaveDecimalNumberSymbols(
+                                                    id,
+                                                    name,
+                                                    spreadsheetSelection,
+                                                    Cast.to(valueOrNull)
+                                                );
+                                                break;
+                                            case MODE_FORMATTER:
+                                                historyToken = HistoryToken.cellSaveFormatter(
+                                                    id,
+                                                    name,
+                                                    spreadsheetSelection,
+                                                    Cast.to(valueOrNull)
+                                                );
+                                                break;
+                                            case MODE_FORMULA:
+                                                historyToken = HistoryToken.cellSaveFormulaText(
+                                                    id,
+                                                    name,
+                                                    spreadsheetSelection,
+                                                    Cast.to(valueOrNull)
+                                                );
+                                                break;
+                                            case MODE_PARSER:
+                                                historyToken = HistoryToken.cellSaveParser(
+                                                    id,
+                                                    name,
+                                                    spreadsheetSelection,
+                                                    Cast.to(valueOrNull)
+                                                );
+                                                break;
+                                            case MODE_STYLE:
+                                                historyToken = HistoryToken.cellSaveStyle(
+                                                    id,
+                                                    name,
+                                                    spreadsheetSelection,
+                                                    Cast.to(valueOrNull)
+                                                );
+                                                break;
+                                            case MODE_VALIDATOR:
+                                                historyToken = HistoryToken.cellSaveValidator(
+                                                    id,
+                                                    name,
+                                                    spreadsheetSelection,
+                                                    Cast.to(valueOrNull)
+                                                );
+                                                break;
+                                            case MODE_VALUE_TYPE:
+                                                historyToken = HistoryToken.cellSaveValueType(
+                                                    id,
+                                                    name,
+                                                    spreadsheetSelection,
+                                                    Cast.to(valueOrNull)
+                                                );
+                                                break;
+                                            default:
+                                                throw new IllegalArgumentException("Invalid value");
                                         }
                                     }
-                                    switch (mode) {
-                                        case MODE_DATE_TIME_SYMBOLS:
-                                            historyToken = HistoryToken.cellSaveDateTimeSymbols(
-                                                id,
-                                                name,
-                                                spreadsheetSelection,
-                                                Cast.to(valueOrNull)
-                                            );
-                                            break;
-                                        case MODE_DECIMAL_NUMBER_SYMBOLS:
-                                            historyToken = HistoryToken.cellSaveDecimalNumberSymbols(
-                                                id,
-                                                name,
-                                                spreadsheetSelection,
-                                                Cast.to(valueOrNull)
-                                            );
-                                            break;
-                                        case MODE_FORMATTER:
-                                            historyToken = HistoryToken.cellSaveFormatter(
-                                                id,
-                                                name,
-                                                spreadsheetSelection,
-                                                Cast.to(valueOrNull)
-                                            );
-                                            break;
-                                        case MODE_FORMULA:
-                                            historyToken = HistoryToken.cellSaveFormulaText(
-                                                id,
-                                                name,
-                                                spreadsheetSelection,
-                                                Cast.to(valueOrNull)
-                                            );
-                                            break;
-                                        case MODE_PARSER:
-                                            historyToken = HistoryToken.cellSaveParser(
-                                                id,
-                                                name,
-                                                spreadsheetSelection,
-                                                Cast.to(valueOrNull)
-                                            );
-                                            break;
-                                        case MODE_STYLE:
-                                            historyToken = HistoryToken.cellSaveStyle(
-                                                id,
-                                                name,
-                                                spreadsheetSelection,
-                                                Cast.to(valueOrNull)
-                                            );
-                                            break;
-                                        case MODE_VALIDATOR:
-                                            historyToken = HistoryToken.cellSaveValidator(
-                                                id,
-                                                name,
-                                                spreadsheetSelection,
-                                                Cast.to(valueOrNull)
-                                            );
-                                            break;
-                                        case MODE_VALUE_TYPE:
-                                            historyToken = HistoryToken.cellSaveValueType(
-                                                id,
-                                                name,
-                                                spreadsheetSelection,
-                                                Cast.to(valueOrNull)
-                                            );
-                                            break;
-                                        default:
-                                            throw new IllegalArgumentException("Invalid value");
-                                    }
-                                }
-                            } else {
-                                if (null == valueOrNull) {
-                                    historyToken = this.clearAction();
                                 } else {
-                                    throw new IllegalArgumentException("Invalid value");
+                                    if (null == valueOrNull) {
+                                        historyToken = this.clearAction();
+                                    } else {
+                                        throw new IllegalArgumentException("Invalid value");
+                                    }
                                 }
                             }
                         }
-                    }
 
-                    if (this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken) {
-                        if (null != valueOrNull && false == valueOrNull instanceof DateTimeSymbols) {
-                            throw new IllegalArgumentException("Invalid value");
+                        if (this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken) {
+                            if (null != valueOrNull && false == valueOrNull instanceof DateTimeSymbols) {
+                                throw new IllegalArgumentException("Invalid value");
+                            }
+
+                            historyToken = HistoryToken.cellDateTimeSymbolsSave(
+                                id,
+                                name,
+                                spreadsheetSelection,
+                                Cast.to(value)
+                            );
                         }
 
-                        historyToken = HistoryToken.cellDateTimeSymbolsSave(
-                            id,
-                            name,
-                            spreadsheetSelection,
-                            Cast.to(value)
-                        );
-                    }
+                        if (this instanceof SpreadsheetCellDecimalNumberSymbolsHistoryToken) {
+                            if (null != valueOrNull && false == valueOrNull instanceof DecimalNumberSymbols) {
+                                throw new IllegalArgumentException("Invalid value");
+                            }
 
-                    if (this instanceof SpreadsheetCellDecimalNumberSymbolsHistoryToken) {
-                        if (null != valueOrNull && false == valueOrNull instanceof DecimalNumberSymbols) {
-                            throw new IllegalArgumentException("Invalid value");
+                            historyToken = HistoryToken.cellDecimalNumberSymbolsSave(
+                                id,
+                                name,
+                                spreadsheetSelection,
+                                Cast.to(value)
+                            );
                         }
 
-                        historyToken = HistoryToken.cellDecimalNumberSymbolsSave(
-                            id,
-                            name,
-                            spreadsheetSelection,
-                            Cast.to(value)
-                        );
-                    }
+                        if (this instanceof SpreadsheetCellFormatterHistoryToken) {
+                            if (null != valueOrNull && false == valueOrNull instanceof SpreadsheetFormatterSelector) {
+                                throw new IllegalArgumentException("Invalid value");
+                            }
 
-                    if (this instanceof SpreadsheetCellFormatterHistoryToken) {
-                        if (null != valueOrNull && false == valueOrNull instanceof SpreadsheetFormatterSelector) {
-                            throw new IllegalArgumentException("Invalid value");
+                            historyToken = HistoryToken.cellFormatterSave(
+                                id,
+                                name,
+                                spreadsheetSelection,
+                                Cast.to(value)
+                            );
                         }
 
-                        historyToken = HistoryToken.cellFormatterSave(
-                            id,
-                            name,
-                            spreadsheetSelection,
-                            Cast.to(value)
-                        );
-                    }
-
-                    if (this instanceof SpreadsheetCellFormulaHistoryToken) {
-                        historyToken = HistoryToken.cellFormulaSave(
-                            id,
-                            name,
-                            spreadsheetSelection,
-                            CharSequences.nullToEmpty((String) valueOrNull)
-                                .toString()
-                        );
-                    }
-
-                    if (this instanceof SpreadsheetCellLabelHistoryToken) {
-                        historyToken = HistoryToken.cellLabelSave(
-                            id,
-                            name,
-                            spreadsheetSelection,
-                            Cast.to(valueOrNull)
-                        );
-                    }
-
-                    if (this instanceof SpreadsheetCellParserHistoryToken) {
-                        if (null != valueOrNull && false == valueOrNull instanceof SpreadsheetParserSelector) {
-                            throw new IllegalArgumentException("Invalid value");
+                        if (this instanceof SpreadsheetCellFormulaHistoryToken) {
+                            historyToken = HistoryToken.cellFormulaSave(
+                                id,
+                                name,
+                                spreadsheetSelection,
+                                CharSequences.nullToEmpty((String) valueOrNull)
+                                    .toString()
+                            );
                         }
 
-                        historyToken = HistoryToken.cellParserSave(
-                            id,
-                            name,
-                            spreadsheetSelection,
-                            Cast.to(value)
-                        );
+                        if (this instanceof SpreadsheetCellLabelHistoryToken) {
+                            historyToken = HistoryToken.cellLabelSave(
+                                id,
+                                name,
+                                spreadsheetSelection,
+                                Cast.to(valueOrNull)
+                            );
+                        }
+
+                        if (this instanceof SpreadsheetCellParserHistoryToken) {
+                            if (null != valueOrNull && false == valueOrNull instanceof SpreadsheetParserSelector) {
+                                throw new IllegalArgumentException("Invalid value");
+                            }
+
+                            historyToken = HistoryToken.cellParserSave(
+                                id,
+                                name,
+                                spreadsheetSelection,
+                                Cast.to(value)
+                            );
+                        }
+
+                        if (this instanceof SpreadsheetCellSortHistoryToken) {
+                            historyToken = HistoryToken.cellSortSave(
+                                id,
+                                name,
+                                spreadsheetSelection,
+                                Cast.to(valueOrNull)
+                            );
+                        }
+
+                        if (this instanceof SpreadsheetCellStyleHistoryToken) {
+                            historyToken = HistoryToken.cellStyleSave(
+                                id,
+                                name,
+                                spreadsheetSelection,
+                                this.cast(SpreadsheetCellStyleHistoryToken.class)
+                                    .propertyName(),
+                                value
+                            );
+                        }
+
+                        if (this instanceof SpreadsheetCellValidatorHistoryToken) {
+                            if (null != valueOrNull && false == valueOrNull instanceof ValidatorSelector) {
+                                throw new IllegalArgumentException("Invalid value");
+                            }
+
+                            historyToken = HistoryToken.cellValidatorSave(
+                                id,
+                                name,
+                                spreadsheetSelection,
+                                Cast.to(value)
+                            );
+                        }
+
+                        if (this instanceof SpreadsheetCellValueTypeHistoryToken) {
+                            if (null != valueOrNull && false == valueOrNull instanceof ValidationValueTypeName) {
+                                throw new IllegalArgumentException("Invalid value");
+                            }
+
+                            historyToken = HistoryToken.cellValueTypeSave(
+                                id,
+                                name,
+                                spreadsheetSelection,
+                                Cast.to(value)
+                            );
+                        }
                     }
 
-                    if (this instanceof SpreadsheetCellSortHistoryToken) {
-                        historyToken = HistoryToken.cellSortSave(
-                            id,
-                            name,
-                            spreadsheetSelection,
-                            Cast.to(valueOrNull)
-                        );
+                    if (this instanceof SpreadsheetColumnSortHistoryToken) {
+                        if (null != valueOrNull) {
+                            historyToken = HistoryToken.columnSortSave(
+                                id,
+                                name,
+                                spreadsheetSelection,
+                                Cast.to(valueOrNull)
+                            );
+                        }
                     }
 
-                    if (this instanceof SpreadsheetCellStyleHistoryToken) {
-                        historyToken = HistoryToken.cellStyleSave(
+                    if (this instanceof SpreadsheetRowSortHistoryToken) {
+                        if (null != valueOrNull) {
+                            historyToken = HistoryToken.rowSortSave(
+                                id,
+                                name,
+                                spreadsheetSelection,
+                                Cast.to(valueOrNull)
+                            );
+                        }
+                    }
+                }
+
+                if (this instanceof SpreadsheetLabelMappingSelectHistoryToken || this instanceof SpreadsheetLabelMappingSaveHistoryToken) {
+                    if (null != valueOrNull) {
+                        historyToken = HistoryToken.labelMappingSave(
                             id,
                             name,
-                            spreadsheetSelection,
-                            this.cast(SpreadsheetCellStyleHistoryToken.class)
+                            this.cast(SpreadsheetLabelMappingHistoryToken.class)
+                                .labelName()
+                                .get()
+                                .setLabelMappingReference((SpreadsheetExpressionReference) valueOrNull)
+                        );
+                    }
+                }
+
+                if (this instanceof SpreadsheetMetadataHistoryToken) {
+                    if (this instanceof SpreadsheetMetadataPropertySelectHistoryToken || this instanceof SpreadsheetMetadataPropertySaveHistoryToken) {
+                        historyToken = HistoryToken.metadataPropertySave(
+                            id,
+                            name,
+                            this.cast(SpreadsheetMetadataPropertyHistoryToken.class)
                                 .propertyName(),
                             value
                         );
                     }
 
-                    if (this instanceof SpreadsheetCellValidatorHistoryToken) {
-                        if (null != valueOrNull && false == valueOrNull instanceof ValidatorSelector) {
-                            throw new IllegalArgumentException("Invalid value");
-                        }
-
-                        historyToken = HistoryToken.cellValidatorSave(
+                    if (this instanceof SpreadsheetMetadataPropertyStyleHistoryToken) {
+                        historyToken = HistoryToken.metadataPropertyStyleSave(
                             id,
                             name,
-                            spreadsheetSelection,
-                            Cast.to(value)
+                            this.cast(SpreadsheetMetadataPropertyStyleHistoryToken.class)
+                                .stylePropertyName(),
+                            value
                         );
                     }
-
-                    if (this instanceof SpreadsheetCellValueTypeHistoryToken) {
-                        if (null != valueOrNull && false == valueOrNull instanceof ValidationValueTypeName) {
-                            throw new IllegalArgumentException("Invalid value");
-                        }
-
-                        historyToken = HistoryToken.cellValueTypeSave(
-                            id,
-                            name,
-                            spreadsheetSelection,
-                            Cast.to(value)
-                        );
-                    }
-                }
-
-                if (this instanceof SpreadsheetColumnSortHistoryToken) {
-                    if (null != valueOrNull) {
-                        historyToken = HistoryToken.columnSortSave(
-                            id,
-                            name,
-                            spreadsheetSelection,
-                            Cast.to(valueOrNull)
-                        );
-                    }
-                }
-
-                if (this instanceof SpreadsheetRowSortHistoryToken) {
-                    if (null != valueOrNull) {
-                        historyToken = HistoryToken.rowSortSave(
-                            id,
-                            name,
-                            spreadsheetSelection,
-                            Cast.to(valueOrNull)
-                        );
-                    }
-                }
-            }
-
-            if (this instanceof SpreadsheetLabelMappingSelectHistoryToken || this instanceof SpreadsheetLabelMappingSaveHistoryToken) {
-                if (null != valueOrNull) {
-                    historyToken = HistoryToken.labelMappingSave(
-                        id,
-                        name,
-                        this.cast(SpreadsheetLabelMappingHistoryToken.class)
-                            .labelName()
-                            .get()
-                            .setLabelMappingReference((SpreadsheetExpressionReference) valueOrNull)
-                    );
-                }
-            }
-
-            if (this instanceof SpreadsheetMetadataHistoryToken) {
-                if (this instanceof SpreadsheetMetadataPropertySelectHistoryToken || this instanceof SpreadsheetMetadataPropertySaveHistoryToken) {
-                    historyToken = HistoryToken.metadataPropertySave(
-                        id,
-                        name,
-                        this.cast(SpreadsheetMetadataPropertyHistoryToken.class)
-                            .propertyName(),
-                        value
-                    );
-                }
-
-                if (this instanceof SpreadsheetMetadataPropertyStyleHistoryToken) {
-                    historyToken = HistoryToken.metadataPropertyStyleSave(
-                        id,
-                        name,
-                        this.cast(SpreadsheetMetadataPropertyStyleHistoryToken.class)
-                            .stylePropertyName(),
-                        value
-                    );
                 }
             }
         }
@@ -4427,10 +4441,16 @@ public abstract class HistoryToken implements HasUrlFragment,
                     }
                 } else {
                     if (this instanceof SpreadsheetListRenameHistoryToken) {
-                        saved = HistoryToken.spreadsheetListRenameSave(
-                            id,
-                            SpreadsheetName.with(value)
-                        );
+                        if (value.isEmpty()) {
+                            saved = HistoryToken.spreadsheetListRenameSelect(
+                                id
+                            );
+                        } else {
+                            saved = HistoryToken.spreadsheetListRenameSave(
+                                id,
+                                SpreadsheetName.with(value)
+                            );
+                        }
                     }
                 }
             }

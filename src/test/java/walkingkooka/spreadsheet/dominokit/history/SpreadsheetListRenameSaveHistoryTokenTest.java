@@ -19,6 +19,9 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
+
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -47,6 +50,54 @@ public final class SpreadsheetListRenameSaveHistoryTokenTest extends Spreadsheet
     public void testClearAction() {
         this.clearActionAndCheck(
             this.createHistoryToken(),
+            HistoryToken.spreadsheetListRenameSelect(ID)
+        );
+    }
+
+    // setSaveValue.....................................................................................................
+
+    @Test
+    public void testSetSaveValueWithNotEmptyString() {
+        final SpreadsheetName renameTo = SpreadsheetName.with("RenameToSpreadsheetName567");
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            renameTo.toString(),
+            HistoryToken.spreadsheetListRenameSave(
+                ID,
+                renameTo
+            )
+        );
+    }
+
+    @Test
+    public void testSetSaveValueWithEmptyString() {
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            "",
+            HistoryToken.spreadsheetListRenameSelect(ID)
+        );
+    }
+
+    @Test
+    public void testSetSaveValueWithSpreadsheetName() {
+        final SpreadsheetName renameTo = SpreadsheetName.with("RenameToSpreadsheetName567");
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            Optional.of(renameTo),
+            HistoryToken.spreadsheetListRenameSave(
+                ID,
+                renameTo
+            )
+        );
+    }
+
+    @Test
+    public void testSetSaveValueWithEmptyOptional() {
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            Optional.empty(),
             HistoryToken.spreadsheetListRenameSelect(ID)
         );
     }
