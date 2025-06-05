@@ -3786,6 +3786,14 @@ public abstract class HistoryToken implements HasUrlFragment,
             final SpreadsheetId id = nameHistoryToken.id();
             final SpreadsheetName name = nameHistoryToken.name();
 
+            if(this instanceof SpreadsheetRenameHistoryToken && value.isPresent()) {
+                historyToken = HistoryToken.spreadsheetRenameSave(
+                    id,
+                    name,
+                    (SpreadsheetName) value.get()
+                );
+            }
+
             if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
                 final AnchoredSpreadsheetSelection spreadsheetSelection = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
                     .anchoredSelection();
