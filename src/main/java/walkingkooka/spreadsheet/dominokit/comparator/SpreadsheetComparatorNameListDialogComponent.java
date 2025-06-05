@@ -65,7 +65,7 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
 
         context.addSpreadsheetMetadataFetcherWatcher(this);
 
-        this.textBox = this.textBox();
+        this.comparatorNameList = this.comparatorNameList();
 
         this.save = this.saveValueAnchor(context);
         this.undo = this.undoAnchor(context);
@@ -99,7 +99,7 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
             context
         );
 
-        return dialog.appendChild(this.textBox)
+        return dialog.appendChild(this.comparatorNameList)
             .appendChild(
                 SpreadsheetLinkListComponent.empty()
                     .appendChild(this.save)
@@ -123,60 +123,49 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
     /**
      * Creates a text box to edit the {@link SpreadsheetComparatorNameList} and installs a few value change type listeners
      */
-    private SpreadsheetComparatorNameListComponent textBox() {
+    private SpreadsheetComparatorNameListComponent comparatorNameList() {
         return SpreadsheetComparatorNameListComponent.empty()
             .setId(ID + SpreadsheetElementIds.TEXT_BOX)
             .addKeyupListener(
-                (e) -> this.onTextBox(this.text())
+                (event) -> this.refreshSaveLink(
+                    this.comparatorNameList.value()
+                )
             ).addChangeListener(
-                (oldValue, newValue) -> this.onTextBox(this.text())
+                (oldValue, newValue) ->
+                    this.refreshSaveLink(newValue)
             );
-    }
-
-    /**
-     * Handles updates to the {@link SpreadsheetComparatorNameListComponent}
-     */
-    private void onTextBox(final String text) {
-        this.save.setStringValue(text);
-    }
-
-    /**
-     * Retrieves the current {@link SpreadsheetComparatorNameList}.
-     */
-    private String text() {
-        return this.textBox.stringValue()
-            .orElse("");
-    }
-
-    // @VisibleForTesting
-    void setText(final String text) {
-        this.textBox.setStringValue(
-            Optional.of(text)
-        );
-        this.onTextBox(text);
     }
 
     /**
      * The {@link SpreadsheetComparatorNameListComponent} that holds the {@link SpreadsheetComparatorNameList} in text form.
      */
-    private final SpreadsheetComparatorNameListComponent textBox;
+    private final SpreadsheetComparatorNameListComponent comparatorNameList;
 
     // dialog links.....................................................................................................
 
+    void refreshSaveLink(final Optional<SpreadsheetComparatorNameList> list) {
+        this.comparatorNameList.validate();
+        if(this.comparatorNameList.hasErrors()) {
+            this.save.disabled();
+        } else {
+            this.save.setValue(list);
+        }
+    }
+
     /**
-     * A SAVE link which will be updated each time the {@link #textBox} is also updated.
+     * A SAVE link which will be updated each time the {@link #comparatorNameList} is also updated.
      */
-    private final HistoryTokenSaveValueAnchorComponent<String> save;
+    private final HistoryTokenSaveValueAnchorComponent<SpreadsheetComparatorNameList> save;
 
     /**
      * A UNDO link which will be updated each time the {@link SpreadsheetComparatorNameList} is saved.
      */
-    private final HistoryTokenSaveValueAnchorComponent<String> undo;
+    private final HistoryTokenSaveValueAnchorComponent<SpreadsheetComparatorNameList> undo;
 
     /**
      * A CLEAR link which will save an empty {@link SpreadsheetComparatorNameList}.
      */
-    private final HistoryTokenSaveValueAnchorComponent<String> clear;
+    private final HistoryTokenSaveValueAnchorComponent<SpreadsheetComparatorNameList> clear;
 
     /**
      * A CLOSE link which will close the dialog.
@@ -211,7 +200,7 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
     @Override
     public void openGiveFocus(final RefreshContext context) {
         context.giveFocus(
-            this.textBox::focus
+            this.comparatorNameList::focus
         );
     }
 
@@ -220,10 +209,10 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
      */
     @Override
     public void refresh(final RefreshContext context) {
-        final String undo = this.context.undo();
-        this.setText(undo);
-
-        this.undo.setStringValue(undo);
+        final Optional<SpreadsheetComparatorNameList> undo = this.context.undo();
+        this.comparatorNameList.setValue(undo);
+        this.refreshSaveLink(undo);
+        this.undo.setValue(undo);
 
         this.refreshTitleAndLinks();
     }
