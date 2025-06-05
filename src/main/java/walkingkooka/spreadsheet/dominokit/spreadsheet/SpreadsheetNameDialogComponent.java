@@ -30,8 +30,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.dominokit.value.HistoryTokenSaveValueAnchorComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
-import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -60,11 +60,12 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
 
         this.name = this.name();
 
-        this.save = this.anchor("Save");
-        this.undo = this.anchor("Undo");
+        this.save = this.saveValueAnchor(context)
+            .autoDisableWhenMissingValue();
+        this.undo = this.undoAnchor(context);
         this.close = this.closeAnchor();
 
-        this.lastSave = null;
+        //this.lastSave = null;
 
         this.dialog = this.dialogCreate();
 
@@ -121,17 +122,13 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
     }
 
     private void onNameChange(final Optional<SpreadsheetName> name) {
-        this.refreshSave(
-            name.map(SpreadsheetName::value).orElse(null)
-        );
+        this.refreshSave(name);
     }
 
     private void setName(final Optional<SpreadsheetName> name) {
-        if (name.isPresent()) {
-            this.name.setValue(name);
-            this.lastSave = name.map(SpreadsheetName::value)
-                .orElse(null);
-        }
+        this.name.setValue(name);
+        this.refreshSave(name);
+        this.refreshUndo(name);
     }
 
     /**
@@ -142,12 +139,12 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
     /**
      * A SAVE link which will be updated each time the name box is also updated.
      */
-    private final HistoryTokenAnchorComponent save;
+    private final HistoryTokenSaveValueAnchorComponent<SpreadsheetName> save;
 
     /**
      * A UNDO link which will be updated each time the name is saved.
      */
-    private final HistoryTokenAnchorComponent undo;
+    private final HistoryTokenSaveValueAnchorComponent<SpreadsheetName> undo;
 
     /**
      * A CLOSE link which will close the dialog.
@@ -181,17 +178,9 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
 
     @Override
     public void refresh(final RefreshContext context) {
-        final SpreadsheetNameDialogComponentContext dialogContext = this.context;
-        final Optional<SpreadsheetName> name = dialogContext.spreadsheetName();
-
-        if (name.isPresent()) {
-            this.refreshSave(
-                name.get()
-                    .value()
-            );
-        }
-
-        this.refreshUndo();
+        final Optional<SpreadsheetName> name = this.context.spreadsheetName();
+        this.refreshSave(name);
+        this.refreshUndo(name);
 
         this.refreshClose();
     }
@@ -205,31 +194,13 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
         );
     }
 
-    private void refreshSave(final String name) {
-        this.save.setHistoryToken(
-            Optional.ofNullable(
-                CharSequences.isNullOrEmpty(name) ?
-                    null :
-                    this.context.historyToken()
-                        .setSaveValue(name)
-            )
-        );
+    private void refreshSave(final Optional<SpreadsheetName> name) {
+        this.save.setValue(name);
     }
 
-    private void refreshUndo() {
-        final String lastSave = this.lastSave;
-
-        this.undo.setHistoryToken(
-            Optional.ofNullable(
-                CharSequences.isNullOrEmpty(lastSave) ?
-                    null :
-                    this.context.historyToken()
-                        .setSaveValue(lastSave)
-            )
-        );
+    private void refreshUndo(final Optional<SpreadsheetName> name) {
+        this.undo.setValue(name);
     }
-
-    private String lastSave;
 
     private final SpreadsheetNameDialogComponentContext context;
 

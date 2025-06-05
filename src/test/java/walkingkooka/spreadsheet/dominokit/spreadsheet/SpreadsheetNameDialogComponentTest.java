@@ -67,7 +67,7 @@ public final class SpreadsheetNameDialogComponentTest implements SpreadsheetDial
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/SpreadsheetName1/rename/save/SpreadsheetName1] id=spreadsheetName-save-Link\n" +
-                "            \"Undo\" DISABLED id=spreadsheetName-undo-Link\n" +
+                "            \"Undo\" [#/1/SpreadsheetName1/rename/save/SpreadsheetName1] id=spreadsheetName-undo-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName1] id=spreadsheetName-close-Link\n"
         );
     }
