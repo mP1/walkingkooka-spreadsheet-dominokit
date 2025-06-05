@@ -17,13 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.format;
 
+import walkingkooka.Cast;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.text.CaseKind;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * A {@link SpreadsheetFormatterSelectorDialogComponentContext} for editing a metadata formatter.
@@ -67,15 +70,16 @@ final class AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata
      * and then reads the value for its {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName}.
      */
     @Override
-    public String undo() {
-        return this.context.spreadsheetMetadata()
+    public Optional<SpreadsheetFormatterSelector> undo() {
+        return Cast.to(
+            this.context.spreadsheetMetadata()
             .getIgnoringDefaults(
                 this.historyToken()
                     .patternKind()
                     .get()
                     .spreadsheetMetadataPropertyName()
-            ).map(Object::toString)
-            .orElse("");
+            )
+        );
     }
 
     // ComponentLifecycleMatcher........................................................................................

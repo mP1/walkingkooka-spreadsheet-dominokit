@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.format;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSelectHistoryToken;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
@@ -54,24 +53,21 @@ final class AppContextSpreadsheetFormatterSelectorDialogComponentContextCell ext
     }
 
     @Override
-    public String undo() {
-        String text = "";
+    public Optional<SpreadsheetFormatterSelector> undo() {
+        Optional<SpreadsheetFormatterSelector> selector = Optional.empty();
 
         final Optional<SpreadsheetCell> maybeCell = this.context.spreadsheetViewportCache()
             .cell(
                 this.historyToken()
-                    .cast(SpreadsheetAnchoredSelectionHistoryToken.class)
-                    .anchoredSelection()
                     .selection()
+                    .get()
             );
         if (maybeCell.isPresent()) {
-            text = maybeCell.get()
-                .formatter()
-                .map(SpreadsheetFormatterSelector::toString)
-                .orElse("");
+            selector = maybeCell.get()
+                .formatter();
         }
 
-        return text;
+        return selector;
     }
 
     // ComponentLifecycleMatcher........................................................................................
