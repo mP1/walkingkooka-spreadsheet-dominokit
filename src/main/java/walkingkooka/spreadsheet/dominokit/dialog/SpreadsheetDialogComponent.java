@@ -75,8 +75,8 @@ public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponent
                                                        final boolean includeClose,
                                                        final HistoryContext context) {
         return with(
-            DialogSize.LARGE, // width
-            DialogSize.LARGE, // height
+            DialogSize.SMALL, // width
+            DialogSize.SMALL, // height
             id,
             title,
             includeClose,

@@ -139,7 +139,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
     private SpreadsheetDialogComponent dialogCreate() {
         final PluginAliasSetLikeDialogComponentContext<N, I, IS, S, A, AS> context = this.context;
 
-        return SpreadsheetDialogComponent.smallEdit(
+        return SpreadsheetDialogComponent.largeEdit(
                 ID + SpreadsheetElementIds.DIALOG,
                 context.dialogTitle(),
                 true, // includeClose
