@@ -18,11 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.cell;
 
 import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValueHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponentDelegator;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.validation.ValidationValueTypeName;
 
@@ -69,22 +71,42 @@ public final class SpreadsheetCellValueAnchorComponent implements ValueHistoryTo
 
     private void setter(final Optional<SpreadsheetExpressionReference> cellOrLabel,
                         final HistoryTokenAnchorComponent anchor) {
-        String text;
+        String text = "";
         HistoryToken historyToken = null;
 
         if (cellOrLabel.isPresent()) {
-            final SpreadsheetCellValueAnchorComponentContext context = this.context;
-            final Optional<ValidationValueTypeName> valueType = context.cell(cellOrLabel.get())
-                .flatMap((SpreadsheetCell cell) -> cell.formula().valueType());
-
-            historyToken = context.historyToken()
-                .setSelection(cellOrLabel)
-                .setValue(valueType);
-            if (false == valueType.isPresent() || false == (historyToken instanceof SpreadsheetCellValueHistoryToken)) {
-                historyToken = null;
-            }
             text = cellOrLabel.get()
                 .text();
+
+            final SpreadsheetCellValueAnchorComponentContext context = this.context;
+
+            final SpreadsheetCell cell = context.cell(cellOrLabel.get())
+                .orElse(null);
+            if (null != cell) {
+                final SpreadsheetFormula formula = cell.formula();
+                Object value = formula.value()
+                    .orElse(null);
+
+                // value present use that as the valueType
+                Optional<ValidationValueTypeName> valueType = Optional.empty();
+                if (formula.text().isEmpty() && null != value) {
+                    valueType = SpreadsheetValueType.toValueType(value.getClass());
+                }
+
+                if (false == valueType.isPresent()) {
+                    valueType = formula.valueType();
+                }
+
+                if (valueType.isPresent()) {
+                    historyToken = context.historyToken()
+                        .setSelection(cellOrLabel)
+                        .setValue(valueType);
+                    if (false == historyToken instanceof SpreadsheetCellValueHistoryToken) {
+                        historyToken = null;
+                    }
+                }
+            }
+
         } else {
             text = "Value";
         }

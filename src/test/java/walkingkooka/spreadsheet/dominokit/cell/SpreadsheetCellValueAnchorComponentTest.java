@@ -61,7 +61,8 @@ public final class SpreadsheetCellValueAnchorComponentTest implements AnchorComp
     public void testSetValueWithCellMissingSpreadsheetIdSpreadsheetNameGivesDisabledLink() {
         this.treePrintAndCheck(
             this.createComponent(
-                "/"
+                "/",
+                null // NO_CELL
             ).setValue(
                 Optional.of(
                     SpreadsheetSelection.A1
@@ -72,9 +73,79 @@ public final class SpreadsheetCellValueAnchorComponentTest implements AnchorComp
     }
 
     @Test
-    public void testSetValueWithCell() {
+    public void testSetValueWithCellWithFormulaTextAndValue() {
         this.treePrintAndCheck(
-            this.createComponent()
+            this.createComponent(
+                    SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY.setText("=1")
+                            .setValue(
+                                Optional.of("text123")
+                            )
+                    )
+                )
+                .setValue(
+                    Optional.of(
+                        SpreadsheetSelection.A1
+                    )
+                ),
+            "\"A1\" DISABLED id=cell-value-anchor-id"
+        );
+    }
+
+    @Test
+    public void testSetValueWithCellWithNoFormulaTextAndValue() {
+        this.treePrintAndCheck(
+            this.createComponent(
+                    SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY.setValue(
+                            Optional.of("text123")
+                        )
+                    )
+                )
+                .setValue(
+                    Optional.of(
+                        SpreadsheetSelection.A1
+                    )
+                ),
+            "\"A1\" [#/1/SpreadsheetName222/cell/A1/value/text] id=cell-value-anchor-id"
+        );
+    }
+
+    @Test
+    public void testSetValueWithCellWithValueIgnoresValueType() {
+        this.treePrintAndCheck(
+            this.createComponent(
+                    SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY.setText("=1")
+                            .setValueType(
+                                Optional.of(ValidationValueTypeName.DATE)
+                            ).setValue(
+                                Optional.of("text123")
+                            )
+                    )
+                )
+                .setValue(
+                    Optional.of(
+                        SpreadsheetSelection.A1
+                    )
+                ),
+            "\"A1\" [#/1/SpreadsheetName222/cell/A1/value/text] id=cell-value-anchor-id"
+        );
+    }
+
+    @Test
+    public void testSetValueWithCellWithValueType() {
+        this.treePrintAndCheck(
+            this.createComponent(
+                    SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY.setText("=1")
+                            .setValueType(
+                                Optional.of(
+                                    ValidationValueTypeName.TEXT
+                                )
+                            )
+                    )
+                )
                 .setValue(
                     Optional.of(
                         SpreadsheetSelection.A1
@@ -100,12 +171,19 @@ public final class SpreadsheetCellValueAnchorComponentTest implements AnchorComp
     @Test
     public void testSetValueWithCellRange() {
         this.treePrintAndCheck(
-            this.createComponent()
-                .setValue(
-                    Optional.of(
-                        SpreadsheetSelection.parseCellRange("B2:C3")
+            this.createComponent(
+                SpreadsheetSelection.A1.setFormula(
+                    SpreadsheetFormula.EMPTY.setValueType(
+                        Optional.of(
+                            ValidationValueTypeName.TEXT
+                        )
                     )
-                ),
+                )
+            ).setValue(
+                Optional.of(
+                    SpreadsheetSelection.parseCellRange("B2:C3")
+                )
+            ),
             "\"B2:C3\" [#/1/SpreadsheetName222/cell/B2:C3/bottom-right/value/text] id=cell-value-anchor-id"
         );
     }
@@ -113,28 +191,45 @@ public final class SpreadsheetCellValueAnchorComponentTest implements AnchorComp
     @Test
     public void testSetValueWithLabel() {
         this.treePrintAndCheck(
-            this.createComponent()
-                .setValue(
-                    Optional.of(
-                        SpreadsheetSelection.labelName("Label9999")
+            this.createComponent(
+                SpreadsheetSelection.A1.setFormula(
+                    SpreadsheetFormula.EMPTY.setValueType(
+                        Optional.of(
+                            ValidationValueTypeName.TEXT
+                        )
                     )
-                ),
+                )
+            ).setValue(
+                Optional.of(
+                    SpreadsheetSelection.labelName("Label9999")
+                )
+            ),
             "\"Label9999\" [#/1/SpreadsheetName222/cell/Label9999/value/text] id=cell-value-anchor-id"
         );
     }
 
     @Override
     public SpreadsheetCellValueAnchorComponent createComponent() {
-        return this.createComponent("/1/SpreadsheetName222");
+        return this.createComponent(
+            null
+        );
     }
 
-    private SpreadsheetCellValueAnchorComponent createComponent(final String currentHistoryToken) {
+    private SpreadsheetCellValueAnchorComponent createComponent(final SpreadsheetCell cell) {
+        return this.createComponent(
+            "/1/SpreadsheetName222",
+            cell
+        );
+    }
+
+    private SpreadsheetCellValueAnchorComponent createComponent(final String historyToken,
+                                                                final SpreadsheetCell cell) {
         return SpreadsheetCellValueAnchorComponent.with(
             "cell-value-anchor-id",
             new FakeSpreadsheetCellLinksComponentContext() {
                 @Override
                 public HistoryToken historyToken() {
-                    return HistoryToken.parseString(currentHistoryToken);
+                    return HistoryToken.parseString(historyToken);
                 }
 
                 @Override
@@ -142,20 +237,13 @@ public final class SpreadsheetCellValueAnchorComponentTest implements AnchorComp
                     return Optional.ofNullable(
                         selection.toString().equals("Z99") ?
                             null :
-                            SpreadsheetSelection.A1.setFormula(
-                                SpreadsheetFormula.EMPTY.setText("=1")
-                                    .setValueType(
-                                        Optional.of(
-                                            ValidationValueTypeName.TEXT
-                                        )
-                                    )
-                            )
+                            cell
                     );
                 }
 
                 @Override
                 public String toString() {
-                    return currentHistoryToken;
+                    return historyToken;
                 }
             }
         );
