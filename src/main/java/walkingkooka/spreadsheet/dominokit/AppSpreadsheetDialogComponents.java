@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesDialogComponent;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellValueDateDialogComponent;
+import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellValueDateDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponent;
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.datetimesymbols.DateTimeSymbolsDialogComponent;
@@ -69,6 +71,8 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
 
         metadata(context);
 
+        cellValue(context);
+
         dateTimeSymbols(context);
 
         decimalNumberSymbols(context);
@@ -89,6 +93,18 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
     private static void cellReferences(final AppContext context) {
         SpreadsheetCellReferencesDialogComponent.with(
             SpreadsheetCellReferencesDialogComponentContexts.appContext(context)
+        );
+    }
+
+    private static void cellValue(final AppContext context) {
+        SpreadsheetCellValueDateDialogComponent.with(
+            SpreadsheetCellValueDateDialogComponentContexts.basic(
+                context.spreadsheetViewportCache(),
+                context, // JsonNodeMarshallContext
+                context, // HasNow
+                context, // HistoryContext
+                context // LoggingContext
+            )
         );
     }
 
