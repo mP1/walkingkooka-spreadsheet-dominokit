@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.find;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.CanBeEmpty;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
@@ -737,7 +738,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         return Optional.ofNullable(
             formula.map(
                     f -> parseFormula0(f.text())
-                ).filter(f -> f.isNotEmpty())
+                ).filter(CanBeEmpty::isNotEmpty)
                 .orElse(null)
         );
     }

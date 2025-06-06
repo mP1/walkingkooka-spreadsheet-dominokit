@@ -55,7 +55,7 @@ public final class PluginDeleteAnchorComponent implements ValueHistoryTokenAncho
     private void setter(final Optional<PluginName> value,
                         final HistoryTokenAnchorComponent anchor) {
         anchor.setHistoryToken(
-            value.map(v -> HistoryToken.pluginDelete(v))
+            value.map(HistoryToken::pluginDelete)
         );
     }
 

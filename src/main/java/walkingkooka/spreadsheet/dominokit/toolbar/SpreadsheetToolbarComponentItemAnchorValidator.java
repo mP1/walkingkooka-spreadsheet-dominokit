@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetCellComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 
 import java.util.Optional;
 
@@ -69,9 +70,7 @@ final class SpreadsheetToolbarComponentItemAnchorValidator extends SpreadsheetTo
         this.anchor.setHistoryToken(
             context.historyToken()
                 .anchoredSelectionHistoryTokenOrEmpty()
-                .map(
-                    t -> t.validator()
-                )
+                .map(HistoryToken::validator)
         );
     }
 }

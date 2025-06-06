@@ -44,7 +44,7 @@ public final class CharacterComponent implements ValueSpreadsheetTextBoxWrapper<
                 predicate,
                 message
             ),
-            (Character c) -> c.toString()
+            Object::toString
         );
     }
 
