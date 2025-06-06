@@ -4395,7 +4395,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                                     );
                                 }
 
-                                if (this instanceof SpreadsheetCellValueSelectHistoryToken) {
+                                if (this instanceof SpreadsheetCellValueSaveHistoryToken || this instanceof SpreadsheetCellValueSelectHistoryToken) {
                                     saved = HistoryToken.cellValueSave(
                                         id,
                                         name,
