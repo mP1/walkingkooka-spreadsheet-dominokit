@@ -476,6 +476,14 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
+    public void testFromMediaTypeValue() {
+        this.fromMediaTypeAndCheck(
+            SpreadsheetCellClipboardKind.VALUE.mediaType(),
+            SpreadsheetCellClipboardKind.VALUE
+        );
+    }
+
+    @Test
     public void testFromMediaTypeAllValues() {
         for (final SpreadsheetCellClipboardKind kind : SpreadsheetCellClipboardKind.values()) {
             this.fromMediaTypeAndCheck(
