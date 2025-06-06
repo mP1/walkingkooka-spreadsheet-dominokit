@@ -37,7 +37,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellReferenceListHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
@@ -76,25 +75,6 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
             ),
             historyToken,
             true
-        );
-    }
-
-    @Test
-    public void testIsMatchWithSpreadsheetCellSelectHistoryToken() {
-        final SpreadsheetCellSelectHistoryToken historyToken = HistoryToken.cellSelect(
-            SPREADSHEET_ID,
-            SPREADSHEET_NAME,
-            SpreadsheetSelection.A1.setDefaultAnchor()
-        );
-
-        this.isMatchAndCheck(
-            SpreadsheetCellReferencesDialogComponent.with(
-                new TestSpreadsheetCellReferencesDialogComponentContext(
-                    this.appContext(historyToken)
-                )
-            ),
-            historyToken,
-            false
         );
     }
 

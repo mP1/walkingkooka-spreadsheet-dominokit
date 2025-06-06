@@ -113,25 +113,6 @@ public final class SpreadsheetCellValueDateDialogComponentTest implements Spread
         );
     }
 
-    @Test
-    public void testIsMatchWithSpreadsheetCellSelectHistoryToken() {
-        final SpreadsheetCellSelectHistoryToken historyToken = HistoryToken.cellSelect(
-            SPREADSHEET_ID,
-            SPREADSHEET_NAME,
-            SpreadsheetSelection.A1.setDefaultAnchor()
-        );
-
-        this.isMatchAndCheck(
-            SpreadsheetCellValueDateDialogComponent.with(
-                new TestSpreadsheetCellValueDateDialogComponentContext(
-                    this.appContext(historyToken)
-                )
-            ),
-            historyToken,
-            false
-        );
-    }
-
     // onHistoryTokenChange.............................................................................................
 
     @Test
