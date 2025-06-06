@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.value;
 
-import elemental2.dom.DomGlobal;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
@@ -103,8 +102,6 @@ public final class SpreadsheetDateComponent implements FormValueComponent<HTMLDi
     @Override
     public SpreadsheetDateComponent setValue(final Optional<LocalDate> value) {
         Objects.requireNonNull(value, "value");
-
-        DomGlobal.console.log("@@Set value " + value);
 
         this.calendar.setDate(
             DateTime.localDateToDate(
