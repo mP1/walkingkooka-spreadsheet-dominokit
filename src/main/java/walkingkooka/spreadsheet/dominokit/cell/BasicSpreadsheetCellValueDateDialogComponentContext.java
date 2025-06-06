@@ -109,7 +109,7 @@ final class BasicSpreadsheetCellValueDateDialogComponentContext implements Sprea
         return this.hasNow.now();
     }
 
-    private HasNow hasNow;
+    private final HasNow hasNow;
 
     // HistoryContextDelegator..........................................................................................
 
