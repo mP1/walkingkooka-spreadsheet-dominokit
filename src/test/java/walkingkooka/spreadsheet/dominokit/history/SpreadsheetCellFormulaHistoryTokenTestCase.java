@@ -36,7 +36,7 @@ public abstract class SpreadsheetCellFormulaHistoryTokenTestCase<T extends Sprea
         );
     }
 
-    // setSaveValue.....................................................................................................
+    // setSaveStringValue.....................................................................................................
 
     @Test
     public final void testSetSaveValueWithInvalidOptionalValueFails() {

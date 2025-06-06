@@ -60,7 +60,7 @@ public final class SpreadsheetCellValueDateDialogComponent implements Spreadshee
                 (final Optional<LocalDate> oldDate,
                  final Optional<LocalDate> newDate) -> context.pushHistoryToken(
                     context.historyToken()
-                        .setSaveValue(
+                        .setSaveStringValue(
                             context.prepareSaveValue(newDate)
                         )
                 )

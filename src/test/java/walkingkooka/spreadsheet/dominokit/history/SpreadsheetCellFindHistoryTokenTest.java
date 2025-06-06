@@ -90,7 +90,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
         );
     }
 
-    // setSaveValue.....................................................................................................
+    // setSaveStringValue...............................................................................................
 
     @Test
     public void testSetSaveValueWithFormula() {
@@ -101,7 +101,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
 
         final String text = "/query/textMatch(\"*1*\",cellFormula())";
 
-        this.setSaveValueAndCheck(
+        this.setSaveStringValueAndCheck(
             token.setQuery(
                 SpreadsheetCellFindQuery.empty()
             ),

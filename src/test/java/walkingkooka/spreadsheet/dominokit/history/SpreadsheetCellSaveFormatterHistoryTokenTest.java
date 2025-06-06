@@ -280,7 +280,7 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
         );
     }
 
-    // setSaveValue.....................................................................................................
+    // setSaveStringValue.....................................................................................................
 
     @Test
     public void testSetSaveValueWithDifferentFormatter() {

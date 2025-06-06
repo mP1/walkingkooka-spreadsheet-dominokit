@@ -34,7 +34,7 @@ public interface SpreadsheetCardLinkListComponentContext extends HistoryContext 
     boolean isDisabled(final String text);
 
     /**
-     * Builds the save value text that will be passed to {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken#setSaveValue(String)}.
+     * Builds the save value text that will be passed to {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken#setSaveStringValue(String)}.
      */
     String saveValueText(final String text);
 }

@@ -30,7 +30,7 @@ public abstract class SpreadsheetCellDecimalNumberSymbolsHistoryTokenTestCase<T 
         super();
     }
 
-    // setSaveValue.....................................................................................................
+    // setSaveStringValue.....................................................................................................
 
     @Test
     public final void testSetSaveValueWithInvalidOptionalValueFails() {

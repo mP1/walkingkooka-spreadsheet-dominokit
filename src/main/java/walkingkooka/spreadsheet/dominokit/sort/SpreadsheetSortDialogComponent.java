@@ -579,7 +579,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
                     }
                 ).map(
                     l -> this.context.historyToken()
-                        .setSaveValue(l.text())
+                        .setSaveStringValue(l.text())
                 );
         } catch (final IllegalArgumentException cause) {
             // some columns/rows could be out of the selection range.

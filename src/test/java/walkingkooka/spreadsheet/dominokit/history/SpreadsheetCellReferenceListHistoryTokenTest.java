@@ -367,7 +367,7 @@ public final class SpreadsheetCellReferenceListHistoryTokenTest extends Spreadsh
         );
     }
 
-    // setSaveValue.....................................................................................................
+    // setSaveStringValue.....................................................................................................
 
     @Test
     public void testSetSaveValueWithDifferentCell() {
@@ -473,7 +473,7 @@ public final class SpreadsheetCellReferenceListHistoryTokenTest extends Spreadsh
         final HistoryToken historyToken = HistoryToken.cellSelect(ID, NAME, selection);
 
         assertSame(
-            historyToken.setSaveValue(formulaText),
+            historyToken.setSaveStringValue(formulaText),
             historyToken
         );
     }

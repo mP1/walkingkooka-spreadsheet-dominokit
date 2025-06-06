@@ -215,7 +215,7 @@ public final class SpreadsheetCellSaveStyleHistoryTokenTest extends SpreadsheetC
         );
     }
 
-    // setSaveValue.....................................................................................................
+    // setSaveStringValue.....................................................................................................
 
     @Test
     public void testSetSaveValueWithDifferentStyle() {

@@ -253,7 +253,7 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
         );
     }
 
-    // setSaveValue.....................................................................................................
+    // setSaveStringValue.....................................................................................................
 
     @Test
     public void testSetSaveValueWithDifferentValidationValueTypeName() {

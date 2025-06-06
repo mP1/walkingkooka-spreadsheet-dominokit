@@ -118,11 +118,13 @@ public final class SpreadsheetCellSortSaveHistoryTokenTest extends SpreadsheetCe
         );
     }
 
+    // setSaveStringValue...............................................................................................
+
     @Test
-    public void testSetSaveValue() {
+    public void testSetSaveStringValue() {
         final String saveText = "A=text";
 
-        this.setSaveValueAndCheck(
+        this.setSaveStringValueAndCheck(
             this.createHistoryToken(),
             saveText,
             SpreadsheetCellSortSaveHistoryToken.with(

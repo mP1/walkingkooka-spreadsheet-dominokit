@@ -53,7 +53,7 @@ public abstract class SpreadsheetCellSortHistoryTokenTestCase<T extends Spreadsh
         );
     }
 
-    // setSaveValue.....................................................................................................
+    // setSaveStringValue.....................................................................................................
 
     @Test
     public final void testSetSaveValueWithInvalidOptionalValueFails() {
@@ -64,10 +64,8 @@ public abstract class SpreadsheetCellSortHistoryTokenTestCase<T extends Spreadsh
 
     @Test
     public final void testSetSaveValueWithEmpty() {
-        final Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNamesList> value = Optional.empty();
-
         this.setSaveValueFails(
-            value
+            Optional.empty()
         );
     }
 

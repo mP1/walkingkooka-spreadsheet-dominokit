@@ -72,7 +72,7 @@ public final class SpreadsheetLabelMappingSaveHistoryTokenTest extends Spreadshe
         );
     }
 
-    // setSaveValue.....................................................................................................
+    // setSaveStringValue.....................................................................................................
 
     @Test
     public void testSetSaveValueWithInvalidOptionalValueFails() {

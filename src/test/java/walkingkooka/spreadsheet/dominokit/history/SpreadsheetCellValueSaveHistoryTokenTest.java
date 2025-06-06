@@ -113,10 +113,10 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
         );
     }
 
-    // setSaveValue.....................................................................................................
+    // setSaveStringValue...............................................................................................
 
     @Test
-    public void testSetSaveValueWithEmptyString() {
+    public void testSetSaveStringValueWithEmptyString() {
         this.setSaveValueAndCheck(
             HistoryToken.cellValueSave(
                 ID,
@@ -137,10 +137,10 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
     }
 
     @Test
-    public void testSetSaveValueWithNotEmptyString() {
+    public void testSetSaveStringValueWithNotEmptyString() {
         final String value = "\"1999,12,31\"";
 
-        this.setSaveValueAndCheck(
+        this.setSaveStringValueAndCheck(
             HistoryToken.cellValueSave(
                 ID,
                 NAME,

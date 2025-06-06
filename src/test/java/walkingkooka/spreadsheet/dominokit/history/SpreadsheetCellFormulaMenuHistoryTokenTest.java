@@ -28,7 +28,7 @@ public final class SpreadsheetCellFormulaMenuHistoryTokenTest extends Spreadshee
     // save.............................................................................................................
 
     @Test
-    public void testSetSaveValue() {
+    public void testSetSaveStringValue() {
         final AnchoredSpreadsheetSelection selection = CELL.setDefaultAnchor();
         final String formulaText = "=1";
         final HistoryToken historyToken = HistoryToken.cellFormulaMenu(
@@ -38,7 +38,7 @@ public final class SpreadsheetCellFormulaMenuHistoryTokenTest extends Spreadshee
         );
 
         this.checkEquals(
-            historyToken.setSaveValue(formulaText),
+            historyToken.setSaveStringValue(formulaText),
             HistoryToken.cellFormulaSave(
                 ID,
                 NAME,

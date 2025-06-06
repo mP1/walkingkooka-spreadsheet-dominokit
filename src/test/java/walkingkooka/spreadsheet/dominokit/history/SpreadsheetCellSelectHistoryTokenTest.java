@@ -316,7 +316,7 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
         final HistoryToken historyToken = HistoryToken.cellSelect(ID, NAME, selection);
 
         assertSame(
-            historyToken.setSaveValue(formulaText),
+            historyToken.setSaveStringValue(formulaText),
             historyToken
         );
     }

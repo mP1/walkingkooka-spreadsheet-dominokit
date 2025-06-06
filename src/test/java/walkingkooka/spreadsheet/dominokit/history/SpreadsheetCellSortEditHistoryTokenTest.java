@@ -180,11 +180,13 @@ public final class SpreadsheetCellSortEditHistoryTokenTest extends SpreadsheetCe
         );
     }
 
+    // setSaveValue.....................................................................................................
+
     @Test
-    public void testSetSaveValue() {
+    public void testSetSaveStringValueWithCell() {
         final String saveText = "A=text";
 
-        this.setSaveValueAndCheck(
+        this.setSaveStringValueAndCheck(
             this.createHistoryToken(),
             saveText,
             SpreadsheetCellSortSaveHistoryToken.with(
@@ -197,12 +199,12 @@ public final class SpreadsheetCellSortEditHistoryTokenTest extends SpreadsheetCe
     }
 
     @Test
-    public void testSetSaveValueCellRange() {
+    public void testSetSaveStringValueWithCellRange() {
         final String saveText = "A=text;B=text";
         final AnchoredSpreadsheetSelection anchored = SpreadsheetSelection.parseCellRange("A1:B2")
             .setDefaultAnchor();
 
-        this.setSaveValueAndCheck(
+        this.setSaveStringValueAndCheck(
             SpreadsheetCellSortEditHistoryToken.with(
                 ID,
                 NAME,

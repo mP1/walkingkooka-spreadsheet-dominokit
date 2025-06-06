@@ -60,13 +60,13 @@ public final class SpreadsheetRenameSelectHistoryTokenTest extends SpreadsheetRe
         );
     }
 
-    // setSaveValue.....................................................................................................
+    // setSaveStringValue...............................................................................................
 
     @Test
-    public void testSetSaveValueWithNotEmptyString() {
+    public void testSetSaveStringValueWithNotEmptyString() {
         final SpreadsheetName renameTo = SpreadsheetName.with("RenameToSpreadsheetName567");
 
-        this.setSaveValueAndCheck(
+        this.setSaveStringValueAndCheck(
             this.createHistoryToken(),
             renameTo.toString(),
             HistoryToken.spreadsheetRenameSave(
@@ -78,12 +78,14 @@ public final class SpreadsheetRenameSelectHistoryTokenTest extends SpreadsheetRe
     }
 
     @Test
-    public void testSetSaveValueWithEmptyString() {
-        this.setSaveValueAndCheck(
+    public void testSetSaveStringValueWithEmptyString() {
+        this.setSaveStringValueAndCheck(
             this.createHistoryToken(),
             ""
         );
     }
+
+    // setSaveValue.....................................................................................................
 
     @Test
     public void testSetSaveValueWithSpreadsheetName() {
