@@ -34,7 +34,7 @@ public final class HistoryTokenSaveValueAnchorComponent<T> implements ValueHisto
 
     public static <T> HistoryTokenSaveValueAnchorComponent<T> with(final String id,
                                                                    final HistoryContext context) {
-        return new HistoryTokenSaveValueAnchorComponent<T>(
+        return new HistoryTokenSaveValueAnchorComponent<>(
             id,
             context
         );
