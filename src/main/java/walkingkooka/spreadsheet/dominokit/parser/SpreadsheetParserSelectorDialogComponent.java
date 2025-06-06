@@ -194,9 +194,6 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
     // textBox..........................................................................................................
 
     /**
-     * Creates a text box to edit the {@link SpreadsheetParserSelector} and installs a few value change type listeners
-     */
-    /**
      * Creates a text box to edit the {@link SpreadsheetFormatterSelector} and installs a few value change type listeners
      */
     private SpreadsheetParserSelectorComponent textBox() {
