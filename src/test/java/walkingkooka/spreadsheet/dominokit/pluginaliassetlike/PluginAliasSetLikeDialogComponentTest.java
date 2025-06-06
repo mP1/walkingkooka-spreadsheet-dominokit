@@ -185,6 +185,23 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
         );
     }
 
+    @Override
+    public PluginAliasSetLikeDialogComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
+        return PluginAliasSetLikeDialogComponent.with(
+            this.dialogContext(
+                this.appContext(
+                    historyToken,
+                    SpreadsheetExpressionFunctions.EMPTY_ALIAS_SET.setElements(
+                        SortedSets.of(
+                            ALIAS1,
+                            ALIAS2
+                        )
+                    )
+                )
+            )
+        );
+    }
+
     private PluginAliasSetLikeDialogComponentContext<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> dialogContext(final AppContext context) {
         return new FakePluginAliasSetLikeDialogComponentContext<>() {
 

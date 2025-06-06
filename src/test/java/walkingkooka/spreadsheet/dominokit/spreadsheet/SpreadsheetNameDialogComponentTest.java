@@ -71,6 +71,26 @@ public final class SpreadsheetNameDialogComponentTest implements SpreadsheetDial
         );
     }
 
+    @Override
+    public SpreadsheetNameDialogComponent createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
+        return SpreadsheetNameDialogComponent.with(
+            SpreadsheetNameDialogComponentContexts.spreadsheetRename(
+                new FakeAppContext() {
+
+                    @Override
+                    public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                        return null;
+                    }
+
+                    @Override
+                    public HistoryToken historyToken() {
+                        return historyToken;
+                    }
+                }
+            )
+        );
+    }
+
     // class............................................................................................................
 
     @Override

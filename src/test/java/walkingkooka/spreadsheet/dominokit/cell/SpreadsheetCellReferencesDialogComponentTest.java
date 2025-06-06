@@ -389,6 +389,15 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
         }
     }
 
+    @Override
+    public SpreadsheetCellReferencesDialogComponent createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
+        return SpreadsheetCellReferencesDialogComponent.with(
+            new TestSpreadsheetCellReferencesDialogComponentContext(
+                this.appContext(historyToken)
+            )
+        );
+    }
+
     // ClassTesting.....................................................................................................
 
     @Override

@@ -497,6 +497,15 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
         }
     }
 
+    @Override
+    public SpreadsheetLabelMappingListDialogComponent createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
+        return SpreadsheetLabelMappingListDialogComponent.with(
+            new TestSpreadsheetLabelMappingListDialogComponentContext(
+                new TestAppContext(historyToken)
+            )
+        );
+    }
+
     // ClassTesting.....................................................................................................
 
     @Override

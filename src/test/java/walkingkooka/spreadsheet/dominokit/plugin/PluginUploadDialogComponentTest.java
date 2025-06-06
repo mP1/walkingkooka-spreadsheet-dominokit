@@ -296,6 +296,15 @@ public final class PluginUploadDialogComponentTest implements SpreadsheetDialogC
         };
     }
 
+    @Override
+    public PluginUploadDialogComponent createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
+        return PluginUploadDialogComponent.with(
+            this.pluginDialogComponentContext(
+                new TestAppContext(historyToken)
+            )
+        );
+    }
+
     // ClassTesting.....................................................................................................
 
     @Override

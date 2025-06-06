@@ -458,6 +458,15 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
         return SpreadsheetLabelMappingDialogComponent.with(context);
     }
 
+    @Override
+    public SpreadsheetLabelMappingDialogComponent createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
+        return this.dialog(
+            context(
+                appContext(historyToken)
+            )
+        );
+    }
+
     // ClassTesting.....................................................................................................
 
     @Override

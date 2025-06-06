@@ -17,7 +17,43 @@
 
 package walkingkooka.spreadsheet.dominokit.dialog;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 public interface SpreadsheetDialogComponentLifecycleTesting<T extends SpreadsheetDialogComponentLifecycle> extends HistoryTokenAwareComponentLifecycleTesting<T> {
+
+    @Test
+    default void testShouldIgnoreWithSpreadsheetCellSelectHistoryToken() {
+        final SpreadsheetCellSelectHistoryToken historyToken = HistoryToken.cellSelect(
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
+            SpreadsheetSelection.A1.setDefaultAnchor()
+        );
+
+        this.shouldIgnoreAndCheck(
+            this.createSpreadsheetDialogComponentLifecycle(historyToken),
+            historyToken,
+            false
+        );
+    }
+
+    @Test
+    default void testIsMatchWithSpreadsheetCellSelectHistoryToken() {
+        final SpreadsheetCellSelectHistoryToken historyToken = HistoryToken.cellSelect(
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
+            SpreadsheetSelection.A1.setDefaultAnchor()
+        );
+
+        this.isMatchAndCheck(
+            this.createSpreadsheetDialogComponentLifecycle(historyToken),
+            historyToken,
+            false
+        );
+    }
+
+    T createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken);
 }
