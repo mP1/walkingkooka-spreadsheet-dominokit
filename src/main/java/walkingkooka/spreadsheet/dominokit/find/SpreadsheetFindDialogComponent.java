@@ -110,7 +110,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         return SpreadsheetDialogComponent.largeList(
             ID + SpreadsheetElementIds.DIALOG,
             "Find",
-            true, // includeClose
+            SpreadsheetDialogComponent.INCLUDE_CLOSE,
             context
         ).appendChild(
             SpreadsheetRowComponent.columnSpan4()

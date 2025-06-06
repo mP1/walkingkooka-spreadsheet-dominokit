@@ -137,7 +137,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
         SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.largeEdit(
             ID + SpreadsheetElementIds.DIALOG,
             context.dialogTitle(),
-            true, // includeClose
+            SpreadsheetDialogComponent.INCLUDE_CLOSE,
             context
         );
 

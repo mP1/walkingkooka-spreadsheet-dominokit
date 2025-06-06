@@ -151,7 +151,7 @@ public final class PluginFileViewDialogComponent implements SpreadsheetDialogCom
         return SpreadsheetDialogComponent.largeEdit(
                 ID + SpreadsheetElementIds.DIALOG, // id
                 "View", // title
-                true, // includeClose
+                SpreadsheetDialogComponent.INCLUDE_CLOSE,
                 context
             ).appendChild(this.textView)
             .appendChild(

@@ -181,7 +181,7 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
             this.dialog = SpreadsheetDialogComponent.with(
                     "id123",
                     "Title456",
-                    true, // includeClose
+                    SpreadsheetDialogComponent.INCLUDE_CLOSE,
                     HistoryContexts.fake()
                 ).appendChild(this.onGiveFocus)
                 .appendChild(this.refreshed);

@@ -76,7 +76,7 @@ public final class SpreadsheetCellReferencesDialogComponent implements Spreadshe
         return SpreadsheetDialogComponent.largeList(
                 ID + SpreadsheetElementIds.DIALOG,
                 "Cell References",
-                true, // includeClose
+                SpreadsheetDialogComponent.INCLUDE_CLOSE,
                 context
             ).appendChild(this.table)
             .appendChild(

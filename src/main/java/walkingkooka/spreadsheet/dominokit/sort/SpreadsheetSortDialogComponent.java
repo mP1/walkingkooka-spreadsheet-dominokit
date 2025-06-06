@@ -91,7 +91,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
         return SpreadsheetDialogComponent.largeEdit(
                 ID + SpreadsheetElementIds.DIALOG,
                 "Sort",
-                true, // includeClose
+                SpreadsheetDialogComponent.INCLUDE_CLOSE,
                 this.context
             ).appendChild(this.columnOrRowComparatorNamesList)
             .appendChild(this.columnOrRowComparatorNamesParent)

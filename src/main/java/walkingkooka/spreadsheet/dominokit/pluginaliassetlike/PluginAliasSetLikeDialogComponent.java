@@ -142,7 +142,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
         return SpreadsheetDialogComponent.largeEdit(
                 ID + SpreadsheetElementIds.DIALOG,
                 context.dialogTitle(),
-                true, // includeClose
+                SpreadsheetDialogComponent.INCLUDE_CLOSE,
                 context
             ).setTitle(
                 context.dialogTitle()
