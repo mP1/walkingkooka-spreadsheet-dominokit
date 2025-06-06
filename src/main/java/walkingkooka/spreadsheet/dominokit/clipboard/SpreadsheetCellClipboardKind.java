@@ -473,6 +473,55 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
     },
 
     /**
+     * The value entered or the result of the expression.
+     */
+    VALUE(
+        Object.class,
+        (SpreadsheetCell cell) -> cell.formula()
+            .value(),
+        "value"
+    ) {
+        @Override
+        JsonNode marshall(final SpreadsheetCell cell,
+                          final JsonNodeMarshallContext context) {
+            return marshallCellToOptionalTypeValue(
+                cell,
+                cell.formula()
+                    .value(),
+                context
+            );
+        }
+
+        @Override //
+        SpreadsheetCell unmarshall(final JsonNode node,
+                                   final AppContext context) {
+            return SpreadsheetSelection.parseCell(
+                node.name()
+                    .value()
+            ).setFormula(
+                SpreadsheetFormula.EMPTY.setValue(
+                    context.unmarshallOptionalWithType(node)
+                )
+            );
+        }
+
+        @Override
+        public void saveOrUpdateCells(final SpreadsheetDeltaFetcher fetcher,
+                                      final SpreadsheetId id,
+                                      final SpreadsheetCellRange range) {
+            fetcher.patchCellsValue(
+                id,
+                range.range(),
+                toMap(
+                    range,
+                    (SpreadsheetCell cell) -> cell.formula()
+                        .value()
+                )
+            );
+        }
+    },
+
+    /**
      * The clipboard value is a formatted text.
      */
     VALUE_TYPE(
@@ -741,6 +790,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
         PARSER,
         STYLE,
         FORMATTED_VALUE,
+        VALUE,
         VALUE_TYPE,
         VALIDATOR
     );
