@@ -67,6 +67,98 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
         );
     }
 
+    // setSaveValue.....................................................................................................
+
+    @Test
+    public void testSetSaveValueWithEmptyOptional() {
+        this.setSaveValueAndCheck(
+            HistoryToken.cellValueSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                ValidationValueTypeName.DATE,
+                "Previous"
+            ),
+            Optional.empty(),
+            HistoryToken.cellValueSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                ValidationValueTypeName.DATE,
+                ""
+            )
+        );
+    }
+
+    @Test
+    public void testSetSaveValueWithNotEmptyDate() {
+        this.setSaveValueAndCheck(
+            HistoryToken.cellValueSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                ValidationValueTypeName.DATE,
+                "Previous"
+            ),
+            Optional.of(
+                "\"1999,12,31\""
+            ),
+            HistoryToken.cellValueSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                ValidationValueTypeName.DATE,
+                "\"1999,12,31\""
+            )
+        );
+    }
+
+    // setSaveValue.....................................................................................................
+
+    @Test
+    public void testSetSaveValueWithEmptyString() {
+        this.setSaveValueAndCheck(
+            HistoryToken.cellValueSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                ValidationValueTypeName.DATE,
+                "Previous"
+            ),
+            Optional.empty(),
+            HistoryToken.cellValueSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                ValidationValueTypeName.DATE,
+                ""
+            )
+        );
+    }
+
+    @Test
+    public void testSetSaveValueWithNotEmptyString() {
+        final String value = "\"1999,12,31\"";
+
+        this.setSaveValueAndCheck(
+            HistoryToken.cellValueSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                ValidationValueTypeName.DATE,
+                "Previous"
+            ),
+            value,
+            HistoryToken.cellValueSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                ValidationValueTypeName.DATE,
+                value
+            )
+        );
+    }
+
     // setValue.........................................................................................................
 
     @Test
