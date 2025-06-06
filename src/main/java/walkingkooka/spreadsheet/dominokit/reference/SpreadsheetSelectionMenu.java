@@ -501,7 +501,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             if (null != value) {
                 checked = SpreadsheetValueType.toValueType(
                     value.getClass()
-                );
+                ).orElse(null);
             }
         }
 
