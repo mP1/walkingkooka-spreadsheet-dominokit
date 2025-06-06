@@ -87,7 +87,7 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
                 (oldValue, newValue) -> this.onTextBox(this.text())
             );
 
-        this.save = this.saveValueAnchor(context)
+        this.save = this.<PluginNameSet>saveValueAnchor(context)
             .autoDisableWhenMissingValue();
         this.undo = this.undoAnchor(context);
         this.close = this.closeAnchor();

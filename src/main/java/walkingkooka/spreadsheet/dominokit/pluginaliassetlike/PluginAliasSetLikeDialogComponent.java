@@ -108,7 +108,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
                 (oldValue, newValue) -> this.onTextBox(this.text())
             );
 
-        this.save = this.saveValueAnchor(context)
+        this.save = this.<AS>saveValueAnchor(context)
             .autoDisableWhenMissingValue();
         this.undo = this.undoAnchor(context);
         this.close = this.closeAnchor();

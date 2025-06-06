@@ -63,8 +63,8 @@ public interface SpreadsheetDialogComponentLifecycle extends HistoryTokenAwareCo
     /**
      * Creates a {@link HistoryTokenSaveValueAnchorComponent} with a label of "Clear".
      */
-    default HistoryTokenSaveValueAnchorComponent clearValueAnchor(final HistoryContext historyContext) {
-        return HistoryTokenSaveValueAnchorComponent.with(
+    default <TT> HistoryTokenSaveValueAnchorComponent<TT> clearValueAnchor(final HistoryContext historyContext) {
+        return HistoryTokenSaveValueAnchorComponent.<TT>with(
             this.idPrefix() +
                 "clear" +
                 SpreadsheetElementIds.LINK,
@@ -82,8 +82,8 @@ public interface SpreadsheetDialogComponentLifecycle extends HistoryTokenAwareCo
     /**
      * Creates a {@link HistoryTokenSaveValueAnchorComponent}.
      */
-    default HistoryTokenSaveValueAnchorComponent saveValueAnchor(final HistoryContext historyContext) {
-        return HistoryTokenSaveValueAnchorComponent.with(
+    default <TT> HistoryTokenSaveValueAnchorComponent<TT> saveValueAnchor(final HistoryContext historyContext) {
+        return HistoryTokenSaveValueAnchorComponent.<TT>with(
             this.idPrefix() +
                 "save" +
                 SpreadsheetElementIds.LINK,
@@ -94,8 +94,8 @@ public interface SpreadsheetDialogComponentLifecycle extends HistoryTokenAwareCo
     /**
      * Creates a {@link HistoryTokenSaveValueAnchorComponent}.
      */
-    default HistoryTokenSaveValueAnchorComponent undoAnchor(final HistoryContext historyContext) {
-        return HistoryTokenSaveValueAnchorComponent.with(
+    default <TT> HistoryTokenSaveValueAnchorComponent<TT> undoAnchor(final HistoryContext historyContext) {
+        return HistoryTokenSaveValueAnchorComponent.<TT>with(
             this.idPrefix() +
                 "undo" +
                 SpreadsheetElementIds.LINK,

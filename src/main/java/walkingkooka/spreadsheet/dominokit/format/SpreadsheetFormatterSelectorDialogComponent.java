@@ -109,7 +109,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
 
         this.textBox = this.textBox();
 
-        this.save = this.saveValueAnchor(context)
+        this.save = this.<SpreadsheetFormatterSelector>saveValueAnchor(context)
             .autoDisableWhenMissingValue();
         this.undo = this.undoAnchor(context);
         this.clear = this.clearValueAnchor(context);
