@@ -235,10 +235,6 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
         }
     }
 
-    final static class TestSpreadsheetDialogComponentLifecycleContext extends FakeSpreadsheetDialogComponentContext {
-
-    }
-
     @Override
     public void testTestNaming() {
         throw new UnsupportedOperationException();
