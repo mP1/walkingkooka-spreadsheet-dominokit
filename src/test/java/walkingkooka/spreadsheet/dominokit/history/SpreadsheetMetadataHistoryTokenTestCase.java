@@ -77,6 +77,19 @@ public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends Spreadsh
         this.menuWithRowAndCheck();
     }
 
+    // rename...........................................................................................................
+
+    @Test
+    public final void testRename() {
+        this.renameAndCheck(
+            this.createHistoryToken(),
+            HistoryToken.spreadsheetRenameSelect(
+                ID,
+                NAME
+            )
+        );
+    }
+
     // setSelection.....................................................................................................
 
     @Test

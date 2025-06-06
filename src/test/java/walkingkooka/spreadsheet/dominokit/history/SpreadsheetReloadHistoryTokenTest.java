@@ -98,6 +98,19 @@ public final class SpreadsheetReloadHistoryTokenTest extends SpreadsheetNameHist
         );
     }
 
+    // rename...........................................................................................................
+
+    @Test
+    public void testRename() {
+        this.renameAndCheck(
+            this.createHistoryToken(),
+            HistoryToken.spreadsheetRenameSelect(
+                ID,
+                NAME
+            )
+        );
+    }
+
     // setSelection.....................................................................................................
 
     @Test

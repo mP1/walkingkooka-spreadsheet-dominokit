@@ -38,6 +38,14 @@ public final class SpreadsheetListRenameSelectHistoryTokenTest extends Spreadshe
         this.clearActionAndCheck();
     }
 
+    @Test
+    public void testRename() {
+        this.renameAndCheck(
+            this.createHistoryToken(),
+            this.createHistoryToken()
+        );
+    }
+
     // setSaveValue.....................................................................................................
 
     @Test

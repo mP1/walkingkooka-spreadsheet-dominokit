@@ -3706,12 +3706,21 @@ public abstract class HistoryToken implements HasUrlFragment,
     public final HistoryToken rename() {
         HistoryToken token = this;
 
-        if (this instanceof SpreadsheetNameHistoryToken) {
-            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-            token = spreadsheetRenameSelect(
-                spreadsheetNameHistoryToken.id(),
-                spreadsheetNameHistoryToken.name()
-            );
+        if (false == this instanceof SpreadsheetListRenameHistoryToken && false == this instanceof SpreadsheetRenameHistoryToken) {
+            if (this instanceof SpreadsheetIdHistoryToken) {
+                final SpreadsheetId id = this.cast(SpreadsheetIdHistoryToken.class)
+                    .id();
+
+                if (this instanceof SpreadsheetNameHistoryToken) {
+                    token = spreadsheetRenameSelect(
+                        id,
+                        this.cast(SpreadsheetNameHistoryToken.class)
+                            .name()
+                    );
+                } else {
+                    token = spreadsheetListRenameSelect(id);
+                }
+            }
         }
 
         return token;
