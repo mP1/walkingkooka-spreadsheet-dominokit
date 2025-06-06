@@ -15,21 +15,23 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value;
+package walkingkooka.spreadsheet.dominokit.cell;
 
-import walkingkooka.spreadsheet.SpreadsheetCell;
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
-public class FakeSpreadsheetValueComponentContext extends FakeHistoryContext implements SpreadsheetValueComponentContext {
+/**
+ * The {@link SpreadsheetCellValueDateDialogComponentContext} for the {@link SpreadsheetCellValueDateDialogComponent}
+ */
+public interface SpreadsheetCellValueDateDialogComponentContext extends SpreadsheetDialogComponentContext {
 
-    public FakeSpreadsheetValueComponentContext() {
-        super();
-    }
+    /**
+     * Gets the current {@link LocalDate} value from the currently selected cell.
+     */
+    Optional<LocalDate> value();
 
-    @Override
-    public Optional<SpreadsheetCell> cell() {
-        throw new UnsupportedOperationException();
-    }
+
+    String prepareSaveValue(final Optional<LocalDate> value);
 }
