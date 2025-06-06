@@ -22,7 +22,6 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatchers;
@@ -39,8 +38,7 @@ import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.OptionalLong;
 
-public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<JarEntryInfoListDialogComponent,
-    SpreadsheetComparatorNameListDialogComponentContext> {
+public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<JarEntryInfoListDialogComponent> {
 
     private final static PluginName PLUGIN_NAME = PluginName.with("TestPluginName111");
 

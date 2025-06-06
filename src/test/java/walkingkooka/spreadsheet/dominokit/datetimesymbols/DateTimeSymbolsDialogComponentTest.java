@@ -34,8 +34,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
-public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<DateTimeSymbolsDialogComponent,
-    DateTimeSymbolsDialogComponentContext>,
+public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<DateTimeSymbolsDialogComponent>,
     HistoryTokenTesting,
     SpreadsheetMetadataTesting {
 

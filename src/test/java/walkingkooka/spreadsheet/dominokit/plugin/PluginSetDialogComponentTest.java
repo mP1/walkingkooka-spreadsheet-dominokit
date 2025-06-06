@@ -28,7 +28,6 @@ import walkingkooka.plugin.store.PluginStore;
 import walkingkooka.plugin.store.PluginStores;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatchers;
@@ -42,8 +41,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import java.util.Locale;
 import java.util.TreeSet;
 
-public final class PluginSetDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<PluginSetDialogComponent,
-    SpreadsheetComparatorNameListDialogComponentContext>,
+public final class PluginSetDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<PluginSetDialogComponent>,
     SpreadsheetMetadataTesting {
 
     // isMatch..........................................................................................................

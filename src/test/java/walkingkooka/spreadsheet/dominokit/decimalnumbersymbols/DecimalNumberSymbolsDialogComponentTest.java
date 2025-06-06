@@ -34,8 +34,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
-public final class DecimalNumberSymbolsDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<DecimalNumberSymbolsDialogComponent,
-    DecimalNumberSymbolsDialogComponentContext>,
+public final class DecimalNumberSymbolsDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<DecimalNumberSymbolsDialogComponent>,
     HistoryTokenTesting,
     SpreadsheetMetadataTesting {
 

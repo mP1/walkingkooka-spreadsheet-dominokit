@@ -43,8 +43,7 @@ import java.util.Base64;
 import java.util.Locale;
 import java.util.Optional;
 
-public final class PluginUploadDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<PluginUploadDialogComponent,
-    PluginUploadDialogComponentContext>,
+public final class PluginUploadDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<PluginUploadDialogComponent>,
     SpreadsheetMetadataTesting {
 
     // isMatch..........................................................................................................

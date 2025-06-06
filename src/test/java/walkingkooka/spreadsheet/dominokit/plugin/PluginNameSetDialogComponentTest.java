@@ -47,7 +47,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.TreeSet;
 
-public final class PluginNameSetDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<PluginNameSetDialogComponent, PluginNameSetDialogComponentContext>,
+public final class PluginNameSetDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<PluginNameSetDialogComponent>,
     HistoryTokenTesting,
     SpreadsheetMetadataTesting {
 

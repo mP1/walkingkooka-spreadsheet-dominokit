@@ -50,15 +50,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
     ExpressionFunctionInfoSet,
     ExpressionFunctionSelector,
     ExpressionFunctionAlias,
-    ExpressionFunctionAliasSet>,
-    PluginAliasSetLikeDialogComponentContext<
-        ExpressionFunctionName,
-        ExpressionFunctionInfo,
-        ExpressionFunctionInfoSet,
-        ExpressionFunctionSelector,
-        ExpressionFunctionAlias,
-        ExpressionFunctionAliasSet>
-    >,
+    ExpressionFunctionAliasSet>>,
     HistoryTokenTesting,
     SpreadsheetMetadataTesting {
 

@@ -54,8 +54,7 @@ import java.util.Arrays;
 import java.util.Optional;
 import java.util.Set;
 
-public final class SpreadsheetCellReferencesDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetCellReferencesDialogComponent,
-    SpreadsheetCellReferencesDialogComponentContext>,
+public final class SpreadsheetCellReferencesDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetCellReferencesDialogComponent>,
     SpreadsheetMetadataTesting {
 
     // isMatch..........................................................................................................
