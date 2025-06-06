@@ -94,7 +94,7 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
 
         this.dateTimeSymbols = this.dateTimeSymbols();
 
-        this.save = this.saveValueAnchor(context)
+        this.save = this.<DateTimeSymbols>saveValueAnchor(context)
             .autoDisableWhenMissingValue();
 
         this.copyDefaults = this.copyDefaultValueAnchor(context);

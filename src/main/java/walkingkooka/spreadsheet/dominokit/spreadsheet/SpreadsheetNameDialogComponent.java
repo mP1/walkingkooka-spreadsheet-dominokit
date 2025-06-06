@@ -60,7 +60,7 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
 
         this.name = this.name();
 
-        this.save = this.saveValueAnchor(context)
+        this.save = this.<SpreadsheetName>saveValueAnchor(context)
             .autoDisableWhenMissingValue();
         this.undo = this.undoAnchor(context);
         this.close = this.closeAnchor();

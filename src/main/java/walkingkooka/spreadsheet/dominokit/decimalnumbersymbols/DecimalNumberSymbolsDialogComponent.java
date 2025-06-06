@@ -109,7 +109,7 @@ public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDia
 
         this.decimalNumberSymbols = this.decimalNumberSymbols();
 
-        this.save = this.saveValueAnchor(context)
+        this.save = this.<DecimalNumberSymbols>saveValueAnchor(context)
             .autoDisableWhenMissingValue();
 
         this.copyDefaults = this.copyDefaultValueAnchor(context);

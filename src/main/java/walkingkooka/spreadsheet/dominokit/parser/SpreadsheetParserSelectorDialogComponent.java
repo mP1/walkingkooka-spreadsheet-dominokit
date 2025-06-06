@@ -108,7 +108,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
 
         this.textBox = this.textBox();
 
-        this.save = this.saveValueAnchor(context)
+        this.save = this.<SpreadsheetParserSelector>saveValueAnchor(context)
             .autoDisableWhenMissingValue();
         this.undo = this.undoAnchor(context);
         this.clear = this.clearValueAnchor(context);
