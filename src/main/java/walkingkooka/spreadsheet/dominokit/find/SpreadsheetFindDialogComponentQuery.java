@@ -55,7 +55,7 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
                                               final Optional<TextMatch> validator,
                                               final Optional<TextMatch> formattedValue) {
         ParserToken token = query.map(
-            q -> q.parserToken()
+            SpreadsheetCellQuery::parserToken
         ).orElse(null);
 
         final List<SpreadsheetFormulaParserToken> or = Lists.array();

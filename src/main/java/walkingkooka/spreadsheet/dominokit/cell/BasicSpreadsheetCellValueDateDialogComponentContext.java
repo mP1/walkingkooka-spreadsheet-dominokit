@@ -25,7 +25,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.Indentation;
 import walkingkooka.text.LineEnding;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -71,7 +70,7 @@ final class BasicSpreadsheetCellValueDateDialogComponentContext implements Sprea
     public Optional<LocalDate> value() {
         return this.historyContext.historyToken()
             .selection()
-            .flatMap((SpreadsheetSelection selection) -> viewportCache.cell(selection))
+            .flatMap(this.viewportCache::cell)
             .flatMap((SpreadsheetCell cell) -> Cast.to(
                 cell.formula()
                     .value())
