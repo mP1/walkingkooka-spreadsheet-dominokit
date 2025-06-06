@@ -259,7 +259,7 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
         );
     }
 
-    // setSaveValue.....................................................................................................
+    // setSaveStringValue.....................................................................................................
 
     @Test
     public void testSetSaveValueWithDifferentDateTimeSymbols() {

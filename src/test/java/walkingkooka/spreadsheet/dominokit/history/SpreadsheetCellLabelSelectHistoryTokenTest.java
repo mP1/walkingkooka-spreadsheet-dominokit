@@ -102,21 +102,21 @@ public final class SpreadsheetCellLabelSelectHistoryTokenTest extends Spreadshee
         );
     }
 
-    // saveValue........................................................................................................
+    // saveStringValue..................................................................................................
 
     @Test
-    public void testSetSaveValueWithEmpty() {
-        this.setSaveValueAndCheck(
+    public void testSetSaveStringValueWithEmpty() {
+        this.setSaveStringValueAndCheck(
             this.createHistoryToken(),
             ""
         );
     }
 
     @Test
-    public void testSetSaveValueNonEmpty() {
+    public void testSetSaveStringValueNonEmpty() {
         final String labelName = "Hello";
 
-        this.setSaveValueAndCheck(
+        this.setSaveStringValueAndCheck(
             this.createHistoryToken(),
             labelName,
             HistoryToken.cellLabelSave(

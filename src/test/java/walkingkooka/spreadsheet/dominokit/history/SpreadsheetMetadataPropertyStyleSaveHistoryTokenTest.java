@@ -158,7 +158,7 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
         );
     }
 
-    // setSaveValue.....................................................................................................
+    // setSaveStringValue.....................................................................................................
 
     @Test
     public void testSetSaveValueWithEmptyValue() {

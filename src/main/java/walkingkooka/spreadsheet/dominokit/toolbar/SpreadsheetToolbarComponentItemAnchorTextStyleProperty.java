@@ -111,7 +111,7 @@ final class SpreadsheetToolbarComponentItemAnchorTextStyleProperty<T> extends Sp
                 .anchoredSelectionHistoryTokenOrEmpty()
                 .map(
                     t -> t.style(propertyName)
-                        .setSaveValue(
+                        .setSaveStringValue(
                             save(
                                 selected ?
                                     null :

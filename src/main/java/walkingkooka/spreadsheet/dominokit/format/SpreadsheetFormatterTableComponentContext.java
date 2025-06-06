@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 public interface SpreadsheetFormatterTableComponentContext extends HistoryContext {
 
     /**
-     * Returns the save text that will be passed to {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken#setSaveValue(String)}.
+     * Returns the save text that will be passed to {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken#setSaveStringValue(String)}.
      */
     String formatterTableHistoryTokenSave(final SpreadsheetFormatterSelector selector);
 }

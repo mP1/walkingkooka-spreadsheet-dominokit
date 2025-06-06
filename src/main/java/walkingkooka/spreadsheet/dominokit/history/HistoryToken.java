@@ -1683,7 +1683,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         return this instanceof SpreadsheetCellSelectHistoryToken ?
             this.cast(SpreadsheetCellSelectHistoryToken.class)
                 .parseCellSave(cursor) :
-            this.setSaveValue(
+            this.setSaveStringValue(
                 parseAll(cursor)
             );
     }
@@ -3759,7 +3759,7 @@ public abstract class HistoryToken implements HasUrlFragment,
      * Saves an empty {@link String} which is equivalent to deleting the property.
      */
     public final HistoryToken clearSaveValue() {
-        return this.setSaveValue("");
+        return this.setSaveStringValue("");
     }
 
     /**
@@ -4183,7 +4183,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     /**
      * if possible creates a save, otherwise returns this.
      */
-    public final HistoryToken setSaveValue(final String value) {
+    public final HistoryToken setSaveStringValue(final String value) {
         Objects.requireNonNull(value, "value");
 
         HistoryToken saved = this;
@@ -5039,7 +5039,7 @@ public abstract class HistoryToken implements HasUrlFragment,
             .setTextContent(text)
             .setHistoryToken(
                 Optional.of(
-                    this.setSaveValue(saveText)
+                    this.setSaveStringValue(saveText)
                 )
             );
     }

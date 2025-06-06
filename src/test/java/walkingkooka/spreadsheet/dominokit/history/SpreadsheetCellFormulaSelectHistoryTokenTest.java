@@ -25,16 +25,20 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
 public final class SpreadsheetCellFormulaSelectHistoryTokenTest extends SpreadsheetCellFormulaHistoryTokenTestCase<SpreadsheetCellFormulaSelectHistoryToken> {
 
-    // save.........................................................................................................
+    // setSaveStringValue...............................................................................................
 
     @Test
-    public void testSetSaveValue() {
+    public void testSetSaveStringValue() {
         final AnchoredSpreadsheetSelection selection = CELL.setDefaultAnchor();
         final String formulaText = "=1";
-        final HistoryToken historyToken = HistoryToken.cellFormula(ID, NAME, selection);
 
-        this.checkEquals(
-            historyToken.setSaveValue(formulaText),
+        this.setSaveStringValueAndCheck(
+            HistoryToken.cellFormula(
+                ID,
+                NAME,
+                selection
+            ),
+            formulaText,
             HistoryToken.cellFormulaSave(
                 ID,
                 NAME,

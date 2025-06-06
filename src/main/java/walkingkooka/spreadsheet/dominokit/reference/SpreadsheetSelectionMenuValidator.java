@@ -116,7 +116,7 @@ final class SpreadsheetSelectionMenuValidator {
                     CaseKind.kebabToTitle(name)
                 ).historyToken(
                     Optional.of(
-                        historyToken.setSaveValue(
+                        historyToken.setSaveStringValue(
                             validatorSelector.toString()
                         )
                     )
@@ -165,7 +165,7 @@ final class SpreadsheetSelectionMenuValidator {
                         label + " " + text
                 ).historyToken(
                     Optional.of(
-                        historyToken.setSaveValue(
+                        historyToken.setSaveStringValue(
                             selector.text()
                         )
                     )

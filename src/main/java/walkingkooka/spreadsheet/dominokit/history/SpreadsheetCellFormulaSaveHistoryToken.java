@@ -91,7 +91,7 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
             name,
             anchoredSelection
         ).formula()
-            .setSaveValue(this.text);
+            .setSaveStringValue(this.text);
     }
 
     @Override

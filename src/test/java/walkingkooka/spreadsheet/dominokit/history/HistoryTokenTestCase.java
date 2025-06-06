@@ -804,44 +804,44 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     }
 
     @Test
-    public final void testSetSaveValueNullStringFails() {
+    public final void testSetSaveStringValueNullStringFails() {
         final T token = this.createHistoryToken();
         assertThrows(
             NullPointerException.class,
-            () -> token.setSaveValue((String) null)
+            () -> token.setSaveStringValue(null)
         );
     }
 
-    final void setSaveValueAndCheck(final String save) {
-        this.setSaveValueAndCheck(
+    final void setSaveStringValueAndCheck(final String save) {
+        this.setSaveStringValueAndCheck(
             this.createHistoryToken(),
             save
         );
     }
 
-    final void setSaveValueAndCheck(final HistoryToken token,
-                                    final String save) {
-        this.setSaveValueAndCheck(
+    final void setSaveStringValueAndCheck(final HistoryToken token,
+                                          final String save) {
+        this.setSaveStringValueAndCheck(
             token,
             save,
             token
         );
     }
 
-    final void setSaveValueAndCheck(final HistoryToken token,
-                                    final String save,
-                                    final HistoryToken expected) {
+    final void setSaveStringValueAndCheck(final HistoryToken token,
+                                          final String save,
+                                          final HistoryToken expected) {
         if (token.equals(expected)) {
             assertSame(
                 expected,
-                token.setSaveValue(save),
-                () -> token + " setSaveValue " + save + " should have returned same not different instance"
+                token.setSaveStringValue(save),
+                () -> token + " setSaveStringValue " + save + " should have returned same not different instance"
             );
         } else {
             this.checkEquals(
                 expected,
-                token.setSaveValue(save),
-                () -> token + " setSaveValue " + save
+                token.setSaveStringValue(save),
+                () -> token + " setSaveStringValue " + save
             );
         }
     }
@@ -851,7 +851,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         final T token = this.createHistoryToken();
         assertThrows(
             NullPointerException.class,
-            () -> token.setSaveValue((Optional<?>) null)
+            () -> token.setSaveValue(null)
         );
     }
 
@@ -886,19 +886,19 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
             assertSame(
                 token,
                 token.setSaveValue(save),
-                () -> token + " setSaveValue " + save + " should have returned same not different instance"
+                () -> token + " setSaveStringValue " + save + " should have returned same not different instance"
             );
         } else {
             this.checkEquals(
                 expected,
                 token.setSaveValue(save),
-                () -> token + " setSaveValue " + save
+                () -> token + " setSaveStringValue " + save
             );
 
             assertSame(
                 expected,
                 expected.setSaveValue(save),
-                () -> token + " setSaveValue " + save + " should have returned same not different instance"
+                () -> token + " setSaveStringValue " + save + " should have returned same not different instance"
             );
         }
     }
