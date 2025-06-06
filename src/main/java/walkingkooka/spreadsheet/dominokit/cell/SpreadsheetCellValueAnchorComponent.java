@@ -67,23 +67,23 @@ public final class SpreadsheetCellValueAnchorComponent implements ValueHistoryTo
             );
     }
 
-    private void setter(final Optional<SpreadsheetExpressionReference> value,
+    private void setter(final Optional<SpreadsheetExpressionReference> cellOrLabel,
                         final HistoryTokenAnchorComponent anchor) {
         String text;
         HistoryToken historyToken = null;
 
-        if (value.isPresent()) {
+        if (cellOrLabel.isPresent()) {
             final SpreadsheetCellValueAnchorComponentContext context = this.context;
-            final Optional<ValidationValueTypeName> valueType = context.cell(value.get())
+            final Optional<ValidationValueTypeName> valueType = context.cell(cellOrLabel.get())
                 .flatMap((SpreadsheetCell cell) -> cell.formula().valueType());
 
             historyToken = context.historyToken()
-                .setSelection(value)
+                .setSelection(cellOrLabel)
                 .setValue(valueType);
             if (false == valueType.isPresent() || false == (historyToken instanceof SpreadsheetCellValueHistoryToken)) {
                 historyToken = null;
             }
-            text = value.get()
+            text = cellOrLabel.get()
                 .text();
         } else {
             text = "Value";
