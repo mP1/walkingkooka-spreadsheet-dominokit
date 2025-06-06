@@ -189,7 +189,8 @@ public final class SpreadsheetCellValueDateDialogComponent implements Spreadshee
         this.date.resetView()
             .setValue(
                 Optional.of(
-                    LocalDate.now()
+                    this.context.now()
+                        .toLocalDate()
                 )
             );
     }
