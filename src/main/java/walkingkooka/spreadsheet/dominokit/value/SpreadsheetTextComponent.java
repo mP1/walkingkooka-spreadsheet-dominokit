@@ -225,6 +225,7 @@ public final class SpreadsheetTextComponent implements FormValueComponent<HTMLDi
 
     // Object...........................................................................................................
 
+    @Override
     public String toString() {
         return CharSequences.quoteAndEscape(
             this.value.orElse("")
