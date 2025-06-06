@@ -111,7 +111,7 @@ public final class PluginSetDialogComponent implements SpreadsheetDialogComponen
         return SpreadsheetDialogComponent.largeEdit(
                 ID + SpreadsheetElementIds.DIALOG, // id
                 "Plugin", // title
-                true, // includeClose
+                SpreadsheetDialogComponent.INCLUDE_CLOSE,
                 context
             ).appendChild(this.table)
             .appendChild(

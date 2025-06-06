@@ -118,7 +118,7 @@ public final class PluginUploadDialogComponent implements SpreadsheetDialogCompo
         return SpreadsheetDialogComponent.largeEdit(
             ID + SpreadsheetElementIds.DIALOG, // id
             "Upload Plugin", // title
-            true, // includeClose
+            SpreadsheetDialogComponent.INCLUDE_CLOSE,
             context
         ).appendChild(
             this.uploadFile

@@ -28,6 +28,10 @@ import walkingkooka.text.printer.IndentingPrinter;
  */
 abstract class SpreadsheetDialogComponentLike implements HtmlElementComponent<HTMLDivElement, SpreadsheetDialogComponent> {
 
+    public final static boolean INCLUDE_CLOSE = true;
+
+    public final static boolean WITHOUT_CLOSE = false;
+
     SpreadsheetDialogComponentLike() {
         super();
     }

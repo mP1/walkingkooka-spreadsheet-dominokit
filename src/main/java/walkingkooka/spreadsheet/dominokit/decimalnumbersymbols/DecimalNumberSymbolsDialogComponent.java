@@ -133,7 +133,7 @@ public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDia
         return SpreadsheetDialogComponent.smallerPrompt(
             ID + SpreadsheetElementIds.DIALOG,
             context.dialogTitle(),
-            true, // includeClose
+            SpreadsheetDialogComponent.INCLUDE_CLOSE,
             context
         ).appendChild(
             SpreadsheetFlexLayout.row()

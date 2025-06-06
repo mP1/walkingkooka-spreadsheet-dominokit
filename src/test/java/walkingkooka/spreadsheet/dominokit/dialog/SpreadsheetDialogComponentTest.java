@@ -33,7 +33,7 @@ public final class SpreadsheetDialogComponentTest implements HtmlElementComponen
         final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
             "id123",
             "Title456",
-            true, // includeClose,
+            SpreadsheetDialogComponent.INCLUDE_CLOSE,
             HistoryContexts.fake()
         );
         dialog.appendChild(
@@ -74,7 +74,7 @@ public final class SpreadsheetDialogComponentTest implements HtmlElementComponen
         final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
             "id123",
             "Title456",
-            true, // includeClose,
+            SpreadsheetDialogComponent.INCLUDE_CLOSE,
             HistoryContexts.fake()
         ).appendChild(
             SpreadsheetTextBox.empty()
