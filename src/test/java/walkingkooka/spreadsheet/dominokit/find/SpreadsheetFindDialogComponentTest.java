@@ -37,7 +37,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
@@ -81,28 +80,6 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             ),
             historyToken,
             true
-        );
-    }
-
-    @Test
-    public void testIsMatchWithSpreadsheetCellSelectHistoryToken() {
-        final SpreadsheetCellSelectHistoryToken historyToken = HistoryToken.cellSelect(
-            SPREADSHEET_ID,
-            SPREADSHEET_NAME,
-            SpreadsheetSelection.A1.setDefaultAnchor()
-        );
-
-        this.isMatchAndCheck(
-            SpreadsheetFindDialogComponent.with(
-                new TestSpreadsheetFindDialogComponentContext(
-                    this.appContext(
-                        Optional.empty(), // no highlighting query
-                        historyToken
-                    )
-                )
-            ),
-            historyToken,
-            false
         );
     }
 
