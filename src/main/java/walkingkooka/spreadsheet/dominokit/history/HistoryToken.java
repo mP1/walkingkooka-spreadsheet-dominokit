@@ -4083,6 +4083,23 @@ public abstract class HistoryToken implements HasUrlFragment,
                             );
                         }
 
+                        if (this instanceof SpreadsheetCellValueHistoryToken) {
+                            if (null != valueOrNull && false == valueOrNull instanceof String) {
+                                throw new IllegalArgumentException("Invalid value");
+                            }
+
+                            historyToken = HistoryToken.cellValueSave(
+                                id,
+                                name,
+                                spreadsheetSelection,
+                                this.cast(SpreadsheetCellValueHistoryToken.class)
+                                    .valueType()
+                                    .get(),
+                                CharSequences.nullToEmpty((String)valueOrNull)
+                                    .toString()
+                            );
+                        }
+
                         if (this instanceof SpreadsheetCellValueTypeHistoryToken) {
                             if (null != valueOrNull && false == valueOrNull instanceof ValidationValueTypeName) {
                                 throw new IllegalArgumentException("Invalid value");
