@@ -757,6 +757,19 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
+    public void patchCellsValue(final SpreadsheetId id,
+                                final SpreadsheetSelection selection,
+                                final Map<SpreadsheetCellReference, Optional<Object>> cellToValue) {
+        this.patchDeltaWithViewportAndWindowQueryString(
+            id,
+            selection,
+            SpreadsheetDelta.cellsValuePatch(
+                cellToValue,
+                this.context
+            )
+        );
+    }
+
     public void patchCellsValueType(final SpreadsheetId id,
                                     final SpreadsheetSelection selection,
                                     final Map<SpreadsheetCellReference, Optional<ValidationValueTypeName>> cellToValueTypes) {
@@ -769,7 +782,6 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
             )
         );
     }
-
 
     public void patchDateTimeSymbols(final SpreadsheetId id,
                                      final SpreadsheetSelection selection,
