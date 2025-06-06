@@ -21,7 +21,6 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatchers;
@@ -33,8 +32,7 @@ import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 
 import java.util.Optional;
 
-public final class PluginFileViewDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<PluginFileViewDialogComponent,
-    SpreadsheetComparatorNameListDialogComponentContext> {
+public final class PluginFileViewDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<PluginFileViewDialogComponent> {
 
     private final static PluginName PLUGIN_NAME = PluginName.with("TestPluginName111");
 

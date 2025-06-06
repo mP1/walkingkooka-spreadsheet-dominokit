@@ -46,8 +46,7 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.Optional;
 
-public final class SpreadsheetCellValueDateDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetCellValueDateDialogComponent,
-    SpreadsheetCellValueDateDialogComponentContext>,
+public final class SpreadsheetCellValueDateDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetCellValueDateDialogComponent>,
     SpreadsheetMetadataTesting {
 
     // isMatch..........................................................................................................

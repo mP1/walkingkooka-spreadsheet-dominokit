@@ -30,8 +30,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetComparatorNameListDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetComparatorNameListDialogComponent,
-    SpreadsheetComparatorNameListDialogComponentContext>,
+public final class SpreadsheetComparatorNameListDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetComparatorNameListDialogComponent>,
     SpreadsheetMetadataTesting {
 
     @Test

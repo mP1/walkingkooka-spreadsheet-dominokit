@@ -51,8 +51,7 @@ import java.util.Arrays;
 import java.util.Optional;
 import java.util.Set;
 
-public final class SpreadsheetLabelMappingListDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetLabelMappingListDialogComponent,
-    SpreadsheetLabelMappingListDialogComponentContext>,
+public final class SpreadsheetLabelMappingListDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetLabelMappingListDialogComponent>,
     SpreadsheetMetadataTesting {
 
     private final static SpreadsheetLabelName A1LABEL = SpreadsheetSelection.labelName("A1LABEL");

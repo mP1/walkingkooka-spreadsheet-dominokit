@@ -62,8 +62,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 
-public final class SpreadsheetParserSelectorDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetParserSelectorDialogComponent,
-    SpreadsheetParserSelectorDialogComponentContext>,
+public final class SpreadsheetParserSelectorDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetParserSelectorDialogComponent>,
     HistoryTokenTesting,
     SpreadsheetMetadataTesting {
 
