@@ -117,7 +117,7 @@ public final class SpreadsheetCellValueDateDialogComponent implements Spreadshee
         );
     }
 
-    private SpreadsheetDateComponent date;
+    private final SpreadsheetDateComponent date;
 
     // links............................................................................................................
 
