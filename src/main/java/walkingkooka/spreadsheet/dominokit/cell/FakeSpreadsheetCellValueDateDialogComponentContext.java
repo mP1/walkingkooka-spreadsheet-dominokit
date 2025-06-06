@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.cell;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 public class FakeSpreadsheetCellValueDateDialogComponentContext extends FakeHistoryContext implements SpreadsheetCellValueDateDialogComponentContext {
@@ -37,6 +38,13 @@ public class FakeSpreadsheetCellValueDateDialogComponentContext extends FakeHist
     public String prepareSaveValue(final Optional<LocalDate> value) {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public LocalDateTime now() {
+        throw new UnsupportedOperationException();
+    }
+
+    // LoggingContext...................................................................................................
 
     @Override
     public void debug(final Object... values) {
