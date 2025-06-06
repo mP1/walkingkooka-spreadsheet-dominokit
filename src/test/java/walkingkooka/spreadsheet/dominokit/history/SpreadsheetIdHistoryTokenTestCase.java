@@ -36,6 +36,15 @@ public abstract class SpreadsheetIdHistoryTokenTestCase<T extends SpreadsheetHis
         );
     }
 
+    final void renameAndCheck(final HistoryToken token,
+                              final HistoryToken expected) {
+        this.checkEquals(
+            expected,
+            token.rename(),
+            token::toString
+        );
+    }
+
     @Override final T createHistoryToken() {
         return this.createHistoryToken(ID);
     }
