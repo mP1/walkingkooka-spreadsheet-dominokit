@@ -28,6 +28,7 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 public final class BasicSpreadsheetCellValueDateDialogComponentContextTest implements SpreadsheetCellValueDateDialogComponentContextTesting<BasicSpreadsheetCellValueDateDialogComponentContext> {
@@ -93,6 +94,7 @@ public final class BasicSpreadsheetCellValueDateDialogComponentContextTest imple
         return BasicSpreadsheetCellValueDateDialogComponentContext.with(
             cache,
             JsonNodeMarshallContexts.basic(),
+            LocalDateTime::now,
             HistoryContexts.fake(),
             LoggingContexts.fake()
         );

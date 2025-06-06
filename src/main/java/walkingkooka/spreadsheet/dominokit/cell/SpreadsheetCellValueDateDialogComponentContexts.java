@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
+import walkingkooka.datetime.HasNow;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
@@ -30,11 +31,13 @@ public final class SpreadsheetCellValueDateDialogComponentContexts implements Pu
      */
     public static SpreadsheetCellValueDateDialogComponentContext basic(final SpreadsheetViewportCache viewportCache,
                                                                        final JsonNodeMarshallContext marshallContext,
+                                                                       final HasNow hasNow,
                                                                        final HistoryContext historyContext,
                                                                        final LoggingContext loggingContext) {
         return BasicSpreadsheetCellValueDateDialogComponentContext.with(
             viewportCache,
             marshallContext,
+            hasNow,
             historyContext,
             loggingContext
         );

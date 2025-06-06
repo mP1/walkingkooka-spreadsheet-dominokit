@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.cell;
 
 import walkingkooka.Cast;
+import walkingkooka.datetime.HasNow;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
@@ -32,6 +33,7 @@ import walkingkooka.text.printer.Printers;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -41,11 +43,13 @@ final class BasicSpreadsheetCellValueDateDialogComponentContext implements Sprea
 
     static BasicSpreadsheetCellValueDateDialogComponentContext with(final SpreadsheetViewportCache viewportCache,
                                                                     final JsonNodeMarshallContext marshallContext,
+                                                                    final HasNow hasNow,
                                                                     final HistoryContext historyContext,
                                                                     final LoggingContext loggingContext) {
         return new BasicSpreadsheetCellValueDateDialogComponentContext(
             Objects.requireNonNull(viewportCache, "viewportCache"),
             Objects.requireNonNull(marshallContext, "marshallContext"),
+            Objects.requireNonNull(hasNow, "hasNow"),
             Objects.requireNonNull(historyContext, "historyContext"),
             Objects.requireNonNull(loggingContext, "loggingContext")
         );
@@ -53,10 +57,12 @@ final class BasicSpreadsheetCellValueDateDialogComponentContext implements Sprea
 
     private BasicSpreadsheetCellValueDateDialogComponentContext(final SpreadsheetViewportCache viewportCache,
                                                                 final JsonNodeMarshallContext marshallContext,
+                                                                final HasNow hasNow,
                                                                 final HistoryContext historyContext,
                                                                 final LoggingContext loggingContext) {
         this.viewportCache = viewportCache;
         this.marshallContext = marshallContext;
+        this.hasNow = hasNow;
         this.historyContext = historyContext;
         this.loggingContext = loggingContext;
     }
@@ -97,6 +103,13 @@ final class BasicSpreadsheetCellValueDateDialogComponentContext implements Sprea
     }
 
     private final JsonNodeMarshallContext marshallContext;
+
+    @Override
+    public LocalDateTime now() {
+        return this.hasNow.now();
+    }
+
+    private HasNow hasNow;
 
     // HistoryContextDelegator..........................................................................................
 

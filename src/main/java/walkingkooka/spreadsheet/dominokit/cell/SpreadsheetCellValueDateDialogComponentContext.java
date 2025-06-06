@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
+import walkingkooka.datetime.HasNow;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 
 import java.time.LocalDate;
@@ -25,7 +26,8 @@ import java.util.Optional;
 /**
  * The {@link SpreadsheetCellValueDateDialogComponentContext} for the {@link SpreadsheetCellValueDateDialogComponent}
  */
-public interface SpreadsheetCellValueDateDialogComponentContext extends SpreadsheetDialogComponentContext {
+public interface SpreadsheetCellValueDateDialogComponentContext extends SpreadsheetDialogComponentContext,
+    HasNow {
 
     /**
      * Gets the current {@link LocalDate} value from the currently selected cell.
