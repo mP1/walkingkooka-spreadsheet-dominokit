@@ -1541,6 +1541,15 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
         };
     }
 
+    @Override
+    public SpreadsheetParserSelectorDialogComponent createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
+        return SpreadsheetParserSelectorDialogComponent.with(
+            AppContextSpreadsheetParserSelectorDialogComponentContextCell.with(
+                this.appContext(historyToken)
+            )
+        );
+    }
+
     // ClassTesting.....................................................................................................
 
     @Override

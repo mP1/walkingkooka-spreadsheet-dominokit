@@ -374,6 +374,15 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
         private final PluginStore pluginStore = PluginStores.treeMap();
     }
 
+    @Override
+    public PluginSetDialogComponent createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
+        return PluginSetDialogComponent.with(
+            PluginSetDialogComponentContexts.appContext(
+                new TestAppContext(historyToken)
+            )
+        );
+    }
+
     // ClassTesting.....................................................................................................
 
     @Override

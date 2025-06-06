@@ -496,6 +496,15 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
         );
     }
 
+    @Override
+    public JarEntryInfoListDialogComponent createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
+        return JarEntryInfoListDialogComponent.with(
+            this.pluginDialogComponentContext(
+                new TestAppContext(historyToken.toString())
+            )
+        );
+    }
+
     static class TestAppContext extends FakeAppContext {
 
         TestAppContext(final String historyToken) {

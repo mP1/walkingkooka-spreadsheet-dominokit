@@ -250,6 +250,18 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
         );
     }
 
+    @Override
+    public DateTimeSymbolsDialogComponent createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
+        return DateTimeSymbolsDialogComponent.with(
+            DateTimeSymbolsDialogComponentContexts.metadata(
+                this.appContext(
+                    historyToken,
+                    null
+                )
+            )
+        );
+    }
+
     private AppContext appContext(final HistoryToken historyToken,
                                   final DateTimeSymbols dateTimeSymbols) {
         return new FakeAppContext() {

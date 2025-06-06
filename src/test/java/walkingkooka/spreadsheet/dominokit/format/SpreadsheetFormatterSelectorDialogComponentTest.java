@@ -1761,6 +1761,15 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
         };
     }
 
+    @Override
+    public SpreadsheetFormatterSelectorDialogComponent createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
+        return SpreadsheetFormatterSelectorDialogComponent.with(
+            AppContextSpreadsheetFormatterSelectorDialogComponentContextCell.with(
+                this.appContext(historyToken)
+            )
+        );
+    }
+
     // ClassTesting.....................................................................................................
 
     @Override

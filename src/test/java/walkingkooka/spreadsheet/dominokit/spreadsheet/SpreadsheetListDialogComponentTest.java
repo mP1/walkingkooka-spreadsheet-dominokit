@@ -279,6 +279,15 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
         return SpreadsheetListDialogComponent.with(context);
     }
 
+    @Override
+    public SpreadsheetListDialogComponent createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
+        return SpreadsheetListDialogComponent.with(
+            this.spreadsheetListComponentContext(
+                appContext(historyToken.toString())
+            )
+        );
+    }
+
     // ClassTesting.....................................................................................................
 
     @Override

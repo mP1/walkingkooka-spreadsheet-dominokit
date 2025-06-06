@@ -275,7 +275,6 @@ public final class PluginNameSetDialogComponentTest implements SpreadsheetDialog
         return new TestPluginNameSetDialogComponentContext(context);
     }
 
-
     static class TestPluginNameSetDialogComponentContext extends FakePluginNameSetDialogComponentContext {
 
         TestPluginNameSetDialogComponentContext(final AppContext context) {
@@ -428,6 +427,19 @@ public final class PluginNameSetDialogComponentTest implements SpreadsheetDialog
                 System.err.println(Arrays.toString(values));
             }
         };
+    }
+
+    @Override
+    public PluginNameSetDialogComponent createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
+        return PluginNameSetDialogComponent.with(
+            this.dialogContext(
+                this.appContext(
+                    HistoryToken.parseString("/1/Spreadsheet123/spreadsheet/plugins/"),
+                    "plugin111, plugin222", // metadata.PLUGINS
+                    "plugin111, plugin222" // PluginStore plugins
+                )
+            )
+        );
     }
 
     // class............................................................................................................

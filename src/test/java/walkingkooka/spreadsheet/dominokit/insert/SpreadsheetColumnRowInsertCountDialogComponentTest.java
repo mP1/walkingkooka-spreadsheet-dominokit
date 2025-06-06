@@ -203,6 +203,28 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
     }
 
     @Override
+    public SpreadsheetColumnRowInsertCountDialogComponent createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
+        return SpreadsheetColumnRowInsertCountDialogComponent.with(
+            SpreadsheetColumnRowInsertCountDialogComponentContexts.appContext(
+                new FakeAppContext() {
+
+                    @Override
+                    public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                        return null;
+                    }
+
+                    @Override
+                    public HistoryToken historyToken() {
+                        return historyToken;
+                    }
+                }
+            )
+        );
+    }
+
+    // class............................................................................................................
+
+    @Override
     public Class<SpreadsheetColumnRowInsertCountDialogComponent> type() {
         return SpreadsheetColumnRowInsertCountDialogComponent.class;
     }

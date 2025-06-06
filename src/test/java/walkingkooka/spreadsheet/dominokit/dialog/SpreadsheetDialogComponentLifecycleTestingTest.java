@@ -161,6 +161,11 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
         );
     }
 
+    @Override
+    public TestSpreadsheetDialogComponentLifecycle createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
+        return new TestSpreadsheetDialogComponentLifecycle();
+    }
+
     final static class TestSpreadsheetDialogComponentLifecycle implements SpreadsheetDialogComponentLifecycle,
         TreePrintable {
 

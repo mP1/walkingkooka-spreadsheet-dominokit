@@ -27,7 +27,6 @@ import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
-import walkingkooka.spreadsheet.dominokit.history.PluginFileViewHistoryToken;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 
 import java.util.Optional;
@@ -175,8 +174,7 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
     static class TestAppContext extends FakeAppContext {
 
         TestAppContext(final String historyToken) {
-            this.historyToken = HistoryToken.parseString(historyToken)
-                .cast(PluginFileViewHistoryToken.class);
+            this.historyToken = HistoryToken.parseString(historyToken);
         }
 
         @Override
@@ -284,6 +282,15 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
 
     private PluginFileViewDialogComponent dialog(final PluginFileViewDialogComponentContext context) {
         return PluginFileViewDialogComponent.with(context);
+    }
+
+    @Override
+    public PluginFileViewDialogComponent createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
+        return PluginFileViewDialogComponent.with(
+            new TestPluginFileViewDialogComponentContext(
+                new TestAppContext(historyToken.toString())
+            )
+        );
     }
 
     // ClassTesting.....................................................................................................

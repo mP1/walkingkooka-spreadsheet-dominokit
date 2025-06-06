@@ -1604,6 +1604,23 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
         );
     }
 
+    @Override
+    public SpreadsheetSortDialogComponent createSpreadsheetDialogComponentLifecycle(HistoryToken historyToken) {
+        return SpreadsheetSortDialogComponent.with(
+            new FakeSpreadsheetSortDialogComponentContext() {
+                @Override
+                public HistoryToken historyToken() {
+                    return historyToken;
+                }
+
+                @Override
+                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    return null;
+                }
+            }
+        );
+    }
+
     // ClassTesting.....................................................................................................
 
     @Override

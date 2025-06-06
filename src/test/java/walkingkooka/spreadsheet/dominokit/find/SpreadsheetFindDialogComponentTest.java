@@ -2106,6 +2106,18 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
         }
     }
 
+    @Override
+    public SpreadsheetFindDialogComponent createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
+        return SpreadsheetFindDialogComponent.with(
+            new TestSpreadsheetFindDialogComponentContext(
+                new TestAppContext(
+                    Optional.empty(),
+                    historyToken
+                )
+            )
+        );
+    }
+
     // ClassTesting.....................................................................................................
 
     @Override

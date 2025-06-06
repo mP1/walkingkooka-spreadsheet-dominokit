@@ -40,27 +40,10 @@ public final class SpreadsheetComparatorNameListDialogComponentTest implements S
         );
 
         final SpreadsheetComparatorNameListDialogComponent dialog = SpreadsheetComparatorNameListDialogComponent.with(
-            new FakeSpreadsheetComparatorNameListDialogComponentContext() {
+            new TestSpreadsheetComparatorNameListDialogComponentContext() {
                 @Override
                 public HistoryToken historyToken() {
                     return context.historyToken();
-                }
-
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {
-                    };
-                }
-
-                @Override
-                public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
-                    return () -> {
-                    };
-                }
-
-                @Override
-                public String dialogTitle() {
-                    return "Sort Comparators Title123";
                 }
 
                 @Override
@@ -94,13 +77,52 @@ public final class SpreadsheetComparatorNameListDialogComponentTest implements S
         );
     }
 
+    private static class TestSpreadsheetComparatorNameListDialogComponentContext extends FakeSpreadsheetComparatorNameListDialogComponentContext {
+
+        @Override
+        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+            return () -> {
+            };
+        }
+
+        @Override
+        public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+            return () -> {
+            };
+        }
+
+        @Override
+        public String dialogTitle() {
+            return "Sort Comparators Title123";
+        }
+    }
+
     private AppContext appContext(final String historyToken) {
         return new FakeAppContext() {
             @Override
             public HistoryToken historyToken() {
                 return HistoryToken.parseString(historyToken);
             }
+
+            @Override
+            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                return null;
+            }
+
+            @Override
+            public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+                return null;
+            }
         };
+    }
+
+    @Override
+    public SpreadsheetComparatorNameListDialogComponent createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
+        return SpreadsheetComparatorNameListDialogComponent.with(
+            SpreadsheetComparatorNameListDialogComponentContextSortComparators.with(
+                this.appContext(historyToken.toString())
+            )
+        );
     }
 
     // class............................................................................................................

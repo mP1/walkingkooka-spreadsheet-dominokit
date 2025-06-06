@@ -330,6 +330,15 @@ public final class SpreadsheetCellValueDateDialogComponentTest implements Spread
         private final AppContext context;
     }
 
+    @Override
+    public SpreadsheetCellValueDateDialogComponent createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
+        return SpreadsheetCellValueDateDialogComponent.with(
+            new TestSpreadsheetCellValueDateDialogComponentContext(
+                this.appContext(historyToken)
+            )
+        );
+    }
+
     // ClassTesting.....................................................................................................
 
     @Override

@@ -330,6 +330,18 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
         );
     }
 
+    @Override
+    public DecimalNumberSymbolsDialogComponent createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
+        return DecimalNumberSymbolsDialogComponent.with(
+            DecimalNumberSymbolsDialogComponentContexts.metadata(
+                this.appContext(
+                    historyToken,
+                    null
+                )
+            )
+        );
+    }
+
     private AppContext appContext(final HistoryToken historyToken,
                                   final DecimalNumberSymbols decimalNumberSymbols ) {
         return new FakeAppContext() {
