@@ -15,16 +15,22 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value;
+package walkingkooka.spreadsheet.dominokit.cell;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
 import walkingkooka.spreadsheet.dominokit.viewport.FakeSpreadsheetViewportCacheContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
+import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 
-public final class BasicSpreadsheetValueComponentContextTest implements SpreadsheetValueComponentContextTesting<BasicSpreadsheetValueComponentContext> {
+import java.time.LocalDate;
+import java.util.Optional;
+
+public final class BasicSpreadsheetCellValueDateDialogComponentContextTest implements SpreadsheetCellValueDateDialogComponentContextTesting<BasicSpreadsheetCellValueDateDialogComponentContext> {
 
     @Override
     public void testAddHistoryTokenWatcherOnceWithNullFails() {
@@ -41,8 +47,30 @@ public final class BasicSpreadsheetValueComponentContextTest implements Spreadsh
         throw new UnsupportedOperationException();
     }
 
+    @Test
+    public void testPrepareSaveValueWithEmpty() {
+        this.prepareSaveValueAndCheck(
+            Optional.empty(),
+            ""
+        );
+    }
+
+    @Test
+    public void testPrepareSaveValueWithNotEmpty() {
+        this.prepareSaveValueAndCheck(
+            Optional.of(
+                LocalDate.of(
+                    1999,
+                    12,
+                    31
+                )
+            ),
+            "\"1999-12-31\""
+        );
+    }
+
     @Override
-    public BasicSpreadsheetValueComponentContext createContext() {
+    public BasicSpreadsheetCellValueDateDialogComponentContext createContext() {
         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty(
             new FakeSpreadsheetViewportCacheContext() {
                 @Override
@@ -62,14 +90,16 @@ public final class BasicSpreadsheetValueComponentContextTest implements Spreadsh
             }
             );
 
-        return BasicSpreadsheetValueComponentContext.with(
+        return BasicSpreadsheetCellValueDateDialogComponentContext.with(
             cache,
-            HistoryContexts.fake()
+            JsonNodeMarshallContexts.basic(),
+            HistoryContexts.fake(),
+            LoggingContexts.fake()
         );
     }
 
     @Override
-    public Class<BasicSpreadsheetValueComponentContext> type() {
-        return BasicSpreadsheetValueComponentContext.class;
+    public Class<BasicSpreadsheetCellValueDateDialogComponentContext> type() {
+        return BasicSpreadsheetCellValueDateDialogComponentContext.class;
     }
 }
