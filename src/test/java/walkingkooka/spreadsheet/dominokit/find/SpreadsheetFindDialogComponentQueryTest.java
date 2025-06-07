@@ -173,7 +173,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // value
             "", // validator
             "", // formattedValue
-            "OR(oldQuery(),textMatch(\"*formula*\",cellFormula()))"
+            "or(oldQuery(),textMatch(\"*formula*\",cellFormula()))"
         );
     }
 
@@ -188,7 +188,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // value
             "", // validator
             "", // formattedValue
-            "OR(oldQuery(),textMatch(\"*formatter*\",cellFormatter()))"
+            "or(oldQuery(),textMatch(\"*formatter*\",cellFormatter()))"
         );
     }
 
@@ -203,7 +203,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // value
             "", // validator
             "", // formattedValue
-            "OR(oldQuery(),textMatch(\"*parser*\",cellParser()))"
+            "or(oldQuery(),textMatch(\"*parser*\",cellParser()))"
         );
     }
 
@@ -218,7 +218,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // value
             "", // validator
             "", // formattedValue
-            "OR(oldQuery(),textMatch(\"*style*\",cellStyle()))"
+            "or(oldQuery(),textMatch(\"*style*\",cellStyle()))"
         );
     }
 
@@ -233,7 +233,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "<111", // value
             "", // validator
             "", // formattedValue
-            "OR(oldQuery(),cellValue()<111)"
+            "or(oldQuery(),cellValue()<111)"
         );
     }
 
@@ -248,7 +248,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // value
             "", // validator
             "*formattedValue*", // formattedValue
-            "OR(oldQuery(),textMatch(\"*formattedValue*\",cellFormattedValue()))"
+            "or(oldQuery(),textMatch(\"*formattedValue*\",cellFormattedValue()))"
         );
     }
 
@@ -509,7 +509,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // value
             "", // validator
             "", // formattedValue
-            "OR(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter()))"
+            "or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter()))"
         );
     }
 
@@ -524,7 +524,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // value
             "", // validator
             "", // formattedValue
-            "OR(textMatch(\"*formula*\",cellFormula()),OR(textMatch(\"*formatter*\",cellFormatter()),textMatch(\"*parser*\",cellParser())))"
+            "or(textMatch(\"*formula*\",cellFormula()),or(textMatch(\"*formatter*\",cellFormatter()),textMatch(\"*parser*\",cellParser())))"
         );
     }
 
@@ -539,7 +539,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // value
             "", // validator
             "", // formattedValue
-            "OR(textMatch(\"*parser*\",cellParser()),textMatch(\"*style*\",cellStyle()))"
+            "or(textMatch(\"*parser*\",cellParser()),textMatch(\"*style*\",cellStyle()))"
         );
     }
 
@@ -554,7 +554,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "<10", // value
             "", // validator
             "*formattedValue*", // formattedValue
-            "OR(cellValue()<10,textMatch(\"*formattedValue*\",cellFormattedValue()))"
+            "or(cellValue()<10,textMatch(\"*formattedValue*\",cellFormattedValue()))"
         );
     }
 
@@ -569,7 +569,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "<10", // value
             "*validator*", // validator
             "*formattedValue*", // formattedValue
-            "OR(textMatch(\"*formula*\",cellFormula()),OR(textMatch(\"*formatted*\",cellFormatter()),OR(textMatch(\"*parser*\",cellParser()),OR(textMatch(\"*style*\",cellStyle()),OR(cellValue()<10,OR(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue())))))))"
+            "or(textMatch(\"*formula*\",cellFormula()),or(textMatch(\"*formatted*\",cellFormatter()),or(textMatch(\"*parser*\",cellParser()),or(textMatch(\"*style*\",cellStyle()),or(cellValue()<10,or(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue())))))))"
         );
     }
 
@@ -586,7 +586,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // value
             "", // validator
             "", // formattedValue
-            "OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter())))"
+            "or(oldQuery(),or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter())))"
         );
     }
 
@@ -601,7 +601,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // value
             "", // validator
             "", // formattedValue
-            "OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),OR(textMatch(\"*formatter*\",cellFormatter()),textMatch(\"*parser*\",cellParser()))))"
+            "or(oldQuery(),or(textMatch(\"*formula*\",cellFormula()),or(textMatch(\"*formatter*\",cellFormatter()),textMatch(\"*parser*\",cellParser()))))"
         );
     }
 
@@ -616,7 +616,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // value
             "", // validator
             "", // formattedValue
-            "OR(oldQuery(),OR(textMatch(\"*parser*\",cellParser()),textMatch(\"*style*\",cellStyle())))"
+            "or(oldQuery(),or(textMatch(\"*parser*\",cellParser()),textMatch(\"*style*\",cellStyle())))"
         );
     }
 
@@ -631,7 +631,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // value
             "*validator123*", // validator
             "", // formattedValue
-            "OR(oldQuery(),textMatch(\"*validator123*\",cellValidator()))"
+            "or(oldQuery(),textMatch(\"*validator123*\",cellValidator()))"
         );
     }
 
@@ -646,7 +646,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "<10", // value
             "", // validator
             "*formattedValue*", // formattedValue
-            "OR(oldQuery(),OR(cellValue()<10,textMatch(\"*formattedValue*\",cellFormattedValue())))"
+            "or(oldQuery(),or(cellValue()<10,textMatch(\"*formattedValue*\",cellFormattedValue())))"
         );
     }
 
@@ -661,7 +661,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "<10", // value
             "*validator*", // validator
             "*formattedValue*", // formattedValue
-            "OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),OR(textMatch(\"*formatted*\",cellFormatter()),OR(textMatch(\"*parser*\",cellParser()),OR(textMatch(\"*style*\",cellStyle()),OR(cellValue()<10,OR(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue()))))))))"
+            "or(oldQuery(),or(textMatch(\"*formula*\",cellFormula()),or(textMatch(\"*formatted*\",cellFormatter()),or(textMatch(\"*parser*\",cellParser()),or(textMatch(\"*style*\",cellStyle()),or(cellValue()<10,or(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue()))))))))"
         );
     }
 

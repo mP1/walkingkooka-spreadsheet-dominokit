@@ -363,6 +363,8 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
         return out;
     }
 
+    private final static String OR = SpreadsheetExpressionFunctions.OR.value();
+
     /**
      * Creates a call to the OR function with the two given {@link ParserToken}
      */
@@ -380,16 +382,19 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
                     left + "," + right
                 )
             ),
-            "OR(" + left + "," + right + ")"
+            OR + "(" + left + "," + right + ")"
         );
     }
 
     private final static SpreadsheetFormulaParserToken OR_FUNCTION_NAME = SpreadsheetFormulaParserToken.functionName(
-        SpreadsheetFunctionName.with("OR"),
-        "OR"
+        SpreadsheetFunctionName.with(OR),
+        OR
     );
 
-    private final static SpreadsheetFormulaParserToken COMMA = SpreadsheetFormulaParserToken.valueSeparatorSymbol(",", ",");
+    private final static SpreadsheetFormulaParserToken COMMA = SpreadsheetFormulaParserToken.valueSeparatorSymbol(
+        ",",
+        ","
+    );
 
     /**
      * Stop creation
