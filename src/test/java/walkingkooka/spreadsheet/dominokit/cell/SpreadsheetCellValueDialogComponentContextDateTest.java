@@ -36,7 +36,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetCellValueDialogComponentContextDateTest implements SpreadsheetCellValueDialogComponentContextTesting<SpreadsheetCellValueDialogComponentContextDate> {
+public final class SpreadsheetCellValueDialogComponentContextDateTest implements SpreadsheetCellValueDialogComponentContextTesting<LocalDate, SpreadsheetCellValueDialogComponentContextDate> {
 
     private final static SpreadsheetDeltaFetcherWatchers DELTA_FETCHER_WATCHERS = SpreadsheetDeltaFetcherWatchers.empty();
     private final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();

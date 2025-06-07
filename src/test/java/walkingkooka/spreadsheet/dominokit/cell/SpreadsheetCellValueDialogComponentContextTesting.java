@@ -19,12 +19,11 @@ package walkingkooka.spreadsheet.dominokit.cell;
 
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextTesting;
 
-import java.time.LocalDate;
 import java.util.Optional;
 
-public interface SpreadsheetCellValueDialogComponentContextTesting<C extends SpreadsheetCellValueDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C> {
+public interface SpreadsheetCellValueDialogComponentContextTesting<V, C extends SpreadsheetCellValueDialogComponentContext<V>> extends SpreadsheetDialogComponentContextTesting<C> {
 
-    default void prepareSaveValueAndCheck(final Optional<LocalDate> value,
+    default void prepareSaveValueAndCheck(final Optional<V> value,
                                           final String expected) {
         this.checkEquals(
             expected,
