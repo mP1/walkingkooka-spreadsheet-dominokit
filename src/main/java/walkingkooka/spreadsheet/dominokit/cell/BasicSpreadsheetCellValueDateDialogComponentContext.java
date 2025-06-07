@@ -68,7 +68,7 @@ final class BasicSpreadsheetCellValueDateDialogComponentContext implements Sprea
 
     @Override
     public String id() {
-        throw new UnsupportedOperationException();
+        return ID;
     }
 
     private final static String ID = "cellValueDate";
