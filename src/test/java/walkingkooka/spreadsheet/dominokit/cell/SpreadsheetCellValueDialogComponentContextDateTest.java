@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.cell;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.datetime.HasNow;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
@@ -32,15 +31,13 @@ import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class BasicSpreadsheetCellValueDateDialogComponentContextTest implements SpreadsheetCellValueDateDialogComponentContextTesting<BasicSpreadsheetCellValueDateDialogComponentContext> {
+public final class SpreadsheetCellValueDialogComponentContextDateTest implements SpreadsheetCellValueDialogComponentContextTesting<SpreadsheetCellValueDialogComponentContextDate> {
 
     private final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
-    private final static HasNow HAS_NOW = LocalDateTime::now;
     private final static HistoryContext HISTORY_CONTEXT = HistoryContexts.fake();
     private final static LoggingContext LOGGING_CONTEXT = LoggingContexts.fake();
 
@@ -50,10 +47,9 @@ public final class BasicSpreadsheetCellValueDateDialogComponentContextTest imple
     public void testWithNullSpreadsheetViewportCacheFails() {
         assertThrows(
             NullPointerException.class,
-            () -> BasicSpreadsheetCellValueDateDialogComponentContext.with(
+            () -> SpreadsheetCellValueDialogComponentContextDate.with(
                 null,
                 MARSHALL_CONTEXT,
-                HAS_NOW,
                 HISTORY_CONTEXT,
                 LOGGING_CONTEXT
             )
@@ -64,23 +60,8 @@ public final class BasicSpreadsheetCellValueDateDialogComponentContextTest imple
     public void testWithNullMarshallContextFails() {
         assertThrows(
             NullPointerException.class,
-            () -> BasicSpreadsheetCellValueDateDialogComponentContext.with(
+            () -> SpreadsheetCellValueDialogComponentContextDate.with(
                 this.spreadsheetViewportCache(),
-                null,
-                HAS_NOW,
-                HISTORY_CONTEXT,
-                LOGGING_CONTEXT
-            )
-        );
-    }
-
-    @Test
-    public void testWithNullHasNowFails() {
-        assertThrows(
-            NullPointerException.class,
-            () -> BasicSpreadsheetCellValueDateDialogComponentContext.with(
-                this.spreadsheetViewportCache(),
-                MARSHALL_CONTEXT,
                 null,
                 HISTORY_CONTEXT,
                 LOGGING_CONTEXT
@@ -92,10 +73,9 @@ public final class BasicSpreadsheetCellValueDateDialogComponentContextTest imple
     public void testWithNullHistoryContextFails() {
         assertThrows(
             NullPointerException.class,
-            () -> BasicSpreadsheetCellValueDateDialogComponentContext.with(
+            () -> SpreadsheetCellValueDialogComponentContextDate.with(
                 this.spreadsheetViewportCache(),
                 MARSHALL_CONTEXT,
-                HAS_NOW,
                 null,
                 LOGGING_CONTEXT
             )
@@ -106,10 +86,9 @@ public final class BasicSpreadsheetCellValueDateDialogComponentContextTest imple
     public void testWithNullLoggingContextFails() {
         assertThrows(
             NullPointerException.class,
-            () -> BasicSpreadsheetCellValueDateDialogComponentContext.with(
+            () -> SpreadsheetCellValueDialogComponentContextDate.with(
                 this.spreadsheetViewportCache(),
                 MARSHALL_CONTEXT,
-                HAS_NOW,
                 HISTORY_CONTEXT,
                 null
             )
@@ -154,11 +133,10 @@ public final class BasicSpreadsheetCellValueDateDialogComponentContextTest imple
     }
 
     @Override
-    public BasicSpreadsheetCellValueDateDialogComponentContext createContext() {
-        return BasicSpreadsheetCellValueDateDialogComponentContext.with(
+    public SpreadsheetCellValueDialogComponentContextDate createContext() {
+        return SpreadsheetCellValueDialogComponentContextDate.with(
             this.spreadsheetViewportCache(),
             MARSHALL_CONTEXT,
-            HAS_NOW,
             HISTORY_CONTEXT,
             LOGGING_CONTEXT
         );
@@ -188,7 +166,12 @@ public final class BasicSpreadsheetCellValueDateDialogComponentContextTest imple
     // class............................................................................................................
 
     @Override
-    public Class<BasicSpreadsheetCellValueDateDialogComponentContext> type() {
-        return BasicSpreadsheetCellValueDateDialogComponentContext.class;
+    public void testTypeNaming() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Class<SpreadsheetCellValueDialogComponentContextDate> type() {
+        return SpreadsheetCellValueDialogComponentContextDate.class;
     }
 }

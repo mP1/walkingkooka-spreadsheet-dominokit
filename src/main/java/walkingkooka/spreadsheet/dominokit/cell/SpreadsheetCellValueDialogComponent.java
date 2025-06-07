@@ -24,45 +24,43 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifec
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValueHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValueSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValueSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.HistoryTokenSaveValueAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.value.SpreadsheetDateComponent;
 import walkingkooka.validation.ValidationValueTypeName;
 
-import java.time.LocalDate;
 import java.util.Objects;
 import java.util.Optional;
 
 /**
- * A modal dialog that displays a date picker with a few links such as CLOSE.
+ * A modal dialog that displays a value with a few links such as CLOSE.
  */
-public final class SpreadsheetCellValueDateDialogComponent implements SpreadsheetDialogComponentLifecycle,
+public final class SpreadsheetCellValueDialogComponent<T> implements SpreadsheetDialogComponentLifecycle,
     LoadedSpreadsheetMetadataRequired {
 
     /**
-     * Creates a new {@link SpreadsheetCellValueDateDialogComponent}.
+     * Creates a new {@link SpreadsheetCellValueDialogComponent}.
      */
-    public static SpreadsheetCellValueDateDialogComponent with(final SpreadsheetCellValueDateDialogComponentContext context) {
-        Objects.requireNonNull(context, "context");
-
-        return new SpreadsheetCellValueDateDialogComponent(context);
+    public static <T> SpreadsheetCellValueDialogComponent<T> with(final FormValueComponent<?, T, ?> valueComponent,
+                                                                  final SpreadsheetCellValueDialogComponentContext<T> context) {
+        return new SpreadsheetCellValueDialogComponent<>(
+            Objects.requireNonNull(valueComponent, "valueComponent"),
+            Objects.requireNonNull(context, "context")
+        );
     }
 
-    private SpreadsheetCellValueDateDialogComponent(final SpreadsheetCellValueDateDialogComponentContext context) {
+    private SpreadsheetCellValueDialogComponent(final FormValueComponent<?, T, ?> valueComponent,
+                                                final SpreadsheetCellValueDialogComponentContext<T> context) {
         this.context = context;
 
-        this.date = SpreadsheetDateComponent.empty(
-            context.id() + "date" + SpreadsheetElementIds.DATE,
-                () -> context.now().toLocalDate()
-            ).addChangeListener(
-                (final Optional<LocalDate> oldDate,
-                 final Optional<LocalDate> newDate) -> context.pushHistoryToken(
+        this.value = valueComponent.addChangeListener(
+                (final Optional<T> oldValue,
+                 final Optional<T> newValue) -> context.pushHistoryToken(
                     context.historyToken()
                         .setSaveStringValue(
-                            context.prepareSaveValue(newDate)
+                            context.prepareSaveValue(newValue)
                         )
                 )
             );
@@ -78,17 +76,17 @@ public final class SpreadsheetCellValueDateDialogComponent implements Spreadshee
     // dialog...........................................................................................................
 
     /**
-     * Creates the modal dialog, with the date picker and a few links to SAVE, UNDO and CLOSE
+     * Creates the modal dialog, with the value editing component and a few links to SAVE, UNDO and CLOSE
      */
     private SpreadsheetDialogComponent dialogCreate() {
-        final SpreadsheetCellValueDateDialogComponentContext context = this.context;
+        final SpreadsheetCellValueDialogComponentContext<T> context = this.context;
 
         return SpreadsheetDialogComponent.smallEdit(
                 context.id() + SpreadsheetElementIds.DIALOG,
                 context.dialogTitle(),
                 SpreadsheetDialogComponent.INCLUDE_CLOSE,
                 context
-            ).appendChild(this.date)
+            ).appendChild(this.value)
             .appendChild(
                 SpreadsheetLinkListComponent.empty()
                     .setCssProperty("margin-top", "5px")
@@ -101,24 +99,15 @@ public final class SpreadsheetCellValueDateDialogComponent implements Spreadshee
 
     private final SpreadsheetDialogComponent dialog;
 
-    private final SpreadsheetCellValueDateDialogComponentContext context;
+    private final SpreadsheetCellValueDialogComponentContext<T> context;
 
-    private void refreshDate() {
-        final SpreadsheetCellValueDateDialogComponentContext context = this.context;
-
-        final Optional<LocalDate> value = context.value();
-
-        this.date.setValue(
-            value.isPresent() ?
-                value :
-                Optional.of(
-                    context.now()
-                        .toLocalDate()
-                )
+    private void refreshValue() {
+        this.value.setValue(
+            this.context.value()
         );
     }
 
-    private final SpreadsheetDateComponent date;
+    private final FormValueComponent<?, T, ?> value;
 
     // links............................................................................................................
 
@@ -174,26 +163,18 @@ public final class SpreadsheetCellValueDateDialogComponent implements Spreadshee
         return token instanceof SpreadsheetCellValueSaveHistoryToken;
     }
 
-    /**
-     * Only matches {@link SpreadsheetCellValueHistoryToken} with {@link ValidationValueTypeName#DATE}.
-     */
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return token instanceof SpreadsheetCellValueSelectHistoryToken && ValidationValueTypeName.DATE.equals(
-            token.valueType()
-                .orElse(null)
-        );
+        final ValidationValueTypeName valueType = token.valueType()
+            .orElse(null);
+        return null != valueType &&
+            token instanceof SpreadsheetCellValueSelectHistoryToken &&
+            this.context.isMatch(valueType);
     }
 
     @Override
     public void dialogReset() {
-        this.date.resetView()
-            .setValue(
-                Optional.of(
-                    this.context.now()
-                        .toLocalDate()
-                )
-            );
+        this.value.clearValue();
     }
 
     @Override
@@ -203,7 +184,7 @@ public final class SpreadsheetCellValueDateDialogComponent implements Spreadshee
 
     @Override
     public void refresh(final RefreshContext context) {
-        this.refreshDate();
+        //this.refreshValue(); TODO Need to watch SpreadsheetDelta
         this.refreshClear();
         this.refreshUndo();
         this.refreshClose();

@@ -20,8 +20,9 @@ package walkingkooka.spreadsheet.dominokit;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesDialogComponent;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesDialogComponentContexts;
-import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellValueDateDialogComponent;
-import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellValueDateDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellValueDialogComponent;
+import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellValueDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellValueDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponent;
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.datetimesymbols.DateTimeSymbolsDialogComponent;
@@ -58,6 +59,9 @@ import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListDialogCompo
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponent;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.value.SpreadsheetDateComponent;
+
+import java.time.LocalDate;
 
 /**
  * Responsible for creating and the registry of all {@link walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent}.
@@ -97,14 +101,19 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
     }
 
     private static void cellValue(final AppContext context) {
-        SpreadsheetCellValueDateDialogComponent.with(
-            SpreadsheetCellValueDateDialogComponentContexts.basic(
-                context.spreadsheetViewportCache(),
-                context, // JsonNodeMarshallContext
-                context, // HasNow
-                context, // HistoryContext
-                context // LoggingContext
-            )
+        final SpreadsheetCellValueDialogComponentContext<LocalDate> dateContext = SpreadsheetCellValueDialogComponentContexts.date(
+            context.spreadsheetViewportCache(),
+            context, // JsonNodeMarshallContext
+            context, // HistoryContext
+            context // LoggingContext
+        );
+
+        SpreadsheetCellValueDialogComponent.with(
+            SpreadsheetDateComponent.empty(
+                dateContext.id(),
+                context.now()::toLocalDate // HasNow
+            ),
+            dateContext
         );
     }
 
