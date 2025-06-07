@@ -134,7 +134,7 @@ public final class SpreadsheetCellValueDateDialogComponentTest implements Spread
             context,
             "SpreadsheetCellValueDateDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    Date\n" +
+                "    HelloDialogTitle\n" +
                 "    id=Test123-Dialog includeClose=true\n" +
                 "      SpreadsheetDateComponent\n" +
                 "        [1999-12-31] id=Test123date-Date\n" +
@@ -172,7 +172,7 @@ public final class SpreadsheetCellValueDateDialogComponentTest implements Spread
             context,
             "SpreadsheetCellValueDateDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    Date\n" +
+                "    HelloDialogTitle\n" +
                 "    id=Test123-Dialog includeClose=true\n" +
                 "      SpreadsheetDateComponent\n" +
                 "        [2025-06-06] id=Test123date-Date\n" +
@@ -269,6 +269,11 @@ public final class SpreadsheetCellValueDateDialogComponentTest implements Spread
         @Override
         public String id() {
             return "Test123";
+        }
+
+        @Override
+        public String dialogTitle() {
+            return "HelloDialogTitle";
         }
 
         @Override

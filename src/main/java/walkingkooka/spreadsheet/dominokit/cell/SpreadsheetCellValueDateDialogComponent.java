@@ -83,7 +83,7 @@ public final class SpreadsheetCellValueDateDialogComponent implements Spreadshee
 
         return SpreadsheetDialogComponent.smallEdit(
                 context.id() + SpreadsheetElementIds.DIALOG,
-                "Date",
+                context.dialogTitle(),
                 SpreadsheetDialogComponent.INCLUDE_CLOSE,
                 context
             ).appendChild(this.date)
