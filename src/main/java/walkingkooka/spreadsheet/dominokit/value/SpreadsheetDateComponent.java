@@ -32,18 +32,26 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.Supplier;
 
 /**
  * A date picker that displays a calendar that supports picking {@link LocalDate}.
  */
 public final class SpreadsheetDateComponent implements FormValueComponent<HTMLDivElement, LocalDate, SpreadsheetDateComponent> {
 
-    public static SpreadsheetDateComponent empty(final String id) {
-        return new SpreadsheetDateComponent(id);
+    public static SpreadsheetDateComponent empty(final String id,
+                                                 final Supplier<LocalDate> clearValue) {
+        return new SpreadsheetDateComponent(
+            id,
+            clearValue
+        );
     }
 
-    private SpreadsheetDateComponent(final String id) {
+    private SpreadsheetDateComponent(final String id,
+                                     final Supplier<LocalDate> clearValue) {
         this.setId(id);
+
+        this.clearValue = Objects.requireNonNull(clearValue, "clearValue");
     }
 
     @Override
@@ -105,12 +113,14 @@ public final class SpreadsheetDateComponent implements FormValueComponent<HTMLDi
 
         this.calendar.setDate(
             DateTime.localDateToDate(
-                value.orElseThrow(() -> new IllegalArgumentException("Date value required"))
+                value.orElse(this.clearValue.get())
             )
         );
 
         return this;
     }
+
+    private final Supplier<LocalDate> clearValue;
 
     @Override
     public SpreadsheetDateComponent validate() {

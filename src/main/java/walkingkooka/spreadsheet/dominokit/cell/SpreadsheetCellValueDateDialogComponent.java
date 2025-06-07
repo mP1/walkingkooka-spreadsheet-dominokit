@@ -54,8 +54,10 @@ public final class SpreadsheetCellValueDateDialogComponent implements Spreadshee
     private SpreadsheetCellValueDateDialogComponent(final SpreadsheetCellValueDateDialogComponentContext context) {
         this.context = context;
 
-        this.date = SpreadsheetDateComponent.empty(context.id() + "date" + SpreadsheetElementIds.DATE)
-            .addChangeListener(
+        this.date = SpreadsheetDateComponent.empty(
+            context.id() + "date" + SpreadsheetElementIds.DATE,
+                () -> context.now().toLocalDate()
+            ).addChangeListener(
                 (final Optional<LocalDate> oldDate,
                  final Optional<LocalDate> newDate) -> context.pushHistoryToken(
                     context.historyToken()

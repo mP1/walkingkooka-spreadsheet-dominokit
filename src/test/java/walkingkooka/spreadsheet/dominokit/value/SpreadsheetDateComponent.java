@@ -32,6 +32,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.Supplier;
 
 /**
  * A mock of main/SpreadsheetTextBox with the same public interface and a helpful {@link TreePrintable}. This will be useful for unit tests to verify the rough apperance of a component that includes
@@ -42,12 +43,18 @@ public final class SpreadsheetDateComponent implements FormValueComponent<HTMLFi
     TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetDateComponent>,
     ValidatorHelper {
 
-    public static SpreadsheetDateComponent empty(final String id) {
-        return new SpreadsheetDateComponent(id);
+    public static SpreadsheetDateComponent empty(final String id,
+                                                 final Supplier<LocalDate> clearValue) {
+        return new SpreadsheetDateComponent(
+            id,
+            clearValue
+        );
     }
 
-    private SpreadsheetDateComponent(final String id) {
+    private SpreadsheetDateComponent(final String id,
+                                     final Supplier<LocalDate> clearValue) {
         this.setId(id);
+        this.clearValue = clearValue;
     }
 
     @Override
@@ -80,12 +87,15 @@ public final class SpreadsheetDateComponent implements FormValueComponent<HTMLFi
 
     @Override
     public SpreadsheetDateComponent setValue(final Optional<LocalDate> value) {
-        Objects.requireNonNull(value, "value")
-            .orElseThrow(() -> new IllegalArgumentException("Date value required"));
-        this.value = value;
+        Objects.requireNonNull(value, "value");
+        this.value = value.isPresent() ?
+            value :
+            Optional.of(this.clearValue.get());
 
         return validate();
     }
+
+    private final Supplier<LocalDate> clearValue;
 
     @Override
     public Optional<LocalDate> value() {
