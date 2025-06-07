@@ -72,6 +72,43 @@ public final class SpreadsheetTextBoxTest implements FormValueComponentTesting<H
         );
     }
 
+    // clearValue.......................................................................................................
+
+    @Test
+    public void testClearValue() {
+        final SpreadsheetTextBox box = this.createComponent()
+            .setValue(
+                Optional.of("123")
+            ).clearValue();
+        this.valueAndCheck(
+            box,
+            Optional.empty()
+        );
+    }
+
+    // setValue.........................................................................................................
+
+    @Test
+    public void testSetValueWithEmpty() {
+        final Optional<String> value = Optional.of("");
+
+        final SpreadsheetTextBox box = this.createComponent()
+            .setValue(value);
+        this.valueAndCheck(
+            box,
+            Optional.empty()
+        );
+    }
+
+    @Test
+    public void testSetValueWithNotEmpty() {
+        final Optional<String> value = Optional.of("value123");
+
+        final SpreadsheetTextBox box = this.createComponent()
+            .setValue(value);
+        this.valueAndCheck(box, value);
+    }
+
     // validator........................................................................................................
 
     @Test

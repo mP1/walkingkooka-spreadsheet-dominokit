@@ -76,10 +76,14 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     @Override
     public SpreadsheetTextBox setValue(final Optional<String> value) {
         Objects.requireNonNull(value, "value");
-        this.value = value;
+        this.value = EMPTY_STRING.equals(value) ?
+            Optional.empty() :
+            value;
 
         return validate();
     }
+
+    private final static Optional<String> EMPTY_STRING = Optional.of("");
 
     @Override
     public Optional<String> value() {

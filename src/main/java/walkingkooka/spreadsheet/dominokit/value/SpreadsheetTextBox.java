@@ -277,10 +277,12 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
 
     @Override //
     public Optional<String> value() {
+        final String value = this.textBox.getValue();
+
         return Optional.ofNullable(
-            CharSequences.nullToEmpty(
-                this.textBox.getValue()
-            ).toString()
+            CharSequences.isNullOrEmpty(value) ?
+                null :
+                value
         );
     }
 

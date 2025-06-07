@@ -230,6 +230,41 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
                 "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
         );
     }
+
+    @Test
+    public void testOnHistoryTokenChangeWithSpreadsheetCellValueHistoryTokenAndTextValueEmpty() {
+        final HistoryToken historyToken = HistoryToken.parseString(
+            "/1/SpreadsheetName456/cell/A1/value/text"
+        );
+
+        final AppContext context = this.appContext(historyToken);
+
+        final SpreadsheetCellValueDialogComponent<String> dialog = SpreadsheetCellValueDialogComponent.with(
+            SpreadsheetTextBox.empty()
+                .setId("TextBox-Text"),
+            new TestSpreadsheetCellValueDialogComponentContext<String>(
+                Optional.empty(),
+                context
+            )
+        );
+        this.onHistoryTokenChangeAndCheck(
+            dialog,
+            context,
+            "SpreadsheetCellValueDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    HelloDialogTitle\n" +
+                "    id=Test123-Dialog includeClose=true\n" +
+                "      SpreadsheetTextBox\n" +
+                "        [] id=TextBox-Text\n" +
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" [#/1/SpreadsheetName456/cell/A1/value/text/save/] id=Test123-save-Link\n" +
+                "            \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/text/save/] id=Test123-clear-Link\n" +
+                "            \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/text/save/] id=Test123-undo-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
+        );
+    }
     
     @Test
     public void testOnHistoryTokenChangeWithSpreadsheetCellValueHistoryTokenAndTimeValue() {
