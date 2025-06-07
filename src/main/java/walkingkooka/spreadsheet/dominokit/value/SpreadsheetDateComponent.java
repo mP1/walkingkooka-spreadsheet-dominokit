@@ -24,10 +24,11 @@ import org.dominokit.domino.ui.datepicker.Calendar;
 import org.dominokit.domino.ui.datepicker.CalendarDay;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.datetime.DateTime;
 import walkingkooka.text.printer.IndentingPrinter;
 
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -102,8 +103,12 @@ public final class SpreadsheetDateComponent implements FormValueComponent<HTMLDi
 
     @Override
     public Optional<LocalDate> value() {
-        return dateToLocalDate(
-            this.calendar.getDate()
+        return Optional.of(
+            Instant.ofEpochMilli(
+                this.calendar.getDate()
+                    .getTime()
+            ).atZone(ZONE_ID)
+            .toLocalDate()
         );
     }
 
@@ -112,8 +117,10 @@ public final class SpreadsheetDateComponent implements FormValueComponent<HTMLDi
         Objects.requireNonNull(value, "value");
 
         this.calendar.setDate(
-            DateTime.localDateToDate(
-                value.orElse(this.clearValue.get())
+            toDate(
+                value.orElse(
+                    this.clearValue.get()
+                )
             )
         );
 
@@ -201,18 +208,6 @@ public final class SpreadsheetDateComponent implements FormValueComponent<HTMLDi
         );
     }
 
-    /**
-     * Helper that is used to translate {@link Date} to {@link LocalDate}.
-     */
-    private static Optional<LocalDate> dateToLocalDate(final Date date) {
-        return Optional.ofNullable(
-            null != date ?
-                DateTime.dateToLocalDateTime(date)
-                    .toLocalDate() :
-                null
-        );
-    }
-
     @Override
     public SpreadsheetDateComponent addClickListener(final EventListener listener) {
         this.calendar.addClickListener(listener);
@@ -288,4 +283,30 @@ public final class SpreadsheetDateComponent implements FormValueComponent<HTMLDi
             .map(Object::toString)
             .orElse("");
     }
+
+    // helpers..........................................................................................................
+
+    /**
+     * Helper that is used to translate {@link Date} to {@link LocalDate}.
+     */
+    private static Optional<LocalDate> dateToLocalDate(final Date date) {
+        return Optional.ofNullable(
+            null != date ?
+                Instant.ofEpochMilli(date.getTime())
+                    .atZone(ZONE_ID)
+                    .toLocalDate() :
+                null
+        );
+    }
+
+    private static Date toDate(final LocalDate date) {
+        return new Date(
+            date.atStartOfDay()
+                .atZone(ZONE_ID)
+                .toInstant()
+                .toEpochMilli()
+        );
+    }
+
+    private final static ZoneId ZONE_ID = ZoneId.systemDefault();
 }
