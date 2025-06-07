@@ -60,8 +60,10 @@ import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListDialogCompo
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponent;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetDateComponent;
+import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTimeComponent;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 /**
  * Responsible for creating and the registry of all {@link walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent}.
@@ -101,21 +103,40 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
     }
 
     private static void cellValue(final AppContext context) {
-        final SpreadsheetCellValueDialogComponentContext<LocalDate> dateContext = SpreadsheetCellValueDialogComponentContexts.date(
-            context.spreadsheetViewportCache(),
-            context, // SpreadsheetDeltaFetcherWatcher
-            context, // JsonNodeMarshallContext
-            context, // HistoryContext
-            context // LoggingContext
-        );
+        {
+            final SpreadsheetCellValueDialogComponentContext<LocalDate> dateContext = SpreadsheetCellValueDialogComponentContexts.date(
+                context.spreadsheetViewportCache(),
+                context, // SpreadsheetDeltaFetcherWatcher
+                context, // JsonNodeMarshallContext
+                context, // HistoryContext
+                context // LoggingContext
+            );
 
-        SpreadsheetCellValueDialogComponent.with(
-            SpreadsheetDateComponent.empty(
-                dateContext.id(),
-                context.now()::toLocalDate // HasNow
-            ),
-            dateContext
-        );
+            SpreadsheetCellValueDialogComponent.with(
+                SpreadsheetDateComponent.empty(
+                    dateContext.id(),
+                    context.now()::toLocalDate // HasNow
+                ),
+                dateContext
+            );
+        }
+        {
+            final SpreadsheetCellValueDialogComponentContext<LocalTime> timeContext = SpreadsheetCellValueDialogComponentContexts.time(
+                context.spreadsheetViewportCache(),
+                context, // SpreadsheetDeltaFetcherWatcher
+                context, // JsonNodeMarshallContext
+                context, // HistoryContext
+                context // LoggingContext
+            );
+
+            SpreadsheetCellValueDialogComponent.with(
+                SpreadsheetTimeComponent.empty(
+                    timeContext.id(),
+                    context.now()::toLocalTime // HasNow
+                ),
+                timeContext
+            );
+        }
     }
 
     private static void columnAndRow(final AppContext context) {
