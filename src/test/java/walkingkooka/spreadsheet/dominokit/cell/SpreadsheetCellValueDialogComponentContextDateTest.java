@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.cell;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
@@ -37,6 +38,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetCellValueDialogComponentContextDateTest implements SpreadsheetCellValueDialogComponentContextTesting<SpreadsheetCellValueDialogComponentContextDate> {
 
+    private final static SpreadsheetDeltaFetcherWatchers DELTA_FETCHER_WATCHERS = SpreadsheetDeltaFetcherWatchers.empty();
     private final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
     private final static HistoryContext HISTORY_CONTEXT = HistoryContexts.fake();
     private final static LoggingContext LOGGING_CONTEXT = LoggingContexts.fake();
@@ -48,6 +50,21 @@ public final class SpreadsheetCellValueDialogComponentContextDateTest implements
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetCellValueDialogComponentContextDate.with(
+                null,
+                DELTA_FETCHER_WATCHERS,
+                MARSHALL_CONTEXT,
+                HISTORY_CONTEXT,
+                LOGGING_CONTEXT
+            )
+        );
+    }
+
+    @Test
+    public void testWithNullSpreadsheetDeltaFetcherWatchersFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetCellValueDialogComponentContextDate.with(
+                this.spreadsheetViewportCache(),
                 null,
                 MARSHALL_CONTEXT,
                 HISTORY_CONTEXT,
@@ -62,6 +79,7 @@ public final class SpreadsheetCellValueDialogComponentContextDateTest implements
             NullPointerException.class,
             () -> SpreadsheetCellValueDialogComponentContextDate.with(
                 this.spreadsheetViewportCache(),
+                DELTA_FETCHER_WATCHERS,
                 null,
                 HISTORY_CONTEXT,
                 LOGGING_CONTEXT
@@ -75,6 +93,7 @@ public final class SpreadsheetCellValueDialogComponentContextDateTest implements
             NullPointerException.class,
             () -> SpreadsheetCellValueDialogComponentContextDate.with(
                 this.spreadsheetViewportCache(),
+                DELTA_FETCHER_WATCHERS,
                 MARSHALL_CONTEXT,
                 null,
                 LOGGING_CONTEXT
@@ -88,6 +107,7 @@ public final class SpreadsheetCellValueDialogComponentContextDateTest implements
             NullPointerException.class,
             () -> SpreadsheetCellValueDialogComponentContextDate.with(
                 this.spreadsheetViewportCache(),
+                DELTA_FETCHER_WATCHERS,
                 MARSHALL_CONTEXT,
                 HISTORY_CONTEXT,
                 null
@@ -136,6 +156,7 @@ public final class SpreadsheetCellValueDialogComponentContextDateTest implements
     public SpreadsheetCellValueDialogComponentContextDate createContext() {
         return SpreadsheetCellValueDialogComponentContextDate.with(
             this.spreadsheetViewportCache(),
+            DELTA_FETCHER_WATCHERS,
             MARSHALL_CONTEXT,
             HISTORY_CONTEXT,
             LOGGING_CONTEXT

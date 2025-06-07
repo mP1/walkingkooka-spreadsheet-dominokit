@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.validation.ValidationValueTypeName;
 
@@ -50,6 +51,18 @@ public class FakeSpreadsheetCellValueDialogComponentContext<T> extends FakeHisto
 
     @Override
     public String prepareSaveValue(final Optional<T> value) {
+        throw new UnsupportedOperationException();
+    }
+
+    // SpreadsheetDeltaFetcherWatchers..................................................................................
+
+    @Override
+    public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 

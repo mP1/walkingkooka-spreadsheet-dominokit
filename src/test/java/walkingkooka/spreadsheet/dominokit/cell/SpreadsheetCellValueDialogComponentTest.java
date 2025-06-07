@@ -181,7 +181,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
                 "    HelloDialogTitle\n" +
                 "    id=Test123-Dialog includeClose=true\n" +
                 "      SpreadsheetDateComponent\n" +
-                "        [1999-12-31] id=Test123date-Date\n" + // TODO SpreadsheetDelta refresh
+                "        [2025-06-06] id=Test123date-Date\n" +
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
@@ -298,6 +298,13 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
         public boolean isMatch(final ValidationValueTypeName valueType) {
             return ValidationValueTypeName.DATE.equals(valueType);
         }
+
+        @Override
+        public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+            return this.watchers.add(watcher);
+        }
+
+        private final SpreadsheetDeltaFetcherWatchers watchers = SpreadsheetDeltaFetcherWatchers.empty();
 
         @Override
         public Optional<LocalDate> value() {

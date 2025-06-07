@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.cell;
 
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.validation.ValidationValueTypeName;
 
 import java.time.LocalDate;
@@ -26,7 +27,8 @@ import java.util.Optional;
 /**
  * The {@link SpreadsheetCellValueDialogComponentContext} for the {@link SpreadsheetCellValueDialogComponent}
  */
-public interface SpreadsheetCellValueDialogComponentContext<T> extends SpreadsheetDialogComponentContext {
+public interface SpreadsheetCellValueDialogComponentContext<T> extends SpreadsheetDialogComponentContext,
+    HasSpreadsheetDeltaFetcherWatchers {
 
     /**
      * The top level ID.
