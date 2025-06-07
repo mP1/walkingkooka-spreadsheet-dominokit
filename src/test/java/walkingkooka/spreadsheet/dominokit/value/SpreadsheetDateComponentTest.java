@@ -60,13 +60,14 @@ public final class SpreadsheetDateComponentTest implements FormValueComponentTes
     }
 
     @Test
-    public void testSetValueWithEmptyFails() {
-        assertThrows(
-            IllegalArgumentException.class,
-            () -> this.createComponent()
-                .setValue(
-                    Optional.empty()
-                )
+    public void testClearValue() {
+        final SpreadsheetDateComponent component = this.createComponent()
+            .setValue(
+                Optional.empty()
+            );
+        this.valueAndCheck(
+            component,
+            Optional.of(CLEAR_VALUE)
         );
     }
 
@@ -74,8 +75,13 @@ public final class SpreadsheetDateComponentTest implements FormValueComponentTes
 
     @Override
     public SpreadsheetDateComponent createComponent() {
-        return SpreadsheetDateComponent.empty("id");
+        return SpreadsheetDateComponent.empty(
+            "id",
+            () -> CLEAR_VALUE
+        );
     }
+
+    private final static LocalDate CLEAR_VALUE = LocalDate.of(1999, 12, 31);
 
     // ClassTesting.....................................................................................................
 
