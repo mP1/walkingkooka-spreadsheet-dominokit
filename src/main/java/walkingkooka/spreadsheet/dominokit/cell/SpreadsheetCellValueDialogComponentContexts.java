@@ -47,6 +47,23 @@ public final class SpreadsheetCellValueDialogComponentContexts implements Public
     }
 
     /**
+     * {@see SpreadsheetCellValueDialogComponentContextText}
+     */
+    public static SpreadsheetCellValueDialogComponentContext<String> text(final SpreadsheetViewportCache viewportCache,
+                                                                          final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
+                                                                          final JsonNodeMarshallContext marshallContext,
+                                                                          final HistoryContext historyContext,
+                                                                          final LoggingContext loggingContext) {
+        return SpreadsheetCellValueDialogComponentContextText.with(
+            viewportCache,
+            deltaFetcherWatchers,
+            marshallContext,
+            historyContext,
+            loggingContext
+        );
+    }
+    
+    /**
      * {@see SpreadsheetCellValueDialogComponentContextTime}
      */
     public static SpreadsheetCellValueDialogComponentContext<LocalTime> time(final SpreadsheetViewportCache viewportCache,
