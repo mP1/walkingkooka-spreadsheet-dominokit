@@ -31,12 +31,12 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 
-import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetCellValueDialogComponentContextTimeTest implements SpreadsheetCellValueDialogComponentContextTesting<SpreadsheetCellValueDialogComponentContextTime> {
+public final class SpreadsheetCellValueDialogComponentContextTimeTest implements SpreadsheetCellValueDialogComponentContextTesting<LocalTime, SpreadsheetCellValueDialogComponentContextTime> {
 
     private final static SpreadsheetDeltaFetcherWatchers DELTA_FETCHER_WATCHERS = SpreadsheetDeltaFetcherWatchers.empty();
     private final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
@@ -142,13 +142,13 @@ public final class SpreadsheetCellValueDialogComponentContextTimeTest implements
     public void testPrepareSaveValueWithNotEmpty() {
         this.prepareSaveValueAndCheck(
             Optional.of(
-                LocalDate.of(
-                    1999,
+                LocalTime.of(
                     12,
-                    31
+                    58,
+                    59
                 )
             ),
-            "\"1999-12-31\""
+            "\"12:58:59\""
         );
     }
 
