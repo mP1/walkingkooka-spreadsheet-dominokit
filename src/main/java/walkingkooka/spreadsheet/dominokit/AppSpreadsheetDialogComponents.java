@@ -60,6 +60,7 @@ import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListDialogCompo
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponent;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetDateComponent;
+import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTimeComponent;
 
 import java.time.LocalDate;
@@ -118,6 +119,23 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
                     context.now()::toLocalDate // HasNow
                 ),
                 dateContext
+            );
+        }
+        {
+            final SpreadsheetCellValueDialogComponentContext<String> textContext = SpreadsheetCellValueDialogComponentContexts.text(
+                context.spreadsheetViewportCache(),
+                context, // SpreadsheetDeltaFetcherWatcher
+                context, // JsonNodeMarshallContext
+                context, // HistoryContext
+                context // LoggingContext
+            );
+
+            SpreadsheetCellValueDialogComponent.with(
+                SpreadsheetTextBox.empty()
+                    .setId(
+                        textContext.id()
+                    ),
+                textContext
             );
         }
         {

@@ -33,6 +33,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValueHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetDateComponent;
+import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTimeComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -194,6 +195,40 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
     }
 
     @Test
+    public void testOnHistoryTokenChangeWithSpreadsheetCellValueHistoryTokenAndTextValue() {
+        final HistoryToken historyToken = HistoryToken.parseString(
+            "/1/SpreadsheetName456/cell/A1/value/text"
+        );
+
+        final AppContext context = this.appContext(historyToken);
+
+        final SpreadsheetCellValueDialogComponent<String> dialog = SpreadsheetCellValueDialogComponent.with(
+            SpreadsheetTextBox.empty()
+                .setId("TextBox-Text"),
+            new TestSpreadsheetCellValueDialogComponentContext<String>(
+                Optional.of("HelloTextValue"),
+                context
+            )
+        );
+        this.onHistoryTokenChangeAndCheck(
+            dialog,
+            context,
+            "SpreadsheetCellValueDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    HelloDialogTitle\n" +
+                "    id=Test123-Dialog includeClose=true\n" +
+                "      SpreadsheetTextBox\n" +
+                "        [HelloTextValue] id=TextBox-Text\n" +
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/text/save/] id=Test123-clear-Link\n" +
+                "            \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/text/save/%22HelloTextValue%22] id=Test123-undo-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
+        );
+    }
+    
+    @Test
     public void testOnHistoryTokenChangeWithSpreadsheetCellValueHistoryTokenAndTimeValue() {
         final HistoryToken historyToken = HistoryToken.parseString(
             "/1/SpreadsheetName456/cell/A1/value/time"
@@ -341,6 +376,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
         @Override
         public boolean isMatch(final ValidationValueTypeName valueType) {
             return ValidationValueTypeName.DATE.equals(valueType) ||
+                ValidationValueTypeName.TEXT.equals(valueType) ||
                 ValidationValueTypeName.TIME.equals(valueType);
         }
 
