@@ -35,6 +35,11 @@ public interface SpreadsheetCellValueDateDialogComponentContext extends Spreadsh
     String id();
 
     /**
+     * The dialog title.
+     */
+    String dialogTitle();
+
+    /**
      * Gets the current {@link LocalDate} value from the currently selected cell.
      */
     Optional<LocalDate> value();
