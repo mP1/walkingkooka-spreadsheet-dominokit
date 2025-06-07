@@ -51,10 +51,10 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLDi
 
     private SpreadsheetTimeComponent(final String id,
                                      final Supplier<LocalTime> clearValue) {
+        this.timePicker = TimePicker.create(); // TODO Add support allowing user to pick locale/DateTimeSymbols/DecimalNumberSymbols ?
         this.setId(id);
 
         this.clearValue = Objects.requireNonNull(clearValue, "clearValue");
-        this.timePicker = TimePicker.create(); // TODO Add support allowing user to pick locale/DateTimeSymbols/DecimalNumberSymbols ?
     }
 
     @Override
