@@ -17,10 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
+import walkingkooka.net.AbsoluteOrRelativeUrl;
+import walkingkooka.net.http.HttpMethod;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
@@ -29,6 +35,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValueSelectHist
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.HistoryTokenSaveValueAnchorComponent;
+import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.validation.ValidationValueTypeName;
 
 import java.util.Objects;
@@ -38,7 +45,10 @@ import java.util.Optional;
  * A modal dialog that displays a value with a few links such as CLOSE.
  */
 public final class SpreadsheetCellValueDialogComponent<T> implements SpreadsheetDialogComponentLifecycle,
-    LoadedSpreadsheetMetadataRequired {
+    LoadedSpreadsheetMetadataRequired,
+    SpreadsheetDeltaFetcherWatcher,
+    NopFetcherWatcher,
+    NopEmptyResponseFetcherWatcher {
 
     /**
      * Creates a new {@link SpreadsheetCellValueDialogComponent}.
@@ -71,6 +81,7 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
         this.dialog = this.dialogCreate();
 
         context.addHistoryTokenWatcher(this);
+        context.addSpreadsheetDeltaFetcherWatcher(this);
     }
 
     // dialog...........................................................................................................
@@ -184,10 +195,20 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
 
     @Override
     public void refresh(final RefreshContext context) {
-        //this.refreshValue(); TODO Need to watch SpreadsheetDelta
+        this.refreshValue();
         this.refreshClear();
         this.refreshUndo();
         this.refreshClose();
+    }
+
+    // SpreadsheetDeltaFetcherWatcher...................................................................................
+
+    @Override
+    public void onSpreadsheetDelta(final HttpMethod method,
+                                   final AbsoluteOrRelativeUrl url,
+                                   final SpreadsheetDelta delta,
+                                   final AppContext context) {
+        this.refreshIfOpen(context);
     }
 
     // Object..........................................................................................................

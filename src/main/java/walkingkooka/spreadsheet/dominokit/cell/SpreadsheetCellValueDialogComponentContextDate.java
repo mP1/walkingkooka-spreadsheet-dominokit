@@ -19,6 +19,8 @@ package walkingkooka.spreadsheet.dominokit.cell;
 
 import walkingkooka.Cast;
 import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
@@ -40,11 +42,13 @@ final class SpreadsheetCellValueDialogComponentContextDate implements Spreadshee
     LoggingContextDelegator {
 
     static SpreadsheetCellValueDialogComponentContextDate with(final SpreadsheetViewportCache viewportCache,
+                                                               final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
                                                                final JsonNodeMarshallContext marshallContext,
                                                                final HistoryContext historyContext,
                                                                final LoggingContext loggingContext) {
         return new SpreadsheetCellValueDialogComponentContextDate(
             Objects.requireNonNull(viewportCache, "viewportCache"),
+            Objects.requireNonNull(deltaFetcherWatchers, "deltaFetcherWatchers"),
             Objects.requireNonNull(marshallContext, "marshallContext"),
             Objects.requireNonNull(historyContext, "historyContext"),
             Objects.requireNonNull(loggingContext, "loggingContext")
@@ -52,10 +56,12 @@ final class SpreadsheetCellValueDialogComponentContextDate implements Spreadshee
     }
 
     private SpreadsheetCellValueDialogComponentContextDate(final SpreadsheetViewportCache viewportCache,
+                                                           final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
                                                            final JsonNodeMarshallContext marshallContext,
                                                            final HistoryContext historyContext,
                                                            final LoggingContext loggingContext) {
         this.viewportCache = viewportCache;
+        this.deltaFetcherWatchers = deltaFetcherWatchers;
         this.marshallContext = marshallContext;
         this.historyContext = historyContext;
         this.loggingContext = loggingContext;
@@ -132,6 +138,20 @@ final class SpreadsheetCellValueDialogComponentContextDate implements Spreadshee
     }
 
     private final LoggingContext loggingContext;
+
+    // SpreadsheetDeltaFetcherWatchers..................................................................................
+
+    @Override
+    public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+        return this.deltaFetcherWatchers.addSpreadsheetDeltaFetcherWatcher(watcher);
+    }
+
+    @Override
+    public Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
+        return this.deltaFetcherWatchers.addSpreadsheetDeltaFetcherWatcherOnce(watcher);
+    }
+
+    private final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers;
 
     // toString.........................................................................................................
 

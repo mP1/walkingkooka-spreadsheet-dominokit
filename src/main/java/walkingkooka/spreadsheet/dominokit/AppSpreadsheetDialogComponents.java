@@ -103,6 +103,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
     private static void cellValue(final AppContext context) {
         final SpreadsheetCellValueDialogComponentContext<LocalDate> dateContext = SpreadsheetCellValueDialogComponentContexts.date(
             context.spreadsheetViewportCache(),
+            context, // SpreadsheetDeltaFetcherWatcher
             context, // JsonNodeMarshallContext
             context, // HistoryContext
             context // LoggingContext
