@@ -30,10 +30,10 @@ public interface HistoryTokenAwareComponentLifecycleTesting<T extends HistoryTok
 
     HistoryToken NOT_MATCHED = HistoryToken.parseString("/not-matched-123");
 
-    default void onHistoryTokenChangeAndCheck(final T component,
-                                              final AppContext context,
-                                              final String expected) {
-        onHistoryTokenChangeAndCheck(
+    default <TT extends HistoryTokenAwareComponentLifecycle & TreePrintable> void onHistoryTokenChangeAndCheck(final TT component,
+                                                                                                               final AppContext context,
+                                                                                                               final String expected) {
+        this.onHistoryTokenChangeAndCheck(
             component,
             component,
             context,
@@ -41,11 +41,11 @@ public interface HistoryTokenAwareComponentLifecycleTesting<T extends HistoryTok
         );
     }
 
-    default void onHistoryTokenChangeAndCheck(final T component,
-                                              final HistoryTokenWatcher watcher,
-                                              final AppContext context,
-                                              final String expected) {
-        onHistoryTokenChangeAndCheck(
+    default <TT extends HistoryTokenAwareComponentLifecycle & TreePrintable> void onHistoryTokenChangeAndCheck(final TT component,
+                                                                                                               final HistoryTokenWatcher watcher,
+                                                                                                               final AppContext context,
+                                                                                                               final String expected) {
+        this.onHistoryTokenChangeAndCheck(
             component,
             watcher,
             NOT_MATCHED,
@@ -54,10 +54,10 @@ public interface HistoryTokenAwareComponentLifecycleTesting<T extends HistoryTok
         );
     }
 
-    default void onHistoryTokenChangeAndCheck(final T component,
-                                              final HistoryToken previous,
-                                              final AppContext context,
-                                              final String expected) {
+    default <TT extends HistoryTokenAwareComponentLifecycle & TreePrintable> void onHistoryTokenChangeAndCheck(final TT component,
+                                                                                                               final HistoryToken previous,
+                                                                                                               final AppContext context,
+                                                                                                               final String expected) {
         this.onHistoryTokenChangeAndCheck(
             component,
             component,
@@ -67,11 +67,11 @@ public interface HistoryTokenAwareComponentLifecycleTesting<T extends HistoryTok
         );
     }
 
-    default void onHistoryTokenChangeAndCheck(final T component,
-                                              final HistoryTokenWatcher watcher,
-                                              final HistoryToken previous,
-                                              final AppContext context,
-                                              final String expected) {
+    default <TT extends HistoryTokenAwareComponentLifecycle & TreePrintable> void onHistoryTokenChangeAndCheck(final TT component,
+                                                                                                               final HistoryTokenWatcher watcher,
+                                                                                                               final HistoryToken previous,
+                                                                                                               final AppContext context,
+                                                                                                               final String expected) {
         watcher.onHistoryTokenChange(
             previous,
             context
