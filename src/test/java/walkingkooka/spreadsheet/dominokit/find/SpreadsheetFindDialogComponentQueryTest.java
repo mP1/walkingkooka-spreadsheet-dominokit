@@ -665,6 +665,98 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         );
     }
 
+    // components removed...............................................................................................
+
+    @Test
+    public void testQueryWithFormulaRemoved() {
+        this.queryAndCheck(
+            "textMatch(\"*formula*\",cellFormula())", // query
+            "", // formula
+            "", // formatter
+            "", // parser
+            "", // style
+            "", // value
+            "", // validator
+            "", // formattedValue
+            ""
+        );
+    }
+
+    @Test
+    public void testQueryWithFormatterRemoved() {
+        this.queryAndCheck(
+            "textMatch(\"*formatter*\",cellFormatter())", // query
+            "", // formula
+            "", // formatter
+            "", // parser
+            "", // style
+            "", // value
+            "", // validator
+            "", // formattedValue
+            ""
+        );
+    }
+
+    @Test
+    public void testQueryWithFormulaFormatterRemoved() {
+        this.queryAndCheck(
+            "or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter()))", // query
+            "*formula*", // formula
+            "", // formatter
+            "", // parser
+            "", // style
+            "", // value
+            "", // validator
+            "", // formattedValue
+            "textMatch(\"*formula*\",cellFormula())" // query
+        );
+    }
+
+    @Test
+    public void testQueryWithFormulaRemovedFormatter() {
+        this.queryAndCheck(
+            "or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter()))", // query
+            "", // formula
+            "*formatter*", // formatter
+            "", // parser
+            "", // style
+            "", // value
+            "", // validator
+            "", // formattedValue
+            "textMatch(\"*formatter*\",cellFormatter())" // query
+        );
+    }
+
+    @Test
+    public void testQueryWithFormulaFormatterRemovedParser() {
+        this.queryAndCheck(
+            "or(textMatch(\"*formula*\",cellFormula()),or(textMatch(\"*formatter*\",cellFormatter()),textMatch(\"*parser*\",cellParser())))", // query
+            "*formula*", // formula
+            "", // formatter
+            "*parser*", // parser
+            "", // style
+            "", // value
+            "", // validator
+            "", // formattedValue
+            "or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*parser*\",cellParser()))" // query
+        );
+    }
+
+    @Test
+    public void testQueryWithFormulaRemovedFormatterParser() {
+        this.queryAndCheck(
+            "or(or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter())),textMatch(\"*parser*\",cellParser()))", // query
+            "", // formula
+            "*formatter*", // formatter
+            "*parser*", // parser
+            "", // style
+            "", // value
+            "", // validator
+            "", // formattedValue
+            "or(textMatch(\"*formatter*\",cellFormatter()),textMatch(\"*parser*\",cellParser()))" // query
+        );
+    }
+
     private void queryAndCheck(final String query,
                                final String formula,
                                final String formatter,
