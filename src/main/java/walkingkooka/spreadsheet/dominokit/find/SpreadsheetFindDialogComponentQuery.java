@@ -200,7 +200,7 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
      * </pre>
      */
     private static SpreadsheetFormulaParserToken textMatch(final TextMatch textMatch,
-                                                    final ExpressionFunctionName cellPropertyGetter) {
+                                                           final ExpressionFunctionName cellPropertyGetter) {
         final String textMatchString = textMatch.text();
         final String quotedTextMatch = CharSequences.escape(
             textMatchString
