@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public final class SpreadsheetCellValueDialogComponentContexts implements PublicStaticHelper {
 
@@ -37,6 +38,23 @@ public final class SpreadsheetCellValueDialogComponentContexts implements Public
                                                                              final HistoryContext historyContext,
                                                                              final LoggingContext loggingContext) {
         return SpreadsheetCellValueDialogComponentContextDate.with(
+            viewportCache,
+            deltaFetcherWatchers,
+            marshallContext,
+            historyContext,
+            loggingContext
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellValueDialogComponentContextTime}
+     */
+    public static SpreadsheetCellValueDialogComponentContext<LocalTime> time(final SpreadsheetViewportCache viewportCache,
+                                                                             final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
+                                                                             final JsonNodeMarshallContext marshallContext,
+                                                                             final HistoryContext historyContext,
+                                                                             final LoggingContext loggingContext) {
+        return SpreadsheetCellValueDialogComponentContextTime.with(
             viewportCache,
             deltaFetcherWatchers,
             marshallContext,
