@@ -65,8 +65,6 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
         this.undo = this.undoAnchor(context);
         this.close = this.closeAnchor();
 
-        //this.lastSave = null;
-
         this.dialog = this.dialogCreate();
 
         if (context.shouldLoadSpreadsheetMetadata()) {
@@ -92,7 +90,8 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
             );
     }
 
-    @Override public SpreadsheetDialogComponent dialog() {
+    @Override
+    public SpreadsheetDialogComponent dialog() {
         return this.dialog;
     }
 
@@ -115,20 +114,15 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
         return SpreadsheetNameComponent.empty()
             .setId(ID +SpreadsheetElementIds.TEXT_BOX)
             .addKeyupListener(
-                (e) -> this.onNameChange(this.name.value())
+                (e) -> this.setName(this.name.value())
             ).addChangeListener(
-                (oldValue, newValue) -> this.onNameChange(newValue)
+                (oldValue, newValue) -> this.setName(newValue)
             );
-    }
-
-    private void onNameChange(final Optional<SpreadsheetName> name) {
-        this.refreshSave(name);
     }
 
     private void setName(final Optional<SpreadsheetName> name) {
         this.name.setValue(name);
         this.refreshSave(name);
-        this.refreshUndo(name);
     }
 
     /**
@@ -136,15 +130,38 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
      */
     private final SpreadsheetNameComponent name;
 
+    // save.............................................................................................................
+
+    private void refreshSave(final Optional<SpreadsheetName> name) {
+        this.save.setValue(name);
+    }
+
     /**
      * A SAVE link which will be updated each time the name box is also updated.
      */
     private final HistoryTokenSaveValueAnchorComponent<SpreadsheetName> save;
 
+    // undo.............................................................................................................
+
+    private void refreshUndo(final Optional<SpreadsheetName> name) {
+        this.undo.setValue(name);
+    }
+
     /**
      * A UNDO link which will be updated each time the name is saved.
      */
     private final HistoryTokenSaveValueAnchorComponent<SpreadsheetName> undo;
+
+    // close............................................................................................................
+
+    private void refreshClose() {
+        this.close.setHistoryToken(
+            Optional.of(
+                this.context.historyToken()
+                    .close()
+            )
+        );
+    }
 
     /**
      * A CLOSE link which will close the dialog.
@@ -185,23 +202,6 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
         this.refreshClose();
     }
 
-    private void refreshClose() {
-        this.close.setHistoryToken(
-            Optional.of(
-                this.context.historyToken()
-                    .close()
-            )
-        );
-    }
-
-    private void refreshSave(final Optional<SpreadsheetName> name) {
-        this.save.setValue(name);
-    }
-
-    private void refreshUndo(final Optional<SpreadsheetName> name) {
-        this.undo.setValue(name);
-    }
-
     private final SpreadsheetNameDialogComponentContext context;
 
     // SpreadsheetMetadataFetcherWatcher................................................................................
@@ -218,9 +218,7 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
             if (Objects.equals(
                 metadata.id().orElse(null),
                 this.spreadsheetId)) {
-                this.setName(
-                    metadata.name()
-                );
+                this.refreshIfOpen(context);
             }
         } else {
             this.spreadsheetId = null;
