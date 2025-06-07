@@ -72,7 +72,9 @@ public final class HistoryTokenSaveValueAnchorComponent<T> implements ValueHisto
         if (false == (historyToken.isSave())) {
             historyToken = null;
         }
-        if(this.autoDisableWhenMissingValue && false == value.isPresent()) {
+
+        // necessary because empty string is also equivalent to no value
+        if (this.autoDisableWhenMissingValue && (false == value.isPresent() || value.get().equals(""))) {
             historyToken = null;
         }
 

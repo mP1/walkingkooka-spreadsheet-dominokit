@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
+import walkingkooka.validation.ValidationValueTypeName;
 
 import java.util.Optional;
 
@@ -68,6 +69,22 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
                     )
                 ),
             "\"Save\" [#/1/SpreadsheetName1/cell/A1/style/color/save/%23123456] id=HistoryTokenSaveValueAnchorComponent-Link"
+        );
+    }
+
+    @Test
+    public void testSetValueWithEmptyString() {
+        this.treePrintAndCheck(
+            this.createComponent(
+                HistoryToken.cellValueSave(
+                    SpreadsheetId.with(1),
+                    SpreadsheetName.with("SpreadsheetName1"),
+                    SpreadsheetSelection.A1.setDefaultAnchor(),
+                    ValidationValueTypeName.TEXT,
+                    ""
+                )
+            ),
+            "\"Save\" DISABLED id=HistoryTokenSaveValueAnchorComponent-Link"
         );
     }
 
@@ -173,7 +190,7 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
         );
     }
 
-    private HistoryTokenSaveValueAnchorComponent<Color> createComponent(final HistoryToken historyToken) {
+    private <T> HistoryTokenSaveValueAnchorComponent<T> createComponent(final HistoryToken historyToken) {
         return HistoryTokenSaveValueAnchorComponent.with(
             "HistoryTokenSaveValueAnchorComponent" + SpreadsheetElementIds.LINK,
             new FakeHistoryContext() {
