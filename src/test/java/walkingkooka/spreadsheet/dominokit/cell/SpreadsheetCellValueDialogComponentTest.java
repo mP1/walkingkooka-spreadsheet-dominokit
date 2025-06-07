@@ -146,7 +146,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/SpreadsheetName456/cell/A1/value/date/save/] id=Test123-save-Link\n" +
+                "            \"Save\" DISABLED id=Test123-save-Link\n" +
                 "            \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/date/save/] id=Test123-clear-Link\n" +
                 "            \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/date/save/] id=Test123-undo-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
@@ -259,7 +259,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/SpreadsheetName456/cell/A1/value/text/save/] id=Test123-save-Link\n" +
+                "            \"Save\" DISABLED id=Test123-save-Link\n" +
                 "            \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/text/save/] id=Test123-clear-Link\n" +
                 "            \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/text/save/] id=Test123-undo-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
