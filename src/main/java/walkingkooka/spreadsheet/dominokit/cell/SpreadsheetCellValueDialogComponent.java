@@ -74,6 +74,8 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
                         )
                 )
             );
+        this.save = this.<String>saveValueAnchor(context)
+            .autoDisableWhenMissingValue();
         this.undo = this.undoAnchor(context);
         this.clear = this.clearValueAnchor(context);
         this.close = this.closeAnchor();
@@ -102,6 +104,7 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
                 SpreadsheetLinkListComponent.empty()
                     .setCssProperty("margin-top", "5px")
                     .setCssProperty("margin-left", "-5px")
+                    .appendChild(this.save)
                     .appendChild(this.clear)
                     .appendChild(this.undo)
                     .appendChild(this.close)
@@ -121,6 +124,18 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
     private final FormValueComponent<?, T, ?> value;
 
     // links............................................................................................................
+
+    private void refreshSave() {
+        this.save.setValue(
+            Optional.of(
+                this.context.prepareSaveValue(
+                    this.context.value()
+                )
+            )
+        );
+    }
+
+    private final HistoryTokenSaveValueAnchorComponent<String> save;
 
     private void refreshUndo() {
         this.undo.setValue(
@@ -185,6 +200,7 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
 
     @Override
     public void dialogReset() {
+        this.save.clear();
         this.value.clearValue();
     }
 
@@ -196,6 +212,8 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
     @Override
     public void refresh(final RefreshContext context) {
         this.refreshValue();
+
+        this.refreshSave();
         this.refreshClear();
         this.refreshUndo();
         this.refreshClose();
