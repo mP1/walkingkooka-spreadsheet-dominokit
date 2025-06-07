@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.validation.ValidationValueTypeName;
 
+import java.time.LocalTime;
 import java.util.Optional;
 
 import static org.junit.Assert.assertSame;
@@ -113,6 +114,29 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
         );
     }
 
+    @Test
+    public void testSetSaveValueWithNotEmptyTime() {
+        this.setSaveValueAndCheck(
+            HistoryToken.cellValueSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                ValidationValueTypeName.TIME,
+                "Previous"
+            ),
+            Optional.of(
+                "\"12:58:59\""
+            ),
+            HistoryToken.cellValueSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                ValidationValueTypeName.TIME,
+                "\"12:58:59\""
+            )
+        );
+    }
+
     // setSaveStringValue...............................................................................................
 
     @Test
@@ -137,7 +161,7 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
     }
 
     @Test
-    public void testSetSaveStringValueWithNotEmptyString() {
+    public void testSetSaveStringValueWithNotEmptyStringDate() {
         final String value = "\"1999,12,31\"";
 
         this.setSaveStringValueAndCheck(
@@ -154,6 +178,31 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
                 NAME,
                 CELL.setDefaultAnchor(),
                 ValidationValueTypeName.DATE,
+                value
+            )
+        );
+    }
+
+    @Test
+    public void testSetSaveStringValueWithNotEmptyStringTime() {
+        final String value = JSON_NODE_MARSHALL_CONTEXT.marshall(
+            LocalTime.of(12, 58, 59)
+        ).toString();
+
+        this.setSaveStringValueAndCheck(
+            HistoryToken.cellValueSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                ValidationValueTypeName.TIME,
+                "Previous"
+            ),
+            value,
+            HistoryToken.cellValueSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                ValidationValueTypeName.TIME,
                 value
             )
         );
