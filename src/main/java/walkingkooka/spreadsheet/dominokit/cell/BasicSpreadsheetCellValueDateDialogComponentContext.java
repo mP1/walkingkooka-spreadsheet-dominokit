@@ -67,6 +67,13 @@ final class BasicSpreadsheetCellValueDateDialogComponentContext implements Sprea
     }
 
     @Override
+    public String id() {
+        throw new UnsupportedOperationException();
+    }
+
+    private final static String ID = "cellValueDate";
+
+    @Override
     public Optional<LocalDate> value() {
         return this.historyContext.historyToken()
             .selection()
