@@ -169,6 +169,7 @@ public final class SpreadsheetDateComponent implements FormValueComponent<HTMLDi
     }
 
     public SpreadsheetDateComponent resetView() {
+        this.calendar.resetView();
         return this;
     }
 
