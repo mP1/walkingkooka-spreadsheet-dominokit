@@ -18,20 +18,103 @@
 package walkingkooka.spreadsheet.dominokit.cell;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.datetime.HasNow;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
 import walkingkooka.spreadsheet.dominokit.viewport.FakeSpreadsheetViewportCacheContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
+import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public final class BasicSpreadsheetCellValueDateDialogComponentContextTest implements SpreadsheetCellValueDateDialogComponentContextTesting<BasicSpreadsheetCellValueDateDialogComponentContext> {
+
+    private final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
+    private final static HasNow HAS_NOW = LocalDateTime::now;
+    private final static HistoryContext HISTORY_CONTEXT = HistoryContexts.fake();
+    private final static LoggingContext LOGGING_CONTEXT = LoggingContexts.fake();
+
+    // with.............................................................................................................
+
+    @Test
+    public void testWithNullSpreadsheetViewportCacheFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> BasicSpreadsheetCellValueDateDialogComponentContext.with(
+                null,
+                MARSHALL_CONTEXT,
+                HAS_NOW,
+                HISTORY_CONTEXT,
+                LOGGING_CONTEXT
+            )
+        );
+    }
+
+    @Test
+    public void testWithNullMarshallContextFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> BasicSpreadsheetCellValueDateDialogComponentContext.with(
+                this.spreadsheetViewportCache(),
+                null,
+                HAS_NOW,
+                HISTORY_CONTEXT,
+                LOGGING_CONTEXT
+            )
+        );
+    }
+
+    @Test
+    public void testWithNullHasNowFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> BasicSpreadsheetCellValueDateDialogComponentContext.with(
+                this.spreadsheetViewportCache(),
+                MARSHALL_CONTEXT,
+                null,
+                HISTORY_CONTEXT,
+                LOGGING_CONTEXT
+            )
+        );
+    }
+
+    @Test
+    public void testWithNullHistoryContextFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> BasicSpreadsheetCellValueDateDialogComponentContext.with(
+                this.spreadsheetViewportCache(),
+                MARSHALL_CONTEXT,
+                HAS_NOW,
+                null,
+                LOGGING_CONTEXT
+            )
+        );
+    }
+
+    @Test
+    public void testWithNullLoggingContextFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> BasicSpreadsheetCellValueDateDialogComponentContext.with(
+                this.spreadsheetViewportCache(),
+                MARSHALL_CONTEXT,
+                HAS_NOW,
+                HISTORY_CONTEXT,
+                null
+            )
+        );
+    }
 
     @Override
     public void testAddHistoryTokenWatcherOnceWithNullFails() {
@@ -72,7 +155,17 @@ public final class BasicSpreadsheetCellValueDateDialogComponentContextTest imple
 
     @Override
     public BasicSpreadsheetCellValueDateDialogComponentContext createContext() {
-        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty(
+        return BasicSpreadsheetCellValueDateDialogComponentContext.with(
+            this.spreadsheetViewportCache(),
+            MARSHALL_CONTEXT,
+            HAS_NOW,
+            HISTORY_CONTEXT,
+            LOGGING_CONTEXT
+        );
+    }
+
+    private SpreadsheetViewportCache spreadsheetViewportCache() {
+        return SpreadsheetViewportCache.empty(
             new FakeSpreadsheetViewportCacheContext() {
                 @Override
                 public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
@@ -89,16 +182,10 @@ public final class BasicSpreadsheetCellValueDateDialogComponentContextTest imple
                     return null;
                 }
             }
-            );
-
-        return BasicSpreadsheetCellValueDateDialogComponentContext.with(
-            cache,
-            JsonNodeMarshallContexts.basic(),
-            LocalDateTime::now,
-            HistoryContexts.fake(),
-            LoggingContexts.fake()
         );
     }
+
+    // class............................................................................................................
 
     @Override
     public Class<BasicSpreadsheetCellValueDateDialogComponentContext> type() {
