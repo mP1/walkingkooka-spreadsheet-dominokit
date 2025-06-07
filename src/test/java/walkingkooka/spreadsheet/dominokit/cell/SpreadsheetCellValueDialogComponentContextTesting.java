@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentConte
 import java.time.LocalDate;
 import java.util.Optional;
 
-public interface SpreadsheetCellValueDateDialogComponentContextTesting<C extends SpreadsheetCellValueDateDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C> {
+public interface SpreadsheetCellValueDialogComponentContextTesting<C extends SpreadsheetCellValueDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C> {
 
     default void prepareSaveValueAndCheck(final Optional<LocalDate> value,
                                           final String expected) {
@@ -35,6 +35,6 @@ public interface SpreadsheetCellValueDateDialogComponentContextTesting<C extends
 
     @Override
     default String typeNameSuffix() {
-        return SpreadsheetCellValueDateDialogComponentContext.class.getSimpleName();
+        return SpreadsheetCellValueDialogComponentContext.class.getSimpleName();
     }
 }

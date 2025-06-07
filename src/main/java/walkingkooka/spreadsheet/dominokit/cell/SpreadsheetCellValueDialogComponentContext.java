@@ -17,17 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
-import walkingkooka.datetime.HasNow;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
+import walkingkooka.validation.ValidationValueTypeName;
 
 import java.time.LocalDate;
 import java.util.Optional;
 
 /**
- * The {@link SpreadsheetCellValueDateDialogComponentContext} for the {@link SpreadsheetCellValueDateDialogComponent}
+ * The {@link SpreadsheetCellValueDialogComponentContext} for the {@link SpreadsheetCellValueDialogComponent}
  */
-public interface SpreadsheetCellValueDateDialogComponentContext extends SpreadsheetDialogComponentContext,
-    HasNow {
+public interface SpreadsheetCellValueDialogComponentContext<T> extends SpreadsheetDialogComponentContext {
 
     /**
      * The top level ID.
@@ -40,10 +39,15 @@ public interface SpreadsheetCellValueDateDialogComponentContext extends Spreadsh
     String dialogTitle();
 
     /**
+     * Tests if the {@link ValidationValueTypeName} after the {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken} is matched.
+     */
+    boolean isMatch(final ValidationValueTypeName valueType);
+
+    /**
      * Gets the current {@link LocalDate} value from the currently selected cell.
      */
-    Optional<LocalDate> value();
+    Optional<T> value();
 
 
-    String prepareSaveValue(final Optional<LocalDate> value);
+    String prepareSaveValue(final Optional<T> value);
 }

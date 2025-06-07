@@ -17,43 +17,42 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
-import walkingkooka.datetime.HasNow;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 
-public final class SpreadsheetCellValueDateDialogComponentContexts implements PublicStaticHelper {
+import java.time.LocalDate;
+
+public final class SpreadsheetCellValueDialogComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see BasicSpreadsheetCellValueDateDialogComponentContext}
+     * {@see SpreadsheetCellValueDialogComponentContextDate}
      */
-    public static SpreadsheetCellValueDateDialogComponentContext basic(final SpreadsheetViewportCache viewportCache,
-                                                                       final JsonNodeMarshallContext marshallContext,
-                                                                       final HasNow hasNow,
-                                                                       final HistoryContext historyContext,
-                                                                       final LoggingContext loggingContext) {
-        return BasicSpreadsheetCellValueDateDialogComponentContext.with(
+    public static SpreadsheetCellValueDialogComponentContext<LocalDate> date(final SpreadsheetViewportCache viewportCache,
+                                                                             final JsonNodeMarshallContext marshallContext,
+                                                                             final HistoryContext historyContext,
+                                                                             final LoggingContext loggingContext) {
+        return SpreadsheetCellValueDialogComponentContextDate.with(
             viewportCache,
             marshallContext,
-            hasNow,
             historyContext,
             loggingContext
         );
     }
 
     /**
-     * {@see FakeSpreadsheetCellValueDateDialogComponentContext}
+     * {@see FakeSpreadsheetCellValueDialogComponentContext}
      */
-    public static SpreadsheetCellValueDateDialogComponentContext fake() {
-        return new FakeSpreadsheetCellValueDateDialogComponentContext();
+    public static <T> SpreadsheetCellValueDialogComponentContext<T> fake() {
+        return new FakeSpreadsheetCellValueDialogComponentContext<>();
     }
 
     /**
      * Stop creation
      */
-    private SpreadsheetCellValueDateDialogComponentContexts() {
+    private SpreadsheetCellValueDialogComponentContexts() {
         throw new UnsupportedOperationException();
     }
 }

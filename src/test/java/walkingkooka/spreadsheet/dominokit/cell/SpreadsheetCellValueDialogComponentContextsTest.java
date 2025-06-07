@@ -22,11 +22,11 @@ import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
 
-public final class SpreadsheetCellValueDateDialogComponentContextsTest implements PublicStaticHelperTesting<SpreadsheetCellValueDateDialogComponentContexts> {
+public final class SpreadsheetCellValueDialogComponentContextsTest implements PublicStaticHelperTesting<SpreadsheetCellValueDialogComponentContexts> {
 
     @Override
-    public Class<SpreadsheetCellValueDateDialogComponentContexts> type() {
-        return SpreadsheetCellValueDateDialogComponentContexts.class;
+    public Class<SpreadsheetCellValueDialogComponentContexts> type() {
+        return SpreadsheetCellValueDialogComponentContexts.class;
     }
 
     @Override

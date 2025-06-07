@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.cell;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
@@ -31,6 +32,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValueHistoryToken;
+import walkingkooka.spreadsheet.dominokit.value.SpreadsheetDateComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -41,13 +43,21 @@ import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 import walkingkooka.validation.ValidationValueTypeName;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.Supplier;
 
-public final class SpreadsheetCellValueDateDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetCellValueDateDialogComponent>,
+public final class SpreadsheetCellValueDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetCellValueDialogComponent<LocalDate>>,
     SpreadsheetMetadataTesting {
+
+    private static final String DATE_COMPONENT_ID = "Test123date-Date";
+
+    private static final Supplier<LocalDate> CLEAR_VALUE = () -> LocalDate.of(
+        1999,
+        12,
+        31
+    );
 
     // isMatch..........................................................................................................
 
@@ -62,11 +72,7 @@ public final class SpreadsheetCellValueDateDialogComponentTest implements Spread
         );
 
         this.shouldIgnoreAndCheck(
-            SpreadsheetCellValueDateDialogComponent.with(
-                new TestSpreadsheetCellValueDateDialogComponentContext(
-                    this.appContext(historyToken)
-                )
-            ),
+            this.createSpreadsheetDialogComponentLifecycle(historyToken),
             historyToken,
             true
         );
@@ -81,11 +87,7 @@ public final class SpreadsheetCellValueDateDialogComponentTest implements Spread
         );
 
         this.shouldIgnoreAndCheck(
-            SpreadsheetCellValueDateDialogComponent.with(
-                new TestSpreadsheetCellValueDateDialogComponentContext(
-                    this.appContext(historyToken)
-                )
-            ),
+            this.createSpreadsheetDialogComponentLifecycle(historyToken),
             historyToken,
             false
         );
@@ -103,11 +105,7 @@ public final class SpreadsheetCellValueDateDialogComponentTest implements Spread
         );
 
         this.isMatchAndCheck(
-            SpreadsheetCellValueDateDialogComponent.with(
-                new TestSpreadsheetCellValueDateDialogComponentContext(
-                    this.appContext(historyToken)
-                )
-            ),
+            this.createSpreadsheetDialogComponentLifecycle(historyToken),
             historyToken,
             true
         );
@@ -123,8 +121,12 @@ public final class SpreadsheetCellValueDateDialogComponentTest implements Spread
 
         final AppContext context = this.appContext(historyToken);
 
-        final SpreadsheetCellValueDateDialogComponent dialog = SpreadsheetCellValueDateDialogComponent.with(
-            new TestSpreadsheetCellValueDateDialogComponentContext(
+        final SpreadsheetCellValueDialogComponent<LocalDate> dialog = SpreadsheetCellValueDialogComponent.with(
+            SpreadsheetDateComponent.empty(
+                DATE_COMPONENT_ID,
+                CLEAR_VALUE
+            ),
+            new TestSpreadsheetCellValueDialogComponentContext(
                 Optional.empty(),
                 context
             )
@@ -132,7 +134,7 @@ public final class SpreadsheetCellValueDateDialogComponentTest implements Spread
         this.onHistoryTokenChangeAndCheck(
             dialog,
             context,
-            "SpreadsheetCellValueDateDialogComponent\n" +
+            "SpreadsheetCellValueDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    HelloDialogTitle\n" +
                 "    id=Test123-Dialog includeClose=true\n" +
@@ -155,8 +157,12 @@ public final class SpreadsheetCellValueDateDialogComponentTest implements Spread
 
         final AppContext context = this.appContext(historyToken);
 
-        final SpreadsheetCellValueDateDialogComponent dialog = SpreadsheetCellValueDateDialogComponent.with(
-            new TestSpreadsheetCellValueDateDialogComponentContext(
+        final SpreadsheetCellValueDialogComponent<LocalDate> dialog = SpreadsheetCellValueDialogComponent.with(
+            SpreadsheetDateComponent.empty(
+                DATE_COMPONENT_ID,
+                CLEAR_VALUE
+            ),
+            new TestSpreadsheetCellValueDialogComponentContext(
                 Optional.of(
                     LocalDate.of(
                         2025,
@@ -170,12 +176,12 @@ public final class SpreadsheetCellValueDateDialogComponentTest implements Spread
         this.onHistoryTokenChangeAndCheck(
             dialog,
             context,
-            "SpreadsheetCellValueDateDialogComponent\n" +
+            "SpreadsheetCellValueDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    HelloDialogTitle\n" +
                 "    id=Test123-Dialog includeClose=true\n" +
                 "      SpreadsheetDateComponent\n" +
-                "        [2025-06-06] id=Test123date-Date\n" +
+                "        [1999-12-31] id=Test123date-Date\n" + // TODO SpreadsheetDelta refresh
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
@@ -251,17 +257,17 @@ public final class SpreadsheetCellValueDateDialogComponentTest implements Spread
         }
     }
 
-    static class TestSpreadsheetCellValueDateDialogComponentContext extends FakeSpreadsheetCellValueDateDialogComponentContext {
+    static class TestSpreadsheetCellValueDialogComponentContext extends FakeSpreadsheetCellValueDialogComponentContext<LocalDate> {
 
-        TestSpreadsheetCellValueDateDialogComponentContext(final AppContext context) {
+        TestSpreadsheetCellValueDialogComponentContext(final AppContext context) {
             this(
                 Optional.empty(),
                 context
             );
         }
 
-        TestSpreadsheetCellValueDateDialogComponentContext(final Optional<LocalDate> value,
-                                                           final AppContext context) {
+        TestSpreadsheetCellValueDialogComponentContext(final Optional<LocalDate> value,
+                                                       final AppContext context) {
             this.value = Objects.requireNonNull(value, "value");
             this.context = context;
         }
@@ -289,6 +295,11 @@ public final class SpreadsheetCellValueDateDialogComponentTest implements Spread
         private final HistoryTokenWatchers historyTokenWatchers = HistoryTokenWatchers.empty();
 
         @Override
+        public boolean isMatch(final ValidationValueTypeName valueType) {
+            return ValidationValueTypeName.DATE.equals(valueType);
+        }
+
+        @Override
         public Optional<LocalDate> value() {
             return this.value;
         }
@@ -306,25 +317,17 @@ public final class SpreadsheetCellValueDateDialogComponentTest implements Spread
                 json.toString();
         }
 
-        @Override
-        public LocalDateTime now() {
-            return LocalDateTime.of(
-                1999,
-                12,
-                31,
-                12,
-                58,
-                59
-            );
-        }
-
         private final AppContext context;
     }
 
     @Override
-    public SpreadsheetCellValueDateDialogComponent createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
-        return SpreadsheetCellValueDateDialogComponent.with(
-            new TestSpreadsheetCellValueDateDialogComponentContext(
+    public SpreadsheetCellValueDialogComponent<LocalDate> createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
+        return SpreadsheetCellValueDialogComponent.with(
+            SpreadsheetDateComponent.empty(
+                DATE_COMPONENT_ID,
+                CLEAR_VALUE
+            ),
+            new TestSpreadsheetCellValueDialogComponentContext(
                 this.appContext(historyToken)
             )
         );
@@ -333,8 +336,8 @@ public final class SpreadsheetCellValueDateDialogComponentTest implements Spread
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SpreadsheetCellValueDateDialogComponent> type() {
-        return SpreadsheetCellValueDateDialogComponent.class;
+    public Class<SpreadsheetCellValueDialogComponent<LocalDate>> type() {
+        return Cast.to(SpreadsheetCellValueDialogComponent.class);
     }
 
     @Override

@@ -18,14 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.cell;
 
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
+import walkingkooka.validation.ValidationValueTypeName;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Optional;
 
-public class FakeSpreadsheetCellValueDateDialogComponentContext extends FakeHistoryContext implements SpreadsheetCellValueDateDialogComponentContext {
+public class FakeSpreadsheetCellValueDialogComponentContext<T> extends FakeHistoryContext implements SpreadsheetCellValueDialogComponentContext<T> {
 
-    public FakeSpreadsheetCellValueDateDialogComponentContext() {
+    public FakeSpreadsheetCellValueDialogComponentContext() {
         super();
     }
 
@@ -40,17 +39,17 @@ public class FakeSpreadsheetCellValueDateDialogComponentContext extends FakeHist
     }
 
     @Override
-    public Optional<LocalDate> value() {
+    public boolean isMatch(final ValidationValueTypeName valueType) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public String prepareSaveValue(final Optional<LocalDate> value) {
+    public Optional<T> value() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public LocalDateTime now() {
+    public String prepareSaveValue(final Optional<T> value) {
         throw new UnsupportedOperationException();
     }
 
