@@ -75,6 +75,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         this.valueType = this.valueType();
 
         this.formula = this.formula();
+        this.dateTimeSymbols = this.dateTimeSymbols();
         this.formatter = this.formatter();
         this.parser = this.parser();
         this.style = this.style();
@@ -120,15 +121,18 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         ).appendChild(
             SpreadsheetRowComponent.columnSpan4()
                 .appendChild(this.formula)
+                .appendChild(this.dateTimeSymbols)
                 .appendChild(this.formatter)
-                .appendChild(this.parser)
+
         ).appendChild(
             SpreadsheetRowComponent.columnSpan4()
+                .appendChild(this.parser)
                 .appendChild(this.style)
                 .appendChild(this.value)
-                .appendChild(this.validator)
+
         ).appendChild(
             SpreadsheetRowComponent.columnSpan4()
+                .appendChild(this.validator)
                 .appendChild(this.formattedValue)
         ).appendChild(this.query)
             .appendChild(
@@ -246,6 +250,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                 .query()
                 .query(),
             this.formula.value(),
+            this.dateTimeSymbols.value(),
             this.formatter.value(),
             this.parser.value(),
             this.style.value(),
@@ -346,6 +351,16 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     }
 
     final TextMatchComponent formula;
+
+    // formatter..........................................................................................................
+
+    private TextMatchComponent dateTimeSymbols() {
+        return textMatchComponent(
+            "DateTimeSymbols"
+        );
+    }
+
+    final TextMatchComponent dateTimeSymbols;
 
     // formatter..........................................................................................................
 
