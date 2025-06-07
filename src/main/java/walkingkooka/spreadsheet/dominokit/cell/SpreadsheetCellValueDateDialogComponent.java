@@ -21,7 +21,6 @@ import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
@@ -55,7 +54,7 @@ public final class SpreadsheetCellValueDateDialogComponent implements Spreadshee
     private SpreadsheetCellValueDateDialogComponent(final SpreadsheetCellValueDateDialogComponentContext context) {
         this.context = context;
 
-        this.date = SpreadsheetDateComponent.empty(ID_PREFIX + "date" + SpreadsheetElementIds.DATE)
+        this.date = SpreadsheetDateComponent.empty(context.id() + "date" + SpreadsheetElementIds.DATE)
             .addChangeListener(
                 (final Optional<LocalDate> oldDate,
                  final Optional<LocalDate> newDate) -> context.pushHistoryToken(
@@ -80,10 +79,10 @@ public final class SpreadsheetCellValueDateDialogComponent implements Spreadshee
      * Creates the modal dialog, with the date picker and a few links to SAVE, UNDO and CLOSE
      */
     private SpreadsheetDialogComponent dialogCreate() {
-        final HistoryContext context = this.context;
+        final SpreadsheetCellValueDateDialogComponentContext context = this.context;
 
         return SpreadsheetDialogComponent.smallEdit(
-                ID + SpreadsheetElementIds.DIALOG,
+                context.id() + SpreadsheetElementIds.DIALOG,
                 "Date",
                 SpreadsheetDialogComponent.INCLUDE_CLOSE,
                 context
@@ -165,7 +164,7 @@ public final class SpreadsheetCellValueDateDialogComponent implements Spreadshee
 
     @Override
     public String idPrefix() {
-        return ID_PREFIX;
+        return this.context.id() + "-";
     }
 
     @Override
@@ -207,12 +206,6 @@ public final class SpreadsheetCellValueDateDialogComponent implements Spreadshee
         this.refreshUndo();
         this.refreshClose();
     }
-
-    // UI...............................................................................................................
-
-    private final static String ID = "cellValueDate";
-
-    private final static String ID_PREFIX = ID + "-";
 
     // Object..........................................................................................................
 

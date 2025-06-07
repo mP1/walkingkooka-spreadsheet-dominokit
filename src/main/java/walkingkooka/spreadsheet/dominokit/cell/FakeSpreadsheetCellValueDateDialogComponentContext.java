@@ -30,6 +30,11 @@ public class FakeSpreadsheetCellValueDateDialogComponentContext extends FakeHist
     }
 
     @Override
+    public String id() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public Optional<LocalDate> value() {
         throw new UnsupportedOperationException();
     }

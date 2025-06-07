@@ -135,15 +135,15 @@ public final class SpreadsheetCellValueDateDialogComponentTest implements Spread
             "SpreadsheetCellValueDateDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    Date\n" +
-                "    id=cellValueDate-Dialog includeClose=true\n" +
+                "    id=Test123-Dialog includeClose=true\n" +
                 "      SpreadsheetDateComponent\n" +
-                "        [1999-12-31] id=cellValueDate-date-Date\n" +
+                "        [1999-12-31] id=Test123date-Date\n" +
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/date/save/] id=cellValueDate-clear-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/date/save/] id=cellValueDate-undo-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=cellValueDate-close-Link\n"
+                "            \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/date/save/] id=Test123-clear-Link\n" +
+                "            \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/date/save/] id=Test123-undo-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
         );
     }
 
@@ -173,15 +173,15 @@ public final class SpreadsheetCellValueDateDialogComponentTest implements Spread
             "SpreadsheetCellValueDateDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    Date\n" +
-                "    id=cellValueDate-Dialog includeClose=true\n" +
+                "    id=Test123-Dialog includeClose=true\n" +
                 "      SpreadsheetDateComponent\n" +
-                "        [2025-06-06] id=cellValueDate-date-Date\n" +
+                "        [2025-06-06] id=Test123date-Date\n" +
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/date/save/] id=cellValueDate-clear-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/date/save/%222025-06-06%22] id=cellValueDate-undo-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=cellValueDate-close-Link\n"
+                "            \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/date/save/] id=Test123-clear-Link\n" +
+                "            \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/date/save/%222025-06-06%22] id=Test123-undo-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
         );
     }
 
@@ -264,6 +264,11 @@ public final class SpreadsheetCellValueDateDialogComponentTest implements Spread
                                                            final AppContext context) {
             this.value = Objects.requireNonNull(value, "value");
             this.context = context;
+        }
+
+        @Override
+        public String id() {
+            return "Test123";
         }
 
         @Override

@@ -30,6 +30,11 @@ public interface SpreadsheetCellValueDateDialogComponentContext extends Spreadsh
     HasNow {
 
     /**
+     * The top level ID.
+     */
+    String id();
+
+    /**
      * Gets the current {@link LocalDate} value from the currently selected cell.
      */
     Optional<LocalDate> value();
