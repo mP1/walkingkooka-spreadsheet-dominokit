@@ -42,7 +42,6 @@ import walkingkooka.plugin.ProviderContexts;
 import walkingkooka.plugin.store.Plugin;
 import walkingkooka.plugin.store.PluginSet;
 import walkingkooka.plugin.store.PluginStores;
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
@@ -1180,7 +1179,7 @@ public class App implements EntryPoint,
         try {
             this.formatterContext = metadata.spreadsheetFormatterContext(
                 SpreadsheetMetadata.NO_CELL,
-                (final Optional<SpreadsheetCell> cell) -> {
+                (final Optional<Object> value) -> {
                     throw new UnsupportedOperationException();
                 },
                 this.viewportCache, // SpreadsheetLabelNameResolver
