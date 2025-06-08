@@ -34,6 +34,10 @@ import java.util.function.Supplier;
  */
 public final class SpreadsheetRowComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetRowComponent> {
 
+    public static SpreadsheetRowComponent columnSpan3() {
+        return with(Column::span3);
+    }
+
     public static SpreadsheetRowComponent columnSpan4() {
         return with(Column::span4);
     }

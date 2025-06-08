@@ -115,23 +115,20 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
             SpreadsheetDialogComponent.INCLUDE_CLOSE,
             context
         ).appendChild(
-            SpreadsheetRowComponent.columnSpan4()
+            SpreadsheetRowComponent.columnSpan3()
                 .appendChild(this.cellRange)
                 .appendChild(this.path)
                 .appendChild(this.valueType)
-        ).appendChild(
-            SpreadsheetRowComponent.columnSpan4()
                 .appendChild(this.formula)
+        ).appendChild(
+            SpreadsheetRowComponent.columnSpan3()
                 .appendChild(this.dateTimeSymbols)
                 .appendChild(this.decimalNumberSymbols)
-        ).appendChild(
-            SpreadsheetRowComponent.columnSpan4()
                 .appendChild(this.formatter)
                 .appendChild(this.parser)
-                .appendChild(this.style)
-
         ).appendChild(
-            SpreadsheetRowComponent.columnSpan4()
+            SpreadsheetRowComponent.columnSpan3()
+                .appendChild(this.style)
                 .appendChild(this.value)
                 .appendChild(this.validator)
                 .appendChild(this.formattedValue)
