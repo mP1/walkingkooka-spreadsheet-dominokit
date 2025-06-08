@@ -28,6 +28,10 @@ import java.util.Objects;
 
 public class SpreadsheetRowComponent implements TestHtmlElementComponent<HTMLDivElement, SpreadsheetRowComponent> {
 
+    public static SpreadsheetRowComponent columnSpan3() {
+        return new SpreadsheetRowComponent();
+    }
+
     public static SpreadsheetRowComponent columnSpan4() {
         return new SpreadsheetRowComponent();
     }
