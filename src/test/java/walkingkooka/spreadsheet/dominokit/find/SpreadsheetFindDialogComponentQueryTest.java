@@ -46,6 +46,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -62,6 +63,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // query
             "*formula*", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -78,6 +80,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "*formatter*", // formatter
             "", // parser
             "", // style
@@ -94,6 +97,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "*parser*", // parser
             "", // style
@@ -110,6 +114,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "*style*", // style
@@ -126,6 +131,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -142,6 +148,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -160,6 +167,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "oldQuery()", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -176,6 +184,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "oldQuery()", // query
             "*formula*", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -192,6 +201,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "oldQuery()", // query
             "", // formula
             "*dateTimeSymbols*", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -203,11 +213,29 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
     }
 
     @Test
+    public void testQueryWithNotEmptyAnDecimalNumberSymbols() {
+        this.queryAndCheck(
+            "oldQuery()", // query
+            "", // formula
+            "", // dateTimeSymbols
+            "*decimalNumberSymbols*", // decimalNumberSymbols
+            "", // formatter
+            "", // parser
+            "", // style
+            "", // value
+            "", // validator
+            "", // formattedValue
+            "or(oldQuery(),textMatch(\"*decimalNumberSymbols*\",cellDecimalNumberSymbols()))"
+        );
+    }
+
+    @Test
     public void testQueryWithNotEmptyAndFormatter() {
         this.queryAndCheck(
             "oldQuery()", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "*formatter*", // formatter
             "", // parser
             "", // style
@@ -224,6 +252,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "oldQuery()", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "*parser*", // parser
             "", // style
@@ -240,6 +269,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "oldQuery()", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "*style*", // style
@@ -256,6 +286,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "oldQuery()", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -272,6 +303,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "oldQuery()", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -290,6 +322,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "textMatch(\"*old*\",cellFormula())", // query
             "*new*", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -306,6 +339,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "textMatch(\"*old*\",cellFormatter())", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "*new*", // formatter
             "", // parser
             "", // style
@@ -322,6 +356,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "textMatch(\"*old*\",cellParser())", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "*new*", // parser
             "", // style
@@ -338,6 +373,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "textMatch(\"*old*\",cellStyle())", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "*new*", // style
@@ -354,6 +390,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "cellValue()<111", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -370,6 +407,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "cellValue()<111", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -386,6 +424,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "textMatch(\"*old*\",cellFormattedValue())", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -404,6 +443,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "1+textMatch(\"*old*\",cellFormula())", // query
             "*new*", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -420,6 +460,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "1+textMatch(\"*old*\",cellFormatter())", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "*new*", // formatter
             "", // parser
             "", // style
@@ -436,6 +477,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "1+textMatch(\"*old*\",cellParser())", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "*new*", // parser
             "", // style
@@ -452,6 +494,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "1+textMatch(\"*old*\",cellStyle())", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "*new*", // style
@@ -468,6 +511,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "cellValue()<111", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -484,6 +528,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "999+(cellValue()<111)", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -500,6 +545,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "999+(cellValue()<(111+222))", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -516,6 +562,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "1+textMatch(\"*old*\",cellFormattedValue())", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -532,6 +579,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "1+22+textMatch(\"*old*\",cellFormattedValue())", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -550,6 +598,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // query
             "*formula*", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "*formatter*", // formatter
             "", // parser
             "", // style
@@ -566,6 +615,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // query
             "*formula*", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "*formatter*", // formatter
             "*parser*", // parser
             "", // style
@@ -582,6 +632,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "*parser*", // parser
             "*style*", // style
@@ -598,6 +649,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -614,6 +666,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "", // query
             "*formula*", // formula
             "*dateTimeSymbols*", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "*formatted*", // formatter
             "*parser*", // parser
             "*style*", // style
@@ -632,6 +685,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "oldQuery()", // query
             "*formula*", // formula
             "MONDAY", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -648,6 +702,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "oldQuery()", // query
             "*formula*", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "*formatter*", // formatter
             "", // parser
             "", // style
@@ -664,6 +719,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "oldQuery()", // query
             "*formula*", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "*formatter*", // formatter
             "*parser*", // parser
             "", // style
@@ -680,6 +736,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "oldQuery()", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "*parser*", // parser
             "*style*", // style
@@ -696,6 +753,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "oldQuery()", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -712,6 +770,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "oldQuery()", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -728,13 +787,14 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "oldQuery()", // query
             "*formula*", // formula
             "*dateTimeSymbols*", // dateTimeSymbols
+            "decimalNumberSymbols", // decimalNumberSymbols
             "*formatted*", // formatter
             "*parser*", // parser
             "*style*", // style
             "<10", // value
             "*validator*", // validator
             "*formattedValue*", // formattedValue
-            "or(oldQuery(),or(textMatch(\"*formula*\",cellFormula()),or(textMatch(\"*dateTimeSymbols*\",cellDateTimeSymbols()),or(textMatch(\"*formatted*\",cellFormatter()),or(textMatch(\"*parser*\",cellParser()),or(textMatch(\"*style*\",cellStyle()),or(cellValue()<10,or(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue())))))))))"
+            "or(oldQuery(),or(textMatch(\"*formula*\",cellFormula()),or(textMatch(\"*dateTimeSymbols*\",cellDateTimeSymbols()),or(textMatch(\"decimalNumberSymbols\",cellDecimalNumberSymbols()),or(textMatch(\"*formatted*\",cellFormatter()),or(textMatch(\"*parser*\",cellParser()),or(textMatch(\"*style*\",cellStyle()),or(cellValue()<10,or(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue()))))))))))"
         );
     }
 
@@ -746,6 +806,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "textMatch(\"*formula*\",cellFormula())", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -762,6 +823,24 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*dateTimeSymbols*\",cellDateTimeSymbols()))", // query
             "*formula*", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
+            "", // formatter
+            "", // parser
+            "", // style
+            "", // value
+            "", // validator
+            "", // formattedValue
+            "textMatch(\"*formula*\",cellFormula())"
+        );
+    }
+
+    @Test
+    public void testQueryWithFormulaDecimalNumberSymbolsRemoved() {
+        this.queryAndCheck(
+            "or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*decimalNumberSymbols*\",cellDecimalNumberSymbols()))", // query
+            "*formula*", // formula
+            "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -778,6 +857,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "textMatch(\"*formatter*\",cellFormatter())", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -794,6 +874,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter()))", // query
             "*formula*", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -810,6 +891,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter()))", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "*formatter*", // formatter
             "", // parser
             "", // style
@@ -826,6 +908,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "or(textMatch(\"*formula*\",cellFormula()),or(textMatch(\"*formatter*\",cellFormatter()),textMatch(\"*parser*\",cellParser())))", // query
             "*formula*", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "", // formatter
             "*parser*", // parser
             "", // style
@@ -842,6 +925,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             "or(or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter())),textMatch(\"*parser*\",cellParser()))", // query
             "", // formula
             "", // dateTimeSymbols
+            "", // decimalNumberSymbols
             "*formatter*", // formatter
             "*parser*", // parser
             "", // style
@@ -855,6 +939,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
     private void queryAndCheck(final String query,
                                final String formula,
                                final String dateTimeSymbols,
+                               final String decimalNumberSymbols,
                                final String formatter,
                                final String parser,
                                final String style,
@@ -870,6 +955,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             ), // query
             textMatch(formula),
             textMatch(dateTimeSymbols),
+            textMatch(decimalNumberSymbols),
             textMatch(formatter),
             textMatch(parser),
             textMatch(style),
@@ -900,6 +986,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
     private void queryAndCheck(final Optional<SpreadsheetCellQuery> query,
                                final Optional<TextMatch> formula,
                                final Optional<TextMatch> dateTimeSymbols,
+                               final Optional<TextMatch> decimalNumberSymbols,
                                final Optional<TextMatch> formatter,
                                final Optional<TextMatch> parser,
                                final Optional<TextMatch> style,
@@ -914,6 +1001,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
                     query,
                     formula,
                     dateTimeSymbols,
+                    decimalNumberSymbols,
                     formatter,
                     parser,
                     style,
