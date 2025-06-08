@@ -50,6 +50,7 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
     static Optional<SpreadsheetFormula> query(final Optional<SpreadsheetCellQuery> query,
                                               final Optional<TextMatch> formula,
                                               final Optional<TextMatch> dateTimeSymbols,
+                                              final Optional<TextMatch> decimalNumberSymbols,
                                               final Optional<TextMatch> formatter,
                                               final Optional<TextMatch> parser,
                                               final Optional<TextMatch> style,
@@ -73,6 +74,13 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
             token, // old
             dateTimeSymbols,
             SpreadsheetExpressionFunctions.CELL_DATE_TIME_SYMBOLS,
+            or
+        );
+
+        token = replaceTextMatchOr(
+            token, // old
+            decimalNumberSymbols,
+            SpreadsheetExpressionFunctions.CELL_DECIMAL_NUMBER_SYMBOLS,
             or
         );
 
