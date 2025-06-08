@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.formula.parser.ConditionRightSpreadsheetFormulaParserToken;
 import walkingkooka.spreadsheet.formula.parser.ConditionSpreadsheetFormulaParserToken;
 import walkingkooka.spreadsheet.formula.parser.FunctionSpreadsheetFormulaParserToken;
+import walkingkooka.spreadsheet.formula.parser.NamedFunctionSpreadsheetFormulaParserToken;
 import walkingkooka.spreadsheet.formula.parser.SpreadsheetFormulaParserToken;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.cursor.parser.ParserToken;
@@ -160,14 +161,50 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
                 );
             }
         } else {
-            // try replace any previous textMatch(component.value, cellXXX())
-            token = old.replaceIf(
-                SpreadsheetFindDialogComponentQueryTextMatchFunctionParserTokenPredicate.with(cellPropertyGetter), // predicate
-                (e) -> textMatch(
-                    textMatch,
-                    cellPropertyGetter
-                ) // mapper
-            );
+            if(null != textMatch) {
+                // EXACT replace try replace any previous textMatch(component.value, cellXXX())
+                token = old.replaceIf(
+                    SpreadsheetFindDialogComponentQueryTextMatchFunctionParserTokenPredicate.with(cellPropertyGetter), // predicate
+                    (e) -> textMatch(
+                        textMatch,
+                        cellPropertyGetter
+                    )  // mapper
+                );
+            } else {
+                // three replaceIfs
+                // first - find OR ( cellPropertyGetter, OTHER) -> OTHER
+                token = old.replaceIf(
+                    SpreadsheetFindDialogComponentQueryOrTextMatchFunctionParserTokenPredicate.with(
+                        0,
+                        cellPropertyGetter
+                    ), // predicate
+                    (e) -> e.cast(NamedFunctionSpreadsheetFormulaParserToken.class)
+                        .parameters()
+                        .parameters()
+                        .get(1)
+                );
+
+                if(old.equals(token)) {
+                    // second -> find OR ( OTHER, cellPropertyGetter) -> OTHER
+                    token = old.replaceIf(
+                        SpreadsheetFindDialogComponentQueryOrTextMatchFunctionParserTokenPredicate.with(
+                            1,
+                            cellPropertyGetter
+                        ), // predicate
+                        (e) -> e.cast(NamedFunctionSpreadsheetFormulaParserToken.class)
+                            .parameters()
+                            .parameters()
+                            .get(0)
+                    );
+
+                    if(old.equals(token)) {
+                        // third -> remove cellPropertyGetter
+                        token = old.removeIf(
+                            SpreadsheetFindDialogComponentQueryTextMatchFunctionParserTokenPredicate.with(cellPropertyGetter)
+                        ).orElse(null);
+                    }
+                }
+            }
 
             // if replace DID NOT happened then create OR expression(old, textMatch(component.value, cellXXX)
             if (old.equals(token) && null != textMatch) {
