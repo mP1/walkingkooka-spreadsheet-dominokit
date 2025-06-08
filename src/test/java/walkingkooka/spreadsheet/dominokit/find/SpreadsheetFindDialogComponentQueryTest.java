@@ -45,6 +45,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "", // query
             "", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -60,6 +61,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "", // query
             "*formula*", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -75,6 +77,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "", // query
             "", // formula
+            "", // dateTimeSymbols
             "*formatter*", // formatter
             "", // parser
             "", // style
@@ -90,6 +93,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "", // query
             "", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "*parser*", // parser
             "", // style
@@ -105,6 +109,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "", // query
             "", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "", // parser
             "*style*", // style
@@ -120,6 +125,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "", // query
             "", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -135,6 +141,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "", // query
             "", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -152,6 +159,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "oldQuery()", // query
             "", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -167,6 +175,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "oldQuery()", // query
             "*formula*", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -178,10 +187,27 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
     }
 
     @Test
+    public void testQueryWithNotEmptyAndDateTimeSymbols() {
+        this.queryAndCheck(
+            "oldQuery()", // query
+            "", // formula
+            "*dateTimeSymbols*", // dateTimeSymbols
+            "", // formatter
+            "", // parser
+            "", // style
+            "", // value
+            "", // validator
+            "", // formattedValue
+            "or(oldQuery(),textMatch(\"*dateTimeSymbols*\",cellDateTimeSymbols()))"
+        );
+    }
+
+    @Test
     public void testQueryWithNotEmptyAndFormatter() {
         this.queryAndCheck(
             "oldQuery()", // query
             "", // formula
+            "", // dateTimeSymbols
             "*formatter*", // formatter
             "", // parser
             "", // style
@@ -197,6 +223,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "oldQuery()", // query
             "", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "*parser*", // parser
             "", // style
@@ -212,6 +239,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "oldQuery()", // query
             "", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "", // parser
             "*style*", // style
@@ -227,6 +255,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "oldQuery()", // query
             "", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -242,6 +271,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "oldQuery()", // query
             "", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -259,6 +289,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "textMatch(\"*old*\",cellFormula())", // query
             "*new*", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -274,6 +305,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "textMatch(\"*old*\",cellFormatter())", // query
             "", // formula
+            "", // dateTimeSymbols
             "*new*", // formatter
             "", // parser
             "", // style
@@ -289,6 +321,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "textMatch(\"*old*\",cellParser())", // query
             "", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "*new*", // parser
             "", // style
@@ -304,6 +337,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "textMatch(\"*old*\",cellStyle())", // query
             "", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "", // parser
             "*new*", // style
@@ -319,6 +353,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "cellValue()<111", // query
             "", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -334,6 +369,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "cellValue()<111", // query
             "", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -349,6 +385,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "textMatch(\"*old*\",cellFormattedValue())", // query
             "", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -366,6 +403,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "1+textMatch(\"*old*\",cellFormula())", // query
             "*new*", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -381,6 +419,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "1+textMatch(\"*old*\",cellFormatter())", // query
             "", // formula
+            "", // dateTimeSymbols
             "*new*", // formatter
             "", // parser
             "", // style
@@ -396,6 +435,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "1+textMatch(\"*old*\",cellParser())", // query
             "", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "*new*", // parser
             "", // style
@@ -411,6 +451,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "1+textMatch(\"*old*\",cellStyle())", // query
             "", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "", // parser
             "*new*", // style
@@ -426,6 +467,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "cellValue()<111", // query
             "", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -441,6 +483,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "999+(cellValue()<111)", // query
             "", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -456,6 +499,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "999+(cellValue()<(111+222))", // query
             "", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -471,6 +515,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "1+textMatch(\"*old*\",cellFormattedValue())", // query
             "", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -486,6 +531,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "1+22+textMatch(\"*old*\",cellFormattedValue())", // query
             "", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -503,6 +549,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "", // query
             "*formula*", // formula
+            "", // dateTimeSymbols
             "*formatter*", // formatter
             "", // parser
             "", // style
@@ -518,6 +565,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "", // query
             "*formula*", // formula
+            "", // dateTimeSymbols
             "*formatter*", // formatter
             "*parser*", // parser
             "", // style
@@ -533,6 +581,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "", // query
             "", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "*parser*", // parser
             "*style*", // style
@@ -548,6 +597,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "", // query
             "", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -563,23 +613,41 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "", // query
             "*formula*", // formula
+            "*dateTimeSymbols*", // dateTimeSymbols
             "*formatted*", // formatter
             "*parser*", // parser
             "*style*", // style
             "<10", // value
             "*validator*", // validator
             "*formattedValue*", // formattedValue
-            "or(textMatch(\"*formula*\",cellFormula()),or(textMatch(\"*formatted*\",cellFormatter()),or(textMatch(\"*parser*\",cellParser()),or(textMatch(\"*style*\",cellStyle()),or(cellValue()<10,or(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue())))))))"
+            "or(textMatch(\"*formula*\",cellFormula()),or(textMatch(\"*dateTimeSymbols*\",cellDateTimeSymbols()),or(textMatch(\"*formatted*\",cellFormatter()),or(textMatch(\"*parser*\",cellParser()),or(textMatch(\"*style*\",cellStyle()),or(cellValue()<10,or(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue()))))))))"
         );
     }
 
     // non empty query and two wizard fields............................................................................
 
     @Test
+    public void testQueryWithNotEmptyAndFormulaAndDateTimeSymbols() {
+        this.queryAndCheck(
+            "oldQuery()", // query
+            "*formula*", // formula
+            "MONDAY", // dateTimeSymbols
+            "", // formatter
+            "", // parser
+            "", // style
+            "", // value
+            "", // validator
+            "", // formattedValue
+            "or(oldQuery(),or(textMatch(\"*formula*\",cellFormula()),textMatch(\"MONDAY\",cellDateTimeSymbols())))"
+        );
+    }
+
+    @Test
     public void testQueryWithNotEmptyAndFormulaFormatter() {
         this.queryAndCheck(
             "oldQuery()", // query
             "*formula*", // formula
+            "", // dateTimeSymbols
             "*formatter*", // formatter
             "", // parser
             "", // style
@@ -595,6 +663,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "oldQuery()", // query
             "*formula*", // formula
+            "", // dateTimeSymbols
             "*formatter*", // formatter
             "*parser*", // parser
             "", // style
@@ -610,6 +679,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "oldQuery()", // query
             "", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "*parser*", // parser
             "*style*", // style
@@ -625,6 +695,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "oldQuery()", // query
             "", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -640,6 +711,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "oldQuery()", // query
             "", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -655,13 +727,14 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "oldQuery()", // query
             "*formula*", // formula
+            "*dateTimeSymbols*", // dateTimeSymbols
             "*formatted*", // formatter
             "*parser*", // parser
             "*style*", // style
             "<10", // value
             "*validator*", // validator
             "*formattedValue*", // formattedValue
-            "or(oldQuery(),or(textMatch(\"*formula*\",cellFormula()),or(textMatch(\"*formatted*\",cellFormatter()),or(textMatch(\"*parser*\",cellParser()),or(textMatch(\"*style*\",cellStyle()),or(cellValue()<10,or(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue()))))))))"
+            "or(oldQuery(),or(textMatch(\"*formula*\",cellFormula()),or(textMatch(\"*dateTimeSymbols*\",cellDateTimeSymbols()),or(textMatch(\"*formatted*\",cellFormatter()),or(textMatch(\"*parser*\",cellParser()),or(textMatch(\"*style*\",cellStyle()),or(cellValue()<10,or(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue())))))))))"
         );
     }
 
@@ -672,6 +745,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "textMatch(\"*formula*\",cellFormula())", // query
             "", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -683,10 +757,27 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
     }
 
     @Test
+    public void testQueryWithFormulaDateTimeSymbolsRemoved() {
+        this.queryAndCheck(
+            "or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*dateTimeSymbols*\",cellDateTimeSymbols()))", // query
+            "*formula*", // formula
+            "", // dateTimeSymbols
+            "", // formatter
+            "", // parser
+            "", // style
+            "", // value
+            "", // validator
+            "", // formattedValue
+            "textMatch(\"*formula*\",cellFormula())"
+        );
+    }
+
+    @Test
     public void testQueryWithFormatterRemoved() {
         this.queryAndCheck(
             "textMatch(\"*formatter*\",cellFormatter())", // query
             "", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -702,6 +793,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter()))", // query
             "*formula*", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "", // parser
             "", // style
@@ -717,6 +809,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter()))", // query
             "", // formula
+            "", // dateTimeSymbols
             "*formatter*", // formatter
             "", // parser
             "", // style
@@ -732,6 +825,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "or(textMatch(\"*formula*\",cellFormula()),or(textMatch(\"*formatter*\",cellFormatter()),textMatch(\"*parser*\",cellParser())))", // query
             "*formula*", // formula
+            "", // dateTimeSymbols
             "", // formatter
             "*parser*", // parser
             "", // style
@@ -747,6 +841,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
         this.queryAndCheck(
             "or(or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter())),textMatch(\"*parser*\",cellParser()))", // query
             "", // formula
+            "", // dateTimeSymbols
             "*formatter*", // formatter
             "*parser*", // parser
             "", // style
@@ -759,6 +854,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
 
     private void queryAndCheck(final String query,
                                final String formula,
+                               final String dateTimeSymbols,
                                final String formatter,
                                final String parser,
                                final String style,
@@ -773,6 +869,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
                     SpreadsheetCellQuery.parse(query)
             ), // query
             textMatch(formula),
+            textMatch(dateTimeSymbols),
             textMatch(formatter),
             textMatch(parser),
             textMatch(style),
@@ -802,6 +899,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
 
     private void queryAndCheck(final Optional<SpreadsheetCellQuery> query,
                                final Optional<TextMatch> formula,
+                               final Optional<TextMatch> dateTimeSymbols,
                                final Optional<TextMatch> formatter,
                                final Optional<TextMatch> parser,
                                final Optional<TextMatch> style,
@@ -815,6 +913,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
                 SpreadsheetFindDialogComponentQuery.query(
                     query,
                     formula,
+                    dateTimeSymbols,
                     formatter,
                     parser,
                     style,
