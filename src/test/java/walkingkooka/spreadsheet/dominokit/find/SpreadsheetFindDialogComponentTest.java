@@ -205,7 +205,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
     }
 
     @Test
-    public void testOnHistoryTokenChangehNoMatchesAndMetadataContainsHighlightingQuery() {
+    public void testOnHistoryTokenChangeNoMatchesAndMetadataContainsHighlightingQuery() {
         final HistoryToken historyToken = HistoryToken.parseString(
             "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/" + SpreadsheetValueType.DATE + "/query/matchXyz()"
         );
@@ -326,7 +326,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
     }
 
     @Test
-    public void testOnHistoryTokenChangehWithNoQuery() {
+    public void testOnHistoryTokenChangeWithNoQuery() {
         final HistoryToken historyToken = HistoryToken.parseString(
             "/123/SpreadsheetName456/cell/A1/find/"
         );
@@ -447,7 +447,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
     }
 
     @Test
-    public void testOnHistoryTokenChangehShowingMatches() {
+    public void testOnHistoryTokenChangeShowingMatches() {
         final HistoryToken historyToken = HistoryToken.parseString(
             "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/" + SpreadsheetValueType.DATE + "/query/matchXyz()"
         );
@@ -752,7 +752,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
     }
 
     @Test
-    public void testOnHistoryTokenChangehWithQueryWithFormulaGetter() {
+    public void testOnHistoryTokenChangeWithQueryWithFormulaGetter() {
         final HistoryToken historyToken = HistoryToken.parseString(
             "/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormula(),\"*formula*\")"
         );
@@ -871,7 +871,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
     }
 
     @Test
-    public void testOnHistoryTokenChangehWithQueryWithFormulaGetterAndExpression() {
+    public void testOnHistoryTokenChangeWithQueryWithFormulaGetterAndExpression() {
         final HistoryToken historyToken = HistoryToken.parseString(
             "/123/SpreadsheetName456/cell/A1/find/query/1+textMatch(cellFormula(),\"*formula*\")"
         );
@@ -990,7 +990,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
     }
 
     @Test
-    public void testOnHistoryTokenChangehWithQueryWithFormulaGetterOrFormatterGetter() {
+    public void testOnHistoryTokenChangeWithQueryWithFormulaGetterOrFormatterGetter() {
         final HistoryToken historyToken = HistoryToken.parseString(
             "/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellFormula(),\"*formula*\"),textMatch(cellFormatter(),\"*formatter*\"))"
         );
@@ -1109,7 +1109,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
     }
 
     @Test
-    public void testOnHistoryTokenChangehWithQueryWithFormulaGetterOrTrue() {
+    public void testOnHistoryTokenChangeWithQueryWithFormulaGetterOrTrue() {
         final HistoryToken historyToken = HistoryToken.parseString(
             "/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellFormula(),\"*formula*\"),true())"
         );
@@ -1228,7 +1228,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
     }
 
     @Test
-    public void testOnHistoryTokenChangehWithQueryWithDateTimeSymbols() {
+    public void testOnHistoryTokenChangeWithQueryWithDateTimeSymbols() {
         final HistoryToken historyToken = HistoryToken.parseString(
             "/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellDateTimeSymbols(),\"*Hello*\"),1)"
         );
@@ -1347,7 +1347,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
     }
 
     @Test
-    public void testOnHistoryTokenChangehWithQueryWithDecimalNumberSymbols() {
+    public void testOnHistoryTokenChangeWithQueryWithDecimalNumberSymbols() {
         final HistoryToken historyToken = HistoryToken.parseString(
             "/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellDecimalNumberSymbols(),\"*Hello*\"),1)"
         );
@@ -1466,7 +1466,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
     }
 
     @Test
-    public void testOnHistoryTokenChangehWithQueryWithFormatterGetter() {
+    public void testOnHistoryTokenChangeWithQueryWithFormatterGetter() {
         final HistoryToken historyToken = HistoryToken.parseString(
             "/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormatter(),\"*formatter*\")"
         );
@@ -1585,7 +1585,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
     }
 
     @Test
-    public void testOnHistoryTokenChangehWithQueryWithParserGetter() {
+    public void testOnHistoryTokenChangeWithQueryWithParserGetter() {
         final HistoryToken historyToken = HistoryToken.parseString(
             "/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellParser(),\"*parser*\")"
         );
@@ -1704,7 +1704,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
     }
 
     @Test
-    public void testOnHistoryTokenChangehWithQueryWithStyleGetter() {
+    public void testOnHistoryTokenChangeWithQueryWithStyleGetter() {
         final HistoryToken historyToken = HistoryToken.parseString(
             "/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellStyle(),\"*style*\")"
         );
@@ -1823,7 +1823,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
     }
 
     @Test
-    public void testOnHistoryTokenChangehWithQueryWithValueGetter() {
+    public void testOnHistoryTokenChangeWithQueryWithValueGetter() {
         final HistoryToken historyToken = HistoryToken.parseString(
             "/123/SpreadsheetName456/cell/A1/find/query/cellValue()<999"
         );
@@ -1942,7 +1942,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
     }
 
     @Test
-    public void testOnHistoryTokenChangehWithQueryWithValidatorGetter() {
+    public void testOnHistoryTokenChangeWithQueryWithValidatorGetter() {
         final HistoryToken historyToken = HistoryToken.parseString(
             "/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellValidator(),\"*validator123*\")"
         );
@@ -2061,7 +2061,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
     }
 
     @Test
-    public void testOnHistoryTokenChangehWithQueryWithFormattedValueGetter() {
+    public void testOnHistoryTokenChangeWithQueryWithFormattedValueGetter() {
         final HistoryToken historyToken = HistoryToken.parseString(
             "/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormattedValue(),\"*formatted-value*\")"
         );
@@ -2180,7 +2180,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
     }
 
     @Test
-    public void testOnHistoryTokenChangehWithQueryWithAllWizardFields() {
+    public void testOnHistoryTokenChangeWithQueryWithAllWizardFields() {
         final HistoryToken historyToken = HistoryToken.parseString(
             "/123/SpreadsheetName456/cell/A1/find/query/OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),OR(textMatch(\"*formatted*\",cellFormatter()),OR(textMatch(\"*parser*\",cellParser()),OR(textMatch(\"*style*\",cellStyle()),OR(cellValue()<10, OR(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue()))))))))"
         );
