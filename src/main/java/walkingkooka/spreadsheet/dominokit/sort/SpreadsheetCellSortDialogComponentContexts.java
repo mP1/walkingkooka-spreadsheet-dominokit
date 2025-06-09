@@ -20,26 +20,26 @@ package walkingkooka.spreadsheet.dominokit.sort;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
-public final class SpreadsheetSortDialogComponentContexts implements PublicStaticHelper {
+public final class SpreadsheetCellSortDialogComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see AppContextSpreadsheetSortDialogComponentContext}
+     * {@see AppContextSpreadsheetCellSortDialogComponentContext}
      */
-    public static SpreadsheetSortDialogComponentContext appContext(final AppContext context) {
-        return AppContextSpreadsheetSortDialogComponentContext.with(context);
+    public static SpreadsheetCellSortDialogComponentContext appContext(final AppContext context) {
+        return AppContextSpreadsheetCellSortDialogComponentContext.with(context);
     }
 
     /**
-     * {@see FakeSpreadsheetSortDialogComponentContext}
+     * {@see FakeSpreadsheetCellSortDialogComponentContext}
      */
-    public static SpreadsheetSortDialogComponentContext fake() {
-        return new FakeSpreadsheetSortDialogComponentContext();
+    public static SpreadsheetCellSortDialogComponentContext fake() {
+        return new FakeSpreadsheetCellSortDialogComponentContext();
     }
 
     /**
      * Stop creation
      */
-    private SpreadsheetSortDialogComponentContexts() {
+    private SpreadsheetCellSortDialogComponentContexts() {
         throw new UnsupportedOperationException();
     }
 }

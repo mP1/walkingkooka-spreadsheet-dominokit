@@ -17,7 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.sort;
 
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextTesting;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.viewport.HasSpreadsheetViewportCache;
 
-public interface SpreadsheetSortDialogComponentContextTesting<C extends SpreadsheetSortDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C> {
+/**
+ * The context that belongs to a SORT DIALOG.
+ */
+public interface SpreadsheetCellSortDialogComponentContext extends SpreadsheetDialogComponentContext,
+    SpreadsheetComparatorProvider,
+    HasSpreadsheetViewportCache {
 }

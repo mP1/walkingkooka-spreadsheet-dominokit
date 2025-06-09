@@ -28,18 +28,18 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 
 import java.util.Objects;
 
-final class AppContextSpreadsheetSortDialogComponentContext implements SpreadsheetSortDialogComponentContext,
+final class AppContextSpreadsheetCellSortDialogComponentContext implements SpreadsheetCellSortDialogComponentContext,
     HistoryContextDelegator,
     LoggingContextDelegator,
     SpreadsheetComparatorProviderDelegator {
 
-    static AppContextSpreadsheetSortDialogComponentContext with(final AppContext context) {
+    static AppContextSpreadsheetCellSortDialogComponentContext with(final AppContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new AppContextSpreadsheetSortDialogComponentContext(context);
+        return new AppContextSpreadsheetCellSortDialogComponentContext(context);
     }
 
-    private AppContextSpreadsheetSortDialogComponentContext(final AppContext context) {
+    private AppContextSpreadsheetCellSortDialogComponentContext(final AppContext context) {
         this.context = context;
     }
 
@@ -50,7 +50,7 @@ final class AppContextSpreadsheetSortDialogComponentContext implements Spreadshe
         return this.context.spreadsheetViewportCache();
     }
 
-    // SpreadsheetSortDialogComponentContext............................................................................
+    // SpreadsheetCellSortDialogComponentContext............................................................................
 
     @Override
     public SpreadsheetComparatorProvider spreadsheetComparatorProvider() {

@@ -17,25 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.sort;
 
-import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.reflect.PublicStaticHelperTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextTesting;
 
-import java.lang.reflect.Method;
-
-public final class SpreadsheetSortDialogComponentContextsTest implements PublicStaticHelperTesting<SpreadsheetSortDialogComponentContexts> {
-
-    @Override
-    public Class<SpreadsheetSortDialogComponentContexts> type() {
-        return SpreadsheetSortDialogComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
-    }
-
-    @Override
-    public boolean canHavePublicTypes(final Method method) {
-        return false;
-    }
+public interface SpreadsheetCellSortDialogComponentContextTesting<C extends SpreadsheetCellSortDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C> {
 }

@@ -53,8 +53,8 @@ import walkingkooka.spreadsheet.dominokit.plugin.PluginUploadDialogComponent;
 import walkingkooka.spreadsheet.dominokit.plugin.PluginUploadDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.pluginaliassetlike.PluginAliasSetLikeDialogComponent;
 import walkingkooka.spreadsheet.dominokit.pluginaliassetlike.PluginAliasSetLikeDialogComponentContexts;
-import walkingkooka.spreadsheet.dominokit.sort.SpreadsheetSortDialogComponent;
-import walkingkooka.spreadsheet.dominokit.sort.SpreadsheetSortDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.sort.SpreadsheetCellSortDialogComponent;
+import walkingkooka.spreadsheet.dominokit.sort.SpreadsheetCellSortDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListDialogComponent;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponent;
@@ -291,8 +291,8 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
     }
 
     private static void sort(final AppContext context) {
-        SpreadsheetSortDialogComponent.with(
-            SpreadsheetSortDialogComponentContexts.appContext(context)
+        SpreadsheetCellSortDialogComponent.with(
+            SpreadsheetCellSortDialogComponentContexts.appContext(context)
         );
     }
 

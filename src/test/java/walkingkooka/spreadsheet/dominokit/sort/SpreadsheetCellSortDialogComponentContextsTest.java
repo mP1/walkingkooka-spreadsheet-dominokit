@@ -17,14 +17,25 @@
 
 package walkingkooka.spreadsheet.dominokit.sort;
 
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
-import walkingkooka.spreadsheet.dominokit.viewport.HasSpreadsheetViewportCache;
+import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicStaticHelperTesting;
 
-/**
- * The context that belongs to a SORT DIALOG.
- */
-public interface SpreadsheetSortDialogComponentContext extends SpreadsheetDialogComponentContext,
-    SpreadsheetComparatorProvider,
-    HasSpreadsheetViewportCache {
+import java.lang.reflect.Method;
+
+public final class SpreadsheetCellSortDialogComponentContextsTest implements PublicStaticHelperTesting<SpreadsheetCellSortDialogComponentContexts> {
+
+    @Override
+    public Class<SpreadsheetCellSortDialogComponentContexts> type() {
+        return SpreadsheetCellSortDialogComponentContexts.class;
+    }
+
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PUBLIC;
+    }
+
+    @Override
+    public boolean canHavePublicTypes(final Method method) {
+        return false;
+    }
 }
