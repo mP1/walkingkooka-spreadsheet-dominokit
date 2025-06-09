@@ -188,7 +188,7 @@ public final class PluginFileViewDialogComponent implements SpreadsheetDialogCom
         return ID_PREFIX;
     }
 
-    final static String ID = "plugin-file-view";
+    final static String ID = "pluginFileView";
 
     final static String ID_PREFIX = ID + '-';
 
