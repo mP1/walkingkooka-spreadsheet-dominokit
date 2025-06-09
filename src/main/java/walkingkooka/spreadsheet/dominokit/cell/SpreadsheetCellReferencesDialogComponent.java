@@ -177,7 +177,7 @@ public final class SpreadsheetCellReferencesDialogComponent implements Spreadshe
 
     // UI...............................................................................................................
 
-    private final static String ID = "references";
+    private final static String ID = "cell-references";
 
     private final static String ID_PREFIX = ID + "-";
 
