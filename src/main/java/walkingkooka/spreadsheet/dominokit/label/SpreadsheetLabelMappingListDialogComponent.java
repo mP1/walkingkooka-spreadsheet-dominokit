@@ -166,10 +166,7 @@ public final class SpreadsheetLabelMappingListDialogComponent implements Spreads
         this.refreshTable(historyToken);
 
         this.loadLabelMappings(
-            HistoryTokenOffsetAndCount.with(
-                historyToken.offset(),
-                historyToken.count()
-            )
+            historyToken.offsetAndCount()
         );
     }
 

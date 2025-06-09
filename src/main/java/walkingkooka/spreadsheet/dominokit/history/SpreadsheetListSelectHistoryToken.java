@@ -61,11 +61,12 @@ public final class SpreadsheetListSelectHistoryToken extends SpreadsheetListHist
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
-        final OptionalInt count = this.count();
+        final HistoryTokenOffsetAndCount offsetAndCount = this.offsetAndCount;
+        final OptionalInt count = offsetAndCount.count();
 
         context.spreadsheetMetadataFetcher()
             .getSpreadsheetMetadatas(
-                this.offset(),
+                offsetAndCount.offset(),
                 count.isPresent() ?
                     count :
                     context.spreadsheetListDialogComponentDefaultCount()
