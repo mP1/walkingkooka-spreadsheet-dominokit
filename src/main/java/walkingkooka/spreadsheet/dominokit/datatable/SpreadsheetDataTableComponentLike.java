@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.TableComponent;
 import walkingkooka.text.CharSequences;
@@ -92,9 +93,10 @@ abstract class SpreadsheetDataTableComponentLike<T> implements TableComponent<HT
      */
     public final SpreadsheetDataTableComponent<T> refreshPreviousNextLinks(final HistoryToken historyToken,
                                                                            final int defaultCount) {
-        final int offset = historyToken.offset()
+        final HistoryTokenOffsetAndCount offsetAndCount = historyToken.offsetAndCount();
+        final int offset = offsetAndCount.offset()
             .orElse(0);
-        final int count = historyToken.count()
+        final int count = offsetAndCount.count()
             .orElse(defaultCount);
 
         final boolean previousDisabled = 0 == offset;

@@ -154,12 +154,7 @@ public final class SpreadsheetCellReferencesDialogComponent implements Spreadshe
         this.refreshClose(historyToken);
         this.refreshTable(historyToken);
 
-        this.references(
-            HistoryTokenOffsetAndCount.with(
-                historyToken.offset(),
-                historyToken.count()
-            )
-        );
+        this.references(historyToken.offsetAndCount());
     }
 
     private void references(final HistoryTokenOffsetAndCount offsetAndCount) {
