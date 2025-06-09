@@ -97,12 +97,12 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
             "SpreadsheetCellReferencesDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    Cell References\n" +
-                "    id=cell-references-Dialog includeClose=true\n" +
+                "    id=cellReferences-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=cell-references-cells-Table\n" +
+                "              id=cellReferences-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -112,14 +112,14 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=cell-references-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=cell-references-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=cellReferences-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=cellReferences-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=cell-references-close-Link\n"
+                "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=cellReferences-close-Link\n"
         );
     }
 
@@ -140,12 +140,12 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
             "SpreadsheetCellReferencesDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    Cell References\n" +
-                "    id=cell-references-Dialog includeClose=true\n" +
+                "    id=cellReferences-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=cell-references-cells-Table\n" +
+                "              id=cellReferences-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -155,14 +155,14 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=cell-references-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=cell-references-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=cellReferences-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=cellReferences-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=cell-references-close-Link\n"
+                "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=cellReferences-close-Link\n"
         );
 
         context.metadataFetcherWatchers.onSpreadsheetMetadata(
@@ -199,12 +199,12 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
             "SpreadsheetCellReferencesDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    Cell References\n" +
-                "    id=cell-references-Dialog includeClose=true\n" +
+                "    id=cellReferences-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=cell-references-cells-Table\n" +
+                "              id=cellReferences-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -213,8 +213,8 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
                 "                Links\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
-                "                  \"A1\" [#/1/SpreadsheetName456/cell/A1] id=cell-references-cells-A1-Link\n" +
-                "                  \"A1\" [#/1/SpreadsheetName456/cell/A1/formula] id=cell-references-cells-A1-formula-Link\n" +
+                "                  \"A1\" [#/1/SpreadsheetName456/cell/A1] id=cellReferences-cells-A1-Link\n" +
+                "                  \"A1\" [#/1/SpreadsheetName456/cell/A1/formula] id=cellReferences-cells-A1-formula-Link\n" +
                 "                  SpreadsheetTextComponent\n" +
                 "                    \"\"\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
@@ -222,22 +222,22 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
                 "                    SpreadsheetLinkListComponent\n" +
                 "                      SpreadsheetFlexLayout\n" +
                 "                        ROW\n" +
-                "                          \"Value\" [#/1/SpreadsheetName456/cell/A1/value/text] id=cell-references-cells-A1-value-Link\n" +
-                "                          \"Create Label\" [#/1/SpreadsheetName456/cell/A1/label] id=cell-references-cells-A1-createLabel-Link\n" +
-                "                          \"Labels\" [#/1/SpreadsheetName456/cell/A1/labels] (0) id=cell-references-cells-A1-label-Link\n" +
-                "                          \"References\" [#/1/SpreadsheetName456/cell/A1/references] (2) id=cell-references-cells-A1-references-Link\n" +
-                "                          \"Delete\" [#/1/SpreadsheetName456/cell/A1/delete] id=cell-references-cells-A1-delete-Link\n" +
+                "                          \"Value\" [#/1/SpreadsheetName456/cell/A1/value/text] id=cellReferences-cells-A1-value-Link\n" +
+                "                          \"Create Label\" [#/1/SpreadsheetName456/cell/A1/label] id=cellReferences-cells-A1-createLabel-Link\n" +
+                "                          \"Labels\" [#/1/SpreadsheetName456/cell/A1/labels] (0) id=cellReferences-cells-A1-label-Link\n" +
+                "                          \"References\" [#/1/SpreadsheetName456/cell/A1/references] (2) id=cellReferences-cells-A1-references-Link\n" +
+                "                          \"Delete\" [#/1/SpreadsheetName456/cell/A1/delete] id=cellReferences-cells-A1-delete-Link\n" +
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=cell-references-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=cell-references-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=cellReferences-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=cellReferences-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=cell-references-close-Link\n"
+                "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=cellReferences-close-Link\n"
         );
     }
 
