@@ -2250,7 +2250,7 @@ public abstract class HistoryToken implements HasUrlFragment,
      * Returns the count property or {@link OptionalInt#empty()} if no count is present
      */
     public final OptionalInt count() {
-        OptionalInt count = OptionalInt.empty();
+        final OptionalInt count;
 
         if (this instanceof SpreadsheetColumnInsertHistoryToken) {
             count = this.cast(SpreadsheetColumnInsertHistoryToken.class)
