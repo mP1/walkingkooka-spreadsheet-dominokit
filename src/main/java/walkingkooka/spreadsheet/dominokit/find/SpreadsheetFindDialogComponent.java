@@ -562,9 +562,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     @Override
     public boolean shouldIgnore(final HistoryToken token) {
-        return token.getClass()
-            .getSimpleName()
-            .contains("Save");
+        return token.isSave();
     }
 
     @Override
