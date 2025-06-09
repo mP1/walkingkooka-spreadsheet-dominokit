@@ -36,6 +36,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLabelListHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingListHistoryToken;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -49,6 +50,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Arrays;
 import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.Set;
 
 public final class SpreadsheetLabelMappingListDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetLabelMappingListDialogComponent>,
@@ -68,9 +70,11 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
     // onHistoryTokenChange.............................................................................................
 
     @Test
-    public void testOnHistoryTokenChangeEmptyTable() {
-        final HistoryToken historyToken = HistoryToken.parseString(
-            "/1/SpreadsheetName222/label"
+    public void testOnHistoryTokenChangeWithSpreadsheetLabelMappingListHistoryTokenAndEmptyTable() {
+        final SpreadsheetLabelMappingListHistoryToken historyToken = HistoryToken.labelMappingList(
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
+            HistoryTokenOffsetAndCount.EMPTY
         );
 
         final TestAppContext context = this.appContext(historyToken);
@@ -111,15 +115,17 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Create\" [#/1/SpreadsheetName222/create-label] id=labels-create-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName222] id=labels-close-Link\n"
+                "            \"Create\" [#/1/SpreadsheetName1/create-label] id=labels-create-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName1] id=labels-close-Link\n"
         );
     }
 
     @Test
-    public void testOnHistoryTokenChangeNonEmptyTable() {
-        final HistoryToken historyToken = HistoryToken.parseString(
-            "/1/SpreadsheetName222/label"
+    public void testOnHistoryTokenChangeWithSpreadsheetLabelMappingListHistoryTokenAndNotEmptyTable() {
+        final SpreadsheetLabelMappingListHistoryToken historyToken = HistoryToken.labelMappingList(
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
+            HistoryTokenOffsetAndCount.EMPTY
         );
 
         final TestAppContext context = this.appContext(historyToken);
@@ -160,8 +166,8 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Create\" [#/1/SpreadsheetName222/create-label] id=labels-create-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName222] id=labels-close-Link\n"
+                "            \"Create\" [#/1/SpreadsheetName1/create-label] id=labels-create-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName1] id=labels-close-Link\n"
         );
 
         context.deltaFetcherWatchers.onSpreadsheetDelta(
@@ -205,25 +211,25 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                Links\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
-                "                  \"A1LABEL\" [#/1/SpreadsheetName222/label/A1LABEL] id=labels-labels-A1LABEL-Link\n" +
-                "                  \"=1+2\" [#/1/SpreadsheetName222/cell/A1LABEL/formula] id=labels-labels-A1LABEL-formula-Link\n" +
+                "                  \"A1LABEL\" [#/1/SpreadsheetName1/label/A1LABEL] id=labels-labels-A1LABEL-Link\n" +
+                "                  \"=1+2\" [#/1/SpreadsheetName1/cell/A1LABEL/formula] id=labels-labels-A1LABEL-formula-Link\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
                 "                    SpreadsheetLinkListComponent\n" +
                 "                      SpreadsheetFlexLayout\n" +
                 "                        ROW\n" +
-                "                          \"References\" [#/1/SpreadsheetName222/cell/A1LABEL/references] (2) id=labels-labels-A1LABEL-references-Link\n" +
-                "                          \"Delete\" [#/1/SpreadsheetName222/label/A1LABEL/delete] id=labels-labels-A1LABEL-delete-Link\n" +
+                "                          \"References\" [#/1/SpreadsheetName1/cell/A1LABEL/references] (2) id=labels-labels-A1LABEL-references-Link\n" +
+                "                          \"Delete\" [#/1/SpreadsheetName1/label/A1LABEL/delete] id=labels-labels-A1LABEL-delete-Link\n" +
                 "                ROW 1\n" +
-                "                  \"B2LABEL\" [#/1/SpreadsheetName222/label/B2LABEL] id=labels-labels-B2LABEL-Link\n" +
-                "                  \"B2\" [#/1/SpreadsheetName222/cell/B2LABEL/formula] id=labels-labels-B2LABEL-formula-Link\n" +
+                "                  \"B2LABEL\" [#/1/SpreadsheetName1/label/B2LABEL] id=labels-labels-B2LABEL-Link\n" +
+                "                  \"B2\" [#/1/SpreadsheetName1/cell/B2LABEL/formula] id=labels-labels-B2LABEL-formula-Link\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
                 "                    SpreadsheetLinkListComponent\n" +
                 "                      SpreadsheetFlexLayout\n" +
                 "                        ROW\n" +
-                "                          \"References\" [#/1/SpreadsheetName222/cell/B2LABEL/references] (0) id=labels-labels-B2LABEL-references-Link\n" +
-                "                          \"Delete\" [#/1/SpreadsheetName222/label/B2LABEL/delete] id=labels-labels-B2LABEL-delete-Link\n" +
+                "                          \"References\" [#/1/SpreadsheetName1/cell/B2LABEL/references] (0) id=labels-labels-B2LABEL-references-Link\n" +
+                "                          \"Delete\" [#/1/SpreadsheetName1/label/B2LABEL/delete] id=labels-labels-B2LABEL-delete-Link\n" +
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
@@ -234,15 +240,17 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Create\" [#/1/SpreadsheetName222/create-label] id=labels-create-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName222] id=labels-close-Link\n"
+                "            \"Create\" [#/1/SpreadsheetName1/create-label] id=labels-create-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName1] id=labels-close-Link\n"
         );
     }
 
     @Test
-    public void testOnHistoryTokenChangeNonEmptyTableWithOffset() {
-        final HistoryToken historyToken = HistoryToken.parseString(
-            "/1/SpreadsheetName222/label/*/offset/1"
+    public void testOnHistoryTokenChangeWithSpreadsheetLabelMappingListHistoryTokenWithOffset() {
+        final SpreadsheetLabelMappingListHistoryToken historyToken = HistoryToken.labelMappingList(
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
+            HistoryTokenOffsetAndCount.EMPTY.setOffset(OptionalInt.of(1))
         );
 
         final TestAppContext context = this.appContext(historyToken);
@@ -276,15 +284,15 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" [#/1/SpreadsheetName222/label/*/offset/0] id=labels-previous-Link\n" +
+                "                    mdi-arrow-left \"previous\" [#/1/SpreadsheetName1/label/*/offset/0] id=labels-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=labels-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Create\" [#/1/SpreadsheetName222/create-label] id=labels-create-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName222] id=labels-close-Link\n"
+                "            \"Create\" [#/1/SpreadsheetName1/create-label] id=labels-create-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName1] id=labels-close-Link\n"
         );
 
         context.deltaFetcherWatchers.onSpreadsheetDelta(
@@ -330,37 +338,165 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                Links\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
-                "                  \"B2LABEL\" [#/1/SpreadsheetName222/label/B2LABEL] id=labels-labels-B2LABEL-Link\n" +
-                "                  \"B2\" [#/1/SpreadsheetName222/cell/B2LABEL/formula] id=labels-labels-B2LABEL-formula-Link\n" +
+                "                  \"B2LABEL\" [#/1/SpreadsheetName1/label/B2LABEL] id=labels-labels-B2LABEL-Link\n" +
+                "                  \"B2\" [#/1/SpreadsheetName1/cell/B2LABEL/formula] id=labels-labels-B2LABEL-formula-Link\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
                 "                    SpreadsheetLinkListComponent\n" +
                 "                      SpreadsheetFlexLayout\n" +
                 "                        ROW\n" +
-                "                          \"References\" [#/1/SpreadsheetName222/cell/B2LABEL/references] (0) id=labels-labels-B2LABEL-references-Link\n" +
-                "                          \"Delete\" [#/1/SpreadsheetName222/label/B2LABEL/delete] id=labels-labels-B2LABEL-delete-Link\n" +
+                "                          \"References\" [#/1/SpreadsheetName1/cell/B2LABEL/references] (0) id=labels-labels-B2LABEL-references-Link\n" +
+                "                          \"Delete\" [#/1/SpreadsheetName1/label/B2LABEL/delete] id=labels-labels-B2LABEL-delete-Link\n" +
                 "                ROW 1\n" +
-                "                  \"C3LABEL\" [#/1/SpreadsheetName222/label/C3LABEL] id=labels-labels-C3LABEL-Link\n" +
-                "                  \"C3\" [#/1/SpreadsheetName222/cell/C3LABEL/formula] id=labels-labels-C3LABEL-formula-Link\n" +
+                "                  \"C3LABEL\" [#/1/SpreadsheetName1/label/C3LABEL] id=labels-labels-C3LABEL-Link\n" +
+                "                  \"C3\" [#/1/SpreadsheetName1/cell/C3LABEL/formula] id=labels-labels-C3LABEL-formula-Link\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
                 "                    SpreadsheetLinkListComponent\n" +
                 "                      SpreadsheetFlexLayout\n" +
                 "                        ROW\n" +
-                "                          \"References\" [#/1/SpreadsheetName222/cell/C3LABEL/references] (0) id=labels-labels-C3LABEL-references-Link\n" +
-                "                          \"Delete\" [#/1/SpreadsheetName222/label/C3LABEL/delete] id=labels-labels-C3LABEL-delete-Link\n" +
+                "                          \"References\" [#/1/SpreadsheetName1/cell/C3LABEL/references] (0) id=labels-labels-C3LABEL-references-Link\n" +
+                "                          \"Delete\" [#/1/SpreadsheetName1/label/C3LABEL/delete] id=labels-labels-C3LABEL-delete-Link\n" +
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" [#/1/SpreadsheetName222/label/*/offset/0] id=labels-previous-Link\n" +
+                "                    mdi-arrow-left \"previous\" [#/1/SpreadsheetName1/label/*/offset/0] id=labels-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=labels-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Create\" [#/1/SpreadsheetName222/create-label] id=labels-create-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName222] id=labels-close-Link\n"
+                "            \"Create\" [#/1/SpreadsheetName1/create-label] id=labels-create-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName1] id=labels-close-Link\n"
+        );
+    }
+
+    @Test
+    public void testOnHistoryTokenChangeWithSpreadsheetCellLabelListHistoryToken() {
+        final SpreadsheetCellLabelListHistoryToken historyToken = HistoryToken.cellLabels(
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
+            SpreadsheetSelection.A1.setDefaultAnchor(),
+            HistoryTokenOffsetAndCount.EMPTY
+        );
+
+        final TestAppContext context = this.appContext(historyToken);
+
+        final SpreadsheetLabelMappingListDialogComponent dialog = SpreadsheetLabelMappingListDialogComponent.with(
+            new TestSpreadsheetLabelMappingListDialogComponentContext(context)
+        );
+
+        context.metadataFetcherWatchers.onSpreadsheetMetadata(
+            METADATA,
+            context
+        );
+
+        this.onHistoryTokenChangeAndCheck(
+            dialog,
+            context,
+            "SpreadsheetLabelMappingListDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    Labels\n" +
+                "    id=labels-Dialog includeClose=true\n" +
+                "      SpreadsheetDeltaLabelsTableComponent\n" +
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            SpreadsheetDataTableComponent\n" +
+                "              id=labels-labels-Table\n" +
+                "              COLUMN(S)\n" +
+                "                Label\n" +
+                "                Cell\n" +
+                "                Formatted\n" +
+                "                Links\n" +
+                "              CHILDREN\n" +
+                "                SpreadsheetFlexLayout\n" +
+                "                  ROW\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=labels-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=labels-next-Link\n" +
+                "              PLUGINS\n" +
+                "                BodyScrollPlugin\n" +
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Create\" [#/1/SpreadsheetName1/create-label] id=labels-create-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName1/cell/A1] id=labels-close-Link\n"
+        );
+
+        context.deltaFetcherWatchers.onSpreadsheetDelta(
+            HttpMethod.GET,
+            Url.parseRelative("/api/spreadsheet/1/label/*/offset/1"),
+            SpreadsheetDelta.EMPTY.setLabels(
+                Sets.of(
+                    //A1LABEL.setLabelMappingReference(SpreadsheetSelection.A1), offset=1
+                    SpreadsheetSelection.labelName("B2LABEL")
+                        .setLabelMappingReference(SpreadsheetSelection.parseCell("B2")),
+                    SpreadsheetSelection.labelName("C3LABEL")
+                        .setLabelMappingReference(SpreadsheetSelection.parseCell("C3"))
+                )
+            ).setCells(
+                Sets.of(A1CELL)
+            ).setReferences(
+                Maps.of(
+                    SpreadsheetSelection.A1,
+                    Sets.of(
+                        SpreadsheetSelection.parseCell("B2"),
+                        SpreadsheetSelection.parseCell("C3")
+                    )
+                )
+            ),
+            context
+        );
+
+        this.treePrintAndCheck(
+            dialog,
+            "SpreadsheetLabelMappingListDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    Labels\n" +
+                "    id=labels-Dialog includeClose=true\n" +
+                "      SpreadsheetDeltaLabelsTableComponent\n" +
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            SpreadsheetDataTableComponent\n" +
+                "              id=labels-labels-Table\n" +
+                "              COLUMN(S)\n" +
+                "                Label\n" +
+                "                Cell\n" +
+                "                Formatted\n" +
+                "                Links\n" +
+                "              ROW(S)\n" +
+                "                ROW 0\n" +
+                "                  \"B2LABEL\" [#/1/SpreadsheetName1/label/B2LABEL] id=labels-labels-B2LABEL-Link\n" +
+                "                  \"B2\" [#/1/SpreadsheetName1/cell/B2LABEL/formula] id=labels-labels-B2LABEL-formula-Link\n" +
+                "                  SpreadsheetTextNodeComponent\n" +
+                "                  SpreadsheetLabelLinksComponent\n" +
+                "                    SpreadsheetLinkListComponent\n" +
+                "                      SpreadsheetFlexLayout\n" +
+                "                        ROW\n" +
+                "                          \"References\" [#/1/SpreadsheetName1/cell/B2LABEL/references] (0) id=labels-labels-B2LABEL-references-Link\n" +
+                "                          \"Delete\" [#/1/SpreadsheetName1/label/B2LABEL/delete] id=labels-labels-B2LABEL-delete-Link\n" +
+                "                ROW 1\n" +
+                "                  \"C3LABEL\" [#/1/SpreadsheetName1/label/C3LABEL] id=labels-labels-C3LABEL-Link\n" +
+                "                  \"C3\" [#/1/SpreadsheetName1/cell/C3LABEL/formula] id=labels-labels-C3LABEL-formula-Link\n" +
+                "                  SpreadsheetTextNodeComponent\n" +
+                "                  SpreadsheetLabelLinksComponent\n" +
+                "                    SpreadsheetLinkListComponent\n" +
+                "                      SpreadsheetFlexLayout\n" +
+                "                        ROW\n" +
+                "                          \"References\" [#/1/SpreadsheetName1/cell/C3LABEL/references] (0) id=labels-labels-C3LABEL-references-Link\n" +
+                "                          \"Delete\" [#/1/SpreadsheetName1/label/C3LABEL/delete] id=labels-labels-C3LABEL-delete-Link\n" +
+                "              CHILDREN\n" +
+                "                SpreadsheetFlexLayout\n" +
+                "                  ROW\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=labels-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=labels-next-Link\n" +
+                "              PLUGINS\n" +
+                "                BodyScrollPlugin\n" +
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Create\" [#/1/SpreadsheetName1/create-label] id=labels-create-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName1/cell/A1] id=labels-close-Link\n"
         );
     }
 
@@ -493,7 +629,8 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
 
         @Override
         public boolean isMatch(final HistoryToken token) {
-            return token instanceof SpreadsheetLabelMappingListHistoryToken;
+            return token instanceof SpreadsheetLabelMappingListHistoryToken ||
+                token instanceof SpreadsheetCellLabelListHistoryToken;
         }
     }
 
