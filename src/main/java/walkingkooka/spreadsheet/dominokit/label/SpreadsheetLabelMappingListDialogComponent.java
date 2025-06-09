@@ -29,7 +29,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingListHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
 
 import java.util.Objects;
@@ -174,11 +174,10 @@ public final class SpreadsheetLabelMappingListDialogComponent implements Spreads
     }
 
     private void loadLabelMappings(final HistoryTokenOffsetAndCount offsetAndCount) {
-        final SpreadsheetLabelMappingListHistoryToken historyToken = this.context.historyToken()
-            .cast(SpreadsheetLabelMappingListHistoryToken.class);
-
         this.context.loadLabelMappings(
-            historyToken.id(),
+            this.context.historyToken()
+                .cast(SpreadsheetIdHistoryToken.class)
+                .id(),
             offsetAndCount
         );
     }
