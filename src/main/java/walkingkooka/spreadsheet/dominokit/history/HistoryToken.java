@@ -2282,15 +2282,13 @@ public abstract class HistoryToken implements HasUrlFragment,
             if (this instanceof PluginHistoryToken) {
                 if (this instanceof PluginListReloadHistoryToken) {
                     with = pluginListReload(
-                        this.cast(PluginListReloadHistoryToken.class)
-                            .offsetAndCount
+                        this.offsetAndCount()
                             .setCount(count)
                     );
                 }
                 if (this instanceof PluginListSelectHistoryToken) {
                     with = pluginListSelect(
-                        this.cast(PluginListSelectHistoryToken.class)
-                            .offsetAndCount
+                        this.offsetAndCount()
                             .setCount(count)
                     );
                 }
@@ -2299,15 +2297,13 @@ public abstract class HistoryToken implements HasUrlFragment,
             if (this instanceof SpreadsheetListHistoryToken) {
                 if (this instanceof SpreadsheetListReloadHistoryToken) {
                     with = spreadsheetListReload(
-                        this.cast(SpreadsheetListReloadHistoryToken.class)
-                            .offsetAndCount
+                        this.offsetAndCount()
                             .setCount(count)
                     );
                 }
                 if (this instanceof SpreadsheetListSelectHistoryToken) {
                     with = spreadsheetListSelect(
-                        this.cast(SpreadsheetListSelectHistoryToken.class)
-                            .offsetAndCount
+                        this.offsetAndCount()
                             .setCount(count)
                     );
                 }
@@ -2327,8 +2323,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                             id,
                             name,
                             anchored,
-                            this.cast(SpreadsheetCellLabelListHistoryToken.class)
-                                .offsetAndCount
+                            this.offsetAndCount()
                                 .setCount(count)
                         );
                     }
@@ -2338,8 +2333,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                             id,
                             name,
                             anchored,
-                            this.cast(SpreadsheetCellReferenceListHistoryToken.class)
-                                .offsetAndCount
+                            this.offsetAndCount()
                                 .setCount(count)
                         );
                     }
@@ -2386,8 +2380,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                         with = labelMappingList(
                             id,
                             name,
-                            this.cast(SpreadsheetLabelMappingListHistoryToken.class)
-                                .offsetAndCount
+                            this.offsetAndCount()
                                 .setCount(count)
                         );
                     }
