@@ -2247,43 +2247,22 @@ public abstract class HistoryToken implements HasUrlFragment,
     // COUNT............................................................................................................
 
     /**
-     * Returns the count property or {@link OptionalInt#empty()} if none exists
+     * Returns the count property or {@link OptionalInt#empty()} if no count is present
      */
     public final OptionalInt count() {
         OptionalInt count = OptionalInt.empty();
 
-        if (this instanceof PluginListHistoryToken) {
-            count = this.cast(PluginListHistoryToken.class)
-                .offsetAndCount
-                .count();
-        }
-        if (this instanceof SpreadsheetListHistoryToken) {
-            count = this.cast(SpreadsheetListHistoryToken.class)
-                .offsetAndCount
-                .count();
-        }
-        if (this instanceof SpreadsheetCellLabelListHistoryToken) {
-            count = this.cast(SpreadsheetCellLabelListHistoryToken.class)
-                .offsetAndCount
-                .count;
-        }
-        if (this instanceof SpreadsheetCellReferenceListHistoryToken) {
-            count = this.cast(SpreadsheetCellReferenceListHistoryToken.class)
-                .offsetAndCount
-                .count;
-        }
         if (this instanceof SpreadsheetColumnInsertHistoryToken) {
             count = this.cast(SpreadsheetColumnInsertHistoryToken.class)
                 .count;
-        }
-        if (this instanceof SpreadsheetRowInsertHistoryToken) {
-            count = this.cast(SpreadsheetRowInsertHistoryToken.class)
-                .count;
-        }
-        if (this instanceof SpreadsheetLabelMappingListHistoryToken) {
-            count = this.cast(SpreadsheetLabelMappingListHistoryToken.class)
-                .offsetAndCount
-                .count;
+        } else {
+            if (this instanceof SpreadsheetRowInsertHistoryToken) {
+                count = this.cast(SpreadsheetRowInsertHistoryToken.class)
+                    .count;
+            } else {
+                count = this.offsetAndCount()
+                    .count();
+            }
         }
 
         return count;
@@ -3343,35 +3322,8 @@ public abstract class HistoryToken implements HasUrlFragment,
      * Getter that returns the offset or {@link OptionalInt} if absent.
      */
     public final OptionalInt offset() {
-        final OptionalInt offset;
-
-        if (this instanceof PluginListHistoryToken) {
-            offset = this.cast(PluginListHistoryToken.class).offsetAndCount.offset;
-        } else {
-            if (this instanceof SpreadsheetListHistoryToken) {
-                offset = this.cast(SpreadsheetListHistoryToken.class).offsetAndCount.offset;
-            } else {
-                if (this instanceof SpreadsheetCellLabelListHistoryToken) {
-                    offset = this.cast(SpreadsheetCellLabelListHistoryToken.class)
-                        .offsetAndCount
-                        .offset;
-                } else {
-                    if (this instanceof SpreadsheetCellReferenceListHistoryToken) {
-                        offset = this.cast(SpreadsheetCellReferenceListHistoryToken.class).offsetAndCount.offset;
-                    } else {
-                        if (this instanceof SpreadsheetLabelMappingListHistoryToken) {
-                            offset = this.cast(SpreadsheetLabelMappingListHistoryToken.class)
-                                .offsetAndCount
-                                .offset;
-                        } else {
-                            offset = OptionalInt.empty();
-                        }
-                    }
-                }
-            }
-        }
-
-        return offset;
+        return this.offsetAndCount()
+            .offset();
     }
 
     /**
@@ -3464,6 +3416,40 @@ public abstract class HistoryToken implements HasUrlFragment,
         }
 
         return after;
+    }
+
+    // OFFSET AND COUNT.................................................................................................
+
+    public final HistoryTokenOffsetAndCount offsetAndCount() {
+        final HistoryTokenOffsetAndCount offsetAndCount;
+
+        if (this instanceof PluginListHistoryToken) {
+            offsetAndCount = this.cast(PluginListHistoryToken.class).offsetAndCount;
+        } else {
+            if (this instanceof SpreadsheetListHistoryToken) {
+                offsetAndCount = this.cast(SpreadsheetListHistoryToken.class)
+                    .offsetAndCount;
+            } else {
+                if (this instanceof SpreadsheetCellLabelListHistoryToken) {
+                    offsetAndCount = this.cast(SpreadsheetCellLabelListHistoryToken.class)
+                        .offsetAndCount;
+                } else {
+                    if (this instanceof SpreadsheetCellReferenceListHistoryToken) {
+                        offsetAndCount = this.cast(SpreadsheetCellReferenceListHistoryToken.class)
+                            .offsetAndCount;
+                    } else {
+                        if (this instanceof SpreadsheetLabelMappingListHistoryToken) {
+                            offsetAndCount = this.cast(SpreadsheetLabelMappingListHistoryToken.class)
+                                .offsetAndCount;
+                        } else {
+                            offsetAndCount = HistoryTokenOffsetAndCount.EMPTY;
+                        }
+                    }
+                }
+            }
+        }
+
+        return offsetAndCount;
     }
 
     final HistoryToken parseOffsetAndCount(final TextCursor text) {
