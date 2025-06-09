@@ -59,15 +59,15 @@ import java.util.stream.Collectors;
  * A dialog which includes various components allowing the user to enter the sort columns/rows and comparators as
  * text or by clicking on links to build the sort text.
  */
-public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogComponentLifecycle {
+public final class SpreadsheetCellSortDialogComponent implements SpreadsheetDialogComponentLifecycle {
 
-    public static SpreadsheetSortDialogComponent with(final SpreadsheetSortDialogComponentContext context) {
+    public static SpreadsheetCellSortDialogComponent with(final SpreadsheetCellSortDialogComponentContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetSortDialogComponent(context);
+        return new SpreadsheetCellSortDialogComponent(context);
     }
 
-    private SpreadsheetSortDialogComponent(final SpreadsheetSortDialogComponentContext context) {
+    private SpreadsheetCellSortDialogComponent(final SpreadsheetCellSortDialogComponentContext context) {
         super();
 
         context.addHistoryTokenWatcher(this);
@@ -210,7 +210,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
     private final SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent columnOrRowComparatorNamesList;
 
     /**
-     * Creates/refreshes a {@link SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent} for each token within the text / string value of the
+     * Creates/refreshes a {@link SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent} for each token within the text / string value of the
      * {@link SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent}.
      */
     private void refreshColumnOrRowComparatorNamesList() {
@@ -327,24 +327,24 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
             (int) max;
     }
 
-    // SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent........................................................
+    // SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent........................................................
 
     /**
-     * Get or lazily creates {@link SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent} for the nth token in the
+     * Get or lazily creates {@link SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent} for the nth token in the
      * {@link SpreadsheetColumnOrRowSpreadsheetComparatorNamesList}.
      */
     private void getOrCreateColumnOrRowComparatorNamesComponent(final int i,
                                                                 final String text,
                                                                 final Set<SpreadsheetSelection> previousColumnOrRows) {
-        final SpreadsheetSortDialogComponentContext context = this.context;
+        final SpreadsheetCellSortDialogComponentContext context = this.context;
         final SpreadsheetFlexLayout parent = this.columnOrRowComparatorNamesParent;
         final List<IsElement<?>> children = parent.children();
 
-        final SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent names;
+        final SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent names;
         if (i < children.size()) {
-            names = (SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent) children.get(i);
+            names = (SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent) children.get(i);
         } else {
-            names = SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.with(
+            names = SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.with(
                 ID_PREFIX + "comparatorNames-" + i + "-", // id-prefix
                 this.moveUp(i),
                 this.moveDown(i),
@@ -510,14 +510,14 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
 
 
     /**
-     * Concatenate the string value of all {@link SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent} and update {@link #columnOrRowComparatorNamesList}.
+     * Concatenate the string value of all {@link SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent} and update {@link #columnOrRowComparatorNamesList}.
      */
-    private void onSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(final SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent component) {
+    private void onSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(final SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent component) {
         component.validate();
 
         String columnOrRowSpreadsheetComparatorNames = this.columnOrRowComparatorNamesParent.children()
             .stream()
-            .map(c -> ((SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent) c).stringValue().orElse(""))
+            .map(c -> ((SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent) c).stringValue().orElse(""))
             .filter(NOT_EMPTY_STRING)
             .collect(
                 Collectors.joining(
@@ -551,7 +551,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
     private final static Predicate<String> NOT_EMPTY_STRING = s -> false == s.isEmpty();
 
     /**
-     * Holds all the many {@link SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent}.
+     * Holds all the many {@link SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent}.
      */
     private final SpreadsheetFlexLayout columnOrRowComparatorNamesParent;
 
@@ -614,9 +614,9 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
     private final HistoryTokenAnchorComponent close;
 
     /**
-     * {@see SpreadsheetSortDialogComponentContext}
+     * {@see SpreadsheetCellSortDialogComponentContext}
      */
-    private final SpreadsheetSortDialogComponentContext context;
+    private final SpreadsheetCellSortDialogComponentContext context;
 
     // SpreadsheetDialogComponentLifecycle..............................................................................
 
@@ -646,7 +646,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
         return ID_PREFIX;
     }
 
-    private final static String ID = "sort";
+    private final static String ID = "cellSort";
 
     final static String ID_PREFIX = ID + "-";
 }

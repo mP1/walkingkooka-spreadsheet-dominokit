@@ -22,13 +22,13 @@ import walkingkooka.spreadsheet.dominokit.AppContexts;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class AppContextSpreadsheetSortDialogComponentContextTest implements SpreadsheetSortDialogComponentContextTesting<AppContextSpreadsheetSortDialogComponentContext> {
+public final class AppContextSpreadsheetCellSortDialogComponentContextTest implements SpreadsheetCellSortDialogComponentContextTesting<AppContextSpreadsheetCellSortDialogComponentContext> {
 
     @Test
     public void testWithNullContextFails() {
         assertThrows(
             NullPointerException.class,
-            () -> AppContextSpreadsheetSortDialogComponentContext.with(
+            () -> AppContextSpreadsheetCellSortDialogComponentContext.with(
                 null
             )
         );
@@ -37,8 +37,8 @@ public final class AppContextSpreadsheetSortDialogComponentContextTest implement
     // context..........................................................................................................
 
     @Override
-    public AppContextSpreadsheetSortDialogComponentContext createContext() {
-        return AppContextSpreadsheetSortDialogComponentContext.with(
+    public AppContextSpreadsheetCellSortDialogComponentContext createContext() {
+        return AppContextSpreadsheetCellSortDialogComponentContext.with(
             AppContexts.fake()
         );
     }
@@ -47,11 +47,11 @@ public final class AppContextSpreadsheetSortDialogComponentContextTest implement
 
     @Override
     public String typeNameSuffix() {
-        return SpreadsheetSortDialogComponentContext.class.getSimpleName();
+        return SpreadsheetCellSortDialogComponentContext.class.getSimpleName();
     }
 
     @Override
-    public Class<AppContextSpreadsheetSortDialogComponentContext> type() {
-        return AppContextSpreadsheetSortDialogComponentContext.class;
+    public Class<AppContextSpreadsheetCellSortDialogComponentContext> type() {
+        return AppContextSpreadsheetCellSortDialogComponentContext.class;
     }
 }

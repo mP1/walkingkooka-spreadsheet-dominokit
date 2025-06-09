@@ -27,8 +27,8 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 
 import java.util.List;
 
-public class FakeSpreadsheetSortDialogComponentContext extends FakeSpreadsheetDialogComponentContext
-    implements SpreadsheetSortDialogComponentContext {
+public class FakeSpreadsheetCellSortDialogComponentContext extends FakeSpreadsheetDialogComponentContext
+    implements SpreadsheetCellSortDialogComponentContext {
 
     @Override
     public SpreadsheetViewportCache spreadsheetViewportCache() {

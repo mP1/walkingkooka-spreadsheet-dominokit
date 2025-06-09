@@ -44,20 +44,20 @@ import java.util.function.Function;
  * A {@link Component} that supports editing an individual {@link walkingkooka.spreadsheet.compare.SpreadsheetComparatorName}
  * within a larger {@link SpreadsheetColumnOrRowSpreadsheetComparatorNamesList}.
  */
-final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent implements FormValueComponent<HTMLDivElement, SpreadsheetColumnOrRowSpreadsheetComparatorNames, SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent> {
+final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent implements FormValueComponent<HTMLDivElement, SpreadsheetColumnOrRowSpreadsheetComparatorNames, SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent> {
 
-    static SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent with(final String id,
-                                                                                                        final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, Optional<HistoryToken>> moveUp,
-                                                                                                        final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, Optional<HistoryToken>> moveDown,
-                                                                                                        final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter,
-                                                                                                        final HistoryContext context) {
+    static SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent with(final String id,
+                                                                                                            final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, Optional<HistoryToken>> moveUp,
+                                                                                                            final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, Optional<HistoryToken>> moveDown,
+                                                                                                            final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter,
+                                                                                                            final HistoryContext context) {
         CharSequences.failIfNullOrEmpty(id, "id");
         Objects.requireNonNull(moveUp, "moveUp");
         Objects.requireNonNull(moveDown, "moveDown");
         Objects.requireNonNull(setter, "setter");
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(
+        return new SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(
             id,
             moveUp,
             moveDown,
@@ -66,11 +66,11 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
         );
     }
 
-    private SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(final String id,
-                                                                                                    final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, Optional<HistoryToken>> moveUp,
-                                                                                                    final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, Optional<HistoryToken>> moveDown,
-                                                                                                    final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter,
-                                                                                                    final HistoryContext context) {
+    private SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(final String id,
+                                                                                                        final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, Optional<HistoryToken>> moveUp,
+                                                                                                        final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, Optional<HistoryToken>> moveDown,
+                                                                                                        final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter,
+                                                                                                        final HistoryContext context) {
 
         // NAMES MOVE_UP MOVE_DOW
         //
@@ -106,7 +106,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
         this.moveDownLink = moveDownLink;
         this.moveDown = moveDown;
 
-        final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent appender = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent.empty(
+        final SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent appender = SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent.empty(
             id,
             (newNames) -> setter.apply(
                 Optional.of(newNames)
@@ -114,7 +114,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
         );
         this.appender = appender;
 
-        final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent remover = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent.empty(
+        final SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent remover = SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent.empty(
             id,
             setter
         );
@@ -137,7 +137,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
     }
 
     void refresh(final String columnOrRowSpreadsheetComparatorNames,
-                 final SpreadsheetSortDialogComponentContext context) {
+                 final SpreadsheetCellSortDialogComponentContext context) {
         final SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent names = this.names;
         names.setStringValue(
             Optional.ofNullable(
@@ -184,14 +184,14 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
 
     private final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, Optional<HistoryToken>> moveDown;
 
-    private final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent appender;
+    private final SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent appender;
 
-    private final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent remover;
+    private final SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent remover;
 
     // ValueComponent...................................................................................................
 
     @Override
-    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent setId(final String id) {
+    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent setId(final String id) {
         throw new UnsupportedOperationException();
     }
 
@@ -206,13 +206,13 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
     }
 
     @Override
-    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent setDisabled(final boolean disabled) {
+    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent setDisabled(final boolean disabled) {
         this.names.setDisabled(disabled);
         return this;
     }
 
     @Override
-    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent setLabel(final String label) {
+    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent setLabel(final String label) {
         this.names.setLabel(label);
         return this;
     }
@@ -228,7 +228,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
     }
 
     @Override
-    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent setValue(final Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames> value) {
+    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent setValue(final Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames> value) {
         this.names.setValue(value);
         return this;
     }
@@ -237,20 +237,20 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
         return this.names.stringValue();
     }
 
-    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent setStringValue(final Optional<String> value) {
+    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent setStringValue(final Optional<String> value) {
         this.names.setStringValue(value);
         return this;
     }
 
 
     @Override
-    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent alwaysShowHelperText() {
+    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent alwaysShowHelperText() {
         this.names.alwaysShowHelperText();
         return this;
     }
 
     @Override
-    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent setHelperText(final Optional<String> text) {
+    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent setHelperText(final Optional<String> text) {
         this.names.setHelperText(text);
         return this;
     }
@@ -261,13 +261,13 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
     }
 
     @Override
-    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent optional() {
+    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent optional() {
         this.names.optional();
         return this;
     }
 
     @Override
-    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent required() {
+    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent required() {
         this.names.required();
         return this;
     }
@@ -278,7 +278,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
     }
 
     @Override
-    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent validate() {
+    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent validate() {
         this.names.validate();
         return this;
     }
@@ -289,53 +289,53 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
     }
 
     @Override
-    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent setErrors(final List<String> errors) {
+    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent setErrors(final List<String> errors) {
         this.names.setErrors(errors);
         return this;
     }
 
     @Override
-    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent hideMarginBottom() {
+    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent hideMarginBottom() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent removeBorders() {
+    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent removeBorders() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent focus() {
+    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent focus() {
         this.names.focus();
         return this;
     }
 
     @Override
-    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addChangeListener(final ChangeListener<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>> listener) {
+    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addChangeListener(final ChangeListener<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>> listener) {
         this.names.addChangeListener(listener);
         return this;
     }
 
     @Override
-    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addClickListener(final EventListener listener) {
+    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addClickListener(final EventListener listener) {
         this.names.addClickListener(listener);
         return this;
     }
 
     @Override
-    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addFocusListener(final EventListener listener) {
+    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addFocusListener(final EventListener listener) {
         this.names.addFocusListener(listener);
         return this;
     }
 
     @Override
-    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addKeydownListener(final EventListener listener) {
+    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addKeydownListener(final EventListener listener) {
         this.names.addKeydownListener(listener);
         return this;
     }
 
     @Override
-    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addKeyupListener(final EventListener listener) {
+    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addKeyupListener(final EventListener listener) {
         this.names.addKeyupListener(listener);
         return this;
     }
@@ -343,7 +343,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
     // setCssText.......................................................................................................
 
     @Override
-    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent setCssText(final String css) {
+    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent setCssText(final String css) {
         this.root.setCssText(css);
         return this;
     }
@@ -351,8 +351,8 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
     // setCssProperty...................................................................................................
 
     @Override
-    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent setCssProperty(final String name,
-                                                                                                                  final String value) {
+    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent setCssProperty(final String name,
+                                                                                                                      final String value) {
         this.root.setCssProperty(
             name,
             value

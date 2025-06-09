@@ -39,7 +39,7 @@ import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponentTest implements HtmlElementComponentTesting<SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent, HTMLDivElement> {
+public final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponentTest implements HtmlElementComponentTesting<SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent, HTMLDivElement> {
 
     // cell.............................................................................................................
 
@@ -62,7 +62,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
             "", // namesList
             "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/", // historyToken
             (names) -> HistoryToken.parseString("/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/B=text," + names),
-            "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
+            "SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
                 "  SpreadsheetCard\n" +
                 "    Card\n" +
                 "      Append comparator(s)\n" +
@@ -83,7 +83,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
             "C", // columnOrRow
             "comparator-3", // namesList
             "/1/spreadsheetName23/column/B:C/right/sort/edit/", // historyToken
-            "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
+            "SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
                 "  SpreadsheetCard\n" +
                 "    Card\n" +
                 "      Append comparator(s)\n" +
@@ -103,7 +103,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
             "3", // columnOrRow
             "comparator-3", // namesList
             "/1/spreadsheetName23/row/2:3/bottom/sort/edit/", // historyToken
-            "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
+            "SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
                 "  SpreadsheetCard\n" +
                 "    Card\n" +
                 "      Append comparator(s)\n" +
@@ -150,7 +150,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                     .map(SpreadsheetComparatorNameAndDirection::parse)
                     .collect(Collectors.toList()),
             columnOrRowSpreadsheetComparatorNamesToHistoryToken,
-            new FakeSpreadsheetSortDialogComponentContext() {
+            new FakeSpreadsheetCellSortDialogComponentContext() {
 
                 @Override
                 public HistoryToken historyToken() {
@@ -185,9 +185,9 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                                  final Optional<SpreadsheetColumnOrRowReferenceOrRange> columnOrRow,
                                  final List<SpreadsheetComparatorNameAndDirection> setter,
                                  final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
-                                 final SpreadsheetSortDialogComponentContext context,
+                                 final SpreadsheetCellSortDialogComponentContext context,
                                  final String expected) {
-        final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent appender = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent.empty(
+        final SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent appender = SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent.empty(
             "sort-comparator-" + index + "-",
             columnOrRowSpreadsheetComparatorNamesToHistoryToken
         );
@@ -205,8 +205,8 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
     }
 
     @Override
-    public Class<SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent> type() {
-        return SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent.class;
+    public Class<SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent> type() {
+        return SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent.class;
     }
 
     @Override

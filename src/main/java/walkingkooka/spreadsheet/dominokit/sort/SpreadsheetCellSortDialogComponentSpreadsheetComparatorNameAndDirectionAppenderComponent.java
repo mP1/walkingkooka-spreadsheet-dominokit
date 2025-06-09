@@ -41,21 +41,21 @@ import java.util.stream.Collectors;
  * A container that shows LINKS for each {@link SpreadsheetComparatorName missing from the index {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}
  * from the parent {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}.
  */
-final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent> {
+final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent> {
 
     /**
-     * Creates an empty {@link SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent}.
+     * Creates an empty {@link SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent}.
      */
-    static SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent empty(final String id,
-                                                                                                      final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> setter) {
-        return new SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent(
+    static SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent empty(final String id,
+                                                                                                          final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> setter) {
+        return new SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent(
             id,
             setter
         );
     }
 
-    private SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent(final String id,
-                                                                                                 final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> setter) {
+    private SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent(final String id,
+                                                                                                     final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> setter) {
         this.flex = SpreadsheetFlexLayout.row();
         this.root = SpreadsheetCard.empty()
             .setTitle("Append comparator(s)")
@@ -70,7 +70,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
      */
     void refresh(final Optional<SpreadsheetColumnOrRowReferenceOrRange> columnOrRow,
                  final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
-                 final SpreadsheetSortDialogComponentContext context) {
+                 final SpreadsheetCellSortDialogComponentContext context) {
         this.flex.removeAllChildren();
         this.root.hide();
 
@@ -88,7 +88,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
 
     void refresh0(final SpreadsheetColumnOrRowReferenceOrRange columnOrRow,
                   final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
-                  final SpreadsheetSortDialogComponentContext context) {
+                  final SpreadsheetCellSortDialogComponentContext context) {
         final SpreadsheetFlexLayout flex = this.flex;
 
         final HistoryToken historyToken = context.historyToken();
@@ -145,7 +145,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
     // setCssText.......................................................................................................
 
     @Override
-    public SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent setCssText(final String css) {
+    public SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent setCssText(final String css) {
         this.root.setCssText(css);
         return this;
     }
@@ -153,8 +153,8 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
     // setCssProperty...................................................................................................
 
     @Override
-    public SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent setCssProperty(final String name,
-                                                                                                               final String value) {
+    public SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent setCssProperty(final String name,
+                                                                                                                   final String value) {
         this.root.setCssProperty(
             name,
             value
