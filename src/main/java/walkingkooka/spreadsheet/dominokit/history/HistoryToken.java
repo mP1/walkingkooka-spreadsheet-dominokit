@@ -2689,26 +2689,30 @@ public abstract class HistoryToken implements HasUrlFragment,
 
         HistoryToken historyToken = this;
 
-        if (historyToken instanceof SpreadsheetColumnHistoryToken) {
-            final SpreadsheetColumnHistoryToken column = historyToken.cast(SpreadsheetColumnHistoryToken.class);
+        if (historyToken instanceof SpreadsheetAnchoredSelectionHistoryToken) {
+            final SpreadsheetAnchoredSelectionHistoryToken spreadsheetAnchoredSelectionHistoryToken = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
+            final SpreadsheetId id = spreadsheetAnchoredSelectionHistoryToken.id();
+            final SpreadsheetName name = spreadsheetAnchoredSelectionHistoryToken.name();
+            final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = spreadsheetAnchoredSelectionHistoryToken.anchoredSelection();
 
-            historyToken = columnInsertAfter(
-                column.id(),
-                column.name(),
-                column.anchoredSelection(),
-                count
-            );
-        } else {
-            if (historyToken instanceof SpreadsheetRowHistoryToken) {
-                final SpreadsheetRowHistoryToken row = historyToken.cast(SpreadsheetRowHistoryToken.class);
-
-                historyToken = rowInsertAfter(
-                    row.id(),
-                    row.name(),
-                    row.anchoredSelection(),
+            if (historyToken instanceof SpreadsheetColumnHistoryToken) {
+                historyToken = columnInsertAfter(
+                    id,
+                    name,
+                    anchoredSpreadsheetSelection,
                     count
                 );
+            } else {
+                if (historyToken instanceof SpreadsheetRowHistoryToken) {
+                    historyToken = rowInsertAfter(
+                        id,
+                        name,
+                        anchoredSpreadsheetSelection,
+                        count
+                    );
+                }
             }
+
         }
 
         return historyToken;
