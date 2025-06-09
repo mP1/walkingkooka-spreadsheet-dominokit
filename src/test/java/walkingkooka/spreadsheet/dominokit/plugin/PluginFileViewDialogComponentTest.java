@@ -50,14 +50,14 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
             "PluginFileViewDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    /META-INF/MANIFEST.MF\n" +
-                "    id=plugin-file-view-Dialog includeClose=true\n" +
+                "    id=pluginFileView-Dialog includeClose=true\n" +
                 "      SpreadsheetTextViewComponent\n" +
                 "        \"\"\n" +
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Download\" [/api/plugin/TestPluginName111/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
-                "            \"Close\" [#/plugin/TestPluginName111] id=plugin-file-view-close-Link\n"
+                "            \"Close\" [#/plugin/TestPluginName111] id=pluginFileView-close-Link\n"
         );
     }
 
@@ -77,14 +77,14 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
             "PluginFileViewDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    /empty-file.txt\n" +
-                "    id=plugin-file-view-Dialog includeClose=true\n" +
+                "    id=pluginFileView-Dialog includeClose=true\n" +
                 "      SpreadsheetTextViewComponent\n" +
                 "        \"\"\n" +
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Download\" [/api/plugin/TestPluginName111/download/empty-file.txt] id=plugin-download-Link\n" +
-                "            \"Close\" [#/plugin/TestPluginName111] id=plugin-file-view-close-Link\n"
+                "            \"Close\" [#/plugin/TestPluginName111] id=pluginFileView-close-Link\n"
         );
     }
 
@@ -102,14 +102,14 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
             "PluginFileViewDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    /non-empty-file.txt\n" +
-                "    id=plugin-file-view-Dialog includeClose=true\n" +
+                "    id=pluginFileView-Dialog includeClose=true\n" +
                 "      SpreadsheetTextViewComponent\n" +
                 "        \"Line1\\nLine2\\n\"\n" +
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Download\" [/api/plugin/TestPluginName111/download/non-empty-file.txt] id=plugin-download-Link\n" +
-                "            \"Close\" [#/plugin/TestPluginName111] id=plugin-file-view-close-Link\n"
+                "            \"Close\" [#/plugin/TestPluginName111] id=pluginFileView-close-Link\n"
         );
     }
 
@@ -129,14 +129,14 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
             "PluginFileViewDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    /empty-file.txt\n" +
-                "    id=plugin-file-view-Dialog includeClose=true\n" +
+                "    id=pluginFileView-Dialog includeClose=true\n" +
                 "      SpreadsheetTextViewComponent\n" +
                 "        \"\"\n" +
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Download\" [/api/plugin/TestPluginName111/download/empty-file.txt] id=plugin-download-Link\n" +
-                "            \"Close\" [#/plugin/TestPluginName111] id=plugin-file-view-close-Link\n"
+                "            \"Close\" [#/plugin/TestPluginName111] id=pluginFileView-close-Link\n"
         );
 
         context.pushHistoryToken(
@@ -152,14 +152,14 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
             "PluginFileViewDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    /non-empty-file.txt\n" +
-                "    id=plugin-file-view-Dialog includeClose=true\n" +
+                "    id=pluginFileView-Dialog includeClose=true\n" +
                 "      SpreadsheetTextViewComponent\n" +
                 "        \"Line1\\nLine2\\n\"\n" +
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Download\" [/api/plugin/TestPluginName111/download/non-empty-file.txt] id=plugin-download-Link\n" +
-                "            \"Close\" [#/plugin/TestPluginName111] id=plugin-file-view-close-Link\n"
+                "            \"Close\" [#/plugin/TestPluginName111] id=pluginFileView-close-Link\n"
         );
     }
 
