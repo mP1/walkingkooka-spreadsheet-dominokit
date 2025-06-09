@@ -656,7 +656,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     // UI...............................................................................................................
 
-    private final static String ID = "find";
+    private final static String ID = "cellFind";
 
     private final static String ID_PREFIX = ID + "-";
 

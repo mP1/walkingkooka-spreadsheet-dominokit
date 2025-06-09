@@ -105,15 +105,15 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             "SpreadsheetFindDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
-                "    id=find-Dialog includeClose=true\n" +
+                "    id=cellFind-Dialog includeClose=true\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Cell Range [A1] id=find-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Cell Range Path [BULR] id=find-cell-range-path-Select\n" +
+                "            Cell Range Path [BULR] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
                 "              left-right bottom-up=LRBU\n" +
@@ -124,7 +124,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Value type [date] id=find-value-type-Select\n" +
+                "            Value type [date] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
@@ -136,41 +136,41 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formula [] id=find-formula-TextBox\n" +
+                "              Formula [] id=cellFind-formula-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              DateTimeSymbols [] id=find-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              decimalNumberSymbols [] id=find-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatter [] id=find-formatter-TextBox\n" +
+                "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Parser [] id=find-parser-TextBox\n" +
+                "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Style [] id=find-style-TextBox\n" +
+                "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Value [] id=find-value-TextBox\n" +
+                "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Validator [] id=find-validator-TextBox\n" +
+                "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatted [] id=find-formatted-TextBox\n" +
+                "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
@@ -178,16 +178,16 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=find-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=find-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/matchXyz()] id=find-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=cellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=cellFind-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=cellFind-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/matchXyz()] id=cellFind-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=find-cells-Table\n" +
+                "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -197,8 +197,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -226,15 +226,15 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             "SpreadsheetFindDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
-                "    id=find-Dialog includeClose=true\n" +
+                "    id=cellFind-Dialog includeClose=true\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Cell Range [A1] id=find-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Cell Range Path [BULR] id=find-cell-range-path-Select\n" +
+                "            Cell Range Path [BULR] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
                 "              left-right bottom-up=LRBU\n" +
@@ -245,7 +245,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Value type [date] id=find-value-type-Select\n" +
+                "            Value type [date] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
@@ -257,41 +257,41 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formula [] id=find-formula-TextBox\n" +
+                "              Formula [] id=cellFind-formula-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              DateTimeSymbols [] id=find-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              decimalNumberSymbols [] id=find-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatter [] id=find-formatter-TextBox\n" +
+                "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Parser [] id=find-parser-TextBox\n" +
+                "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Style [] id=find-style-TextBox\n" +
+                "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Value [] id=find-value-TextBox\n" +
+                "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Validator [] id=find-validator-TextBox\n" +
+                "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatted [] id=find-formatted-TextBox\n" +
+                "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
@@ -299,16 +299,16 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=find-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=find-reset-Link\n" +
-                "            \"Load Highlighting Query\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/highlightQuery()] id=find-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/matchXyz()] id=find-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=cellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=cellFind-reset-Link\n" +
+                "            \"Load Highlighting Query\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/highlightQuery()] id=cellFind-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/matchXyz()] id=cellFind-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=find-cells-Table\n" +
+                "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -318,8 +318,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -347,15 +347,15 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             "SpreadsheetFindDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
-                "    id=find-Dialog includeClose=true\n" +
+                "    id=cellFind-Dialog includeClose=true\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Cell Range [A1] id=find-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Cell Range Path [] id=find-cell-range-path-Select\n" +
+                "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
                 "              left-right bottom-up=LRBU\n" +
@@ -366,7 +366,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Value type [] id=find-value-type-Select\n" +
+                "            Value type [] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
@@ -378,41 +378,41 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formula [] id=find-formula-TextBox\n" +
+                "              Formula [] id=cellFind-formula-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              DateTimeSymbols [] id=find-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              decimalNumberSymbols [] id=find-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatter [] id=find-formatter-TextBox\n" +
+                "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Parser [] id=find-parser-TextBox\n" +
+                "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Style [] id=find-style-TextBox\n" +
+                "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Value [] id=find-value-TextBox\n" +
+                "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Validator [] id=find-validator-TextBox\n" +
+                "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatted [] id=find-formatted-TextBox\n" +
+                "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
@@ -420,16 +420,16 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find] id=find-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find] id=find-reset-Link\n" +
-                "            \"Load Highlighting Query\" [#/123/SpreadsheetName456/cell/A1/find/query/highlightQuery()] id=find-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" DISABLED id=find-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find] id=cellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find] id=cellFind-reset-Link\n" +
+                "            \"Load Highlighting Query\" [#/123/SpreadsheetName456/cell/A1/find/query/highlightQuery()] id=cellFind-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" DISABLED id=cellFind-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=find-cells-Table\n" +
+                "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -439,8 +439,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -466,15 +466,15 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             "SpreadsheetFindDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
-                "    id=find-Dialog includeClose=true\n" +
+                "    id=cellFind-Dialog includeClose=true\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Cell Range [A1] id=find-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Cell Range Path [BULR] id=find-cell-range-path-Select\n" +
+                "            Cell Range Path [BULR] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
                 "              left-right bottom-up=LRBU\n" +
@@ -485,7 +485,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Value type [date] id=find-value-type-Select\n" +
+                "            Value type [date] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
@@ -497,41 +497,41 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formula [] id=find-formula-TextBox\n" +
+                "              Formula [] id=cellFind-formula-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              DateTimeSymbols [] id=find-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              decimalNumberSymbols [] id=find-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatter [] id=find-formatter-TextBox\n" +
+                "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Parser [] id=find-parser-TextBox\n" +
+                "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Style [] id=find-style-TextBox\n" +
+                "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Value [] id=find-value-TextBox\n" +
+                "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Validator [] id=find-validator-TextBox\n" +
+                "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatted [] id=find-formatted-TextBox\n" +
+                "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
@@ -539,16 +539,16 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=find-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=find-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/matchXyz()] id=find-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=cellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=cellFind-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=cellFind-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/matchXyz()] id=cellFind-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=find-cells-Table\n" +
+                "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -558,8 +558,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -621,15 +621,15 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             "SpreadsheetFindDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
-                "    id=find-Dialog includeClose=true\n" +
+                "    id=cellFind-Dialog includeClose=true\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Cell Range [A1] id=find-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Cell Range Path [BULR] id=find-cell-range-path-Select\n" +
+                "            Cell Range Path [BULR] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
                 "              left-right bottom-up=LRBU\n" +
@@ -640,7 +640,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Value type [date] id=find-value-type-Select\n" +
+                "            Value type [date] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
@@ -652,41 +652,41 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formula [] id=find-formula-TextBox\n" +
+                "              Formula [] id=cellFind-formula-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              DateTimeSymbols [] id=find-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              decimalNumberSymbols [] id=find-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatter [] id=find-formatter-TextBox\n" +
+                "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Parser [] id=find-parser-TextBox\n" +
+                "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Style [] id=find-style-TextBox\n" +
+                "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Value [] id=find-value-TextBox\n" +
+                "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Validator [] id=find-validator-TextBox\n" +
+                "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatted [] id=find-formatted-TextBox\n" +
+                "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
@@ -694,16 +694,16 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=find-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=find-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/matchXyz()] id=find-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=cellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=cellFind-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=cellFind-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/matchXyz()] id=cellFind-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=find-cells-Table\n" +
+                "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -712,8 +712,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Links\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
-                "                  \"A1\" [#/123/SpreadsheetName456/cell/A1] id=find-cells-A1-Link\n" +
-                "                  \"A1\" [#/123/SpreadsheetName456/cell/A1/formula] id=find-cells-A1-formula-Link\n" +
+                "                  \"A1\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-cells-A1-Link\n" +
+                "                  \"A1\" [#/123/SpreadsheetName456/cell/A1/formula] id=cellFind-cells-A1-formula-Link\n" +
                 "                  SpreadsheetTextComponent\n" +
                 "                    \"\"\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
@@ -721,14 +721,14 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                    SpreadsheetLinkListComponent\n" +
                 "                      SpreadsheetFlexLayout\n" +
                 "                        ROW\n" +
-                "                          \"Value\" [#/123/SpreadsheetName456/cell/A1/value/text] id=find-cells-A1-value-Link\n" +
-                "                          \"Create Label\" [#/123/SpreadsheetName456/cell/A1/label] id=find-cells-A1-createLabel-Link\n" +
-                "                          \"Labels\" [#/123/SpreadsheetName456/cell/A1/labels] (3) id=find-cells-A1-label-Link\n" +
-                "                          \"References\" [#/123/SpreadsheetName456/cell/A1/references] (1) id=find-cells-A1-references-Link\n" +
-                "                          \"Delete\" [#/123/SpreadsheetName456/cell/A1/delete] id=find-cells-A1-delete-Link\n" +
+                "                          \"Value\" [#/123/SpreadsheetName456/cell/A1/value/text] id=cellFind-cells-A1-value-Link\n" +
+                "                          \"Create Label\" [#/123/SpreadsheetName456/cell/A1/label] id=cellFind-cells-A1-createLabel-Link\n" +
+                "                          \"Labels\" [#/123/SpreadsheetName456/cell/A1/labels] (3) id=cellFind-cells-A1-label-Link\n" +
+                "                          \"References\" [#/123/SpreadsheetName456/cell/A1/references] (1) id=cellFind-cells-A1-references-Link\n" +
+                "                          \"Delete\" [#/123/SpreadsheetName456/cell/A1/delete] id=cellFind-cells-A1-delete-Link\n" +
                 "                ROW 1\n" +
-                "                  \"B2\" [#/123/SpreadsheetName456/cell/B2] id=find-cells-B2-Link\n" +
-                "                  \"=2\" [#/123/SpreadsheetName456/cell/B2/formula] id=find-cells-B2-formula-Link\n" +
+                "                  \"B2\" [#/123/SpreadsheetName456/cell/B2] id=cellFind-cells-B2-Link\n" +
+                "                  \"=2\" [#/123/SpreadsheetName456/cell/B2/formula] id=cellFind-cells-B2-formula-Link\n" +
                 "                  SpreadsheetTextComponent\n" +
                 "                    \"\"\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
@@ -736,16 +736,16 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                    SpreadsheetLinkListComponent\n" +
                 "                      SpreadsheetFlexLayout\n" +
                 "                        ROW\n" +
-                "                          \"Value\" DISABLED id=find-cells-B2-value-Link\n" +
-                "                          \"Create Label\" [#/123/SpreadsheetName456/cell/B2/label] id=find-cells-B2-createLabel-Link\n" +
-                "                          \"Labels\" [#/123/SpreadsheetName456/cell/B2/labels] (0) id=find-cells-B2-label-Link\n" +
-                "                          \"References\" [#/123/SpreadsheetName456/cell/B2/references] (0) id=find-cells-B2-references-Link\n" +
-                "                          \"Delete\" [#/123/SpreadsheetName456/cell/B2/delete] id=find-cells-B2-delete-Link\n" +
+                "                          \"Value\" DISABLED id=cellFind-cells-B2-value-Link\n" +
+                "                          \"Create Label\" [#/123/SpreadsheetName456/cell/B2/label] id=cellFind-cells-B2-createLabel-Link\n" +
+                "                          \"Labels\" [#/123/SpreadsheetName456/cell/B2/labels] (0) id=cellFind-cells-B2-label-Link\n" +
+                "                          \"References\" [#/123/SpreadsheetName456/cell/B2/references] (0) id=cellFind-cells-B2-references-Link\n" +
+                "                          \"Delete\" [#/123/SpreadsheetName456/cell/B2/delete] id=cellFind-cells-B2-delete-Link\n" +
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -771,15 +771,15 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             "SpreadsheetFindDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
-                "    id=find-Dialog includeClose=true\n" +
+                "    id=cellFind-Dialog includeClose=true\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Cell Range [A1] id=find-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Cell Range Path [] id=find-cell-range-path-Select\n" +
+                "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
                 "              left-right bottom-up=LRBU\n" +
@@ -790,7 +790,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Value type [] id=find-value-type-Select\n" +
+                "            Value type [] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
@@ -802,41 +802,41 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formula [*formula*] id=find-formula-TextBox\n" +
+                "              Formula [*formula*] id=cellFind-formula-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              DateTimeSymbols [] id=find-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              decimalNumberSymbols [] id=find-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatter [] id=find-formatter-TextBox\n" +
+                "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Parser [] id=find-parser-TextBox\n" +
+                "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Style [] id=find-style-TextBox\n" +
+                "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Value [] id=find-value-TextBox\n" +
+                "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Validator [] id=find-validator-TextBox\n" +
+                "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatted [] id=find-formatted-TextBox\n" +
+                "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
@@ -844,16 +844,16 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormula(),%22*formula*%22)] id=find-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormula(),%22*formula*%22)] id=find-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(cellFormula(),%22*formula*%22)] id=find-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormula(),%22*formula*%22)] id=cellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormula(),%22*formula*%22)] id=cellFind-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=cellFind-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(cellFormula(),%22*formula*%22)] id=cellFind-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=find-cells-Table\n" +
+                "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -863,8 +863,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -890,15 +890,15 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             "SpreadsheetFindDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
-                "    id=find-Dialog includeClose=true\n" +
+                "    id=cellFind-Dialog includeClose=true\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Cell Range [A1] id=find-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Cell Range Path [] id=find-cell-range-path-Select\n" +
+                "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
                 "              left-right bottom-up=LRBU\n" +
@@ -909,7 +909,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Value type [] id=find-value-type-Select\n" +
+                "            Value type [] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
@@ -921,41 +921,41 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formula [*formula*] id=find-formula-TextBox\n" +
+                "              Formula [*formula*] id=cellFind-formula-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              DateTimeSymbols [] id=find-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              decimalNumberSymbols [] id=find-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatter [] id=find-formatter-TextBox\n" +
+                "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Parser [] id=find-parser-TextBox\n" +
+                "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Style [] id=find-style-TextBox\n" +
+                "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Value [] id=find-value-TextBox\n" +
+                "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Validator [] id=find-validator-TextBox\n" +
+                "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatted [] id=find-formatted-TextBox\n" +
+                "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
@@ -963,16 +963,16 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/1+textMatch(cellFormula(),%22*formula*%22)] id=find-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/1+textMatch(cellFormula(),%22*formula*%22)] id=find-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/1+textMatch(cellFormula(),%22*formula*%22)] id=find-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/1+textMatch(cellFormula(),%22*formula*%22)] id=cellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/1+textMatch(cellFormula(),%22*formula*%22)] id=cellFind-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=cellFind-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/1+textMatch(cellFormula(),%22*formula*%22)] id=cellFind-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=find-cells-Table\n" +
+                "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -982,8 +982,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -1009,15 +1009,15 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             "SpreadsheetFindDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
-                "    id=find-Dialog includeClose=true\n" +
+                "    id=cellFind-Dialog includeClose=true\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Cell Range [A1] id=find-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Cell Range Path [] id=find-cell-range-path-Select\n" +
+                "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
                 "              left-right bottom-up=LRBU\n" +
@@ -1028,7 +1028,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Value type [] id=find-value-type-Select\n" +
+                "            Value type [] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
@@ -1040,41 +1040,41 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formula [*formula*] id=find-formula-TextBox\n" +
+                "              Formula [*formula*] id=cellFind-formula-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              DateTimeSymbols [] id=find-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              decimalNumberSymbols [] id=find-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatter [*formatter*] id=find-formatter-TextBox\n" +
+                "              Formatter [*formatter*] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Parser [] id=find-parser-TextBox\n" +
+                "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Style [] id=find-style-TextBox\n" +
+                "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Value [] id=find-value-TextBox\n" +
+                "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Validator [] id=find-validator-TextBox\n" +
+                "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatted [] id=find-formatted-TextBox\n" +
+                "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
@@ -1082,16 +1082,16 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellFormula(),%22*formula*%22),textMatch(cellFormatter(),%22*formatter*%22))] id=find-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellFormula(),%22*formula*%22),textMatch(cellFormatter(),%22*formatter*%22))] id=find-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/or(textMatch(cellFormula(),%22*formula*%22),textMatch(cellFormatter(),%22*formatter*%22))] id=find-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellFormula(),%22*formula*%22),textMatch(cellFormatter(),%22*formatter*%22))] id=cellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellFormula(),%22*formula*%22),textMatch(cellFormatter(),%22*formatter*%22))] id=cellFind-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=cellFind-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/or(textMatch(cellFormula(),%22*formula*%22),textMatch(cellFormatter(),%22*formatter*%22))] id=cellFind-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=find-cells-Table\n" +
+                "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -1101,8 +1101,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -1128,15 +1128,15 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             "SpreadsheetFindDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
-                "    id=find-Dialog includeClose=true\n" +
+                "    id=cellFind-Dialog includeClose=true\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Cell Range [A1] id=find-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Cell Range Path [] id=find-cell-range-path-Select\n" +
+                "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
                 "              left-right bottom-up=LRBU\n" +
@@ -1147,7 +1147,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Value type [] id=find-value-type-Select\n" +
+                "            Value type [] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
@@ -1159,41 +1159,41 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formula [*formula*] id=find-formula-TextBox\n" +
+                "              Formula [*formula*] id=cellFind-formula-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              DateTimeSymbols [] id=find-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              decimalNumberSymbols [] id=find-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatter [] id=find-formatter-TextBox\n" +
+                "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Parser [] id=find-parser-TextBox\n" +
+                "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Style [] id=find-style-TextBox\n" +
+                "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Value [] id=find-value-TextBox\n" +
+                "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Validator [] id=find-validator-TextBox\n" +
+                "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatted [] id=find-formatted-TextBox\n" +
+                "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
@@ -1201,16 +1201,16 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellFormula(),%22*formula*%22),true())] id=find-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellFormula(),%22*formula*%22),true())] id=find-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/or(textMatch(cellFormula(),%22*formula*%22),true())] id=find-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellFormula(),%22*formula*%22),true())] id=cellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellFormula(),%22*formula*%22),true())] id=cellFind-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=cellFind-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/or(textMatch(cellFormula(),%22*formula*%22),true())] id=cellFind-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=find-cells-Table\n" +
+                "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -1220,8 +1220,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -1247,15 +1247,15 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             "SpreadsheetFindDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
-                "    id=find-Dialog includeClose=true\n" +
+                "    id=cellFind-Dialog includeClose=true\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Cell Range [A1] id=find-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Cell Range Path [] id=find-cell-range-path-Select\n" +
+                "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
                 "              left-right bottom-up=LRBU\n" +
@@ -1266,7 +1266,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Value type [] id=find-value-type-Select\n" +
+                "            Value type [] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
@@ -1278,41 +1278,41 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formula [] id=find-formula-TextBox\n" +
+                "              Formula [] id=cellFind-formula-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              DateTimeSymbols [*Hello*] id=find-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [*Hello*] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              decimalNumberSymbols [] id=find-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatter [] id=find-formatter-TextBox\n" +
+                "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Parser [] id=find-parser-TextBox\n" +
+                "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Style [] id=find-style-TextBox\n" +
+                "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Value [] id=find-value-TextBox\n" +
+                "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Validator [] id=find-validator-TextBox\n" +
+                "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatted [] id=find-formatted-TextBox\n" +
+                "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
@@ -1320,16 +1320,16 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellDateTimeSymbols(),%22*Hello*%22),1)] id=find-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellDateTimeSymbols(),%22*Hello*%22),1)] id=find-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/or(textMatch(cellDateTimeSymbols(),%22*Hello*%22),1)] id=find-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellDateTimeSymbols(),%22*Hello*%22),1)] id=cellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellDateTimeSymbols(),%22*Hello*%22),1)] id=cellFind-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=cellFind-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/or(textMatch(cellDateTimeSymbols(),%22*Hello*%22),1)] id=cellFind-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=find-cells-Table\n" +
+                "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -1339,8 +1339,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -1366,15 +1366,15 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             "SpreadsheetFindDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
-                "    id=find-Dialog includeClose=true\n" +
+                "    id=cellFind-Dialog includeClose=true\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Cell Range [A1] id=find-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Cell Range Path [] id=find-cell-range-path-Select\n" +
+                "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
                 "              left-right bottom-up=LRBU\n" +
@@ -1385,7 +1385,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Value type [] id=find-value-type-Select\n" +
+                "            Value type [] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
@@ -1397,41 +1397,41 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formula [] id=find-formula-TextBox\n" +
+                "              Formula [] id=cellFind-formula-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              DateTimeSymbols [] id=find-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              decimalNumberSymbols [] id=find-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatter [] id=find-formatter-TextBox\n" +
+                "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Parser [] id=find-parser-TextBox\n" +
+                "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Style [] id=find-style-TextBox\n" +
+                "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Value [] id=find-value-TextBox\n" +
+                "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Validator [] id=find-validator-TextBox\n" +
+                "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatted [] id=find-formatted-TextBox\n" +
+                "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
@@ -1439,16 +1439,16 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellDecimalNumberSymbols(),%22*Hello*%22),1)] id=find-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellDecimalNumberSymbols(),%22*Hello*%22),1)] id=find-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/or(textMatch(cellDecimalNumberSymbols(),%22*Hello*%22),1)] id=find-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellDecimalNumberSymbols(),%22*Hello*%22),1)] id=cellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellDecimalNumberSymbols(),%22*Hello*%22),1)] id=cellFind-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=cellFind-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/or(textMatch(cellDecimalNumberSymbols(),%22*Hello*%22),1)] id=cellFind-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=find-cells-Table\n" +
+                "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -1458,8 +1458,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -1485,15 +1485,15 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             "SpreadsheetFindDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
-                "    id=find-Dialog includeClose=true\n" +
+                "    id=cellFind-Dialog includeClose=true\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Cell Range [A1] id=find-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Cell Range Path [] id=find-cell-range-path-Select\n" +
+                "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
                 "              left-right bottom-up=LRBU\n" +
@@ -1504,7 +1504,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Value type [] id=find-value-type-Select\n" +
+                "            Value type [] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
@@ -1516,41 +1516,41 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formula [] id=find-formula-TextBox\n" +
+                "              Formula [] id=cellFind-formula-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              DateTimeSymbols [] id=find-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              decimalNumberSymbols [] id=find-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatter [*formatter*] id=find-formatter-TextBox\n" +
+                "              Formatter [*formatter*] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Parser [] id=find-parser-TextBox\n" +
+                "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Style [] id=find-style-TextBox\n" +
+                "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Value [] id=find-value-TextBox\n" +
+                "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Validator [] id=find-validator-TextBox\n" +
+                "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatted [] id=find-formatted-TextBox\n" +
+                "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
@@ -1558,16 +1558,16 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormatter(),%22*formatter*%22)] id=find-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormatter(),%22*formatter*%22)] id=find-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(cellFormatter(),%22*formatter*%22)] id=find-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormatter(),%22*formatter*%22)] id=cellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormatter(),%22*formatter*%22)] id=cellFind-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=cellFind-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(cellFormatter(),%22*formatter*%22)] id=cellFind-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=find-cells-Table\n" +
+                "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -1577,8 +1577,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -1604,15 +1604,15 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             "SpreadsheetFindDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
-                "    id=find-Dialog includeClose=true\n" +
+                "    id=cellFind-Dialog includeClose=true\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Cell Range [A1] id=find-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Cell Range Path [] id=find-cell-range-path-Select\n" +
+                "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
                 "              left-right bottom-up=LRBU\n" +
@@ -1623,7 +1623,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Value type [] id=find-value-type-Select\n" +
+                "            Value type [] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
@@ -1635,41 +1635,41 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formula [] id=find-formula-TextBox\n" +
+                "              Formula [] id=cellFind-formula-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              DateTimeSymbols [] id=find-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              decimalNumberSymbols [] id=find-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatter [] id=find-formatter-TextBox\n" +
+                "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Parser [*parser*] id=find-parser-TextBox\n" +
+                "              Parser [*parser*] id=cellFind-parser-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Style [] id=find-style-TextBox\n" +
+                "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Value [] id=find-value-TextBox\n" +
+                "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Validator [] id=find-validator-TextBox\n" +
+                "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatted [] id=find-formatted-TextBox\n" +
+                "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
@@ -1677,16 +1677,16 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellParser(),%22*parser*%22)] id=find-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellParser(),%22*parser*%22)] id=find-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(cellParser(),%22*parser*%22)] id=find-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellParser(),%22*parser*%22)] id=cellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellParser(),%22*parser*%22)] id=cellFind-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=cellFind-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(cellParser(),%22*parser*%22)] id=cellFind-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=find-cells-Table\n" +
+                "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -1696,8 +1696,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -1723,15 +1723,15 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             "SpreadsheetFindDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
-                "    id=find-Dialog includeClose=true\n" +
+                "    id=cellFind-Dialog includeClose=true\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Cell Range [A1] id=find-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Cell Range Path [] id=find-cell-range-path-Select\n" +
+                "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
                 "              left-right bottom-up=LRBU\n" +
@@ -1742,7 +1742,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Value type [] id=find-value-type-Select\n" +
+                "            Value type [] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
@@ -1754,41 +1754,41 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formula [] id=find-formula-TextBox\n" +
+                "              Formula [] id=cellFind-formula-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              DateTimeSymbols [] id=find-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              decimalNumberSymbols [] id=find-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatter [] id=find-formatter-TextBox\n" +
+                "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Parser [] id=find-parser-TextBox\n" +
+                "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Style [*style*] id=find-style-TextBox\n" +
+                "              Style [*style*] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Value [] id=find-value-TextBox\n" +
+                "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Validator [] id=find-validator-TextBox\n" +
+                "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatted [] id=find-formatted-TextBox\n" +
+                "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
@@ -1796,16 +1796,16 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellStyle(),%22*style*%22)] id=find-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellStyle(),%22*style*%22)] id=find-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(cellStyle(),%22*style*%22)] id=find-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellStyle(),%22*style*%22)] id=cellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellStyle(),%22*style*%22)] id=cellFind-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=cellFind-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(cellStyle(),%22*style*%22)] id=cellFind-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=find-cells-Table\n" +
+                "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -1815,8 +1815,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -1842,15 +1842,15 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             "SpreadsheetFindDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
-                "    id=find-Dialog includeClose=true\n" +
+                "    id=cellFind-Dialog includeClose=true\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Cell Range [A1] id=find-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Cell Range Path [] id=find-cell-range-path-Select\n" +
+                "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
                 "              left-right bottom-up=LRBU\n" +
@@ -1861,7 +1861,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Value type [] id=find-value-type-Select\n" +
+                "            Value type [] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
@@ -1873,41 +1873,41 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formula [] id=find-formula-TextBox\n" +
+                "              Formula [] id=cellFind-formula-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              DateTimeSymbols [] id=find-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              decimalNumberSymbols [] id=find-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatter [] id=find-formatter-TextBox\n" +
+                "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Parser [] id=find-parser-TextBox\n" +
+                "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Style [] id=find-style-TextBox\n" +
+                "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Value [<999] id=find-value-TextBox\n" +
+                "              Value [<999] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Validator [] id=find-validator-TextBox\n" +
+                "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatted [] id=find-formatted-TextBox\n" +
+                "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
@@ -1915,16 +1915,16 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/cellValue()%3C999] id=find-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/cellValue()%3C999] id=find-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/cellValue()%3C999] id=find-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/cellValue()%3C999] id=cellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/cellValue()%3C999] id=cellFind-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=cellFind-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/cellValue()%3C999] id=cellFind-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=find-cells-Table\n" +
+                "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -1934,8 +1934,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -1961,15 +1961,15 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             "SpreadsheetFindDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
-                "    id=find-Dialog includeClose=true\n" +
+                "    id=cellFind-Dialog includeClose=true\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Cell Range [A1] id=find-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Cell Range Path [] id=find-cell-range-path-Select\n" +
+                "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
                 "              left-right bottom-up=LRBU\n" +
@@ -1980,7 +1980,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Value type [] id=find-value-type-Select\n" +
+                "            Value type [] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
@@ -1992,41 +1992,41 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formula [] id=find-formula-TextBox\n" +
+                "              Formula [] id=cellFind-formula-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              DateTimeSymbols [] id=find-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              decimalNumberSymbols [] id=find-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatter [] id=find-formatter-TextBox\n" +
+                "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Parser [] id=find-parser-TextBox\n" +
+                "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Style [] id=find-style-TextBox\n" +
+                "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Value [] id=find-value-TextBox\n" +
+                "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Validator [] id=find-validator-TextBox\n" +
+                "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatted [] id=find-formatted-TextBox\n" +
+                "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
@@ -2034,16 +2034,16 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellValidator(),%22*validator123*%22)] id=find-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellValidator(),%22*validator123*%22)] id=find-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(cellValidator(),%22*validator123*%22)] id=find-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellValidator(),%22*validator123*%22)] id=cellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellValidator(),%22*validator123*%22)] id=cellFind-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=cellFind-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(cellValidator(),%22*validator123*%22)] id=cellFind-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=find-cells-Table\n" +
+                "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -2053,8 +2053,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -2080,15 +2080,15 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             "SpreadsheetFindDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
-                "    id=find-Dialog includeClose=true\n" +
+                "    id=cellFind-Dialog includeClose=true\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Cell Range [A1] id=find-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Cell Range Path [] id=find-cell-range-path-Select\n" +
+                "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
                 "              left-right bottom-up=LRBU\n" +
@@ -2099,7 +2099,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Value type [] id=find-value-type-Select\n" +
+                "            Value type [] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
@@ -2111,41 +2111,41 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formula [] id=find-formula-TextBox\n" +
+                "              Formula [] id=cellFind-formula-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              DateTimeSymbols [] id=find-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              decimalNumberSymbols [] id=find-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatter [] id=find-formatter-TextBox\n" +
+                "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Parser [] id=find-parser-TextBox\n" +
+                "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Style [] id=find-style-TextBox\n" +
+                "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Value [] id=find-value-TextBox\n" +
+                "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Validator [] id=find-validator-TextBox\n" +
+                "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatted [*formatted-value*] id=find-formatted-TextBox\n" +
+                "              Formatted [*formatted-value*] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
@@ -2153,16 +2153,16 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormattedValue(),%22*formatted-value*%22)] id=find-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormattedValue(),%22*formatted-value*%22)] id=find-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(cellFormattedValue(),%22*formatted-value*%22)] id=find-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormattedValue(),%22*formatted-value*%22)] id=cellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormattedValue(),%22*formatted-value*%22)] id=cellFind-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=cellFind-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(cellFormattedValue(),%22*formatted-value*%22)] id=cellFind-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=find-cells-Table\n" +
+                "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -2172,8 +2172,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -2199,15 +2199,15 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             "SpreadsheetFindDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
-                "    id=find-Dialog includeClose=true\n" +
+                "    id=cellFind-Dialog includeClose=true\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Cell Range [A1] id=find-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Cell Range Path [] id=find-cell-range-path-Select\n" +
+                "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
                 "              left-right bottom-up=LRBU\n" +
@@ -2218,7 +2218,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SpreadsheetSelectComponent\n" +
-                "            Value type [] id=find-value-type-Select\n" +
+                "            Value type [] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
@@ -2230,41 +2230,41 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formula [*formula*] id=find-formula-TextBox\n" +
+                "              Formula [*formula*] id=cellFind-formula-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              DateTimeSymbols [] id=find-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              decimalNumberSymbols [] id=find-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatter [*formatted*] id=find-formatter-TextBox\n" +
+                "              Formatter [*formatted*] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Parser [*parser*] id=find-parser-TextBox\n" +
+                "              Parser [*parser*] id=cellFind-parser-TextBox\n" +
                 "      SpreadsheetRowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Style [*style*] id=find-style-TextBox\n" +
+                "              Style [*style*] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Value [<10] id=find-value-TextBox\n" +
+                "              Value [<10] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Validator [] id=find-validator-TextBox\n" +
+                "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
-                "              Formatted [*formattedValue*] id=find-formatted-TextBox\n" +
+                "              Formatted [*formattedValue*] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
@@ -2272,16 +2272,16 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*formattedValue*%22,cellFormattedValue()))))))))] id=find-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*formattedValue*%22,cellFormattedValue()))))))))] id=find-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*formattedValue*%22,cellFormattedValue()))))))))] id=find-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*formattedValue*%22,cellFormattedValue()))))))))] id=cellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*formattedValue*%22,cellFormattedValue()))))))))] id=cellFind-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=cellFind-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*formattedValue*%22,cellFormattedValue()))))))))] id=cellFind-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=find-cells-Table\n" +
+                "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -2291,8 +2291,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
