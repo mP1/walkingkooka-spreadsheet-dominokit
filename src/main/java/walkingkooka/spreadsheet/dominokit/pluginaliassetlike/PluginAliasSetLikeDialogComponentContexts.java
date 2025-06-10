@@ -170,17 +170,17 @@ public final class PluginAliasSetLikeDialogComponentContexts implements PublicSt
     }
 
     /**
-     * {@see AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetValidatorFunctions}
+     * {@see AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetValidationFunctions}
      */
     public static PluginAliasSetLikeDialogComponentContext<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> validatorFunctions(final AppContext context) {
-        return AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetValidatorFunctions.with(context);
+        return AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetValidationFunctions.with(context);
     }
 
     /**
-     * {@see AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidatorValidators}
+     * {@see AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidationValidators}
      */
     public static PluginAliasSetLikeDialogComponentContext<ValidatorName, ValidatorInfo, ValidatorInfoSet, ValidatorSelector, ValidatorAlias, ValidatorAliasSet> validatorValidators(final AppContext context) {
-        return AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidatorValidators.with(context);
+        return AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidationValidators.with(context);
     }
 
     /**

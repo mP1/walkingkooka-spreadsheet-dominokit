@@ -29,7 +29,7 @@ import walkingkooka.validation.provider.ValidatorInfoSet;
 import walkingkooka.validation.provider.ValidatorName;
 import walkingkooka.validation.provider.ValidatorSelector;
 
-public final class AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidatorValidatorsTest implements PluginAliasSetLikeDialogComponentContextTesting<AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidatorValidators,
+public final class AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidationValidatorsTest implements PluginAliasSetLikeDialogComponentContextTesting<AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidationValidators,
     ValidatorName,
     ValidatorInfo,
     ValidatorInfoSet,
@@ -66,19 +66,19 @@ public final class AppContextPluginAliasSetLikeDialogComponentContextValidatorAl
     }
 
     @Override
-    public AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidatorValidators createContext() {
-        return AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidatorValidators.with(AppContexts.fake());
+    public AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidationValidators createContext() {
+        return AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidationValidators.with(AppContexts.fake());
     }
 
     @Override
     public SpreadsheetMetadataPropertyName<ValidatorAliasSet> metadataPropertyName() {
-        return SpreadsheetMetadataPropertyName.VALIDATOR_VALIDATORS;
+        return SpreadsheetMetadataPropertyName.VALIDATION_VALIDATORS;
     }
 
     // Class............................................................................................................
 
     @Override
-    public Class<AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidatorValidators> type() {
-        return AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidatorValidators.class;
+    public Class<AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidationValidators> type() {
+        return AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidationValidators.class;
     }
 }

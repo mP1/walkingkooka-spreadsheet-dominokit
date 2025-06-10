@@ -21,13 +21,13 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.validation.provider.ValidatorAliasSet;
 
-final class AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidatorValidators extends AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSet {
+final class AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidationValidators extends AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSet {
 
-    static AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidatorValidators with(final AppContext context) {
-        return new AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidatorValidators(context);
+    static AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidationValidators with(final AppContext context) {
+        return new AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidationValidators(context);
     }
 
-    private AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidatorValidators(final AppContext context) {
+    private AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidationValidators(final AppContext context) {
         super(context);
     }
 
@@ -35,7 +35,7 @@ final class AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetV
 
     @Override
     SpreadsheetMetadataPropertyName<ValidatorAliasSet> metadataPropertyName() {
-        return SpreadsheetMetadataPropertyName.VALIDATOR_VALIDATORS;
+        return SpreadsheetMetadataPropertyName.VALIDATION_VALIDATORS;
     }
 
     @Override

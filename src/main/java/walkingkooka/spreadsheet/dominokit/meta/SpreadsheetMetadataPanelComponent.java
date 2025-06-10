@@ -138,8 +138,8 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         items.add(this.parsers());
 
         items.add(this.validators());
-        items.add(this.validatorFunctions());
-        items.add(this.validatorValidators());
+        items.add(this.validationFunctions());
+        items.add(this.validationValidators());
 
         // TODO extract TABLE
         final TBodyElement tBody = ElementsFactory.elements.tbody();
@@ -425,15 +425,15 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<ExpressionFunctionAliasSet> validatorFunctions() {
+    private SpreadsheetMetadataPanelComponentItem<ExpressionFunctionAliasSet> validationFunctions() {
         return link(
-            SpreadsheetMetadataPropertyName.VALIDATOR_FUNCTIONS
+            SpreadsheetMetadataPropertyName.VALIDATION_FUNCTIONS
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<ValidatorAliasSet> validatorValidators() {
+    private SpreadsheetMetadataPanelComponentItem<ValidatorAliasSet> validationValidators() {
         return link(
-            SpreadsheetMetadataPropertyName.VALIDATOR_VALIDATORS
+            SpreadsheetMetadataPropertyName.VALIDATION_VALIDATORS
         );
     }
 
