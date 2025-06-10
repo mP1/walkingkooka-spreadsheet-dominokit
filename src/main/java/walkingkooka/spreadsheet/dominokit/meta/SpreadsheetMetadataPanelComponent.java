@@ -136,6 +136,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         items.add(this.parsers());
 
         items.add(this.validators());
+        items.add(this.validatorFunctions());
         items.add(this.validatorValidators());
 
         // TODO extract TABLE
@@ -413,6 +414,12 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     private SpreadsheetMetadataPanelComponentItem<ValidatorAliasSet> validators() {
         return link(
             SpreadsheetMetadataPropertyName.VALIDATORS
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<ExpressionFunctionAliasSet> validatorFunctions() {
+        return link(
+            SpreadsheetMetadataPropertyName.VALIDATOR_FUNCTIONS
         );
     }
 
