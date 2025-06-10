@@ -252,6 +252,9 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
             PluginAliasSetLikeDialogComponentContexts.formatters(context)
         );
         PluginAliasSetLikeDialogComponent.with(
+            PluginAliasSetLikeDialogComponentContexts.formattingFunctions(context)
+        );
+        PluginAliasSetLikeDialogComponent.with(
             PluginAliasSetLikeDialogComponentContexts.importers(context)
         );
         PluginAliasSetLikeDialogComponent.with(

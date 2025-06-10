@@ -132,6 +132,8 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         items.add(this.formulaFunctions());
 
         items.add(this.formatters());
+        items.add(this.formattingFunctions());
+
         items.add(this.importers());
         items.add(this.parsers());
 
@@ -390,6 +392,12 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     private SpreadsheetMetadataPanelComponentItem<SpreadsheetFormatterAliasSet> formatters() {
         return link(
             SpreadsheetMetadataPropertyName.FORMATTERS
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<ExpressionFunctionAliasSet> formattingFunctions() {
+        return link(
+            SpreadsheetMetadataPropertyName.FORMATTING_FUNCTIONS
         );
     }
 
