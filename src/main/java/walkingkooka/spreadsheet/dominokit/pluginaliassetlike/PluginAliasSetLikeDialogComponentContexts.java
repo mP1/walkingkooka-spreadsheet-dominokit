@@ -128,6 +128,13 @@ public final class PluginAliasSetLikeDialogComponentContexts implements PublicSt
     }
 
     /**
+     * {@see AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFormattingFunctions}
+     */
+    public static PluginAliasSetLikeDialogComponentContext<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> formattingFunctions(final AppContext context) {
+        return AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFormattingFunctions.with(context);
+    }
+    
+    /**
      * {@see AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFormulaFunctions}
      */
     public static PluginAliasSetLikeDialogComponentContext<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> formulaFunctions(final AppContext context) {
