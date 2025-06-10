@@ -21,13 +21,13 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliasSet;
 
-final class AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetValidatorFunctions extends AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSet {
+final class AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetValidationFunctions extends AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSet {
 
-    static AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetValidatorFunctions with(final AppContext context) {
-        return new AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetValidatorFunctions(context);
+    static AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetValidationFunctions with(final AppContext context) {
+        return new AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetValidationFunctions(context);
     }
 
-    private AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetValidatorFunctions(final AppContext context) {
+    private AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetValidationFunctions(final AppContext context) {
         super(context);
     }
 
@@ -35,7 +35,7 @@ final class AppContextPluginAliasSetLikeDialogComponentContextExpressionFunction
 
     @Override
     SpreadsheetMetadataPropertyName<ExpressionFunctionAliasSet> metadataPropertyName() {
-        return SpreadsheetMetadataPropertyName.VALIDATOR_FUNCTIONS;
+        return SpreadsheetMetadataPropertyName.VALIDATION_FUNCTIONS;
     }
 
     @Override

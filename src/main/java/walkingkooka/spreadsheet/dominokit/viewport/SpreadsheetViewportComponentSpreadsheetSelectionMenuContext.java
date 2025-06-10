@@ -109,7 +109,7 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     public List<ValidatorSelector> validatorSelectors() {
         final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
 
-        final ValidatorAliasSet validators = metadata.get(SpreadsheetMetadataPropertyName.VALIDATOR_VALIDATORS)
+        final ValidatorAliasSet validators = metadata.get(SpreadsheetMetadataPropertyName.VALIDATION_VALIDATORS)
             .orElse(ValidatorAliasSet.EMPTY);
 
         return metadata.get(SpreadsheetMetadataPropertyName.VALIDATORS)
