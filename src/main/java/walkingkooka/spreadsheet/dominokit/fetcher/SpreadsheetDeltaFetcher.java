@@ -1073,8 +1073,9 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
 
     // helpers..........................................................................................................
 
-    private static UrlQueryString offsetAndCountQueryString(final int offset,
-                                                            final int count) {
+    // @VisibleForTesting
+    static UrlQueryString offsetAndCountQueryString(final int offset,
+                                                    final int count) {
         UrlQueryString queryString = UrlQueryString.EMPTY;
 
         if (offset > 0) {
@@ -1085,7 +1086,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         }
 
         if (count > 0) {
-            queryString = UrlQueryString.EMPTY.addParameter(
+            queryString = queryString.addParameter(
                 SpreadsheetUrlQueryParameters.COUNT,
                 String.valueOf(count)
             );
