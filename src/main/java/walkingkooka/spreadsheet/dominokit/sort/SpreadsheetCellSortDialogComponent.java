@@ -144,7 +144,7 @@ public final class SpreadsheetCellSortDialogComponent implements SpreadsheetDial
                     .cast(SpreadsheetAnchoredSelectionHistoryToken.class)
                     .anchoredSelection()
                     .selection()
-            );
+            ).orElse(null); // @@FIX
     }
 
     /**

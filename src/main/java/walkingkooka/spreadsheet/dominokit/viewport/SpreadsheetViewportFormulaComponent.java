@@ -194,7 +194,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
             .cast(SpreadsheetCellHistoryToken.class);
         final SpreadsheetFormulaComponent formula = this.formula;
         final SpreadsheetViewportCache cache = this.context.spreadsheetViewportCache();
-        final SpreadsheetSelection notLabelSelection = cache.resolveIfLabel(
+        final SpreadsheetSelection notLabelSelection = cache.resolveIfLabelOrFail(
             token.anchoredSelection()
                 .selection()
         );

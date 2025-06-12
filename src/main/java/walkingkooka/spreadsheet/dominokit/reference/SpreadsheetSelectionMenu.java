@@ -1127,12 +1127,8 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = historyToken.anchoredSelection();
         final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
 
-        SpreadsheetSelection selectionNotLabel;
-        try {
-            selectionNotLabel = context.resolveIfLabel(selection);
-        } catch (final RuntimeException ignore) {
-            selectionNotLabel = null;
-        }
+        final SpreadsheetSelection selectionNotLabel = context.resolveIfLabel(selection)
+                .orElse(null);
 
         if (null != selectionNotLabel && (selection.isColumnOrColumnRange() | selection.isExternalReference())) {
             final HistoryToken columnHistoryToken = historyToken.setAnchoredSelection(
@@ -1177,12 +1173,8 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = historyToken.anchoredSelection();
         final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
 
-        SpreadsheetSelection selectionNotLabel;
-        try {
-            selectionNotLabel = context.resolveIfLabel(selection);
-        } catch (final RuntimeException ignore) {
-            selectionNotLabel = null;
-        }
+        final SpreadsheetSelection selectionNotLabel = context.resolveIfLabel(selection)
+            .orElse(null);
 
         if (null != selectionNotLabel && (selection.isRowOrRowRange() | selection.isExternalReference())) {
             final HistoryToken rowHistoryToken = historyToken.setAnchoredSelection(
@@ -1228,12 +1220,9 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                     final SpreadsheetContextMenu menu,
                                     final SpreadsheetSelectionMenuContext context) {
         final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
-        SpreadsheetSelection selectionNotLabel;
-        try {
-            selectionNotLabel = context.resolveIfLabel(selection);
-        } catch (final RuntimeException ignore) {
-            selectionNotLabel = null;
-        }
+
+        final SpreadsheetSelection selectionNotLabel = context.resolveIfLabel(selection)
+            .orElse(null);
 
         if (null != selectionNotLabel) {
             final boolean columns = selection.isColumnOrColumnRange();
@@ -1261,12 +1250,9 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                  final SpreadsheetContextMenu menu,
                                  final SpreadsheetSelectionMenuContext context) {
         final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
-        SpreadsheetSelection selectionNotLabel;
-        try {
-            selectionNotLabel = context.resolveIfLabel(selection);
-        } catch (final RuntimeException ignore) {
-            selectionNotLabel = null;
-        }
+
+        final SpreadsheetSelection selectionNotLabel = context.resolveIfLabel(selection)
+            .orElse(null);
 
         if (null != selectionNotLabel) {
             final boolean rows = selection.isRowOrRowRange();

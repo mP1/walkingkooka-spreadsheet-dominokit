@@ -3135,7 +3135,7 @@ public abstract class HistoryToken implements HasUrlFragment,
             final Optional<AnchoredSpreadsheetSelection> maybeAnchored = this.anchoredSelectionOrEmpty();
             if (maybeAnchored.isPresent()) {
                 // right mouse happened over already selected selection...
-                if (labelNameResolver.resolveIfLabel(maybeAnchored.get().selection())
+                if (labelNameResolver.resolveIfLabelOrFail(maybeAnchored.get().selection())
                     .test(selection)) {
                     historyToken = this.menu();
                 }

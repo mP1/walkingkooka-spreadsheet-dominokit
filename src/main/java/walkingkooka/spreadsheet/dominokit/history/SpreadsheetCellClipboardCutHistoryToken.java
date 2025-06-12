@@ -87,7 +87,7 @@ public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCe
     void onHistoryTokenChangeClipboard(final AppContext context) {
         final SpreadsheetCellClipboardKind kind = this.kind();
         final SpreadsheetCellRangeReference range = context.spreadsheetViewportCache()
-            .resolveIfLabel(
+            .resolveIfLabelOrFail(
                 this.anchoredSelection()
                     .selection()
             ).toCellRange();
