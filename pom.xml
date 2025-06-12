@@ -262,6 +262,11 @@
                     <annotationProcessorPaths>
                         <path>
                             <groupId>walkingkooka</groupId>
+                            <artifactId>walkingkooka-resource-annotation-processor</artifactId>
+                            <version>1.0-SNAPSHOT</version>
+                        </path>
+                        <path>
+                            <groupId>walkingkooka</groupId>
                             <artifactId>j2cl-java-text-annotation-processor</artifactId>
                             <version>1.0-SNAPSHOT</version>
                         </path>
