@@ -41,7 +41,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
-import walkingkooka.spreadsheet.reference.LabelNotFoundException;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -49,8 +48,6 @@ import walkingkooka.text.cursor.TextCursors;
 import walkingkooka.util.FunctionTesting;
 
 import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunctionTest implements FunctionTesting<SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction, String, SpreadsheetFormula>,
     SpreadsheetMetadataTesting {
@@ -65,19 +62,6 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
         SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
         ID
     );
-
-    @Test
-    public void testUnknownLabelFails() {
-        assertThrows(
-            LabelNotFoundException.class,
-            () -> SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(
-                this.createContext(
-                    SpreadsheetSelection.labelName("Unknown"),
-                    SpreadsheetMetadata.EMPTY
-                )
-            ).apply("=1")
-        );
-    }
 
     @Test
     public void testInvalidExpression() {

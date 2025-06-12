@@ -85,7 +85,7 @@ public final class SpreadsheetCellClipboardPasteHistoryToken extends Spreadsheet
     @Override
     void onHistoryTokenChangeClipboard(final AppContext context) {
         final SpreadsheetCellRangeReference cellRange = context.spreadsheetViewportCache()
-            .resolveIfLabel(
+            .resolveIfLabelOrFail(
                 SpreadsheetCellClipboardPasteHistoryToken.this.anchoredSelection()
                     .selection()
             ).toCellRange();

@@ -37,6 +37,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -64,8 +65,8 @@ public final class AppContextSpreadsheetFindDialogComponentContextTest implement
                 new TestAppContext() {
 
                     @Override
-                    public SpreadsheetSelection resolveIfLabel(final SpreadsheetSelection selection) {
-                        return selection;
+                    public Optional<SpreadsheetSelection> resolveIfLabel(final SpreadsheetSelection selection) {
+                        return Optional.of(selection);
                     }
 
                     @Override
@@ -110,13 +111,13 @@ public final class AppContextSpreadsheetFindDialogComponentContextTest implement
                 new TestAppContext() {
 
                     @Override
-                    public SpreadsheetSelection resolveIfLabel(final SpreadsheetSelection selection) {
+                    public Optional<SpreadsheetSelection> resolveIfLabel(final SpreadsheetSelection selection) {
                         checkEquals(
                             label1,
                             selection,
                             "resolveIfLabel.selection"
                         );
-                        return selection;
+                        return Optional.of(selection);
                     }
 
                     @Override
@@ -161,7 +162,7 @@ public final class AppContextSpreadsheetFindDialogComponentContextTest implement
                 new TestAppContext() {
 
                     @Override
-                    public SpreadsheetSelection resolveIfLabel(final SpreadsheetSelection selection) {
+                    public Optional<SpreadsheetSelection> resolveIfLabel(final SpreadsheetSelection selection) {
                         throw new IllegalArgumentException("Unknown label=" + selection);
                     }
 

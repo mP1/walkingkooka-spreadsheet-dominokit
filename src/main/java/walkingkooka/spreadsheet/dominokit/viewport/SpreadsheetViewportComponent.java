@@ -633,7 +633,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
             element = this.findElement(
                 this.context.spreadsheetViewportCache()
-                    .resolveIfLabel(
+                    .resolveIfLabelOrFail(
                         anchored.selection()
                     ).focused(anchored.anchor())
             ).orElse(null);
@@ -1039,7 +1039,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     private void giveViewportSelectionFocus(final AnchoredSpreadsheetSelection selection,
                                             final RefreshContext context) {
         final SpreadsheetSelection nonLabelSelection = this.spreadsheetViewportCache()
-            .resolveIfLabel(
+            .resolveIfLabelOrFail(
                 selection.selection()
             );
         final SpreadsheetSelection spreadsheetSelection = nonLabelSelection.focused(
@@ -1128,7 +1128,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
         if (maybeAnchorSelection.isPresent()) {
             // special case for label
-            final SpreadsheetSelection selectionNotLabel = cache.resolveIfLabel(
+            final SpreadsheetSelection selectionNotLabel = cache.resolveIfLabelOrFail(
                 maybeAnchorSelection.get()
                     .selection()
             );
@@ -1453,7 +1453,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
             .getElementById(
                 SpreadsheetViewportComponent.id(
                     this.context.spreadsheetViewportCache()
-                        .resolveIfLabel(selection)
+                        .resolveIfLabelOrFail(selection)
                 )
             );
 

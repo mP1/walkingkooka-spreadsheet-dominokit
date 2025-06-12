@@ -131,9 +131,10 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     }
 
     public Optional<SpreadsheetCell> cell(final SpreadsheetSelection selection) {
-        return this.cell(
-            this.resolveIfLabel(selection).toCell()
-        );
+        return this.resolveIfLabel(selection)
+            .flatMap(
+                (SpreadsheetSelection notLabel) -> this.cell(notLabel.toCell())
+            );
     }
 
     public Optional<SpreadsheetCell> cell(final SpreadsheetCellReference cell) {
@@ -333,22 +334,25 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
     /**
      * Returns all {@link SpreadsheetLabelMapping} for the given {@link SpreadsheetSelection}.
+     * If the labels is unknown not mappings will be returned.
      * <br>
      * This will be useful for creating a context menu item holding all the labels for current selection.
      */
     public Set<SpreadsheetLabelMapping> labelMappings(final SpreadsheetSelection selection) {
         Objects.requireNonNull(selection, "selection");
 
-        final SpreadsheetSelection nonLabelSelection = this.resolveIfLabel(selection);
+        final SpreadsheetSelection nonLabelSelection = this.resolveIfLabel(selection)
+            .orElse(null);
 
-        return this.labelMappings()
-            .stream()
-            .filter(
-                m -> this.resolveIfLabel(
-                    m.reference()
-                ).test(nonLabelSelection)
-            )
-            .collect(Collectors.toCollection(SortedSets::tree));
+        return null == nonLabelSelection ?
+            Sets.empty() :
+            this.labelMappings()
+                .stream()
+                .filter((SpreadsheetLabelMapping m) ->
+                    this.resolveIfLabel((SpreadsheetSelection) m.reference())
+                        .map((SpreadsheetSelection s) -> s.test(nonLabelSelection))
+                        .orElse(false)
+                ).collect(Collectors.toCollection(SortedSets::tree));
     }
 
     /**
@@ -594,7 +598,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                 final Optional<SpreadsheetSelection> maybeSelectionNotLabel = historyToken.anchoredSelectionOrEmpty()
                     .map(AnchoredSpreadsheetSelection::selection)
                     .filter(s -> false == s.isLabelName() || false == this.labelMappings.isEmpty())
-                    .map(this::resolveIfLabel);
+                    .flatMap(this::resolveIfLabel);
 
                 // clear the cached #selectionSummary if there is no active selection or it changed.
                 if (maybeSelectionNotLabel.isPresent()) {

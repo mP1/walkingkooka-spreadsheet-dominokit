@@ -2497,7 +2497,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.resolveIfLabelFails(
+        this.resolveIfLabelAndCheck(
             cache,
             LABEL999
         );
