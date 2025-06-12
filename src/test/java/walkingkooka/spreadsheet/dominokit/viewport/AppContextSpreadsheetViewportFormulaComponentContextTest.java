@@ -63,7 +63,7 @@ public final class AppContextSpreadsheetViewportFormulaComponentContextTest impl
     }
 
     @Override
-    public void testUser() {
+    public void testUserNotNull() {
         throw new UnsupportedOperationException();
     }
 
