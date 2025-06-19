@@ -30,7 +30,7 @@ public final class SpreadsheetFormatterInfoSetComponentTest implements FormValue
 
     @Test
     public void testParseAndText() {
-        final SpreadsheetFormatterInfoSet infos = SpreadsheetFormatterProviders.spreadsheetFormatPattern()
+        final SpreadsheetFormatterInfoSet infos = SpreadsheetFormatterProviders.spreadsheetFormatters()
             .spreadsheetFormatterInfos();
 
         this.checkEquals(
@@ -45,7 +45,7 @@ public final class SpreadsheetFormatterInfoSetComponentTest implements FormValue
             SpreadsheetFormatterInfoSetComponent.empty()
                 .setStringValue(
                     Optional.of(
-                        SpreadsheetFormatterProviders.spreadsheetFormatPattern()
+                        SpreadsheetFormatterProviders.spreadsheetFormatters()
                             .spreadsheetFormatterInfos()
                             .text()
                     )
