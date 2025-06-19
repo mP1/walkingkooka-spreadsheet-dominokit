@@ -1109,7 +1109,7 @@ public class App implements EntryPoint,
             this.spreadsheetFormatterInfoSet.renameIfPresent(
                 SpreadsheetFormatterInfoSet.EMPTY
             ),
-            SpreadsheetFormatterProviders.spreadsheetFormatPattern()
+            SpreadsheetFormatterProviders.spreadsheetFormatters()
         );
 
         final FormHandlerProvider formHandlerProvider = FormHandlerProviders.mergedMapped(
