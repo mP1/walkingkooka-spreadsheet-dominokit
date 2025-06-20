@@ -28,7 +28,7 @@ import walkingkooka.net.header.MediaType;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.net.http.HttpStatusCode;
-import walkingkooka.net.http.server.hateos.HateosResourceMapping;
+import walkingkooka.net.http.server.hateos.HateosResourceMappings;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.SpreadsheetServerMediaTypes;
 import walkingkooka.text.CharSequences;
@@ -206,7 +206,7 @@ abstract public class Fetcher<W extends FetcherWatcher> {
                                     method,
                                     url,
                                     response.headers.get(
-                                        HateosResourceMapping.X_CONTENT_TYPE_NAME.value()
+                                        HateosResourceMappings.X_CONTENT_TYPE_NAME.value()
                                     ),
                                     HttpStatusCode.NO_CONTENT.code() == response.status ?
                                         Optional.empty() :
