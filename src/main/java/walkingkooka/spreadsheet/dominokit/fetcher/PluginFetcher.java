@@ -99,6 +99,7 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
                 .appendPathName(UrlPathName.WILDCARD)
                 .appendPathName(
                     SpreadsheetServerLinkRelations.FILTER.toUrlPathName()
+                        .get()
                 ).setQuery(
                     UrlQueryString.EMPTY.addParameter(SpreadsheetUrlQueryParameters.QUERY, query)
                         .addParameter(SpreadsheetUrlQueryParameters.OFFSET, String.valueOf(offset))
@@ -113,6 +114,7 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
             pluginNameUrl(pluginName)
                 .appendPathName(
                     SpreadsheetServerLinkRelations.LIST.toUrlPathName()
+                        .get()
                 )
         );
     }
@@ -187,7 +189,10 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
         Objects.requireNonNull(file, "file");
 
         RelativeUrl url = pluginNameUrl(pluginName)
-            .appendPathName(SpreadsheetServerLinkRelations.DOWNLOAD.toUrlPathName());
+            .appendPathName(
+                SpreadsheetServerLinkRelations.DOWNLOAD.toUrlPathName()
+                    .get()
+            );
         if (file.isPresent()) {
             url = url.appendPath(
                 UrlPath.parse(

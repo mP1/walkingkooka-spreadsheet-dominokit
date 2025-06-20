@@ -322,6 +322,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                 selection
             ).appendPathName(
                 SpreadsheetServerLinkRelations.CLEAR.toUrlPathName()
+                    .get()
             ).setQuery(
                 context.viewportAndWindowQueryString()
             ),
@@ -370,6 +371,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                 )
             ).appendPathName(
                 SpreadsheetServerLinkRelations.FIND.toUrlPathName()
+                    .get()
             ).setQuery(
                 find.toUrlQueryString()
             );
@@ -439,8 +441,10 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                             UrlPath.SEPARATOR +
                             selection.toStringMaybeStar()
                     )
-                ).appendPathName(afterOrBefore.toUrlPathName())
-                .setQuery(
+                ).appendPathName(
+                    afterOrBefore.toUrlPathName()
+                        .get()
+                ).setQuery(
                     offsetAndCountQueryString(
                         0, // offset
                         count
@@ -473,8 +477,10 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                             reference.toStringMaybeStar() +
                             UrlPath.SEPARATOR
                     )
-                ).appendPathName(SpreadsheetServerLinkRelations.LABELS.toUrlPathName())
-                .setQuery(
+                ).appendPathName(
+                    SpreadsheetServerLinkRelations.LABELS.toUrlPathName()
+                        .get()
+                ).setQuery(
                     offsetAndCountQueryString(
                         offset,
                         count
@@ -504,8 +510,10 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                             reference.toStringMaybeStar() +
                             UrlPath.SEPARATOR
                     )
-                ).appendPathName(SpreadsheetServerLinkRelations.REFERENCES.toUrlPathName())
-                .setQuery(
+                ).appendPathName(
+                    SpreadsheetServerLinkRelations.REFERENCES.toUrlPathName()
+                        .get()
+                ).setQuery(
                     offsetAndCountQueryString(offset, count)
                 )
         );
@@ -533,8 +541,10 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                             label.toStringMaybeStar() +
                             UrlPath.SEPARATOR
                     )
-                ).appendPathName(SpreadsheetServerLinkRelations.REFERENCES.toUrlPathName())
-                .setQuery(
+                ).appendPathName(
+                    SpreadsheetServerLinkRelations.REFERENCES.toUrlPathName()
+                        .get()
+                ).setQuery(
                     offsetAndCountQueryString(
                         offset,
                         count
@@ -970,6 +980,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                 selection
             ).appendPathName(
                 SpreadsheetServerLinkRelations.SORT.toUrlPathName()
+                    .get()
             ).setQuery(
                 this.context.viewportAndWindowQueryString()
                     .addParameter(
