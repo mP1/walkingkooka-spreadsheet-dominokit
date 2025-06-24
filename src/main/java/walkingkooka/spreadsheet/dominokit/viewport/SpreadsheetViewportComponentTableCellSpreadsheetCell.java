@@ -146,8 +146,9 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
                         );
                     }
                 }
-                style = cell.style()
-                    .merge(style);
+                style = style.merge(
+                    cell.style()
+                );
                 maybeError = cell.formula()
                     .error();
             }
