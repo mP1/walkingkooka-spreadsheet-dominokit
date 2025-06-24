@@ -109,6 +109,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                             ),
                             metadata.spreadsheetParserContext(
                                 Optional.of(cell),
+                                context,
                                 context
                             )
                         )
@@ -170,6 +171,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                     ),
                     metadata.spreadsheetParserContext(
                         SpreadsheetMetadata.NO_CELL, // TODO seems wrong to pass NO_CELL
+                        context,
                         context
                     )// parser context
                 )

@@ -21,6 +21,7 @@ import elemental2.dom.Headers;
 import walkingkooka.Context;
 import walkingkooka.datetime.HasNow;
 import walkingkooka.locale.HasLocale;
+import walkingkooka.locale.LocaleContext;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlQueryString;
@@ -87,6 +88,7 @@ public interface AppContext extends CanGiveFocus,
     HasSpreadsheetParserFetcher,
     HasValidatorFetcher,
     JsonNodeMarshallUnmarshallContext,
+    LocaleContext,
     ProviderContext,
     SpreadsheetFormatterContext,
     SpreadsheetParserContext,

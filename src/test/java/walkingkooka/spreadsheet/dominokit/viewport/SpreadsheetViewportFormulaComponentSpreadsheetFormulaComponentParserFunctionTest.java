@@ -223,6 +223,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 ),
                 metadata.spreadsheetParserContext(
                     SpreadsheetMetadata.NO_CELL,
+                    LOCALE_CONTEXT,
                     NOW
                 )
             )
@@ -270,6 +271,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 pattern.parser(),
                 METADATA.spreadsheetParserContext(
                     SpreadsheetMetadata.NO_CELL,
+                    LOCALE_CONTEXT,
                     NOW
                 )
             )
@@ -322,6 +324,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 pattern.parser(),
                 METADATA.spreadsheetParserContext(
                     SpreadsheetMetadata.NO_CELL,
+                    LOCALE_CONTEXT,
                     NOW
                 )
             )
@@ -341,6 +344,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 ),
                 METADATA.spreadsheetParserContext(
                     SpreadsheetMetadata.NO_CELL,
+                    LOCALE_CONTEXT,
                     NOW
                 )
             )

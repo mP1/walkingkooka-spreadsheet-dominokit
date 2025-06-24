@@ -29,6 +29,9 @@ import walkingkooka.convert.provider.ConverterProviders;
 import walkingkooka.environment.EnvironmentContext;
 import walkingkooka.environment.EnvironmentContexts;
 import walkingkooka.j2cl.locale.LocaleAware;
+import walkingkooka.locale.LocaleContext;
+import walkingkooka.locale.LocaleContextDelegator;
+import walkingkooka.locale.LocaleContexts;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.email.EmailAddress;
@@ -175,6 +178,7 @@ public class App implements EntryPoint,
     HistoryContextDelegator,
     JsonNodeMarshallContextDelegator,
     JsonNodeUnmarshallContextDelegator,
+    LocaleContextDelegator,
     LoggingContextDelegator,
     NopEmptyResponseFetcherWatcher,
     ProviderContextDelegator,
@@ -1185,6 +1189,7 @@ public class App implements EntryPoint,
                 this.viewportCache, // SpreadsheetLabelNameResolver
                 converterProvider,// ConverterProvider
                 spreadsheetFormatterProvider, // SpreadsheetFormatterProvider
+                this, // LocaleContext
                 this.providerContext // ProviderContext
             );
         } catch (final RuntimeException cause) {
@@ -1195,6 +1200,7 @@ public class App implements EntryPoint,
         try {
             this.parserContext = metadata.spreadsheetParserContext(
                 SpreadsheetMetadata.NO_CELL,
+                this, // LocaleContext
                 this // HasNow
             );
         } catch (final RuntimeException cause) {
@@ -1256,21 +1262,28 @@ public class App implements EntryPoint,
 
     private final CanGiveFocus canGiveFocus;
 
-    // HasLocale........................................................................................................
-
-    @Override
-    public Locale locale() {
-        return LOCALE;
-    }
-
-    private final static Locale LOCALE = Locale.forLanguageTag("EN-AU"); // TODO use browser locale
-
     // HasNow...........................................................................................................
 
     @Override
     public LocalDateTime now() {
         return LocalDateTime.now();
     }
+
+    // LocaleContext....................................................................................................
+
+    @Override
+    public Locale locale() {
+        return LOCALE_CONTEXT.locale();
+    }
+
+    @Override
+    public LocaleContext localeContext() {
+        return LOCALE_CONTEXT;
+    }
+
+    private final static LocaleContext LOCALE_CONTEXT = LocaleContexts.jre(
+        Locale.forLanguageTag("EN-AU")
+    ); // TODO use browser locale
 
     // HistoryContextDelegator.....................................................................................
 

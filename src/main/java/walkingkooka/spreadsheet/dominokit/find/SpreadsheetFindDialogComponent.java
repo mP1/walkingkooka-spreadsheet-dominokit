@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.find;
 
+import walkingkooka.locale.LocaleContexts;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
@@ -313,6 +314,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
         return metadata.spreadsheetParserContext(
             SpreadsheetMetadata.NO_CELL,
+            LocaleContexts.fake(),
             context
         );
     }
