@@ -318,6 +318,28 @@ public class FakeAppContext extends FakeSpreadsheetProvider
         throw new UnsupportedOperationException();
     }
 
+    // LocaleContext....................................................................................................
+
+    @Override
+    public Set<Locale> availableLocales() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<DateTimeSymbols> dateTimeSymbolsForLocale(final Locale locale) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<DecimalNumberSymbols> decimalNumberSymbolsForLocale(final Locale locale) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Locale locale() {
+        throw new UnsupportedOperationException();
+    }
+
     // json.............................................................................................................
 
     @Override
@@ -391,13 +413,6 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public void giveFocus(final Runnable focus) {
-        throw new UnsupportedOperationException();
-    }
-
-    // HasLocale........................................................................................................
-
-    @Override
-    public Locale locale() {
         throw new UnsupportedOperationException();
     }
 
