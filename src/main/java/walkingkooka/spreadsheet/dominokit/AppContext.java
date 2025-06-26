@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit;
 import elemental2.dom.Headers;
 import walkingkooka.Context;
 import walkingkooka.datetime.HasNow;
-import walkingkooka.locale.HasLocale;
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
@@ -61,6 +60,7 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallUnmarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContextPreProcessor;
+import walkingkooka.util.HasLocale;
 
 import java.util.Objects;
 import java.util.Optional;
