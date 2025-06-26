@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
-import walkingkooka.locale.HasLocale;
+import walkingkooka.util.HasLocale;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
