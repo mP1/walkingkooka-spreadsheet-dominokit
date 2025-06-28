@@ -58,6 +58,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.expression.SpreadsheetExpressionEvaluationContext;
 import walkingkooka.spreadsheet.format.SpreadsheetColorName;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.provider.FakeSpreadsheetProvider;
 import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
@@ -449,6 +451,11 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public Optional<TextNode> format(final Optional<Object> value) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public SpreadsheetFormatter spreadsheetFormatter(final SpreadsheetFormatterSelector selector) {
         throw new UnsupportedOperationException();
     }
 
