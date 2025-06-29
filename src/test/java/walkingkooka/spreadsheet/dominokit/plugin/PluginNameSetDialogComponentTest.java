@@ -45,6 +45,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.OptionalInt;
 import java.util.TreeSet;
 
 public final class PluginNameSetDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<PluginNameSetDialogComponent>,
@@ -288,13 +289,13 @@ public final class PluginNameSetDialogComponentTest implements SpreadsheetDialog
 
         @Override
         public void pluginFilter(final String query,
-                                 final int offset,
-                                 final int count) {
+                                 final OptionalInt offset,
+                                 final OptionalInt count) {
             final List<Plugin> plugin = this.context.pluginStore()
                 .filter(
                     query,
-                    offset,
-                    count
+                    offset.orElse(0),
+                    count.orElse(1)
                 );
             this.pluginFetcherWatchers.onPluginSet(
                 PluginSet.with(

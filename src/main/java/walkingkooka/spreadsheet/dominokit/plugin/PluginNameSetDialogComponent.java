@@ -47,6 +47,7 @@ import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.Set;
 import java.util.function.Predicate;
 
@@ -148,8 +149,8 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
         this.context.pluginFilter(
             this.add.filterValue()
                 .orElse("*"),
-            0,
-            50
+            OptionalInt.of(0),
+            OptionalInt.of(50)
         );
     }
 
@@ -339,8 +340,8 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
         dialogContext.pluginFilter(
             this.add.filterValue()
                 .orElse("*"),
-            0,
-            50
+            OptionalInt.of(0),
+            OptionalInt.of(50)
         );
 
         context.giveFocus(

@@ -73,14 +73,8 @@ public abstract class PluginListHistoryToken extends PluginHistoryToken {
         fetcher.pluginFetcher()
             .filter(
                 "*", // query
+                this.count(),
                 this.count()
-                    .orElse(DEFAULT_OFFSET),
-                this.count()
-                    .orElse(DEFAULT_COUNT)
             );
     }
-
-    private final static int DEFAULT_OFFSET = 0;
-
-    private final static int DEFAULT_COUNT = 20;
 }

@@ -24,7 +24,6 @@ import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlPathName;
-import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.header.Accept;
 import walkingkooka.net.header.HttpHeaderName;
 import walkingkooka.net.header.MediaType;
@@ -36,7 +35,6 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
 import walkingkooka.spreadsheet.server.SpreadsheetServerMediaTypes;
-import walkingkooka.spreadsheet.server.SpreadsheetUrlQueryParameters;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 import walkingkooka.text.CharSequences;
@@ -44,6 +42,7 @@ import walkingkooka.text.CharSequences;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.OptionalInt;
 
 /**
  * Fetcher for {@link walkingkooka.plugin.store.PluginStore} end points.
@@ -84,15 +83,9 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
 
     // GET /api/plugin/*/filter?query=XXX&offset=0&count=10
     public void filter(final String query,
-                       final int offset,
-                       final int count) {
+                       final OptionalInt offset,
+                       final OptionalInt count) {
         Objects.requireNonNull(query, "query");
-        if (offset < 0) {
-            throw new IllegalArgumentException("Invalid offset " + offset + " < 0");
-        }
-        if (count < 0) {
-            throw new IllegalArgumentException("Invalid count " + count + " < 0");
-        }
 
         this.get(
             plugin()
@@ -101,9 +94,10 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
                     SpreadsheetServerLinkRelations.FILTER.toUrlPathName()
                         .get()
                 ).setQuery(
-                    UrlQueryString.EMPTY.addParameter(SpreadsheetUrlQueryParameters.QUERY, query)
-                        .addParameter(SpreadsheetUrlQueryParameters.OFFSET, String.valueOf(offset))
-                        .addParameter(SpreadsheetUrlQueryParameters.COUNT, String.valueOf(count))
+                    offsetAndCountQueryString(
+                        offset,
+                        count
+                    )
                 )
         );
     }

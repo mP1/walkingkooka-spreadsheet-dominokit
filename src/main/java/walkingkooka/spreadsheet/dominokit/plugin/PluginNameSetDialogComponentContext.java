@@ -24,6 +24,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 
+import java.util.OptionalInt;
+
 /**
  * A {@link walkingkooka.Context} tht accompanies a {@link PluginNameSetDialogComponent} providing custom values and functionality.
  */
@@ -45,6 +47,6 @@ public interface PluginNameSetDialogComponentContext
     void loadSpreadsheetMetadata(final SpreadsheetId id);
 
     void pluginFilter(final String query,
-                      final int offset,
-                      final int count);
+                      final OptionalInt offset,
+                      final OptionalInt count);
 }

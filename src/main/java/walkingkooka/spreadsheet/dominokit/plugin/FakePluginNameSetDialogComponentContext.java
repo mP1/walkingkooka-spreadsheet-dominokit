@@ -23,6 +23,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
+import java.util.OptionalInt;
+
 public class FakePluginNameSetDialogComponentContext extends FakeSpreadsheetDialogComponentContext
     implements PluginNameSetDialogComponentContext {
 
@@ -47,8 +49,8 @@ public class FakePluginNameSetDialogComponentContext extends FakeSpreadsheetDial
 
     @Override
     public void pluginFilter(final String query,
-                             final int offset,
-                             final int count) {
+                             final OptionalInt offset,
+                             final OptionalInt count) {
         throw new UnsupportedOperationException();
     }
 
