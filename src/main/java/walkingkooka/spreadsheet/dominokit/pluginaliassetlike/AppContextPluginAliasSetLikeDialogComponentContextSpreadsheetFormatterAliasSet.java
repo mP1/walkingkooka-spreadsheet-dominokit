@@ -64,7 +64,7 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetForm
 
     @Override final void loadPluginInfoSetLike0(final SpreadsheetId id) {
         this.context.spreadsheetFormatterFetcher()
-            .infoSet(id);
+            .getInfoSet(id);
     }
 
     @Override

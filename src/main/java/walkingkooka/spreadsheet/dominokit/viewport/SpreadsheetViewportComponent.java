@@ -1342,7 +1342,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
         if (fetchSpreadsheetFormatterSelectorsMenu) {
             context.spreadsheetFormatterFetcher()
-                .menu(
+                .getMenu(
                     metadata.id()
                         .get()
                 );

@@ -579,7 +579,7 @@ public class App implements EntryPoint,
                         context.expressionFunctionFetcher()
                             .getInfoSet(id);
                         context.spreadsheetFormatterFetcher()
-                            .infoSet(id);
+                            .getInfoSet(id);
                         context.spreadsheetImporterFetcher()
                             .infoSet(id);
                         context.spreadsheetParserFetcher()
