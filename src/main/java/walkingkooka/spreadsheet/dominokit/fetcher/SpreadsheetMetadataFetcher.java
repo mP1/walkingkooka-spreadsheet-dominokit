@@ -98,9 +98,6 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
 
     public static SpreadsheetMetadataFetcher with(final SpreadsheetMetadataFetcherWatcher watcher,
                                                   final AppContext context) {
-        Objects.requireNonNull(watcher, "watcher");
-        Objects.requireNonNull(context, "context");
-
         return new SpreadsheetMetadataFetcher(
             watcher,
             context

@@ -36,6 +36,7 @@ import walkingkooka.tree.json.JsonNode;
 
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
 
@@ -46,8 +47,8 @@ abstract public class Fetcher<W extends FetcherWatcher> {
 
     Fetcher(final W watcher,
             final AppContext context) {
-        this.watcher = watcher;
-        this.context = context;
+        this.watcher = Objects.requireNonNull(watcher, "watcher");
+        this.context = Objects.requireNonNull(context, "context");
     }
 
     /**

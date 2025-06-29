@@ -27,7 +27,6 @@ import walkingkooka.validation.Validator;
 import walkingkooka.validation.provider.ValidatorInfoSet;
 import walkingkooka.validation.provider.ValidatorName;
 
-import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -42,9 +41,6 @@ public final class ValidatorFetcher extends Fetcher<ValidatorFetcherWatcher> {
 
     public static ValidatorFetcher with(final ValidatorFetcherWatcher watcher,
                                         final AppContext context) {
-        Objects.requireNonNull(watcher, "watcher");
-        Objects.requireNonNull(context, "context");
-
         return new ValidatorFetcher(
             watcher,
             context

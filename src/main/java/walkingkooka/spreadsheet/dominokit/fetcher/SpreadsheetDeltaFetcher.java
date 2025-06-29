@@ -296,9 +296,6 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
 
     public static SpreadsheetDeltaFetcher with(final SpreadsheetDeltaFetcherWatcher watcher,
                                                final AppContext context) {
-        Objects.requireNonNull(watcher, "watcher");
-        Objects.requireNonNull(context, "context");
-
         return new SpreadsheetDeltaFetcher(
             watcher,
             context

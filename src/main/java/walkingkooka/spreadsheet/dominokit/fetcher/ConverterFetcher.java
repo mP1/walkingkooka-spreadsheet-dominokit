@@ -28,7 +28,6 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.convert.ConverterHateosResourceMappings;
 import walkingkooka.text.CharSequences;
 
-import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -42,9 +41,6 @@ public final class ConverterFetcher extends Fetcher<ConverterFetcherWatcher> {
 
     public static ConverterFetcher with(final ConverterFetcherWatcher watcher,
                                         final AppContext context) {
-        Objects.requireNonNull(watcher, "watcher");
-        Objects.requireNonNull(context, "context");
-
         return new ConverterFetcher(
             watcher,
             context

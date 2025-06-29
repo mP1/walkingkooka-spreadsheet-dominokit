@@ -27,7 +27,6 @@ import walkingkooka.spreadsheet.export.SpreadsheetExporterInfoSet;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterName;
 import walkingkooka.text.CharSequences;
 
-import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -41,9 +40,6 @@ public final class SpreadsheetExporterFetcher extends Fetcher<SpreadsheetExporte
 
     public static SpreadsheetExporterFetcher with(final SpreadsheetExporterFetcherWatcher watcher,
                                                   final AppContext context) {
-        Objects.requireNonNull(watcher, "watcher");
-        Objects.requireNonNull(context, "context");
-
         return new SpreadsheetExporterFetcher(
             watcher,
             context
