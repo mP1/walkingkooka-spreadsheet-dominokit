@@ -69,6 +69,14 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasS
     public final Runnable addProviderFetcherWatcher(final Consumer<ValidatorAliasSet> set) {
         return this.context.addValidatorFetcherWatcher(
             new ValidatorFetcherWatcher() {
+
+                @Override
+                public void onValidatorInfo(final SpreadsheetId id,
+                                            final ValidatorInfo info,
+                                            final AppContext context) {
+                    // NOP
+                }
+
                 @Override
                 public void onValidatorInfoSet(final SpreadsheetId id,
                                                          final ValidatorInfoSet infos,
