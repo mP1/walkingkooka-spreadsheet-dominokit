@@ -18,13 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.net.AbsoluteOrRelativeUrl;
-import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlPathName;
+import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
+import walkingkooka.spreadsheet.server.SpreadsheetUrlQueryParameters;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResource;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResourceSet;
 import walkingkooka.spreadsheet.server.locale.LocaleTag;
@@ -63,18 +64,42 @@ public final class LocaleFetcher extends Fetcher<LocaleFetcherWatcher> {
         );
     }
 
-    // GET /api/locale/LocaleTag/*
-    public void locales(final LocaleTag id) {
-        this.get(
-            locale(id)
-                .appendPathName(UrlPathName.WILDCARD)
+    // GET /api/locale/LocaleTag
+    public void locale(final LocaleTag id) {
+        Objects.requireNonNull(id, "id");
+
+        get(
+            Url.EMPTY_RELATIVE_URL.appendPath(
+                SpreadsheetHttpServer.API_LOCALE.append(
+                    UrlPathName.with(id.toString())
+                )
+            )
         );
     }
 
-    static RelativeUrl locale(final LocaleTag id) {
-        return Url.EMPTY_RELATIVE_URL.appendPath(
-            SpreadsheetHttpServer.API_LOCALE.append(
-                UrlPathName.with(id.toString())
+    // GET /api/locale/*
+    public void locales(final int offset,
+                        final int count) {
+        if (offset < 0) {
+            throw new IllegalArgumentException("Invalid offset " + offset + " < 0");
+        }
+        if (count < 0) {
+            throw new IllegalArgumentException("Invalid count " + count + " < 0");
+        }
+
+        get(
+            Url.EMPTY_RELATIVE_URL.appendPath(
+                SpreadsheetHttpServer.API_LOCALE.append(
+                    UrlPathName.WILDCARD
+                )
+            ).setQuery(
+                UrlQueryString.EMPTY.addParameter(
+                    SpreadsheetUrlQueryParameters.OFFSET,
+                    String.valueOf(offset)
+                ).addParameter(
+                    SpreadsheetUrlQueryParameters.COUNT,
+                    String.valueOf(count)
+                )
             )
         );
     }
