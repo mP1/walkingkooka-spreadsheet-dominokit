@@ -63,7 +63,7 @@ public final class DateTimeSymbolsFetcher extends Fetcher<DateTimeSymbolsFetcher
     }
 
     // GET /api/dateTimeSymbols/LocaleTag
-    public void dateTimeSymbols(final LocaleTag id) {
+    public void getDateTimeSymbols(final LocaleTag id) {
         Objects.requireNonNull(id, "id");
 
         get(
