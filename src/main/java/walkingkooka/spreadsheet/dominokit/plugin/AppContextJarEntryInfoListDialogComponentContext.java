@@ -57,7 +57,7 @@ final class AppContextJarEntryInfoListDialogComponentContext implements JarEntry
     @Override
     public void listJarEntries(final PluginName pluginName) {
         this.context.pluginFetcher()
-            .listJarEntries(pluginName);
+            .getPluginList(pluginName);
     }
 
     // HasPluginFetcherWatchersDelegator................................................................................
