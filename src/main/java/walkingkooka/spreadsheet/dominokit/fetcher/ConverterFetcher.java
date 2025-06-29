@@ -22,7 +22,6 @@ import walkingkooka.convert.provider.ConverterInfoSet;
 import walkingkooka.convert.provider.ConverterName;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
-import walkingkooka.net.UrlPath;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -36,10 +35,6 @@ import java.util.Optional;
  * Fetcher for {@link Converter} end points.
  */
 public final class ConverterFetcher extends Fetcher<ConverterFetcherWatcher> {
-
-    private final static UrlPath CONVERTER = UrlPath.parse(
-        ConverterHateosResourceMappings.CONVERTER.value()
-    );
 
     static {
         ConverterName.CASE_SENSITIVITY.toString(); // force json unmarshaller to register
@@ -64,15 +59,15 @@ public final class ConverterFetcher extends Fetcher<ConverterFetcherWatcher> {
         );
     }
 
-    static RelativeUrl converter(final SpreadsheetId id) {
+    static RelativeUrl url(final SpreadsheetId id) {
         return SpreadsheetMetadataFetcher.url(id)
-            .appendPath(CONVERTER);
+            .appendPathName(ConverterHateosResourceMappings.CONVERTER.toUrlPathName());
     }
 
-    // GET /api/spreadsheet/SpreadsheetId/converter/*
-    public void infoSet(final SpreadsheetId id) {
+    // GET /api/spreadsheet/SpreadsheetId/converterUrl/*
+    public void getInfoSet(final SpreadsheetId id) {
         this.get(
-            converter(id)
+            url(id)
         );
     }
 

@@ -571,7 +571,7 @@ public class App implements EntryPoint,
 
                         // need to also load all PluginInfoSetLikes...as they are also used to build menus etc.
                         context.converterFetcher()
-                            .infoSet(id);
+                            .getInfoSet(id);
                         context.spreadsheetComparatorFetcher()
                             .infoSet(id);
                         context.spreadsheetExporterFetcher()
