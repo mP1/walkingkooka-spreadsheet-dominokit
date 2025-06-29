@@ -32,6 +32,7 @@ import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasConverterFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasDateTimeSymbolsFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasExpressionFunctionFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasLocaleFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcher;
@@ -74,6 +75,7 @@ import java.util.Set;
 public interface AppContext extends CanGiveFocus,
     ClipboardContext,
     SpreadsheetProvider,
+    HasDateTimeSymbolsFetcher,
     HasLocale,
     HasNow,
     HasSpreadsheetComparatorFetcher,

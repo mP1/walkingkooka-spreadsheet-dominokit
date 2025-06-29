@@ -59,6 +59,9 @@ import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardTextItem;
 import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.fetcher.DateTimeSymbolsFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.DateTimeSymbolsFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.DateTimeSymbolsFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcherWatchers;
@@ -141,6 +144,7 @@ import walkingkooka.spreadsheet.provider.SpreadsheetProviderDelegator;
 import walkingkooka.spreadsheet.provider.SpreadsheetProviders;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
+import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenuList;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResource;
@@ -192,6 +196,7 @@ public class App implements EntryPoint,
     ConverterFetcherWatcher,
     SpreadsheetDeltaFetcherWatcher,
     HasSpreadsheetMetadataFetcherWatchersDelegator,
+    DateTimeSymbolsFetcherWatcher,
     HasSpreadsheetDeltaFetcherWatchersDelegator,
     SpreadsheetExporterFetcherWatcher,
     ExpressionFunctionFetcherWatcher,
@@ -271,6 +276,14 @@ public class App implements EntryPoint,
         this.converterInfoSet = ConverterInfoSet.EMPTY;
         this.addConverterFetcherWatcher(this);
 
+        // dateTimeSymbols
+        this.dateTimeSymbolsFetcherWatchers = DateTimeSymbolsFetcherWatchers.empty();
+        this.dateTimeSymbolsFetcher = DateTimeSymbolsFetcher.with(
+            this.dateTimeSymbolsFetcherWatchers,
+            this
+        );
+        this.addDateTimeSymbolsFetcherWatcher(this);
+        
         // delta
         this.spreadsheetDeltaFetcherWatchers = SpreadsheetDeltaFetcherWatchers.empty();
         this.spreadsheetDeltaFetcher = SpreadsheetDeltaFetcher.with(
@@ -750,6 +763,34 @@ public class App implements EntryPoint,
 
     private ConverterInfoSet converterInfoSet;
 
+    // DateTimeSymbolsFetcher...........................................................................................
+
+    @Override
+    public DateTimeSymbolsFetcher dateTimeSymbolsFetcher() {
+        return this.dateTimeSymbolsFetcher;
+    }
+
+    private final DateTimeSymbolsFetcher dateTimeSymbolsFetcher;
+
+    @Override
+    public Runnable addDateTimeSymbolsFetcherWatcher(final DateTimeSymbolsFetcherWatcher watcher) {
+        return this.dateTimeSymbolsFetcherWatchers.add(watcher);
+    }
+
+    private final DateTimeSymbolsFetcherWatchers dateTimeSymbolsFetcherWatchers;
+
+    @Override
+    public Runnable addDateTimeSymbolsFetcherWatcherOnce(final DateTimeSymbolsFetcherWatcher watcher) {
+        return this.dateTimeSymbolsFetcherWatchers.addOnce(watcher);
+    }
+
+    @Override
+    public void onDateTimeSymbolsHateosResource(final LocaleTag id,
+                                                final DateTimeSymbolsHateosResource dateTimeSymbols,
+                                                final AppContext context) {
+        // NOP
+    }
+    
     // SpreadsheetExporterFetcher.......................................................................................
 
     @Override

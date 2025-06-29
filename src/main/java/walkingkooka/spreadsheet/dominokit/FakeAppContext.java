@@ -33,6 +33,8 @@ import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextWriteWatcher
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardTextItem;
 import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.DateTimeSymbolsFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.DateTimeSymbolsFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.LocaleFetcher;
@@ -147,6 +149,23 @@ public class FakeAppContext extends FakeSpreadsheetProvider
         throw new UnsupportedOperationException();
     }
 
+    // DateTimeSymbolsWatcher...........................................................................................
+
+    @Override
+    public Runnable addDateTimeSymbolsFetcherWatcher(final DateTimeSymbolsFetcherWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addDateTimeSymbolsFetcherWatcherOnce(final DateTimeSymbolsFetcherWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public DateTimeSymbolsFetcher dateTimeSymbolsFetcher() {
+        throw new UnsupportedOperationException();
+    }
+    
     // SpreadsheetDeltaFetcherWatcher...................................................................................
 
     @Override
