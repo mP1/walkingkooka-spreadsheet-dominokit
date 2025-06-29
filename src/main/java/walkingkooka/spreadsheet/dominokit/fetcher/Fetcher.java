@@ -22,6 +22,7 @@ import elemental2.dom.Headers;
 import elemental2.dom.RequestInit;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
+import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.header.HttpHeaderName;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
@@ -29,6 +30,7 @@ import walkingkooka.net.http.HttpStatusCode;
 import walkingkooka.net.http.server.hateos.HateosResourceMappings;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.SpreadsheetServerMediaTypes;
+import walkingkooka.spreadsheet.server.SpreadsheetUrlQueryParameters;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
 
@@ -362,5 +364,29 @@ abstract public class Fetcher<W extends FetcherWatcher> {
     @Override
     public final String toString() {
         return this.watcher.toString();
+    }
+
+    // helpers..........................................................................................................
+
+    // @VisibleForTesting
+    static UrlQueryString offsetAndCountQueryString(final int offset,
+                                                    final int count) {
+        UrlQueryString queryString = UrlQueryString.EMPTY;
+
+        if (offset > 0) {
+            queryString = UrlQueryString.EMPTY.addParameter(
+                SpreadsheetUrlQueryParameters.OFFSET,
+                String.valueOf(offset)
+            );
+        }
+
+        if (count > 0) {
+            queryString = queryString.addParameter(
+                SpreadsheetUrlQueryParameters.COUNT,
+                String.valueOf(count)
+            );
+        }
+
+        return queryString;
     }
 }
