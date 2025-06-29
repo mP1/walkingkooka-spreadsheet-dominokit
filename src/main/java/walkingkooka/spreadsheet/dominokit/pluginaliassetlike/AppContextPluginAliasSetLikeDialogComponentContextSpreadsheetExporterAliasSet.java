@@ -62,7 +62,7 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetExpo
 
     @Override final void loadPluginInfoSetLike0(final SpreadsheetId id) {
         this.context.spreadsheetExporterFetcher()
-            .infoSet(id);
+            .getInfoSet(id);
     }
 
     @Override
