@@ -54,7 +54,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
 import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
-import walkingkooka.spreadsheet.server.SpreadsheetUrlQueryParameters;
 import walkingkooka.spreadsheet.server.delta.SpreadsheetDeltaUrlQueryParameters;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
@@ -1094,29 +1093,5 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
             default:
                 throw new IllegalArgumentException("Unexpected content type " + CharSequences.quote(contentTypeName));
         }
-    }
-
-    // helpers..........................................................................................................
-
-    // @VisibleForTesting
-    static UrlQueryString offsetAndCountQueryString(final int offset,
-                                                    final int count) {
-        UrlQueryString queryString = UrlQueryString.EMPTY;
-
-        if (offset > 0) {
-            queryString = UrlQueryString.EMPTY.addParameter(
-                SpreadsheetUrlQueryParameters.OFFSET,
-                String.valueOf(offset)
-            );
-        }
-
-        if (count > 0) {
-            queryString = queryString.addParameter(
-                SpreadsheetUrlQueryParameters.COUNT,
-                String.valueOf(count)
-            );
-        }
-
-        return queryString;
     }
 }
