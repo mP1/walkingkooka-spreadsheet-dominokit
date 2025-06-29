@@ -575,7 +575,7 @@ public class App implements EntryPoint,
                         context.spreadsheetComparatorFetcher()
                             .getInfoSet(id);
                         context.spreadsheetExporterFetcher()
-                            .infoSet(id);
+                            .getInfoSet(id);
                         context.expressionFunctionFetcher()
                             .getInfoSet(id);
                         context.spreadsheetFormatterFetcher()
