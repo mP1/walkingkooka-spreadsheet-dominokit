@@ -36,6 +36,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
 
+/**
+ * Base class for a variety of fetchers that target HateosResources and other end points.
+ */
 abstract public class Fetcher<W extends FetcherWatcher> {
 
     Fetcher(final W watcher,
