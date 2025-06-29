@@ -62,6 +62,8 @@ import walkingkooka.tree.json.JsonPropertyName;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.form.Form;
+import walkingkooka.validation.form.FormName;
 import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.List;
@@ -1004,6 +1006,70 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
             )
         );
     }
+
+    // form.............................................................................................................
+
+    // GET /api/spreadsheet/SpreadsheetId/form/FormName
+    public void getForm(final SpreadsheetId id,
+                        final FormName formName) {
+        this.get(
+            formUrl(
+                id,
+                Optional.of(formName)
+            )
+        );
+    }
+
+    // GET /api/spreadsheet/SpreadsheetId/form/*?offset=0&count=1
+    public void getForms(final SpreadsheetId id,
+                         final OptionalInt offset,
+                         final OptionalInt count) {
+        this.get(
+            formUrl(
+                id,
+                Optional.empty()
+            ).setQuery(
+                offsetAndCountQueryString(
+                    offset,
+                    count
+                )
+            )
+        );
+    }
+
+    // POST /api/spreadsheet/SpreadsheetId/form/FormName
+    public void postForm(final SpreadsheetId id,
+                         final Optional<FormName> formName,
+                         final Form<SpreadsheetExpressionReference> form) {
+        this.postDelta(
+            formUrl(
+                id,
+                formName
+            ),
+            SpreadsheetDelta.EMPTY.setForms(
+                Sets.of(form)
+            )
+        );
+    }
+
+    // @VisibleForTesting
+    static RelativeUrl formUrl(final SpreadsheetId id,
+                               final Optional<FormName> formName) {
+        Objects.requireNonNull(id, "id");
+        Objects.requireNonNull(formName, "formName");
+
+        return SpreadsheetMetadataFetcher.url(id)
+            .appendPathName(Form.HATEOS_RESOURCE_NAME.toUrlPathName())
+            .appendPathName(
+                formName.map(
+                    (FormName f) -> UrlPathName.with(
+                        f.value()
+                    )
+                ).orElse(UrlPathName.WILDCARD)
+            ).normalize();
+    }
+
+    // helpers..........................................................................................................
 
     private void patchDeltaWithViewportAndWindowQueryString(final SpreadsheetId id,
                                                             final SpreadsheetSelection selection,
