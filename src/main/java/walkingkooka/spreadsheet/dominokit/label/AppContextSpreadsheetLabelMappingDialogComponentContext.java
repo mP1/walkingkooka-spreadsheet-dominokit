@@ -50,7 +50,7 @@ final class AppContextSpreadsheetLabelMappingDialogComponentContext implements S
     public void loadLabel(final SpreadsheetLabelName name) {
         final AppContext context = this.context;
         context.spreadsheetDeltaFetcher()
-            .loadLabelMapping(
+            .getLabelMapping(
                 context.historyToken()
                     .cast(SpreadsheetIdHistoryToken.class)
                     .id(),

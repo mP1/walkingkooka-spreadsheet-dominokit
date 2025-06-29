@@ -37,7 +37,7 @@ final class AppContextSpreadsheetLabelMappingListDialogComponentContextLabel ext
     public void loadLabelMappings(final SpreadsheetId id,
                                   final HistoryTokenOffsetAndCount offsetAndCount) {
         this.context.spreadsheetDeltaFetcher()
-            .loadLabelMappings(
+            .getLabelMappings(
                 id,
                 offsetAndCount.offset(),
                 offsetAndCount.count()

@@ -102,7 +102,7 @@ public class SpreadsheetColumnInsertBeforeHistoryToken extends SpreadsheetColumn
         final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
 
         context.spreadsheetDeltaFetcher()
-            .insertBeforeColumn(
+            .postInsertBeforeColumn(
                 this.id(),
                 selection,
                 count

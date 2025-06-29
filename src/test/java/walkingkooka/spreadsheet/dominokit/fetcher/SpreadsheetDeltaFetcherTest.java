@@ -846,7 +846,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
         );
     }
 
-    // findCells........................................................................................................
+    // getFindCells........................................................................................................
 
     private final static SpreadsheetId ID = SpreadsheetId.parse("1234");
 
@@ -867,7 +867,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     );
 
     @Test
-    public void testFindCellsWithNullIdFails() {
+    public void testGetFindCellsWithNullIdFails() {
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetDeltaFetcher.findCellsUrl(
@@ -879,7 +879,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testFindCellsWithNullCellsFails() {
+    public void testGetFindCellsWithNullCellsFails() {
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetDeltaFetcher.findCellsUrl(
@@ -891,7 +891,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testFindCellsWithNullFindFails() {
+    public void testGetFindCellsWithNullFindFails() {
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetDeltaFetcher.findCellsUrl(
@@ -903,8 +903,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testFindCellsPath() {
-        this.findCellsUrlAndCheck(
+    public void testGetFindCellsPath() {
+        this.getFindCellsUrlAndCheck(
             ID,
             CELLS,
             SpreadsheetCellFindQuery.empty()
@@ -914,8 +914,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testFindCellsOffset() {
-        this.findCellsUrlAndCheck(
+    public void testGetFindCellsOffset() {
+        this.getFindCellsUrlAndCheck(
             ID,
             CELLS,
             SpreadsheetCellFindQuery.empty()
@@ -925,8 +925,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testFindCellsCount() {
-        this.findCellsUrlAndCheck(
+    public void testGetFindCellsCount() {
+        this.getFindCellsUrlAndCheck(
             ID,
             CELLS,
             SpreadsheetCellFindQuery.empty()
@@ -936,8 +936,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testFindCellsValueType() {
-        this.findCellsUrlAndCheck(
+    public void testGetFindCellsValueType() {
+        this.getFindCellsUrlAndCheck(
             ID,
             CELLS,
             SpreadsheetCellFindQuery.empty()
@@ -950,8 +950,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testFindCellsQuery() {
-        this.findCellsUrlAndCheck(
+    public void testGetFindCellsQuery() {
+        this.getFindCellsUrlAndCheck(
             ID,
             CELLS,
             SpreadsheetCellFindQuery.empty()
@@ -961,8 +961,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testFindCellsAllParameters() {
-        this.findCellsUrlAndCheck(
+    public void testGetFindCellsAllParameters() {
+        this.getFindCellsUrlAndCheck(
             ID,
             CELLS,
             SpreadsheetCellFindQuery.empty()
@@ -975,10 +975,10 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
         );
     }
 
-    private void findCellsUrlAndCheck(final SpreadsheetId id,
-                                      final SpreadsheetCellRangeReference cells,
-                                      final SpreadsheetCellFindQuery find,
-                                      final RelativeUrl expected) {
+    private void getFindCellsUrlAndCheck(final SpreadsheetId id,
+                                         final SpreadsheetCellRangeReference cells,
+                                         final SpreadsheetCellFindQuery find,
+                                         final RelativeUrl expected) {
         this.checkEquals(
             expected,
             SpreadsheetDeltaFetcher.findCellsUrl(

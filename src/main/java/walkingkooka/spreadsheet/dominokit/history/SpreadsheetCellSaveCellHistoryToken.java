@@ -117,7 +117,7 @@ public final class SpreadsheetCellSaveCellHistoryToken extends SpreadsheetCellSa
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
         context.spreadsheetDeltaFetcher()
-            .saveCells(
+            .postCells(
                 this.id(),
                 this.anchoredSelection().selection(),
                 this.value()

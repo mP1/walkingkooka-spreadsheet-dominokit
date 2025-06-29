@@ -111,7 +111,7 @@ final class AppContextSpreadsheetFindDialogComponentContext implements Spreadshe
                           final SpreadsheetCellRangeReference cells,
                           final SpreadsheetCellFindQuery find) {
         this.context.spreadsheetDeltaFetcher()
-            .findCells(
+            .getFindCells(
                 id,
                 cells,
                 find

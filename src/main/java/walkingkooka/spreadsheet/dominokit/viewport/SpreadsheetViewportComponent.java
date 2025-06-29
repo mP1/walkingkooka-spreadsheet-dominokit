@@ -1396,7 +1396,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         this.navigations = SpreadsheetViewportNavigationList.EMPTY;
 
         context.spreadsheetDeltaFetcher()
-            .loadCells(
+            .getCells(
                 id,
                 viewport
             );

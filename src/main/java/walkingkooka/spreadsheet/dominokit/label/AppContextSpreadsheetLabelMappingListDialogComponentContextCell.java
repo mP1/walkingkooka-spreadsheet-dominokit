@@ -39,7 +39,7 @@ final class AppContextSpreadsheetLabelMappingListDialogComponentContextCell exte
         final AppContext context = this.context;
 
         context.spreadsheetDeltaFetcher()
-            .loadCellLabels(
+            .getCellLabels(
                 id,
                 context.historyToken()
                     .selection()
