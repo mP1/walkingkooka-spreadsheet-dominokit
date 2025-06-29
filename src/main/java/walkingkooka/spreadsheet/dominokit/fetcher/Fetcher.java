@@ -347,7 +347,6 @@ abstract public class Fetcher<W extends FetcherWatcher> {
         return this.waitingRequestCount;
     }
 
-
     /**
      * This method is only intended to be called by {@link #fetch(HttpMethod, AbsoluteOrRelativeUrl, Map, Optional)} ,
      * during various parts of the fetch lifecycle.
