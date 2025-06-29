@@ -66,6 +66,7 @@ import walkingkooka.validation.ValidationValueTypeName;
 import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -723,6 +724,19 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
             selection,
             SpreadsheetDelta.cellsFormatterPatch(
                 cellToFormatters,
+                this.context
+            )
+        );
+    }
+
+    public void patchCellsLocale(final SpreadsheetId id,
+                                 final SpreadsheetSelection selection,
+                                 final Map<SpreadsheetCellReference, Optional<Locale>> cellToLocales) {
+        this.patchDeltaWithViewportAndWindowQueryString(
+            id,
+            selection,
+            SpreadsheetDelta.cellsLocalePatch(
+                cellToLocales,
                 this.context
             )
         );
