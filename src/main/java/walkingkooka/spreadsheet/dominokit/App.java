@@ -69,6 +69,9 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatc
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchersDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchersDelegator;
+import walkingkooka.spreadsheet.dominokit.fetcher.LocaleFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.LocaleFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.LocaleFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
@@ -140,6 +143,9 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenuList;
+import walkingkooka.spreadsheet.server.locale.LocaleHateosResource;
+import walkingkooka.spreadsheet.server.locale.LocaleHateosResourceSet;
+import walkingkooka.spreadsheet.server.locale.LocaleTag;
 import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
@@ -191,6 +197,7 @@ public class App implements EntryPoint,
     ExpressionFunctionFetcherWatcher,
     SpreadsheetFormatterFetcherWatcher,
     SpreadsheetImporterFetcherWatcher,
+    LocaleFetcherWatcher,
     SpreadsheetMetadataFetcherWatcher,
     SpreadsheetParserFetcherWatcher,
     ValidatorFetcherWatcher,
@@ -311,6 +318,14 @@ public class App implements EntryPoint,
         this.spreadsheetImporterInfoSet = SpreadsheetImporterInfoSet.EMPTY;
         this.addSpreadsheetImporterFetcherWatcher(this);
 
+        // locale
+        this.localeFetcherWatchers = LocaleFetcherWatchers.empty();
+        this.localeFetcher = LocaleFetcher.with(
+            this.localeFetcherWatchers,
+            this
+        );
+        this.addLocaleFetcherWatcher(this);
+        
         // parser
         this.spreadsheetParserFetcherWatchers = SpreadsheetParserFetcherWatchers.empty();
         this.spreadsheetParserFetcher = SpreadsheetParserFetcher.with(
@@ -884,6 +899,40 @@ public class App implements EntryPoint,
     }
 
     private SpreadsheetImporterInfoSet spreadsheetImporterInfoSet;
+
+    // LocaleFetcher....................................................................................................
+
+    @Override
+    public LocaleFetcher localeFetcher() {
+        return this.localeFetcher;
+    }
+
+    private final LocaleFetcher localeFetcher;
+
+    @Override
+    public Runnable addLocaleFetcherWatcher(final LocaleFetcherWatcher watcher) {
+        return this.localeFetcherWatchers.add(watcher);
+    }
+
+    private final LocaleFetcherWatchers localeFetcherWatchers;
+
+    @Override
+    public Runnable addLocaleFetcherWatcherOnce(final LocaleFetcherWatcher watcher) {
+        return this.localeFetcherWatchers.addOnce(watcher);
+    }
+
+    @Override
+    public void onLocaleHateosResource(final LocaleTag id,
+                                       final LocaleHateosResource locale,
+                                       final AppContext context) {
+        // NOP
+    }
+
+    @Override
+    public void onLocaleHateosResourceSet(final LocaleHateosResourceSet locales,
+                                          final AppContext context) {
+        // NOP
+    }
 
     // SpreadsheetParserFetcher..........................................................................................
 

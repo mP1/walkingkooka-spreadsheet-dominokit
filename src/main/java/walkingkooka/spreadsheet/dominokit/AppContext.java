@@ -33,6 +33,7 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentConte
 import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasConverterFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasExpressionFunctionFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasLocaleFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetComparatorFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcher;
@@ -78,6 +79,7 @@ public interface AppContext extends CanGiveFocus,
     HasSpreadsheetComparatorFetcher,
     HasConverterFetcher,
     HasPluginFetcher,
+    HasLocaleFetcher,
     HasSpreadsheetDeltaFetcher,
     HasSpreadsheetExporterFetcher,
     HasExpressionFunctionFetcher,

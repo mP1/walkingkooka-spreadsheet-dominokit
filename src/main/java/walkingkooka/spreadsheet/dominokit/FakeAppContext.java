@@ -35,6 +35,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.LocaleFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.LocaleFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetComparatorFetcher;
@@ -227,6 +229,23 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public SpreadsheetImporterFetcher spreadsheetImporterFetcher() {
+        throw new UnsupportedOperationException();
+    }
+
+    // LocaleWatcher....................................................................................................
+
+    @Override
+    public Runnable addLocaleFetcherWatcher(final LocaleFetcherWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addLocaleFetcherWatcherOnce(final LocaleFetcherWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public LocaleFetcher localeFetcher() {
         throw new UnsupportedOperationException();
     }
 
