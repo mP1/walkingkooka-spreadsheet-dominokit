@@ -24,14 +24,12 @@ import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlPathName;
-import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
-import walkingkooka.spreadsheet.server.SpreadsheetUrlQueryParameters;
 import walkingkooka.spreadsheet.server.meta.SpreadsheetMetadataSet;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
@@ -138,28 +136,14 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
 
     public void getSpreadsheetMetadatas(final OptionalInt offset,
                                         final OptionalInt count) {
-        Objects.requireNonNull(offset, "offset");
-        Objects.requireNonNull(count, "count");
-
-        UrlQueryString query = UrlQueryString.EMPTY;
-
-        if (offset.isPresent()) {
-            query = query.addParameter(
-                SpreadsheetUrlQueryParameters.OFFSET,
-                String.valueOf(offset.getAsInt())
-            );
-        }
-
-        if (count.isPresent()) {
-            query = query.addParameter(
-                SpreadsheetUrlQueryParameters.COUNT,
-                String.valueOf(count.getAsInt())
-            );
-        }
-
         this.get(
             API_BASE.appendPath(STAR)
-                .setQuery(query)
+                .setQuery(
+                    offsetAndCountQueryString(
+                        offset,
+                        count
+                    )
+                )
         );
     }
 
