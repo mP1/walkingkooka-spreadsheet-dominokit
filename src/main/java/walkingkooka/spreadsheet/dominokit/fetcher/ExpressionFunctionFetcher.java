@@ -65,15 +65,15 @@ public final class ExpressionFunctionFetcher extends Fetcher<ExpressionFunctionF
         );
     }
 
-    static RelativeUrl function(final SpreadsheetId id) {
+    static RelativeUrl url(final SpreadsheetId id) {
         return SpreadsheetMetadataFetcher.url(id)
             .appendPath(FUNCTION);
     }
 
     // GET /api/spreadsheet/SpreadsheetId/function/*
-    public void infoSet(final SpreadsheetId id) {
+    public void getInfoSet(final SpreadsheetId id) {
         this.get(
-            function(id)
+            url(id)
         );
     }
 

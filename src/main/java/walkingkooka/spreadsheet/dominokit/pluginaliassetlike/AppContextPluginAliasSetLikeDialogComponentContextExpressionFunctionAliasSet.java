@@ -64,7 +64,7 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextExpressionFunct
 
     @Override final void loadPluginInfoSetLike0(final SpreadsheetId id) {
         this.context.expressionFunctionFetcher()
-            .infoSet(id);
+            .getInfoSet(id);
     }
 
     @Override
