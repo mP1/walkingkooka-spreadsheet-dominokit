@@ -30,7 +30,6 @@ import walkingkooka.tree.expression.ExpressionFunctionName;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 
-import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -56,9 +55,6 @@ public final class ExpressionFunctionFetcher extends Fetcher<ExpressionFunctionF
 
     public static ExpressionFunctionFetcher with(final ExpressionFunctionFetcherWatcher watcher,
                                                  final AppContext context) {
-        Objects.requireNonNull(watcher, "watcher");
-        Objects.requireNonNull(context, "context");
-
         return new ExpressionFunctionFetcher(
             watcher,
             context

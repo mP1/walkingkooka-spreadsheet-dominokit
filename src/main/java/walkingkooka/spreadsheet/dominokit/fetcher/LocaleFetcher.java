@@ -47,9 +47,6 @@ public final class LocaleFetcher extends Fetcher<LocaleFetcherWatcher> {
 
     public static LocaleFetcher with(final LocaleFetcherWatcher watcher,
                                      final AppContext context) {
-        Objects.requireNonNull(watcher, "watcher");
-        Objects.requireNonNull(context, "context");
-
         return new LocaleFetcher(
             watcher,
             context

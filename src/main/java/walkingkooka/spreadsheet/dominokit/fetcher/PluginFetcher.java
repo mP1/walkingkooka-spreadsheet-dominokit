@@ -57,9 +57,6 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
 
     public static PluginFetcher with(final PluginFetcherWatcher watcher,
                                      final AppContext context) {
-        Objects.requireNonNull(watcher, "watcher");
-        Objects.requireNonNull(context, "context");
-
         return new PluginFetcher(
             watcher,
             context

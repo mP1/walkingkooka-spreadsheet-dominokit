@@ -31,7 +31,6 @@ import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
 
-import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -54,9 +53,6 @@ public final class SpreadsheetParserFetcher extends Fetcher<SpreadsheetParserFet
 
     public static SpreadsheetParserFetcher with(final SpreadsheetParserFetcherWatcher watcher,
                                                 final AppContext context) {
-        Objects.requireNonNull(watcher, "watcher");
-        Objects.requireNonNull(context, "context");
-
         return new SpreadsheetParserFetcher(
             watcher,
             context

@@ -45,9 +45,6 @@ public final class DecimalNumberSymbolsFetcher extends Fetcher<DecimalNumberSymb
 
     public static DecimalNumberSymbolsFetcher with(final DecimalNumberSymbolsFetcherWatcher watcher,
                                                    final AppContext context) {
-        Objects.requireNonNull(watcher, "watcher");
-        Objects.requireNonNull(context, "context");
-
         return new DecimalNumberSymbolsFetcher(
             watcher,
             context

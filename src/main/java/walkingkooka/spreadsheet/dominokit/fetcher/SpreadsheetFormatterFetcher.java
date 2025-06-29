@@ -34,7 +34,6 @@ import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMen
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
 
-import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -65,9 +64,6 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
 
     public static SpreadsheetFormatterFetcher with(final SpreadsheetFormatterFetcherWatcher watcher,
                                                    final AppContext context) {
-        Objects.requireNonNull(watcher, "watcher");
-        Objects.requireNonNull(context, "context");
-
         return new SpreadsheetFormatterFetcher(
             watcher,
             context

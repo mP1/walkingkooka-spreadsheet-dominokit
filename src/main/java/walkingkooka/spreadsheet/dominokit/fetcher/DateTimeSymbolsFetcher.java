@@ -45,9 +45,6 @@ public final class DateTimeSymbolsFetcher extends Fetcher<DateTimeSymbolsFetcher
 
     public static DateTimeSymbolsFetcher with(final DateTimeSymbolsFetcherWatcher watcher,
                                               final AppContext context) {
-        Objects.requireNonNull(watcher, "watcher");
-        Objects.requireNonNull(context, "context");
-
         return new DateTimeSymbolsFetcher(
             watcher,
             context

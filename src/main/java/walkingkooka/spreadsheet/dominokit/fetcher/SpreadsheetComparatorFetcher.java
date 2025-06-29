@@ -27,7 +27,6 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.text.CharSequences;
 
-import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -43,9 +42,6 @@ public final class SpreadsheetComparatorFetcher extends Fetcher<SpreadsheetCompa
 
     public static SpreadsheetComparatorFetcher with(final SpreadsheetComparatorFetcherWatcher watcher,
                                                     final AppContext context) {
-        Objects.requireNonNull(watcher, "watcher");
-        Objects.requireNonNull(context, "context");
-
         return new SpreadsheetComparatorFetcher(
             watcher,
             context
