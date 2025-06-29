@@ -62,6 +62,9 @@ import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.DateTimeSymbolsFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.DateTimeSymbolsFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.DateTimeSymbolsFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.fetcher.DecimalNumberSymbolsFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.DecimalNumberSymbolsFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.DecimalNumberSymbolsFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcherWatchers;
@@ -145,6 +148,7 @@ import walkingkooka.spreadsheet.provider.SpreadsheetProviders;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResource;
+import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenuList;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResource;
@@ -197,6 +201,7 @@ public class App implements EntryPoint,
     SpreadsheetDeltaFetcherWatcher,
     HasSpreadsheetMetadataFetcherWatchersDelegator,
     DateTimeSymbolsFetcherWatcher,
+    DecimalNumberSymbolsFetcherWatcher,
     HasSpreadsheetDeltaFetcherWatchersDelegator,
     SpreadsheetExporterFetcherWatcher,
     ExpressionFunctionFetcherWatcher,
@@ -283,6 +288,14 @@ public class App implements EntryPoint,
             this
         );
         this.addDateTimeSymbolsFetcherWatcher(this);
+
+        // decimalNumberSymbols
+        this.decimalNumberSymbolsFetcherWatchers = DecimalNumberSymbolsFetcherWatchers.empty();
+        this.decimalNumberSymbolsFetcher = DecimalNumberSymbolsFetcher.with(
+            this.decimalNumberSymbolsFetcherWatchers,
+            this
+        );
+        this.addDecimalNumberSymbolsFetcherWatcher(this);
         
         // delta
         this.spreadsheetDeltaFetcherWatchers = SpreadsheetDeltaFetcherWatchers.empty();
@@ -787,6 +800,34 @@ public class App implements EntryPoint,
     @Override
     public void onDateTimeSymbolsHateosResource(final LocaleTag id,
                                                 final DateTimeSymbolsHateosResource dateTimeSymbols,
+                                                final AppContext context) {
+        // NOP
+    }
+
+    // DecimalNumberSymbolsFetcher...........................................................................................
+
+    @Override
+    public DecimalNumberSymbolsFetcher decimalNumberSymbolsFetcher() {
+        return this.decimalNumberSymbolsFetcher;
+    }
+
+    private final DecimalNumberSymbolsFetcher decimalNumberSymbolsFetcher;
+
+    @Override
+    public Runnable addDecimalNumberSymbolsFetcherWatcher(final DecimalNumberSymbolsFetcherWatcher watcher) {
+        return this.decimalNumberSymbolsFetcherWatchers.add(watcher);
+    }
+
+    private final DecimalNumberSymbolsFetcherWatchers decimalNumberSymbolsFetcherWatchers;
+
+    @Override
+    public Runnable addDecimalNumberSymbolsFetcherWatcherOnce(final DecimalNumberSymbolsFetcherWatcher watcher) {
+        return this.decimalNumberSymbolsFetcherWatchers.addOnce(watcher);
+    }
+
+    @Override
+    public void onDecimalNumberSymbolsHateosResource(final LocaleTag id,
+                                                final DecimalNumberSymbolsHateosResource decimalNumberSymbols,
                                                 final AppContext context) {
         // NOP
     }

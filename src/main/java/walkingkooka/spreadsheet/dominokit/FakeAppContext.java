@@ -35,6 +35,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.DateTimeSymbolsFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.DateTimeSymbolsFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.DecimalNumberSymbolsFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.DecimalNumberSymbolsFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.LocaleFetcher;
@@ -163,6 +165,23 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public DateTimeSymbolsFetcher dateTimeSymbolsFetcher() {
+        throw new UnsupportedOperationException();
+    }
+
+    // DecimalNumberSymbolsWatcher......................................................................................
+
+    @Override
+    public Runnable addDecimalNumberSymbolsFetcherWatcher(final DecimalNumberSymbolsFetcherWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addDecimalNumberSymbolsFetcherWatcherOnce(final DecimalNumberSymbolsFetcherWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public DecimalNumberSymbolsFetcher decimalNumberSymbolsFetcher() {
         throw new UnsupportedOperationException();
     }
     
