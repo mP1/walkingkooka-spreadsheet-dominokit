@@ -310,8 +310,8 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
-    public void clear(final SpreadsheetId id,
-                      final SpreadsheetSelection selection) {
+    public void postClear(final SpreadsheetId id,
+                          final SpreadsheetSelection selection) {
         final AppContext context = this.context;
 
         this.postDelta(

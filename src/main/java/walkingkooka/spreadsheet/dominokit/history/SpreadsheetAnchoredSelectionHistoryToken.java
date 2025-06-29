@@ -110,7 +110,7 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
      */
     final void deltaClearSelection(final AppContext context) {
         context.spreadsheetDeltaFetcher()
-            .clear(
+            .postClear(
                 this.id(),
                 this.anchoredSelection().selection()
             );
