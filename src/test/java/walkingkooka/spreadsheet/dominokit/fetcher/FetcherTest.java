@@ -22,6 +22,8 @@ import walkingkooka.net.UrlQueryString;
 import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
 
+import java.util.OptionalInt;
+
 public final class FetcherTest implements ClassTesting2<Fetcher> {
 
     // offsetAndCountQueryString........................................................................................
@@ -64,6 +66,16 @@ public final class FetcherTest implements ClassTesting2<Fetcher> {
 
     private void offsetAndCountQueryStringAndCheck(final int offset,
                                                    final int count,
+                                                   final UrlQueryString expected) {
+        this.offsetAndCountQueryStringAndCheck(
+            OptionalInt.of(offset),
+            OptionalInt.of(count),
+            expected
+        );
+    }
+
+    private void offsetAndCountQueryStringAndCheck(final OptionalInt offset,
+                                                   final OptionalInt count,
                                                    final UrlQueryString expected) {
         this.checkEquals(
             expected,

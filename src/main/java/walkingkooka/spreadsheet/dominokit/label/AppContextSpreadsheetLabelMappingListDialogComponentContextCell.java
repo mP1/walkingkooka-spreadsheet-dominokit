@@ -45,10 +45,8 @@ final class AppContextSpreadsheetLabelMappingListDialogComponentContextCell exte
                     .selection()
                     .orElseThrow(() -> new IllegalStateException("No selection"))
                     .toExpressionReference(),
-                offsetAndCount.offset()
-                    .orElse(0),
+                offsetAndCount.offset(),
                 offsetAndCount.count()
-                    .orElse(0)
             );
     }
 

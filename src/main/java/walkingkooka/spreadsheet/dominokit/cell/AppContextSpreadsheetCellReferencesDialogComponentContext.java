@@ -58,10 +58,8 @@ final class AppContextSpreadsheetCellReferencesDialogComponentContext implements
             .loadCellReferences(
                 id,
                 cells,
-                offsetAndCount.offset()
-                    .orElse(0),
+                offsetAndCount.offset(),
                 offsetAndCount.count()
-                    .orElse(REFERENCES_MAX_COUNT)
             );
     }
 
