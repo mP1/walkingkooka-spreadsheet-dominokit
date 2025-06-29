@@ -141,7 +141,7 @@ abstract class AppContextSpreadsheetParserSelectorDialogComponentContext impleme
     public final void loadSpreadsheetParsersEdit(final String text) {
         this.throttler.add(
             () -> this.context.spreadsheetParserFetcher()
-                .edit(
+                .postEdit(
                     this.context.historyToken()
                         .cast(SpreadsheetIdHistoryToken.class)
                         .id(), // id

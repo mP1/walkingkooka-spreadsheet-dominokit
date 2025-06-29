@@ -583,7 +583,7 @@ public class App implements EntryPoint,
                         context.spreadsheetImporterFetcher()
                             .getInfoSet(id);
                         context.spreadsheetParserFetcher()
-                            .infoSet(id);
+                            .getInfoSet(id);
                     }
                 }
             }
