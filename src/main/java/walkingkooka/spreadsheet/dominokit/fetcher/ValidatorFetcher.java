@@ -59,7 +59,7 @@ public final class ValidatorFetcher extends Fetcher<ValidatorFetcherWatcher> {
         );
     }
 
-    static RelativeUrl validator(final SpreadsheetId id) {
+    static RelativeUrl validatorUrl(final SpreadsheetId id) {
         return SpreadsheetMetadataFetcher.url(id)
             .appendPathName(
                 ValidatorName.HATEOS_RESOURCE_NAME.toUrlPathName()
@@ -69,7 +69,7 @@ public final class ValidatorFetcher extends Fetcher<ValidatorFetcherWatcher> {
     // GET /api/spreadsheet/SpreadsheetId/validator/*
     public void infoSet(final SpreadsheetId id) {
         this.get(
-            validator(id)
+            validatorUrl(id)
         );
     }
 
