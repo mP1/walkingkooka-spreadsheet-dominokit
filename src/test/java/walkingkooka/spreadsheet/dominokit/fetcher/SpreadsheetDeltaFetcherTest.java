@@ -129,57 +129,6 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
         );
     }
 
-    // offsetAndCountQueryString........................................................................................
-
-    @Test
-    public void testOffsetAndCountQueryString() {
-        this.offsetAndCountQueryStringAndCheck(
-            0,
-            0,
-            UrlQueryString.EMPTY
-        );
-    }
-
-    @Test
-    public void testOffsetAndCountQueryStringWithNonZeroOffset() {
-        this.offsetAndCountQueryStringAndCheck(
-            1,
-            0,
-            UrlQueryString.parse("offset=1")
-        );
-    }
-
-    @Test
-    public void testOffsetAndCountQueryStringWithAndNonZeroCount() {
-        this.offsetAndCountQueryStringAndCheck(
-            0,
-            2,
-            UrlQueryString.parse("count=2")
-        );
-    }
-
-    @Test
-    public void testOffsetAndCountQueryStringWithNonZeroOffsetAndNonZeroCount() {
-        this.offsetAndCountQueryStringAndCheck(
-            1,
-            2,
-            UrlQueryString.parse("offset=1&count=2")
-        );
-    }
-
-    private void offsetAndCountQueryStringAndCheck(final int offset,
-                                                   final int count,
-                                                   final UrlQueryString expected) {
-        this.checkEquals(
-            expected,
-            SpreadsheetDeltaFetcher.offsetAndCountQueryString(
-                offset,
-                count
-            ),
-            () -> "offset=" + offset + " count=" + count
-        );
-    }
-
     // patchValuePatch..................................................................................................
 
     @Test
