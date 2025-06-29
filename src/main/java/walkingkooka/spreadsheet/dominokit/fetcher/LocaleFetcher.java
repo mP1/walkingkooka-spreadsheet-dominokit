@@ -65,21 +65,19 @@ public final class LocaleFetcher extends Fetcher<LocaleFetcherWatcher> {
     }
 
     // GET /api/locale/LocaleTag
-    public void locale(final LocaleTag id) {
+    public void getLocale(final LocaleTag id) {
         Objects.requireNonNull(id, "id");
 
         get(
-            Url.EMPTY_RELATIVE_URL.appendPath(
-                SpreadsheetHttpServer.API_LOCALE.append(
-                    UrlPathName.with(id.toString())
-                )
+            URL.appendPathName(
+                UrlPathName.with(id.toString())
             )
         );
     }
 
     // GET /api/locale/*
-    public void locales(final int offset,
-                        final int count) {
+    public void getLocales(final int offset,
+                           final int count) {
         if (offset < 0) {
             throw new IllegalArgumentException("Invalid offset " + offset + " < 0");
         }
@@ -88,10 +86,8 @@ public final class LocaleFetcher extends Fetcher<LocaleFetcherWatcher> {
         }
 
         get(
-            Url.EMPTY_RELATIVE_URL.appendPath(
-                SpreadsheetHttpServer.API_LOCALE.append(
-                    UrlPathName.WILDCARD
-                )
+            URL.appendPathName(
+                UrlPathName.WILDCARD
             ).setQuery(
                 UrlQueryString.EMPTY.addParameter(
                     SpreadsheetUrlQueryParameters.OFFSET,
@@ -103,6 +99,10 @@ public final class LocaleFetcher extends Fetcher<LocaleFetcherWatcher> {
             )
         );
     }
+
+    private final static AbsoluteOrRelativeUrl URL = Url.EMPTY_RELATIVE_URL.appendPath(
+        SpreadsheetHttpServer.API_LOCALE
+    );
 
     @Override
     public void onSuccess(final HttpMethod method,
