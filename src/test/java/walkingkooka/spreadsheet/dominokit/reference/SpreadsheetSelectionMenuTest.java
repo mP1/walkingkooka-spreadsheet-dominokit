@@ -109,6 +109,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
@@ -121,6 +122,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
@@ -133,6 +135,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
@@ -361,6 +364,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
@@ -373,6 +377,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
@@ -385,6 +390,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
@@ -616,6 +622,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
@@ -628,6 +635,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
@@ -640,6 +648,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
@@ -878,6 +887,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
@@ -890,6 +900,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
@@ -902,6 +913,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
@@ -1150,6 +1162,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
@@ -1162,6 +1175,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
@@ -1174,6 +1188,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
@@ -1410,6 +1425,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
@@ -1422,6 +1438,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
@@ -1434,6 +1451,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
@@ -1662,6 +1680,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
@@ -1674,6 +1693,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
@@ -1686,6 +1706,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
@@ -1914,6 +1935,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
@@ -1926,6 +1948,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
@@ -1938,6 +1961,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
@@ -2163,6 +2187,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
@@ -2175,6 +2200,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
@@ -2187,6 +2213,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
@@ -2418,6 +2445,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
@@ -2430,6 +2458,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
@@ -2442,6 +2471,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
@@ -2671,6 +2701,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
@@ -2683,6 +2714,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
@@ -2695,6 +2727,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/A1/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
@@ -2912,6 +2945,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
@@ -2924,6 +2958,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
@@ -2936,6 +2971,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
@@ -3249,6 +3285,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/Label123/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/Label123/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/Label123/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/Label123/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/Label123/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/Label123/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/Label123/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
@@ -3261,6 +3298,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/Label123/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/Label123/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/Label123/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/Label123/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/Label123/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/Label123/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/Label123/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
@@ -3273,6 +3311,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/Label123/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/Label123/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/Label123/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/Label123/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/Label123/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/Label123/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/Label123/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
@@ -3491,6 +3530,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
@@ -3503,6 +3543,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
@@ -3515,6 +3556,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
                 "    \"Formatter\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
                 "    \"Parser\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
                 "    \"Style\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
