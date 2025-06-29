@@ -69,6 +69,9 @@ import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
+import walkingkooka.spreadsheet.dominokit.fetcher.FormHandlerFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.FormHandlerFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.FormHandlerFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchersDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
@@ -170,6 +173,7 @@ import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContextDelegator;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
+import walkingkooka.validation.form.provider.FormHandlerInfo;
 import walkingkooka.validation.form.provider.FormHandlerInfoSet;
 import walkingkooka.validation.form.provider.FormHandlerProvider;
 import walkingkooka.validation.form.provider.FormHandlerProviders;
@@ -203,6 +207,7 @@ public class App implements EntryPoint,
     HasSpreadsheetMetadataFetcherWatchersDelegator,
     DateTimeSymbolsFetcherWatcher,
     DecimalNumberSymbolsFetcherWatcher,
+    FormHandlerFetcherWatcher,
     HasSpreadsheetDeltaFetcherWatchersDelegator,
     SpreadsheetExporterFetcherWatcher,
     ExpressionFunctionFetcherWatcher,
@@ -334,7 +339,13 @@ public class App implements EntryPoint,
         this.addSpreadsheetFormatterFetcherWatcher(this);
 
         // formHandler
+        this.formHandlerFetcherWatchers = FormHandlerFetcherWatchers.empty();
+        this.formHandlerFetcher = FormHandlerFetcher.with(
+            this.formHandlerFetcherWatchers,
+            this
+        );
         this.formHandlerInfoSet = FormHandlerInfoSet.EMPTY;
+        this.addFormHandlerFetcherWatcher(this);
 
         // importer
         this.spreadsheetImporterFetcherWatchers = SpreadsheetImporterFetcherWatchers.empty();
@@ -947,6 +958,41 @@ public class App implements EntryPoint,
     }
 
     // FormHandlerFetcher...............................................................................................
+    @Override
+    public FormHandlerFetcher formHandlerFetcher() {
+        return this.formHandlerFetcher;
+    }
+
+    private final FormHandlerFetcher formHandlerFetcher;
+
+    @Override
+    public Runnable addFormHandlerFetcherWatcher(final FormHandlerFetcherWatcher watcher) {
+        return this.formHandlerFetcherWatchers.add(watcher);
+    }
+
+    @Override
+    public Runnable addFormHandlerFetcherWatcherOnce(final FormHandlerFetcherWatcher watcher) {
+        return this.formHandlerFetcherWatchers.addOnce(watcher);
+    }
+
+    private final FormHandlerFetcherWatchers formHandlerFetcherWatchers;
+
+    @Override
+    public void onFormHandlerInfo(final SpreadsheetId id,
+                                  final FormHandlerInfo info,
+                                  final AppContext context) {
+        // NOP
+    }
+
+    @Override
+    public void onFormHandlerInfoSet(final SpreadsheetId id,
+                                     final FormHandlerInfoSet infos,
+                                     final AppContext context) {
+        this.maybeRefreshSpreadsheetProvider(
+            id,
+            () -> this.formHandlerInfoSet = infos
+        );
+    }
 
     private FormHandlerInfoSet formHandlerInfoSet;
 
