@@ -22,9 +22,7 @@ import elemental2.dom.Headers;
 import elemental2.dom.RequestInit;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
-import walkingkooka.net.header.Accept;
 import walkingkooka.net.header.HttpHeaderName;
-import walkingkooka.net.header.MediaType;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.net.http.HttpStatusCode;
@@ -131,8 +129,6 @@ abstract public class Fetcher<W extends FetcherWatcher> {
             body
         );
     }
-
-    private final static Accept ACCEPT_JSON = MediaType.APPLICATION_JSON.accept();
 
     /**
      * Performs a fetch using the provided parameters
