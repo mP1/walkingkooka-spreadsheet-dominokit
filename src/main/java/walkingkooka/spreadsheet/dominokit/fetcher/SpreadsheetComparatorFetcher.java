@@ -61,13 +61,13 @@ public final class SpreadsheetComparatorFetcher extends Fetcher<SpreadsheetCompa
     }
 
     // GET /api/spreadsheet/SpreadsheetId/comparator/*
-    public void infoSet(final SpreadsheetId id) {
+    public void getInfoSet(final SpreadsheetId id) {
         this.get(
-            comparator(id)
+            url(id)
         );
     }
 
-    static RelativeUrl comparator(final SpreadsheetId id) {
+    static RelativeUrl url(final SpreadsheetId id) {
         return SpreadsheetMetadataFetcher.url(id)
             .appendPathName(
                 SpreadsheetComparatorName.HATEOS_RESOURCE_NAME.toUrlPathName()
