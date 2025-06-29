@@ -53,6 +53,7 @@ import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.ValidationValueTypeName;
 
+import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Predicate;
@@ -72,6 +73,8 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
             .setValueType(
                 Optional.of(ValidationValueTypeName.with("HelloValueType"))
             )
+    ).setLocale(
+        Optional.of(Locale.ENGLISH)
     ).setFormatter(
         Optional.of(
             SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN.spreadsheetFormatterSelector()
@@ -106,6 +109,13 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     public void testPredicateFormula() {
         this.predicateAndCheck(
             SpreadsheetCellClipboardKind.FORMULA
+        );
+    }
+
+    @Test
+    public void testPredicateLocale() {
+        this.predicateAndCheck(
+            SpreadsheetCellClipboardKind.LOCALE
         );
     }
 
@@ -193,6 +203,15 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
             SpreadsheetCellClipboardKind.FORMULA,
             cell,
             cell.formula()
+        );
+    }
+
+    @Test
+    public void testToValueLocale() {
+        this.toValueAndCheck(
+            SpreadsheetCellClipboardKind.LOCALE,
+            CELL,
+            CELL.locale()
         );
     }
 
