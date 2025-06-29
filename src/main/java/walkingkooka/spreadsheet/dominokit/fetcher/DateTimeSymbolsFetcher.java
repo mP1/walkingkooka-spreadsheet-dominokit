@@ -62,13 +62,13 @@ public final class DateTimeSymbolsFetcher extends Fetcher<DateTimeSymbolsFetcher
         );
     }
 
-    // GET /api/locale/LocaleTag
+    // GET /api/dateTimeSymbols/LocaleTag
     public void dateTimeSymbols(final LocaleTag id) {
         Objects.requireNonNull(id, "id");
 
         get(
             Url.EMPTY_RELATIVE_URL.appendPath(
-                SpreadsheetHttpServer.API_LOCALE.append(
+                SpreadsheetHttpServer.API_DATE_TIME_SYMBOLS.append(
                     UrlPathName.with(id.toString())
                 )
             )
@@ -87,7 +87,7 @@ public final class DateTimeSymbolsFetcher extends Fetcher<DateTimeSymbolsFetcher
                 this.watcher.onEmptyResponse(context);
                 break;
             case "DateTimeSymbolsHateosResource":
-                // GET http://server/api/locale/LocaleTagId
+                // GET http://server/api/dateTimeSymbols/LocaleTagId
                 this.watcher.onDateTimeSymbolsHateosResource(
                     parseLocaleTag(url.path()), // the request url
                     this.parse(
