@@ -62,7 +62,7 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasS
 
     @Override final void loadPluginInfoSetLike0(final SpreadsheetId id) {
         this.context.validatorFetcher()
-            .infoSet(id);
+            .getInfoSet(id);
     }
 
     @Override
