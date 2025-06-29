@@ -173,6 +173,7 @@ import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
 import walkingkooka.validation.form.provider.FormHandlerInfoSet;
 import walkingkooka.validation.form.provider.FormHandlerProvider;
 import walkingkooka.validation.form.provider.FormHandlerProviders;
+import walkingkooka.validation.provider.ValidatorInfo;
 import walkingkooka.validation.provider.ValidatorInfoSet;
 import walkingkooka.validation.provider.ValidatorProvider;
 import walkingkooka.validation.provider.ValidatorProviders;
@@ -1076,6 +1077,13 @@ public class App implements EntryPoint,
     }
 
     private final ValidatorFetcherWatchers validatorFetcherWatchers;
+
+    @Override
+    public void onValidatorInfo(final SpreadsheetId id,
+                                final ValidatorInfo info,
+                                final AppContext context) {
+        // NOP
+    }
 
     @Override
     public void onValidatorInfoSet(final SpreadsheetId id,

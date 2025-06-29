@@ -19,17 +19,31 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.validation.provider.ValidatorInfo;
 import walkingkooka.validation.provider.ValidatorInfoSet;
 
 public final class ValidatorFetcherWatchers extends FetcherWatchers<ValidatorFetcherWatcher>
     implements ValidatorFetcherWatcher {
 
+    public static ValidatorFetcherWatchers empty() {
+        return new ValidatorFetcherWatchers();
+    }
+
     private ValidatorFetcherWatchers() {
         super();
     }
 
-    public static ValidatorFetcherWatchers empty() {
-        return new ValidatorFetcherWatchers();
+    @Override
+    public void onValidatorInfo(final SpreadsheetId id,
+                                final ValidatorInfo info,
+                                final AppContext context) {
+        this.fire(
+            ValidatorFetcherWatchersInfoEvent.with(
+                id,
+                info,
+                context
+            )
+        );
     }
 
     @Override

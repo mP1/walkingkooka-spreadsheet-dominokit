@@ -19,11 +19,13 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
+import walkingkooka.net.UrlPathName;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.text.CharSequences;
 import walkingkooka.validation.Validator;
+import walkingkooka.validation.provider.ValidatorInfo;
 import walkingkooka.validation.provider.ValidatorInfoSet;
 import walkingkooka.validation.provider.ValidatorName;
 
@@ -62,6 +64,17 @@ public final class ValidatorFetcher extends Fetcher<ValidatorFetcherWatcher> {
             );
     }
 
+    // GET /api/spreadsheet/SpreadsheetId/validator/ValidatorName
+    public void getInfoSet(final SpreadsheetId id,
+                           final ValidatorName name) {
+        this.get(
+            url(id)
+                .appendPathName(
+                    UrlPathName.with(name.value())
+                )
+        );
+    }
+
     // GET /api/spreadsheet/SpreadsheetId/validator/*
     public void getInfoSet(final SpreadsheetId id) {
         this.get(
@@ -79,6 +92,18 @@ public final class ValidatorFetcher extends Fetcher<ValidatorFetcherWatcher> {
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
                 this.watcher.onEmptyResponse(context);
+                break;
+            case "ValidatorInfo":
+                // GET http://server/api/spreadsheet/1/validator/ValidatorName
+                this.watcher.onValidatorInfo(
+                    SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
+                        .get(), // the request url
+                    this.parse(
+                        body.orElse(""),
+                        ValidatorInfo.class
+                    ), // edit
+                    context
+                );
                 break;
             case "ValidatorInfoSet":
                 // GET http://server/api/spreadsheet/1/validator
