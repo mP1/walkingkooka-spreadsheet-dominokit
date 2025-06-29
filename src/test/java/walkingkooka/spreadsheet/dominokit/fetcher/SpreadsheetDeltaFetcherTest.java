@@ -47,6 +47,7 @@ import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
 import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.form.FormName;
 
 import java.math.MathContext;
 import java.time.LocalDate;
@@ -1102,6 +1103,56 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                 path
             ),
             "formatter " + id + ", " + selection + ", " + path
+        );
+    }
+
+    // formUrl..........................................................................................................
+
+    @Test
+    public void testFormUrlMissingFormName() {
+        this.formUrlAndCheck(
+            ID,
+            Url.parseRelative("/api/spreadsheet/1234/form/*")
+        );
+    }
+
+    @Test
+    public void testFormUrlWithFormName() {
+        this.formUrlAndCheck(
+            ID,
+            FormName.with("Form123"),
+            Url.parseRelative("/api/spreadsheet/1234/form/Form123")
+        );
+    }
+
+    private void formUrlAndCheck(final SpreadsheetId id,
+                                 final RelativeUrl expected) {
+        this.formUrlAndCheck(
+            id,
+            Optional.empty(),
+            expected
+        );
+    }
+
+    private void formUrlAndCheck(final SpreadsheetId id,
+                                 final FormName formName,
+                                 final RelativeUrl expected) {
+        this.formUrlAndCheck(
+            id,
+            Optional.of(formName),
+            expected
+        );
+    }
+
+    private void formUrlAndCheck(final SpreadsheetId id,
+                                 final Optional<FormName> formName,
+                                 final RelativeUrl expected) {
+        this.checkEquals(
+            expected,
+            SpreadsheetDeltaFetcher.formUrl(
+                id,
+                formName
+            )
         );
     }
 }
