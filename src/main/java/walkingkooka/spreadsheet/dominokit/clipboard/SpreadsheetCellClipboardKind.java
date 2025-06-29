@@ -51,6 +51,7 @@ import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -286,6 +287,55 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                 toMap(
                     range,
                     SpreadsheetCell::decimalNumberSymbols
+                )
+            );
+        }
+    },
+
+    /**
+     * The clipboard value is cells to {@link Locale}.
+     */
+    LOCALE(
+        Locale.class,
+        SpreadsheetCell::locale,
+        "locale"
+    ) {
+        @Override
+        JsonNode marshall(final SpreadsheetCell cell,
+                          final JsonNodeMarshallContext context) {
+            return marshallCellToOptionalValue(
+                cell,
+                cell.locale(),
+                context
+            );
+        }
+
+        @Override //
+        SpreadsheetCell unmarshall(final JsonNode node,
+                                   final AppContext context) {
+            return SpreadsheetSelection.parseCell(
+                node.name()
+                    .value()
+            ).setFormula(
+                SpreadsheetFormula.EMPTY
+            ).setLocale(
+                context.unmarshallOptional(
+                    node,
+                    Locale.class
+                )
+            );
+        }
+
+        @Override
+        public void saveOrUpdateCells(final SpreadsheetDeltaFetcher fetcher,
+                                      final SpreadsheetId id,
+                                      final SpreadsheetCellRange range) {
+            fetcher.patchCellsLocale(
+                id,
+                range.range(),
+                toMap(
+                    range,
+                    SpreadsheetCell::locale
                 )
             );
         }
