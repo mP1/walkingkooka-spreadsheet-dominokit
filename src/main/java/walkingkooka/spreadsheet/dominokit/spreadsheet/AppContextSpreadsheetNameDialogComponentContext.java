@@ -35,7 +35,7 @@ abstract class AppContextSpreadsheetNameDialogComponentContext implements Spread
     @Override
     public final void loadSpreadsheetMetadata(final SpreadsheetId id) {
         this.context.spreadsheetMetadataFetcher()
-            .loadSpreadsheetMetadata(id);
+            .getSpreadsheetMetadata(id);
     }
 
     @Override

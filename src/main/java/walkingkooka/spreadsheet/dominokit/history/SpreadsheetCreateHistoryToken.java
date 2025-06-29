@@ -68,6 +68,6 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
         context.spreadsheetMetadataFetcher()
-            .createSpreadsheetMetadata();
+            .postCreateSpreadsheetMetadata();
     }
 }

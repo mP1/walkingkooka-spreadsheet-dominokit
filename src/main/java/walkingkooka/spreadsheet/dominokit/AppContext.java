@@ -198,7 +198,7 @@ public interface AppContext extends CanGiveFocus,
         );
 
         this.spreadsheetMetadataFetcher()
-            .loadSpreadsheetMetadata(id);
+            .getSpreadsheetMetadata(id);
     }
 
     // viewport.........................................................................................................

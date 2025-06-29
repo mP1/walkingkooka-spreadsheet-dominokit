@@ -74,7 +74,7 @@ final class AppContextPluginNameSetDialogComponentContext implements PluginNameS
     @Override
     public void loadSpreadsheetMetadata(final SpreadsheetId id) {
         this.context.spreadsheetMetadataFetcher()
-            .loadSpreadsheetMetadata(id);
+            .getSpreadsheetMetadata(id);
     }
 
     @Override
