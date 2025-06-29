@@ -63,7 +63,7 @@ public final class DecimalNumberSymbolsFetcher extends Fetcher<DecimalNumberSymb
     }
 
     // GET /api/decimalNumberSymbols/LocaleTag
-    public void decimalNumberSymbols(final LocaleTag id) {
+    public void getDecimalNumberSymbols(final LocaleTag id) {
         Objects.requireNonNull(id, "id");
 
         get(
