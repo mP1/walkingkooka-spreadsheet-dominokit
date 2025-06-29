@@ -28,6 +28,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherW
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.util.Objects;
+import java.util.OptionalInt;
 
 final class AppContextPluginNameSetDialogComponentContext implements PluginNameSetDialogComponentContext,
     HasPluginFetcherWatchersDelegator,
@@ -53,8 +54,8 @@ final class AppContextPluginNameSetDialogComponentContext implements PluginNameS
 
     @Override
     public void pluginFilter(final String query,
-                             final int offset,
-                             final int count) {
+                             final OptionalInt offset,
+                             final OptionalInt count) {
         this.context.pluginFetcher()
             .filter(
                 query,
