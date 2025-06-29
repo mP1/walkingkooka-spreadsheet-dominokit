@@ -72,10 +72,10 @@ public final class SpreadsheetParserFetcher extends Fetcher<SpreadsheetParserFet
     }
 
     // POST /api/spreadsheet/SpreadsheetId/parser/*/edit
-    public void edit(final SpreadsheetId id,
-                     final String selector) {
+    public void postEdit(final SpreadsheetId id,
+                         final String selector) {
         this.post(
-            parser(id)
+            url(id)
                 .appendPath(EDIT),
             FetcherRequestBody.string(
                 JsonNode.string(selector)
@@ -91,15 +91,15 @@ public final class SpreadsheetParserFetcher extends Fetcher<SpreadsheetParserFet
     );
 
     // GET /api/spreadsheet/SpreadsheetId/parser/*
-    public void infoSet(final SpreadsheetId id) {
+    public void getInfoSet(final SpreadsheetId id) {
         this.get(
-            parser(id)
+            url(id)
         );
     }
 
     // /api/spreadsheet/1/parser
 
-    static RelativeUrl parser(final SpreadsheetId id) {
+    static RelativeUrl url(final SpreadsheetId id) {
         return SpreadsheetMetadataFetcher.url(id)
             .appendPathName(
                 SpreadsheetParserName.HATEOS_RESOURCE_NAME.toUrlPathName()
