@@ -110,7 +110,7 @@ abstract class AppContextSpreadsheetFormatterSelectorDialogComponentContext impl
     public final void loadSpreadsheetFormattersEdit(final String text) {
         this.throttler.add(
             () -> this.context.spreadsheetFormatterFetcher()
-                .edit(
+                .postEdit(
                     this.context.historyToken()
                         .cast(SpreadsheetIdHistoryToken.class)
                         .id(), // id

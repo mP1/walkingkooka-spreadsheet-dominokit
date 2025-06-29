@@ -83,10 +83,10 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
     }
 
     // GET /api/spreadsheet/SpreadsheetId/formatter/*/edit
-    public void edit(final SpreadsheetId id,
-                     final String selector) {
+    public void postEdit(final SpreadsheetId id,
+                         final String selector) {
         this.post(
-            formatter(id)
+            url(id)
                 .appendPath(EDIT),
             FetcherRequestBody.string(
                 JsonNode.string(selector)
@@ -100,16 +100,16 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
     );
 
     // GET /api/spreadsheet/SpreadsheetId/formatter/*
-    public void infoSet(final SpreadsheetId id) {
+    public void getInfoSet(final SpreadsheetId id) {
         this.get(
-            formatter(id)
+            url(id)
         );
     }
 
     // GET /api/spreadsheet/SpreadsheetId/formatter/*/menu
-    public void menu(final SpreadsheetId id) {
+    public void getMenu(final SpreadsheetId id) {
         this.get(
-            formatter(id)
+            url(id)
                 .appendPath(MENU)
         );
     }
@@ -120,7 +120,7 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
 
     // api/spreadsheet/SpreadsheetId/formatter
 
-    static RelativeUrl formatter(final SpreadsheetId id) {
+    static RelativeUrl url(final SpreadsheetId id) {
         return SpreadsheetMetadataFetcher.url(id)
             .appendPathName(
                 SpreadsheetFormatterName.HATEOS_RESOURCE_NAME.toUrlPathName()
