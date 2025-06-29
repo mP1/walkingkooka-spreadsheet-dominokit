@@ -55,7 +55,7 @@ final class AppContextSpreadsheetCellReferencesDialogComponentContext implements
                                    final SpreadsheetCellRangeReference cells,
                                    final HistoryTokenOffsetAndCount offsetAndCount) {
         this.context.spreadsheetDeltaFetcher()
-            .loadCellReferences(
+            .getCellReferences(
                 id,
                 cells,
                 offsetAndCount.offset(),

@@ -347,9 +347,9 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
-    public void findCells(final SpreadsheetId id,
-                          final SpreadsheetCellRangeReference cells,
-                          final SpreadsheetCellFindQuery find) {
+    public void getFindCells(final SpreadsheetId id,
+                             final SpreadsheetCellRangeReference cells,
+                             final SpreadsheetCellFindQuery find) {
         this.get(
             findCellsUrl(
                 id,
@@ -378,11 +378,11 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
             );
     }
 
-    public void insertAfterColumn(final SpreadsheetId id,
-                                  final SpreadsheetSelection selection,
-                                  final int count) {
+    public void postInsertAfterColumn(final SpreadsheetId id,
+                                      final SpreadsheetSelection selection,
+                                      final int count) {
         // http://localhost:3000/api/spreadsheet/1/column/ABC/insert-after?count=2&home=A1&width=1712&height=765&includeFrozenColumnsRows=true
-        this.insertColumnOrRow(
+        this.postInsertColumnOrRow(
             id,
             selection,
             SpreadsheetServerLinkRelations.INSERT_AFTER,
@@ -390,11 +390,11 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
-    public void insertBeforeColumn(final SpreadsheetId id,
-                                   final SpreadsheetSelection selection,
-                                   final int count) {
+    public void postInsertBeforeColumn(final SpreadsheetId id,
+                                       final SpreadsheetSelection selection,
+                                       final int count) {
         // http://localhost:3000/api/spreadsheet/1/column/ABC/insert-before?count=2&home=A1&width=1712&height=765&includeFrozenColumnsRows=true
-        this.insertColumnOrRow(
+        this.postInsertColumnOrRow(
             id,
             selection,
             SpreadsheetServerLinkRelations.INSERT_BEFORE,
@@ -402,11 +402,11 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
-    public void insertAfterRow(final SpreadsheetId id,
-                               final SpreadsheetSelection selection,
-                               final int count) {
+    public void postInsertAfterRow(final SpreadsheetId id,
+                                   final SpreadsheetSelection selection,
+                                   final int count) {
         // http://localhost:3000/api/spreadsheet/1/row/ABC/insert-after?count=2&home=A1&width=1712&height=765&includeFrozenRowsRows=true
-        this.insertColumnOrRow(
+        this.postInsertColumnOrRow(
             id,
             selection,
             SpreadsheetServerLinkRelations.INSERT_AFTER,
@@ -414,11 +414,11 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
-    public void insertBeforeRow(final SpreadsheetId id,
-                                final SpreadsheetSelection selection,
-                                final int count) {
+    public void postInsertBeforeRow(final SpreadsheetId id,
+                                    final SpreadsheetSelection selection,
+                                    final int count) {
         // http://localhost:3000/api/spreadsheet/1/row/ABC/insert-before?count=2&home=A1&width=1712&height=765&includeFrozenRowsRows=true
-        this.insertColumnOrRow(
+        this.postInsertColumnOrRow(
             id,
             selection,
             SpreadsheetServerLinkRelations.INSERT_BEFORE,
@@ -426,10 +426,10 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
-    private void insertColumnOrRow(final SpreadsheetId id,
-                                   final SpreadsheetSelection selection,
-                                   final LinkRelation<?> afterOrBefore,
-                                   final int count) {
+    private void postInsertColumnOrRow(final SpreadsheetId id,
+                                       final SpreadsheetSelection selection,
+                                       final LinkRelation<?> afterOrBefore,
+                                       final int count) {
         final AppContext context = this.context;
 
         // /api/spreadsheet/SpreadsheetId/column/A:B/insertBefore?count=1
@@ -463,10 +463,10 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
      * GET /api/spreadsheet/{SpreadsheetId}/cell/{@link SpreadsheetExpressionReference}/labels?offset=1&count=1
      * </pre>
      */
-    public void loadCellLabels(final SpreadsheetId id,
-                               final SpreadsheetExpressionReference reference,
-                               final OptionalInt offset,
-                               final OptionalInt count) {
+    public void getCellLabels(final SpreadsheetId id,
+                              final SpreadsheetExpressionReference reference,
+                              final OptionalInt offset,
+                              final OptionalInt count) {
         // GET /api/spreadsheet/{SpreadsheetId}/cell/{SpreadsheetExpressionReference}/labels?offset=1&count=1
         this.get(
             SpreadsheetMetadataFetcher.url(
@@ -496,10 +496,10 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
      * GET /api/spreadsheet/{@link SpreadsheetId}/cell/{@link SpreadsheetExpressionReference}/references?offset=1&count=1
      * </pre>
      */
-    public void loadCellReferences(final SpreadsheetId id,
-                                   final SpreadsheetExpressionReference reference,
-                                   final OptionalInt offset,
-                                   final OptionalInt count) {
+    public void getCellReferences(final SpreadsheetId id,
+                                  final SpreadsheetExpressionReference reference,
+                                  final OptionalInt offset,
+                                  final OptionalInt count) {
         // GET /api/spreadsheet/{SpreadsheetId}/cell/{SpreadsheetExpressionReference}/references?offset=1&count=1
         this.get(
             SpreadsheetMetadataFetcher.url(
@@ -529,10 +529,10 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
      * GET /api/spreadsheet/{@link SpreadsheetId}/label/{reference}/references?offset=1&count=1
      * </pre>
      */
-    public void loadLabelReferences(final SpreadsheetId id,
-                                    final SpreadsheetLabelName label,
-                                    final OptionalInt offset,
-                                    final OptionalInt count) {
+    public void getLabelReferences(final SpreadsheetId id,
+                                   final SpreadsheetLabelName label,
+                                   final OptionalInt offset,
+                                   final OptionalInt count) {
         // GET /api/spreadsheet/{SpreadsheetId}/label/{label}/references?offset=1&count=1
         this.get(
             SpreadsheetMetadataFetcher.url(
@@ -581,8 +581,8 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     /**
      * Loads the cells to fill the given rectangular area typically a {@link SpreadsheetViewport}.
      */
-    public void loadCells(final SpreadsheetId id,
-                          final SpreadsheetViewport viewport) {
+    public void getCells(final SpreadsheetId id,
+                         final SpreadsheetViewport viewport) {
         // load cells for the new window...
         // http://localhost:3000/api/spreadsheet/1f/cell/*/force-recompute?home=A1&width=1712&height=765&includeFrozenColumnsRows=true
         this.get(
@@ -605,8 +605,8 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     /**
      * Loads the given {@link SpreadsheetLabelName}.
      */
-    public void loadLabelMapping(final SpreadsheetId id,
-                                 final SpreadsheetLabelName labelName) {
+    public void getLabelMapping(final SpreadsheetId id,
+                                final SpreadsheetLabelName labelName) {
         Objects.requireNonNull(id, "id");
         Objects.requireNonNull(labelName, "labelName");
 
@@ -621,7 +621,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     /**
      * Saves/Creates the given {@link SpreadsheetLabelMapping}.
      */
-    public void saveLabelMapping(final SpreadsheetId id,
+    public void postLabelMapping(final SpreadsheetId id,
                                  final SpreadsheetLabelMapping mapping) {
         Objects.requireNonNull(id, "id");
         Objects.requireNonNull(mapping, "mapping");
@@ -663,9 +663,9 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
      * GET /api/spreadsheet/{@link SpreadsheetId}/label/{reference}/references?offset=1&count=1
      * </pre>
      */
-    public void loadLabelMappings(final SpreadsheetId id,
-                                  final OptionalInt offset,
-                                  final OptionalInt count) {
+    public void getLabelMappings(final SpreadsheetId id,
+                                 final OptionalInt offset,
+                                 final OptionalInt count) {
         // GET /api/spreadsheet/{SpreadsheetId}/label/*?offset=1&count=1
         this.get(
             SpreadsheetMetadataFetcher.url(
@@ -719,19 +719,6 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
-    public void patchCellsFormatter(final SpreadsheetId id,
-                                    final SpreadsheetSelection selection,
-                                    final Map<SpreadsheetCellReference, Optional<SpreadsheetFormatterSelector>> cellToFormatters) {
-        this.patchDeltaWithViewportAndWindowQueryString(
-            id,
-            selection,
-            SpreadsheetDelta.cellsFormatterPatch(
-                cellToFormatters,
-                this.context
-            )
-        );
-    }
-
     public void patchCellsLocale(final SpreadsheetId id,
                                  final SpreadsheetSelection selection,
                                  final Map<SpreadsheetCellReference, Optional<Locale>> cellToLocales) {
@@ -740,6 +727,19 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
             selection,
             SpreadsheetDelta.cellsLocalePatch(
                 cellToLocales,
+                this.context
+            )
+        );
+    }
+
+    public void patchCellsFormatter(final SpreadsheetId id,
+                                    final SpreadsheetSelection selection,
+                                    final Map<SpreadsheetCellReference, Optional<SpreadsheetFormatterSelector>> cellToFormatters) {
+        this.patchDeltaWithViewportAndWindowQueryString(
+            id,
+            selection,
+            SpreadsheetDelta.cellsFormatterPatch(
+                cellToFormatters,
                 this.context
             )
         );
@@ -971,7 +971,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
-    public void saveCells(final SpreadsheetId id,
+    public void postCells(final SpreadsheetId id,
                           final SpreadsheetSelection selection,
                           final Set<SpreadsheetCell> cells) {
         final AppContext context = this.context;
@@ -988,9 +988,9 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     }
 
     // GET http://localhost:12345/api/spreadsheet/1/cell/A1%3AB3/sort?comparators=A%3Dtext
-    public void sortCells(final SpreadsheetId id,
-                          final SpreadsheetExpressionReference selection,
-                          final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparators) {
+    public void getSortCells(final SpreadsheetId id,
+                             final SpreadsheetExpressionReference selection,
+                             final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparators) {
         this.get(
             url(
                 id,

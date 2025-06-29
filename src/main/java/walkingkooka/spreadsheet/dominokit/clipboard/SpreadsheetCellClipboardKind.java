@@ -126,7 +126,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
         public void saveOrUpdateCells(final SpreadsheetDeltaFetcher fetcher,
                                       final SpreadsheetId id,
                                       final SpreadsheetCellRange range) {
-            fetcher.saveCells(
+            fetcher.postCells(
                 id,
                 range.range(),
                 range.value()

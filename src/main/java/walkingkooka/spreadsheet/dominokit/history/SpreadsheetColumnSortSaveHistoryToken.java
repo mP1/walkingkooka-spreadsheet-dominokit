@@ -97,7 +97,7 @@ public final class SpreadsheetColumnSortSaveHistoryToken extends SpreadsheetColu
         context.pushHistoryToken(previous.clearAction());
 
         context.spreadsheetDeltaFetcher()
-            .sortCells(
+            .getSortCells(
                 this.id(),
                 this.anchoredSelection()
                     .selection()

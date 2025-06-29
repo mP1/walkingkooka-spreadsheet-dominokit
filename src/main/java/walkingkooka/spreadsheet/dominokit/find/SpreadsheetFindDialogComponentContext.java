@@ -42,7 +42,7 @@ public interface SpreadsheetFindDialogComponentContext extends HistoryContext,
     ProviderContext {
 
     /**
-     * {@see SpeadsheetDeltaFetcher#findCells}
+     * {@see SpeadsheetDeltaFetcher#getFindCells}
      */
     void findCells(final SpreadsheetId id,
                    final SpreadsheetCellRangeReference cells,

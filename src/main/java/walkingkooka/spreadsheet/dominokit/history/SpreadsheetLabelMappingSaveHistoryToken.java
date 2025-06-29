@@ -113,7 +113,7 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
         context.pushHistoryToken(previous);
 
         context.spreadsheetDeltaFetcher()
-            .saveLabelMapping(
+            .postLabelMapping(
                 this.id(),
                 this.mapping
             );
