@@ -58,7 +58,7 @@ public final class SpreadsheetImporterFetcher extends Fetcher<SpreadsheetImporte
         );
     }
 
-    static RelativeUrl importer(final SpreadsheetId id) {
+    static RelativeUrl url(final SpreadsheetId id) {
         return SpreadsheetMetadataFetcher.url(id)
             .appendPathName(
                 SpreadsheetImporterName.HATEOS_RESOURCE_NAME.toUrlPathName()
@@ -66,9 +66,9 @@ public final class SpreadsheetImporterFetcher extends Fetcher<SpreadsheetImporte
     }
 
     // GET /api/spreadsheet/SpreadsheetId/importer/*
-    public void infoSet(final SpreadsheetId id) {
+    public void getInfoSet(final SpreadsheetId id) {
         this.get(
-            importer(id)
+            url(id)
         );
     }
 
