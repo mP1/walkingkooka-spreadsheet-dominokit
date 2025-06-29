@@ -39,6 +39,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.DecimalNumberSymbolsFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.DecimalNumberSymbolsFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.FormHandlerFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.FormHandlerFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.LocaleFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.LocaleFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcher;
@@ -236,6 +238,23 @@ public class FakeAppContext extends FakeSpreadsheetProvider
         throw new UnsupportedOperationException();
     }
 
+    // FormHandlerWatcher...............................................................................................
+
+    @Override
+    public Runnable addFormHandlerFetcherWatcher(final FormHandlerFetcherWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addFormHandlerFetcherWatcherOnce(final FormHandlerFetcherWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public FormHandlerFetcher formHandlerFetcher() {
+        throw new UnsupportedOperationException();
+    }
+    
     // SpreadsheetFormatterWatcher......................................................................................
 
     @Override

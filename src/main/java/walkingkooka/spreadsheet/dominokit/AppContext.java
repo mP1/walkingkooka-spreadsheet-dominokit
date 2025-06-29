@@ -35,6 +35,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasConverterFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasDateTimeSymbolsFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasDecimalNumberSymbolsFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasExpressionFunctionFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasFormHandlerFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasLocaleFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetComparatorFetcher;
@@ -78,6 +79,7 @@ public interface AppContext extends CanGiveFocus,
     SpreadsheetProvider,
     HasDateTimeSymbolsFetcher,
     HasDecimalNumberSymbolsFetcher,
+    HasFormHandlerFetcher,
     HasLocale,
     HasNow,
     HasSpreadsheetComparatorFetcher,
