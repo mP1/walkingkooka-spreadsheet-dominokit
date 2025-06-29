@@ -39,10 +39,8 @@ final class AppContextSpreadsheetLabelMappingListDialogComponentContextLabel ext
         this.context.spreadsheetDeltaFetcher()
             .loadLabelMappings(
                 id,
-                offsetAndCount.offset()
-                    .orElse(0),
+                offsetAndCount.offset(),
                 offsetAndCount.count()
-                    .orElse(0)
             );
     }
 

@@ -37,6 +37,7 @@ import walkingkooka.tree.json.JsonNode;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
+import java.util.OptionalInt;
 
 /**
  * Base class for a variety of fetchers that target HateosResources and other end points.
@@ -369,29 +370,38 @@ abstract public class Fetcher<W extends FetcherWatcher> {
     // helpers..........................................................................................................
 
     // @VisibleForTesting
-    static UrlQueryString offsetAndCountQueryString(final int offset,
-                                                    final int count) {
-        if (offset < 0) {
-            throw new IllegalArgumentException("Invalid offset " + offset + " < 0");
-        }
-        if (count < 0) {
-            throw new IllegalArgumentException("Invalid count " + count + " < 0");
-        }
-
+    static UrlQueryString offsetAndCountQueryString(final OptionalInt offset,
+                                                    final OptionalInt count) {
         UrlQueryString queryString = UrlQueryString.EMPTY;
 
-        if (offset > 0) {
-            queryString = UrlQueryString.EMPTY.addParameter(
-                SpreadsheetUrlQueryParameters.OFFSET,
-                String.valueOf(offset)
-            );
+        if (offset.isPresent()) {
+            final int value = offset.getAsInt();
+
+            if (value < 0) {
+                throw new IllegalArgumentException("Invalid offset " + value + " < 0");
+            }
+
+            if (value > 0) {
+                queryString = queryString.addParameter(
+                    SpreadsheetUrlQueryParameters.OFFSET,
+                    String.valueOf(value)
+                );
+            }
         }
 
-        if (count > 0) {
-            queryString = queryString.addParameter(
-                SpreadsheetUrlQueryParameters.COUNT,
-                String.valueOf(count)
-            );
+        if (count.isPresent()) {
+            final int value = count.getAsInt();
+
+            if (value < 0) {
+                throw new IllegalArgumentException("Invalid count " + value + " < 0");
+            }
+
+            if (value > 0) {
+                queryString = queryString.addParameter(
+                    SpreadsheetUrlQueryParameters.COUNT,
+                    String.valueOf(value)
+                );
+            }
         }
 
         return queryString;

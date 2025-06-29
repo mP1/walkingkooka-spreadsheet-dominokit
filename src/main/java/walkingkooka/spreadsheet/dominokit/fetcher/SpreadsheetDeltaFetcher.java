@@ -69,6 +69,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.Set;
 
 /**
@@ -446,8 +447,8 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                         .get()
                 ).setQuery(
                     offsetAndCountQueryString(
-                        0, // offset
-                        count
+                        OptionalInt.empty(), // offset
+                        OptionalInt.of(count)
                     ).addParameters(
                         context.viewportAndWindowQueryString()
                     )
@@ -464,8 +465,8 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
      */
     public void loadCellLabels(final SpreadsheetId id,
                                final SpreadsheetExpressionReference reference,
-                               final int offset,
-                               final int count) {
+                               final OptionalInt offset,
+                               final OptionalInt count) {
         // GET /api/spreadsheet/{SpreadsheetId}/cell/{SpreadsheetExpressionReference}/labels?offset=1&count=1
         this.get(
             SpreadsheetMetadataFetcher.url(
@@ -497,8 +498,8 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
      */
     public void loadCellReferences(final SpreadsheetId id,
                                    final SpreadsheetExpressionReference reference,
-                                   final int offset,
-                                   final int count) {
+                                   final OptionalInt offset,
+                                   final OptionalInt count) {
         // GET /api/spreadsheet/{SpreadsheetId}/cell/{SpreadsheetExpressionReference}/references?offset=1&count=1
         this.get(
             SpreadsheetMetadataFetcher.url(
@@ -514,7 +515,10 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                     SpreadsheetServerLinkRelations.REFERENCES.toUrlPathName()
                         .get()
                 ).setQuery(
-                    offsetAndCountQueryString(offset, count)
+                    offsetAndCountQueryString(
+                        offset,
+                        count
+                    )
                 )
         );
     }
@@ -527,8 +531,8 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
      */
     public void loadLabelReferences(final SpreadsheetId id,
                                     final SpreadsheetLabelName label,
-                                    final int offset,
-                                    final int count) {
+                                    final OptionalInt offset,
+                                    final OptionalInt count) {
         // GET /api/spreadsheet/{SpreadsheetId}/label/{label}/references?offset=1&count=1
         this.get(
             SpreadsheetMetadataFetcher.url(
@@ -660,8 +664,8 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
      * </pre>
      */
     public void loadLabelMappings(final SpreadsheetId id,
-                                  final int offset,
-                                  final int count) {
+                                  final OptionalInt offset,
+                                  final OptionalInt count) {
         // GET /api/spreadsheet/{SpreadsheetId}/label/*?offset=1&count=1
         this.get(
             SpreadsheetMetadataFetcher.url(
