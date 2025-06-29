@@ -41,7 +41,7 @@ import java.util.OptionalInt;
 /**
  * A specialised Fetcher that supports all typical CRUD operations relating to a {@link SpreadsheetMetadata}.
  * <br>
- * To create a new spreadsheet, simply call {@link SpreadsheetMetadataFetcher#createSpreadsheetMetadata()}. This will
+ * To create a new spreadsheet, simply call {@link SpreadsheetMetadataFetcher#postCreateSpreadsheetMetadata()}. This will
  * POST an empty body to the server which will create a new spreadsheet with a new unique {@link SpreadsheetId}.
  * The locale in the request sent by the browser will be used as the {@link java.util.Locale} of the spreadsheet.
  * The response will contain a {@link SpreadsheetMetadata} in JSON form, and will include numerous default properties
@@ -57,7 +57,7 @@ import java.util.OptionalInt;
  * JSON form.
  * </br>
  * <br>
- * Loading a different spreadsheet is as simple as {@link SpreadsheetMetadataFetcher#loadSpreadsheetMetadata(SpreadsheetId)}.
+ * Loading a different spreadsheet is as simple as {@link SpreadsheetMetadataFetcher#getSpreadsheetMetadata(SpreadsheetId)}.
  * </br>
  * <br>
  * Deletion of spreadsheets is accomplished by simplying call {@link SpreadsheetMetadataFetcher#deleteSpreadsheetMetadata(SpreadsheetId)}}.
@@ -118,7 +118,7 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
     /**
      * Creates a new {@link SpreadsheetMetadata}.
      */
-    public void createSpreadsheetMetadata() {
+    public void postCreateSpreadsheetMetadata() {
         this.post(
             API_BASE,
             FetcherRequestBody.string("")
@@ -152,7 +152,7 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
     /**
      * Loads an existing spreadsheet
      */
-    public void loadSpreadsheetMetadata(final SpreadsheetId id) {
+    public void getSpreadsheetMetadata(final SpreadsheetId id) {
         this.get(
             url(id)
         );
