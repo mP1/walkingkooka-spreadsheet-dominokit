@@ -82,14 +82,13 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
     }
 
     // GET /api/plugin/*/filter?query=XXX&offset=0&count=10
-    public void filter(final String query,
-                       final OptionalInt offset,
-                       final OptionalInt count) {
+    public void getPluginFilter(final String query,
+                                final OptionalInt offset,
+                                final OptionalInt count) {
         Objects.requireNonNull(query, "query");
 
         this.get(
-            plugin()
-                .appendPathName(UrlPathName.WILDCARD)
+            URL.appendPathName(UrlPathName.WILDCARD)
                 .appendPathName(
                     SpreadsheetServerLinkRelations.FILTER.toUrlPathName()
                         .get()
@@ -103,7 +102,7 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
     }
 
     // GET /api/plugin/PluginName/list
-    public void listJarEntries(final PluginName pluginName) {
+    public void getPluginList(final PluginName pluginName) {
         this.get(
             pluginNameUrl(pluginName)
                 .appendPathName(
@@ -116,8 +115,8 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
     /**
      * Loads a text files from the given {@link PluginName}.
      */
-    public void loadJarTextFile(final PluginName pluginName,
-                                final JarEntryInfoName filename) {
+    public void getPluginJarTextFile(final PluginName pluginName,
+                                     final JarEntryInfoName filename) {
         this.fetch(
             HttpMethod.GET,
             pluginDownloadUrl(
@@ -142,7 +141,7 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
      * Uploads the request which is assumed to contain the file.
      */
     // POST /api/plugin/*/upload
-    public void uploadPlugin(final FetcherRequestBody<?> body) {
+    public void postPluginUpload(final FetcherRequestBody<?> body) {
         Objects.requireNonNull(body, "body");
 
         this.fetch(
@@ -156,20 +155,16 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
         );
     }
 
-    static RelativeUrl plugin() {
-        return Url.EMPTY_RELATIVE_URL.appendPath(
-            SpreadsheetHttpServer.API_PLUGIN
-        );
-    }
+    final static RelativeUrl URL = Url.EMPTY_RELATIVE_URL.appendPath(
+        SpreadsheetHttpServer.API_PLUGIN
+    );
 
     // api/plugin/PluginName
     public static RelativeUrl pluginNameUrl(final PluginName pluginName) {
         Objects.requireNonNull(pluginName, "pluginName");
 
-        return Url.EMPTY_RELATIVE_URL.appendPath(
-            SpreadsheetHttpServer.API_PLUGIN.append(
-                UrlPathName.with(pluginName.value())
-            )
+        return URL.appendPathName(
+            UrlPathName.with(pluginName.value())
         );
     }
 

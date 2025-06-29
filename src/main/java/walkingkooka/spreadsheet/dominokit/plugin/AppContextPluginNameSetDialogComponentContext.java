@@ -57,7 +57,7 @@ final class AppContextPluginNameSetDialogComponentContext implements PluginNameS
                              final OptionalInt offset,
                              final OptionalInt count) {
         this.context.pluginFetcher()
-            .filter(
+            .getPluginFilter(
                 query,
                 offset,
                 count

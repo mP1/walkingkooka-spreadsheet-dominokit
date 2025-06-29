@@ -45,7 +45,7 @@ public final class AppContextPluginFileViewDialogComponentContext implements Plu
     public void loadJarTextFile(final PluginName pluginName,
                                 final JarEntryInfoName filename) {
         this.context.pluginFetcher()
-            .loadJarTextFile(
+            .getPluginJarTextFile(
                 pluginName,
                 filename
             );

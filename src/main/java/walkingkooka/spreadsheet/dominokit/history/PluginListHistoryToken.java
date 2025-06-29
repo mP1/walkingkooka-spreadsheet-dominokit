@@ -71,7 +71,7 @@ public abstract class PluginListHistoryToken extends PluginHistoryToken {
 
     final void loadPlugins(final HasPluginFetcher fetcher) {
         fetcher.pluginFetcher()
-            .filter(
+            .getPluginFilter(
                 "*", // query
                 this.count(),
                 this.count()

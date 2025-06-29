@@ -82,7 +82,7 @@ public final class PluginUploadSaveHistoryToken extends PluginUploadHistoryToken
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
         context.pluginFetcher()
-            .uploadPlugin(
+            .postPluginUpload(
                 FetcherRequestBody.file(this.file)
             );
         context.pushHistoryToken(previous);
