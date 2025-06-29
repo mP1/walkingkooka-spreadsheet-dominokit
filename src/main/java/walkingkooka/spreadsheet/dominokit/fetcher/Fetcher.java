@@ -371,6 +371,13 @@ abstract public class Fetcher<W extends FetcherWatcher> {
     // @VisibleForTesting
     static UrlQueryString offsetAndCountQueryString(final int offset,
                                                     final int count) {
+        if (offset < 0) {
+            throw new IllegalArgumentException("Invalid offset " + offset + " < 0");
+        }
+        if (count < 0) {
+            throw new IllegalArgumentException("Invalid count " + count + " < 0");
+        }
+
         UrlQueryString queryString = UrlQueryString.EMPTY;
 
         if (offset > 0) {
