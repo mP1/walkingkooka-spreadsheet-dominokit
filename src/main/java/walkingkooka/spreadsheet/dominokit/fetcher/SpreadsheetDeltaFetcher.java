@@ -36,6 +36,7 @@ import walkingkooka.spreadsheet.SpreadsheetViewportRectangle;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellValueDialogComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportFormulaComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
@@ -953,14 +954,14 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         if (value.isEmpty()) {
             typedValue = null;
         } else {
-            if (SpreadsheetValueType.DATE.equals(valueType.text()) && TODAY_TEXT.equals(value)) {
+            if (SpreadsheetValueType.DATE.equals(valueType.text()) && SpreadsheetCellValueDialogComponent.TODAY_TEXT.equals(value)) {
                 typedValue = context.now()
                     .toLocalDate();
             }
-            if (SpreadsheetValueType.DATE_TIME.equals(valueType.text()) && NOW_TEXT.equals(value)) {
+            if (SpreadsheetValueType.DATE_TIME.equals(valueType.text()) && SpreadsheetCellValueDialogComponent.NOW_TEXT.equals(value)) {
                 typedValue = context.now();
             }
-            if (SpreadsheetValueType.TIME.equals(valueType.text()) && NOW_TEXT.equals(value)) {
+            if (SpreadsheetValueType.TIME.equals(valueType.text()) && SpreadsheetCellValueDialogComponent.NOW_TEXT.equals(value)) {
                 typedValue = context.now()
                     .toLocalTime();
             }
@@ -980,10 +981,6 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                 )
         );
     }
-
-    private final static String NOW_TEXT = "now";
-
-    private final static String TODAY_TEXT = "today";
 
     /**
      * Used to construct a PATCH

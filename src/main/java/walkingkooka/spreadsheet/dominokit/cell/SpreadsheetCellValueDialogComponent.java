@@ -52,6 +52,16 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
     NopEmptyResponseFetcherWatcher {
 
     /**
+     * A magic text value that will be replaced by the current date/time or time.
+     */
+    public final static String NOW_TEXT = "now";
+
+    /**
+     * A magic text value that will be replaced by the current date.
+     */
+    public final static String TODAY_TEXT = "today";
+
+    /**
      * Creates a new {@link SpreadsheetCellValueDialogComponent}.
      */
     public static <T> SpreadsheetCellValueDialogComponent<T> with(final FormValueComponent<?, T, ?> valueComponent,
@@ -82,13 +92,13 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
         String nowOrToday;
         ValidationValueTypeName valueTypeName = context.valueType();
         if (ValidationValueTypeName.DATE.equals(valueTypeName)) {
-            nowOrToday = "today";
+            nowOrToday = TODAY_TEXT;
         } else {
             if (ValidationValueTypeName.DATE_TIME.equals(valueTypeName)) {
-                nowOrToday = "now";
+                nowOrToday = NOW_TEXT;
             } else {
                 if (ValidationValueTypeName.TIME.equals(valueTypeName)) {
-                    nowOrToday = "now";
+                    nowOrToday = NOW_TEXT;
                 } else {
                     nowOrToday = "";
                 }
