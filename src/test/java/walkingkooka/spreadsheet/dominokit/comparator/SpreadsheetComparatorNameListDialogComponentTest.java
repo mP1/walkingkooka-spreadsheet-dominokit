@@ -71,8 +71,8 @@ public final class SpreadsheetComparatorNameListDialogComponentTest implements S
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/day-of-month] id=spreadsheetComparatorNameList-save-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/day-of-month] id=spreadsheetComparatorNameList-undo-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/] id=spreadsheetComparatorNameList-clear-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/day-of-month] id=spreadsheetComparatorNameList-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=spreadsheetComparatorNameList-close-Link\n"
         );
     }

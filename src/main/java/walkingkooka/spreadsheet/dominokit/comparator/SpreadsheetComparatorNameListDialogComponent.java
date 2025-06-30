@@ -68,8 +68,8 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
         this.comparatorNameList = this.comparatorNameList();
 
         this.save = this.saveValueAnchor(context);
-        this.undo = this.undoAnchor(context);
         this.clear = this.clearValueAnchor(context);
+        this.undo = this.undoAnchor(context);
         this.close = this.closeAnchor();
 
         this.dialog = this.dialogCreate();
@@ -103,8 +103,8 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
             .appendChild(
                 SpreadsheetLinkListComponent.empty()
                     .appendChild(this.save)
-                    .appendChild(this.undo)
                     .appendChild(this.clear)
+                    .appendChild(this.undo)
                     .appendChild(this.close)
             );
     }
@@ -158,14 +158,14 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
     private final HistoryTokenSaveValueAnchorComponent<SpreadsheetComparatorNameList> save;
 
     /**
-     * A UNDO link which will be updated each time the {@link SpreadsheetComparatorNameList} is saved.
-     */
-    private final HistoryTokenSaveValueAnchorComponent<SpreadsheetComparatorNameList> undo;
-
-    /**
      * A CLEAR link which will save an empty {@link SpreadsheetComparatorNameList}.
      */
     private final HistoryTokenSaveValueAnchorComponent<SpreadsheetComparatorNameList> clear;
+
+    /**
+     * A UNDO link which will be updated each time the {@link SpreadsheetComparatorNameList} is saved.
+     */
+    private final HistoryTokenSaveValueAnchorComponent<SpreadsheetComparatorNameList> undo;
 
     /**
      * A CLOSE link which will close the dialog.
