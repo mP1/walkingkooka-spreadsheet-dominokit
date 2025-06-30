@@ -100,7 +100,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                 result = this.parseLabels(cursor);
                 break;
             case LOCALE_STRING:
-                result = this.parseLocale(cursor);
+                result = this.locale();
                 break;
             case MENU_STRING:
                 result = this.menu(
@@ -170,23 +170,6 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
         return token;
     }
 
-    private HistoryToken parsePaste(final TextCursor cursor) {
-        HistoryToken token = this;
-
-        if (this instanceof SpreadsheetCellSelectHistoryToken) {
-            final SpreadsheetCellSelectHistoryToken cell = this.cast(SpreadsheetCellSelectHistoryToken.class);
-
-            String component = parseComponentOrNull(cursor);
-            if (null != component) {
-                token = cell.setCellPaste(
-                    SpreadsheetCellClipboardKind.parse(component)
-                );
-            }
-        }
-
-        return token;
-    }
-
     private HistoryToken parseCut(final TextCursor cursor) {
         HistoryToken token = this;
 
@@ -228,8 +211,21 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
         return this.labels(offsetAndCount);
     }
 
-    private HistoryToken parseLocale(final TextCursor cursor) {
-        return this.locale();
+    private HistoryToken parsePaste(final TextCursor cursor) {
+        HistoryToken token = this;
+
+        if (this instanceof SpreadsheetCellSelectHistoryToken) {
+            final SpreadsheetCellSelectHistoryToken cell = this.cast(SpreadsheetCellSelectHistoryToken.class);
+
+            String component = parseComponentOrNull(cursor);
+            if (null != component) {
+                token = cell.setCellPaste(
+                    SpreadsheetCellClipboardKind.parse(component)
+                );
+            }
+        }
+
+        return token;
     }
 
     private HistoryToken parseValue(final TextCursor cursor) {
