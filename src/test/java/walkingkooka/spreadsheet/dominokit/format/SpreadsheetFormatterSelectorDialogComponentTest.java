@@ -144,8 +144,8 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=spreadsheetFormatterSelector-save-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=spreadsheetFormatterSelector-close-Link\n"
         );
     }
@@ -255,8 +255,8 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-format-pattern%20dd/mm/yyyy] id=spreadsheetFormatterSelector-save-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=spreadsheetFormatterSelector-close-Link\n"
         );
     }
@@ -387,8 +387,8 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-save-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=spreadsheetFormatterSelector-close-Link\n"
         );
     }
@@ -540,8 +540,8 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20$%230.00] id=spreadsheetFormatterSelector-save-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=spreadsheetFormatterSelector-close-Link\n"
         );
     }
@@ -619,8 +619,8 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern%20@%20%22Hello%22] id=spreadsheetFormatterSelector-save-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=spreadsheetFormatterSelector-close-Link\n"
         );
     }
@@ -713,8 +713,8 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20hh:mm] id=spreadsheetFormatterSelector-save-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=spreadsheetFormatterSelector-close-Link\n"
         );
     }
@@ -838,8 +838,8 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date-format-pattern%20dd/mm/yyyy] id=spreadsheetFormatterSelector-save-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date-format-pattern%20yyyy/mm/dd] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date-format-pattern%20yyyy/mm/dd] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=spreadsheetFormatterSelector-close-Link\n"
         );
     }
@@ -982,8 +982,8 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-save-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20yyyy/mm/dd%20hh:mm] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20yyyy/mm/dd%20hh:mm] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=spreadsheetFormatterSelector-close-Link\n"
         );
     }
@@ -1147,8 +1147,8 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20$%230.00] id=spreadsheetFormatterSelector-save-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%200.%23] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%200.%23] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=spreadsheetFormatterSelector-close-Link\n"
         );
     }
@@ -1238,8 +1238,8 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text-format-pattern%20@%20%22Hello%22] id=spreadsheetFormatterSelector-save-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text-format-pattern%20@] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text-format-pattern%20@] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=spreadsheetFormatterSelector-close-Link\n"
         );
     }
@@ -1344,8 +1344,8 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20hh:mm] id=spreadsheetFormatterSelector-save-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20hh:mm:ss] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20hh:mm:ss] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=spreadsheetFormatterSelector-close-Link\n"
         );
     }

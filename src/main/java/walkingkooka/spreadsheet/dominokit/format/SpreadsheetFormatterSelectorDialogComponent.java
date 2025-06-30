@@ -156,8 +156,8 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
             .appendChild(
                 SpreadsheetLinkListComponent.empty()
                     .appendChild(this.save)
-                    .appendChild(this.undo)
                     .appendChild(this.clear)
+                    .appendChild(this.undo)
                     .appendChild(this.close)
             );
     }
