@@ -946,22 +946,44 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                              final String value) {
         final AppContext context = this.context;
 
+        final Class<?> type = SpreadsheetValueType.toClass(valueType)
+            .orElseThrow(() -> new IllegalStateException("Unsupported " + valueType));
+
+        Object typedValue = null;
+        if (value.isEmpty()) {
+            typedValue = null;
+        } else {
+            if (SpreadsheetValueType.DATE.equals(valueType.text()) && TODAY_TEXT.equals(value)) {
+                typedValue = context.now()
+                    .toLocalDate();
+            }
+            if (SpreadsheetValueType.DATE_TIME.equals(valueType.text()) && NOW_TEXT.equals(value)) {
+                typedValue = context.now();
+            }
+            if (SpreadsheetValueType.TIME.equals(valueType.text()) && NOW_TEXT.equals(value)) {
+                typedValue = context.now()
+                    .toLocalTime();
+            }
+            if (null == typedValue) {
+                typedValue = context.unmarshall(
+                    JsonNode.parse(value),
+                    type
+                );
+            }
+        }
+
         return SpreadsheetDelta.formulaPatch(
             JsonNode.object()
                 .set(
                     VALUE,
-                    context.marshallWithType(
-                        context.unmarshall(
-                            value.isEmpty() ?
-                                JsonNode.nullNode() :
-                                JsonNode.parse(value),
-                            SpreadsheetValueType.toClass(valueType)
-                                .orElseThrow(() -> new IllegalStateException("Unsupported " + valueType))
-                        )
-                    )
+                    context.marshallWithType(typedValue)
                 )
         );
     }
+
+    private final static String NOW_TEXT = "\"now\"";
+
+    private final static String TODAY_TEXT = "\"today\"";
 
     /**
      * Used to construct a PATCH
