@@ -26,9 +26,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.time.Instant;
-import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -109,7 +107,7 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLDi
             Instant.ofEpochMilli(
                     this.timePicker.getDate()
                         .getTime()
-                ).atZone(ZONE_ID)
+                ).atZone(DateTime.ZONE_ID)
                 .toLocalTime()
         );
     }
@@ -119,7 +117,7 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLDi
         Objects.requireNonNull(value, "value");
 
         this.timePicker.setDate(
-            toDate(
+            DateTime.toDate(
                 value.orElse(
                     this.clearValue.get()
                 )
@@ -186,8 +184,8 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLDi
         this.timePicker.addTimeSelectionListener(
             (final Date oldTime,
              final Date newTime) -> listener.onValueChanged(
-                dateToLocalTime(oldTime),
-                dateToLocalTime(newTime)
+                DateTime.dateToLocalTime(oldTime),
+                DateTime.dateToLocalTime(newTime)
             )
         );
 
@@ -269,30 +267,4 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLDi
             .map(Object::toString)
             .orElse("");
     }
-
-    // helpers..........................................................................................................
-
-    /**
-     * Helper that is used to translate {@link Date} from/to {@link LocalTime}.
-     */
-    private static Optional<LocalTime> dateToLocalTime(final Date date) {
-        return Optional.ofNullable(
-            null != date ?
-                Instant.ofEpochMilli(date.getTime())
-                    .atZone(ZONE_ID)
-                    .toLocalTime() :
-                null
-        );
-    }
-
-    private static Date toDate(final LocalTime time) {
-        return new Date(
-            time.atDate(LocalDate.EPOCH)
-                .atZone(ZONE_ID)
-                .toInstant()
-                .toEpochMilli()
-        );
-    }
-
-    private final static ZoneId ZONE_ID = ZoneId.systemDefault();
 }
