@@ -1198,7 +1198,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     public void testPatchValuePatchWithDateAndNow() {
         this.patchValuePatchAndCheck(
             ValidationValueTypeName.DATE,
-            "\"today\"",
+            "today",
             "{\n" +
                 "  \"formula\": {\n" +
                 "    \"value\": {\n" +
@@ -1230,7 +1230,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     public void testPatchValuePatchWithDateTimeAndNow() {
         this.patchValuePatchAndCheck(
             ValidationValueTypeName.DATE_TIME,
-            "\"now\"",
+            "now",
             "{\n" +
                 "  \"formula\": {\n" +
                 "    \"value\": {\n" +
@@ -1262,7 +1262,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     public void testPatchValuePatchWithTimeAndNow() {
         this.patchValuePatchAndCheck(
             ValidationValueTypeName.TIME,
-            "\"now\"",
+            "now",
             "{\n" +
                 "  \"formula\": {\n" +
                 "    \"value\": {\n" +

@@ -981,9 +981,9 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
-    private final static String NOW_TEXT = "\"now\"";
+    private final static String NOW_TEXT = "now";
 
-    private final static String TODAY_TEXT = "\"today\"";
+    private final static String TODAY_TEXT = "today";
 
     /**
      * Used to construct a PATCH
