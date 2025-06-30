@@ -107,7 +107,7 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLDi
             Instant.ofEpochMilli(
                     this.timePicker.getDate()
                         .getTime()
-                ).atZone(DateTime.ZONE_ID)
+                ).atZone(CalendarAndTimePicker.ZONE_ID)
                 .toLocalTime()
         );
     }
@@ -117,7 +117,7 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLDi
         Objects.requireNonNull(value, "value");
 
         this.timePicker.setDate(
-            DateTime.toDate(
+            CalendarAndTimePicker.toDate(
                 value.orElse(
                     this.clearValue.get()
                 )
@@ -184,8 +184,8 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLDi
         this.timePicker.addTimeSelectionListener(
             (final Date oldTime,
              final Date newTime) -> listener.onValueChanged(
-                DateTime.dateToLocalTime(oldTime),
-                DateTime.dateToLocalTime(newTime)
+                CalendarAndTimePicker.dateToLocalTime(oldTime),
+                CalendarAndTimePicker.dateToLocalTime(newTime)
             )
         );
 

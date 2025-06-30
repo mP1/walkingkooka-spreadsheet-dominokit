@@ -20,11 +20,11 @@ package walkingkooka.spreadsheet.dominokit.value;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class DateTimeTest implements ClassTesting<DateTime> {
+public final class CalendarAndTimePickerTest implements ClassTesting<CalendarAndTimePicker> {
 
     @Override
-    public Class<DateTime> type() {
-        return DateTime.class;
+    public Class<CalendarAndTimePicker> type() {
+        return CalendarAndTimePicker.class;
     }
 
     @Override
