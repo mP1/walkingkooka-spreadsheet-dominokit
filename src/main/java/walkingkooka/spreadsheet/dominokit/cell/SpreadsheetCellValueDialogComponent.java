@@ -195,7 +195,7 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
             .orElse(null);
         return null != valueType &&
             token instanceof SpreadsheetCellValueSelectHistoryToken &&
-            this.context.isMatch(valueType);
+            this.context.valueType().equals(valueType);
     }
 
     @Override

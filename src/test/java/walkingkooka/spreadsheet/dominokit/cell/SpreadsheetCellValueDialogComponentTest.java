@@ -130,7 +130,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
                 CLEAR_VALUE
             ),
             new TestSpreadsheetCellValueDialogComponentContext<LocalDate>(
-                Optional.empty(),
+                ValidationValueTypeName.DATE,
                 context
             )
         );
@@ -167,6 +167,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
                 CLEAR_VALUE
             ),
             new TestSpreadsheetCellValueDialogComponentContext<LocalDate>(
+                ValidationValueTypeName.DATE,
                 Optional.of(
                     LocalDate.of(
                         2025,
@@ -208,6 +209,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
             SpreadsheetTextBox.empty()
                 .setId("TextBox-Text"),
             new TestSpreadsheetCellValueDialogComponentContext<String>(
+                ValidationValueTypeName.TEXT,
                 Optional.of("HelloTextValue"),
                 context
             )
@@ -243,7 +245,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
             SpreadsheetTextBox.empty()
                 .setId("TextBox-Text"),
             new TestSpreadsheetCellValueDialogComponentContext<String>(
-                Optional.empty(),
+                ValidationValueTypeName.TEXT,
                 context
             )
         );
@@ -280,6 +282,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
                 () -> LocalTime.MIN
             ),
             new TestSpreadsheetCellValueDialogComponentContext<LocalTime>(
+                ValidationValueTypeName.TIME,
                 Optional.of(
                     LocalTime.of(
                         12,
@@ -377,15 +380,19 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
 
     static class TestSpreadsheetCellValueDialogComponentContext<T> extends FakeSpreadsheetCellValueDialogComponentContext<T> {
 
-        TestSpreadsheetCellValueDialogComponentContext(final AppContext context) {
+        TestSpreadsheetCellValueDialogComponentContext(final ValidationValueTypeName valueType,
+                                                       final AppContext context) {
             this(
+                valueType,
                 Optional.empty(),
                 context
             );
         }
 
-        TestSpreadsheetCellValueDialogComponentContext(final Optional<T> value,
+        TestSpreadsheetCellValueDialogComponentContext(final ValidationValueTypeName valueType,
+                                                       final Optional<T> value,
                                                        final AppContext context) {
+            this.valueType = valueType;
             this.value = Objects.requireNonNull(value, "value");
             this.context = context;
         }
@@ -413,11 +420,11 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
         private final HistoryTokenWatchers historyTokenWatchers = HistoryTokenWatchers.empty();
 
         @Override
-        public boolean isMatch(final ValidationValueTypeName valueType) {
-            return ValidationValueTypeName.DATE.equals(valueType) ||
-                ValidationValueTypeName.TEXT.equals(valueType) ||
-                ValidationValueTypeName.TIME.equals(valueType);
+        public ValidationValueTypeName valueType() {
+            return this.valueType;
         }
+
+        private final ValidationValueTypeName valueType;
 
         @Override
         public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
@@ -455,6 +462,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
                 CLEAR_VALUE
             ),
             new TestSpreadsheetCellValueDialogComponentContext<LocalDate>(
+                ValidationValueTypeName.DATE,
                 this.appContext(historyToken)
             )
         );
