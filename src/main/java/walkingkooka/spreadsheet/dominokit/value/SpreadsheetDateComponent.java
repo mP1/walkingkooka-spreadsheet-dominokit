@@ -28,8 +28,6 @@ import walkingkooka.text.printer.IndentingPrinter;
 
 import java.time.Instant;
 import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -107,7 +105,7 @@ public final class SpreadsheetDateComponent implements FormValueComponent<HTMLDi
             Instant.ofEpochMilli(
                 this.calendar.getDate()
                     .getTime()
-            ).atZone(ZONE_ID)
+            ).atZone(DateTime.ZONE_ID)
             .toLocalDate()
         );
     }
@@ -117,7 +115,7 @@ public final class SpreadsheetDateComponent implements FormValueComponent<HTMLDi
         Objects.requireNonNull(value, "value");
 
         this.calendar.setDate(
-            toDate(
+            DateTime.toDate(
                 value.orElse(
                     this.clearValue.get()
                 )
@@ -201,7 +199,7 @@ public final class SpreadsheetDateComponent implements FormValueComponent<HTMLDi
      * Helper used to transform a {@link CalendarDay} into a {@link LocalDate}.
      */
     private static Optional<LocalDate> calendarDayToLocalDate(final CalendarDay day) {
-        return dateToLocalDate(
+        return DateTime.dateToLocalDate(
             null != day ?
                 day.getDate() :
                 null
@@ -283,30 +281,4 @@ public final class SpreadsheetDateComponent implements FormValueComponent<HTMLDi
             .map(Object::toString)
             .orElse("");
     }
-
-    // helpers..........................................................................................................
-
-    /**
-     * Helper that is used to translate {@link Date} to {@link LocalDate}.
-     */
-    private static Optional<LocalDate> dateToLocalDate(final Date date) {
-        return Optional.ofNullable(
-            null != date ?
-                Instant.ofEpochMilli(date.getTime())
-                    .atZone(ZONE_ID)
-                    .toLocalDate() :
-                null
-        );
-    }
-
-    private static Date toDate(final LocalDate date) {
-        return new Date(
-            date.atStartOfDay()
-                .atZone(ZONE_ID)
-                .toInstant()
-                .toEpochMilli()
-        );
-    }
-
-    private final static ZoneId ZONE_ID = ZoneId.systemDefault();
 }
