@@ -55,7 +55,7 @@ final class CalendarAndTimePicker {
         );
     }
 
-    static Date toDate(final LocalDate date) {
+    static Date localTimeToDate(final LocalDate date) {
         return new Date(
             date.atStartOfDay()
                 .atZone(ZONE_ID)
@@ -77,7 +77,7 @@ final class CalendarAndTimePicker {
         );
     }
 
-    static Date toDate(final LocalTime time) {
+    static Date localTimeToDate(final LocalTime time) {
         return new Date(
             time.atDate(LocalDate.EPOCH)
                 .atZone(ZONE_ID)

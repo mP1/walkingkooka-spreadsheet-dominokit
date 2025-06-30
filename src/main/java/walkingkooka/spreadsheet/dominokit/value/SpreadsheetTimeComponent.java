@@ -117,7 +117,7 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLDi
         Objects.requireNonNull(value, "value");
 
         this.timePicker.setDate(
-            CalendarAndTimePicker.toDate(
+            CalendarAndTimePicker.localTimeToDate(
                 value.orElse(
                     this.clearValue.get()
                 )
