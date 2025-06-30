@@ -76,8 +76,8 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
             );
         this.save = this.<String>saveValueAnchor(context)
             .autoDisableWhenMissingValue();
-        this.undo = this.undoAnchor(context);
         this.clear = this.clearValueAnchor(context);
+        this.undo = this.undoAnchor(context);
         this.close = this.closeAnchor();
 
         this.dialog = this.dialogCreate();
@@ -137,18 +137,6 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
 
     private final HistoryTokenSaveValueAnchorComponent<String> save;
 
-    private void refreshUndo() {
-        this.undo.setValue(
-            Optional.of(
-                this.context.prepareSaveValue(
-                    this.context.value()
-                )
-            )
-        );
-    }
-
-    private final HistoryTokenSaveValueAnchorComponent<String> undo;
-
     private void refreshClear() {
         this.clear.setValue(
             Optional.of(
@@ -160,6 +148,18 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
     }
 
     private final HistoryTokenSaveValueAnchorComponent<String> clear;
+
+    private void refreshUndo() {
+        this.undo.setValue(
+            Optional.of(
+                this.context.prepareSaveValue(
+                    this.context.value()
+                )
+            )
+        );
+    }
+
+    private final HistoryTokenSaveValueAnchorComponent<String> undo;
 
     private void refreshClose() {
         this.close.setHistoryToken(
