@@ -129,7 +129,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
                 "              Error=error\n" +
-                "              DateTime=date-time\n" +
+                "              DateTime=dateTime\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
                 "              Time=time\n" +
@@ -250,7 +250,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
                 "              Error=error\n" +
-                "              DateTime=date-time\n" +
+                "              DateTime=dateTime\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
                 "              Time=time\n" +
@@ -371,7 +371,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
                 "              Error=error\n" +
-                "              DateTime=date-time\n" +
+                "              DateTime=dateTime\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
                 "              Time=time\n" +
@@ -490,7 +490,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
                 "              Error=error\n" +
-                "              DateTime=date-time\n" +
+                "              DateTime=dateTime\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
                 "              Time=time\n" +
@@ -645,7 +645,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
                 "              Error=error\n" +
-                "              DateTime=date-time\n" +
+                "              DateTime=dateTime\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
                 "              Time=time\n" +
@@ -795,7 +795,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
                 "              Error=error\n" +
-                "              DateTime=date-time\n" +
+                "              DateTime=dateTime\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
                 "              Time=time\n" +
@@ -914,7 +914,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
                 "              Error=error\n" +
-                "              DateTime=date-time\n" +
+                "              DateTime=dateTime\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
                 "              Time=time\n" +
@@ -1033,7 +1033,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
                 "              Error=error\n" +
-                "              DateTime=date-time\n" +
+                "              DateTime=dateTime\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
                 "              Time=time\n" +
@@ -1152,7 +1152,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
                 "              Error=error\n" +
-                "              DateTime=date-time\n" +
+                "              DateTime=dateTime\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
                 "              Time=time\n" +
@@ -1271,7 +1271,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
                 "              Error=error\n" +
-                "              DateTime=date-time\n" +
+                "              DateTime=dateTime\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
                 "              Time=time\n" +
@@ -1390,7 +1390,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
                 "              Error=error\n" +
-                "              DateTime=date-time\n" +
+                "              DateTime=dateTime\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
                 "              Time=time\n" +
@@ -1509,7 +1509,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
                 "              Error=error\n" +
-                "              DateTime=date-time\n" +
+                "              DateTime=dateTime\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
                 "              Time=time\n" +
@@ -1628,7 +1628,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
                 "              Error=error\n" +
-                "              DateTime=date-time\n" +
+                "              DateTime=dateTime\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
                 "              Time=time\n" +
@@ -1747,7 +1747,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
                 "              Error=error\n" +
-                "              DateTime=date-time\n" +
+                "              DateTime=dateTime\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
                 "              Time=time\n" +
@@ -1866,7 +1866,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
                 "              Error=error\n" +
-                "              DateTime=date-time\n" +
+                "              DateTime=dateTime\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
                 "              Time=time\n" +
@@ -1985,7 +1985,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
                 "              Error=error\n" +
-                "              DateTime=date-time\n" +
+                "              DateTime=dateTime\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
                 "              Time=time\n" +
@@ -2104,7 +2104,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
                 "              Error=error\n" +
-                "              DateTime=date-time\n" +
+                "              DateTime=dateTime\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
                 "              Time=time\n" +
@@ -2223,7 +2223,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
                 "              Error=error\n" +
-                "              DateTime=date-time\n" +
+                "              DateTime=dateTime\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
                 "              Time=time\n" +
