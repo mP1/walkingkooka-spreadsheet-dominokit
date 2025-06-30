@@ -17,6 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.value;
 
+import org.dominokit.domino.ui.datepicker.CalendarDay;
+
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -28,6 +30,17 @@ import java.util.Optional;
  * A collection of helpers to assist conversion between {@link Date} and {@link LocalDate} or {@link LocalTime}.
  */
 final class DateTime {
+
+    /**
+     * Helper used to transform a {@link CalendarDay} into a {@link LocalDate}.
+     */
+    static Optional<LocalDate> calendarDayToLocalDate(final CalendarDay day) {
+        return DateTime.dateToLocalDate(
+            null != day ?
+                day.getDate() :
+                null
+        );
+    }
 
     /**
      * Helper that is used to translate {@link Date} to {@link LocalDate}.
