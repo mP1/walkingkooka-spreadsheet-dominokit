@@ -804,6 +804,21 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
+     * {@see SpreadsheetCellSaveLocaleHistoryToken}
+     */
+    public static SpreadsheetCellSaveLocaleHistoryToken cellSaveLocale(final SpreadsheetId id,
+                                                                       final SpreadsheetName name,
+                                                                       final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                       final Map<SpreadsheetCellReference, Optional<Locale>> value) {
+        return SpreadsheetCellSaveLocaleHistoryToken.with(
+            id,
+            name,
+            anchoredSelection,
+            value
+        );
+    }
+
+    /**
      * {@see SpreadsheetCellSaveParserHistoryToken}
      */
     public static SpreadsheetCellSaveParserHistoryToken cellSaveParser(final SpreadsheetId id,
@@ -3920,12 +3935,13 @@ public abstract class HistoryToken implements HasUrlFragment,
                                         final int MODE_DECIMAL_NUMBER_SYMBOLS = 2;
                                         final int MODE_FORMATTER = 4;
                                         final int MODE_FORMULA = 8;
-                                        final int MODE_PARSER = 16;
-                                        final int MODE_STYLE = 32;
-                                        final int MODE_VALIDATOR = 64;
-                                        final int MODE_VALUE_TYPE = 128;
+                                        final int MODE_LOCALE = 16;
+                                        final int MODE_PARSER = 32;
+                                        final int MODE_STYLE = 64;
+                                        final int MODE_VALIDATOR = 128;
+                                        final int MODE_VALUE_TYPE = 256;
 
-                                        int mode = MODE_DATE_TIME_SYMBOLS | MODE_DECIMAL_NUMBER_SYMBOLS | MODE_FORMATTER | MODE_FORMULA | MODE_PARSER | MODE_STYLE | MODE_VALIDATOR | MODE_VALUE_TYPE;
+                                        int mode = MODE_DATE_TIME_SYMBOLS | MODE_DECIMAL_NUMBER_SYMBOLS | MODE_FORMATTER | MODE_FORMULA | MODE_LOCALE | MODE_PARSER | MODE_STYLE | MODE_VALIDATOR | MODE_VALUE_TYPE;
 
                                         for (final Object mapValue : map.values()) {
                                             // ignore nulls
@@ -3942,16 +3958,20 @@ public abstract class HistoryToken implements HasUrlFragment,
                                                             if (mapValueOptionalValue instanceof SpreadsheetFormatterSelector) {
                                                                 mode = MODE_FORMATTER & mode;
                                                             } else {
-                                                                if (mapValueOptionalValue instanceof SpreadsheetParserSelector) {
-                                                                    mode = MODE_PARSER & mode;
+                                                                if (mapValueOptionalValue instanceof Locale) {
+                                                                    mode = MODE_LOCALE & mode;
                                                                 } else {
-                                                                    if (mapValueOptionalValue instanceof ValidatorSelector) {
-                                                                        mode = MODE_VALIDATOR & mode;
+                                                                    if (mapValueOptionalValue instanceof SpreadsheetParserSelector) {
+                                                                        mode = MODE_PARSER & mode;
                                                                     } else {
-                                                                        if (mapValueOptionalValue instanceof ValidationValueTypeName) {
-                                                                            mode = MODE_VALUE_TYPE & mode;
+                                                                        if (mapValueOptionalValue instanceof ValidatorSelector) {
+                                                                            mode = MODE_VALIDATOR & mode;
                                                                         } else {
-                                                                            mode = 0;
+                                                                            if (mapValueOptionalValue instanceof ValidationValueTypeName) {
+                                                                                mode = MODE_VALUE_TYPE & mode;
+                                                                            } else {
+                                                                                mode = 0;
+                                                                            }
                                                                         }
                                                                     }
                                                                 }
@@ -4003,6 +4023,14 @@ public abstract class HistoryToken implements HasUrlFragment,
                                                 break;
                                             case MODE_FORMULA:
                                                 historyToken = HistoryToken.cellSaveFormulaText(
+                                                    id,
+                                                    name,
+                                                    spreadsheetSelection,
+                                                    Cast.to(valueOrNull)
+                                                );
+                                                break;
+                                            case MODE_LOCALE:
+                                                historyToken = HistoryToken.cellSaveLocale(
                                                     id,
                                                     name,
                                                     spreadsheetSelection,

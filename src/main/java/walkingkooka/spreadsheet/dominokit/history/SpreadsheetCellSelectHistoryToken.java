@@ -31,6 +31,8 @@ import walkingkooka.tree.text.TextStyle;
 import walkingkooka.validation.ValidationValueTypeName;
 import walkingkooka.validation.provider.ValidatorSelector;
 
+import java.util.Locale;
+
 /**
  * This token selects one or more cells for viewing or editing.
  * <pre>
@@ -151,6 +153,17 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                     SpreadsheetCellSaveHistoryToken.parseMap(
                         cursor,
                         String.class
+                    )
+                );
+                break;
+            case LOCALE_STRING:
+                result = cellSaveLocale(
+                    this.id(),
+                    this.name(),
+                    this.anchoredSelection(),
+                    SpreadsheetCellSaveHistoryToken.parseCellToOptionalMap(
+                        cursor,
+                        Locale.class
                     )
                 );
                 break;
