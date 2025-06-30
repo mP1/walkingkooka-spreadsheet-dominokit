@@ -36,6 +36,7 @@ import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.HistoryTokenSaveValueAnchorComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.text.CaseKind;
 import walkingkooka.validation.ValidationValueTypeName;
 
 import java.util.Objects;
@@ -74,8 +75,38 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
                         )
                 )
             );
+        
         this.save = this.<String>saveValueAnchor(context)
             .autoDisableWhenMissingValue();
+
+        String nowOrToday;
+        ValidationValueTypeName valueTypeName = context.valueType();
+        if (ValidationValueTypeName.DATE.equals(valueTypeName)) {
+            nowOrToday = "today";
+        } else {
+            if (ValidationValueTypeName.DATE_TIME.equals(valueTypeName)) {
+                nowOrToday = "now";
+            } else {
+                if (ValidationValueTypeName.TIME.equals(valueTypeName)) {
+                    nowOrToday = "now";
+                } else {
+                    nowOrToday = "";
+                }
+            }
+        }
+
+        this.nowOrToday = HistoryTokenSaveValueAnchorComponent.<String>with(
+            this.idPrefix() +
+                nowOrToday +
+                SpreadsheetElementIds.LINK,
+            context
+        ).setTextContent(
+            CaseKind.CAMEL.change(
+                nowOrToday,
+                CaseKind.TITLE
+            )
+        );
+
         this.clear = this.clearValueAnchor(context);
         this.undo = this.undoAnchor(context);
         this.close = this.closeAnchor();
@@ -94,21 +125,29 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
     private SpreadsheetDialogComponent dialogCreate() {
         final SpreadsheetCellValueDialogComponentContext<T> context = this.context;
 
+        SpreadsheetLinkListComponent links = SpreadsheetLinkListComponent.empty()
+            .setCssProperty("margin-top", "5px")
+            .setCssProperty("margin-left", "-5px")
+            .appendChild(this.save)
+            .appendChild(this.clear);
+
+        final ValidationValueTypeName valueType = context.valueType();
+        if(ValidationValueTypeName.DATE.equals(valueType) ||
+            ValidationValueTypeName.DATE_TIME.equals(valueType) ||
+            ValidationValueTypeName.TIME.equals(valueType)) {
+            links.appendChild(this.nowOrToday);
+        }
+
+        links = links.appendChild(this.undo)
+            .appendChild(this.close);
+
         return SpreadsheetDialogComponent.smallEdit(
                 context.id() + SpreadsheetElementIds.DIALOG,
                 context.dialogTitle(),
                 SpreadsheetDialogComponent.INCLUDE_CLOSE,
                 context
             ).appendChild(this.value)
-            .appendChild(
-                SpreadsheetLinkListComponent.empty()
-                    .setCssProperty("margin-top", "5px")
-                    .setCssProperty("margin-left", "-5px")
-                    .appendChild(this.save)
-                    .appendChild(this.clear)
-                    .appendChild(this.undo)
-                    .appendChild(this.close)
-            );
+            .appendChild(links);
     }
 
     private final SpreadsheetDialogComponent dialog;
@@ -136,6 +175,24 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
     }
 
     private final HistoryTokenSaveValueAnchorComponent<String> save;
+
+    private void refreshNowOrToday() {
+        final SpreadsheetCellValueDialogComponentContext<T> context = this.context;
+
+        // DATE today
+        // DATE_TIME now
+        // TIME now
+
+        this.nowOrToday.setValue(
+            Optional.of(
+                ValidationValueTypeName.DATE == context.valueType() ?
+                    "today" :
+                    "now"
+            )
+        );
+    }
+
+    private final HistoryTokenSaveValueAnchorComponent<String> nowOrToday;
 
     private void refreshClear() {
         this.clear.setValue(
@@ -201,6 +258,7 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
     @Override
     public void dialogReset() {
         this.save.clear();
+        this.nowOrToday.clear();
         this.value.clearValue();
     }
 
@@ -214,6 +272,7 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
         this.refreshValue();
 
         this.refreshSave();
+        this.refreshNowOrToday();
         this.refreshClear();
         this.refreshUndo();
         this.refreshClose();
