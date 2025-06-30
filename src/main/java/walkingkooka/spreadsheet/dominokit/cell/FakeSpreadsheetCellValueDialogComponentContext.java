@@ -40,7 +40,7 @@ public class FakeSpreadsheetCellValueDialogComponentContext<T> extends FakeHisto
     }
 
     @Override
-    public boolean isMatch(final ValidationValueTypeName valueType) {
+    public ValidationValueTypeName valueType() {
         throw new UnsupportedOperationException();
     }
 

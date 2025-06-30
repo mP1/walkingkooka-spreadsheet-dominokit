@@ -80,8 +80,8 @@ final class SpreadsheetCellValueDialogComponentContextDate implements Spreadshee
     }
 
     @Override
-    public boolean isMatch(final ValidationValueTypeName valueType) {
-        return ValidationValueTypeName.DATE.equals(valueType);
+    public ValidationValueTypeName valueType() {
+        return ValidationValueTypeName.DATE;
     }
 
     @Override

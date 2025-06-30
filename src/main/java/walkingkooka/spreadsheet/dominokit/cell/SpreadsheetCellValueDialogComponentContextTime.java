@@ -80,8 +80,8 @@ final class SpreadsheetCellValueDialogComponentContextTime implements Spreadshee
     }
 
     @Override
-    public boolean isMatch(final ValidationValueTypeName valueType) {
-        return ValidationValueTypeName.TIME.equals(valueType);
+    public ValidationValueTypeName valueType() {
+        return ValidationValueTypeName.TIME;
     }
 
     @Override

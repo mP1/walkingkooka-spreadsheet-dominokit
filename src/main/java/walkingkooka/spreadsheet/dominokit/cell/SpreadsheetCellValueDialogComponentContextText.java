@@ -79,8 +79,8 @@ final class SpreadsheetCellValueDialogComponentContextText implements Spreadshee
     }
 
     @Override
-    public boolean isMatch(final ValidationValueTypeName valueType) {
-        return ValidationValueTypeName.TEXT.equals(valueType);
+    public ValidationValueTypeName valueType() {
+        return ValidationValueTypeName.TEXT;
     }
 
     @Override

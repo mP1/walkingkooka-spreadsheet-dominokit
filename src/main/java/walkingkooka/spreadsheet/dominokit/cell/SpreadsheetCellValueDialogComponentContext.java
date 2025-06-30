@@ -41,9 +41,9 @@ public interface SpreadsheetCellValueDialogComponentContext<T> extends Spreadshe
     String dialogTitle();
 
     /**
-     * Tests if the {@link ValidationValueTypeName} after the {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken} is matched.
+     * The {@link ValidationValueTypeName} for this value being edited by this dialog.
      */
-    boolean isMatch(final ValidationValueTypeName valueType);
+    ValidationValueTypeName valueType();
 
     /**
      * Gets the current {@link LocalDate} value from the currently selected cell.
