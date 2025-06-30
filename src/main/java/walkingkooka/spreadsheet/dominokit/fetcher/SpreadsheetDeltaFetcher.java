@@ -858,6 +858,19 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
+    public void patchLocale(final SpreadsheetId id,
+                            final SpreadsheetSelection selection,
+                            final Optional<Locale> locale) {
+        this.patchDeltaWithViewportAndWindowQueryString(
+            id,
+            selection,
+            SpreadsheetDelta.localePatch(
+                locale,
+                this.context
+            )
+        );
+    }
+
     public void patchParser(final SpreadsheetId id,
                             final SpreadsheetSelection selection,
                             final Optional<SpreadsheetParserSelector> parser) {
