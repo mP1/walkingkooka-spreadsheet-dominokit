@@ -148,6 +148,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=Test123-save-Link\n" +
                 "            \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/date/save/] id=Test123-clear-Link\n" +
+                "            \"Today\" [#/1/SpreadsheetName456/cell/A1/value/date/save/today] id=Test123-today-Link\n" +
                 "            \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/date/save/] id=Test123-undo-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
         );
@@ -192,6 +193,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
                 "          ROW\n" +
                 "            \"Save\" [#/1/SpreadsheetName456/cell/A1/value/date/save/%222025-06-06%22] id=Test123-save-Link\n" +
                 "            \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/date/save/] id=Test123-clear-Link\n" +
+                "            \"Today\" [#/1/SpreadsheetName456/cell/A1/value/date/save/today] id=Test123-today-Link\n" +
                 "            \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/date/save/%222025-06-06%22] id=Test123-undo-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
         );
@@ -307,6 +309,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
                 "          ROW\n" +
                 "            \"Save\" [#/1/SpreadsheetName456/cell/A1/value/time/save/%2212:58:59%22] id=Test123-save-Link\n" +
                 "            \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/time/save/] id=Test123-clear-Link\n" +
+                "            \"Now\" [#/1/SpreadsheetName456/cell/A1/value/time/save/now] id=Test123-now-Link\n" +
                 "            \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/time/save/%2212:58:59%22] id=Test123-undo-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
         );
