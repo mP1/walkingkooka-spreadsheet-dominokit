@@ -187,23 +187,12 @@ public final class SpreadsheetDateComponent implements FormValueComponent<HTMLDi
         this.calendar.addDateSelectionListener(
             (final CalendarDay oldDay,
              final CalendarDay newDay) -> listener.onValueChanged(
-                calendarDayToLocalDate(oldDay),
-                calendarDayToLocalDate(newDay)
+                DateTime.calendarDayToLocalDate(oldDay),
+                DateTime.calendarDayToLocalDate(newDay)
             )
         );
 
         return this;
-    }
-
-    /**
-     * Helper used to transform a {@link CalendarDay} into a {@link LocalDate}.
-     */
-    private static Optional<LocalDate> calendarDayToLocalDate(final CalendarDay day) {
-        return DateTime.dateToLocalDate(
-            null != day ?
-                day.getDate() :
-                null
-        );
     }
 
     @Override
