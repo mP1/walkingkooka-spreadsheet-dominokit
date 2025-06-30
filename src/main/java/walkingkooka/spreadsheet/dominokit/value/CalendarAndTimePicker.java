@@ -29,13 +29,13 @@ import java.util.Optional;
 /**
  * A collection of helpers to assist conversion between {@link Date} and {@link LocalDate} or {@link LocalTime}.
  */
-final class DateTime {
+final class CalendarAndTimePicker {
 
     /**
      * Helper used to transform a {@link CalendarDay} into a {@link LocalDate}.
      */
     static Optional<LocalDate> calendarDayToLocalDate(final CalendarDay day) {
-        return DateTime.dateToLocalDate(
+        return CalendarAndTimePicker.dateToLocalDate(
             null != day ?
                 day.getDate() :
                 null
@@ -91,7 +91,7 @@ final class DateTime {
     /**
      * Stop creation
      */
-    private DateTime() {
+    private CalendarAndTimePicker() {
         throw new UnsupportedOperationException();
     }
 }

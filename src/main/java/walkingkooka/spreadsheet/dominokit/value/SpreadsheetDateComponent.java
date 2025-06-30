@@ -105,7 +105,7 @@ public final class SpreadsheetDateComponent implements FormValueComponent<HTMLDi
             Instant.ofEpochMilli(
                 this.calendar.getDate()
                     .getTime()
-            ).atZone(DateTime.ZONE_ID)
+            ).atZone(CalendarAndTimePicker.ZONE_ID)
             .toLocalDate()
         );
     }
@@ -115,7 +115,7 @@ public final class SpreadsheetDateComponent implements FormValueComponent<HTMLDi
         Objects.requireNonNull(value, "value");
 
         this.calendar.setDate(
-            DateTime.toDate(
+            CalendarAndTimePicker.toDate(
                 value.orElse(
                     this.clearValue.get()
                 )
@@ -187,8 +187,8 @@ public final class SpreadsheetDateComponent implements FormValueComponent<HTMLDi
         this.calendar.addDateSelectionListener(
             (final CalendarDay oldDay,
              final CalendarDay newDay) -> listener.onValueChanged(
-                DateTime.calendarDayToLocalDate(oldDay),
-                DateTime.calendarDayToLocalDate(newDay)
+                CalendarAndTimePicker.calendarDayToLocalDate(oldDay),
+                CalendarAndTimePicker.calendarDayToLocalDate(newDay)
             )
         );
 
