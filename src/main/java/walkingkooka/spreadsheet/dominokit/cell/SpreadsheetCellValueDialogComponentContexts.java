@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public final class SpreadsheetCellValueDialogComponentContexts implements PublicStaticHelper {
@@ -38,6 +39,23 @@ public final class SpreadsheetCellValueDialogComponentContexts implements Public
                                                                              final HistoryContext historyContext,
                                                                              final LoggingContext loggingContext) {
         return SpreadsheetCellValueDialogComponentContextDate.with(
+            viewportCache,
+            deltaFetcherWatchers,
+            marshallContext,
+            historyContext,
+            loggingContext
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellValueDialogComponentContextDateTime}
+     */
+    public static SpreadsheetCellValueDialogComponentContext<LocalDateTime> dateTime(final SpreadsheetViewportCache viewportCache,
+                                                                                     final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
+                                                                                     final JsonNodeMarshallContext marshallContext,
+                                                                                     final HistoryContext historyContext,
+                                                                                     final LoggingContext loggingContext) {
+        return SpreadsheetCellValueDialogComponentContextDateTime.with(
             viewportCache,
             deltaFetcherWatchers,
             marshallContext,
@@ -62,7 +80,7 @@ public final class SpreadsheetCellValueDialogComponentContexts implements Public
             loggingContext
         );
     }
-    
+
     /**
      * {@see SpreadsheetCellValueDialogComponentContextTime}
      */
