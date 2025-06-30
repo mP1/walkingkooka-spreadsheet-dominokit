@@ -25,7 +25,6 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.text.printer.IndentingPrinter;
 
-import java.time.Instant;
 import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
@@ -103,12 +102,8 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLDi
 
     @Override
     public Optional<LocalTime> value() {
-        return Optional.of(
-            Instant.ofEpochMilli(
-                    this.timePicker.getDate()
-                        .getTime()
-                ).atZone(CalendarAndTimePicker.ZONE_ID)
-                .toLocalTime()
+        return CalendarAndTimePicker.dateToLocalTime(
+            this.timePicker.getDate()
         );
     }
 
