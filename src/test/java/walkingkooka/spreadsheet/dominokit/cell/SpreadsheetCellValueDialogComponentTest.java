@@ -434,7 +434,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
         private final Optional<T> value;
 
         @Override
-        public String prepareSaveValue(final Optional<T> value) {
+        public String toHistoryTokenSaveStringValue(final Optional<T> value) {
             Objects.requireNonNull(value, "value");
 
             final JsonNode json = JsonNodeMarshallContexts.basic()

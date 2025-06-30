@@ -97,7 +97,7 @@ final class SpreadsheetCellValueDialogComponentContextText implements Spreadshee
     private final SpreadsheetViewportCache viewportCache;
 
     @Override
-    public String prepareSaveValue(final Optional<String> value) {
+    public String toHistoryTokenSaveStringValue(final Optional<String> value) {
         Objects.requireNonNull(value, "value");
 
         String string = "";

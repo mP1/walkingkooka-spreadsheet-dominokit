@@ -70,7 +70,7 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
                  final Optional<T> newValue) -> context.pushHistoryToken(
                     context.historyToken()
                         .setSaveStringValue(
-                            context.prepareSaveValue(newValue)
+                            context.toHistoryTokenSaveStringValue(newValue)
                         )
                 )
             );
@@ -128,7 +128,7 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
     private void refreshSave() {
         this.save.setValue(
             Optional.of(
-                this.context.prepareSaveValue(
+                this.context.toHistoryTokenSaveStringValue(
                     this.context.value()
                 )
             )
@@ -140,7 +140,7 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
     private void refreshClear() {
         this.clear.setValue(
             Optional.of(
-                this.context.prepareSaveValue(
+                this.context.toHistoryTokenSaveStringValue(
                     Optional.empty()
                 )
             )
@@ -152,7 +152,7 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
     private void refreshUndo() {
         this.undo.setValue(
             Optional.of(
-                this.context.prepareSaveValue(
+                this.context.toHistoryTokenSaveStringValue(
                     this.context.value()
                 )
             )

@@ -50,7 +50,7 @@ public class FakeSpreadsheetCellValueDialogComponentContext<T> extends FakeHisto
     }
 
     @Override
-    public String prepareSaveValue(final Optional<T> value) {
+    public String toHistoryTokenSaveStringValue(final Optional<T> value) {
         throw new UnsupportedOperationException();
     }
 

@@ -23,12 +23,12 @@ import java.util.Optional;
 
 public interface SpreadsheetCellValueDialogComponentContextTesting<V, C extends SpreadsheetCellValueDialogComponentContext<V>> extends SpreadsheetDialogComponentContextTesting<C> {
 
-    default void prepareSaveValueAndCheck(final Optional<V> value,
-                                          final String expected) {
+    default void toHistoryTokenSaveStringValueAndCheck(final Optional<V> value,
+                                                       final String expected) {
         this.checkEquals(
             expected,
             this.createContext()
-                .prepareSaveValue(value)
+                .toHistoryTokenSaveStringValue(value)
         );
     }
 

@@ -50,6 +50,8 @@ public interface SpreadsheetCellValueDialogComponentContext<T> extends Spreadshe
      */
     Optional<T> value();
 
-
-    String prepareSaveValue(final Optional<T> value);
+    /**
+     * Serializes the given value into a {@link String} which can be passed to {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken#setSaveStringValue(String).
+     */
+    String toHistoryTokenSaveStringValue(final Optional<T> value);
 }

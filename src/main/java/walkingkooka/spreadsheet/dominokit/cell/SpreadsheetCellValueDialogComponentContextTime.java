@@ -98,7 +98,7 @@ final class SpreadsheetCellValueDialogComponentContextTime implements Spreadshee
     private final SpreadsheetViewportCache viewportCache;
 
     @Override
-    public String prepareSaveValue(final Optional<LocalTime> value) {
+    public String toHistoryTokenSaveStringValue(final Optional<LocalTime> value) {
         Objects.requireNonNull(value, "value");
 
         String string = "";

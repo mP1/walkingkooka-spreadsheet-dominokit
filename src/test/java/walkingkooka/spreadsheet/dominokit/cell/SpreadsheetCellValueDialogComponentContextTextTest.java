@@ -130,16 +130,16 @@ public final class SpreadsheetCellValueDialogComponentContextTextTest implements
     }
 
     @Test
-    public void testPrepareSaveValueWithEmpty() {
-        this.prepareSaveValueAndCheck(
+    public void testToHistoryTokenSaveStringValueWithEmpty() {
+        this.toHistoryTokenSaveStringValueAndCheck(
             Optional.empty(),
             ""
         );
     }
 
     @Test
-    public void testPrepareSaveValueWithNotEmpty() {
-        this.prepareSaveValueAndCheck(
+    public void testToHistoryTokenSaveStringValueWithNotEmpty() {
+        this.toHistoryTokenSaveStringValueAndCheck(
             Optional.of("Hello"),
             "\"Hello\""
         );
