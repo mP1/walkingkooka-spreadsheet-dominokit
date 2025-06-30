@@ -31,6 +31,7 @@ import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -38,7 +39,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigationList;
-import walkingkooka.test.Testing;
+import walkingkooka.text.CharSequences;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.json.JsonNode;
 import walkingkooka.tree.json.JsonString;
@@ -58,7 +59,7 @@ import java.util.OptionalInt;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetDeltaFetcherTest implements Testing {
+public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTesting {
 
     // isGetAllCells....................................................................................................
 
@@ -1153,6 +1154,182 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                 id,
                 formName
             )
+        );
+    }
+
+    // patchValuePatch..................................................................................................
+
+    private final static LocalDateTime NOW = LocalDateTime.of(
+        1999,
+        12,
+        31,
+        12,
+        58,
+        59
+    );
+
+    @Test
+    public void testPatchValuePatchWithTextAndEmptyString() {
+        this.patchValuePatchAndCheck(
+            ValidationValueTypeName.TEXT,
+            "",
+            "{\n" +
+                "  \"formula\": {\n" +
+                "    \"value\": null\n" +
+                "  }\n" +
+                "}"
+        );
+    }
+
+    @Test
+    public void testPatchValuePatchWithTextAndNotEmptyString() {
+        this.patchValuePatchAndCheck(
+            ValidationValueTypeName.TEXT,
+            "\"Hello\"",
+            "{\n" +
+                "  \"formula\": {\n" +
+                "    \"value\": \"Hello\"\n" +
+                "  }\n" +
+                "}"
+        );
+    }
+
+    @Test
+    public void testPatchValuePatchWithDateAndNow() {
+        this.patchValuePatchAndCheck(
+            ValidationValueTypeName.DATE,
+            "\"today\"",
+            "{\n" +
+                "  \"formula\": {\n" +
+                "    \"value\": {\n" +
+                "      \"type\": \"local-date\",\n" +
+                "      \"value\": \"1999-12-31\"\n" +
+                "    }\n" +
+                "  }\n" +
+                "}"
+        );
+    }
+
+    @Test
+    public void testPatchValuePatchWithDate() {
+        this.patchValuePatchAndCheck(
+            ValidationValueTypeName.DATE,
+            "\"1999-12-31\"",
+            "{\n" +
+                "  \"formula\": {\n" +
+                "    \"value\": {\n" +
+                "      \"type\": \"local-date\",\n" +
+                "      \"value\": \"1999-12-31\"\n" +
+                "    }\n" +
+                "  }\n" +
+                "}"
+        );
+    }
+
+    @Test
+    public void testPatchValuePatchWithDateTimeAndNow() {
+        this.patchValuePatchAndCheck(
+            ValidationValueTypeName.DATE_TIME,
+            "\"now\"",
+            "{\n" +
+                "  \"formula\": {\n" +
+                "    \"value\": {\n" +
+                "      \"type\": \"local-date-time\",\n" +
+                "      \"value\": \"1999-12-31T12:58:59\"\n" +
+                "    }\n" +
+                "  }\n" +
+                "}"
+        );
+    }
+
+    @Test
+    public void testPatchValuePatchWithDateTime() {
+        this.patchValuePatchAndCheck(
+            ValidationValueTypeName.DATE_TIME,
+            "\"1999-12-31T12:58:59\"",
+            "{\n" +
+                "  \"formula\": {\n" +
+                "    \"value\": {\n" +
+                "      \"type\": \"local-date-time\",\n" +
+                "      \"value\": \"1999-12-31T12:58:59\"\n" +
+                "    }\n" +
+                "  }\n" +
+                "}"
+        );
+    }
+
+    @Test
+    public void testPatchValuePatchWithTimeAndNow() {
+        this.patchValuePatchAndCheck(
+            ValidationValueTypeName.TIME,
+            "\"now\"",
+            "{\n" +
+                "  \"formula\": {\n" +
+                "    \"value\": {\n" +
+                "      \"type\": \"local-time\",\n" +
+                "      \"value\": \"12:58:59\"\n" +
+                "    }\n" +
+                "  }\n" +
+                "}"
+        );
+    }
+
+    @Test
+    public void testPatchValuePatchWithTime() {
+        this.patchValuePatchAndCheck(
+            ValidationValueTypeName.TIME,
+            "\"12:58:59\"",
+            "{\n" +
+                "  \"formula\": {\n" +
+                "    \"value\": {\n" +
+                "      \"type\": \"local-time\",\n" +
+                "      \"value\": \"12:58:59\"\n" +
+                "    }\n" +
+                "  }\n" +
+                "}"
+        );
+    }
+
+    private void patchValuePatchAndCheck(final ValidationValueTypeName valueType,
+                                         final String value,
+                                         final String expected) {
+        this.patchValuePatchAndCheck(
+            valueType,
+            value,
+            JsonNode.parse(expected)
+        );
+    }
+
+    private void patchValuePatchAndCheck(final ValidationValueTypeName valueType,
+                                         final String value,
+                                         final JsonNode expected) {
+        this.checkEquals(
+            expected,
+            SpreadsheetDeltaFetcher.with(
+                SpreadsheetDeltaFetcherWatchers.empty(),
+                new FakeAppContext() {
+
+                    @Override
+                    public LocalDateTime now() {
+                        return NOW;
+                    }
+
+
+                    @Override
+                    public JsonNodeMarshallContext jsonNodeMarshallContext() {
+                        return JSON_NODE_MARSHALL_CONTEXT;
+                    }
+
+                    @Override
+                    public JsonNodeUnmarshallContext jsonNodeUnmarshallContext() {
+                        return JSON_NODE_UNMARSHALL_CONTEXT;
+                    }
+                }
+            ).patchValuePatch(
+                valueType,
+                value
+            ),
+            () -> "patchValuePatch " + valueType + " " + CharSequences.quoteAndEscape(value)
         );
     }
 }
