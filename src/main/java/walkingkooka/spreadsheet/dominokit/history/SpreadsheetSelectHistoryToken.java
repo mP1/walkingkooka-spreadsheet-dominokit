@@ -82,6 +82,9 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
             case LABEL_STRING:
                 result = this.parseLabel(cursor);
                 break;
+            case LOCALE_STRING:
+                result = this.parseLocale(cursor);
+                break;
             case SPEADSHEET_STRING:
                 result = this.parseMetadata(cursor);
                 break;
@@ -216,6 +219,10 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
 
     private HistoryToken parseDelete(final TextCursor cursor) {
         return this.delete();
+    }
+
+    private HistoryToken parseLocale(final TextCursor cursor) {
+        return this;
     }
 
     private HistoryToken parseMetadata(final TextCursor cursor) {

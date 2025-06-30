@@ -210,6 +210,10 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     final static UrlFragment LABELS = UrlFragment.parse(LABELS_STRING);
 
+    final static String LOCALE_STRING = "locale";
+
+    final static UrlFragment LOCALE = UrlFragment.parse(LOCALE_STRING);
+
     final static String MENU_STRING = "menu";
 
     final static UrlFragment MENU = UrlFragment.parse(MENU_STRING);
@@ -594,6 +598,47 @@ public abstract class HistoryToken implements HasUrlFragment,
                                                                          final SpreadsheetName name,
                                                                          final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellLabelSelectHistoryToken.with(
+            id,
+            name,
+            anchoredSelection
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellLocaleSaveHistoryToken}
+     */
+    public static SpreadsheetCellLocaleSaveHistoryToken cellLocaleSave(final SpreadsheetId id,
+                                                                       final SpreadsheetName name,
+                                                                       final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                       final Optional<Locale> locale) {
+        return SpreadsheetCellLocaleSaveHistoryToken.with(
+            id,
+            name,
+            anchoredSelection,
+            locale
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellLocaleSelectHistoryToken}
+     */
+    public static SpreadsheetCellLocaleSelectHistoryToken cellLocaleSelect(final SpreadsheetId id,
+                                                                           final SpreadsheetName name,
+                                                                           final AnchoredSpreadsheetSelection anchoredSelection) {
+        return SpreadsheetCellLocaleSelectHistoryToken.with(
+            id,
+            name,
+            anchoredSelection
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellLocaleUnselectHistoryToken}
+     */
+    public static SpreadsheetCellLocaleUnselectHistoryToken cellLocaleUnselect(final SpreadsheetId id,
+                                                                               final SpreadsheetName name,
+                                                                               final AnchoredSpreadsheetSelection anchoredSelection) {
+        return SpreadsheetCellLocaleUnselectHistoryToken.with(
             id,
             name,
             anchoredSelection
@@ -2171,6 +2216,14 @@ public abstract class HistoryToken implements HasUrlFragment,
                         );
                     }
 
+                    if (this instanceof SpreadsheetCellLocaleSaveHistoryToken) {
+                        closed = cellLocaleSelect(
+                            id,
+                            name,
+                            anchoredSelection
+                        );
+                    }
+
                     if (this instanceof SpreadsheetCellParserSelectHistoryToken) {
                         closed = cellSelect(
                             id,
@@ -2429,6 +2482,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                     if (this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken ||
                         this instanceof SpreadsheetCellDecimalNumberSymbolsHistoryToken ||
                         this instanceof SpreadsheetCellFormatterHistoryToken ||
+                        this instanceof SpreadsheetCellLocaleHistoryToken ||
                         this instanceof SpreadsheetCellParserHistoryToken ||
                         this instanceof SpreadsheetCellValidatorHistoryToken ||
                         this instanceof SpreadsheetCellValueHistoryToken ||
@@ -3051,6 +3105,52 @@ public abstract class HistoryToken implements HasUrlFragment,
             token;
     }
 
+    // locale...........................................................................................................
+
+    /**
+     * If possible selects a {@link Locale} {@link HistoryToken}.
+     */
+    public final HistoryToken locale() {
+        HistoryToken historyToken;
+
+        if (this instanceof SpreadsheetCellSelectHistoryToken || this instanceof SpreadsheetCellMenuHistoryToken) {
+            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
+
+            historyToken = HistoryToken.cellLocaleSelect(
+                cell.id(),
+                cell.name(),
+                cell.anchoredSelection()
+            );
+
+        } else {
+            historyToken = this;
+        }
+
+        return historyToken;
+    }
+
+    public final HistoryToken setLocale(final Optional<Locale> locale) {
+        Objects.requireNonNull(locale, "locale");
+
+        HistoryToken historyToken;
+
+        if (this instanceof SpreadsheetCellLocaleSelectHistoryToken || this instanceof SpreadsheetCellLocaleSelectHistoryToken) {
+            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
+
+            historyToken = HistoryToken.cellLocaleSave(
+                cell.id(),
+                cell.name(),
+                cell.anchoredSelection(),
+                locale
+            );
+
+        } else {
+            historyToken = this;
+        }
+
+        return historyToken;
+    }
+    
     // MENU.............................................................................................................
 
     public final HistoryToken menu() {
@@ -4013,6 +4113,19 @@ public abstract class HistoryToken implements HasUrlFragment,
                             );
                         }
 
+                        if (this instanceof SpreadsheetCellLocaleHistoryToken) {
+                            if (null != valueOrNull && false == valueOrNull instanceof Locale) {
+                                throw new IllegalArgumentException("Invalid value");
+                            }
+
+                            historyToken = HistoryToken.cellLocaleSave(
+                                id,
+                                name,
+                                spreadsheetSelection,
+                                Cast.to(value)
+                            );
+                        }
+
                         if (this instanceof SpreadsheetCellParserHistoryToken) {
                             if (null != valueOrNull && false == valueOrNull instanceof SpreadsheetParserSelector) {
                                 throw new IllegalArgumentException("Invalid value");
@@ -4289,6 +4402,16 @@ public abstract class HistoryToken implements HasUrlFragment,
                                         this.setLabelName(
                                             Optional.of(
                                                 SpreadsheetSelection.labelName(value)
+                                            )
+                                        );
+                                }
+
+                                if (this instanceof SpreadsheetCellLocaleHistoryToken) {
+                                    saved = value.isEmpty() ?
+                                        this.clearAction() :
+                                        this.setLocale(
+                                            Optional.of(
+                                                Locale.forLanguageTag(value)
                                             )
                                         );
                                 }
@@ -4745,6 +4868,14 @@ public abstract class HistoryToken implements HasUrlFragment,
 
             if (this instanceof SpreadsheetCellFormatterSelectHistoryToken) {
                 historyToken = cellFormatterUnselect(
+                    id,
+                    name,
+                    anchoredSpreadsheetSelection
+                );
+            }
+
+            if (this instanceof SpreadsheetCellLocaleSelectHistoryToken) {
+                historyToken = cellLocaleUnselect(
                     id,
                     name,
                     anchoredSpreadsheetSelection

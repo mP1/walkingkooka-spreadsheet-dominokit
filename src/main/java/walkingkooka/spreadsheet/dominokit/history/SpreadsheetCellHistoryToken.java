@@ -99,6 +99,9 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             case LABELS_STRING:
                 result = this.parseLabels(cursor);
                 break;
+            case LOCALE_STRING:
+                result = this.parseLocale(cursor);
+                break;
             case MENU_STRING:
                 result = this.menu(
                     Optional.empty(), // no selection
@@ -223,6 +226,10 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
         }
 
         return this.labels(offsetAndCount);
+    }
+
+    private HistoryToken parseLocale(final TextCursor cursor) {
+        return this.locale();
     }
 
     private HistoryToken parseValue(final TextCursor cursor) {

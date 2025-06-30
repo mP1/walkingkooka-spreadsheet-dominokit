@@ -927,6 +927,24 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         );
     }
 
+    // locale...........................................................................................................
+
+    @Test
+    public void testLocaleWithSpreadsheetCellSelectHistoryToken() {
+        this.checkEquals(
+            HistoryToken.cellLocaleSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            ),
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            ).locale()
+        );
+    }
+
     // menu.............................................................................................................
 
     @Test
