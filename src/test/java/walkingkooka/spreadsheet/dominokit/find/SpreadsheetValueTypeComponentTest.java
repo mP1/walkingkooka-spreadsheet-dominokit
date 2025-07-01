@@ -68,7 +68,11 @@ public final class SpreadsheetValueTypeComponentTest implements FormValueCompone
     public void testTreePrintWithBooleanValue() {
         this.treePrintAndCheck(
             SpreadsheetValueTypeComponent.empty()
-                .setValue(Optional.of(SpreadsheetValueType.BOOLEAN)),
+                .setValue(
+                    Optional.of(
+                        SpreadsheetValueType.BOOLEAN_STRING
+                    )
+                ),
             "SpreadsheetValueTypeComponent\n" +
                 "  SpreadsheetSelectComponent\n" +
                 "    [boolean]\n" +

@@ -270,7 +270,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
             ), // path
             OptionalInt.of(123), // offset
             OptionalInt.of(456), // count
-            Optional.of(SpreadsheetValueType.NUMBER), // valueType
+            Optional.of(SpreadsheetValueType.NUMBER_STRING), // valueType
             Optional.empty() // query
         );
     }
@@ -284,7 +284,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
             ), // path
             OptionalInt.of(1234), // offset
             OptionalInt.of(5678), // count
-            Optional.of(SpreadsheetValueType.DATE), // valueType
+            Optional.of(SpreadsheetValueType.DATE_STRING), // valueType
             Optional.empty() // query
         );
     }
@@ -300,7 +300,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
             ), // path
             OptionalInt.of(1234), // offset
             OptionalInt.of(5678), // count
-            Optional.of(SpreadsheetValueType.DATE), // valueType
+            Optional.of(SpreadsheetValueType.DATE_STRING), // valueType
             Optional.of(
                 SpreadsheetCellQuery.parse(query)
             )// query
@@ -318,7 +318,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
             ), // path
             OptionalInt.of(1234), // offset
             OptionalInt.of(5678), // count
-            Optional.of(SpreadsheetValueType.TIME), // valueType
+            Optional.of(SpreadsheetValueType.TIME_STRING), // valueType
             Optional.of(
                 SpreadsheetCellQuery.parse(query)
             )// query
@@ -368,7 +368,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
             Optional.empty(), // path
             OptionalInt.empty(), // offset
             OptionalInt.empty(), // count
-            Optional.of(SpreadsheetValueType.TIME), // valueType
+            Optional.of(SpreadsheetValueType.TIME_STRING), // valueType
             Optional.empty() // query
         );
     }
@@ -382,7 +382,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
             Optional.empty(), // path
             OptionalInt.empty(), // offset
             OptionalInt.empty(), // count
-            Optional.of(SpreadsheetValueType.TIME), // valueType
+            Optional.of(SpreadsheetValueType.TIME_STRING), // valueType
             Optional.of(
                 SpreadsheetCellQuery.parse(query)
             )// query
