@@ -33,6 +33,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValueHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetDateComponent;
+import walkingkooka.spreadsheet.dominokit.value.SpreadsheetDateTimeComponent;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTimeComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
@@ -45,6 +46,7 @@ import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 import walkingkooka.validation.ValidationValueTypeName;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.Objects;
@@ -195,6 +197,61 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
                 "            \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/date/save/] id=Test123-clear-Link\n" +
                 "            \"Today\" [#/1/SpreadsheetName456/cell/A1/value/date/save/today] id=Test123-today-Link\n" +
                 "            \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/date/save/%222025-06-06%22] id=Test123-undo-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
+        );
+    }
+
+    @Test
+    public void testOnHistoryTokenChangeWithSpreadsheetCellValueHistoryTokenAndDateTimeValue() {
+        final HistoryToken historyToken = HistoryToken.parseString(
+            "/1/SpreadsheetName456/cell/A1/value/dateTime"
+        );
+
+        final AppContext context = this.appContext(historyToken);
+
+        final SpreadsheetCellValueDialogComponent<LocalDateTime> dialog = SpreadsheetCellValueDialogComponent.with(
+            SpreadsheetDateTimeComponent.empty(
+                DATE_COMPONENT_ID,
+                () -> LocalDateTime.of(
+                    CLEAR_VALUE.get(),
+                    LocalTime.MIN
+                )
+            ),
+            new TestSpreadsheetCellValueDialogComponentContext<LocalDateTime>(
+                ValidationValueTypeName.DATE_TIME,
+                Optional.of(
+                    LocalDateTime.of(
+                        LocalDate.of(
+                            2025,
+                            06,
+                            06
+                        ),
+                        LocalTime.of(
+                            12,
+                            58,
+                            59
+                        )
+                    )
+                ),
+                context
+            )
+        );
+        this.onHistoryTokenChangeAndCheck(
+            dialog,
+            context,
+            "SpreadsheetCellValueDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    HelloDialogTitle\n" +
+                "    id=Test123-Dialog includeClose=true\n" +
+                "      SpreadsheetDateTimeComponent\n" +
+                "        [2025-06-06T12:58:59] id=Test123date-Date\n" +
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" [#/1/SpreadsheetName456/cell/A1/value/dateTime/save/%222025-06-06T12:58:59%22] id=Test123-save-Link\n" +
+                "            \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/dateTime/save/] id=Test123-clear-Link\n" +
+                "            \"Now\" [#/1/SpreadsheetName456/cell/A1/value/dateTime/save/now] id=Test123-now-Link\n" +
+                "            \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/dateTime/save/%222025-06-06T12:58:59%22] id=Test123-undo-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
         );
     }

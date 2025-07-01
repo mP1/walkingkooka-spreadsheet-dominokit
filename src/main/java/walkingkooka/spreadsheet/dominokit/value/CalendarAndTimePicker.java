@@ -21,10 +21,12 @@ import org.dominokit.domino.ui.datepicker.CalendarDay;
 
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.Optional;
+import java.util.function.Supplier;
 
 /**
  * A collection of helpers to assist conversion between {@link Date} and {@link LocalDate} or {@link LocalTime}.
@@ -83,6 +85,26 @@ final class CalendarAndTimePicker {
                 .atZone(ZONE_ID)
                 .toInstant()
                 .toEpochMilli()
+        );
+    }
+
+    static Optional<LocalDateTime> toLocalDateTime(final Optional<LocalDate> date,
+                                                   final Optional<LocalTime> time,
+                                                   final Supplier<LocalDateTime> clearValue) {
+        final LocalDate dateOrNull = date.orElse(null);
+        final LocalTime timeOrNull = time.orElse(null);
+
+        return Optional.ofNullable(
+            null != dateOrNull || null != timeOrNull ?
+                LocalDateTime.of(
+                    null != dateOrNull ?
+                        dateOrNull :
+                        clearValue.get().toLocalDate(),
+                    null != timeOrNull ?
+                        timeOrNull :
+                        clearValue.get().toLocalTime()
+                ) :
+                null
         );
     }
 
