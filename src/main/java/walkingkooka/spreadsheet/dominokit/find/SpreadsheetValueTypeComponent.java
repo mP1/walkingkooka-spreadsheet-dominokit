@@ -44,13 +44,13 @@ final class SpreadsheetValueTypeComponent implements FormValueComponent<HTMLFiel
         final SpreadsheetSelectComponent<String> select = SpreadsheetSelectComponent.empty();
 
         select.appendValue("Any", SpreadsheetValueType.ANY);
-        select.appendValue("Boolean", SpreadsheetValueType.BOOLEAN);
-        select.appendValue("Date", SpreadsheetValueType.DATE);
-        select.appendValue("Error", SpreadsheetValueType.ERROR);
-        select.appendValue("DateTime", SpreadsheetValueType.DATE_TIME);
-        select.appendValue("Number", SpreadsheetValueType.NUMBER);
-        select.appendValue("Text", SpreadsheetValueType.TEXT);
-        select.appendValue("Time", SpreadsheetValueType.TIME);
+        select.appendValue("Boolean", SpreadsheetValueType.BOOLEAN_STRING);
+        select.appendValue("Date", SpreadsheetValueType.DATE_STRING);
+        select.appendValue("Error", SpreadsheetValueType.ERROR_STRING);
+        select.appendValue("DateTime", SpreadsheetValueType.DATE_TIME_STRING);
+        select.appendValue("Number", SpreadsheetValueType.NUMBER_STRING);
+        select.appendValue("Text", SpreadsheetValueType.TEXT_STRING);
+        select.appendValue("Time", SpreadsheetValueType.TIME_STRING);
 
         this.select = select;
     }

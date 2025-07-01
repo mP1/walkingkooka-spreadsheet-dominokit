@@ -954,14 +954,14 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         if (value.isEmpty()) {
             typedValue = null;
         } else {
-            if (SpreadsheetValueType.DATE.equals(valueType.text()) && SpreadsheetCellValueDialogComponent.TODAY_TEXT.equals(value)) {
+            if (SpreadsheetValueType.DATE.equals(valueType) && SpreadsheetCellValueDialogComponent.TODAY_TEXT.equals(value)) {
                 typedValue = context.now()
                     .toLocalDate();
             }
-            if (SpreadsheetValueType.DATE_TIME.equals(valueType.text()) && SpreadsheetCellValueDialogComponent.NOW_TEXT.equals(value)) {
+            if (SpreadsheetValueType.DATE_TIME.equals(valueType) && SpreadsheetCellValueDialogComponent.NOW_TEXT.equals(value)) {
                 typedValue = context.now();
             }
-            if (SpreadsheetValueType.TIME.equals(valueType.text()) && SpreadsheetCellValueDialogComponent.NOW_TEXT.equals(value)) {
+            if (SpreadsheetValueType.TIME.equals(valueType) && SpreadsheetCellValueDialogComponent.NOW_TEXT.equals(value)) {
                 typedValue = context.now()
                     .toLocalTime();
             }

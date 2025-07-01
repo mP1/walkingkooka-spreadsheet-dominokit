@@ -24,7 +24,6 @@ import walkingkooka.collect.map.Maps;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
-import walkingkooka.spreadsheet.SpreadsheetValues;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetHotKeys;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
@@ -445,7 +444,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         final SpreadsheetCell summary = context.selectionSummary()
             .orElse(null);
 
-        for (final ValidationValueTypeName type : SpreadsheetValues.ALL) {
+        for (final ValidationValueTypeName type : SpreadsheetValueType.ALL) {
             final String typeMenuId = idPrefix + type.value();
 
             subMenu.item(
@@ -505,7 +504,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             }
         }
 
-        for (final ValidationValueTypeName valueType : SpreadsheetValues.ALL) {
+        for (final ValidationValueTypeName valueType : SpreadsheetValueType.ALL) {
             final String typeMenuId = idPrefix + valueType.value();
 
             subMenu.item(

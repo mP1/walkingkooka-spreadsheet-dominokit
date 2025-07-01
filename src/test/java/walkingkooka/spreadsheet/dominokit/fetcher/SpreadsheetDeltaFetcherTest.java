@@ -136,7 +136,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     @Test
     public void testPatchValueWithBooleanTrue() {
         this.patchValuePatchAndCheck(
-            SpreadsheetValueType.BOOLEAN,
+            SpreadsheetValueType.BOOLEAN_STRING,
             true,
             "{\n" +
                 "  \"formula\": {\n" +
@@ -149,7 +149,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     @Test
     public void testPatchValueWithBooleanFalse() {
         this.patchValuePatchAndCheck(
-            SpreadsheetValueType.BOOLEAN,
+            SpreadsheetValueType.BOOLEAN_STRING,
             false,
             "{\n" +
                 "  \"formula\": {\n" +
@@ -162,7 +162,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     @Test
     public void testPatchValueWithCell() {
         this.patchValuePatchAndCheck(
-            SpreadsheetValueType.CELL,
+            SpreadsheetValueType.CELL_STRING,
             SpreadsheetSelection.A1,
             "{\n" +
                 "  \"formula\": {\n" +
@@ -178,7 +178,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     @Test
     public void testPatchValueWithCellRange() {
         this.patchValuePatchAndCheck(
-            SpreadsheetValueType.CELL_RANGE,
+            SpreadsheetValueType.CELL_RANGE_STRING,
             SpreadsheetSelection.A1,
             "{\n" +
                 "  \"formula\": {\n" +
@@ -194,7 +194,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     @Test
     public void testPatchValueWithColumn() {
         this.patchValuePatchAndCheck(
-            SpreadsheetValueType.COLUMN,
+            SpreadsheetValueType.COLUMN_STRING,
             SpreadsheetSelection.parseColumn("AB"),
             "{\n" +
                 "  \"formula\": {\n" +
@@ -210,7 +210,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     @Test
     public void testPatchValueWithColumnRange() {
         this.patchValuePatchAndCheck(
-            SpreadsheetValueType.COLUMN_RANGE,
+            SpreadsheetValueType.COLUMN_RANGE_STRING,
             SpreadsheetSelection.parseColumnRange("C:D"),
             "{\n" +
                 "  \"formula\": {\n" +
@@ -226,7 +226,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     @Test
     public void testPatchValueWithDate() {
         this.patchValuePatchAndCheck(
-            SpreadsheetValueType.DATE,
+            SpreadsheetValueType.DATE_STRING,
             LocalDate.of(1999, 12, 31),
             "{\n" +
                 "  \"formula\": {\n" +
@@ -242,7 +242,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     @Test
     public void testPatchValueWithDateTime() {
         this.patchValuePatchAndCheck(
-            SpreadsheetValueType.DATE_TIME,
+            SpreadsheetValueType.DATE_TIME_STRING,
             LocalDateTime.of(1999, 12, 31, 12, 58, 59),
             "{\n" +
                 "  \"formula\": {\n" +
@@ -258,7 +258,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     @Test
     public void testPatchValueWithLabel() {
         this.patchValuePatchAndCheck(
-            SpreadsheetValueType.LABEL,
+            SpreadsheetValueType.LABEL_STRING,
             SpreadsheetSelection.labelName("HelloLabel"),
             "{\n" +
                 "  \"formula\": {\n" +
@@ -274,7 +274,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     @Test
     public void testPatchValueWithNumber() {
         this.patchValuePatchAndCheck(
-            SpreadsheetValueType.NUMBER,
+            SpreadsheetValueType.NUMBER_STRING,
             ExpressionNumberKind.BIG_DECIMAL.create(123),
             "{\n" +
                 "  \"formula\": {\n" +
@@ -290,7 +290,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     @Test
     public void testPatchValueWithRow() {
         this.patchValuePatchAndCheck(
-            SpreadsheetValueType.ROW,
+            SpreadsheetValueType.ROW_STRING,
             SpreadsheetSelection.parseRow("1"),
             "{\n" +
                 "  \"formula\": {\n" +
@@ -306,7 +306,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     @Test
     public void testPatchValueWithRowRange() {
         this.patchValuePatchAndCheck(
-            SpreadsheetValueType.ROW_RANGE,
+            SpreadsheetValueType.ROW_RANGE_STRING,
             SpreadsheetSelection.parseRowRange("2:3"),
             "{\n" +
                 "  \"formula\": {\n" +
@@ -322,7 +322,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     @Test
     public void testPatchValueWithText() {
         this.patchValuePatchAndCheck(
-            SpreadsheetValueType.TEXT,
+            SpreadsheetValueType.TEXT_STRING,
             "HelloText",
             "{\n" +
                 "  \"formula\": {\n" +
@@ -335,7 +335,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     @Test
     public void testPatchValueWithTime() {
         this.patchValuePatchAndCheck(
-            SpreadsheetValueType.TIME,
+            SpreadsheetValueType.TIME_STRING,
             LocalTime.of(12, 58, 59),
             "{\n" +
                 "  \"formula\": {\n" +
@@ -862,7 +862,9 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
 
     private final static OptionalInt COUNT = OptionalInt.of(34);
 
-    private final static Optional<String> VALUE_TYPE = Optional.of(SpreadsheetValueType.DATE);
+    private final static Optional<String> VALUE_TYPE = Optional.of(
+        SpreadsheetValueType.DATE_STRING
+    );
 
     private final static Optional<SpreadsheetCellQuery> QUERY = Optional.of(
         SpreadsheetCellQuery.parse("query789()")
@@ -945,7 +947,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
             SpreadsheetCellFindQuery.empty()
                 .setValueType(
                     Optional.of(
-                        SpreadsheetValueType.NUMBER)
+                        SpreadsheetValueType.NUMBER_STRING)
                 ),
             Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?value-type=number")
         );
