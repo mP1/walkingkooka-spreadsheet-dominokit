@@ -18,23 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.Value;
-import walkingkooka.collect.map.Maps;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
-import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.json.JsonNode;
-import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
-import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
 
-import java.math.MathContext;
-import java.util.Map;
-import java.util.Optional;
 import java.util.Set;
 
 /**
@@ -83,44 +74,6 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
             SpreadsheetCell.class
         );
     }
-
-    /**
-     * Used to consume the remainder of the {@link TextCursor} text giving some JSON where individual cells are mapped
-     * to a value. The type parameter will be used to unmarshall the value into a java object.
-     */
-    static <VV> Map<SpreadsheetCellReference, VV> parseCellToValueMap(final TextCursor cursor,
-                                                                      final Class<VV> valueType) {
-        return UNMARSHALL_CONTEXT.unmarshallMap(
-            JsonNode.parse(
-                parseUntilEmpty(cursor)
-            ),
-            SpreadsheetCellReference.class, // key is always a cell
-            valueType
-        );
-    }
-
-    static <VV> Map<SpreadsheetCellReference, Optional<VV>> parseCellToOptionalMap(final TextCursor cursor,
-                                                                                   final Class<VV> optionalValueType) {
-        final Map<SpreadsheetCellReference, Optional<VV>> values = Maps.sorted();
-
-        for (final JsonNode keyAndValue : JsonNode.parse(parseUntilEmpty(cursor))
-            .objectOrFail().children()) {
-            values.put(
-                SpreadsheetSelection.parseCell(keyAndValue.name().value()),
-                UNMARSHALL_CONTEXT.unmarshallOptional(
-                    keyAndValue,
-                    optionalValueType
-                )
-            );
-        }
-
-        return values;
-    }
-
-    final static JsonNodeUnmarshallContext UNMARSHALL_CONTEXT = JsonNodeUnmarshallContexts.basic(
-        ExpressionNumberKind.BIG_DECIMAL,
-        MathContext.DECIMAL64
-    );
 
     /**
      * Factory method used by various would be setters when one or more components have changed and a new instance needs
