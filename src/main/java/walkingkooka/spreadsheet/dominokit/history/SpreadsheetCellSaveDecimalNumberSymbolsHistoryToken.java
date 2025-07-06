@@ -80,7 +80,7 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken extends S
 
     @Override
     Map<SpreadsheetCellReference, Optional<DecimalNumberSymbols>> parseSaveValue(final TextCursor cursor) {
-        return parseMapWithOptionalValues(
+        return parseCellToOptionalValuesMap(
             cursor,
             DecimalNumberSymbols.class
         );

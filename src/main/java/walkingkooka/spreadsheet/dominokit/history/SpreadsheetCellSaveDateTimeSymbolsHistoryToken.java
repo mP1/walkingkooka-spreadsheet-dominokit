@@ -80,7 +80,7 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryToken extends Spread
 
     @Override
     Map<SpreadsheetCellReference, Optional<DateTimeSymbols>> parseSaveValue(final TextCursor cursor) {
-        return parseMapWithOptionalValues(
+        return parseCellToOptionalValuesMap(
             cursor,
             DateTimeSymbols.class
         );

@@ -71,7 +71,7 @@ public final class SpreadsheetCellSaveValidatorHistoryToken extends SpreadsheetC
 
     @Override
     Map<SpreadsheetCellReference, Optional<ValidatorSelector>> parseSaveValue(final TextCursor cursor) {
-        return parseMapWithOptionalTypedValues(
+        return parseCellToOptionalTypedValuesMap(
             cursor
         );
     }

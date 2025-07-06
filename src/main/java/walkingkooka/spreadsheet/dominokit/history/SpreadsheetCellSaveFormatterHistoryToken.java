@@ -80,7 +80,7 @@ public final class SpreadsheetCellSaveFormatterHistoryToken extends SpreadsheetC
 
     @Override
     Map<SpreadsheetCellReference, Optional<SpreadsheetFormatterSelector>> parseSaveValue(final TextCursor cursor) {
-        return parseMapWithOptionalValues(
+        return parseCellToOptionalValuesMap(
             cursor,
             SpreadsheetFormatterSelector.class
         );

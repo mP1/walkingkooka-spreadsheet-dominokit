@@ -71,7 +71,7 @@ public final class SpreadsheetCellSaveParserHistoryToken extends SpreadsheetCell
 
     @Override
     Map<SpreadsheetCellReference, Optional<SpreadsheetParserSelector>> parseSaveValue(final TextCursor cursor) {
-        return parseMapWithOptionalTypedValues(
+        return parseCellToOptionalTypedValuesMap(
             cursor
         );
     }

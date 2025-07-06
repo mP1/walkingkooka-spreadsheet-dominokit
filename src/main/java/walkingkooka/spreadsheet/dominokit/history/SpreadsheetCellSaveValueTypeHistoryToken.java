@@ -80,7 +80,7 @@ public final class SpreadsheetCellSaveValueTypeHistoryToken extends SpreadsheetC
 
     @Override
     Map<SpreadsheetCellReference, Optional<ValidationValueTypeName>> parseSaveValue(final TextCursor cursor) {
-        return parseMapWithOptionalValues(
+        return parseCellToOptionalValuesMap(
             cursor,
             ValidationValueTypeName.class
         );
