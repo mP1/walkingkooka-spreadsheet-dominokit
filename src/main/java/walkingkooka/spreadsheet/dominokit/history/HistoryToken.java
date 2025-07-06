@@ -1922,7 +1922,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         try {
             final Optional<String> component = parseComponent(cursor);
             if (component.isPresent()) {
-                result = result.parse0(
+                result = result.parseNext(
                     component.get(),
                     cursor
                 );
@@ -1937,8 +1937,8 @@ public abstract class HistoryToken implements HasUrlFragment,
         return result;
     }
 
-    abstract HistoryToken parse0(final String component,
-                                 final TextCursor cursor);
+    abstract HistoryToken parseNext(final String component,
+                                    final TextCursor cursor);
 
     // ACTION...........................................................................................................
 

@@ -48,8 +48,8 @@ public abstract class SpreadsheetListHistoryToken extends SpreadsheetHistoryToke
     // HistoryToken.....................................................................................................
 
     @Override //
-    final HistoryToken parse0(final String component,
-                              final TextCursor cursor) {
+    final HistoryToken parseNext(final String component,
+                                 final TextCursor cursor) {
         throw new UnsupportedOperationException();
     }
 

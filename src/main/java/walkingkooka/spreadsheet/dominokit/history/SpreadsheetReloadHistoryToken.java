@@ -52,8 +52,8 @@ public final class SpreadsheetReloadHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override
-    HistoryToken parse0(final String component,
-                        final TextCursor cursor) {
+    HistoryToken parseNext(final String component,
+                           final TextCursor cursor) {
         return this; // ignores whatever is after /spreadsheet-id/spreadsheet-name/reload
     }
 

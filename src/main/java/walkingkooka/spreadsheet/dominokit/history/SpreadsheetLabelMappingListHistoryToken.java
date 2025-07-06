@@ -72,8 +72,8 @@ public final class SpreadsheetLabelMappingListHistoryToken extends SpreadsheetLa
     }
 
     @Override
-    HistoryToken parse0(final String component,
-                        final TextCursor cursor) {
+    HistoryToken parseNext(final String component,
+                           final TextCursor cursor) {
         return this;
     }
 

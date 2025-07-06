@@ -56,8 +56,8 @@ public final class PluginUploadSaveHistoryToken extends PluginUploadHistoryToken
     // HistoryToken.....................................................................................................
 
     @Override
-    HistoryToken parse0(final String component,
-                        final TextCursor cursor) {
+    HistoryToken parseNext(final String component,
+                           final TextCursor cursor) {
         return this; // ignore anything that follows /plugin-upload
     }
 
