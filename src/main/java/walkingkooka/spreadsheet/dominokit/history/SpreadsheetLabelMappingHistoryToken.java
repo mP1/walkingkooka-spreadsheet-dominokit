@@ -21,6 +21,14 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 
+/**
+ * Base class for various {@link walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping} CRUD actions.
+ * <pre>
+ * #/SpreadsheetId/SpreadsheetName/label-create
+ * #/SpreadsheetId/SpreadsheetName/label/SpreadsheetLabelName
+ * #/SpreadsheetId/SpreadsheetName/label/SpreadsheetLabelName/save/XXX
+ * </pre>
+ */
 public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSelectionHistoryToken {
 
     SpreadsheetLabelMappingHistoryToken(final SpreadsheetId id,
