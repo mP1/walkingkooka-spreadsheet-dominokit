@@ -21,7 +21,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
-import walkingkooka.text.cursor.TextCursor;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -62,21 +61,7 @@ public final class PluginFileViewHistoryToken extends PluginNameHistoryToken {
 
     private final Optional<JarEntryInfoName> file;
 
-
     // HistoryToken.....................................................................................................
-
-    HistoryToken parseFile(final TextCursor cursor) {
-        final String text = parseUntilEmpty(cursor);
-        return this.setFile(
-            Optional.ofNullable(
-                text.isEmpty() ?
-                    null :
-                    JarEntryInfoName.with(
-                        '/' + text
-                    )
-            )
-        );
-    }
 
     //
     // /plugin/PluginName123/file/dir1/file2.txt

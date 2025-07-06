@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
 import walkingkooka.plugin.PluginName;
+import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 import walkingkooka.text.cursor.TextCursor;
 
 import java.util.Objects;
@@ -41,8 +42,6 @@ public abstract class PluginNameHistoryToken extends PluginHistoryToken {
 
     final PluginName name;
 
-    // UrlFragment......................................................................................................
-
     @Override //
     final HistoryToken parse0(final String component,
                               final TextCursor cursor) {
@@ -57,12 +56,7 @@ public abstract class PluginNameHistoryToken extends PluginHistoryToken {
                 historyToken = this.delete();
                 break;
             case FILE_STRING:
-                historyToken = pluginFileView(
-                    this.name,
-                    Optional.empty()
-                );
-                historyToken = historyToken.cast(PluginFileViewHistoryToken.class)
-                    .parseFile(cursor);
+                historyToken = this.parseFile(cursor);
                 break;
             case SAVE_STRING:
                 historyToken = this.parseSave(cursor);
@@ -76,7 +70,25 @@ public abstract class PluginNameHistoryToken extends PluginHistoryToken {
         return historyToken;
     }
 
-    @Override final UrlFragment pluginUrlFragment() {
+    private HistoryToken parseFile(final TextCursor cursor) {
+        final String text = parseUntilEmpty(cursor);
+
+        return pluginFileView(
+            this.name,
+            Optional.ofNullable(
+                text.isEmpty() ?
+                    null :
+                    JarEntryInfoName.with(
+                        '/' + text
+                    )
+            )
+        );
+    }
+
+    // UrlFragment......................................................................................................
+
+    @Override
+    final UrlFragment pluginUrlFragment() {
         return UrlFragment.with(name.value())
             .appendSlashThen(
                 this.pluginNameUrlFragment()
