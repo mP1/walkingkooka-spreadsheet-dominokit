@@ -66,7 +66,7 @@ public final class SpreadsheetCellSaveStyleHistoryToken extends SpreadsheetCellS
 
     @Override
     Map<SpreadsheetCellReference, TextStyle> parseSaveValue(final TextCursor cursor) {
-        return parseMap(
+        return parseCellToValueMap(
             cursor,
             TextStyle.class
         );
