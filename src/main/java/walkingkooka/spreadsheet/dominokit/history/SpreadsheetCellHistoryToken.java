@@ -40,6 +40,7 @@ import walkingkooka.validation.form.FormName;
 import java.math.MathContext;
 import java.util.Map;
 import java.util.Optional;
+import java.util.function.Function;
 
 abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSelectionHistoryToken {
 
@@ -282,20 +283,13 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
 
     static <VV> Map<SpreadsheetCellReference, Optional<VV>> parseCellToOptionalMap(final TextCursor cursor,
                                                                                    final Class<VV> optionalValueType) {
-        final Map<SpreadsheetCellReference, Optional<VV>> values = Maps.sorted();
-
-        for (final JsonNode keyAndValue : JsonNode.parse(parseUntilEmpty(cursor))
-            .objectOrFail().children()) {
-            values.put(
-                SpreadsheetSelection.parseCell(keyAndValue.name().value()),
-                UNMARSHALL_CONTEXT.unmarshallOptional(
-                    keyAndValue,
-                    optionalValueType
-                )
-            );
-        }
-
-        return values;
+        return parseCellToValueMap(
+            cursor,
+            (JsonNode entry) -> UNMARSHALL_CONTEXT.unmarshallOptional(
+                entry,
+                optionalValueType
+            )
+        );
     }
 
     /**
@@ -304,23 +298,13 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
      */
     static <VV> Map<SpreadsheetCellReference, VV> parseCellToNullableValuesMap(final TextCursor cursor,
                                                                                final Class<VV> valueType) {
-        final Map<SpreadsheetCellReference, VV> values = Maps.sorted();
-
-        for (final JsonNode keyAndValue : JsonNode.parse(parseUntilEmpty(cursor))
-            .objectOrFail().children()) {
-            values.put(
-                SpreadsheetSelection.parseCell(
-                    keyAndValue.name()
-                        .value()
-                ),
-                UNMARSHALL_CONTEXT.unmarshall(
-                    keyAndValue,
-                    valueType
-                )
-            );
-        }
-
-        return values;
+        return parseCellToValueMap(
+            cursor,
+            (JsonNode entry) -> UNMARSHALL_CONTEXT.unmarshall(
+                entry,
+                valueType
+            )
+        );
     }
 
     /**
@@ -329,26 +313,24 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
      */
     static <VV> Map<SpreadsheetCellReference, Optional<VV>> parseCellToOptionalValuesMap(final TextCursor cursor,
                                                                                          final Class<VV> valueType) {
-        final Map<SpreadsheetCellReference, Optional<VV>> values = Maps.sorted();
-
-        for (final JsonNode keyAndValue : JsonNode.parse(parseUntilEmpty(cursor))
-            .objectOrFail().children()) {
-            values.put(
-                SpreadsheetSelection.parseCell(
-                    keyAndValue.name()
-                        .value()
-                ),
-                UNMARSHALL_CONTEXT.unmarshallOptional(
-                    keyAndValue,
-                    valueType
-                )
-            );
-        }
-
-        return values;
+        return parseCellToValueMap(
+            cursor,
+            (JsonNode entry) -> UNMARSHALL_CONTEXT.unmarshallOptional(
+                entry,
+                valueType
+            )
+        );
     }
 
     static <VV> Map<SpreadsheetCellReference, VV> parseCellToOptionalTypedValuesMap(final TextCursor cursor) {
+        return SpreadsheetCellHistoryToken.parseCellToValueMap(
+            cursor,
+            (JsonNode entry) -> (VV) UNMARSHALL_CONTEXT.unmarshallOptionalWithType(entry)
+        );
+    }
+
+    private static <VV> Map<SpreadsheetCellReference, VV> parseCellToValueMap(final TextCursor cursor,
+                                                                              final Function<JsonNode, VV> parseValue) {
         final Map<SpreadsheetCellReference, VV> values = Maps.sorted();
 
         for (final JsonNode keyAndValue : JsonNode.parse(parseUntilEmpty(cursor))
@@ -358,9 +340,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                     keyAndValue.name()
                         .value()
                 ),
-                (VV) UNMARSHALL_CONTEXT.unmarshallOptionalWithType(
-                    keyAndValue
-                )
+                parseValue.apply(keyAndValue)
             );
         }
 
