@@ -70,6 +70,7 @@ import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.form.FormName;
 import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Locale;
@@ -467,6 +468,21 @@ public abstract class HistoryToken implements HasUrlFragment,
             name,
             anchoredSelection,
             query
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellFormSelectHistoryToken}
+     */
+    public static SpreadsheetCellFormSelectHistoryToken cellFormSelect(final SpreadsheetId id,
+                                                                       final SpreadsheetName name,
+                                                                       final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                       final FormName formName) {
+        return SpreadsheetCellFormSelectHistoryToken.with(
+            id,
+            name,
+            anchoredSelection,
+            formName
         );
     }
 
@@ -2149,6 +2165,11 @@ public abstract class HistoryToken implements HasUrlFragment,
                     closed = this.clearAction();
                 }
 
+                if (this instanceof SpreadsheetCellFormHistoryToken) {
+                    closed = this.cast(SpreadsheetCellFormHistoryToken.class)
+                        .selectionSelect();
+                }
+
                 if (this instanceof SpreadsheetCellLabelHistoryToken) {
                     closed = this.cast(SpreadsheetCellLabelHistoryToken.class)
                         .selectionSelect();
@@ -2500,6 +2521,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                 if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
                     if (this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken ||
                         this instanceof SpreadsheetCellDecimalNumberSymbolsHistoryToken ||
+                        this instanceof SpreadsheetCellFormHistoryToken ||
                         this instanceof SpreadsheetCellFormatterHistoryToken ||
                         this instanceof SpreadsheetCellLocaleHistoryToken ||
                         this instanceof SpreadsheetCellParserHistoryToken ||

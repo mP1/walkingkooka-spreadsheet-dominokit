@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
 import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.form.FormName;
 
 import java.util.Optional;
 
@@ -83,6 +84,9 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                 break;
             case FIND_STRING:
                 result = this.parseFind(cursor);
+                break;
+            case FORM_STRING:
+                result = this.parseForm(cursor);
                 break;
             case FREEZE_STRING:
                 result = this.freeze();
@@ -197,6 +201,19 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
         return this.setQuery(
             SpreadsheetCellFindQuery.parse(queryText)
         );
+    }
+
+    private HistoryToken parseForm(final TextCursor cursor) {
+        final String formName = parseComponentOrNull(cursor);
+
+        return null != formName ?
+            HistoryToken.cellFormSelect(
+                this.id(),
+                this.name(),
+                this.anchoredSelection,
+                FormName.with(formName)
+            ).parse(cursor) :
+            this;
     }
 
     private HistoryToken parseLabels(final TextCursor cursor) {
