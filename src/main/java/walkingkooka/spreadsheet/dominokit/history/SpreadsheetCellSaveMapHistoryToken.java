@@ -81,21 +81,6 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
     abstract Map<SpreadsheetCellReference, V> parseSaveValue(final TextCursor cursor);
 
     /**
-     * Used to consume the remainder of the {@link TextCursor} text giving some JSON where individual cells are mapped
-     * to a value. The type parameter will be used to unmarshall the value into a java object.
-     */
-    static <VV> Map<SpreadsheetCellReference, VV> parseMap(final TextCursor cursor,
-                                                           final Class<VV> valueType) {
-        return UNMARSHALL_CONTEXT.unmarshallMap(
-            JsonNode.parse(
-                parseUntilEmpty(cursor)
-            ),
-            SpreadsheetCellReference.class, // key is always a cell
-            valueType
-        );
-    }
-
-    /**
      * Reads the JSON from the {@link TextCursor} as an OBJECT and then unmarshalls that into a {@link Map} with
      * {@link SpreadsheetCellReference} keys and {@link Optional} value of the given value type parameter.
      */
