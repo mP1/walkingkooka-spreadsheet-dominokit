@@ -4643,7 +4643,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     /**
      * Returns true if this {@link HistoryToken} contains a save value.
      */
-    public boolean isSave() {
+    public final boolean isSave() {
         return this.getClass()
             .getSimpleName()
             .contains("Save");
@@ -4651,7 +4651,7 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     // SELECTION........................................................................................................
 
-    public Optional<SpreadsheetSelection> selection() {
+    public final Optional<SpreadsheetSelection> selection() {
         return this.anchoredSelectionOrEmpty()
             .map(AnchoredSpreadsheetSelection::selection);
     }
