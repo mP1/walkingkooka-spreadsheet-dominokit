@@ -178,6 +178,10 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     final static UrlFragment FIND = UrlFragment.parse(FIND_STRING);
 
+    final static String FORM_STRING = "form";
+
+    final static UrlFragment FORM = UrlFragment.parse(FORM_STRING);
+
     final static String FORMATTER_STRING = "formatter";
 
     final static UrlFragment FORMATTER = SpreadsheetUrlFragments.FORMATTER;
