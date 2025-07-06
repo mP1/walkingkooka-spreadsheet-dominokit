@@ -66,13 +66,13 @@ public final class PluginFileViewHistoryToken extends PluginNameHistoryToken {
     // HistoryToken.....................................................................................................
 
     HistoryToken parseFile(final TextCursor cursor) {
-        final String all = parseAll(cursor);
+        final String text = parseUntilEmpty(cursor);
         return this.setFile(
             Optional.ofNullable(
-                all.isEmpty() ?
+                text.isEmpty() ?
                     null :
                     JarEntryInfoName.with(
-                        '/' + all
+                        '/' + text
                     )
             )
         );

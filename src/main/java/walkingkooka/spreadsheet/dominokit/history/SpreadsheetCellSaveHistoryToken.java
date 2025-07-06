@@ -78,7 +78,7 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
     static Set<SpreadsheetCell> parseCells(final TextCursor cursor) {
         return UNMARSHALL_CONTEXT.unmarshallSet(
             JsonNode.parse(
-                parseAll(cursor)
+                parseUntilEmpty(cursor)
             ),
             SpreadsheetCell.class
         );
@@ -92,7 +92,7 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
                                                            final Class<VV> valueType) {
         return UNMARSHALL_CONTEXT.unmarshallMap(
             JsonNode.parse(
-                parseAll(cursor)
+                parseUntilEmpty(cursor)
             ),
             SpreadsheetCellReference.class, // key is always a cell
             valueType
@@ -103,7 +103,7 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
                                                                                    final Class<VV> optionalValueType) {
         final Map<SpreadsheetCellReference, Optional<VV>> values = Maps.sorted();
 
-        for (final JsonNode keyAndValue : JsonNode.parse(parseAll(cursor))
+        for (final JsonNode keyAndValue : JsonNode.parse(parseUntilEmpty(cursor))
             .objectOrFail().children()) {
             values.put(
                 SpreadsheetSelection.parseCell(keyAndValue.name().value()),

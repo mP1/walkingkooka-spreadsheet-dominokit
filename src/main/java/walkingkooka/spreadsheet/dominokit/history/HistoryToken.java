@@ -1764,7 +1764,7 @@ public abstract class HistoryToken implements HasUrlFragment,
             this.cast(SpreadsheetCellSelectHistoryToken.class)
                 .parseCellSave(cursor) :
             this.setSaveStringValue(
-                parseAll(cursor)
+                parseUntilEmpty(cursor)
             );
     }
 
@@ -1847,7 +1847,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     /**
      * Consumes all remaining text into a {@link String}.
      */
-    static String parseAll(final TextCursor cursor) {
+    static String parseUntilEmpty(final TextCursor cursor) {
         final TextCursorSavePoint save = cursor.save();
         cursor.end();
 
