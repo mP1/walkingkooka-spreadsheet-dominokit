@@ -80,7 +80,7 @@ public final class SpreadsheetCellSaveLocaleHistoryToken extends SpreadsheetCell
 
     @Override
     Map<SpreadsheetCellReference, Optional<Locale>> parseSaveValue(final TextCursor cursor) {
-        return parseMapWithOptionalValues(
+        return parseCellToOptionalValuesMap(
             cursor,
             Locale.class
         );

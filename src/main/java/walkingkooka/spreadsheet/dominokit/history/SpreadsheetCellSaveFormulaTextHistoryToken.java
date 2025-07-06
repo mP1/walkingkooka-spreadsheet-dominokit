@@ -65,7 +65,7 @@ public final class SpreadsheetCellSaveFormulaTextHistoryToken extends Spreadshee
 
     @Override
     Map<SpreadsheetCellReference, String> parseSaveValue(final TextCursor cursor) {
-        return parseMapWithNullableValues(
+        return parseCellToNullableValuesMap(
             cursor,
             String.class
         );

@@ -84,8 +84,8 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
      * Reads the JSON from the {@link TextCursor} as an OBJECT and then unmarshalls that into a {@link Map} with
      * {@link SpreadsheetCellReference} keys and {@link Optional} value of the given value type parameter.
      */
-    static <VV> Map<SpreadsheetCellReference, VV> parseMapWithNullableValues(final TextCursor cursor,
-                                                                             final Class<VV> valueType) {
+    static <VV> Map<SpreadsheetCellReference, VV> parseCellToNullableValuesMap(final TextCursor cursor,
+                                                                               final Class<VV> valueType) {
         final Map<SpreadsheetCellReference, VV> values = Maps.sorted();
 
         for (final JsonNode keyAndValue : JsonNode.parse(parseUntilEmpty(cursor))
@@ -109,8 +109,8 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
      * Reads the JSON from the {@link TextCursor} as an OBJECT and then unmarshalls that into a {@link Map} with
      * {@link SpreadsheetCellReference} keys and {@link Optional} value of the given value type parameter.
      */
-    static <VV> Map<SpreadsheetCellReference, Optional<VV>> parseMapWithOptionalValues(final TextCursor cursor,
-                                                                                       final Class<VV> valueType) {
+    static <VV> Map<SpreadsheetCellReference, Optional<VV>> parseCellToOptionalValuesMap(final TextCursor cursor,
+                                                                                         final Class<VV> valueType) {
         final Map<SpreadsheetCellReference, Optional<VV>> values = Maps.sorted();
 
         for (final JsonNode keyAndValue : JsonNode.parse(parseUntilEmpty(cursor))
@@ -130,7 +130,7 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
         return values;
     }
 
-    static <VV> Map<SpreadsheetCellReference, VV> parseMapWithOptionalTypedValues(final TextCursor cursor) {
+    static <VV> Map<SpreadsheetCellReference, VV> parseCellToOptionalTypedValuesMap(final TextCursor cursor) {
         final Map<SpreadsheetCellReference, VV> values = Maps.sorted();
 
         for (final JsonNode keyAndValue : JsonNode.parse(parseUntilEmpty(cursor))
