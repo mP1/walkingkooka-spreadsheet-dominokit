@@ -24,6 +24,10 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 /**
  * Base class for various label functions for a cell selection.
+ * <pre>
+ * #/SpreadsheetId/SpreadsheetName/cell/label/
+ * #/SpreadsheetId/SpreadsheetName/cell/label/save/XXX
+ * </pre>
  */
 public abstract class SpreadsheetCellLabelHistoryToken extends SpreadsheetCellHistoryToken {
 
