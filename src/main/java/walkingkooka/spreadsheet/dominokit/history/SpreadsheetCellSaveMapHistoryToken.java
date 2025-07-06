@@ -120,11 +120,9 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
                     keyAndValue.name()
                         .value()
                 ),
-                Optional.ofNullable(
-                    UNMARSHALL_CONTEXT.unmarshall(
-                        keyAndValue,
-                        valueType
-                    )
+                UNMARSHALL_CONTEXT.unmarshallOptional(
+                    keyAndValue,
+                    valueType
                 )
             );
         }
@@ -142,10 +140,8 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
                     keyAndValue.name()
                         .value()
                 ),
-                (VV) Optional.ofNullable(
-                    UNMARSHALL_CONTEXT.unmarshallWithType(
-                        keyAndValue
-                    )
+                (VV) UNMARSHALL_CONTEXT.unmarshallOptionalWithType(
+                    keyAndValue
                 )
             );
         }
