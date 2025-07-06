@@ -48,8 +48,8 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
     }
 
     @Override
-    HistoryToken parse0(final String component,
-                        final TextCursor cursor) {
+    HistoryToken parseNext(final String component,
+                           final TextCursor cursor) {
         return spreadsheetSelect(
             this.id(),
             SpreadsheetName.with(component)

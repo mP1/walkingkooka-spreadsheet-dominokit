@@ -62,8 +62,8 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override
-    HistoryToken parse0(final String component,
-                        final TextCursor cursor) {
+    HistoryToken parseNext(final String component,
+                           final TextCursor cursor) {
         HistoryToken result = this;
 
         switch (component) {

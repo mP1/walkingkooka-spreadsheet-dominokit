@@ -45,8 +45,8 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
     }
 
     @Override
-    HistoryToken parse0(final String component,
-                        final TextCursor cursor) {
+    HistoryToken parseNext(final String component,
+                           final TextCursor cursor) {
         return this;
     }
 

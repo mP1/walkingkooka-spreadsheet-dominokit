@@ -64,8 +64,8 @@ public final class SpreadsheetRenameSelectHistoryToken extends SpreadsheetRename
     }
 
     @Override
-    HistoryToken parse0(final String component,
-                        final TextCursor cursor) {
+    HistoryToken parseNext(final String component,
+                           final TextCursor cursor) {
         final HistoryToken result;
 
         switch (component) {

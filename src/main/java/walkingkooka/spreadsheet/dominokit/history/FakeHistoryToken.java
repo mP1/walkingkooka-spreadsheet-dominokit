@@ -29,8 +29,8 @@ import walkingkooka.text.cursor.TextCursor;
 public class FakeHistoryToken extends HistoryToken implements Fake {
 
     @Override
-    HistoryToken parse0(final String component,
-                        final TextCursor cursor) {
+    HistoryToken parseNext(final String component,
+                           final TextCursor cursor) {
         throw new UnsupportedOperationException();
     }
 

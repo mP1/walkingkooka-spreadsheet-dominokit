@@ -45,8 +45,8 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
     abstract UrlFragment metadataUrlFragment();
 
     @Override //
-    final HistoryToken parse0(final String component,
-                              final TextCursor cursor) {
+    final HistoryToken parseNext(final String component,
+                                 final TextCursor cursor) {
         final HistoryToken result;
 
         Switch:

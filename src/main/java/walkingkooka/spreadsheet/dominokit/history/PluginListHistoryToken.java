@@ -51,8 +51,8 @@ public abstract class PluginListHistoryToken extends PluginHistoryToken {
     // HistoryToken.....................................................................................................
 
     @Override //
-    final HistoryToken parse0(final String component,
-                              final TextCursor cursor) {
+    final HistoryToken parseNext(final String component,
+                                 final TextCursor cursor) {
         HistoryToken historyToken = this;
 
         switch (component) {

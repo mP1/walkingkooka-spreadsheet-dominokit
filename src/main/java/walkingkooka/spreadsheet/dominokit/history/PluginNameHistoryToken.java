@@ -43,8 +43,8 @@ public abstract class PluginNameHistoryToken extends PluginHistoryToken {
     final PluginName name;
 
     @Override //
-    final HistoryToken parse0(final String component,
-                              final TextCursor cursor) {
+    final HistoryToken parseNext(final String component,
+                                 final TextCursor cursor) {
         final PluginName pluginName = PluginName.with(component);
         HistoryToken historyToken = this;
 
