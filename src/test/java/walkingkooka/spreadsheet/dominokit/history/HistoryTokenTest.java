@@ -48,6 +48,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.test.ParseStringTesting;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.form.FormName;
 import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.net.URLEncoder;
@@ -3109,7 +3110,34 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             )
         );
     }
-    
+
+    // cell/form/FormName...............................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellForm() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/form",
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellFormFormName() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/form/FormName123",
+            HistoryToken.cellFormSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                FormName.with("FormName123")
+            )
+        );
+    }
+
     // cell/formatter/parser............................................................................................
 
     @Test

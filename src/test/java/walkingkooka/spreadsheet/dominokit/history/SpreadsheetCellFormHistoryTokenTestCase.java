@@ -18,11 +18,53 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.validation.form.FormName;
+
+import static org.junit.Assert.assertThrows;
 
 public abstract class SpreadsheetCellFormHistoryTokenTestCase<T extends SpreadsheetCellFormHistoryToken> extends SpreadsheetCellHistoryTokenTestCase<T> {
 
+    final static FormName FORM_NAME = FormName.with("FormName123");
+
     SpreadsheetCellFormHistoryTokenTestCase() {
         super();
+    }
+
+    // with.............................................................................................................
+
+    @Test
+    public final void testWithNullFormNameFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createHistoryToken(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                null
+            )
+        );
+    }
+
+    // formName.........................................................................................................
+
+    @Test
+    public final void testFormName() {
+        this.formNameAndCheck(
+            this.createHistoryToken(),
+            FORM_NAME
+        );
+    }
+
+    final void formNameAndCheck(final SpreadsheetCellFormHistoryToken token,
+                                final FormName expected) {
+        this.checkEquals(
+            expected,
+            token.formName(),
+            token.urlFragment()::toString
+        );
     }
 
     // delete...........................................................................................................
@@ -48,41 +90,22 @@ public abstract class SpreadsheetCellFormHistoryTokenTestCase<T extends Spreadsh
         );
     }
 
-    // labelMappingReference............................................................................................
+    // HistoryToken.....................................................................................................
 
-    @Test
-    public final void testLabelMappingReferenceWhenCell() {
-        this.labelMappingReferenceAndCheck(
-            this.createHistoryToken(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor()
-            ),
-            CELL
+    @Override //
+    final T createHistoryToken(final SpreadsheetId id,
+                               final SpreadsheetName name,
+                               final AnchoredSpreadsheetSelection anchoredSelection) {
+        return this.createHistoryToken(
+            id,
+            name,
+            anchoredSelection,
+            FORM_NAME
         );
     }
 
-    @Test
-    public final void testLabelMappingReferenceWhenCellRange() {
-        this.labelMappingReferenceAndCheck(
-            this.createHistoryToken(
-                ID,
-                NAME,
-                CELL_RANGE.setDefaultAnchor()
-            ),
-            CELL_RANGE
-        );
-    }
-
-    @Test
-    public final void testLabelMappingReferenceWhenLabel() {
-        this.labelMappingReferenceAndCheck(
-            this.createHistoryToken(
-                ID,
-                NAME,
-                LABEL.setDefaultAnchor()
-            ),
-            LABEL
-        );
-    }
+    abstract T createHistoryToken(final SpreadsheetId id,
+                                  final SpreadsheetName name,
+                                  final AnchoredSpreadsheetSelection anchoredSelection,
+                                  final FormName formName);
 }

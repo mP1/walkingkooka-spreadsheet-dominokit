@@ -21,6 +21,9 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.validation.form.FormName;
+
+import java.util.Objects;
 
 /**
  * Base class for various form functions for a cell selection.
@@ -33,18 +36,28 @@ public abstract class SpreadsheetCellFormHistoryToken extends SpreadsheetCellHis
 
     SpreadsheetCellFormHistoryToken(final SpreadsheetId id,
                                     final SpreadsheetName name,
-                                    final AnchoredSpreadsheetSelection anchoredSelection) {
+                                    final AnchoredSpreadsheetSelection anchoredSelection,
+                                    final FormName formName) {
         super(
             id,
             name,
             anchoredSelection
         );
+        this.formName = Objects.requireNonNull(formName, "formName");
     }
 
-    @Override
+    public final FormName formName() {
+        return this.formName;
+    }
+
+    final FormName formName;
+
+    @Override //
     final UrlFragment cellUrlFragment() {
-        return FORM.appendSlashThen(this.cellformUrlFragment());
+        return FORM.appendSlashThen(
+            this.formName.urlFragment()
+        ).appendSlashThen(this.cellFormUrlFragment());
     }
 
-    abstract UrlFragment cellformUrlFragment();
+    abstract UrlFragment cellFormUrlFragment();
 }
