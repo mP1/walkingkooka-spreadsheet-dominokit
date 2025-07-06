@@ -88,7 +88,7 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
                                                            final Class<VV> valueType) {
         return UNMARSHALL_CONTEXT.unmarshallMap(
             JsonNode.parse(
-                parseAll(cursor)
+                parseUntilEmpty(cursor)
             ),
             SpreadsheetCellReference.class, // key is always a cell
             valueType
@@ -103,7 +103,7 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
                                                                              final Class<VV> valueType) {
         final Map<SpreadsheetCellReference, VV> values = Maps.sorted();
 
-        for (final JsonNode keyAndValue : JsonNode.parse(parseAll(cursor))
+        for (final JsonNode keyAndValue : JsonNode.parse(parseUntilEmpty(cursor))
             .objectOrFail().children()) {
             values.put(
                 SpreadsheetSelection.parseCell(
@@ -128,7 +128,7 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
                                                                                        final Class<VV> valueType) {
         final Map<SpreadsheetCellReference, Optional<VV>> values = Maps.sorted();
 
-        for (final JsonNode keyAndValue : JsonNode.parse(parseAll(cursor))
+        for (final JsonNode keyAndValue : JsonNode.parse(parseUntilEmpty(cursor))
             .objectOrFail().children()) {
             values.put(
                 SpreadsheetSelection.parseCell(
@@ -150,7 +150,7 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
     static <VV> Map<SpreadsheetCellReference, VV> parseMapWithOptionalTypedValues(final TextCursor cursor) {
         final Map<SpreadsheetCellReference, VV> values = Maps.sorted();
 
-        for (final JsonNode keyAndValue : JsonNode.parse(parseAll(cursor))
+        for (final JsonNode keyAndValue : JsonNode.parse(parseUntilEmpty(cursor))
             .objectOrFail().children()) {
             values.put(
                 SpreadsheetSelection.parseCell(

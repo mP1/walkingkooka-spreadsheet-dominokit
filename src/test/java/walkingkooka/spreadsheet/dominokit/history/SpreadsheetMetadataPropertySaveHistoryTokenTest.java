@@ -315,7 +315,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
     }
 
     @Test
-    public void testParseAllSpreadsheetMetadataProperties() {
+    public void testParseUntilEmptySpreadsheetMetadataProperties() {
         final SpreadsheetMetadata metadata = SpreadsheetMetadataTesting.METADATA_EN_AU.set(
             SpreadsheetMetadataPropertyName.CLIPBOARD_EXPORTER,
             SpreadsheetExporterAliasSet.parse("clipboard-exporter1")

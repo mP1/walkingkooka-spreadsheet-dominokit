@@ -47,7 +47,7 @@ public final class PluginUploadSelectHistoryToken extends PluginUploadHistoryTok
             case SAVE_STRING:
                 historyToken = pluginUploadSave(
                     BrowserFile.parse(
-                        parseAll(cursor)
+                        parseUntilEmpty(cursor)
                     )
                 );
                 break;

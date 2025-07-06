@@ -148,7 +148,7 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
     }
 
     @Test
-    public void testParseAllTextStylePropertyNames() {
+    public void testParseUntilEmptyTextStylePropertyNames() {
         for (final TextStylePropertyName<?> propertyName : TextStylePropertyName.VALUES) {
             final SpreadsheetCellStyleSelectHistoryToken<?> token = SpreadsheetCellStyleSelectHistoryToken.with(
                 ID,
