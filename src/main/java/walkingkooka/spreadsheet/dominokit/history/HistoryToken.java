@@ -39,6 +39,7 @@ import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuItem
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToValueMap;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKind;
@@ -474,6 +475,23 @@ public abstract class HistoryToken implements HasUrlFragment,
             name,
             anchoredSelection,
             query
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellFormSaveHistoryToken}
+     */
+    public static SpreadsheetCellFormSaveHistoryToken cellFormSave(final SpreadsheetId id,
+                                                                   final SpreadsheetName name,
+                                                                   final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                   final FormName formName,
+                                                                   final Map<SpreadsheetCellReference, Optional<Object>> value) {
+        return SpreadsheetCellFormSaveHistoryToken.with(
+            id,
+            name,
+            anchoredSelection,
+            formName,
+            value
         );
     }
 
@@ -1902,10 +1920,18 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     static <T> T parseJson(final TextCursor cursor,
                            final Class<T> type) {
-        return UNMARSHALL_CONTEXT.unmarshall(
+        return parseJson(
             JsonNode.parse(
                 parseUntilEmpty(cursor)
             ),
+            type
+        );
+    }
+
+    static <T> T parseJson(final JsonNode json,
+                           final Class<T> type) {
+        return UNMARSHALL_CONTEXT.unmarshall(
+            json,
             type
         );
     }
@@ -2549,7 +2575,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                         this instanceof SpreadsheetCellValidatorHistoryToken ||
                         this instanceof SpreadsheetCellValueHistoryToken ||
                         this instanceof SpreadsheetCellValueTypeHistoryToken) {
-                        historyToken = this.clearSaveValue();
+                        historyToken = this.clearAction();
                     } else {
                         final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
                             .anchoredSelection();
@@ -3212,7 +3238,7 @@ public abstract class HistoryToken implements HasUrlFragment,
 
         return historyToken;
     }
-    
+
     // MENU.............................................................................................................
 
     public final HistoryToken menu() {
@@ -4259,7 +4285,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                                 this.cast(SpreadsheetCellValueHistoryToken.class)
                                     .valueType()
                                     .get(),
-                                CharSequences.nullToEmpty((String)valueOrNull)
+                                CharSequences.nullToEmpty((String) valueOrNull)
                                     .toString()
                             );
                         }
@@ -4459,6 +4485,22 @@ public abstract class HistoryToken implements HasUrlFragment,
                                         name,
                                         anchoredSpreadsheetSelection,
                                         SpreadsheetCellFindQuery.parse(value)
+                                    );
+                                }
+
+                                if (this instanceof SpreadsheetCellFormHistoryToken) {
+                                    saved = HistoryToken.cellFormSave(
+                                        id,
+                                        name,
+                                        anchoredSpreadsheetSelection,
+                                        this.cast(SpreadsheetCellFormHistoryToken.class)
+                                            .formName(),
+                                        parseJson(
+                                            value.isEmpty() ?
+                                                JsonNode.object() :
+                                            JsonNode.parse(value),
+                                            SpreadsheetCellReferenceToValueMap.class
+                                        )
                                     );
                                 }
 
@@ -5079,9 +5121,9 @@ public abstract class HistoryToken implements HasUrlFragment,
             final SpreadsheetName name = cell.name();
             final AnchoredSpreadsheetSelection anchoredSelection = cell.anchoredSelection();
 
-            if(this instanceof SpreadsheetCellValueHistoryToken) {
-                if(false == this.valueType().equals(valueType)) {
-                    if(valueType.isPresent()) {
+            if (this instanceof SpreadsheetCellValueHistoryToken) {
+                if (false == this.valueType().equals(valueType)) {
+                    if (valueType.isPresent()) {
                         historyToken = HistoryToken.cellValueSelect(
                             id,
                             name,
@@ -5097,7 +5139,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                     }
                 }
             } else {
-                if(valueType.isPresent()) {
+                if (valueType.isPresent()) {
                     historyToken = HistoryToken.cellValueSelect(
                         id,
                         name,
@@ -5120,7 +5162,7 @@ public abstract class HistoryToken implements HasUrlFragment,
             this :
             historyToken;
     }
-    
+
     // valueType........................................................................................................
 
     public final Optional<ValidationValueTypeName> valueType() {

@@ -17,10 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.collect.map.Maps;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToValueMap;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.validation.form.FormName;
 
@@ -31,6 +33,10 @@ import walkingkooka.validation.form.FormName;
  * </pre>
  */
 public final class SpreadsheetCellFormSelectHistoryToken extends SpreadsheetCellFormHistoryToken {
+
+    static {
+        SpreadsheetCellReferenceToValueMap.with(Maps.empty());
+    }
 
     static SpreadsheetCellFormSelectHistoryToken with(final SpreadsheetId id,
                                                       final SpreadsheetName name,

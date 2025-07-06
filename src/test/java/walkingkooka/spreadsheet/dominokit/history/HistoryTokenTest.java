@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.map.Maps;
 import walkingkooka.color.Color;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.plugin.PluginName;
@@ -28,6 +29,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToValueMap;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -46,12 +48,15 @@ import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.test.ParseStringTesting;
+import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.ValidationValueTypeName;
 import walkingkooka.validation.form.FormName;
 import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.net.URLEncoder;
+import java.time.LocalDate;
+import java.util.Map;
 import java.util.Optional;
 import java.util.OptionalInt;
 
@@ -3134,6 +3139,49 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                 NAME,
                 CELL.setDefaultAnchor(),
                 FormName.with("FormName123")
+            )
+        );
+    }
+
+    // cell/form/FormName/save/XXX......................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellFormFormNameSave() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/form/FormName123/save",
+            HistoryToken.cellFormSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                FormName.with("FormName123"),
+                SpreadsheetCellReferenceToValueMap.EMPTY
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellFormFormNameSaveValue() {
+        final Map<SpreadsheetCellReference, Optional<Object>> cellToValues = Maps.of(
+            SpreadsheetSelection.A1,
+            Optional.of(
+                ExpressionNumberKind.BIG_DECIMAL.create(12.5)
+            ),
+            SpreadsheetSelection.parseCell("A2"),
+            Optional.of("String222"),
+            SpreadsheetSelection.parseCell("A3"),
+            Optional.of(
+                LocalDate.of(1999, 12, 31)
+            )
+        );
+
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/form/FormName123/save/" + SpreadsheetCellReferenceToValueMap.with(cellToValues).urlFragment(),
+            HistoryToken.cellFormSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                FormName.with("FormName123"),
+                cellToValues
             )
         );
     }
