@@ -72,7 +72,13 @@ public abstract class SpreadsheetCellFormHistoryTokenTestCase<T extends Spreadsh
     @Test
     public final void testDelete() {
         this.deleteAndCheck(
-            this.createHistoryToken()
+            this.createHistoryToken(),
+            HistoryToken.cellFormSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                FORM_NAME
+            )
         );
     }
 
