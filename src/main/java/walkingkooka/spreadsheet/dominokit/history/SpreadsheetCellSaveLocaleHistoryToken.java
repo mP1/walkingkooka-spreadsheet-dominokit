@@ -17,15 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.collect.map.Maps;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToLocaleMap;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.text.cursor.TextCursor;
-import walkingkooka.tree.json.JsonNode;
 
 import java.util.Locale;
 import java.util.Map;
@@ -49,14 +48,14 @@ public final class SpreadsheetCellSaveLocaleHistoryToken extends SpreadsheetCell
             id,
             name,
             anchoredSelection,
-            Maps.immutable(value)
+            SpreadsheetCellReferenceToLocaleMap.with(value)
         );
     }
 
     private SpreadsheetCellSaveLocaleHistoryToken(final SpreadsheetId id,
                                                   final SpreadsheetName name,
                                                   final AnchoredSpreadsheetSelection anchoredSelection,
-                                                  final Map<SpreadsheetCellReference, Optional<Locale>> value) {
+                                                  final SpreadsheetCellReferenceToLocaleMap value) {
         super(
             id,
             name,
@@ -74,15 +73,15 @@ public final class SpreadsheetCellSaveLocaleHistoryToken extends SpreadsheetCell
             id,
             name,
             anchoredSelection,
-            value
+            SpreadsheetCellReferenceToLocaleMap.with(value)
         );
     }
 
     @Override
-    Map<SpreadsheetCellReference, Optional<Locale>> parseSaveValue(final TextCursor cursor) {
-        return parseCellToOptionalValuesMap(
+    SpreadsheetCellReferenceToLocaleMap parseSaveValue(final TextCursor cursor) {
+        return parseJson(
             cursor,
-            Locale.class
+            SpreadsheetCellReferenceToLocaleMap.class
         );
     }
 
@@ -91,11 +90,6 @@ public final class SpreadsheetCellSaveLocaleHistoryToken extends SpreadsheetCell
     @Override
     UrlFragment urlFragmentSaveEntity() {
         return LOCALE;
-    }
-
-    @Override
-    JsonNode saveValueUrlFragmentValueToJson(final Optional<Locale> value) {
-        return MARSHALL_CONTEXT.marshallOptional(value);
     }
 
     // HistoryTokenWatcher..............................................................................................

@@ -17,15 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.collect.map.Maps;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToTextStyleMap;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.text.cursor.TextCursor;
-import walkingkooka.tree.json.JsonNode;
 import walkingkooka.tree.text.TextStyle;
 
 import java.util.Map;
@@ -48,14 +47,14 @@ public final class SpreadsheetCellSaveStyleHistoryToken extends SpreadsheetCellS
             id,
             name,
             anchoredSelection,
-            Maps.immutable(value)
+            SpreadsheetCellReferenceToTextStyleMap.with(value)
         );
     }
 
     private SpreadsheetCellSaveStyleHistoryToken(final SpreadsheetId id,
                                                  final SpreadsheetName name,
                                                  final AnchoredSpreadsheetSelection anchoredSelection,
-                                                 final Map<SpreadsheetCellReference, TextStyle> value) {
+                                                 final SpreadsheetCellReferenceToTextStyleMap value) {
         super(
             id,
             name,
@@ -65,10 +64,10 @@ public final class SpreadsheetCellSaveStyleHistoryToken extends SpreadsheetCellS
     }
 
     @Override
-    Map<SpreadsheetCellReference, TextStyle> parseSaveValue(final TextCursor cursor) {
-        return parseCellToValueMap(
+    SpreadsheetCellReferenceToTextStyleMap parseSaveValue(final TextCursor cursor) {
+        return parseJson(
             cursor,
-            TextStyle.class
+            SpreadsheetCellReferenceToTextStyleMap.class
         );
     }
 
@@ -81,7 +80,7 @@ public final class SpreadsheetCellSaveStyleHistoryToken extends SpreadsheetCellS
             id,
             name,
             anchoredSelection,
-            value
+            SpreadsheetCellReferenceToTextStyleMap.with(value)
         );
     }
 
@@ -90,11 +89,6 @@ public final class SpreadsheetCellSaveStyleHistoryToken extends SpreadsheetCellS
     @Override
     UrlFragment urlFragmentSaveEntity() {
         return STYLE;
-    }
-
-    @Override
-    JsonNode saveValueUrlFragmentValueToJson(final TextStyle value) {
-        return MARSHALL_CONTEXT.marshall(value);
     }
 
     // HistoryToken.....................................................................................................

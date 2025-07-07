@@ -17,20 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.collect.list.Lists;
-import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
-import walkingkooka.tree.json.JsonNode;
-import walkingkooka.tree.json.JsonPropertyName;
 
-import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 /**
@@ -86,31 +80,4 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
                                                                      final SpreadsheetName name,
                                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                                      final Map<SpreadsheetCellReference, V> values);
-
-    // HasUrlFragment...................................................................................................
-
-    @Override//
-    final UrlFragment urlFragmentSaveValue() {
-        final List<JsonNode> children = Lists.array();
-        for (final Entry<SpreadsheetCellReference, V> cellAndValue : this.value().entrySet()) {
-            children.add(
-                this.saveValueUrlFragmentValueToJson(
-                    cellAndValue.getValue()
-                ).setName(
-                    JsonPropertyName.with(
-                        cellAndValue.getKey()
-                            .toStringMaybeStar()
-                    )
-                )
-            );
-        }
-
-        return UrlFragment.with(
-            JsonNode.object()
-                .setChildren(children)
-                .toString()
-        );
-    }
-
-    abstract JsonNode saveValueUrlFragmentValueToJson(final V value);
 }

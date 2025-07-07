@@ -39,6 +39,7 @@ import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuItem
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -65,14 +66,19 @@ import walkingkooka.text.cursor.parser.ParserContext;
 import walkingkooka.text.cursor.parser.ParserContexts;
 import walkingkooka.text.cursor.parser.Parsers;
 import walkingkooka.text.cursor.parser.StringParserToken;
+import walkingkooka.tree.expression.ExpressionNumberKind;
+import walkingkooka.tree.json.JsonNode;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
+import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
+import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.ValidationValueTypeName;
 import walkingkooka.validation.form.FormName;
 import walkingkooka.validation.provider.ValidatorSelector;
 
+import java.math.MathContext;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
@@ -1893,6 +1899,21 @@ public abstract class HistoryToken implements HasUrlFragment,
         return parseComponent(cursor)
             .orElse("");
     }
+
+    static <T> T parseJson(final TextCursor cursor,
+                           final Class<T> type) {
+        return UNMARSHALL_CONTEXT.unmarshall(
+            JsonNode.parse(
+                parseUntilEmpty(cursor)
+            ),
+            type
+        );
+    }
+
+    final static JsonNodeUnmarshallContext UNMARSHALL_CONTEXT = JsonNodeUnmarshallContexts.basic(
+        ExpressionNumberKind.BIG_DECIMAL,
+        MathContext.DECIMAL64
+    );
 
     static OptionalInt parseOptionalInt(final TextCursor cursor) {
         return parseComponent(cursor)
@@ -4489,8 +4510,9 @@ public abstract class HistoryToken implements HasUrlFragment,
                                         id,
                                         name,
                                         anchoredSpreadsheetSelection,
-                                        SpreadsheetCellSaveHistoryToken.parseCells(
-                                            TextCursors.charSequence(value)
+                                        parseJson(
+                                            TextCursors.charSequence(value),
+                                            SpreadsheetCellSet.class
                                         )
                                     );
                                 }

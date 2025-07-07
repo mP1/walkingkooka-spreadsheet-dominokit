@@ -22,6 +22,7 @@ import walkingkooka.collect.map.Maps;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToDateTimeSymbolsMap;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
@@ -115,7 +116,7 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
         );
 
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/save/dateTimeSymbols/" + marshallMapWithOptionalValues(map),
+            "/123/SpreadsheetName456/cell/A1/save/dateTimeSymbols/" + marshallMap(map),
             SpreadsheetCellSaveDateTimeSymbolsHistoryToken.with(
                 ID,
                 NAME,
@@ -139,7 +140,7 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
         );
 
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/dateTimeSymbols/" + marshallMapWithOptionalValues(map),
+            "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/dateTimeSymbols/" + marshallMap(map),
             SpreadsheetCellSaveDateTimeSymbolsHistoryToken.with(
                 ID,
                 NAME,
@@ -161,7 +162,7 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
         );
 
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/save/dateTimeSymbols/" + marshallMapWithOptionalValues(map),
+            "/123/SpreadsheetName456/cell/A1/save/dateTimeSymbols/" + marshallMap(map),
             SpreadsheetCellSaveDateTimeSymbolsHistoryToken.with(
                 ID,
                 NAME,
@@ -188,7 +189,7 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
                 cellToDateTimeSymbols
             ),
             "/123/SpreadsheetName456/cell/A1/save/dateTimeSymbols/" +
-                marshallMapWithOptionalValues(cellToDateTimeSymbols)
+                marshallMap(cellToDateTimeSymbols)
         );
     }
 
@@ -207,13 +208,13 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
                 cellToDateTimeSymbols
             ),
             "/123/SpreadsheetName456/cell/A1/save/dateTimeSymbols/" +
-                marshallMapWithOptionalValues(cellToDateTimeSymbols)
+                marshallMap(cellToDateTimeSymbols)
         );
     }
 
     @Test
     public void testUrlFragmentWithMultipleCells() {
-        final Map<SpreadsheetCellReference, Optional<DateTimeSymbols>> cellToFormulaText = Maps.of(
+        final Map<SpreadsheetCellReference, Optional<DateTimeSymbols>> cellToDateTimeSymbols = Maps.of(
             SpreadsheetSelection.A1,
             Optional.of(DATE_TIME_SYMBOLS),
             SpreadsheetSelection.parseCell("A2"),
@@ -232,16 +233,16 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
                 NAME,
                 SpreadsheetSelection.parseCellRange("A1:A3")
                     .setDefaultAnchor(),
-                cellToFormulaText
+                cellToDateTimeSymbols
             ),
             "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/dateTimeSymbols/" +
-                marshallMapWithOptionalValues(cellToFormulaText)
+                marshallMap(cellToDateTimeSymbols)
         );
     }
 
     @Test
     public void testUrlFragmentWithNoDateTimeSymbols() {
-        final Map<SpreadsheetCellReference, Optional<DateTimeSymbols>> cellToFormulaText = Maps.of(
+        final Map<SpreadsheetCellReference, Optional<DateTimeSymbols>> cellToDateTimeSymbols = Maps.of(
             SpreadsheetSelection.A1,
             Optional.empty()
         );
@@ -252,10 +253,16 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
                 NAME,
                 SpreadsheetSelection.parseCellRange("A1:A3")
                     .setDefaultAnchor(),
-                cellToFormulaText
+                cellToDateTimeSymbols
             ),
             "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/dateTimeSymbols/" +
-                marshallMapWithOptionalValues(cellToFormulaText)
+                marshallMap(cellToDateTimeSymbols)
+        );
+    }
+
+    private static String marshallMap(final Map<SpreadsheetCellReference, Optional<DateTimeSymbols>> map) {
+        return marshall(
+            SpreadsheetCellReferenceToDateTimeSymbolsMap.with(map)
         );
     }
 

@@ -17,15 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.collect.map.Maps;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToValidationValueTypeNameMap;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.text.cursor.TextCursor;
-import walkingkooka.tree.json.JsonNode;
 import walkingkooka.validation.ValidationValueTypeName;
 
 import java.util.Map;
@@ -49,14 +48,14 @@ public final class SpreadsheetCellSaveValueTypeHistoryToken extends SpreadsheetC
             id,
             name,
             anchoredSelection,
-            Maps.immutable(value)
+            SpreadsheetCellReferenceToValidationValueTypeNameMap.with(value)
         );
     }
 
     private SpreadsheetCellSaveValueTypeHistoryToken(final SpreadsheetId id,
                                                      final SpreadsheetName name,
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
-                                                     final Map<SpreadsheetCellReference, Optional<ValidationValueTypeName>> value) {
+                                                     final SpreadsheetCellReferenceToValidationValueTypeNameMap value) {
         super(
             id,
             name,
@@ -74,28 +73,23 @@ public final class SpreadsheetCellSaveValueTypeHistoryToken extends SpreadsheetC
             id,
             name,
             anchoredSelection,
-            value
+            SpreadsheetCellReferenceToValidationValueTypeNameMap.with(value)
         );
     }
 
     @Override
-    Map<SpreadsheetCellReference, Optional<ValidationValueTypeName>> parseSaveValue(final TextCursor cursor) {
-        return parseCellToOptionalValuesMap(
+    SpreadsheetCellReferenceToValidationValueTypeNameMap parseSaveValue(final TextCursor cursor) {
+        return parseJson(
             cursor,
-            ValidationValueTypeName.class
+            SpreadsheetCellReferenceToValidationValueTypeNameMap.class
         );
     }
 
-    // HasUrlFragment..................................................................................................
+    // HasUrlFragment...................................................................................................
 
     @Override
     UrlFragment urlFragmentSaveEntity() {
         return VALUE_TYPE;
-    }
-
-    @Override
-    JsonNode saveValueUrlFragmentValueToJson(final Optional<ValidationValueTypeName> value) {
-        return MARSHALL_CONTEXT.marshallOptional(value);
     }
 
     // HistoryTokenWatcher..............................................................................................

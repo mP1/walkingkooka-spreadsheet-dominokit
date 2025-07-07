@@ -21,6 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToValidatorSelectorMap;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -189,7 +190,7 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
                 cellToValidator
             ),
             "/123/SpreadsheetName456/cell/A1/save/validator/" +
-                marshallMapWithOptionalValues(cellToValidator)
+                marshallMap(cellToValidator)
         );
     }
 
@@ -210,13 +211,13 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
                 cellToValidator
             ),
             "/123/SpreadsheetName456/cell/A1/save/validator/" +
-                marshallMapWithOptionalValues(cellToValidator)
+                marshallMap(cellToValidator)
         );
     }
 
     @Test
     public void testUrlFragmentWithMultipleCells() {
-        final Map<SpreadsheetCellReference, Optional<ValidatorSelector>> cellToFormulaText = Maps.of(
+        final Map<SpreadsheetCellReference, Optional<ValidatorSelector>> cellToValidator = Maps.of(
             SpreadsheetSelection.A1,
             Optional.of(
                 ValidatorSelector.parse("HelloValidator1")
@@ -237,16 +238,16 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
                 NAME,
                 SpreadsheetSelection.parseCellRange("A1:A3")
                     .setDefaultAnchor(),
-                cellToFormulaText
+                cellToValidator
             ),
             "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/validator/" +
-                marshallMapWithOptionalValues(cellToFormulaText)
+                marshallMap(cellToValidator)
         );
     }
 
     @Test
     public void testUrlFragmentWithMissingValidator() {
-        final Map<SpreadsheetCellReference, Optional<ValidatorSelector>> cellToFormulaText = Maps.of(
+        final Map<SpreadsheetCellReference, Optional<ValidatorSelector>> cellToValidator = Maps.of(
             SpreadsheetSelection.A1,
             Optional.empty()
         );
@@ -257,13 +258,19 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
                 NAME,
                 SpreadsheetSelection.parseCellRange("A1:A3")
                     .setDefaultAnchor(),
-                cellToFormulaText
+                cellToValidator
             ),
             "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/validator/" +
-                marshallMapWithOptionalValues(cellToFormulaText)
+                marshallMap(cellToValidator)
         );
     }
 
+    private static String marshallMap(final Map<SpreadsheetCellReference, Optional<ValidatorSelector>> map) {
+        return marshall(
+            SpreadsheetCellReferenceToValidatorSelectorMap.with(map)
+        );
+    }
+    
     // setSaveValue.....................................................................................................
 
     @Test

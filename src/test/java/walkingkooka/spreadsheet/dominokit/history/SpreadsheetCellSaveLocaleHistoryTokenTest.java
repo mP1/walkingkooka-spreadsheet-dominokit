@@ -21,6 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToLocaleMap;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -182,7 +183,7 @@ public final class SpreadsheetCellSaveLocaleHistoryTokenTest extends Spreadsheet
                 cellToLocale
             ),
             "/123/SpreadsheetName456/cell/A1/save/locale/" +
-                marshallMapWithOptionalValues(cellToLocale)
+                marshallMap(cellToLocale)
         );
     }
 
@@ -201,13 +202,13 @@ public final class SpreadsheetCellSaveLocaleHistoryTokenTest extends Spreadsheet
                 cellToLocale
             ),
             "/123/SpreadsheetName456/cell/A1/save/locale/" +
-                marshallMapWithOptionalValues(cellToLocale)
+                marshallMap(cellToLocale)
         );
     }
 
     @Test
     public void testUrlFragmentWithMultipleCells() {
-        final Map<SpreadsheetCellReference, Optional<Locale>> cellToFormulaText = Maps.of(
+        final Map<SpreadsheetCellReference, Optional<Locale>> cellToLocale = Maps.of(
             SpreadsheetSelection.A1,
             Optional.of(EN_AU),
             SpreadsheetSelection.parseCell("A2"),
@@ -222,16 +223,16 @@ public final class SpreadsheetCellSaveLocaleHistoryTokenTest extends Spreadsheet
                 NAME,
                 SpreadsheetSelection.parseCellRange("A1:A3")
                     .setDefaultAnchor(),
-                cellToFormulaText
+                cellToLocale
             ),
             "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/locale/" +
-                marshallMapWithOptionalValues(cellToFormulaText)
+                marshallMap(cellToLocale)
         );
     }
 
     @Test
     public void testUrlFragmentWithNoLocale() {
-        final Map<SpreadsheetCellReference, Optional<Locale>> cellToFormulaText = Maps.of(
+        final Map<SpreadsheetCellReference, Optional<Locale>> cellToLocale = Maps.of(
             SpreadsheetSelection.A1,
             Optional.empty()
         );
@@ -242,13 +243,19 @@ public final class SpreadsheetCellSaveLocaleHistoryTokenTest extends Spreadsheet
                 NAME,
                 SpreadsheetSelection.parseCellRange("A1:A3")
                     .setDefaultAnchor(),
-                cellToFormulaText
+                cellToLocale
             ),
             "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/locale/" +
-                marshallMapWithOptionalValues(cellToFormulaText)
+                marshallMap(cellToLocale)
         );
     }
 
+    private static String marshallMap(final Map<SpreadsheetCellReference, Optional<Locale>> map) {
+        return marshall(
+            SpreadsheetCellReferenceToLocaleMap.with(map)
+        );
+    }
+    
     // setSaveStringValue...............................................................................................
 
     @Test

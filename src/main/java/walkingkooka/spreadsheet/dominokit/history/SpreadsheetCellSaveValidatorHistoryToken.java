@@ -17,15 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.collect.map.Maps;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToValidatorSelectorMap;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.text.cursor.TextCursor;
-import walkingkooka.tree.json.JsonNode;
 import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Map;
@@ -53,14 +52,14 @@ public final class SpreadsheetCellSaveValidatorHistoryToken extends SpreadsheetC
             id,
             name,
             anchoredSelection,
-            Maps.immutable(value)
+            SpreadsheetCellReferenceToValidatorSelectorMap.with(value)
         );
     }
 
     private SpreadsheetCellSaveValidatorHistoryToken(final SpreadsheetId id,
                                                      final SpreadsheetName name,
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
-                                                     final Map<SpreadsheetCellReference, Optional<ValidatorSelector>> value) {
+                                                     final SpreadsheetCellReferenceToValidatorSelectorMap value) {
         super(
             id,
             name,
@@ -70,9 +69,10 @@ public final class SpreadsheetCellSaveValidatorHistoryToken extends SpreadsheetC
     }
 
     @Override
-    Map<SpreadsheetCellReference, Optional<ValidatorSelector>> parseSaveValue(final TextCursor cursor) {
-        return parseCellToOptionalTypedValuesMap(
-            cursor
+    SpreadsheetCellReferenceToValidatorSelectorMap parseSaveValue(final TextCursor cursor) {
+        return parseJson(
+            cursor,
+            SpreadsheetCellReferenceToValidatorSelectorMap.class
         );
     }
 
@@ -85,7 +85,7 @@ public final class SpreadsheetCellSaveValidatorHistoryToken extends SpreadsheetC
             id,
             name,
             anchoredSelection,
-            value
+            SpreadsheetCellReferenceToValidatorSelectorMap.with(value)
         );
     }
 
@@ -94,11 +94,6 @@ public final class SpreadsheetCellSaveValidatorHistoryToken extends SpreadsheetC
     @Override
     UrlFragment urlFragmentSaveEntity() {
         return VALIDATOR;
-    }
-
-    @Override
-    JsonNode saveValueUrlFragmentValueToJson(final Optional<ValidatorSelector> value) {
-        return MARSHALL_CONTEXT.marshallOptional(value);
     }
 
     // HistoryTokenWatcher..............................................................................................

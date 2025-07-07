@@ -21,6 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToSpreadsheetFormatterSelectorMap;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -201,7 +202,7 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
                 cellToFormatter
             ),
             "/123/SpreadsheetName456/cell/A1/save/formatter/" +
-                marshallMapWithOptionalValues(cellToFormatter)
+                marshallMap(cellToFormatter)
         );
     }
 
@@ -223,7 +224,7 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
                 cellToFormatter
             ),
             "/123/SpreadsheetName456/cell/A1/save/formatter/" +
-                marshallMapWithOptionalValues(cellToFormatter)
+                marshallMap(cellToFormatter)
         );
     }
 
@@ -256,7 +257,7 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
                 cellToFormulaText
             ),
             "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/formatter/" +
-                marshallMapWithOptionalValues(cellToFormulaText)
+                marshallMap(cellToFormulaText)
         );
     }
 
@@ -276,7 +277,13 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
                 cellToFormulaText
             ),
             "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/formatter/" +
-                marshallMapWithOptionalValues(cellToFormulaText)
+                marshallMap(cellToFormulaText)
+        );
+    }
+
+    private static String marshallMap(final Map<SpreadsheetCellReference, Optional<SpreadsheetFormatterSelector>> map) {
+        return marshall(
+            SpreadsheetCellReferenceToSpreadsheetFormatterSelectorMap.with(map)
         );
     }
 

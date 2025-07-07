@@ -106,11 +106,6 @@ public final class SpreadsheetCellSaveCellHistoryToken extends SpreadsheetCellSa
     }
 
     @Override
-    UrlFragment urlFragmentSaveValue() {
-        return this.value.urlFragment();
-    }
-
-    @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
         context.spreadsheetDeltaFetcher()

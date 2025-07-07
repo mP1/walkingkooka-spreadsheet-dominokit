@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.collect.map.Maps;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -25,22 +24,14 @@ import walkingkooka.spreadsheet.SpreadsheetUrlFragments;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolvers;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
-import walkingkooka.tree.expression.ExpressionNumberKind;
-import walkingkooka.tree.json.JsonNode;
-import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
-import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
 import walkingkooka.validation.ValidationValueTypeName;
 import walkingkooka.validation.form.FormName;
 
-import java.math.MathContext;
-import java.util.Map;
 import java.util.Optional;
-import java.util.function.Function;
 
 abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSelectionHistoryToken {
 
@@ -265,92 +256,6 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             )
         );
     }
-
-    /**
-     * Used to consume the remainder of the {@link TextCursor} text giving some JSON where individual cells are mapped
-     * to a value. The type parameter will be used to unmarshall the value into a java object.
-     */
-    static <VV> Map<SpreadsheetCellReference, VV> parseCellToValueMap(final TextCursor cursor,
-                                                                      final Class<VV> valueType) {
-        return UNMARSHALL_CONTEXT.unmarshallMap(
-            JsonNode.parse(
-                parseUntilEmpty(cursor)
-            ),
-            SpreadsheetCellReference.class, // key is always a cell
-            valueType
-        );
-    }
-
-    static <VV> Map<SpreadsheetCellReference, Optional<VV>> parseCellToOptionalMap(final TextCursor cursor,
-                                                                                   final Class<VV> optionalValueType) {
-        return parseCellToValueMap(
-            cursor,
-            (JsonNode entry) -> UNMARSHALL_CONTEXT.unmarshallOptional(
-                entry,
-                optionalValueType
-            )
-        );
-    }
-
-    /**
-     * Reads the JSON from the {@link TextCursor} as an OBJECT and then unmarshalls that into a {@link Map} with
-     * {@link SpreadsheetCellReference} keys and {@link Optional} value of the given value type parameter.
-     */
-    static <VV> Map<SpreadsheetCellReference, VV> parseCellToNullableValuesMap(final TextCursor cursor,
-                                                                               final Class<VV> valueType) {
-        return parseCellToValueMap(
-            cursor,
-            (JsonNode entry) -> UNMARSHALL_CONTEXT.unmarshall(
-                entry,
-                valueType
-            )
-        );
-    }
-
-    /**
-     * Reads the JSON from the {@link TextCursor} as an OBJECT and then unmarshalls that into a {@link Map} with
-     * {@link SpreadsheetCellReference} keys and {@link Optional} value of the given value type parameter.
-     */
-    static <VV> Map<SpreadsheetCellReference, Optional<VV>> parseCellToOptionalValuesMap(final TextCursor cursor,
-                                                                                         final Class<VV> valueType) {
-        return parseCellToValueMap(
-            cursor,
-            (JsonNode entry) -> UNMARSHALL_CONTEXT.unmarshallOptional(
-                entry,
-                valueType
-            )
-        );
-    }
-
-    static <VV> Map<SpreadsheetCellReference, VV> parseCellToOptionalTypedValuesMap(final TextCursor cursor) {
-        return SpreadsheetCellHistoryToken.parseCellToValueMap(
-            cursor,
-            (JsonNode entry) -> (VV) UNMARSHALL_CONTEXT.unmarshallOptionalWithType(entry)
-        );
-    }
-
-    private static <VV> Map<SpreadsheetCellReference, VV> parseCellToValueMap(final TextCursor cursor,
-                                                                              final Function<JsonNode, VV> parseValue) {
-        final Map<SpreadsheetCellReference, VV> values = Maps.sorted();
-
-        for (final JsonNode keyAndValue : JsonNode.parse(parseUntilEmpty(cursor))
-            .objectOrFail().children()) {
-            values.put(
-                SpreadsheetSelection.parseCell(
-                    keyAndValue.name()
-                        .value()
-                ),
-                parseValue.apply(keyAndValue)
-            );
-        }
-
-        return values;
-    }
-
-    final static JsonNodeUnmarshallContext UNMARSHALL_CONTEXT = JsonNodeUnmarshallContexts.basic(
-        ExpressionNumberKind.BIG_DECIMAL,
-        MathContext.DECIMAL64
-    );
 
     private static String parseComponentOrNull(final TextCursor cursor) {
         return parseComponent(cursor)

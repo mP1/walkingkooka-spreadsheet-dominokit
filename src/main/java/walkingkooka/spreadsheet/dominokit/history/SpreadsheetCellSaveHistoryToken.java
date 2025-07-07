@@ -18,13 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.Value;
+import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellSet;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-import walkingkooka.text.cursor.TextCursor;
-import walkingkooka.tree.json.JsonNode;
 
 /**
  * Base {@link HistoryToken} for several tokens that support saving or patching individual properties for a range of cells,
@@ -64,15 +62,6 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
         );
     }
 
-    static SpreadsheetCellSet parseCells(final TextCursor cursor) {
-        return UNMARSHALL_CONTEXT.unmarshall(
-            JsonNode.parse(
-                parseUntilEmpty(cursor)
-            ),
-            SpreadsheetCellSet.class
-        );
-    }
-
     /**
      * Factory method used by various would be setters when one or more components have changed and a new instance needs
      * to be created.
@@ -89,7 +78,8 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
         return saveUrlFragment(
             this.urlFragmentSaveEntity()
         ).appendSlashThen(
-            this.urlFragmentSaveValue()
+            ((HasUrlFragment) this.value())
+                .urlFragment()
         );
     }
 
@@ -97,6 +87,4 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
      * This is a single word such as formula/cell etc. The values will be converted into JSON and appended.
      */
     abstract UrlFragment urlFragmentSaveEntity();
-
-    abstract UrlFragment urlFragmentSaveValue();
 }

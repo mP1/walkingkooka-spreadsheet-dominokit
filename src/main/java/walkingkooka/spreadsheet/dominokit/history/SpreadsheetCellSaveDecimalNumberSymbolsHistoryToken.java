@@ -17,16 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.collect.map.Maps;
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToDecimalNumberSymbolsMap;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.text.cursor.TextCursor;
-import walkingkooka.tree.json.JsonNode;
 
 import java.util.Map;
 import java.util.Optional;
@@ -49,14 +48,14 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken extends S
             id,
             name,
             anchoredSelection,
-            Maps.immutable(value)
+            SpreadsheetCellReferenceToDecimalNumberSymbolsMap.with(value)
         );
     }
 
     private SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken(final SpreadsheetId id,
                                                                 final SpreadsheetName name,
                                                                 final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                final Map<SpreadsheetCellReference, Optional<DecimalNumberSymbols>> value) {
+                                                                final SpreadsheetCellReferenceToDecimalNumberSymbolsMap value) {
         super(
             id,
             name,
@@ -74,15 +73,15 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken extends S
             id,
             name,
             anchoredSelection,
-            value
+            SpreadsheetCellReferenceToDecimalNumberSymbolsMap.with(value)
         );
     }
 
     @Override
-    Map<SpreadsheetCellReference, Optional<DecimalNumberSymbols>> parseSaveValue(final TextCursor cursor) {
-        return parseCellToOptionalValuesMap(
+    SpreadsheetCellReferenceToDecimalNumberSymbolsMap parseSaveValue(final TextCursor cursor) {
+        return parseJson(
             cursor,
-            DecimalNumberSymbols.class
+            SpreadsheetCellReferenceToDecimalNumberSymbolsMap.class
         );
     }
 
@@ -91,11 +90,6 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken extends S
     @Override
     UrlFragment urlFragmentSaveEntity() {
         return DECIMAL_NUMBER_SYMBOLS;
-    }
-
-    @Override
-    JsonNode saveValueUrlFragmentValueToJson(final Optional<DecimalNumberSymbols> value) {
-        return MARSHALL_CONTEXT.marshallOptional(value);
     }
 
     // HistoryTokenWatcher..............................................................................................

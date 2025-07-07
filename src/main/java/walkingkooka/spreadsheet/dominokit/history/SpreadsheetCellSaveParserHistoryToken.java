@@ -17,16 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.collect.map.Maps;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToSpreadsheetParserSelectorMap;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.text.cursor.TextCursor;
-import walkingkooka.tree.json.JsonNode;
 
 import java.util.Map;
 import java.util.Optional;
@@ -53,14 +52,14 @@ public final class SpreadsheetCellSaveParserHistoryToken extends SpreadsheetCell
             id,
             name,
             anchoredSelection,
-            Maps.immutable(value)
+            SpreadsheetCellReferenceToSpreadsheetParserSelectorMap.with(value)
         );
     }
 
     private SpreadsheetCellSaveParserHistoryToken(final SpreadsheetId id,
                                                   final SpreadsheetName name,
                                                   final AnchoredSpreadsheetSelection anchoredSelection,
-                                                  final Map<SpreadsheetCellReference, Optional<SpreadsheetParserSelector>> value) {
+                                                  final SpreadsheetCellReferenceToSpreadsheetParserSelectorMap value) {
         super(
             id,
             name,
@@ -70,9 +69,10 @@ public final class SpreadsheetCellSaveParserHistoryToken extends SpreadsheetCell
     }
 
     @Override
-    Map<SpreadsheetCellReference, Optional<SpreadsheetParserSelector>> parseSaveValue(final TextCursor cursor) {
-        return parseCellToOptionalTypedValuesMap(
-            cursor
+    SpreadsheetCellReferenceToSpreadsheetParserSelectorMap parseSaveValue(final TextCursor cursor) {
+        return parseJson(
+            cursor,
+            SpreadsheetCellReferenceToSpreadsheetParserSelectorMap.class
         );
     }
 
@@ -85,7 +85,7 @@ public final class SpreadsheetCellSaveParserHistoryToken extends SpreadsheetCell
             id,
             name,
             anchoredSelection,
-            value
+            SpreadsheetCellReferenceToSpreadsheetParserSelectorMap.with(value)
         );
     }
 
@@ -94,11 +94,6 @@ public final class SpreadsheetCellSaveParserHistoryToken extends SpreadsheetCell
     @Override
     UrlFragment urlFragmentSaveEntity() {
         return PARSER;
-    }
-
-    @Override
-    JsonNode saveValueUrlFragmentValueToJson(final Optional<SpreadsheetParserSelector> value) {
-        return MARSHALL_CONTEXT.marshallOptional(value);
     }
 
     // HistoryTokenWatcher..............................................................................................
