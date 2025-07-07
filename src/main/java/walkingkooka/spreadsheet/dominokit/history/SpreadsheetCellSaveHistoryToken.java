@@ -19,14 +19,12 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.Value;
 import walkingkooka.net.UrlFragment;
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellSet;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.json.JsonNode;
-
-import java.util.Set;
 
 /**
  * Base {@link HistoryToken} for several tokens that support saving or patching individual properties for a range of cells,
@@ -66,12 +64,12 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
         );
     }
 
-    static Set<SpreadsheetCell> parseCells(final TextCursor cursor) {
-        return UNMARSHALL_CONTEXT.unmarshallSet(
+    static SpreadsheetCellSet parseCells(final TextCursor cursor) {
+        return UNMARSHALL_CONTEXT.unmarshall(
             JsonNode.parse(
                 parseUntilEmpty(cursor)
             ),
-            SpreadsheetCell.class
+            SpreadsheetCellSet.class
         );
     }
 
