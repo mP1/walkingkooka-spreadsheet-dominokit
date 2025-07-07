@@ -17,12 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.collect.set.Sets;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellSet;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -47,14 +47,14 @@ public final class SpreadsheetCellSaveCellHistoryToken extends SpreadsheetCellSa
             id,
             name,
             anchoredSelection,
-            Sets.immutable(value)
+            SpreadsheetCellSet.with(value)
         );
     }
 
     private SpreadsheetCellSaveCellHistoryToken(final SpreadsheetId id,
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection,
-                                                final Set<SpreadsheetCell> value) {
+                                                final SpreadsheetCellSet value) {
         super(
             id,
             name,
@@ -82,7 +82,7 @@ public final class SpreadsheetCellSaveCellHistoryToken extends SpreadsheetCellSa
         return this.value;
     }
 
-    final Set<SpreadsheetCell> value;
+    final SpreadsheetCellSet value;
 
     @Override
     SpreadsheetCellSaveCellHistoryToken replace(final SpreadsheetId id,
@@ -93,7 +93,7 @@ public final class SpreadsheetCellSaveCellHistoryToken extends SpreadsheetCellSa
             id,
             name,
             anchoredSelection,
-            value
+            SpreadsheetCellSet.with(value)
         );
     }
 
@@ -107,10 +107,7 @@ public final class SpreadsheetCellSaveCellHistoryToken extends SpreadsheetCellSa
 
     @Override
     UrlFragment urlFragmentSaveValue() {
-        return UrlFragment.with(
-            MARSHALL_CONTEXT.marshallCollection(this.value)
-                .toString()
-        );
+        return this.value.urlFragment();
     }
 
     @Override

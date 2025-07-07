@@ -22,6 +22,7 @@ import walkingkooka.collect.set.Sets;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellSet;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -100,7 +101,7 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
     @Test
     public void testParseOneCell() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/save/cell/[{\"A1\":{\"formula\":{\"text\":\"\"}}}]",
+            "/123/SpreadsheetName456/cell/A1/save/cell/{\"A1\":{\"formula\":{\"text\":\"\"}}}",
             SpreadsheetCellSaveCellHistoryToken.with(
                 ID,
                 NAME,
@@ -115,7 +116,7 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
     @Test
     public void testParseSeveralCells() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1:A2/save/cell/[{\"A1\":{\"formula\":{\"text\":\"\"}}},{\"A2\":{\"formula\":{\"text\":\"=2\"}}}]",
+            "/123/SpreadsheetName456/cell/A1:A2/save/cell/{\"A1\":{\"formula\":{}},\"A2\":{\"formula\":{\"text\": \"=2\"}}}",
             SpreadsheetCellSaveCellHistoryToken.with(
                 ID,
                 NAME,
@@ -146,7 +147,7 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
                 SELECTION,
                 cells
             ),
-            "/123/SpreadsheetName456/cell/A1/save/cell/" + marshallCollection(cells)
+            "/123/SpreadsheetName456/cell/A1/save/cell/" + marshall(cells)
         );
     }
 
@@ -164,7 +165,7 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
                 SELECTION,
                 cells
             ),
-            "/123/SpreadsheetName456/cell/A1/save/cell/" + marshallCollection(cells)
+            "/123/SpreadsheetName456/cell/A1/save/cell/" + marshall(cells)
         );
     }
 
@@ -192,13 +193,13 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
                     .setDefaultAnchor(),
                 cells
             ),
-            "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/cell/" + marshallCollection(cells)
+            "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/cell/" + marshall(cells)
         );
     }
 
-    static String marshallCollection(final Set<SpreadsheetCell> cells) {
-        return MARSHALL_CONTEXT.marshallCollection(
-            cells
+    static String marshall(final Set<SpreadsheetCell> cells) {
+        return MARSHALL_CONTEXT.marshall(
+            SpreadsheetCellSet.with(cells)
         ).toString();
     }
 
