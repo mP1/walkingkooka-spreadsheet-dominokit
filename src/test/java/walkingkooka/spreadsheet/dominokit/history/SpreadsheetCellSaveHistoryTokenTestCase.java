@@ -29,6 +29,11 @@ public abstract class SpreadsheetCellSaveHistoryTokenTestCase<T extends Spreadsh
         super();
     }
 
+    static String marshall(final Object value) {
+        return MARSHALL_CONTEXT.marshall(value)
+            .toString();
+    }
+
     final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
 
     // patternKind......................................................................................................

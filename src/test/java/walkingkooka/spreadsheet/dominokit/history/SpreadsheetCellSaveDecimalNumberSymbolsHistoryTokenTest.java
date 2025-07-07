@@ -23,6 +23,7 @@ import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToDecimalNumberSymbolsMap;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
@@ -119,7 +120,7 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryTokenTest exten
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/save/decimalNumberSymbols/" +
                 UrlFragment.with(
-                    marshallMapWithOptionalValues(map)
+                    marshallMap(map)
                 ),
             SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken.with(
                 ID,
@@ -146,7 +147,7 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryTokenTest exten
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/decimalNumberSymbols/" +
                 UrlFragment.with(
-                    marshallMapWithOptionalValues(map)
+                    marshallMap(map)
                 ),
             SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken.with(
                 ID,
@@ -171,7 +172,7 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryTokenTest exten
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/save/decimalNumberSymbols/" +
                 UrlFragment.with(
-                    marshallMapWithOptionalValues(map)
+                    marshallMap(map)
                 ),
             SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken.with(
                 ID,
@@ -200,7 +201,7 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryTokenTest exten
             ),
             "/123/SpreadsheetName456/cell/A1/save/decimalNumberSymbols/" +
                 UrlFragment.with(
-                    marshallMapWithOptionalValues(cellToDecimalNumberSymbols)
+                    marshallMap(cellToDecimalNumberSymbols)
                 )
         );
     }
@@ -221,14 +222,14 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryTokenTest exten
             ),
             "/123/SpreadsheetName456/cell/A1/save/decimalNumberSymbols/" +
                 UrlFragment.with(
-                    marshallMapWithOptionalValues(cellToDecimalNumberSymbols)
+                    marshallMap(cellToDecimalNumberSymbols)
                 )
         );
     }
 
     @Test
     public void testUrlFragmentWithMultipleCells() {
-        final Map<SpreadsheetCellReference, Optional<DecimalNumberSymbols>> cellToFormulaText = Maps.of(
+        final Map<SpreadsheetCellReference, Optional<DecimalNumberSymbols>> cellToDecimalNumberSymbols = Maps.of(
             SpreadsheetSelection.A1,
             Optional.of(DECIMAL_NUMBER_SYMBOLS),
             SpreadsheetSelection.parseCell("A2"),
@@ -248,18 +249,18 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryTokenTest exten
                 NAME,
                 SpreadsheetSelection.parseCellRange("A1:A3")
                     .setDefaultAnchor(),
-                cellToFormulaText
+                cellToDecimalNumberSymbols
             ),
             "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/decimalNumberSymbols/" +
                 UrlFragment.with(
-                    marshallMapWithOptionalValues(cellToFormulaText)
+                    marshallMap(cellToDecimalNumberSymbols)
                 )
         );
     }
 
     @Test
     public void testUrlFragmentWithNoDecimalNumberSymbols() {
-        final Map<SpreadsheetCellReference, Optional<DecimalNumberSymbols>> cellToFormulaText = Maps.of(
+        final Map<SpreadsheetCellReference, Optional<DecimalNumberSymbols>> cellToDecimalNumberSymbols = Maps.of(
             SpreadsheetSelection.A1,
             Optional.empty()
         );
@@ -270,12 +271,18 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryTokenTest exten
                 NAME,
                 SpreadsheetSelection.parseCellRange("A1:A3")
                     .setDefaultAnchor(),
-                cellToFormulaText
+                cellToDecimalNumberSymbols
             ),
             "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/decimalNumberSymbols/" +
                 UrlFragment.with(
-                    marshallMapWithOptionalValues(cellToFormulaText)
+                    marshallMap(cellToDecimalNumberSymbols)
                 )
+        );
+    }
+
+    private static String marshallMap(final Map<SpreadsheetCellReference, Optional<DecimalNumberSymbols>> map) {
+        return marshall(
+            SpreadsheetCellReferenceToDecimalNumberSymbolsMap.with(map)
         );
     }
 

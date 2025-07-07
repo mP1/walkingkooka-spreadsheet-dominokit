@@ -147,7 +147,10 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
                 SELECTION,
                 cells
             ),
-            "/123/SpreadsheetName456/cell/A1/save/cell/" + marshall(cells)
+            "/123/SpreadsheetName456/cell/A1/save/cell/" +
+                marshall(
+                    SpreadsheetCellSet.with(cells)
+                )
         );
     }
 
@@ -165,7 +168,10 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
                 SELECTION,
                 cells
             ),
-            "/123/SpreadsheetName456/cell/A1/save/cell/" + marshall(cells)
+            "/123/SpreadsheetName456/cell/A1/save/cell/" +
+                marshall(
+                    SpreadsheetCellSet.with(cells)
+                )
         );
     }
 
@@ -193,14 +199,11 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
                     .setDefaultAnchor(),
                 cells
             ),
-            "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/cell/" + marshall(cells)
+            "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/cell/" +
+                marshall(
+                    SpreadsheetCellSet.with(cells)
+                )
         );
-    }
-
-    static String marshall(final Set<SpreadsheetCell> cells) {
-        return MARSHALL_CONTEXT.marshall(
-            SpreadsheetCellSet.with(cells)
-        ).toString();
     }
 
     // setSaveValue.....................................................................................................

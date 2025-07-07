@@ -17,15 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.collect.map.Maps;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToFormulaTextMap;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.text.cursor.TextCursor;
-import walkingkooka.tree.json.JsonNode;
 
 import java.util.Map;
 
@@ -47,14 +46,14 @@ public final class SpreadsheetCellSaveFormulaTextHistoryToken extends Spreadshee
             id,
             name,
             anchoredSelection,
-            Maps.immutable(value)
+            SpreadsheetCellReferenceToFormulaTextMap.with(value)
         );
     }
 
     private SpreadsheetCellSaveFormulaTextHistoryToken(final SpreadsheetId id,
                                                        final SpreadsheetName name,
                                                        final AnchoredSpreadsheetSelection anchoredSelection,
-                                                       final Map<SpreadsheetCellReference, String> value) {
+                                                       final SpreadsheetCellReferenceToFormulaTextMap value) {
         super(
             id,
             name,
@@ -65,9 +64,9 @@ public final class SpreadsheetCellSaveFormulaTextHistoryToken extends Spreadshee
 
     @Override
     Map<SpreadsheetCellReference, String> parseSaveValue(final TextCursor cursor) {
-        return parseCellToNullableValuesMap(
+        return parseJson(
             cursor,
-            String.class
+            SpreadsheetCellReferenceToFormulaTextMap.class
         );
     }
 
@@ -80,7 +79,7 @@ public final class SpreadsheetCellSaveFormulaTextHistoryToken extends Spreadshee
             id,
             name,
             anchoredSelection,
-            value
+            SpreadsheetCellReferenceToFormulaTextMap.with(value)
         );
     }
 
@@ -89,11 +88,6 @@ public final class SpreadsheetCellSaveFormulaTextHistoryToken extends Spreadshee
     @Override
     UrlFragment urlFragmentSaveEntity() {
         return FORMULA;
-    }
-
-    @Override
-    JsonNode saveValueUrlFragmentValueToJson(final String value) {
-        return MARSHALL_CONTEXT.marshall(value);
     }
 
     // history..........................................................................................................

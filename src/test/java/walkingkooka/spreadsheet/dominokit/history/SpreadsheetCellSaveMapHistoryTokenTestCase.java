@@ -17,44 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
-
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
 public abstract class SpreadsheetCellSaveMapHistoryTokenTestCase<T extends SpreadsheetCellSaveMapHistoryToken<?>> extends SpreadsheetCellSaveHistoryTokenTestCase<T> {
 
     SpreadsheetCellSaveMapHistoryTokenTestCase() {
         super();
-    }
-
-    static String marshallMap(final Map<SpreadsheetCellReference, ?> cellToValue) {
-        return MARSHALL_CONTEXT.marshallMap(
-            cellToValue.entrySet()
-                .stream()
-                .collect(
-                    Collectors.toMap(
-                        entry -> entry.getKey().toString(),
-                        Entry::getValue
-                    )
-                )
-        ).toString();
-    }
-
-    static String marshallMapWithOptionalValues(final Map<SpreadsheetCellReference, ?> cellToValue) {
-        return MARSHALL_CONTEXT.marshallMap(
-            cellToValue.entrySet()
-                .stream()
-                .collect(
-                    Collectors.toMap(
-                        entry -> entry.getKey().toString(),
-                        entry -> MARSHALL_CONTEXT.marshallOptional(
-                            Optional.class.cast(entry.getValue())
-                        )
-                    )
-                )
-        ).toString();
     }
 }

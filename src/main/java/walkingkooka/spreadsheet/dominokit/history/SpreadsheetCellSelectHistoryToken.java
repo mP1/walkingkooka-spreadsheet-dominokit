@@ -17,21 +17,22 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.datetime.DateTimeSymbols;
-import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToDateTimeSymbolsMap;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToDecimalNumberSymbolsMap;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToFormulaTextMap;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToLocaleMap;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToSpreadsheetFormatterSelectorMap;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToSpreadsheetParserSelectorMap;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToTextStyleMap;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToValidationValueTypeNameMap;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToValidatorSelectorMap;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellSet;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
-import walkingkooka.tree.text.TextStyle;
-import walkingkooka.validation.ValidationValueTypeName;
-import walkingkooka.validation.provider.ValidatorSelector;
-
-import java.util.Locale;
 
 /**
  * This token selects one or more cells for viewing or editing.
@@ -107,8 +108,9 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                     this.id(),
                     this.name(),
                     this.anchoredSelection(),
-                    SpreadsheetCellSaveHistoryToken.parseCells(
-                        cursor
+                    parseJson(
+                        cursor,
+                        SpreadsheetCellSet.class
                     )
                 );
                 break;
@@ -117,9 +119,9 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                     this.id(),
                     this.name(),
                     this.anchoredSelection(),
-                    SpreadsheetCellSaveHistoryToken.parseCellToOptionalMap(
+                    SpreadsheetCellSaveHistoryToken.parseJson(
                         cursor,
-                        DateTimeSymbols.class
+                        SpreadsheetCellReferenceToDateTimeSymbolsMap.class
                     )
                 );
                 break;
@@ -128,9 +130,9 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                     this.id(),
                     this.name(),
                     this.anchoredSelection(),
-                    SpreadsheetCellSaveHistoryToken.parseCellToOptionalMap(
+                    SpreadsheetCellSaveHistoryToken.parseJson(
                         cursor,
-                        DecimalNumberSymbols.class
+                        SpreadsheetCellReferenceToDecimalNumberSymbolsMap.class
                     )
                 );
                 break;
@@ -139,9 +141,9 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                     this.id(),
                     this.name(),
                     this.anchoredSelection(),
-                    SpreadsheetCellSaveHistoryToken.parseCellToOptionalMap(
+                    SpreadsheetCellSaveHistoryToken.parseJson(
                         cursor,
-                        SpreadsheetFormatterSelector.class
+                        SpreadsheetCellReferenceToSpreadsheetFormatterSelectorMap.class
                     )
                 );
                 break;
@@ -150,9 +152,9 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                     this.id(),
                     this.name(),
                     this.anchoredSelection(),
-                    SpreadsheetCellSaveHistoryToken.parseCellToValueMap(
+                    SpreadsheetCellSaveHistoryToken.parseJson(
                         cursor,
-                        String.class
+                        SpreadsheetCellReferenceToFormulaTextMap.class
                     )
                 );
                 break;
@@ -161,9 +163,9 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                     this.id(),
                     this.name(),
                     this.anchoredSelection(),
-                    SpreadsheetCellSaveHistoryToken.parseCellToOptionalMap(
+                    SpreadsheetCellSaveHistoryToken.parseJson(
                         cursor,
-                        Locale.class
+                        SpreadsheetCellReferenceToLocaleMap.class
                     )
                 );
                 break;
@@ -172,9 +174,9 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                     this.id(),
                     this.name(),
                     this.anchoredSelection(),
-                    SpreadsheetCellSaveHistoryToken.parseCellToOptionalMap(
+                    SpreadsheetCellSaveHistoryToken.parseJson(
                         cursor,
-                        SpreadsheetParserSelector.class
+                        SpreadsheetCellReferenceToSpreadsheetParserSelectorMap.class
                     )
                 );
                 break;
@@ -183,9 +185,9 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                     this.id(),
                     this.name(),
                     this.anchoredSelection(),
-                    SpreadsheetCellSaveHistoryToken.parseCellToValueMap(
+                    SpreadsheetCellSaveHistoryToken.parseJson(
                         cursor,
-                        TextStyle.class
+                        SpreadsheetCellReferenceToTextStyleMap.class
                     )
                 );
                 break;
@@ -194,9 +196,9 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                     this.id(),
                     this.name(),
                     this.anchoredSelection(),
-                    SpreadsheetCellSaveHistoryToken.parseCellToOptionalMap(
+                    SpreadsheetCellSaveHistoryToken.parseJson(
                         cursor,
-                        ValidatorSelector.class
+                        SpreadsheetCellReferenceToValidatorSelectorMap.class
                     )
                 );
                 break;
@@ -205,9 +207,9 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                     this.id(),
                     this.name(),
                     this.anchoredSelection(),
-                    SpreadsheetCellSaveHistoryToken.parseCellToOptionalMap(
+                    SpreadsheetCellSaveHistoryToken.parseJson(
                         cursor,
-                        ValidationValueTypeName.class
+                        SpreadsheetCellReferenceToValidationValueTypeNameMap.class
                     )
                 );
                 break;

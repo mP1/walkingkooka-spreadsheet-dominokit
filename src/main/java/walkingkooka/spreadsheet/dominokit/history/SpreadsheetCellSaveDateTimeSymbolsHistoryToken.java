@@ -17,16 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.collect.map.Maps;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToDateTimeSymbolsMap;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.text.cursor.TextCursor;
-import walkingkooka.tree.json.JsonNode;
 
 import java.util.Map;
 import java.util.Optional;
@@ -49,14 +48,14 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryToken extends Spread
             id,
             name,
             anchoredSelection,
-            Maps.immutable(value)
+            SpreadsheetCellReferenceToDateTimeSymbolsMap.with(value)
         );
     }
 
     private SpreadsheetCellSaveDateTimeSymbolsHistoryToken(final SpreadsheetId id,
                                                            final SpreadsheetName name,
                                                            final AnchoredSpreadsheetSelection anchoredSelection,
-                                                           final Map<SpreadsheetCellReference, Optional<DateTimeSymbols>> value) {
+                                                           final SpreadsheetCellReferenceToDateTimeSymbolsMap value) {
         super(
             id,
             name,
@@ -74,15 +73,15 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryToken extends Spread
             id,
             name,
             anchoredSelection,
-            value
+            SpreadsheetCellReferenceToDateTimeSymbolsMap.with(value)
         );
     }
 
     @Override
-    Map<SpreadsheetCellReference, Optional<DateTimeSymbols>> parseSaveValue(final TextCursor cursor) {
-        return parseCellToOptionalValuesMap(
+    SpreadsheetCellReferenceToDateTimeSymbolsMap parseSaveValue(final TextCursor cursor) {
+        return parseJson(
             cursor,
-            DateTimeSymbols.class
+            SpreadsheetCellReferenceToDateTimeSymbolsMap.class
         );
     }
 
@@ -91,11 +90,6 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryToken extends Spread
     @Override
     UrlFragment urlFragmentSaveEntity() {
         return DATE_TIME_SYMBOLS;
-    }
-
-    @Override
-    JsonNode saveValueUrlFragmentValueToJson(final Optional<DateTimeSymbols> value) {
-        return MARSHALL_CONTEXT.marshallOptional(value);
     }
 
     // HistoryTokenWatcher..............................................................................................

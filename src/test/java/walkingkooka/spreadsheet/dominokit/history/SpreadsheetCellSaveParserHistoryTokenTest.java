@@ -21,6 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToSpreadsheetParserSelectorMap;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -199,7 +200,7 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
                 cellToParser
             ),
             "/123/SpreadsheetName456/cell/A1/save/parser/" +
-                marshallMapWithOptionalValues(cellToParser)
+                marshallMap(cellToParser)
         );
     }
 
@@ -221,13 +222,13 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
                 cellToParser
             ),
             "/123/SpreadsheetName456/cell/A1/save/parser/" +
-                marshallMapWithOptionalValues(cellToParser)
+                marshallMap(cellToParser)
         );
     }
 
     @Test
     public void testUrlFragmentWithMultipleCells() {
-        final Map<SpreadsheetCellReference, Optional<SpreadsheetParserSelector>> cellToFormulaText = Maps.of(
+        final Map<SpreadsheetCellReference, Optional<SpreadsheetParserSelector>> cellToParserText = Maps.of(
             SpreadsheetSelection.A1,
             Optional.of(
                 SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy")
@@ -251,16 +252,16 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
                 NAME,
                 SpreadsheetSelection.parseCellRange("A1:A3")
                     .setDefaultAnchor(),
-                cellToFormulaText
+                cellToParserText
             ),
             "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/parser/" +
-                marshallMapWithOptionalValues(cellToFormulaText)
+                marshallMap(cellToParserText)
         );
     }
 
     @Test
     public void testUrlFragmentWithMissingParser() {
-        final Map<SpreadsheetCellReference, Optional<SpreadsheetParserSelector>> cellToFormulaText = Maps.of(
+        final Map<SpreadsheetCellReference, Optional<SpreadsheetParserSelector>> cellToParserText = Maps.of(
             SpreadsheetSelection.A1,
             Optional.empty()
         );
@@ -271,13 +272,19 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
                 NAME,
                 SpreadsheetSelection.parseCellRange("A1:A3")
                     .setDefaultAnchor(),
-                cellToFormulaText
+                cellToParserText
             ),
             "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/parser/" +
-                marshallMapWithOptionalValues(cellToFormulaText)
+                marshallMap(cellToParserText)
         );
     }
 
+    private static String marshallMap(final Map<SpreadsheetCellReference, Optional<SpreadsheetParserSelector>> map) {
+        return marshall(
+            SpreadsheetCellReferenceToSpreadsheetParserSelectorMap.with(map)
+        );
+    }
+    
     // setSaveValue.....................................................................................................
 
     @Test

@@ -21,6 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToValidationValueTypeNameMap;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
@@ -111,7 +112,7 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
         );
 
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/save/valueType/" + marshallMapWithOptionalValues(map),
+            "/123/SpreadsheetName456/cell/A1/save/valueType/" + marshallMap(map),
             SpreadsheetCellSaveValueTypeHistoryToken.with(
                 ID,
                 NAME,
@@ -135,7 +136,7 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
         );
 
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/valueType/" + marshallMapWithOptionalValues(map),
+            "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/valueType/" + marshallMap(map),
             SpreadsheetCellSaveValueTypeHistoryToken.with(
                 ID,
                 NAME,
@@ -157,7 +158,7 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
         );
 
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/save/valueType/" + marshallMapWithOptionalValues(map),
+            "/123/SpreadsheetName456/cell/A1/save/valueType/" + marshallMap(map),
             SpreadsheetCellSaveValueTypeHistoryToken.with(
                 ID,
                 NAME,
@@ -184,7 +185,7 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
                 cellToValidationValueTypeName
             ),
             "/123/SpreadsheetName456/cell/A1/save/valueType/" +
-                marshallMapWithOptionalValues(cellToValidationValueTypeName)
+                marshallMap(cellToValidationValueTypeName)
         );
     }
 
@@ -203,13 +204,13 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
                 cellToValidationValueTypeName
             ),
             "/123/SpreadsheetName456/cell/A1/save/valueType/" +
-                marshallMapWithOptionalValues(cellToValidationValueTypeName)
+                marshallMap(cellToValidationValueTypeName)
         );
     }
 
     @Test
     public void testUrlFragmentWithMultipleCells() {
-        final Map<SpreadsheetCellReference, Optional<ValidationValueTypeName>> cellToFormulaText = Maps.of(
+        final Map<SpreadsheetCellReference, Optional<ValidationValueTypeName>> cellToValueType = Maps.of(
             SpreadsheetSelection.A1,
             Optional.of(VALUE_TYPE),
             SpreadsheetSelection.parseCell("A2"),
@@ -226,16 +227,16 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
                 NAME,
                 SpreadsheetSelection.parseCellRange("A1:A3")
                     .setDefaultAnchor(),
-                cellToFormulaText
+                cellToValueType
             ),
             "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/valueType/" +
-                marshallMapWithOptionalValues(cellToFormulaText)
+                marshallMap(cellToValueType)
         );
     }
 
     @Test
     public void testUrlFragmentWithNoValidationValueTypeName() {
-        final Map<SpreadsheetCellReference, Optional<ValidationValueTypeName>> cellToFormulaText = Maps.of(
+        final Map<SpreadsheetCellReference, Optional<ValidationValueTypeName>> cellToValueType = Maps.of(
             SpreadsheetSelection.A1,
             Optional.empty()
         );
@@ -246,13 +247,19 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
                 NAME,
                 SpreadsheetSelection.parseCellRange("A1:A3")
                     .setDefaultAnchor(),
-                cellToFormulaText
+                cellToValueType
             ),
             "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/valueType/" +
-                marshallMapWithOptionalValues(cellToFormulaText)
+                marshallMap(cellToValueType)
         );
     }
 
+    private static String marshallMap(final Map<SpreadsheetCellReference, Optional<ValidationValueTypeName>> map) {
+        return marshall(
+            SpreadsheetCellReferenceToValidationValueTypeNameMap.with(map)
+        );
+    }
+    
     // setSaveStringValue.....................................................................................................
 
     @Test
