@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -27,7 +26,6 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
  */
 public interface SpreadsheetComparatorFetcherWatcher extends FetcherWatcher {
 
-    void onSpreadsheetComparatorInfoSet(final SpreadsheetId id,
-                                        final SpreadsheetComparatorInfoSet infos,
+    void onSpreadsheetComparatorInfoSet(final SpreadsheetComparatorInfoSet infos,
                                         final AppContext context);
 }

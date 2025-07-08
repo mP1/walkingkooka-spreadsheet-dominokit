@@ -71,8 +71,7 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetComp
         return this.context.addSpreadsheetComparatorFetcherWatcher(
             new SpreadsheetComparatorFetcherWatcher() {
                 @Override
-                public void onSpreadsheetComparatorInfoSet(final SpreadsheetId id,
-                                                           final SpreadsheetComparatorInfoSet infos,
+                public void onSpreadsheetComparatorInfoSet(final SpreadsheetComparatorInfoSet infos,
                                                            final AppContext context) {
                     set.accept(infos.aliasSet());
                 }
