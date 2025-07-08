@@ -17,16 +17,23 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
+import walkingkooka.Cast;
 import walkingkooka.convert.Converter;
 import walkingkooka.convert.provider.ConverterInfoSet;
 import walkingkooka.convert.provider.ConverterName;
+import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
+import walkingkooka.net.UrlPathName;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.convert.MissingConverterSet;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
 import walkingkooka.spreadsheet.server.convert.ConverterHateosResourceMappings;
 import walkingkooka.text.CharSequences;
+import walkingkooka.tree.json.JsonNode;
 
 import java.util.Optional;
 
@@ -67,6 +74,26 @@ public final class ConverterFetcher extends Fetcher<ConverterFetcherWatcher> {
         );
     }
 
+    // POST /api/spreadsheet/SpreadsheetId/converter/*/verify/SpreadsheetMetadataPropertyName<ConverterSelector>
+    public void postVerify(final SpreadsheetId id,
+                           final SpreadsheetMetadataPropertyName<ConverterSelector> converterMetadataProperty,
+                           final String converterSelector) {
+        this.post(
+            url(id)
+                .appendPathName(UrlPathName.WILDCARD)
+                .appendPathName(
+                    SpreadsheetServerLinkRelations.VERIFY.toUrlPathName()
+                        .get()
+                ).appendPathName(
+                    UrlPathName.with(converterMetadataProperty.value())
+                ),
+            FetcherRequestBody.string(
+                JsonNode.string(converterSelector)
+                    .toString()
+            )
+        );
+    }
+
     @Override
     public void onSuccess(final HttpMethod method,
                           final AbsoluteOrRelativeUrl url,
@@ -90,8 +117,35 @@ public final class ConverterFetcher extends Fetcher<ConverterFetcherWatcher> {
                     context
                 );
                 break;
+            case "MissingConverterSet":
+                // POST http://server/api/spreadsheet/1/converter/*/verify/SpreadsheetMetadataPropertyName<ConverterSelector>
+                this.watcher.onVerify(
+                    SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
+                        .get(), // the request url
+                    verifyConverterSelector(url),
+                    this.parse(
+                        body.orElse(""),
+                        MissingConverterSet.class
+                    ), // MissingConverterSet
+                    context
+                );
+                break;
+
             default:
                 throw new IllegalArgumentException("Unexpected content type " + CharSequences.quote(contentTypeName));
         }
+    }
+
+    // /api/spreadsheet/1/converter/*/verify/SpreadsheetMetadataPropertyName<ConverterSelector>
+    // 01   2           3 4         5 6      7
+    static SpreadsheetMetadataPropertyName<ConverterSelector> verifyConverterSelector(final AbsoluteOrRelativeUrl url) {
+        return Cast.to(
+            SpreadsheetMetadataPropertyName.with(
+                url.path()
+                    .namesList()
+                    .get(7)
+                    .value()
+            )
+        );
     }
 }

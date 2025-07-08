@@ -17,10 +17,61 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
+import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
+import walkingkooka.convert.provider.ConverterSelector;
+import walkingkooka.net.AbsoluteOrRelativeUrl;
+import walkingkooka.net.Url;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 public final class ConverterFetcherTest implements ClassTesting<ConverterFetcher> {
+
+    // verifyConverterSelector..........................................................................................
+
+    // /api/spreadsheet/1/converter/*/verify/SpreadsheetMetadataPropertyName<ConverterSelector>
+
+    @Test
+    public void testVerifyConverterSelectorWithFindConverter() {
+        final SpreadsheetMetadataPropertyName<ConverterSelector> propertyName = SpreadsheetMetadataPropertyName.FIND_CONVERTER;
+
+        this.verifyConverterSelectorAndCheck(
+            "/api/spreadsheet/1/converter/*/verify/" + propertyName.value(),
+            propertyName.value()
+        );
+    }
+
+    @Test
+    public void testVerifyConverterSelectorWithFormulaConverter() {
+        final SpreadsheetMetadataPropertyName<ConverterSelector> propertyName = SpreadsheetMetadataPropertyName.FORMULA_CONVERTER;
+
+        this.verifyConverterSelectorAndCheck(
+            "/api/spreadsheet/1/converter/*/verify/" + propertyName.value(),
+            propertyName.value()
+        );
+    }
+
+    private void verifyConverterSelectorAndCheck(final String url,
+                                                 final String expected) {
+        this.verifyConverterSelectorAndCheck(
+            Url.parseAbsoluteOrRelative(url),
+            Cast.to(
+                SpreadsheetMetadataPropertyName.with(expected)
+            )
+        );
+    }
+
+    private void verifyConverterSelectorAndCheck(final AbsoluteOrRelativeUrl url,
+                                                 final SpreadsheetMetadataPropertyName<ConverterSelector> expected) {
+        this.checkEquals(
+            expected,
+            ConverterFetcher.verifyConverterSelector(url),
+            url::toString
+        );
+    }
+
+    // class............................................................................................................
 
     @Override
     public Class<ConverterFetcher> type() {

@@ -18,8 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.convert.provider.ConverterInfoSet;
+import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.convert.MissingConverter;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+
+import java.util.Set;
 
 public class FakeConverterFetcherWatcher extends FakeFetcherWatcher implements ConverterFetcherWatcher {
 
@@ -27,6 +32,14 @@ public class FakeConverterFetcherWatcher extends FakeFetcherWatcher implements C
     public void onConverterInfoSet(final SpreadsheetId id,
                                    final ConverterInfoSet infos,
                                    final AppContext context) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void onVerify(final SpreadsheetId id,
+                         final SpreadsheetMetadataPropertyName<ConverterSelector> metadataPropertyName,
+                         final Set<MissingConverter> missingConverters,
+                         final AppContext context) {
         throw new UnsupportedOperationException();
     }
 }
