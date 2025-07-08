@@ -131,13 +131,13 @@ public final class PluginFetcherTest implements ClassTesting<PluginFetcher> {
         );
     }
 
-    // pluginUploadUrl..................................................................................................
+    // uploadUrl..................................................................................................
 
     @Test
-    public void testPluginUploadUrl() {
+    public void testUploadUrl() {
         this.checkEquals(
             Url.parseRelative("/api/plugin/*/upload"),
-            PluginFetcher.pluginUploadUrl()
+            PluginFetcher.uploadUrl()
         );
     }
 

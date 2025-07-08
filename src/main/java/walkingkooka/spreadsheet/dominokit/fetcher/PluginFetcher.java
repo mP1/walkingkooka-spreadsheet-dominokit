@@ -143,7 +143,7 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
 
         this.fetch(
             HttpMethod.POST,
-            pluginUploadUrl(),
+            uploadUrl(),
             Maps.of(
                 HttpHeaderName.ACCEPT,
                 SpreadsheetServerMediaTypes.BINARY
@@ -190,7 +190,7 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
     }
 
     // @VisibleForTesting
-    static RelativeUrl pluginUploadUrl() {
+    static RelativeUrl uploadUrl() {
         return Url.EMPTY_RELATIVE_URL.appendPath(
             SpreadsheetHttpServer.API_PLUGIN.append(UrlPathName.WILDCARD)
                 .append(UPLOAD)
