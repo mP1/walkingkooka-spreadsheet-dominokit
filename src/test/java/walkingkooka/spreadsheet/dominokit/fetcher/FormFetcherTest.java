@@ -23,8 +23,36 @@ import walkingkooka.net.Url;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.validation.form.FormName;
 
 public final class FormFetcherTest implements ClassTesting<FormFetcher> {
+
+    private final static FormName FORM_NAME = FormName.with("Form123");
+
+    // formUrl..........................................................................................................
+
+    @Test
+    public void testFormUrl() {
+        this.formUrlAndCheck(
+            SpreadsheetId.with(1),
+            FORM_NAME,
+            Url.parseRelative("/api/spreadsheet/1/form/Form123")
+        );
+    }
+
+    private void formUrlAndCheck(final SpreadsheetId id,
+                                 final FormName formName,
+                                 final AbsoluteOrRelativeUrl expected) {
+        this.checkEquals(
+            expected,
+            FormFetcher.formUrl(
+                id,
+                formName
+            )
+        );
+    }
+    
+    // url..............................................................................................................
 
     @Test
     public void testUrl() {

@@ -19,13 +19,16 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
+import walkingkooka.net.UrlPathName;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.validation.form.SpreadsheetForms;
 import walkingkooka.text.CharSequences;
 import walkingkooka.validation.form.Form;
 import walkingkooka.validation.form.FormName;
 
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -53,6 +56,30 @@ public final class FormFetcher extends Fetcher<FormFetcherWatcher> {
         );
     }
 
+    // GET /api/spreadsheet/SpreadsheetId/form/FormName
+    public void getForm(final SpreadsheetId id,
+                        final FormName formName) {
+        Objects.requireNonNull(id, "id");
+        Objects.requireNonNull(formName, "formName");
+
+        get(
+            formUrl(
+                id,
+                formName
+            )
+        );
+    }
+
+    // /api/spreadsheet/SpreadsheetId/form/FormName
+    static RelativeUrl formUrl(final SpreadsheetId id,
+                               final FormName formName) {
+        return url(id)
+            .appendPathName(
+                UrlPathName.with(formName.value())
+            );
+
+    }
+
     static RelativeUrl url(final SpreadsheetId id) {
         return SpreadsheetMetadataFetcher.url(id)
             .appendPathName(
@@ -70,6 +97,17 @@ public final class FormFetcher extends Fetcher<FormFetcherWatcher> {
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
                 this.watcher.onEmptyResponse(context);
+                break;
+            case "Form":
+                this.watcher.onForm(
+                    SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
+                        .get(),
+                    this.parse(
+                        body.orElse(""),
+                        SpreadsheetForms.FORM_CLASS
+                    ), // edit
+                    context
+                );
                 break;
             default:
                 throw new IllegalArgumentException("Unexpected content type " + CharSequences.quote(contentTypeName));
