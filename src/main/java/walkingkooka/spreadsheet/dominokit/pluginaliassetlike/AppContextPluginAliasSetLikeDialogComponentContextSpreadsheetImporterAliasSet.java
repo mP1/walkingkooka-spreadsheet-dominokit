@@ -60,9 +60,10 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetImpo
         return SpreadsheetImporterAliasSet.EMPTY;
     }
 
-    @Override final void loadPluginInfoSetLike0(final SpreadsheetId id) {
+    @Override //
+    final void loadPluginInfoSetLike0(final SpreadsheetId id) {
         this.context.spreadsheetImporterFetcher()
-            .getInfoSet(id);
+            .getInfoSet();
     }
 
     @Override
@@ -70,8 +71,7 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetImpo
         return this.context.addSpreadsheetImporterFetcherWatcher(
             new SpreadsheetImporterFetcherWatcher() {
                 @Override
-                public void onSpreadsheetImporterInfoSet(final SpreadsheetId id,
-                                                         final SpreadsheetImporterInfoSet infos,
+                public void onSpreadsheetImporterInfoSet(final SpreadsheetImporterInfoSet infos,
                                                          final AppContext context) {
                     set.accept(infos.aliasSet());
                 }
