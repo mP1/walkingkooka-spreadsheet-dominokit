@@ -70,6 +70,20 @@ public final class FormFetcher extends Fetcher<FormFetcherWatcher> {
         );
     }
 
+    // DELETE /api/spreadsheet/SpreadsheetId/form/FormName
+    public void deleteForm(final SpreadsheetId id,
+                           final FormName formName) {
+        Objects.requireNonNull(id, "id");
+        Objects.requireNonNull(formName, "formName");
+
+        delete(
+            formUrl(
+                id,
+                formName
+            )
+        );
+    }
+
     // /api/spreadsheet/SpreadsheetId/form/FormName
     static RelativeUrl formUrl(final SpreadsheetId id,
                                final FormName formName) {
