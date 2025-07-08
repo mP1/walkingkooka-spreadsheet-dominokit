@@ -19,12 +19,9 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 
 
 import walkingkooka.net.AbsoluteOrRelativeUrl;
-import walkingkooka.net.RelativeUrl;
-import walkingkooka.net.UrlPath;
 import walkingkooka.net.http.HttpMethod;
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.server.function.ExpressionFunctionHateosResourceMappings;
+import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.expression.ExpressionFunctionName;
 import walkingkooka.tree.expression.function.ExpressionFunction;
@@ -37,20 +34,8 @@ import java.util.Optional;
  */
 public final class ExpressionFunctionFetcher extends Fetcher<ExpressionFunctionFetcherWatcher> {
 
-    private final static UrlPath FUNCTION = UrlPath.parse(
-        ExpressionFunctionHateosResourceMappings.FUNCTION.value()
-    );
-
     static {
         ExpressionFunctionName.DEFAULT_CASE_SENSITIVITY.toString(); // force json unmarshaller to register
-    }
-
-    private ExpressionFunctionFetcher(final ExpressionFunctionFetcherWatcher watcher,
-                                      final AppContext context) {
-        super(
-            watcher,
-            context
-        );
     }
 
     public static ExpressionFunctionFetcher with(final ExpressionFunctionFetcherWatcher watcher,
@@ -61,17 +46,20 @@ public final class ExpressionFunctionFetcher extends Fetcher<ExpressionFunctionF
         );
     }
 
-    static RelativeUrl url(final SpreadsheetId id) {
-        return SpreadsheetMetadataFetcher.url(id)
-            .appendPath(FUNCTION);
-    }
-
-    // GET /api/spreadsheet/SpreadsheetId/function/*
-    public void getInfoSet(final SpreadsheetId id) {
-        this.get(
-            url(id)
+    private ExpressionFunctionFetcher(final ExpressionFunctionFetcherWatcher watcher,
+                                      final AppContext context) {
+        super(
+            watcher,
+            context
         );
     }
+
+    // GET /api/function/*
+    public void getInfoSet() {
+        this.get(URL);
+    }
+
+    private final static AbsoluteOrRelativeUrl URL = AbsoluteOrRelativeUrl.EMPTY_RELATIVE_URL.appendPath(SpreadsheetHttpServer.API_FUNCTION);
 
     @Override
     public void onSuccess(final HttpMethod method,
@@ -85,9 +73,8 @@ public final class ExpressionFunctionFetcher extends Fetcher<ExpressionFunctionF
                 this.watcher.onEmptyResponse(context);
                 break;
             case "ExpressionFunctionInfoSet":
-                // GET http://server/api/spreadsheet/1/function
+                // GET http://server/api/function
                 this.watcher.onExpressionFunctionInfoSet(
-                    SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     this.parse(
                         body.orElse(""),
                         ExpressionFunctionInfoSet.class

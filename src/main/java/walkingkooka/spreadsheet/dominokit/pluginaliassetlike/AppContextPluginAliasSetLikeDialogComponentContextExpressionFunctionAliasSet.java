@@ -62,9 +62,10 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextExpressionFunct
         return SpreadsheetExpressionFunctions.EMPTY_ALIAS_SET;
     }
 
-    @Override final void loadPluginInfoSetLike0(final SpreadsheetId id) {
+    @Override //
+    final void loadPluginInfoSetLike0(final SpreadsheetId id) {
         this.context.expressionFunctionFetcher()
-            .getInfoSet(id);
+            .getInfoSet();
     }
 
     @Override
@@ -72,8 +73,7 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextExpressionFunct
         return this.context.addExpressionFunctionFetcherWatcher(
             new ExpressionFunctionFetcherWatcher() {
                 @Override
-                public void onExpressionFunctionInfoSet(final SpreadsheetId id,
-                                                        final ExpressionFunctionInfoSet infos,
+                public void onExpressionFunctionInfoSet(final ExpressionFunctionInfoSet infos,
                                                         final AppContext context) {
                     set.accept(infos.aliasSet());
                 }

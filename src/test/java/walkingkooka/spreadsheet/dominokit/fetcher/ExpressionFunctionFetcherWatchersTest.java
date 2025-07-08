@@ -53,10 +53,8 @@ public final class ExpressionFunctionFetcherWatchersTest extends FetcherWatchers
             new FakeExpressionFunctionFetcherWatcher() {
 
                 @Override
-                public void onExpressionFunctionInfoSet(final SpreadsheetId i,
-                                                        final ExpressionFunctionInfoSet is,
+                public void onExpressionFunctionInfoSet(final ExpressionFunctionInfoSet is,
                                                         final AppContext ac) {
-                    ExpressionFunctionFetcherWatchersTest.this.checkEquals(i, id);
                     ExpressionFunctionFetcherWatchersTest.this.checkEquals(is, infos);
                     ExpressionFunctionFetcherWatchersTest.this.checkEquals(ac, context);
 
@@ -64,7 +62,6 @@ public final class ExpressionFunctionFetcherWatchersTest extends FetcherWatchers
                 }
             });
         watchers.onExpressionFunctionInfoSet(
-            id,
             infos,
             context
         );
@@ -84,10 +81,8 @@ public final class ExpressionFunctionFetcherWatchersTest extends FetcherWatchers
             new FakeExpressionFunctionFetcherWatcher() {
 
                 @Override
-                public void onExpressionFunctionInfoSet(final SpreadsheetId i,
-                                                        final ExpressionFunctionInfoSet is,
+                public void onExpressionFunctionInfoSet(final ExpressionFunctionInfoSet is,
                                                         final AppContext ac) {
-                    ExpressionFunctionFetcherWatchersTest.this.checkEquals(i, id);
                     ExpressionFunctionFetcherWatchersTest.this.checkEquals(is, infos);
                     ExpressionFunctionFetcherWatchersTest.this.checkEquals(ac, context);
 
@@ -95,14 +90,12 @@ public final class ExpressionFunctionFetcherWatchersTest extends FetcherWatchers
                 }
             });
         watchers.onExpressionFunctionInfoSet(
-            id,
             infos,
             context
         );
         this.checkEquals(1, this.fired);
 
         watchers.onExpressionFunctionInfoSet(
-            id,
             infos,
             context
         );

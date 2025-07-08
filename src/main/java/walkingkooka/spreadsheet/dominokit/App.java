@@ -591,7 +591,7 @@ public class App implements EntryPoint,
                         context.spreadsheetExporterFetcher()
                             .getInfoSet();
                         context.expressionFunctionFetcher()
-                            .getInfoSet(id);
+                            .getInfoSet();
                         context.spreadsheetFormatterFetcher()
                             .getInfoSet(id);
                         context.spreadsheetImporterFetcher()
@@ -900,13 +900,10 @@ public class App implements EntryPoint,
     private final ExpressionFunctionFetcherWatchers expressionFunctionFetcherWatchers;
 
     @Override
-    public void onExpressionFunctionInfoSet(final SpreadsheetId id,
-                                            final ExpressionFunctionInfoSet infos,
+    public void onExpressionFunctionInfoSet(final ExpressionFunctionInfoSet infos,
                                             final AppContext context) {
-        this.maybeRefreshSpreadsheetProvider(
-            id,
-            () -> this.expressionFunctionInfoSet = infos
-        );
+        this.expressionFunctionInfoSet = infos;
+        this.refreshSpreadsheetProvider();
     }
 
     private ExpressionFunctionInfoSet expressionFunctionInfoSet;
