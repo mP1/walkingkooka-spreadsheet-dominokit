@@ -31,23 +31,23 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class PluginFetcherTest implements ClassTesting<PluginFetcher> {
 
-    // pluginNameUrl....................................................................................................
+    // url..............................................................................................................
 
     @Test
-    public void testPluginNameUrlWithNullFails() {
+    public void testUrlWithNullFails() {
         assertThrows(
             NullPointerException.class,
-            () -> PluginFetcher.pluginNameUrl(
+            () -> PluginFetcher.url(
                 null
             )
         );
     }
 
     @Test
-    public void testPluginNameUrl() {
+    public void testUrl() {
         this.checkEquals(
             Url.parseRelative("/api/plugin/TestPluginName123"),
-            PluginFetcher.pluginNameUrl(
+            PluginFetcher.url(
                 PluginName.with("TestPluginName123")
             )
         );
