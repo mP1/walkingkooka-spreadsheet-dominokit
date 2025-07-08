@@ -19,12 +19,13 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
+import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.importer.SpreadsheetImporter;
 import walkingkooka.spreadsheet.importer.SpreadsheetImporterInfoSet;
 import walkingkooka.spreadsheet.importer.SpreadsheetImporterName;
+import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.text.CharSequences;
 
 import java.util.Optional;
@@ -54,19 +55,14 @@ public final class SpreadsheetImporterFetcher extends Fetcher<SpreadsheetImporte
         );
     }
 
-    static RelativeUrl url(final SpreadsheetId id) {
-        return SpreadsheetMetadataFetcher.url(id)
-            .appendPathName(
-                SpreadsheetImporterName.HATEOS_RESOURCE_NAME.toUrlPathName()
-            );
+    // GET /api/importer/*
+    public void getInfoSet() {
+        this.get(URL);
     }
 
-    // GET /api/spreadsheet/SpreadsheetId/importer/*
-    public void getInfoSet(final SpreadsheetId id) {
-        this.get(
-            url(id)
-        );
-    }
+    final static RelativeUrl URL = Url.EMPTY_RELATIVE_URL.appendPath(
+        SpreadsheetHttpServer.API_IMPORTER
+    );
 
     @Override
     public void onSuccess(final HttpMethod method,
@@ -80,9 +76,8 @@ public final class SpreadsheetImporterFetcher extends Fetcher<SpreadsheetImporte
                 this.watcher.onEmptyResponse(context);
                 break;
             case "SpreadsheetImporterInfoSet":
-                // GET http://server/api/spreadsheet/1/importer
+                // GET http://server/api/importer
                 this.watcher.onSpreadsheetImporterInfoSet(
-                    SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     this.parse(
                         body.orElse(""),
                         SpreadsheetImporterInfoSet.class
