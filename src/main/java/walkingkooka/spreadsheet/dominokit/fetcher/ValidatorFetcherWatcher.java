@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.validation.Validator;
 import walkingkooka.validation.provider.ValidatorInfo;
@@ -28,11 +27,9 @@ import walkingkooka.validation.provider.ValidatorInfoSet;
  */
 public interface ValidatorFetcherWatcher extends FetcherWatcher {
 
-    void onValidatorInfo(final SpreadsheetId id,
-                         final ValidatorInfo info,
+    void onValidatorInfo(final ValidatorInfo info,
                          final AppContext context);
 
-    void onValidatorInfoSet(final SpreadsheetId id,
-                            final ValidatorInfoSet infos,
+    void onValidatorInfoSet(final ValidatorInfoSet infos,
                             final AppContext context);
 }

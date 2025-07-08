@@ -19,10 +19,9 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
-import walkingkooka.net.UrlPathName;
 import walkingkooka.net.http.HttpMethod;
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.text.CharSequences;
 import walkingkooka.validation.Validator;
 import walkingkooka.validation.provider.ValidatorInfo;
@@ -57,30 +56,17 @@ public final class ValidatorFetcher extends Fetcher<ValidatorFetcherWatcher> {
         );
     }
 
-    static RelativeUrl url(final SpreadsheetId id) {
-        return SpreadsheetMetadataFetcher.url(id)
-            .appendPathName(
-                ValidatorName.HATEOS_RESOURCE_NAME.toUrlPathName()
-            );
+    // GET /api/validator/ValidatorName
+    public void getInfoSet(final ValidatorName name) {
+        this.get(URL);
     }
 
-    // GET /api/spreadsheet/SpreadsheetId/validator/ValidatorName
-    public void getInfoSet(final SpreadsheetId id,
-                           final ValidatorName name) {
-        this.get(
-            url(id)
-                .appendPathName(
-                    UrlPathName.with(name.value())
-                )
-        );
+    // GET /api/validator/*
+    public void getInfoSet() {
+        this.get(URL);
     }
 
-    // GET /api/spreadsheet/SpreadsheetId/validator/*
-    public void getInfoSet(final SpreadsheetId id) {
-        this.get(
-            url(id)
-        );
-    }
+    final static RelativeUrl URL = AbsoluteOrRelativeUrl.EMPTY_RELATIVE_URL.appendPath(SpreadsheetHttpServer.API_VALIDATOR);
 
     @Override
     public void onSuccess(final HttpMethod method,
@@ -94,9 +80,8 @@ public final class ValidatorFetcher extends Fetcher<ValidatorFetcherWatcher> {
                 this.watcher.onEmptyResponse(context);
                 break;
             case "ValidatorInfo":
-                // GET http://server/api/spreadsheet/1/validator/ValidatorName
+                // GET http://server/api/validator/ValidatorName
                 this.watcher.onValidatorInfo(
-                    SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     this.parse(
                         body.orElse(""),
                         ValidatorInfo.class
@@ -105,9 +90,8 @@ public final class ValidatorFetcher extends Fetcher<ValidatorFetcherWatcher> {
                 );
                 break;
             case "ValidatorInfoSet":
-                // GET http://server/api/spreadsheet/1/validator
+                // GET http://server/api/validator
                 this.watcher.onValidatorInfoSet(
-                    SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     this.parse(
                         body.orElse(""),
                         ValidatorInfoSet.class

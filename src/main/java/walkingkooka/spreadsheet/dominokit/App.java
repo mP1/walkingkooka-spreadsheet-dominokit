@@ -1116,20 +1116,16 @@ public class App implements EntryPoint,
     private final ValidatorFetcherWatchers validatorFetcherWatchers;
 
     @Override
-    public void onValidatorInfo(final SpreadsheetId id,
-                                final ValidatorInfo info,
+    public void onValidatorInfo(final ValidatorInfo info,
                                 final AppContext context) {
         // NOP
     }
 
     @Override
-    public void onValidatorInfoSet(final SpreadsheetId id,
-                                   final ValidatorInfoSet infos,
+    public void onValidatorInfoSet(final ValidatorInfoSet infos,
                                    final AppContext context) {
-        this.maybeRefreshSpreadsheetProvider(
-            id,
-            () -> this.validatorInfoSet = infos
-        );
+        this.validatorInfoSet = infos;
+        this.refreshSpreadsheetProvider();
     }
 
     private ValidatorInfoSet validatorInfoSet;

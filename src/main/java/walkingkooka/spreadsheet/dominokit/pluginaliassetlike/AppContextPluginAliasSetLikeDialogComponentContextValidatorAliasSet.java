@@ -60,9 +60,10 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasS
         return ValidatorAliasSet.EMPTY;
     }
 
-    @Override final void loadPluginInfoSetLike0(final SpreadsheetId id) {
+    @Override //
+    final void loadPluginInfoSetLike0(final SpreadsheetId id) {
         this.context.validatorFetcher()
-            .getInfoSet(id);
+            .getInfoSet();
     }
 
     @Override
@@ -71,16 +72,14 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasS
             new ValidatorFetcherWatcher() {
 
                 @Override
-                public void onValidatorInfo(final SpreadsheetId id,
-                                            final ValidatorInfo info,
+                public void onValidatorInfo(final ValidatorInfo info,
                                             final AppContext context) {
                     // NOP
                 }
 
                 @Override
-                public void onValidatorInfoSet(final SpreadsheetId id,
-                                                         final ValidatorInfoSet infos,
-                                                         final AppContext context) {
+                public void onValidatorInfoSet(final ValidatorInfoSet infos,
+                                               final AppContext context) {
                     set.accept(infos.aliasSet());
                 }
 
