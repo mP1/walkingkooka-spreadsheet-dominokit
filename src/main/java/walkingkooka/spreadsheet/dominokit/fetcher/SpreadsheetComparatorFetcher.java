@@ -19,12 +19,13 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
+import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.text.CharSequences;
 
 import java.util.Optional;
@@ -56,19 +57,12 @@ public final class SpreadsheetComparatorFetcher extends Fetcher<SpreadsheetCompa
         );
     }
 
-    // GET /api/spreadsheet/SpreadsheetId/comparator/*
-    public void getInfoSet(final SpreadsheetId id) {
-        this.get(
-            url(id)
-        );
+    // GET /api/comparator/*
+    public void getInfoSet() {
+        this.get(URL);
     }
 
-    static RelativeUrl url(final SpreadsheetId id) {
-        return SpreadsheetMetadataFetcher.url(id)
-            .appendPathName(
-                SpreadsheetComparatorName.HATEOS_RESOURCE_NAME.toUrlPathName()
-            );
-    }
+    private final static RelativeUrl URL = Url.EMPTY_RELATIVE_URL.appendPath(SpreadsheetHttpServer.API_COMPARATOR);
 
     @Override
     public void onSuccess(final HttpMethod method,

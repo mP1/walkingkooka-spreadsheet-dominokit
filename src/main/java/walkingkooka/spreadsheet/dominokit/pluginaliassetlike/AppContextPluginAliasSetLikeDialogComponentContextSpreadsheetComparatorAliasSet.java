@@ -60,9 +60,10 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetComp
         return SpreadsheetComparatorAliasSet.EMPTY;
     }
 
-    @Override final void loadPluginInfoSetLike0(final SpreadsheetId id) {
+    @Override
+    final void loadPluginInfoSetLike0(final SpreadsheetId id) {
         this.context.spreadsheetComparatorFetcher()
-            .getInfoSet(id);
+            .getInfoSet();
     }
 
     @Override
