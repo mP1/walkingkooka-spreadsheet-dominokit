@@ -19,12 +19,13 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
+import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.export.SpreadsheetExporter;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterInfoSet;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterName;
+import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.text.CharSequences;
 
 import java.util.Optional;
@@ -54,17 +55,12 @@ public final class SpreadsheetExporterFetcher extends Fetcher<SpreadsheetExporte
         );
     }
 
-    static RelativeUrl url(final SpreadsheetId id) {
-        return SpreadsheetMetadataFetcher.url(id)
-            .appendPathName(SpreadsheetExporterName.HATEOS_RESOURCE_NAME.toUrlPathName());
+    // GET /api/spreadsheet/SpreadsheetId/exporter/*
+    public void getInfoSet() {
+        this.get(URL);
     }
 
-    // GET /api/spreadsheet/SpreadsheetId/exporter/*
-    public void getInfoSet(final SpreadsheetId id) {
-        this.get(
-            url(id)
-        );
-    }
+    static final RelativeUrl URL = Url.EMPTY_RELATIVE_URL.appendPath(SpreadsheetHttpServer.API_EXPORTER);
 
     @Override
     public void onSuccess(final HttpMethod method,
@@ -78,9 +74,8 @@ public final class SpreadsheetExporterFetcher extends Fetcher<SpreadsheetExporte
                 this.watcher.onEmptyResponse(context);
                 break;
             case "SpreadsheetExporterInfoSet":
-                // GET http://server/api/spreadsheet/1/exporter
+                // GET http://server/api/exporter
                 this.watcher.onSpreadsheetExporterInfoSet(
-                    SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     this.parse(
                         body.orElse(""),
                         SpreadsheetExporterInfoSet.class

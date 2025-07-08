@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterInfoSet;
 
@@ -26,38 +25,32 @@ import walkingkooka.spreadsheet.export.SpreadsheetExporterInfoSet;
  */
 final class SpreadsheetExporterFetcherWatchersInfoSetEvent extends FetcherWatchersEvent<SpreadsheetExporterFetcherWatcher> {
 
-    private final SpreadsheetId id;
-    private final SpreadsheetExporterInfoSet infos;
-
-    private SpreadsheetExporterFetcherWatchersInfoSetEvent(final SpreadsheetId id,
-                                                           final SpreadsheetExporterInfoSet infos,
-                                                           final AppContext context) {
-        super(context);
-        this.id = id;
-        this.infos = infos;
-    }
-
-    static SpreadsheetExporterFetcherWatchersInfoSetEvent with(final SpreadsheetId id,
-                                                               final SpreadsheetExporterInfoSet infos,
+    static SpreadsheetExporterFetcherWatchersInfoSetEvent with(final SpreadsheetExporterInfoSet infos,
                                                                final AppContext context) {
         return new SpreadsheetExporterFetcherWatchersInfoSetEvent(
-            id,
             infos,
             context
         );
     }
 
+    private SpreadsheetExporterFetcherWatchersInfoSetEvent(final SpreadsheetExporterInfoSet infos,
+                                                           final AppContext context) {
+        super(context);
+        this.infos = infos;
+    }
+
     @Override
     void fire(final SpreadsheetExporterFetcherWatcher watcher) {
         watcher.onSpreadsheetExporterInfoSet(
-            this.id,
             this.infos,
             this.context
         );
     }
 
+    private final SpreadsheetExporterInfoSet infos;
+
     @Override
     public String toString() {
-        return this.id + " " + this.infos;
+        return this.infos.toString();
     }
 }
