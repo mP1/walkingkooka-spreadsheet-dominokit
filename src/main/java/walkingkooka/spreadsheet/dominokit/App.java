@@ -584,9 +584,9 @@ public class App implements EntryPoint,
                         context.fireCurrentHistoryToken();
 
                         // need to also load all PluginInfoSetLikes...as they are also used to build menus etc.
-                        context.converterFetcher()
-                            .getInfoSet(id);
                         context.spreadsheetComparatorFetcher()
+                            .getInfoSet();
+                        context.converterFetcher()
                             .getInfoSet(id);
                         context.spreadsheetExporterFetcher()
                             .getInfoSet(id);
