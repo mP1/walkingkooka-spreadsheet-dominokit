@@ -100,8 +100,7 @@ public final class FormFetcher extends Fetcher<FormFetcherWatcher> {
                 break;
             case "Form":
                 this.watcher.onForm(
-                    SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
-                        .get(),
+                    SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     this.parse(
                         body.orElse(""),
                         SpreadsheetForms.FORM_CLASS

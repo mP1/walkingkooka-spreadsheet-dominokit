@@ -84,8 +84,7 @@ public final class SpreadsheetComparatorFetcher extends Fetcher<SpreadsheetCompa
             case "SpreadsheetComparatorInfoSet":
                 // GET http://server/api/spreadsheet/1/comparator
                 this.watcher.onSpreadsheetComparatorInfoSet(
-                    SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
-                        .get(), // the request url
+                    SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     this.parse(
                         body.orElse(""),
                         SpreadsheetComparatorInfoSet.class

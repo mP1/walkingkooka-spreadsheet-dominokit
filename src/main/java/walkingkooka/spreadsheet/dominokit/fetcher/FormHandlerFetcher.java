@@ -76,8 +76,7 @@ public final class FormHandlerFetcher extends Fetcher<FormHandlerFetcherWatcher>
             case "FormHandlerInfo":
                 // GET http://server/api/spreadsheet/1/formHandler/FormHandlerName
                 this.watcher.onFormHandlerInfo(
-                    SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
-                        .get(), // the request url
+                    SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     this.parse(
                         body.orElse(""),
                         FormHandlerInfo.class
@@ -88,8 +87,7 @@ public final class FormHandlerFetcher extends Fetcher<FormHandlerFetcherWatcher>
             case "FormHandlerInfoSet":
                 // GET http://server/api/spreadsheet/1/formHandler/*
                 this.watcher.onFormHandlerInfoSet(
-                    SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
-                        .get(), // the request url
+                    SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     this.parse(
                         body.orElse(""),
                         FormHandlerInfoSet.class

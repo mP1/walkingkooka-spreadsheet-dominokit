@@ -87,8 +87,7 @@ public final class ExpressionFunctionFetcher extends Fetcher<ExpressionFunctionF
             case "ExpressionFunctionInfoSet":
                 // GET http://server/api/spreadsheet/1/function
                 this.watcher.onExpressionFunctionInfoSet(
-                    SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
-                        .get(), // the request url
+                    SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     this.parse(
                         body.orElse(""),
                         ExpressionFunctionInfoSet.class

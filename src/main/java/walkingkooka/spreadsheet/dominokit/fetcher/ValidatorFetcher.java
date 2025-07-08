@@ -96,8 +96,7 @@ public final class ValidatorFetcher extends Fetcher<ValidatorFetcherWatcher> {
             case "ValidatorInfo":
                 // GET http://server/api/spreadsheet/1/validator/ValidatorName
                 this.watcher.onValidatorInfo(
-                    SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
-                        .get(), // the request url
+                    SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     this.parse(
                         body.orElse(""),
                         ValidatorInfo.class
@@ -108,8 +107,7 @@ public final class ValidatorFetcher extends Fetcher<ValidatorFetcherWatcher> {
             case "ValidatorInfoSet":
                 // GET http://server/api/spreadsheet/1/validator
                 this.watcher.onValidatorInfoSet(
-                    SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
-                        .get(), // the request url
+                    SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     this.parse(
                         body.orElse(""),
                         ValidatorInfoSet.class

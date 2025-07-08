@@ -139,8 +139,7 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
             case "SpreadsheetFormatterInfoSet":
                 // GET http://server/api/spreadsheet/1/formatter
                 this.watcher.onSpreadsheetFormatterInfoSet(
-                    SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
-                        .get(), // the request formatter
+                    SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     this.parse(
                         body.orElse(""),
                         SpreadsheetFormatterInfoSet.class
@@ -151,8 +150,7 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
             case "SpreadsheetFormatterSelectorEdit":
                 // http://server/api/spreadsheet/1/formatter/*/edit
                 this.watcher.onSpreadsheetFormatterSelectorEdit(
-                    SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
-                        .get(), // the request formatter
+                    SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     this.parse(
                         body.orElse(""),
                         SpreadsheetFormatterSelectorEdit.class
@@ -163,8 +161,7 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
             case "SpreadsheetFormatterSelectorMenuList":
                 // http://server/api/spreadsheet/1/formatter/*/menu
                 this.watcher.onSpreadsheetFormatterSelectorMenuList(
-                    SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
-                        .get(), // the request formatter
+                    SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     this.parse(
                         body.orElse(""),
                         SpreadsheetFormatterSelectorMenuList.class
