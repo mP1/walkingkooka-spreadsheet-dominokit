@@ -118,8 +118,7 @@ public final class SpreadsheetParserFetcher extends Fetcher<SpreadsheetParserFet
             case "SpreadsheetParserInfoSet":
                 // GET http://server/api/spreadsheet/1/parser
                 this.watcher.onSpreadsheetParserInfoSet(
-                    SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
-                        .get(), // the request url
+                    SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     this.parse(
                         body.orElse(""),
                         SpreadsheetParserInfoSet.class
@@ -130,8 +129,7 @@ public final class SpreadsheetParserFetcher extends Fetcher<SpreadsheetParserFet
             case "SpreadsheetParserSelectorEdit":
                 // http://server/api/spreadsheet/1/parser/*/edit
                 this.watcher.onSpreadsheetParserSelectorEdit(
-                    SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
-                        .get(), // the request url
+                    SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     this.parse(
                         body.orElse(""),
                         SpreadsheetParserSelectorEdit.class

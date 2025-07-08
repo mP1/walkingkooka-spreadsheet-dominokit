@@ -82,8 +82,7 @@ public final class SpreadsheetImporterFetcher extends Fetcher<SpreadsheetImporte
             case "SpreadsheetImporterInfoSet":
                 // GET http://server/api/spreadsheet/1/importer
                 this.watcher.onSpreadsheetImporterInfoSet(
-                    SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
-                        .get(), // the request url
+                    SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     this.parse(
                         body.orElse(""),
                         SpreadsheetImporterInfoSet.class

@@ -96,6 +96,11 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
         return Optional.ofNullable(id);
     }
 
+    public static SpreadsheetId extractSpreadsheetIdOrFail(final AbsoluteOrRelativeUrl url) {
+        return extractSpreadsheetId(url)
+            .orElseThrow(() -> new IllegalArgumentException("Missing SpreadsheetId from " + url));
+    }
+
     public static SpreadsheetMetadataFetcher with(final SpreadsheetMetadataFetcherWatcher watcher,
                                                   final AppContext context) {
         return new SpreadsheetMetadataFetcher(

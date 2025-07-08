@@ -108,8 +108,7 @@ public final class ConverterFetcher extends Fetcher<ConverterFetcherWatcher> {
             case "ConverterInfoSet":
                 // GET http://server/api/spreadsheet/1/converter
                 this.watcher.onConverterInfoSet(
-                    SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
-                        .get(), // the request url
+                    SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     this.parse(
                         body.orElse(""),
                         ConverterInfoSet.class
@@ -120,8 +119,7 @@ public final class ConverterFetcher extends Fetcher<ConverterFetcherWatcher> {
             case "MissingConverterSet":
                 // POST http://server/api/spreadsheet/1/converter/*/verify/SpreadsheetMetadataPropertyName<ConverterSelector>
                 this.watcher.onVerify(
-                    SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
-                        .get(), // the request url
+                    SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     verifyConverterSelector(url),
                     this.parse(
                         body.orElse(""),
