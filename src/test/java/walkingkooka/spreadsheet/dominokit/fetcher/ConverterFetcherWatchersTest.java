@@ -26,7 +26,6 @@ import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.net.http.HttpStatusCode;
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 
@@ -34,17 +33,10 @@ import java.util.Optional;
 
 public final class ConverterFetcherWatchersTest extends FetcherWatchersTestCase<ConverterFetcherWatchers> {
 
-    private final static HttpMethod METHOD = HttpMethod.GET;
-
-    private final static AbsoluteOrRelativeUrl URL = Url.parseAbsoluteOrRelative("https://example.com/api/spreadsheet/1/cell");
-
-    private final static SpreadsheetId ID = SpreadsheetId.with(2);
-
     @Test
     public void testAddThenFire() {
         this.fired = 0;
 
-        final SpreadsheetId id = SpreadsheetId.with(1);
         final ConverterInfoSet infos = ConverterProviders.empty()
             .converterInfos();
         final AppContext context = AppContexts.fake();
@@ -54,10 +46,8 @@ public final class ConverterFetcherWatchersTest extends FetcherWatchersTestCase<
             new FakeConverterFetcherWatcher() {
 
                 @Override
-                public void onConverterInfoSet(final SpreadsheetId i,
-                                               final ConverterInfoSet is,
+                public void onConverterInfoSet(final ConverterInfoSet is,
                                                final AppContext ac) {
-                    ConverterFetcherWatchersTest.this.checkEquals(i, id);
                     ConverterFetcherWatchersTest.this.checkEquals(is, infos);
                     ConverterFetcherWatchersTest.this.checkEquals(ac, context);
 
@@ -65,7 +55,6 @@ public final class ConverterFetcherWatchersTest extends FetcherWatchersTestCase<
                 }
             });
         watchers.onConverterInfoSet(
-            id,
             infos,
             context
         );
@@ -76,7 +65,6 @@ public final class ConverterFetcherWatchersTest extends FetcherWatchersTestCase<
     public void testAddOnce() {
         this.fired = 0;
 
-        final SpreadsheetId id = SpreadsheetId.with(1);
         final ConverterInfoSet infos = ConverterInfoSet.EMPTY;
         final AppContext context = AppContexts.fake();
 
@@ -85,10 +73,8 @@ public final class ConverterFetcherWatchersTest extends FetcherWatchersTestCase<
             new FakeConverterFetcherWatcher() {
 
                 @Override
-                public void onConverterInfoSet(final SpreadsheetId i,
-                                               final ConverterInfoSet is,
+                public void onConverterInfoSet(final ConverterInfoSet is,
                                                final AppContext ac) {
-                    ConverterFetcherWatchersTest.this.checkEquals(i, id);
                     ConverterFetcherWatchersTest.this.checkEquals(is, infos);
                     ConverterFetcherWatchersTest.this.checkEquals(ac, context);
 
@@ -96,14 +82,12 @@ public final class ConverterFetcherWatchersTest extends FetcherWatchersTestCase<
                 }
             });
         watchers.onConverterInfoSet(
-            id,
             infos,
             context
         );
         this.checkEquals(1, this.fired);
 
         watchers.onConverterInfoSet(
-            id,
             infos,
             context
         );

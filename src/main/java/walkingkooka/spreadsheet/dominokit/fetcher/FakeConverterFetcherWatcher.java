@@ -29,8 +29,7 @@ import java.util.Set;
 public class FakeConverterFetcherWatcher extends FakeFetcherWatcher implements ConverterFetcherWatcher {
 
     @Override
-    public void onConverterInfoSet(final SpreadsheetId id,
-                                   final ConverterInfoSet infos,
+    public void onConverterInfoSet(final ConverterInfoSet infos,
                                    final AppContext context) {
         throw new UnsupportedOperationException();
     }

@@ -24,12 +24,14 @@ import walkingkooka.convert.provider.ConverterName;
 import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
+import walkingkooka.net.Url;
 import walkingkooka.net.UrlPathName;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.convert.MissingConverterSet;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
 import walkingkooka.spreadsheet.server.convert.ConverterHateosResourceMappings;
 import walkingkooka.text.CharSequences;
@@ -62,16 +64,16 @@ public final class ConverterFetcher extends Fetcher<ConverterFetcherWatcher> {
         );
     }
 
+    private final static RelativeUrl URL = Url.EMPTY_RELATIVE_URL.appendPath(SpreadsheetHttpServer.API_CONVERTER);
+
     static RelativeUrl url(final SpreadsheetId id) {
         return SpreadsheetMetadataFetcher.url(id)
-            .appendPathName(ConverterHateosResourceMappings.CONVERTER.toUrlPathName());
+            .appendPathName(ConverterHateosResourceMappings.HATEOS_RESOURCE_NAME.toUrlPathName());
     }
 
-    // GET /api/spreadsheet/SpreadsheetId/converterUrl/*
-    public void getInfoSet(final SpreadsheetId id) {
-        this.get(
-            url(id)
-        );
+    // GET /api/converterUrl/*
+    public void getInfoSet() {
+        this.get(URL);
     }
 
     // POST /api/spreadsheet/SpreadsheetId/converter/*/verify/SpreadsheetMetadataPropertyName<ConverterSelector>
@@ -106,9 +108,8 @@ public final class ConverterFetcher extends Fetcher<ConverterFetcherWatcher> {
                 this.watcher.onEmptyResponse(context);
                 break;
             case "ConverterInfoSet":
-                // GET http://server/api/spreadsheet/1/converter
+                // GET http://server/api/converter
                 this.watcher.onConverterInfoSet(
-                    SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     this.parse(
                         body.orElse(""),
                         ConverterInfoSet.class
