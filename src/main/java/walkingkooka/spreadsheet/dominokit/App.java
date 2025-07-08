@@ -26,6 +26,7 @@ import walkingkooka.convert.ConverterContexts;
 import walkingkooka.convert.provider.ConverterInfoSet;
 import walkingkooka.convert.provider.ConverterProvider;
 import walkingkooka.convert.provider.ConverterProviders;
+import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.environment.EnvironmentContext;
 import walkingkooka.environment.EnvironmentContexts;
 import walkingkooka.j2cl.locale.LocaleAware;
@@ -50,6 +51,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviders;
+import walkingkooka.spreadsheet.convert.MissingConverter;
 import walkingkooka.spreadsheet.convert.SpreadsheetConvertersConverterProviders;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContext;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextReadWatcher;
@@ -787,6 +789,14 @@ public class App implements EntryPoint,
     }
 
     private ConverterInfoSet converterInfoSet;
+
+    @Override
+    public void onVerify(final SpreadsheetId id,
+                         final SpreadsheetMetadataPropertyName<ConverterSelector> metadataPropertyName,
+                         final Set<MissingConverter> missingConverters,
+                         final AppContext context) {
+        // NOP
+    }
 
     // DateTimeSymbolsFetcher...........................................................................................
 

@@ -29,12 +29,15 @@ import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.convert.MissingConverter;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.convert.ConverterAliasSetComponent;
 import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Optional;
+import java.util.Set;
 import java.util.function.Consumer;
 
 abstract class AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSet extends AppContextPluginAliasSetLikeDialogComponentContext<ConverterName,
@@ -74,6 +77,14 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextConverterAliasS
                                                final ConverterInfoSet infos,
                                                final AppContext context) {
                     set.accept(infos.aliasSet());
+                }
+
+                @Override
+                public void onVerify(final SpreadsheetId id,
+                                     final SpreadsheetMetadataPropertyName<ConverterSelector> metadataPropertyName,
+                                     final Set<MissingConverter> missingConverters,
+                                     final AppContext context) {
+                    // NOP
                 }
 
                 @Override
