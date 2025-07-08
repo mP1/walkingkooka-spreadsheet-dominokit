@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 
@@ -26,38 +25,32 @@ import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
  */
 final class ExpressionFunctionFetcherWatchersInfoSetEvent extends FetcherWatchersEvent<ExpressionFunctionFetcherWatcher> {
 
-    private final SpreadsheetId id;
-    private final ExpressionFunctionInfoSet infos;
-
-    private ExpressionFunctionFetcherWatchersInfoSetEvent(final SpreadsheetId id,
-                                                          final ExpressionFunctionInfoSet infos,
-                                                          final AppContext context) {
-        super(context);
-        this.id = id;
-        this.infos = infos;
-    }
-
-    static ExpressionFunctionFetcherWatchersInfoSetEvent with(final SpreadsheetId id,
-                                                              final ExpressionFunctionInfoSet infos,
+    static ExpressionFunctionFetcherWatchersInfoSetEvent with(final ExpressionFunctionInfoSet infos,
                                                               final AppContext context) {
         return new ExpressionFunctionFetcherWatchersInfoSetEvent(
-            id,
             infos,
             context
         );
     }
 
+    private ExpressionFunctionFetcherWatchersInfoSetEvent(final ExpressionFunctionInfoSet infos,
+                                                          final AppContext context) {
+        super(context);
+        this.infos = infos;
+    }
+
     @Override
     void fire(final ExpressionFunctionFetcherWatcher watcher) {
         watcher.onExpressionFunctionInfoSet(
-            this.id,
             this.infos,
             this.context
         );
     }
 
+    private final ExpressionFunctionInfoSet infos;
+
     @Override
     public String toString() {
-        return this.id + " " + this.infos;
+        return this.infos.toString();
     }
 }

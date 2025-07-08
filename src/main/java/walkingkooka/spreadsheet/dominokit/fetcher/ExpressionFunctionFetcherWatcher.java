@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
@@ -27,7 +26,6 @@ import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
  */
 public interface ExpressionFunctionFetcherWatcher extends FetcherWatcher {
 
-    void onExpressionFunctionInfoSet(final SpreadsheetId id,
-                                     final ExpressionFunctionInfoSet infos,
+    void onExpressionFunctionInfoSet(final ExpressionFunctionInfoSet infos,
                                      final AppContext context);
 }

@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 
@@ -33,12 +32,10 @@ public final class ExpressionFunctionFetcherWatchers extends FetcherWatchers<Exp
     }
 
     @Override
-    public void onExpressionFunctionInfoSet(final SpreadsheetId id,
-                                            final ExpressionFunctionInfoSet infos,
+    public void onExpressionFunctionInfoSet(final ExpressionFunctionInfoSet infos,
                                             final AppContext context) {
         this.fire(
             ExpressionFunctionFetcherWatchersInfoSetEvent.with(
-                id,
                 infos,
                 context
             )
