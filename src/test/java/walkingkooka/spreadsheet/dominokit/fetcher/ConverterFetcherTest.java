@@ -47,7 +47,7 @@ public final class ConverterFetcherTest implements ClassTesting<ConverterFetcher
         final SpreadsheetMetadataPropertyName<ConverterSelector> propertyName = SpreadsheetMetadataPropertyName.FORMULA_CONVERTER;
 
         this.verifyConverterSelectorAndCheck(
-            "/api/spreadsheet/1/converter/*/verify/" + propertyName.value(),
+            "/api/spreadsheet/1/metadata/*/verify/" + propertyName.value(),
             propertyName.value()
         );
     }

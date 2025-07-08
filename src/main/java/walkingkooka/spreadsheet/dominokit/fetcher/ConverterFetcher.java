@@ -33,7 +33,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
-import walkingkooka.spreadsheet.server.convert.ConverterHateosResourceMappings;
+import walkingkooka.spreadsheet.server.meta.MetadataHateosResourceMappings;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
 
@@ -64,11 +64,9 @@ public final class ConverterFetcher extends Fetcher<ConverterFetcherWatcher> {
         );
     }
 
-    private final static RelativeUrl URL = Url.EMPTY_RELATIVE_URL.appendPath(SpreadsheetHttpServer.API_CONVERTER);
-
     static RelativeUrl url(final SpreadsheetId id) {
         return SpreadsheetMetadataFetcher.url(id)
-            .appendPathName(ConverterHateosResourceMappings.HATEOS_RESOURCE_NAME.toUrlPathName());
+            .appendPathName(MetadataHateosResourceMappings.HATEOS_RESOURCE_NAME.toUrlPathName());
     }
 
     // GET /api/converterUrl/*
@@ -76,7 +74,9 @@ public final class ConverterFetcher extends Fetcher<ConverterFetcherWatcher> {
         this.get(URL);
     }
 
-    // POST /api/spreadsheet/SpreadsheetId/converter/*/verify/SpreadsheetMetadataPropertyName<ConverterSelector>
+    private final static RelativeUrl URL = Url.EMPTY_RELATIVE_URL.appendPath(SpreadsheetHttpServer.API_CONVERTER);
+
+    // POST /api/spreadsheet/SpreadsheetId/metadata/*/verify/SpreadsheetMetadataPropertyName<ConverterSelector>
     public void postVerify(final SpreadsheetId id,
                            final SpreadsheetMetadataPropertyName<ConverterSelector> converterMetadataProperty,
                            final String converterSelector) {
