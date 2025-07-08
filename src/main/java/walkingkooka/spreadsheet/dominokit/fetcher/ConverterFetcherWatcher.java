@@ -32,8 +32,7 @@ import java.util.Set;
  */
 public interface ConverterFetcherWatcher extends FetcherWatcher {
 
-    void onConverterInfoSet(final SpreadsheetId id,
-                            final ConverterInfoSet infos,
+    void onConverterInfoSet(final ConverterInfoSet infos,
                             final AppContext context);
 
     void onVerify(final SpreadsheetId id,

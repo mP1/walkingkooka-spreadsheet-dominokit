@@ -587,7 +587,7 @@ public class App implements EntryPoint,
                         context.spreadsheetComparatorFetcher()
                             .getInfoSet();
                         context.converterFetcher()
-                            .getInfoSet(id);
+                            .getInfoSet();
                         context.spreadsheetExporterFetcher()
                             .getInfoSet(id);
                         context.expressionFunctionFetcher()
@@ -779,13 +779,10 @@ public class App implements EntryPoint,
     private final ConverterFetcherWatchers converterFetcherWatchers;
 
     @Override
-    public void onConverterInfoSet(final SpreadsheetId id,
-                                   final ConverterInfoSet infos,
+    public void onConverterInfoSet(final ConverterInfoSet infos,
                                    final AppContext context) {
-        this.maybeRefreshSpreadsheetProvider(
-            id,
-            () -> this.converterInfoSet = infos
-        );
+        this.converterInfoSet = infos;
+        this.refreshSpreadsheetProvider();
     }
 
     private ConverterInfoSet converterInfoSet;

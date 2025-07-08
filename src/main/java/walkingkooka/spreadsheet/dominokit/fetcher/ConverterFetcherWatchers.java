@@ -38,12 +38,10 @@ public final class ConverterFetcherWatchers extends FetcherWatchers<ConverterFet
     }
 
     @Override
-    public void onConverterInfoSet(final SpreadsheetId id,
-                                   final ConverterInfoSet infos,
+    public void onConverterInfoSet(final ConverterInfoSet infos,
                                    final AppContext context) {
         this.fire(
             ConverterFetcherWatchersInfoSetEvent.with(
-                id,
                 infos,
                 context
             )
