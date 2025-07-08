@@ -64,7 +64,7 @@ public final class PluginDownloadAnchorComponent implements ValueHistoryTokenAnc
                         final HistoryTokenAnchorComponent anchor) {
         anchor.setHref(
             value.map(
-                pd -> PluginFetcher.pluginDownloadUrl(
+                pd -> PluginFetcher.downloadUrl(
                     pd.pluginName(),
                     pd.filename()
                 )

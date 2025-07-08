@@ -53,13 +53,13 @@ public final class PluginFetcherTest implements ClassTesting<PluginFetcher> {
         );
     }
 
-    // pluginDownloadUrl................................................................................................
+    // downloadUrl................................................................................................
 
     @Test
     public void testPluginDownloadUrlWithNullPluginNameFails() {
         assertThrows(
             NullPointerException.class,
-            () -> PluginFetcher.pluginDownloadUrl(
+            () -> PluginFetcher.downloadUrl(
                 null,
                 Optional.empty()
             )
@@ -67,10 +67,10 @@ public final class PluginFetcherTest implements ClassTesting<PluginFetcher> {
     }
 
     @Test
-    public void testPluginDownloadUrlWithNullFileNameFails() {
+    public void testDownloadUrlWithNullFileNameFails() {
         assertThrows(
             NullPointerException.class,
-            () -> PluginFetcher.pluginDownloadUrl(
+            () -> PluginFetcher.downloadUrl(
                 PluginName.with("TestPlugin123"),
                 null
             )
@@ -78,8 +78,8 @@ public final class PluginFetcherTest implements ClassTesting<PluginFetcher> {
     }
 
     @Test
-    public void testPluginDownloadUrlMissingFile() {
-        this.pluginDownloadUrlAndCheck(
+    public void testDownloadUrlMissingFile() {
+        this.downloadUrlAndCheck(
             "TestPluginName123",
             Optional.empty(),
             "/api/plugin/TestPluginName123/download"
@@ -87,8 +87,8 @@ public final class PluginFetcherTest implements ClassTesting<PluginFetcher> {
     }
 
     @Test
-    public void testPluginDownloadUrlWithFilename() {
-        this.pluginDownloadUrlAndCheck(
+    public void testDownloadUrlWithFilename() {
+        this.downloadUrlAndCheck(
             "TestPluginName123",
             Optional.of(
                 JarEntryInfoName.MANIFEST_MF
@@ -98,8 +98,8 @@ public final class PluginFetcherTest implements ClassTesting<PluginFetcher> {
     }
 
     @Test
-    public void testPluginDownloadUrlWithFilename2() {
-        this.pluginDownloadUrlAndCheck(
+    public void testDownloadUrlWithFilename2() {
+        this.downloadUrlAndCheck(
             "TestPluginName123",
             Optional.of(
                 JarEntryInfoName.with("/dir111/file222.txt")
@@ -108,26 +108,26 @@ public final class PluginFetcherTest implements ClassTesting<PluginFetcher> {
         );
     }
 
-    private void pluginDownloadUrlAndCheck(final String pluginName,
-                                           final Optional<JarEntryInfoName> file,
-                                           final String expected) {
-        this.pluginDownloadUrlAndCheck(
+    private void downloadUrlAndCheck(final String pluginName,
+                                     final Optional<JarEntryInfoName> file,
+                                     final String expected) {
+        this.downloadUrlAndCheck(
             PluginName.with(pluginName),
             file,
             Url.parseRelative(expected)
         );
     }
 
-    private void pluginDownloadUrlAndCheck(final PluginName pluginName,
-                                           final Optional<JarEntryInfoName> file,
-                                           final RelativeUrl expected) {
+    private void downloadUrlAndCheck(final PluginName pluginName,
+                                     final Optional<JarEntryInfoName> file,
+                                     final RelativeUrl expected) {
         this.checkEquals(
             expected,
-            PluginFetcher.pluginDownloadUrl(
+            PluginFetcher.downloadUrl(
                 pluginName,
                 file
             ),
-            () -> "pluginDownloadUrl " + pluginName + " " + file
+            () -> "downloadUrl " + pluginName + " " + file
         );
     }
 

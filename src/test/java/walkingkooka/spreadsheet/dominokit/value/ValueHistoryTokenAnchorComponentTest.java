@@ -65,7 +65,7 @@ public final class ValueHistoryTokenAnchorComponentTest implements ValueComponen
 
     private final static BiConsumer<Optional<JarEntryInfoName>, HistoryTokenAnchorComponent> SETTER = (v, c) -> {
         c.setHref(
-            PluginFetcher.pluginDownloadUrl(
+            PluginFetcher.downloadUrl(
                 PLUGIN_NAME,
                 v
             )
