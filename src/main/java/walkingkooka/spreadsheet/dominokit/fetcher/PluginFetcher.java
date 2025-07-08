@@ -116,7 +116,7 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
                                      final JarEntryInfoName filename) {
         this.fetch(
             HttpMethod.GET,
-            pluginDownloadUrl(
+            downloadUrl(
                 pluginName,
                 Optional.of(filename)
             ),
@@ -169,8 +169,8 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
      * Builds a URL to download a file within or the plugin archive.
      */
     // api/plugin/PluginName/download
-    public static RelativeUrl pluginDownloadUrl(final PluginName pluginName,
-                                                final Optional<JarEntryInfoName> file) {
+    public static RelativeUrl downloadUrl(final PluginName pluginName,
+                                          final Optional<JarEntryInfoName> file) {
         Objects.requireNonNull(pluginName, "pluginName");
         Objects.requireNonNull(file, "file");
 
