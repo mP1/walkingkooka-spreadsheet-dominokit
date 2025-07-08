@@ -1091,7 +1091,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         Objects.requireNonNull(formName, "formName");
 
         return SpreadsheetMetadataFetcher.url(id)
-            .appendPathName(Form.HATEOS_RESOURCE_NAME.toUrlPathName())
+            .appendPathName(FormName.HATEOS_RESOURCE_NAME.toUrlPathName())
             .appendPathName(
                 formName.map(
                     (FormName f) -> UrlPathName.with(
