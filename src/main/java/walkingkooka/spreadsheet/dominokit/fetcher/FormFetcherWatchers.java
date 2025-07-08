@@ -18,14 +18,32 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+import walkingkooka.validation.form.Form;
+
 public final class FormFetcherWatchers extends FetcherWatchers<FormFetcherWatcher>
     implements FormFetcherWatcher {
+
+    public static FormFetcherWatchers empty() {
+        return new FormFetcherWatchers();
+    }
 
     private FormFetcherWatchers() {
         super();
     }
 
-    public static FormFetcherWatchers empty() {
-        return new FormFetcherWatchers();
+    @Override
+    public void onForm(final SpreadsheetId id,
+                       final Form<SpreadsheetExpressionReference> form,
+                       final AppContext context) {
+        this.fire(
+            FormFetcherWatchersFormEvent.with(
+                id,
+                form,
+                context
+            )
+        );
     }
 }

@@ -22,12 +22,12 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.validation.form.Form;
 
-/**
- * A watcher that receives all {@link Form} response events.
- */
-public interface FormFetcherWatcher extends FetcherWatcher {
+public class FakeFormFetcherWatcher extends FakeFetcherWatcher implements FormFetcherWatcher {
 
-    void onForm(final SpreadsheetId id,
-                final Form<SpreadsheetExpressionReference> form,
-                final AppContext context);
+    @Override
+    public void onForm(final SpreadsheetId id,
+                       final Form<SpreadsheetExpressionReference> form,
+                       final AppContext context) {
+        throw new UnsupportedOperationException();
+    }
 }
