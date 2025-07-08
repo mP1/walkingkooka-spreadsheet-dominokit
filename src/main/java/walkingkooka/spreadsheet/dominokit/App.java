@@ -746,13 +746,10 @@ public class App implements EntryPoint,
     private final SpreadsheetComparatorFetcherWatchers spreadsheetComparatorFetcherWatchers;
 
     @Override
-    public void onSpreadsheetComparatorInfoSet(final SpreadsheetId id,
-                                               final SpreadsheetComparatorInfoSet infos,
+    public void onSpreadsheetComparatorInfoSet(final SpreadsheetComparatorInfoSet infos,
                                                final AppContext context) {
-        this.maybeRefreshSpreadsheetProvider(
-            id,
-            () -> this.spreadsheetComparatorInfoSet = infos
-        );
+        this.spreadsheetComparatorInfoSet = infos;
+        this.refreshSpreadsheetProvider();
     }
 
     private SpreadsheetComparatorInfoSet spreadsheetComparatorInfoSet;
