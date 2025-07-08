@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.validation.form.provider.FormHandlerInfo;
 import walkingkooka.validation.form.provider.FormHandlerInfoSet;
@@ -35,12 +34,10 @@ public final class FormHandlerFetcherWatchers extends FetcherWatchers<FormHandle
     }
 
     @Override
-    public void onFormHandlerInfo(final SpreadsheetId id,
-                                  final FormHandlerInfo info,
+    public void onFormHandlerInfo(final FormHandlerInfo info,
                                   final AppContext context) {
         this.fire(
             FormHandlerFetcherWatchersInfoEvent.with(
-                id,
                 info,
                 context
             )
@@ -48,12 +45,10 @@ public final class FormHandlerFetcherWatchers extends FetcherWatchers<FormHandle
     }
 
     @Override
-    public void onFormHandlerInfoSet(final SpreadsheetId id,
-                                     final FormHandlerInfoSet infos,
+    public void onFormHandlerInfoSet(final FormHandlerInfoSet infos,
                                      final AppContext context) {
         this.fire(
             FormHandlerFetcherWatchersInfoSetEvent.with(
-                id,
                 infos,
                 context
             )

@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.validation.form.provider.FormHandlerInfo;
 
@@ -26,39 +25,32 @@ import walkingkooka.validation.form.provider.FormHandlerInfo;
  */
 final class FormHandlerFetcherWatchersInfoEvent extends FetcherWatchersEvent<FormHandlerFetcherWatcher> {
 
-    private FormHandlerFetcherWatchersInfoEvent(final SpreadsheetId id,
-                                                final FormHandlerInfo info,
-                                                final AppContext context) {
-        super(context);
-        this.id = id;
-        this.info = info;
-    }
-
-    static FormHandlerFetcherWatchersInfoEvent with(final SpreadsheetId id,
-                                                    final FormHandlerInfo info,
+    static FormHandlerFetcherWatchersInfoEvent with(final FormHandlerInfo info,
                                                     final AppContext context) {
         return new FormHandlerFetcherWatchersInfoEvent(
-            id,
             info,
             context
         );
     }
 
+    private FormHandlerFetcherWatchersInfoEvent(final FormHandlerInfo info,
+                                                final AppContext context) {
+        super(context);
+        this.info = info;
+    }
+
     @Override
     void fire(final FormHandlerFetcherWatcher watcher) {
         watcher.onFormHandlerInfo(
-            this.id,
             this.info,
             this.context
         );
     }
 
-    private final SpreadsheetId id;
-
     private final FormHandlerInfo info;
 
     @Override
     public String toString() {
-        return this.id + " " + this.info;
+        return this.info.toString();
     }
 }

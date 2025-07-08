@@ -22,6 +22,7 @@ import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.text.CharSequences;
 import walkingkooka.validation.form.provider.FormHandlerInfo;
 import walkingkooka.validation.form.provider.FormHandlerInfoSet;
@@ -62,6 +63,8 @@ public final class FormHandlerFetcher extends Fetcher<FormHandlerFetcherWatcher>
             );
     }
 
+    final static AbsoluteOrRelativeUrl URL = RelativeUrl.EMPTY_RELATIVE_URL.appendPath(SpreadsheetHttpServer.API_FORM_HANDLER);
+
     @Override
     public void onSuccess(final HttpMethod method,
                           final AbsoluteOrRelativeUrl url,
@@ -74,9 +77,8 @@ public final class FormHandlerFetcher extends Fetcher<FormHandlerFetcherWatcher>
                 this.watcher.onEmptyResponse(context);
                 break;
             case "FormHandlerInfo":
-                // GET http://server/api/spreadsheet/1/formHandler/FormHandlerName
+                // GET http://server/api/formHandler/FormHandlerName
                 this.watcher.onFormHandlerInfo(
-                    SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     this.parse(
                         body.orElse(""),
                         FormHandlerInfo.class
@@ -85,9 +87,8 @@ public final class FormHandlerFetcher extends Fetcher<FormHandlerFetcherWatcher>
                 );
                 break;
             case "FormHandlerInfoSet":
-                // GET http://server/api/spreadsheet/1/formHandler/*
+                // GET http://server/api/formHandler/*
                 this.watcher.onFormHandlerInfoSet(
-                    SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     this.parse(
                         body.orElse(""),
                         FormHandlerInfoSet.class

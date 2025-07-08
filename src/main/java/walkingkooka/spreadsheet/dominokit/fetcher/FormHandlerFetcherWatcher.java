@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.validation.form.FormHandler;
 import walkingkooka.validation.form.provider.FormHandlerInfo;
@@ -28,11 +27,9 @@ import walkingkooka.validation.form.provider.FormHandlerInfoSet;
  */
 public interface FormHandlerFetcherWatcher extends FetcherWatcher {
 
-    void onFormHandlerInfo(final SpreadsheetId id,
-                           final FormHandlerInfo info,
+    void onFormHandlerInfo(final FormHandlerInfo info,
                            final AppContext context);
 
-    void onFormHandlerInfoSet(final SpreadsheetId id,
-                              final FormHandlerInfoSet infos,
+    void onFormHandlerInfoSet(final FormHandlerInfoSet infos,
                               final AppContext context);
 }
