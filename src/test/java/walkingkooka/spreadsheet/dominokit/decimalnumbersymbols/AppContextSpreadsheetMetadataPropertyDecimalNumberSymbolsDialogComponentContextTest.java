@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.decimalnumbersymbols;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.math.DecimalNumberSymbols;
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
@@ -27,7 +26,6 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
-import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
@@ -109,9 +107,6 @@ public final class AppContextSpreadsheetMetadataPropertyDecimalNumberSymbolsDial
     @Test
     public void testLoadDecimalNumberSymbols() {
         final Optional<DecimalNumberSymbols> decimalNumberSymbols = Optional.of(DECIMAL_NUMBER_SYMBOLS);
-
-        final SpreadsheetCell cell = SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
-            .setDecimalNumberSymbols(decimalNumberSymbols);
 
         final AppContext appContext = new FakeAppContext() {
             @Override
