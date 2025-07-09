@@ -89,7 +89,7 @@ public class FakePluginAliasSetLikeDialogComponentContext<N extends Name & Compa
     }
 
     @Override
-    public AS providerAliasSetLike() {
+    public AS pluginAliasSetLike() {
         throw new UnsupportedOperationException();
     }
 

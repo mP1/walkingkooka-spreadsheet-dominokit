@@ -93,5 +93,5 @@ public interface PluginAliasSetLikeDialogComponentContext<N extends Name & Compa
     /**
      * Getter that fetches the {@link PluginAliasSetLike} sourced from the provider.
      */
-    AS providerAliasSetLike();
+    AS pluginAliasSetLike();
 }

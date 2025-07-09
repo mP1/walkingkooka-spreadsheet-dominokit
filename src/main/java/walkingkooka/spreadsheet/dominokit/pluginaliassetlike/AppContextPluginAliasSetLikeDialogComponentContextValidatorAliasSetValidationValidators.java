@@ -39,7 +39,7 @@ final class AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetV
     }
 
     @Override
-    public ValidatorAliasSet providerAliasSetLike() {
+    public ValidatorAliasSet pluginAliasSetLike() {
         final AppContext context = this.context;
 
         return context.spreadsheetMetadata()

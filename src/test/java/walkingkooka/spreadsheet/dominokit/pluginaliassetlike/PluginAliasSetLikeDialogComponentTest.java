@@ -274,7 +274,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
             }
 
             @Override
-            public ExpressionFunctionAliasSet providerAliasSetLike() {
+            public ExpressionFunctionAliasSet pluginAliasSetLike() {
                 return SpreadsheetExpressionFunctions.EMPTY_ALIAS_SET.setElements(
                     SortedSets.of(
                         ALIAS1,

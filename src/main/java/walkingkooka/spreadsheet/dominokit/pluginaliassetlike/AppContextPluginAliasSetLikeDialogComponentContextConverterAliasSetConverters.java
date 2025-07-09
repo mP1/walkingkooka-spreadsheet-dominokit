@@ -39,7 +39,7 @@ final class AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSetC
     }
 
     @Override
-    public ConverterAliasSet providerAliasSetLike() {
+    public ConverterAliasSet pluginAliasSetLike() {
         return this.context.systemSpreadsheetProvider()
             .converterInfos()
             .aliasSet();

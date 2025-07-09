@@ -39,7 +39,7 @@ final class AppContextPluginAliasSetLikeDialogComponentContextExpressionFunction
     }
 
     @Override
-    public ExpressionFunctionAliasSet providerAliasSetLike() {
+    public ExpressionFunctionAliasSet pluginAliasSetLike() {
         return this.context.systemSpreadsheetProvider()
             .expressionFunctionInfos()
             .aliasSet();
