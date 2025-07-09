@@ -1243,14 +1243,6 @@ public class App implements EntryPoint,
         return this.spreadsheetProvider;
     }
 
-    private void maybeRefreshSpreadsheetProvider(final SpreadsheetId id,
-                                                 final Runnable newInfoSet) {
-        if (id.equals(this.spreadsheetMetadata.id().orElse(null))) {
-            newInfoSet.run();
-            this.refreshSpreadsheetProvider();
-        }
-    }
-
     private void refreshSpreadsheetProvider() {
         final SpreadsheetMetadata metadata = this.spreadsheetMetadata();
 
