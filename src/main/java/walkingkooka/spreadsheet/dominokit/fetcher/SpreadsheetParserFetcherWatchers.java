@@ -34,12 +34,10 @@ public final class SpreadsheetParserFetcherWatchers extends FetcherWatchers<Spre
     }
 
     @Override
-    public void onSpreadsheetParserInfoSet(final SpreadsheetId id,
-                                           final SpreadsheetParserInfoSet infos,
+    public void onSpreadsheetParserInfoSet(final SpreadsheetParserInfoSet infos,
                                            final AppContext context) {
         this.fire(
             SpreadsheetParserFetcherWatchersInfoSetEvent.with(
-                id,
                 infos,
                 context
             )

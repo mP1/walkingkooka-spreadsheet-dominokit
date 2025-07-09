@@ -28,8 +28,7 @@ import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
  */
 public interface SpreadsheetParserFetcherWatcher extends FetcherWatcher {
 
-    void onSpreadsheetParserInfoSet(final SpreadsheetId id,
-                                    final SpreadsheetParserInfoSet infos,
+    void onSpreadsheetParserInfoSet(final SpreadsheetParserInfoSet infos,
                                     final AppContext context);
 
     void onSpreadsheetParserSelectorEdit(final SpreadsheetId id,
