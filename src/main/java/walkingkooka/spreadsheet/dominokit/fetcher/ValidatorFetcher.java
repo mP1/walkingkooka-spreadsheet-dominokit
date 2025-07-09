@@ -28,6 +28,7 @@ import walkingkooka.validation.provider.ValidatorInfo;
 import walkingkooka.validation.provider.ValidatorInfoSet;
 import walkingkooka.validation.provider.ValidatorName;
 
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -58,7 +59,12 @@ public final class ValidatorFetcher extends Fetcher<ValidatorFetcherWatcher> {
 
     // GET /api/validator/ValidatorName
     public void getInfoSet(final ValidatorName name) {
-        this.get(URL);
+        this.get(
+            URL.appendPathName(
+                Objects.requireNonNull(name, "name")
+                    .toUrlPathName()
+            )
+        );
     }
 
     // GET /api/validator/*
