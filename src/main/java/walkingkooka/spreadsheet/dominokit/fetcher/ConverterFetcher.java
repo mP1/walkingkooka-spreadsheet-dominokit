@@ -33,7 +33,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
-import walkingkooka.spreadsheet.server.meta.MetadataHateosResourceMappings;
+import walkingkooka.spreadsheet.server.convert.ConverterHateosResourceMappings;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
 
@@ -66,7 +66,7 @@ public final class ConverterFetcher extends Fetcher<ConverterFetcherWatcher> {
 
     static RelativeUrl url(final SpreadsheetId id) {
         return SpreadsheetMetadataFetcher.url(id)
-            .appendPathName(MetadataHateosResourceMappings.HATEOS_RESOURCE_NAME.toUrlPathName());
+            .appendPathName(ConverterHateosResourceMappings.HATEOS_RESOURCE_NAME.toUrlPathName());
     }
 
     // GET /api/converterUrl/*
@@ -118,7 +118,7 @@ public final class ConverterFetcher extends Fetcher<ConverterFetcherWatcher> {
                 );
                 break;
             case "MissingConverterSet":
-                // POST http://server/api/spreadsheet/1/converter/*/verify/SpreadsheetMetadataPropertyName<ConverterSelector>
+                // POST http://server/api/spreadsheet/1/converter/SpreadsheetMetadataPropertyName<ConverterSelector>/verify
                 this.watcher.onVerify(
                     SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     verifyConverterSelector(url),
@@ -135,14 +135,14 @@ public final class ConverterFetcher extends Fetcher<ConverterFetcherWatcher> {
         }
     }
 
-    // /api/spreadsheet/1/converter/*/verify/SpreadsheetMetadataPropertyName<ConverterSelector>
-    // 01   2           3 4         5 6      7
+    // /api/spreadsheet/1/converter/SpreadsheetMetadataPropertyName<ConverterSelector>/verify
+    // 01   2           3 4         5                                                  6
     static SpreadsheetMetadataPropertyName<ConverterSelector> verifyConverterSelector(final AbsoluteOrRelativeUrl url) {
         return Cast.to(
             SpreadsheetMetadataPropertyName.with(
                 url.path()
                     .namesList()
-                    .get(7)
+                    .get(5)
                     .value()
             )
         );
