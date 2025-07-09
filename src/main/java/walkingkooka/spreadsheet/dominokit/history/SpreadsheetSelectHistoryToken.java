@@ -260,26 +260,6 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
         return token;
     }
 
-//    private HistoryToken parseForm(final TextCursor cursor) {
-//        HistoryToken historyToken = HistoryToken.formList(
-//            this.id(),
-//            this.name(),
-//            HistoryTokenOffsetAndCount.EMPTY
-//        );
-//
-//        final Optional<String> maybeFormName = parseComponent(cursor);
-//        if (maybeFormName.isPresent()) {
-//            historyToken = formSelect(
-//                this.id(),
-//                this.name(),
-//                FormName.with(
-//                    maybeFormName.get()
-//                )
-//            );
-//        }
-//        return historyToken;
-//    }
-
     private HistoryToken parseLocale(final TextCursor cursor) {
         return this;
     }
