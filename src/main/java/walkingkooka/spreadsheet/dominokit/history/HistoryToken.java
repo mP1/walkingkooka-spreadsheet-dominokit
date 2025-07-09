@@ -56,6 +56,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
+import walkingkooka.spreadsheet.validation.form.SpreadsheetForms;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.CharacterConstant;
 import walkingkooka.text.HasText;
@@ -76,6 +77,7 @@ import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.form.Form;
 import walkingkooka.validation.form.FormName;
 import walkingkooka.validation.provider.ValidatorSelector;
 
@@ -1292,7 +1294,20 @@ public abstract class HistoryToken implements HasUrlFragment,
             formName
         );
     }
-    
+
+    /**
+     * {@see SpreadsheetFormSaveHistoryToken}
+     */
+    public static SpreadsheetFormSaveHistoryToken formSave(final SpreadsheetId id,
+                                                           final SpreadsheetName name,
+                                                           final Form<SpreadsheetExpressionReference> form) {
+        return SpreadsheetFormSaveHistoryToken.with(
+            id,
+            name,
+            form
+        );
+    }
+
     // label............................................................................................................
 
     /**
@@ -4425,6 +4440,17 @@ public abstract class HistoryToken implements HasUrlFragment,
                 if (this instanceof SpreadsheetNameHistoryToken) {
                     final SpreadsheetName name = this.cast(SpreadsheetNameHistoryToken.class).name();
 
+                    if (this instanceof SpreadsheetFormHistoryToken) {
+                        saved = HistoryToken.formSave(
+                            id,
+                            name,
+                            HistoryToken.parseJson(
+                                JsonNode.parse(value),
+                                SpreadsheetForms.FORM_CLASS
+                            )
+                        );
+                    }
+
                     if (this instanceof SpreadsheetMetadataPropertyHistoryToken) {
                         if (this instanceof SpreadsheetMetadataPropertySelectHistoryToken) {
                             final SpreadsheetMetadataPropertySelectHistoryToken<?> spreadsheetMetadataPropertySelectHistoryToken = this.cast(SpreadsheetMetadataPropertySelectHistoryToken.class);
@@ -5314,6 +5340,10 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     // @VisibleForTesting
     static UrlFragment saveUrlFragmentValue(final Object value) {
+        if (value instanceof Form) {
+            throw new IllegalArgumentException("Invalid saveUrlFragmentValue form " + value);
+        }
+
         return null == value ?
             UrlFragment.EMPTY :
             value instanceof UrlFragment ?

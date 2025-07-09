@@ -24,7 +24,6 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.validation.form.FormName;
 
-import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -37,25 +36,20 @@ import java.util.Optional;
 public abstract class SpreadsheetFormHistoryToken extends SpreadsheetNameHistoryToken {
 
     SpreadsheetFormHistoryToken(final SpreadsheetId id,
-                                final SpreadsheetName name,
-                                final FormName formName) {
+                                final SpreadsheetName name) {
         super(
             id,
             name
         );
-        this.formName = Objects.requireNonNull(formName, "formName");
     }
 
-    public final FormName formName() {
-        return this.formName;
-    }
-
-    final FormName formName;
+    public abstract FormName formName();
 
     @Override //
     final UrlFragment spreadsheetNameUrlFragment() {
         return FORM.appendSlashThen(
-            this.formName.urlFragment()
+            this.formName()
+                .urlFragment()
         ).appendSlashThen(this.formUrlFragment());
     }
 
@@ -66,16 +60,19 @@ public abstract class SpreadsheetFormHistoryToken extends SpreadsheetNameHistory
     @Override
     final HistoryToken parseNext(final String component,
                                  final TextCursor cursor) {
-        final HistoryToken result;
+        final HistoryToken historyToken;
 
         switch (component) {
+            case SAVE_STRING:
+                historyToken = this.parseSave(cursor);
+                break;
             default:
                 cursor.end();
-                result = this; // ignore
+                historyToken = this; // ignore
                 break;
         }
 
-        return result;
+        return historyToken;
     }
 
     @Override
