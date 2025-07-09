@@ -86,7 +86,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
                 "                Errors\n" +
                 "                  Empty \"Zero digit\"\n" +
                 "          SpreadsheetTextBox\n" +
-                "            Currency [] id=decimalNumberSymbolscurrencySymbol-TextBox\n" +
+                "            Currency [] id=decimalNumberSymbolsCurrencySymbol-TextBox\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
@@ -94,7 +94,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
                 "                Errors\n" +
                 "                  Empty \"Decimal separator\"\n" +
                 "          SpreadsheetTextBox\n" +
-                "            Exponent [] id=decimalNumberSymbolsexponentSymbol-TextBox\n" +
+                "            Exponent [] id=decimalNumberSymbolsExponentSymbol-TextBox\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
@@ -102,7 +102,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
                 "                Errors\n" +
                 "                  Empty \"Group separator\"\n" +
                 "          SpreadsheetTextBox\n" +
-                "            Infinity [] id=decimalNumberSymbolsinfinitySymbol-TextBox\n" +
+                "            Infinity [] id=decimalNumberSymbolsInfinitySymbol-TextBox\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
@@ -110,7 +110,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
                 "                Errors\n" +
                 "                  Empty \"Monetary decimal separator\"\n" +
                 "          SpreadsheetTextBox\n" +
-                "            Nan [] id=decimalNumberSymbolsnanSymbol-TextBox\n" +
+                "            Nan [] id=decimalNumberSymbolsNanSymbol-TextBox\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
@@ -180,25 +180,25 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
                 "              SpreadsheetTextBox\n" +
                 "                Zero digit [0] id=decimalNumberSymbolszeroDigit-TextBox\n" +
                 "          SpreadsheetTextBox\n" +
-                "            Currency [$] id=decimalNumberSymbolscurrencySymbol-TextBox\n" +
+                "            Currency [$] id=decimalNumberSymbolsCurrencySymbol-TextBox\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Decimal separator [.] id=decimalNumberSymbolsdecimalSeparator-TextBox\n" +
                 "          SpreadsheetTextBox\n" +
-                "            Exponent [e] id=decimalNumberSymbolsexponentSymbol-TextBox\n" +
+                "            Exponent [e] id=decimalNumberSymbolsExponentSymbol-TextBox\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Group separator [,] id=decimalNumberSymbolsgroupSeparator-TextBox\n" +
                 "          SpreadsheetTextBox\n" +
-                "            Infinity [∞] id=decimalNumberSymbolsinfinitySymbol-TextBox\n" +
+                "            Infinity [∞] id=decimalNumberSymbolsInfinitySymbol-TextBox\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Monetary decimal separator [.] id=decimalNumberSymbolsmonetaryDecimalSeparator-TextBox\n" +
                 "          SpreadsheetTextBox\n" +
-                "            Nan [NaN] id=decimalNumberSymbolsnanSymbol-TextBox\n" +
+                "            Nan [NaN] id=decimalNumberSymbolsNanSymbol-TextBox\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
@@ -268,7 +268,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
                 "                Errors\n" +
                 "                  Empty \"Zero digit\"\n" +
                 "          SpreadsheetTextBox\n" +
-                "            Currency [] id=decimalNumberSymbolscurrencySymbol-TextBox\n" +
+                "            Currency [] id=decimalNumberSymbolsCurrencySymbol-TextBox\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
@@ -278,7 +278,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
                 "                Errors\n" +
                 "                  Empty \"Decimal separator\"\n" +
                 "          SpreadsheetTextBox\n" +
-                "            Exponent [] id=decimalNumberSymbolsexponentSymbol-TextBox\n" +
+                "            Exponent [] id=decimalNumberSymbolsExponentSymbol-TextBox\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
@@ -288,7 +288,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
                 "                Errors\n" +
                 "                  Empty \"Group separator\"\n" +
                 "          SpreadsheetTextBox\n" +
-                "            Infinity [] id=decimalNumberSymbolsinfinitySymbol-TextBox\n" +
+                "            Infinity [] id=decimalNumberSymbolsInfinitySymbol-TextBox\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
@@ -298,7 +298,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
                 "                Errors\n" +
                 "                  Empty \"Monetary decimal separator\"\n" +
                 "          SpreadsheetTextBox\n" +
-                "            Nan [] id=decimalNumberSymbolsnanSymbol-TextBox\n" +
+                "            Nan [] id=decimalNumberSymbolsNanSymbol-TextBox\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
