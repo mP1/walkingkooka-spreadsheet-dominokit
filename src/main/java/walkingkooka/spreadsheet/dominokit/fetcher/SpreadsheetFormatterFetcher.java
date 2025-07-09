@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
+import walkingkooka.net.Url;
 import walkingkooka.net.UrlPath;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetId;
@@ -27,6 +28,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
@@ -95,12 +97,14 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
         "/*/" + SpreadsheetServerLinkRelations.EDIT
     );
 
-    // GET /api/spreadsheet/SpreadsheetId/formatter/*
-    public void getInfoSet(final SpreadsheetId id) {
+    // GET /api/formatter/*
+    public void getInfoSet() {
         this.get(
-            url(id)
+            GET_INFO_SET
         );
     }
+
+    private final static AbsoluteOrRelativeUrl GET_INFO_SET = Url.EMPTY_RELATIVE_URL.appendPath(SpreadsheetHttpServer.API_FORMATTER);
 
     // GET /api/spreadsheet/SpreadsheetId/formatter/*/menu
     public void getMenu(final SpreadsheetId id) {
@@ -139,7 +143,6 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
             case "SpreadsheetFormatterInfoSet":
                 // GET http://server/api/spreadsheet/1/formatter
                 this.watcher.onSpreadsheetFormatterInfoSet(
-                    SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     this.parse(
                         body.orElse(""),
                         SpreadsheetFormatterInfoSet.class

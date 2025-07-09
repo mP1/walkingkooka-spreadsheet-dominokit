@@ -35,12 +35,10 @@ public final class SpreadsheetFormatterFetcherWatchers extends FetcherWatchers<S
     }
 
     @Override
-    public void onSpreadsheetFormatterInfoSet(final SpreadsheetId id,
-                                              final SpreadsheetFormatterInfoSet infos,
+    public void onSpreadsheetFormatterInfoSet(final SpreadsheetFormatterInfoSet infos,
                                               final AppContext context) {
         this.fire(
             SpreadsheetFormatterFetcherWatchersInfoSetEvent.with(
-                id,
                 infos,
                 context
             )
