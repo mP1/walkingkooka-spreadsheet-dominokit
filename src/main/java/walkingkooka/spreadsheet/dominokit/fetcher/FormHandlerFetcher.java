@@ -27,6 +27,7 @@ import walkingkooka.validation.form.provider.FormHandlerInfo;
 import walkingkooka.validation.form.provider.FormHandlerInfoSet;
 import walkingkooka.validation.form.provider.FormHandlerName;
 
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -52,6 +53,16 @@ public final class FormHandlerFetcher extends Fetcher<FormHandlerFetcherWatcher>
         super(
             watcher,
             context
+        );
+    }
+
+    // GET /api/formHandler/FormHandlerName
+    public void getInfo(final FormHandlerName name) {
+        this.get(
+            URL.appendPathName(
+                Objects.requireNonNull(name, "name")
+                    .toUrlPathName()
+            )
         );
     }
 
