@@ -23,7 +23,6 @@ import walkingkooka.plugin.PluginAliasSetLike;
 import walkingkooka.plugin.PluginInfoLike;
 import walkingkooka.plugin.PluginInfoSetLike;
 import walkingkooka.plugin.PluginSelectorLike;
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextDelegator;
@@ -31,7 +30,6 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CaseKind;
 
@@ -81,17 +79,6 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContext<N extends Name
     public final Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
         return this.context.addSpreadsheetMetadataFetcherWatcher(watcher);
     }
-
-    @Override
-    public final void loadProviderInfoSetLike() {
-        this.loadPluginInfoSetLike0(
-            this.historyToken()
-                .cast(SpreadsheetNameHistoryToken.class)
-                .id()
-        );
-    }
-
-    abstract void loadPluginInfoSetLike0(final SpreadsheetId id);
 
     @Override
     public final AS parseAliasSetLike(final String text) {

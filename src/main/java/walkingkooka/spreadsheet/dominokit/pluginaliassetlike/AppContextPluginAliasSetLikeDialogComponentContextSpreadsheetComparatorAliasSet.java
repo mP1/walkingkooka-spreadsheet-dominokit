@@ -22,7 +22,6 @@ import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAlias;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAliasSet;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
@@ -61,7 +60,7 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetComp
     }
 
     @Override
-    final void loadPluginInfoSetLike0(final SpreadsheetId id) {
+    public final void loadPluginInfoSetLike() {
         this.context.spreadsheetComparatorFetcher()
             .getInfoSet();
     }
