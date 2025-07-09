@@ -1071,12 +1071,12 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
 
     // POST /api/spreadsheet/SpreadsheetId/form/FormName
     public void postForm(final SpreadsheetId id,
-                         final Optional<FormName> formName,
+                         final FormName formName,
                          final Form<SpreadsheetExpressionReference> form) {
         this.postDelta(
             formUrl(
                 id,
-                formName
+                Optional.of(formName)
             ),
             SpreadsheetDelta.EMPTY.setForms(
                 Sets.of(form)
