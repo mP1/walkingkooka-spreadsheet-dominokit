@@ -30,14 +30,14 @@ public final class ConverterFetcherTest implements ClassTesting<ConverterFetcher
 
     // verifyConverterSelector..........................................................................................
 
-    // /api/spreadsheet/1/converter/*/verify/SpreadsheetMetadataPropertyName<ConverterSelector>
+    // /api/spreadsheet/1/converter/SpreadsheetMetadataPropertyName<ConverterSelector>/verify
 
     @Test
     public void testVerifyConverterSelectorWithFindConverter() {
         final SpreadsheetMetadataPropertyName<ConverterSelector> propertyName = SpreadsheetMetadataPropertyName.FIND_CONVERTER;
 
         this.verifyConverterSelectorAndCheck(
-            "/api/spreadsheet/1/converter/*/verify/" + propertyName.value(),
+            "/api/spreadsheet/1/converter/" + propertyName.value() + "/verify",
             propertyName.value()
         );
     }
@@ -47,7 +47,7 @@ public final class ConverterFetcherTest implements ClassTesting<ConverterFetcher
         final SpreadsheetMetadataPropertyName<ConverterSelector> propertyName = SpreadsheetMetadataPropertyName.FORMULA_CONVERTER;
 
         this.verifyConverterSelectorAndCheck(
-            "/api/spreadsheet/1/metadata/*/verify/" + propertyName.value(),
+            "/api/spreadsheet/1/metadata/" + propertyName.value() + "/verify",
             propertyName.value()
         );
     }
