@@ -1084,6 +1084,17 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
+    // DELETE /api/spreadsheet/SpreadsheetId/form/FormName
+    public void deleteForm(final SpreadsheetId id,
+                           final FormName formName) {
+        this.delete(
+            formUrl(
+                id,
+                Optional.of(formName)
+            )
+        );
+    }
+
     // @VisibleForTesting
     static RelativeUrl formUrl(final SpreadsheetId id,
                                final Optional<FormName> formName) {
