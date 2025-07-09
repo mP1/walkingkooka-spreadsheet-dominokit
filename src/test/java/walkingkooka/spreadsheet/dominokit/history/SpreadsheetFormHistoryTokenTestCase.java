@@ -18,9 +18,9 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.validation.form.FormName;
+
+import java.util.Optional;
 
 public abstract class SpreadsheetFormHistoryTokenTestCase<T extends SpreadsheetFormHistoryToken> extends SpreadsheetNameHistoryTokenTestCase<T> {
 
@@ -32,16 +32,16 @@ public abstract class SpreadsheetFormHistoryTokenTestCase<T extends SpreadsheetF
 
     // formName.........................................................................................................
 
-    @Test
-    public final void testFormName() {
+    final void formNameAndCheck(final SpreadsheetFormHistoryToken token,
+                                final FormName expected) {
         this.formNameAndCheck(
-            this.createHistoryToken(),
-            FORM_NAME
+            token,
+            Optional.of(expected)
         );
     }
 
     final void formNameAndCheck(final SpreadsheetFormHistoryToken token,
-                                final FormName expected) {
+                                final Optional<FormName> expected) {
         this.checkEquals(
             expected,
             token.formName(),
@@ -63,18 +63,4 @@ public abstract class SpreadsheetFormHistoryTokenTestCase<T extends SpreadsheetF
     }
 
     // HistoryToken.....................................................................................................
-
-    @Override //
-    final T createHistoryToken(final SpreadsheetId id,
-                               final SpreadsheetName name) {
-        return this.createHistoryToken(
-            id,
-            name,
-            FORM_NAME
-        );
-    }
-
-    abstract T createHistoryToken(final SpreadsheetId id,
-                                  final SpreadsheetName name,
-                                  final FormName formName);
 }

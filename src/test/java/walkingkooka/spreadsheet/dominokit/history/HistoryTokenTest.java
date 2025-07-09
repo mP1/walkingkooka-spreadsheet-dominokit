@@ -4312,9 +4312,26 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     public void testParseSpreadsheetIdSpreadsheetNameForm() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/form",
-            HistoryToken.spreadsheetSelect(
+            HistoryToken.formList(
                 ID,
-                NAME
+                NAME,
+                HistoryTokenOffsetAndCount.EMPTY
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameFormOffsetAndCount() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/form/*/offset/1/count/2",
+            HistoryToken.formList(
+                ID,
+                NAME,
+                HistoryTokenOffsetAndCount.EMPTY.setOffset(
+                    OptionalInt.of(1)
+                ).setCount(
+                    OptionalInt.of(2)
+                )
             )
         );
     }

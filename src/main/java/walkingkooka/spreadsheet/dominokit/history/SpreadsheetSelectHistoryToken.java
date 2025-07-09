@@ -226,20 +226,59 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     private HistoryToken parseForm(final TextCursor cursor) {
-        HistoryToken historyToken = this;
+        final HistoryToken token;
 
-        final Optional<String> maybeFormName = parseComponent(cursor);
-        if (maybeFormName.isPresent()) {
-            historyToken = formSelect(
-                this.id(),
-                this.name(),
-                FormName.with(
-                    maybeFormName.get()
-                )
-            );
+        final SpreadsheetId id = this.id();
+        final SpreadsheetName name = this.name();
+
+        final String component = parseComponentOrEmpty(cursor);
+
+        switch (component) {
+            case "":
+                token = HistoryToken.formList(
+                    id,
+                    name,
+                    HistoryTokenOffsetAndCount.EMPTY
+                );
+                break;
+            case WILDCARD_STRING:
+                token = HistoryToken.formList(
+                    id,
+                    name,
+                    HistoryTokenOffsetAndCount.EMPTY
+                ).parseOffsetAndCount(cursor);
+                break;
+            default:
+                token = HistoryToken.formSelect(
+                    id,
+                    name,
+                    FormName.with(component)
+                );
+                break;
         }
-        return historyToken;
+
+        return token;
     }
+
+//    private HistoryToken parseForm(final TextCursor cursor) {
+//        HistoryToken historyToken = HistoryToken.formList(
+//            this.id(),
+//            this.name(),
+//            HistoryTokenOffsetAndCount.EMPTY
+//        );
+//
+//        final Optional<String> maybeFormName = parseComponent(cursor);
+//        if (maybeFormName.isPresent()) {
+//            historyToken = formSelect(
+//                this.id(),
+//                this.name(),
+//                FormName.with(
+//                    maybeFormName.get()
+//                )
+//            );
+//        }
+//        return historyToken;
+//    }
 
     private HistoryToken parseLocale(final TextCursor cursor) {
         return this;
