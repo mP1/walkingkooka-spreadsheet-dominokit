@@ -29,8 +29,7 @@ import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMen
  */
 public interface SpreadsheetFormatterFetcherWatcher extends FetcherWatcher {
 
-    void onSpreadsheetFormatterInfoSet(final SpreadsheetId id,
-                                       final SpreadsheetFormatterInfoSet infos,
+    void onSpreadsheetFormatterInfoSet(final SpreadsheetFormatterInfoSet infos,
                                        final AppContext context);
 
     void onSpreadsheetFormatterSelectorEdit(final SpreadsheetId id,

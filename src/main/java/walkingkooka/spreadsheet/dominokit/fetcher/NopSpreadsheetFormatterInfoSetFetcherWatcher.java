@@ -17,15 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
 
 public interface NopSpreadsheetFormatterInfoSetFetcherWatcher extends SpreadsheetFormatterFetcherWatcher {
 
-    @Override default void onSpreadsheetFormatterInfoSet(final SpreadsheetId id,
-                                                         final SpreadsheetFormatterInfoSet infos,
-                                                         final AppContext context) {
+    @Override //
+    default void onSpreadsheetFormatterInfoSet(final SpreadsheetFormatterInfoSet infos,
+                                               final AppContext context) {
         // ignore
     }
 }
