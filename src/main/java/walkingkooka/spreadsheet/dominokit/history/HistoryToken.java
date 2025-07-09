@@ -1283,6 +1283,19 @@ public abstract class HistoryToken implements HasUrlFragment,
     // form.............................................................................................................
 
     /**
+     * {@see SpreadsheetFormDeleteHistoryToken}
+     */
+    public static SpreadsheetFormDeleteHistoryToken formDelete(final SpreadsheetId id,
+                                                               final SpreadsheetName name,
+                                                               final FormName formName) {
+        return SpreadsheetFormDeleteHistoryToken.with(
+            id,
+            name,
+            formName
+        );
+    }
+    
+    /**
      * {@see SpreadsheetFormSelectHistoryToken}
      */
     public static SpreadsheetFormSelectHistoryToken formSelect(final SpreadsheetId id,
@@ -2603,11 +2616,15 @@ public abstract class HistoryToken implements HasUrlFragment,
                 final SpreadsheetName name = spreadsheetNameHistoryToken.name();
 
                 if (this instanceof SpreadsheetFormHistoryToken) {
-
-                    historyToken = spreadsheetSelect(
-                        id,
-                        name
-                    );
+                    final FormName formName = this.cast(SpreadsheetFormHistoryToken.class)
+                        .formName();
+                    if (this instanceof SpreadsheetFormSelectHistoryToken) {
+                        historyToken = formDelete(
+                            id,
+                            name,
+                            formName
+                        );
+                    }
                 }
                 if (this instanceof SpreadsheetSelectionHistoryToken) {
 

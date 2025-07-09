@@ -4365,6 +4365,18 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         );
     }
 
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameFormFormNameDelete() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/form/FormName123/delete",
+            HistoryToken.formDelete(
+                ID,
+                NAME,
+                FormName.with("FormName123")
+            )
+        );
+    }
+
     // label............................................................................................................
 
     @Test
