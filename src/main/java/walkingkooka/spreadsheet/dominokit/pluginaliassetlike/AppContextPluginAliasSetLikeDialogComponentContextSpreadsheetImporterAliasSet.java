@@ -22,7 +22,6 @@ import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetImporterFetcherWatcher;
@@ -60,8 +59,8 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetImpo
         return SpreadsheetImporterAliasSet.EMPTY;
     }
 
-    @Override //
-    final void loadPluginInfoSetLike0(final SpreadsheetId id) {
+    @Override
+    public final void loadPluginInfoSetLike() {
         this.context.spreadsheetImporterFetcher()
             .getInfoSet();
     }

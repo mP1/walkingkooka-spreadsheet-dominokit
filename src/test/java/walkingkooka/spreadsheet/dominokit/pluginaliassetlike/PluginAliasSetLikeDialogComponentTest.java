@@ -253,7 +253,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
             }
 
             @Override
-            public void loadProviderInfoSetLike() {
+            public void loadPluginInfoSetLike() {
                 // dummy server call
             }
 

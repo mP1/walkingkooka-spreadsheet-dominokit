@@ -66,14 +66,14 @@ public interface PluginAliasSetLikeDialogComponentContext<N extends Name & Compa
     Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher);
 
     /**
-     * Watcher method called whenever {@link #loadProviderInfoSetLike()} completes.
+     * Watcher method called whenever {@link #loadPluginInfoSetLike()} completes.
      */
     Runnable addProviderFetcherWatcher(final Consumer<AS> set);
 
     /**
      * Loads the {@link PluginInfoSetLike} for the given {@link SpreadsheetId}.
      */
-    void loadProviderInfoSetLike();
+    void loadPluginInfoSetLike();
 
     /**
      * Parses the text into a {@link PluginAliasSetLike}.

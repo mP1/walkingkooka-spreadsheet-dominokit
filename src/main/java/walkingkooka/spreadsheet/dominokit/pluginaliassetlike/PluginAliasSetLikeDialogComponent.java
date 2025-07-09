@@ -301,7 +301,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
         this.refreshUndo(this.context.providerAliasSetLike());
 
         // load the latest ProviderAliasSetLike
-        this.context.loadProviderInfoSetLike();
+        this.context.loadPluginInfoSetLike();
     }
 
     private void refreshUndo(final AS aliases) {

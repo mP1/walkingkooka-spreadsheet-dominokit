@@ -22,7 +22,6 @@ import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
@@ -62,8 +61,8 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextExpressionFunct
         return SpreadsheetExpressionFunctions.EMPTY_ALIAS_SET;
     }
 
-    @Override //
-    final void loadPluginInfoSetLike0(final SpreadsheetId id) {
+    @Override
+    public final void loadPluginInfoSetLike() {
         this.context.expressionFunctionFetcher()
             .getInfoSet();
     }

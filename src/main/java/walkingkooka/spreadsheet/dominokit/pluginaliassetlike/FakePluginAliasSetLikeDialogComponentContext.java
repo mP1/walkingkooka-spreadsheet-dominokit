@@ -69,7 +69,7 @@ public class FakePluginAliasSetLikeDialogComponentContext<N extends Name & Compa
     }
 
     @Override
-    public void loadProviderInfoSetLike() {
+    public void loadPluginInfoSetLike() {
         throw new UnsupportedOperationException();
     }
 
