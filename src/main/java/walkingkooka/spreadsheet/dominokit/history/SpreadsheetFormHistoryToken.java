@@ -20,9 +20,12 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.validation.form.FormName;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Base class for various form definition CRUD operations
@@ -57,4 +60,26 @@ public abstract class SpreadsheetFormHistoryToken extends SpreadsheetNameHistory
     }
 
     abstract UrlFragment formUrlFragment();
+
+    // parse............................................................................................................
+
+    @Override
+    final HistoryToken parseNext(final String component,
+                                 final TextCursor cursor) {
+        final HistoryToken result;
+
+        switch (component) {
+            default:
+                cursor.end();
+                result = this; // ignore
+                break;
+        }
+
+        return result;
+    }
+
+    @Override
+    HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
+        return this;
+    }
 }

@@ -4302,6 +4302,31 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         );
     }
 
+    // form.............................................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameForm() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/form",
+            HistoryToken.spreadsheetSelect(
+                ID,
+                NAME
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameFormFormName() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/form/FormName123",
+            HistoryToken.formSelect(
+                ID,
+                NAME,
+                FormName.with("FormName123")
+            )
+        );
+    }
+
     // label............................................................................................................
 
     @Test
