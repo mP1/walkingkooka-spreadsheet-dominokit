@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.http.HttpMethod;
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.text.CharSequences;
@@ -56,11 +55,9 @@ public final class FormHandlerFetcher extends Fetcher<FormHandlerFetcherWatcher>
         );
     }
 
-    static RelativeUrl url(final SpreadsheetId id) {
-        return SpreadsheetMetadataFetcher.url(id)
-            .appendPathName(
-                FormHandlerName.HATEOS_RESOURCE_NAME.toUrlPathName()
-            );
+    // GET /api/formHandler/*
+    public void getInfoSet() {
+        this.get(URL);
     }
 
     final static AbsoluteOrRelativeUrl URL = RelativeUrl.EMPTY_RELATIVE_URL.appendPath(SpreadsheetHttpServer.API_FORM_HANDLER);
