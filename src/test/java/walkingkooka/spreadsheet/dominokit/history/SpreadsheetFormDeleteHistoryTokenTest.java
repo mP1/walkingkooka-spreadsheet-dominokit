@@ -24,7 +24,7 @@ import walkingkooka.validation.form.FormName;
 
 import static org.junit.Assert.assertThrows;
 
-public final class SpreadsheetFormSelectHistoryTokenTest extends SpreadsheetFormHistoryTokenTestCase<SpreadsheetFormSelectHistoryToken> {
+public final class SpreadsheetFormDeleteHistoryTokenTest extends SpreadsheetFormHistoryTokenTestCase<SpreadsheetFormDeleteHistoryToken> {
 
     // with.............................................................................................................
 
@@ -32,7 +32,7 @@ public final class SpreadsheetFormSelectHistoryTokenTest extends SpreadsheetForm
     public final void testWithNullFormNameFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetFormSelectHistoryToken.with(
+            () -> SpreadsheetFormDeleteHistoryToken.with(
                 ID,
                 NAME,
                 null
@@ -46,19 +46,7 @@ public final class SpreadsheetFormSelectHistoryTokenTest extends SpreadsheetForm
     public void testClear() {
         this.clearActionAndCheck(
             this.createHistoryToken(),
-            SpreadsheetFormSelectHistoryToken.with(
-                ID,
-                NAME,
-                FORM_NAME
-            )
-        );
-    }
-
-    @Test
-    public void testDelete() {
-        this.deleteAndCheck(
-            this.createHistoryToken(),
-            HistoryToken.formDelete(
+            SpreadsheetFormDeleteHistoryToken.with(
                 ID,
                 NAME,
                 FORM_NAME
@@ -71,15 +59,15 @@ public final class SpreadsheetFormSelectHistoryTokenTest extends SpreadsheetForm
     @Test
     public void testUrlFragment() {
         this.urlFragmentAndCheck(
-            "/123/SpreadsheetName456/form/FormName123"
+            "/123/SpreadsheetName456/form/FormName123/delete"
         );
     }
 
     @Override
-    SpreadsheetFormSelectHistoryToken createHistoryToken(final SpreadsheetId id,
+    SpreadsheetFormDeleteHistoryToken createHistoryToken(final SpreadsheetId id,
                                                          final SpreadsheetName name,
                                                          final FormName formName) {
-        return SpreadsheetFormSelectHistoryToken.with(
+        return SpreadsheetFormDeleteHistoryToken.with(
             id,
             name,
             formName
@@ -89,7 +77,7 @@ public final class SpreadsheetFormSelectHistoryTokenTest extends SpreadsheetForm
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetFormSelectHistoryToken> type() {
-        return SpreadsheetFormSelectHistoryToken.class;
+    public Class<SpreadsheetFormDeleteHistoryToken> type() {
+        return SpreadsheetFormDeleteHistoryToken.class;
     }
 }

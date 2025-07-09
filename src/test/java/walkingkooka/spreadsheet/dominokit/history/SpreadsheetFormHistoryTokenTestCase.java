@@ -22,28 +22,12 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.validation.form.FormName;
 
-import static org.junit.Assert.assertThrows;
-
 public abstract class SpreadsheetFormHistoryTokenTestCase<T extends SpreadsheetFormHistoryToken> extends SpreadsheetNameHistoryTokenTestCase<T> {
 
     final static FormName FORM_NAME = FormName.with("FormName123");
 
     SpreadsheetFormHistoryTokenTestCase() {
         super();
-    }
-
-    // with.............................................................................................................
-
-    @Test
-    public final void testWithNullFormNameFails() {
-        assertThrows(
-            NullPointerException.class,
-            () -> this.createHistoryToken(
-                ID,
-                NAME,
-                null
-            )
-        );
     }
 
     // formName.........................................................................................................
@@ -62,19 +46,6 @@ public abstract class SpreadsheetFormHistoryTokenTestCase<T extends SpreadsheetF
             expected,
             token.formName(),
             token.urlFragment()::toString
-        );
-    }
-
-    // delete...........................................................................................................
-
-    @Test
-    public final void testDelete() {
-        this.deleteAndCheck(
-            this.createHistoryToken(),
-            HistoryToken.spreadsheetSelect(
-                ID,
-                NAME
-            )
         );
     }
 

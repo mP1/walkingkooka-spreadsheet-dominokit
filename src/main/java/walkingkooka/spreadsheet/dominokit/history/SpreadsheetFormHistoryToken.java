@@ -30,6 +30,7 @@ import java.util.Optional;
  * Base class for various form definition CRUD operations
  * <pre>
  * #/SpreadsheetId/SpreadsheetName/form/FormName
+ * #/SpreadsheetId/SpreadsheetName/form/FormName/delete
  * #/SpreadsheetId/SpreadsheetName/form/FormName/save/XXX
  * </pre>
  */
@@ -63,6 +64,9 @@ public abstract class SpreadsheetFormHistoryToken extends SpreadsheetNameHistory
         final HistoryToken historyToken;
 
         switch (component) {
+            case DELETE_STRING:
+                historyToken = this.delete();
+                break;
             case SAVE_STRING:
                 historyToken = this.parseSave(cursor);
                 break;

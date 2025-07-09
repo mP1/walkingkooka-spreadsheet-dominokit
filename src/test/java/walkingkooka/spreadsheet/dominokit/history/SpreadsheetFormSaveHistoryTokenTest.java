@@ -68,6 +68,13 @@ public final class SpreadsheetFormSaveHistoryTokenTest extends SpreadsheetFormHi
         );
     }
 
+    @Test
+    public void testDelete() {
+        this.deleteAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // UrlFragment......................................................................................................
 
     // {
