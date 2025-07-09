@@ -80,7 +80,7 @@ public final class FormHandlerFetcher extends Fetcher<FormHandlerFetcherWatcher>
                 // GET http://server/api/formHandler/FormHandlerName
                 this.watcher.onFormHandlerInfo(
                     this.parse(
-                        body.orElse(""),
+                        body,
                         FormHandlerInfo.class
                     ), // edit
                     context
@@ -90,7 +90,7 @@ public final class FormHandlerFetcher extends Fetcher<FormHandlerFetcherWatcher>
                 // GET http://server/api/formHandler/*
                 this.watcher.onFormHandlerInfoSet(
                     this.parse(
-                        body.orElse(""),
+                        body,
                         FormHandlerInfoSet.class
                     ), // edit
                     context

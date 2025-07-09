@@ -79,7 +79,7 @@ public final class SpreadsheetComparatorFetcher extends Fetcher<SpreadsheetCompa
                 // GET http://server/api/comparator
                 this.watcher.onSpreadsheetComparatorInfoSet(
                     this.parse(
-                        body.orElse(""),
+                        body,
                         SpreadsheetComparatorInfoSet.class
                     ), // edit
                     context

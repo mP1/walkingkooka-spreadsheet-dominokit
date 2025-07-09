@@ -117,7 +117,7 @@ public final class LocaleFetcher extends Fetcher<LocaleFetcherWatcher> {
                 this.watcher.onLocaleHateosResource(
                     parseLocaleTag(url.path()), // the request url
                     this.parse(
-                        body.orElse(""),
+                        body,
                         LocaleHateosResource.class
                     ), // edit
                     context
@@ -127,7 +127,7 @@ public final class LocaleFetcher extends Fetcher<LocaleFetcherWatcher> {
                 // GET http://server/api/locale/*
                 this.watcher.onLocaleHateosResourceSet(
                     this.parse(
-                        body.orElse(""),
+                        body,
                         LocaleHateosResourceSet.class
                     ), // edit
                     context

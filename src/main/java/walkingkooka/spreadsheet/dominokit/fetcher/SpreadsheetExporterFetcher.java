@@ -77,7 +77,7 @@ public final class SpreadsheetExporterFetcher extends Fetcher<SpreadsheetExporte
                 // GET http://server/api/exporter
                 this.watcher.onSpreadsheetExporterInfoSet(
                     this.parse(
-                        body.orElse(""),
+                        body,
                         SpreadsheetExporterInfoSet.class
                     ), // edit
                     context
