@@ -174,8 +174,8 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
                 Optional.of(
                     LocalDate.of(
                         2025,
-                        06,
-                        06
+                        6,
+                        6
                     )
                 ),
                 context
@@ -223,8 +223,8 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
                     LocalDateTime.of(
                         LocalDate.of(
                             2025,
-                            06,
-                            06
+                            6,
+                            6
                         ),
                         LocalTime.of(
                             12,
