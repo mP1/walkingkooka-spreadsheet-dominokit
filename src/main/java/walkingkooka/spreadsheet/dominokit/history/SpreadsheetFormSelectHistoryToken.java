@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.validation.form.FormName;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Selects a Form for viewing or editing.
@@ -54,8 +55,8 @@ public final class SpreadsheetFormSelectHistoryToken extends SpreadsheetFormHist
     }
 
     @Override
-    public FormName formName() {
-        return this.formName;
+    public Optional<FormName> formName() {
+        return Optional.of(this.formName);
     }
 
     final FormName formName;
@@ -63,7 +64,7 @@ public final class SpreadsheetFormSelectHistoryToken extends SpreadsheetFormHist
     // #/1/SpreadsheetName/form/FormName
     @Override
     UrlFragment formUrlFragment() {
-        return UrlFragment.EMPTY;
+        return this.formName.urlFragment();
     }
 
     @Override //

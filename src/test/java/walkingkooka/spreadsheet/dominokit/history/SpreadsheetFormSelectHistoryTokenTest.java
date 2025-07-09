@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.validation.form.FormName;
 
 import static org.junit.Assert.assertThrows;
 
@@ -29,7 +28,7 @@ public final class SpreadsheetFormSelectHistoryTokenTest extends SpreadsheetForm
     // with.............................................................................................................
 
     @Test
-    public final void testWithNullFormNameFails() {
+    public void testWithNullFormNameFails() {
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetFormSelectHistoryToken.with(
@@ -37,6 +36,16 @@ public final class SpreadsheetFormSelectHistoryTokenTest extends SpreadsheetForm
                 NAME,
                 null
             )
+        );
+    }
+
+    // formName.........................................................................................................
+
+    @Test
+    public void testFormName() {
+        this.formNameAndCheck(
+            this.createHistoryToken(),
+            FORM_NAME
         );
     }
 
@@ -77,12 +86,11 @@ public final class SpreadsheetFormSelectHistoryTokenTest extends SpreadsheetForm
 
     @Override
     SpreadsheetFormSelectHistoryToken createHistoryToken(final SpreadsheetId id,
-                                                         final SpreadsheetName name,
-                                                         final FormName formName) {
+                                                         final SpreadsheetName name) {
         return SpreadsheetFormSelectHistoryToken.with(
             id,
             name,
-            formName
+            FORM_NAME
         );
     }
 

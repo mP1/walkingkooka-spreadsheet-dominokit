@@ -27,45 +27,49 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * An action that deletes the named {@link walkingkooka.validation.form.Form}.
+ * Selects a Form for viewing or editing.
  * <pre>
- * #/1/SpreadsheetName/form/FormName/delete
+ * #/1/SpreadsheetName/form/
+ * #/1/SpreadsheetName/form/&star;/offset/0/count/1
  * </pre>
  */
-public final class SpreadsheetFormDeleteHistoryToken extends SpreadsheetFormHistoryToken {
+public final class SpreadsheetFormListHistoryToken extends SpreadsheetFormHistoryToken {
 
-    static SpreadsheetFormDeleteHistoryToken with(final SpreadsheetId id,
-                                                  final SpreadsheetName name,
-                                                  final FormName formName) {
-        return new SpreadsheetFormDeleteHistoryToken(
+    static SpreadsheetFormListHistoryToken with(final SpreadsheetId id,
+                                                final SpreadsheetName name,
+                                                final HistoryTokenOffsetAndCount offsetAndCount) {
+        return new SpreadsheetFormListHistoryToken(
             id,
             name,
-            formName
+            offsetAndCount
         );
     }
 
-    private SpreadsheetFormDeleteHistoryToken(final SpreadsheetId id,
-                                              final SpreadsheetName name,
-                                              final FormName formName) {
+    private SpreadsheetFormListHistoryToken(final SpreadsheetId id,
+                                            final SpreadsheetName name,
+                                            final HistoryTokenOffsetAndCount offsetAndCount) {
         super(
             id,
             name
         );
-        this.formName = Objects.requireNonNull(formName, "formName");
+        this.offsetAndCount = Objects.requireNonNull(offsetAndCount, "offsetAndCount");
     }
+
+    final HistoryTokenOffsetAndCount offsetAndCount;
 
     @Override
     public Optional<FormName> formName() {
-        return Optional.of(this.formName);
+        return Optional.empty();
     }
 
-    final FormName formName;
-
-    // #/1/SpreadsheetName/form/FormName/delete
+    // #/1/SpreadsheetName/form/
+    // #/1/SpreadsheetName/form/*/offset/0/count/1
     @Override
     UrlFragment formUrlFragment() {
-        return this.formName.urlFragment()
-            .appendSlashThen(DELETE);
+        return countAndOffsetUrlFragment(
+            this.offsetAndCount,
+            UrlFragment.EMPTY
+        );
     }
 
     @Override //
@@ -74,11 +78,11 @@ public final class SpreadsheetFormDeleteHistoryToken extends SpreadsheetFormHist
         return with(
             id,
             name,
-            this.formName
+            this.offsetAndCount
         );
     }
 
-    // /1/SpreadsheetName/form/FormName
+    // /1/SpreadsheetName/form
     @Override
     public HistoryToken clearAction() {
         return this;

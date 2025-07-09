@@ -26,7 +26,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.validation.form.SpreadsheetForms;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 import walkingkooka.validation.form.Form;
-import walkingkooka.validation.form.FormName;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -51,6 +50,16 @@ public final class SpreadsheetFormSaveHistoryTokenTest extends SpreadsheetFormHi
                 NAME,
                 null
             )
+        );
+    }
+
+    // formName.........................................................................................................
+
+    @Test
+    public void testFormName() {
+        this.formNameAndCheck(
+            this.createHistoryToken(),
+            FORM_NAME
         );
     }
 
@@ -100,12 +109,11 @@ public final class SpreadsheetFormSaveHistoryTokenTest extends SpreadsheetFormHi
 
     @Override
     SpreadsheetFormSaveHistoryToken createHistoryToken(final SpreadsheetId id,
-                                                       final SpreadsheetName name,
-                                                       final FormName formName) {
+                                                       final SpreadsheetName name) {
         return SpreadsheetFormSaveHistoryToken.with(
             id,
             name,
-            FORM.setName(formName)
+            FORM
         );
     }
 

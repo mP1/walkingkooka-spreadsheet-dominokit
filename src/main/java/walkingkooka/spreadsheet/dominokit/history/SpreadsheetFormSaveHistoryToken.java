@@ -27,6 +27,7 @@ import walkingkooka.validation.form.Form;
 import walkingkooka.validation.form.FormName;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * The save form action saves a new or replaces an existing {@link Form}.
@@ -58,8 +59,10 @@ public final class SpreadsheetFormSaveHistoryToken extends SpreadsheetFormHistor
     }
 
     @Override
-    public FormName formName() {
-        return this.form.name();
+    public Optional<FormName> formName() {
+        return Optional.of(
+            this.form.name()
+        );
     }
 
     @Override
@@ -72,12 +75,14 @@ public final class SpreadsheetFormSaveHistoryToken extends SpreadsheetFormHistor
     // #/1/SpreadsheetName/form/FormName/save/Form
     @Override
     UrlFragment formUrlFragment() {
-        return SAVE.appendSlashThen(
-            UrlFragment.with(
-                MARSHALL_CONTEXT.marshall(this.form)
-                    .toString()
-            )
-        );
+        return this.form.name().urlFragment()
+            .appendSlashThen(
+                SAVE).appendSlashThen(
+                UrlFragment.with(
+                    MARSHALL_CONTEXT.marshall(this.form)
+                        .toString()
+                )
+            );
     }
 
     @Override //
@@ -96,7 +101,7 @@ public final class SpreadsheetFormSaveHistoryToken extends SpreadsheetFormHistor
         return formSelect(
             this.id(),
             this.name(),
-            this.formName()
+            this.form.name()
         );
     }
 

@@ -21,9 +21,16 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 
+import java.util.Optional;
+import java.util.OptionalInt;
+
 import static org.junit.Assert.assertThrows;
 
-public final class SpreadsheetFormDeleteHistoryTokenTest extends SpreadsheetFormHistoryTokenTestCase<SpreadsheetFormDeleteHistoryToken> {
+public final class SpreadsheetFormListHistoryTokenTest extends SpreadsheetFormHistoryTokenTestCase<SpreadsheetFormListHistoryToken> {
+
+    private final static HistoryTokenOffsetAndCount OFFSET_AND_COUNT = HistoryTokenOffsetAndCount.EMPTY
+        .setOffset(OptionalInt.of(1))
+        .setCount(OptionalInt.of(2));
 
     // with.............................................................................................................
 
@@ -31,7 +38,7 @@ public final class SpreadsheetFormDeleteHistoryTokenTest extends SpreadsheetForm
     public void testWithNullFormNameFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetFormDeleteHistoryToken.with(
+            () -> SpreadsheetFormListHistoryToken.with(
                 ID,
                 NAME,
                 null
@@ -45,7 +52,27 @@ public final class SpreadsheetFormDeleteHistoryTokenTest extends SpreadsheetForm
     public void testFormName() {
         this.formNameAndCheck(
             this.createHistoryToken(),
-            FORM_NAME
+            Optional.empty()
+        );
+    }
+
+    // offset...........................................................................................................
+
+    @Test
+    public void testOffset() {
+        this.offsetAndCheck(
+            this.createHistoryToken(),
+            OFFSET_AND_COUNT.offset()
+        );
+    }
+
+    // count............................................................................................................
+
+    @Test
+    public void testCount() {
+        this.countAndCheck(
+            this.createHistoryToken(),
+            OFFSET_AND_COUNT.count()
         );
     }
 
@@ -55,10 +82,10 @@ public final class SpreadsheetFormDeleteHistoryTokenTest extends SpreadsheetForm
     public void testClear() {
         this.clearActionAndCheck(
             this.createHistoryToken(),
-            SpreadsheetFormDeleteHistoryToken.with(
+            SpreadsheetFormListHistoryToken.with(
                 ID,
                 NAME,
-                FORM_NAME
+                OFFSET_AND_COUNT
             )
         );
     }
@@ -66,26 +93,38 @@ public final class SpreadsheetFormDeleteHistoryTokenTest extends SpreadsheetForm
     // UrlFragment......................................................................................................
 
     @Test
-    public void testUrlFragment() {
+    public void testUrlFragmentWithZeroOffsetAndZeroCount() {
         this.urlFragmentAndCheck(
-            "/123/SpreadsheetName456/form/FormName123/delete"
+            SpreadsheetFormListHistoryToken.with(
+                ID,
+                NAME,
+                HistoryTokenOffsetAndCount.EMPTY
+            ),
+            "/123/SpreadsheetName456/form"
+        );
+    }
+
+    @Test
+    public void testUrlFragmentWithOffsetAndCount() {
+        this.urlFragmentAndCheck(
+            "/123/SpreadsheetName456/form/*/offset/1/count/2"
         );
     }
 
     @Override
-    SpreadsheetFormDeleteHistoryToken createHistoryToken(final SpreadsheetId id,
-                                                         final SpreadsheetName name) {
-        return SpreadsheetFormDeleteHistoryToken.with(
+    SpreadsheetFormListHistoryToken createHistoryToken(final SpreadsheetId id,
+                                                       final SpreadsheetName name) {
+        return SpreadsheetFormListHistoryToken.with(
             id,
             name,
-            FORM_NAME
+            OFFSET_AND_COUNT
         );
     }
 
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetFormDeleteHistoryToken> type() {
-        return SpreadsheetFormDeleteHistoryToken.class;
+    public Class<SpreadsheetFormListHistoryToken> type() {
+        return SpreadsheetFormListHistoryToken.class;
     }
 }

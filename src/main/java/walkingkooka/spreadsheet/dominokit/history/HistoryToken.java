@@ -1294,6 +1294,19 @@ public abstract class HistoryToken implements HasUrlFragment,
             formName
         );
     }
+
+    /**
+     * {@see SpreadsheetFormListHistoryToken}
+     */
+    public static SpreadsheetFormListHistoryToken formList(final SpreadsheetId id,
+                                                           final SpreadsheetName name,
+                                                           final HistoryTokenOffsetAndCount offsetAndCount) {
+        return SpreadsheetFormListHistoryToken.with(
+            id,
+            name,
+            offsetAndCount
+        );
+    }
     
     /**
      * {@see SpreadsheetFormSelectHistoryToken}
@@ -2504,6 +2517,16 @@ public abstract class HistoryToken implements HasUrlFragment,
                 final SpreadsheetId id = spreadsheetNameHistoryToken.id();
                 final SpreadsheetName name = spreadsheetNameHistoryToken.name();
 
+                if (this instanceof SpreadsheetFormListHistoryToken) {
+                    final HistoryTokenOffsetAndCount offsetAndCount = this.offsetAndCount();
+
+                    with = formList(
+                        id,
+                        name,
+                        offsetAndCount.setCount(count)
+                    );
+                }
+
                 if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
                     final AnchoredSpreadsheetSelection anchored = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
                         .anchoredSelection();
@@ -2616,13 +2639,12 @@ public abstract class HistoryToken implements HasUrlFragment,
                 final SpreadsheetName name = spreadsheetNameHistoryToken.name();
 
                 if (this instanceof SpreadsheetFormHistoryToken) {
-                    final FormName formName = this.cast(SpreadsheetFormHistoryToken.class)
-                        .formName();
                     if (this instanceof SpreadsheetFormSelectHistoryToken) {
                         historyToken = formDelete(
                             id,
                             name,
-                            formName
+                            this.cast(SpreadsheetFormSelectHistoryToken.class)
+                                .formName
                         );
                     }
                 }
@@ -3623,6 +3645,14 @@ public abstract class HistoryToken implements HasUrlFragment,
                 final SpreadsheetId id = spreadsheetNameHistoryToken.id();
                 final SpreadsheetName name = spreadsheetNameHistoryToken.name();
 
+                if (this instanceof SpreadsheetFormListHistoryToken) {
+                    after = formList(
+                        id,
+                        name,
+                        offsetAndCount.setOffset(offset)
+                    );
+                }
+
                 if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
                     final AnchoredSpreadsheetSelection anchored = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
                         .anchoredSelection();
@@ -3668,23 +3698,28 @@ public abstract class HistoryToken implements HasUrlFragment,
         if (this instanceof PluginListHistoryToken) {
             offsetAndCount = this.cast(PluginListHistoryToken.class).offsetAndCount;
         } else {
-            if (this instanceof SpreadsheetListHistoryToken) {
-                offsetAndCount = this.cast(SpreadsheetListHistoryToken.class)
+            if( this instanceof SpreadsheetFormListHistoryToken) {
+                offsetAndCount = this.cast(SpreadsheetFormListHistoryToken.class)
                     .offsetAndCount;
             } else {
-                if (this instanceof SpreadsheetCellLabelListHistoryToken) {
-                    offsetAndCount = this.cast(SpreadsheetCellLabelListHistoryToken.class)
+                if (this instanceof SpreadsheetListHistoryToken) {
+                    offsetAndCount = this.cast(SpreadsheetListHistoryToken.class)
                         .offsetAndCount;
                 } else {
-                    if (this instanceof SpreadsheetCellReferenceListHistoryToken) {
-                        offsetAndCount = this.cast(SpreadsheetCellReferenceListHistoryToken.class)
+                    if (this instanceof SpreadsheetCellLabelListHistoryToken) {
+                        offsetAndCount = this.cast(SpreadsheetCellLabelListHistoryToken.class)
                             .offsetAndCount;
                     } else {
-                        if (this instanceof SpreadsheetLabelMappingListHistoryToken) {
-                            offsetAndCount = this.cast(SpreadsheetLabelMappingListHistoryToken.class)
+                        if (this instanceof SpreadsheetCellReferenceListHistoryToken) {
+                            offsetAndCount = this.cast(SpreadsheetCellReferenceListHistoryToken.class)
                                 .offsetAndCount;
                         } else {
-                            offsetAndCount = HistoryTokenOffsetAndCount.EMPTY;
+                            if (this instanceof SpreadsheetLabelMappingListHistoryToken) {
+                                offsetAndCount = this.cast(SpreadsheetLabelMappingListHistoryToken.class)
+                                    .offsetAndCount;
+                            } else {
+                                offsetAndCount = HistoryTokenOffsetAndCount.EMPTY;
+                            }
                         }
                     }
                 }

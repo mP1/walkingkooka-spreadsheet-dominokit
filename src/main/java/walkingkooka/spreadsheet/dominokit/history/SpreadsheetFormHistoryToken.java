@@ -44,14 +44,13 @@ public abstract class SpreadsheetFormHistoryToken extends SpreadsheetNameHistory
         );
     }
 
-    public abstract FormName formName();
+    public abstract Optional<FormName> formName();
 
     @Override //
     final UrlFragment spreadsheetNameUrlFragment() {
         return FORM.appendSlashThen(
-            this.formName()
-                .urlFragment()
-        ).appendSlashThen(this.formUrlFragment());
+            this.formUrlFragment()
+        );
     }
 
     abstract UrlFragment formUrlFragment();
@@ -64,6 +63,9 @@ public abstract class SpreadsheetFormHistoryToken extends SpreadsheetNameHistory
         final HistoryToken historyToken;
 
         switch (component) {
+            case WILDCARD_STRING:
+                historyToken = this.parseOffsetAndCount(cursor);
+                break;
             case DELETE_STRING:
                 historyToken = this.delete();
                 break;
