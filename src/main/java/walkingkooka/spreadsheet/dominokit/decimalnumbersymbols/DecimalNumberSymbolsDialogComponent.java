@@ -45,6 +45,7 @@ import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetValidators;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.text.CaseKind;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -355,7 +356,7 @@ public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDia
                                                final String label,
                                                final int propertyIndex) {
         return SpreadsheetTextBox.empty()
-            .setId(ID + id + SpreadsheetElementIds.TEXT_BOX)
+            .setId(ID + CaseKind.CAMEL.change(id, CaseKind.PASCAL) + SpreadsheetElementIds.TEXT_BOX)
             .setLabel(label)
             .setValidator(SpreadsheetValidators.required())
             .clearIcon()
