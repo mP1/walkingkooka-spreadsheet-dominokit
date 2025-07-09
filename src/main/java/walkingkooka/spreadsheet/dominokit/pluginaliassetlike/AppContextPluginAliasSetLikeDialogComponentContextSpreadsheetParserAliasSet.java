@@ -61,9 +61,10 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetPars
         return SpreadsheetParserAliasSet.EMPTY;
     }
 
-    @Override final void loadPluginInfoSetLike0(final SpreadsheetId id) {
+    @Override //
+    final void loadPluginInfoSetLike0(final SpreadsheetId id) {
         this.context.spreadsheetParserFetcher()
-            .getInfoSet(id);
+            .getInfoSet();
     }
 
     @Override
@@ -71,8 +72,7 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetPars
         return this.context.addSpreadsheetParserFetcherWatcher(
             new SpreadsheetParserFetcherWatcher() {
                 @Override
-                public void onSpreadsheetParserInfoSet(final SpreadsheetId id,
-                                                       final SpreadsheetParserInfoSet infos,
+                public void onSpreadsheetParserInfoSet(final SpreadsheetParserInfoSet infos,
                                                        final AppContext context) {
                     set.accept(infos.aliasSet());
                 }

@@ -597,7 +597,7 @@ public class App implements EntryPoint,
                         context.spreadsheetImporterFetcher()
                             .getInfoSet();
                         context.spreadsheetParserFetcher()
-                            .getInfoSet(id);
+                            .getInfoSet();
                     }
                 }
             }
@@ -1073,13 +1073,10 @@ public class App implements EntryPoint,
     private final SpreadsheetParserFetcherWatchers spreadsheetParserFetcherWatchers;
 
     @Override
-    public void onSpreadsheetParserInfoSet(final SpreadsheetId id,
-                                           final SpreadsheetParserInfoSet infos,
+    public void onSpreadsheetParserInfoSet(final SpreadsheetParserInfoSet infos,
                                            final AppContext context) {
-        this.maybeRefreshSpreadsheetProvider(
-            id,
-            () -> this.spreadsheetParserInfoSet = infos
-        );
+        this.spreadsheetParserInfoSet = infos;
+        this.refreshSpreadsheetProvider();
     }
 
     private SpreadsheetParserInfoSet spreadsheetParserInfoSet;

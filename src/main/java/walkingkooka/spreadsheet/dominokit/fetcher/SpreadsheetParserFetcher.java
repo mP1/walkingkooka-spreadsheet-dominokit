@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
+import walkingkooka.net.Url;
 import walkingkooka.net.UrlPath;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetId;
@@ -26,6 +27,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
+import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
 import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
 import walkingkooka.text.CharSequences;
@@ -86,12 +88,14 @@ public final class SpreadsheetParserFetcher extends Fetcher<SpreadsheetParserFet
         "/*/" + SpreadsheetServerLinkRelations.EDIT
     );
 
-    // GET /api/spreadsheet/SpreadsheetId/parser/*
-    public void getInfoSet(final SpreadsheetId id) {
+    // GET /api/parser/*
+    public void getInfoSet() {
         this.get(
-            url(id)
+            GET_INFO_SET_URL
         );
     }
+
+    private final static AbsoluteOrRelativeUrl GET_INFO_SET_URL = Url.EMPTY_RELATIVE_URL.appendPath(SpreadsheetHttpServer.API_PARSER);
 
     // /api/spreadsheet/1/parser
 
@@ -116,9 +120,8 @@ public final class SpreadsheetParserFetcher extends Fetcher<SpreadsheetParserFet
                 this.watcher.onEmptyResponse(context);
                 break;
             case "SpreadsheetParserInfoSet":
-                // GET http://server/api/spreadsheet/1/parser
+                // GET http://server/api/parser
                 this.watcher.onSpreadsheetParserInfoSet(
-                    SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     this.parse(
                         body.orElse(""),
                         SpreadsheetParserInfoSet.class
