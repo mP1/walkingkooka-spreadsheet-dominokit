@@ -129,9 +129,6 @@ public final class PluginUploadDialogComponent implements SpreadsheetDialogCompo
         );
     }
 
-    private void refreshDialog() {
-    }
-
     @Override
     public SpreadsheetDialogComponent dialog() {
         return this.dialog;
@@ -209,7 +206,6 @@ public final class PluginUploadDialogComponent implements SpreadsheetDialogCompo
 
     @Override
     public void refresh(final RefreshContext context) {
-        this.refreshDialog();
         this.refreshUploadFile();
         this.refreshUploadLink();
         this.refreshClose(context);
