@@ -39,7 +39,7 @@ final class AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetV
     }
 
     @Override
-    public ValidatorAliasSet providerAliasSetLike() {
+    public ValidatorAliasSet pluginAliasSetLike() {
         return this.context.systemSpreadsheetProvider()
             .validatorInfos()
             .aliasSet();

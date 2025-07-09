@@ -298,7 +298,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
             this.textBox::focus
         );
 
-        this.refreshUndo(this.context.providerAliasSetLike());
+        this.refreshUndo(this.context.pluginAliasSetLike());
 
         // load the latest ProviderAliasSetLike
         this.context.loadPluginInfoSetLike();
@@ -330,7 +330,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
 
         final HistoryToken historyToken = context.historyToken();
 
-        final AS providerAliases = context.providerAliasSetLike();
+        final AS providerAliases = context.pluginAliasSetLike();
 
         this.add.refresh(
             metadataAliases,

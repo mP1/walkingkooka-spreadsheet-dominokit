@@ -39,7 +39,7 @@ final class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetImporte
     }
 
     @Override
-    public SpreadsheetImporterAliasSet providerAliasSetLike() {
+    public SpreadsheetImporterAliasSet pluginAliasSetLike() {
         return this.context.systemSpreadsheetProvider()
             .spreadsheetImporterInfos()
             .aliasSet();
