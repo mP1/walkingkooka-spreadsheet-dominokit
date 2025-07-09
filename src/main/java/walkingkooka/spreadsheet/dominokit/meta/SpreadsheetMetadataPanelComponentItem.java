@@ -160,7 +160,6 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
         this.propertyName = Objects.requireNonNull(propertyName, "propertyName");
         this.label = Objects.requireNonNull(label, "label");
         this.context = Objects.requireNonNull(context, "context");
-        ;
     }
 
     /**
