@@ -123,7 +123,7 @@ public final class SpreadsheetParserFetcher extends Fetcher<SpreadsheetParserFet
                 // GET http://server/api/parser
                 this.watcher.onSpreadsheetParserInfoSet(
                     this.parse(
-                        body.orElse(""),
+                        body,
                         SpreadsheetParserInfoSet.class
                     ), // edit
                     context
@@ -134,7 +134,7 @@ public final class SpreadsheetParserFetcher extends Fetcher<SpreadsheetParserFet
                 this.watcher.onSpreadsheetParserSelectorEdit(
                     SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     this.parse(
-                        body.orElse(""),
+                        body,
                         SpreadsheetParserSelectorEdit.class
                     ), // edit
                     context

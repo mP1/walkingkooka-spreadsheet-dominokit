@@ -88,7 +88,7 @@ public final class DecimalNumberSymbolsFetcher extends Fetcher<DecimalNumberSymb
                 this.watcher.onDecimalNumberSymbolsHateosResource(
                     parseLocaleTag(url.path()), // the request url
                     this.parse(
-                        body.orElse(""),
+                        body,
                         DecimalNumberSymbolsHateosResource.class
                     ), // edit
                     context

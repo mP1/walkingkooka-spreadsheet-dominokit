@@ -328,6 +328,14 @@ abstract public class Fetcher<W extends FetcherWatcher> {
         );
     }
 
+    final <T> T parse(final Optional<String> json,
+                      final Class<T> type) {
+        return this.parse(
+            json.orElse(""),
+            type
+        );
+    }
+
     /**
      * Parses the JSON String into the requested type.
      */

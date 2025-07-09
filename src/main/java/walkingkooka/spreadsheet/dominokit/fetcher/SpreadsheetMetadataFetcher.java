@@ -224,7 +224,7 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
             case "SpreadsheetMetadata":
                 watcher.onSpreadsheetMetadata(
                     this.parse(
-                        body.orElse(""),
+                        body,
                         SpreadsheetMetadata.class
                     ),
                     context
@@ -233,7 +233,7 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
             case "SpreadsheetMetadataSet":
                 watcher.onSpreadsheetMetadataSet(
                     this.parse(
-                        body.orElse(""),
+                        body,
                         SpreadsheetMetadataSet.class
                     ),
                     context

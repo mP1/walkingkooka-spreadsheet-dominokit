@@ -76,7 +76,7 @@ public final class ExpressionFunctionFetcher extends Fetcher<ExpressionFunctionF
                 // GET http://server/api/function
                 this.watcher.onExpressionFunctionInfoSet(
                     this.parse(
-                        body.orElse(""),
+                        body,
                         ExpressionFunctionInfoSet.class
                     ), // edit
                     context

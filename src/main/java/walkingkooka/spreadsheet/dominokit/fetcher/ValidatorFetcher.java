@@ -83,7 +83,7 @@ public final class ValidatorFetcher extends Fetcher<ValidatorFetcherWatcher> {
                 // GET http://server/api/validator/ValidatorName
                 this.watcher.onValidatorInfo(
                     this.parse(
-                        body.orElse(""),
+                        body,
                         ValidatorInfo.class
                     ), // edit
                     context
@@ -93,7 +93,7 @@ public final class ValidatorFetcher extends Fetcher<ValidatorFetcherWatcher> {
                 // GET http://server/api/validator
                 this.watcher.onValidatorInfoSet(
                     this.parse(
-                        body.orElse(""),
+                        body,
                         ValidatorInfoSet.class
                     ), // edit
                     context

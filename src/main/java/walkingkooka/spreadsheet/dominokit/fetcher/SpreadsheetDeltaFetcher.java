@@ -1183,7 +1183,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                     method, // method
                     url, // the request url
                     this.parse(
-                        body.orElse(""),
+                        body,
                         SpreadsheetDelta.class
                     ), // delta
                     context

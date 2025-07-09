@@ -116,7 +116,7 @@ public final class FormFetcher extends Fetcher<FormFetcherWatcher> {
                 this.watcher.onForm(
                     SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     this.parse(
-                        body.orElse(""),
+                        body,
                         SpreadsheetForms.FORM_CLASS
                     ), // edit
                     context

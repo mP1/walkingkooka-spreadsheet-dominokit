@@ -111,7 +111,7 @@ public final class ConverterFetcher extends Fetcher<ConverterFetcherWatcher> {
                 // GET http://server/api/converter
                 this.watcher.onConverterInfoSet(
                     this.parse(
-                        body.orElse(""),
+                        body,
                         ConverterInfoSet.class
                     ), // edit
                     context
@@ -123,7 +123,7 @@ public final class ConverterFetcher extends Fetcher<ConverterFetcherWatcher> {
                     SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     verifyConverterSelector(url),
                     this.parse(
-                        body.orElse(""),
+                        body,
                         MissingConverterSet.class
                     ), // MissingConverterSet
                     context

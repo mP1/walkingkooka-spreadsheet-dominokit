@@ -79,7 +79,7 @@ public final class SpreadsheetImporterFetcher extends Fetcher<SpreadsheetImporte
                 // GET http://server/api/importer
                 this.watcher.onSpreadsheetImporterInfoSet(
                     this.parse(
-                        body.orElse(""),
+                        body,
                         SpreadsheetImporterInfoSet.class
                     ), // edit
                     context
