@@ -18,13 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
 
 import java.util.OptionalInt;
 
-public final class FetcherTest implements ClassTesting2<Fetcher> {
+public final class FetcherTest implements ClassTesting2<Fetcher<?>> {
 
     // offsetAndCountQueryString........................................................................................
 
@@ -90,8 +91,8 @@ public final class FetcherTest implements ClassTesting2<Fetcher> {
     // class............................................................................................................
 
     @Override
-    public Class<Fetcher> type() {
-        return Fetcher.class;
+    public Class<Fetcher<?>> type() {
+        return Cast.to(Fetcher.class);
     }
 
     @Override
