@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.color.Color;
 import walkingkooka.net.UrlFragment;
@@ -41,16 +42,19 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolvers;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
+import walkingkooka.spreadsheet.validation.form.SpreadsheetForms;
 import walkingkooka.test.ParseStringTesting;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.form.Form;
 import walkingkooka.validation.form.FormName;
 import walkingkooka.validation.provider.ValidatorSelector;
 
@@ -4323,6 +4327,40 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                 ID,
                 NAME,
                 FormName.with("FormName123")
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameFormFormNameSave() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/form/FormName123/save",
+            HistoryToken.formSelect(
+                ID,
+                NAME,
+                FormName.with("FormName123")
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameFormFormNameSaveForm() {
+        final Form<SpreadsheetExpressionReference> form = SpreadsheetForms.form(
+            FormName.with("FormName123")
+        ).setFields(
+            Lists.of(
+                SpreadsheetForms.field(
+                    SpreadsheetSelection.A1
+                ).setLabel("LabelA1")
+            )
+        );
+
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/form/FormName123/save/" + JSON_NODE_MARSHALL_CONTEXT.marshall(form),
+            HistoryToken.formSave(
+                ID,
+                NAME,
+                form
             )
         );
     }

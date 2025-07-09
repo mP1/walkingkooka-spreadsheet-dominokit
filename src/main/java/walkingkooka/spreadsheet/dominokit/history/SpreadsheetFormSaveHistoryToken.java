@@ -17,53 +17,67 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.Value;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+import walkingkooka.validation.form.Form;
 import walkingkooka.validation.form.FormName;
 
 import java.util.Objects;
 
 /**
- * Selects a Form for viewing or editing.
+ * The save form action saves a new or replaces an existing {@link Form}.
  * <pre>
- * #/1/SpreadsheetName/form/FormName
+ * #/1/SpreadsheetName/form/FormName/save/Form
  * </pre>
  */
-public final class SpreadsheetFormSelectHistoryToken extends SpreadsheetFormHistoryToken {
+public final class SpreadsheetFormSaveHistoryToken extends SpreadsheetFormHistoryToken
+    implements Value<Form<SpreadsheetExpressionReference>> {
 
-    static SpreadsheetFormSelectHistoryToken with(final SpreadsheetId id,
-                                                  final SpreadsheetName name,
-                                                  final FormName formName) {
-        return new SpreadsheetFormSelectHistoryToken(
+    static SpreadsheetFormSaveHistoryToken with(final SpreadsheetId id,
+                                                final SpreadsheetName name,
+                                                final Form<SpreadsheetExpressionReference> form) {
+        return new SpreadsheetFormSaveHistoryToken(
             id,
             name,
-            formName
+            form
         );
     }
 
-    private SpreadsheetFormSelectHistoryToken(final SpreadsheetId id,
-                                              final SpreadsheetName name,
-                                              final FormName formName) {
+    private SpreadsheetFormSaveHistoryToken(final SpreadsheetId id,
+                                            final SpreadsheetName name,
+                                            final Form<SpreadsheetExpressionReference> form) {
         super(
             id,
             name
         );
-        this.formName = Objects.requireNonNull(formName, "formName");
+        this.form = Objects.requireNonNull(form, "form");
     }
 
     @Override
     public FormName formName() {
-        return this.formName;
+        return this.form.name();
     }
 
-    final FormName formName;
+    @Override
+    public Form<SpreadsheetExpressionReference> value() {
+        return this.form;
+    }
 
-    // #/1/SpreadsheetName/form/FormName
+    private final Form<SpreadsheetExpressionReference> form;
+
+    // #/1/SpreadsheetName/form/FormName/save/Form
     @Override
     UrlFragment formUrlFragment() {
-        return UrlFragment.EMPTY;
+        return SAVE.appendSlashThen(
+            UrlFragment.with(
+                MARSHALL_CONTEXT.marshall(this.form)
+                    .toString()
+            )
+        );
     }
 
     @Override //
@@ -72,14 +86,18 @@ public final class SpreadsheetFormSelectHistoryToken extends SpreadsheetFormHist
         return with(
             id,
             name,
-            this.formName
+            this.form
         );
     }
 
     // /1/SpreadsheetName/form/FormName
     @Override
     public HistoryToken clearAction() {
-        return this;
+        return formSelect(
+            this.id(),
+            this.name(),
+            this.formName()
+        );
     }
 
     @Override
