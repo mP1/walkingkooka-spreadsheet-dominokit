@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
+import walkingkooka.validation.form.FormName;
 
 import java.util.Optional;
 import java.util.function.Function;
@@ -75,6 +76,9 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
                 break;
             case DELETE_STRING:
                 result = this.parseDelete(cursor);
+                break;
+            case FORM_STRING:
+                result = this.parseForm(cursor);
                 break;
             case LABEL_CREATE_STRING:
                 result = this.parseLabelCreate(cursor);
@@ -219,6 +223,22 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
 
     private HistoryToken parseDelete(final TextCursor cursor) {
         return this.delete();
+    }
+
+    private HistoryToken parseForm(final TextCursor cursor) {
+        HistoryToken historyToken = this;
+
+        final Optional<String> maybeFormName = parseComponent(cursor);
+        if (maybeFormName.isPresent()) {
+            historyToken = formSelect(
+                this.id(),
+                this.name(),
+                FormName.with(
+                    maybeFormName.get()
+                )
+            );
+        }
+        return historyToken;
     }
 
     private HistoryToken parseLocale(final TextCursor cursor) {
