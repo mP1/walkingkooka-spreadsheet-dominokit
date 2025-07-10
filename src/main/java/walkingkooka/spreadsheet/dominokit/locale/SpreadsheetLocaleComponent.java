@@ -34,14 +34,14 @@ import java.util.Optional;
  * A drop down that supports picking an optional {@link Locale}.
  * TODO Display flags for each locale
  */
-final class SpreadsheetLocaleComponent implements FormValueComponent<HTMLFieldSetElement, Locale, SpreadsheetLocaleComponent>,
+public final class SpreadsheetLocaleComponent implements FormValueComponent<HTMLFieldSetElement, Locale, SpreadsheetLocaleComponent>,
     TreePrintable {
 
     /**
      * A {@link SpreadsheetLocaleComponent} which is initially empty, possible options to select must be added after
      * creation.
      */
-    static SpreadsheetLocaleComponent empty() {
+    public static SpreadsheetLocaleComponent empty() {
         return new SpreadsheetLocaleComponent();
     }
 

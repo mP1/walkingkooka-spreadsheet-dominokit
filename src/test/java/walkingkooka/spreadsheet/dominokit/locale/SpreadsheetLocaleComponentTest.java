@@ -84,6 +84,6 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
 
     @Override
     public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
+        return JavaVisibility.PUBLIC;
     }
 }
