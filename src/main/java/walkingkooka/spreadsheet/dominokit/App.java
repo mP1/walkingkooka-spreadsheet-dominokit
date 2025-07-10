@@ -21,18 +21,21 @@ import com.google.gwt.core.client.EntryPoint;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Headers;
 import walkingkooka.InvalidCharacterException;
+import walkingkooka.collect.map.Maps;
+import walkingkooka.collect.set.Sets;
 import walkingkooka.convert.CanConvert;
 import walkingkooka.convert.ConverterContexts;
 import walkingkooka.convert.provider.ConverterInfoSet;
 import walkingkooka.convert.provider.ConverterProvider;
 import walkingkooka.convert.provider.ConverterProviders;
 import walkingkooka.convert.provider.ConverterSelector;
+import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.environment.EnvironmentContext;
 import walkingkooka.environment.EnvironmentContexts;
 import walkingkooka.j2cl.locale.LocaleAware;
 import walkingkooka.locale.LocaleContext;
-import walkingkooka.locale.LocaleContextDelegator;
 import walkingkooka.locale.LocaleContexts;
+import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.email.EmailAddress;
@@ -187,6 +190,8 @@ import walkingkooka.validation.provider.ValidatorProviders;
 import java.math.MathContext;
 import java.time.LocalDateTime;
 import java.util.Locale;
+import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.Set;
@@ -199,7 +204,6 @@ public class App implements EntryPoint,
     HistoryContextDelegator,
     JsonNodeMarshallContextDelegator,
     JsonNodeUnmarshallContextDelegator,
-    LocaleContextDelegator,
     LoggingContextDelegator,
     NopEmptyResponseFetcherWatcher,
     ProviderContextDelegator,
@@ -412,6 +416,12 @@ public class App implements EntryPoint,
 
         DomGlobal.document.body.append(
             this.layout.element()
+        );
+
+        // load all Locales
+        this.localeFetcher.getLocales(
+            0,
+            Integer.MAX_VALUE
         );
     }
 
@@ -1045,11 +1055,71 @@ public class App implements EntryPoint,
         // NOP
     }
 
+    /**
+     * Save the loaded locales. These will appear in the {@link walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleComponent}.
+     */
     @Override
     public void onLocaleHateosResourceSet(final LocaleHateosResourceSet locales,
                                           final AppContext context) {
-        // NOP
+        final Set<Locale> availableLocales = Sets.hash();
+        final Map<Locale, String> localeToText = Maps.hash();
+
+        for(final LocaleHateosResource localeHateosResource : locales) {
+            final Locale locale = localeHateosResource.locale();
+
+            availableLocales.add(locale);
+
+            localeToText.put(
+                locale,
+                localeHateosResource.text()
+            );
+        }
+
+        this.availableLocales = Sets.readOnly(availableLocales);
+        this.localeToText = localeToText;
     }
+
+    // LocaleContext....................................................................................................
+
+    @Override
+    public Locale locale() {
+        return LOCALE_CONTEXT.locale(); // TODO use SpreadsheetMetadata.locale
+    }
+
+    @Override
+    public Set<Locale> availableLocales() {
+        return this.availableLocales;
+    }
+
+    /**
+     * Will be replaced when the server replies with all available locales.
+     */
+    private Set<Locale> availableLocales = Sets.empty();
+
+    @Override
+    public Optional<DateTimeSymbols> dateTimeSymbolsForLocale(final Locale locale) {
+        return LOCALE_CONTEXT.dateTimeSymbolsForLocale(locale);
+    }
+
+    @Override
+    public Optional<DecimalNumberSymbols> decimalNumberSymbolsForLocale(final Locale locale) {
+        return LOCALE_CONTEXT.decimalNumberSymbolsForLocale(locale);
+    }
+
+    @Override
+    public Optional<String> localeText(final Locale locale) {
+        Objects.requireNonNull(locale, "locale");
+
+        return Optional.of(
+            this.localeToText.get(locale)
+        );
+    }
+
+    private Map<Locale, String> localeToText = Maps.empty();
+
+    private final static LocaleContext LOCALE_CONTEXT = LocaleContexts.jre(
+        Locale.forLanguageTag("EN-AU")
+    ); // TODO use browser locale
 
     // SpreadsheetParserFetcher..........................................................................................
 
@@ -1426,22 +1496,6 @@ public class App implements EntryPoint,
     public LocalDateTime now() {
         return LocalDateTime.now();
     }
-
-    // LocaleContext....................................................................................................
-
-    @Override
-    public Locale locale() {
-        return LOCALE_CONTEXT.locale();
-    }
-
-    @Override
-    public LocaleContext localeContext() {
-        return LOCALE_CONTEXT;
-    }
-
-    private final static LocaleContext LOCALE_CONTEXT = LocaleContexts.jre(
-        Locale.forLanguageTag("EN-AU")
-    ); // TODO use browser locale
 
     // HistoryContextDelegator.....................................................................................
 
