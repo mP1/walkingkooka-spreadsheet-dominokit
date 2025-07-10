@@ -37,8 +37,8 @@ import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToValueMap;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellSet;
+import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToValueMap;
+import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;

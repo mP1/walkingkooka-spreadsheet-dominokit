@@ -22,7 +22,7 @@ import walkingkooka.collect.map.Maps;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToDateTimeSymbolsMap;
+import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToDateTimeSymbolsMap;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
