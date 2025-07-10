@@ -51,7 +51,7 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
             DATE_TIME_SYMBOLS
         );
 
-        this.onHistoryTokenChangeAndCheck(
+        this.onHistoryTokenChangeAndCheck2(
             DateTimeSymbolsDialogComponent.with(
                 DateTimeSymbolsDialogComponentContexts.cell(context)
             ),
@@ -125,7 +125,7 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
             DATE_TIME_SYMBOLS
         );
 
-        this.onHistoryTokenChangeAndCheck(
+        this.onHistoryTokenChangeAndCheck2(
             DateTimeSymbolsDialogComponent.with(
                 DateTimeSymbolsDialogComponentContexts.metadata(context)
             ),
@@ -187,7 +187,7 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
             null // missing DateTimeSymbols
         );
 
-        this.onHistoryTokenChangeAndCheck(
+        this.onHistoryTokenChangeAndCheck2(
             DateTimeSymbolsDialogComponent.with(
                 DateTimeSymbolsDialogComponentContexts.metadata(context)
             ),

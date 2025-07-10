@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
 import walkingkooka.plugin.PluginName;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 
 import java.util.Objects;
@@ -77,11 +76,5 @@ public final class PluginFileViewHistoryToken extends PluginNameHistoryToken {
     @Override
     public HistoryToken clearAction() {
         return pluginSelect(this.name);
-    }
-
-    @Override
-    public void onHistoryTokenChange(final HistoryToken previous,
-                                     final AppContext context) {
-        // NOP
     }
 }

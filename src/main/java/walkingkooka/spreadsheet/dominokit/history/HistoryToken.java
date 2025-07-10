@@ -32,11 +32,9 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetUrlFragments;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuItem;
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToValueMap;
@@ -121,13 +119,6 @@ import java.util.function.Function;
  *     #/1/Untitled/cell/D4/formatter/date/save/date-format DD/MM/YYYY
  * </pre>
  * This architecture makes it possible to program a macro system, manipulating a browser by simply sending new hash tokens.
- * <br>
- * The {@link #onHistoryTokenChange(HistoryToken, AppContext)} is implemented by some actions such as {@link SpreadsheetCellFormulaSaveHistoryToken},
- * which when it appears in the current history token hash will save a new formula text for the cell belonging to the spreadsheet id.
- * This is done by calling a REST end-point on the server using {@link SpreadsheetDeltaFetcher} which uses
- * the browser's fetch object with a JSON payload.
- * <br>
- * Comprehensive testing for parsing and more are available under the corresponding test history package.
  */
 public abstract class HistoryToken implements HasUrlFragment,
     HasSpreadsheetPatternKind {
@@ -5330,14 +5321,6 @@ public abstract class HistoryToken implements HasUrlFragment,
             cast
         );
     }
-
-    // onHistoryTokenChange.............................................................................................
-
-    /**
-     * Fired whenever a new history token change happens.
-     */
-    abstract public void onHistoryTokenChange(final HistoryToken previous,
-                                              final AppContext context);
 
     // UI...............................................................................................................
 

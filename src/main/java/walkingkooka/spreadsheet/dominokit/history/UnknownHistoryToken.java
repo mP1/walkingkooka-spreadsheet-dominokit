@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.text.cursor.TextCursor;
 
 import java.util.Objects;
@@ -62,11 +61,5 @@ public final class UnknownHistoryToken extends HistoryToken {
             id,
             name
         );
-    }
-
-    @Override
-    public void onHistoryTokenChange(final HistoryToken previous,
-                                     final AppContext context) {
-        // nop
     }
 }
