@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
+import walkingkooka.validation.ValidationValueTypeName;
 
 import java.util.List;
 import java.util.Objects;
@@ -33,7 +34,7 @@ import java.util.Optional;
 /**
  * A drop down that supports picking an optional {@link String spreadsheet value type}.
  */
-final class SpreadsheetValueTypeComponent implements FormValueComponent<HTMLFieldSetElement, String, SpreadsheetValueTypeComponent>,
+final class SpreadsheetValueTypeComponent implements FormValueComponent<HTMLFieldSetElement, ValidationValueTypeName, SpreadsheetValueTypeComponent>,
     TreePrintable {
 
     static SpreadsheetValueTypeComponent empty() {
@@ -41,16 +42,16 @@ final class SpreadsheetValueTypeComponent implements FormValueComponent<HTMLFiel
     }
 
     private SpreadsheetValueTypeComponent() {
-        final SpreadsheetSelectComponent<String> select = SpreadsheetSelectComponent.empty();
+        final SpreadsheetSelectComponent<ValidationValueTypeName> select = SpreadsheetSelectComponent.empty();
 
         select.appendValue("Any", SpreadsheetValueType.ANY);
-        select.appendValue("Boolean", SpreadsheetValueType.BOOLEAN_STRING);
-        select.appendValue("Date", SpreadsheetValueType.DATE_STRING);
-        select.appendValue("Error", SpreadsheetValueType.ERROR_STRING);
-        select.appendValue("DateTime", SpreadsheetValueType.DATE_TIME_STRING);
-        select.appendValue("Number", SpreadsheetValueType.NUMBER_STRING);
-        select.appendValue("Text", SpreadsheetValueType.TEXT_STRING);
-        select.appendValue("Time", SpreadsheetValueType.TIME_STRING);
+        select.appendValue("Boolean", SpreadsheetValueType.BOOLEAN);
+        select.appendValue("Date", SpreadsheetValueType.DATE);
+        select.appendValue("Error", SpreadsheetValueType.ERROR);
+        select.appendValue("DateTime", SpreadsheetValueType.DATE_TIME);
+        select.appendValue("Number", SpreadsheetValueType.NUMBER);
+        select.appendValue("Text", SpreadsheetValueType.TEXT);
+        select.appendValue("Time", SpreadsheetValueType.TIME);
 
         this.select = select;
     }
@@ -158,7 +159,7 @@ final class SpreadsheetValueTypeComponent implements FormValueComponent<HTMLFiel
     }
 
     @Override
-    public SpreadsheetValueTypeComponent addChangeListener(final ChangeListener<Optional<String>> listener) {
+    public SpreadsheetValueTypeComponent addChangeListener(final ChangeListener<Optional<ValidationValueTypeName>> listener) {
         this.select.addChangeListener(listener);
         return this;
     }
@@ -221,7 +222,7 @@ final class SpreadsheetValueTypeComponent implements FormValueComponent<HTMLFiel
     // Value............................................................................................................
 
     @Override
-    public SpreadsheetValueTypeComponent setValue(final Optional<String> valueType) {
+    public SpreadsheetValueTypeComponent setValue(final Optional<ValidationValueTypeName> valueType) {
         Objects.requireNonNull(valueType, "valueType");
 
         this.select.setValue(valueType);
@@ -229,11 +230,11 @@ final class SpreadsheetValueTypeComponent implements FormValueComponent<HTMLFiel
     }
 
     @Override //
-    public Optional<String> value() {
+    public Optional<ValidationValueTypeName> value() {
         return this.select.value();
     }
 
-    private final SpreadsheetSelectComponent<String> select;
+    private final SpreadsheetSelectComponent<ValidationValueTypeName> select;
 
     // Object...........................................................................................................
 

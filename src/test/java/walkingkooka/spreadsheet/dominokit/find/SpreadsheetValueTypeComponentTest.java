@@ -22,10 +22,11 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.validation.ValidationValueTypeName;
 
 import java.util.Optional;
 
-public final class SpreadsheetValueTypeComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, String, SpreadsheetValueTypeComponent> {
+public final class SpreadsheetValueTypeComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, ValidationValueTypeName, SpreadsheetValueTypeComponent> {
 
     @Test
     public void testTreePrintWithoutValue() {
@@ -70,7 +71,7 @@ public final class SpreadsheetValueTypeComponentTest implements FormValueCompone
             SpreadsheetValueTypeComponent.empty()
                 .setValue(
                     Optional.of(
-                        SpreadsheetValueType.BOOLEAN_STRING
+                        SpreadsheetValueType.BOOLEAN
                     )
                 ),
             "SpreadsheetValueTypeComponent\n" +
