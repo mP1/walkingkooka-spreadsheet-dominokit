@@ -4516,10 +4516,9 @@ public abstract class HistoryToken implements HasUrlFragment,
                                 name,
                                 propertyName,
                                 Cast.to(
-                                    Optional.ofNullable(
-                                        value.isEmpty() ?
-                                            null :
-                                            propertyName.parseUrlFragmentSaveValue(value)
+                                    parseIntoOptional(
+                                        value,
+                                        propertyName::parseUrlFragmentSaveValue
                                     )
                                 )
                             );
@@ -4535,10 +4534,9 @@ public abstract class HistoryToken implements HasUrlFragment,
                                 name,
                                 propertyName,
                                 Cast.to(
-                                    Optional.ofNullable(
-                                        value.isEmpty() ?
-                                            null :
-                                            propertyName.parseValue(value)
+                                    parseIntoOptional(
+                                        value,
+                                        propertyName::parseValue
                                     )
                                 )
                             );
@@ -4556,10 +4554,9 @@ public abstract class HistoryToken implements HasUrlFragment,
                                         id,
                                         name,
                                         anchoredSpreadsheetSelection,
-                                        Optional.ofNullable(
-                                            value.isEmpty() ?
-                                                null :
-                                                DateTimeSymbols.parse(value)
+                                        parseIntoOptional(
+                                            value,
+                                            DateTimeSymbols::parse
                                         )
                                     );
                                 }
@@ -4569,10 +4566,9 @@ public abstract class HistoryToken implements HasUrlFragment,
                                         id,
                                         name,
                                         anchoredSpreadsheetSelection,
-                                        Optional.ofNullable(
-                                            value.isEmpty() ?
-                                                null :
-                                                DecimalNumberSymbols.parse(value)
+                                        parseIntoOptional(
+                                            value,
+                                            DecimalNumberSymbols::parse
                                         )
                                     );
                                 }
@@ -4582,10 +4578,9 @@ public abstract class HistoryToken implements HasUrlFragment,
                                         id,
                                         name,
                                         anchoredSpreadsheetSelection,
-                                        Optional.ofNullable(
-                                            value.isEmpty() ?
-                                                null :
-                                                SpreadsheetFormatterSelector.parse(value)
+                                        parseIntoOptional(
+                                            value,
+                                            SpreadsheetFormatterSelector::parse
                                         )
                                     );
                                 }
@@ -4649,10 +4644,9 @@ public abstract class HistoryToken implements HasUrlFragment,
                                         id,
                                         name,
                                         anchoredSpreadsheetSelection,
-                                        Optional.ofNullable(
-                                            value.isEmpty() ?
-                                                null :
-                                                SpreadsheetParserSelector.parse(value)
+                                        parseIntoOptional(
+                                            value,
+                                            SpreadsheetParserSelector::parse
                                         )
                                     );
                                 }
@@ -4701,10 +4695,9 @@ public abstract class HistoryToken implements HasUrlFragment,
                                         anchoredSpreadsheetSelection,
                                         propertyName,
                                         Cast.to(
-                                            Optional.ofNullable(
-                                                value.isEmpty() ?
-                                                    null :
-                                                    propertyName.parseValue(value)
+                                            parseIntoOptional(
+                                                value,
+                                                propertyName::parseValue
                                             )
                                         )
                                     );
@@ -4715,10 +4708,9 @@ public abstract class HistoryToken implements HasUrlFragment,
                                         id,
                                         name,
                                         anchoredSpreadsheetSelection,
-                                        Optional.ofNullable(
-                                            value.isEmpty() ?
-                                                null :
-                                                ValidatorSelector.parse(value)
+                                        parseIntoOptional(
+                                            value,
+                                            ValidatorSelector::parse
                                         )
                                     );
                                 }
@@ -4739,10 +4731,9 @@ public abstract class HistoryToken implements HasUrlFragment,
                                         id,
                                         name,
                                         anchoredSpreadsheetSelection,
-                                        Optional.ofNullable(
-                                            value.isEmpty() ?
-                                                null :
-                                                ValidationValueTypeName.with(value)
+                                        parseIntoOptional(
+                                            value,
+                                            ValidationValueTypeName::with
                                         )
                                     );
                                 }
@@ -4813,6 +4804,15 @@ public abstract class HistoryToken implements HasUrlFragment,
         return this.equals(saved) ?
             this :
             saved;
+    }
+
+    private static <T> Optional<T> parseIntoOptional(final String text,
+                                                     final Function<String, T> notEmptyParser) {
+        return Optional.ofNullable(
+            text.isEmpty() ?
+                null :
+                notEmptyParser.apply(text)
+        );
     }
 
     /**
