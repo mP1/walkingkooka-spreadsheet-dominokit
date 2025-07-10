@@ -32,7 +32,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * A drop down that supports picking an optional {@link String spreadsheet value type}.
+ * A drop down that supports picking an optional {@link ValidationValueTypeName}.
  */
 public final class SpreadsheetValueTypeComponent implements FormValueComponent<HTMLFieldSetElement, ValidationValueTypeName, SpreadsheetValueTypeComponent>,
     TreePrintable {
