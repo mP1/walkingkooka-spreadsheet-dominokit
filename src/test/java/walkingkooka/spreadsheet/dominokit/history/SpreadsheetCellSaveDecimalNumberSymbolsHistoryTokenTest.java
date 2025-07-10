@@ -23,7 +23,7 @@ import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellReferenceToDecimalNumberSymbolsMap;
+import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToDecimalNumberSymbolsMap;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
