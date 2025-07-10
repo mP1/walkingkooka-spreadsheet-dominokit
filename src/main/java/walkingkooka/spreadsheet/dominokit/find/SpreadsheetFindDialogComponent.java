@@ -36,6 +36,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToke
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
 import walkingkooka.spreadsheet.dominokit.row.SpreadsheetRowComponent;
 import walkingkooka.spreadsheet.dominokit.textmatch.TextMatchComponent;
+import walkingkooka.spreadsheet.dominokit.valuetype.SpreadsheetValueTypeComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
