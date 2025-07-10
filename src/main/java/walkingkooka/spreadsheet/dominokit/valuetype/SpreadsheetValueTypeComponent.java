@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.find;
+package walkingkooka.spreadsheet.dominokit.valuetype;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
@@ -34,10 +34,10 @@ import java.util.Optional;
 /**
  * A drop down that supports picking an optional {@link String spreadsheet value type}.
  */
-final class SpreadsheetValueTypeComponent implements FormValueComponent<HTMLFieldSetElement, ValidationValueTypeName, SpreadsheetValueTypeComponent>,
+public final class SpreadsheetValueTypeComponent implements FormValueComponent<HTMLFieldSetElement, ValidationValueTypeName, SpreadsheetValueTypeComponent>,
     TreePrintable {
 
-    static SpreadsheetValueTypeComponent empty() {
+    public static SpreadsheetValueTypeComponent empty() {
         return new SpreadsheetValueTypeComponent();
     }
 
