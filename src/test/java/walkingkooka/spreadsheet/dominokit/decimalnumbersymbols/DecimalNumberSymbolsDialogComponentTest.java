@@ -151,7 +151,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
             DECIMAL_NUMBER_SYMBOLS
         );
 
-        this.onHistoryTokenChangeAndCheck(
+        this.onHistoryTokenChangeAndCheck2(
             DecimalNumberSymbolsDialogComponent.with(
                 DecimalNumberSymbolsDialogComponentContexts.metadata(context)
             ),
@@ -233,7 +233,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
             null // missing
         );
 
-        this.onHistoryTokenChangeAndCheck(
+        this.onHistoryTokenChangeAndCheck2(
             DecimalNumberSymbolsDialogComponent.with(
                 DecimalNumberSymbolsDialogComponentContexts.metadata(context)
             ),

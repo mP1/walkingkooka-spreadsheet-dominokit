@@ -30,7 +30,7 @@ import walkingkooka.text.cursor.TextCursor;
  * /spreadsheet-id
  * </pre>
  */
-public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken {
+public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken implements HistoryTokenWatcher {
 
     static SpreadsheetLoadHistoryToken with(final SpreadsheetId id) {
         return new SpreadsheetLoadHistoryToken(
@@ -69,6 +69,8 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
             name
         );
     }
+
+    // HistoryTokenWatcher..............................................................................................
 
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,

@@ -162,10 +162,12 @@ final class AppHistoryContextHistoryWatcher implements HistoryContext,
 
         this.firePrevious = previous;
         try {
-            historyToken.onHistoryTokenChange(
-                previous,
-                context
-            );
+            if (historyToken instanceof HistoryTokenWatcher) {
+                ((HistoryTokenWatcher) historyToken).onHistoryTokenChange(
+                    previous,
+                    context
+                );
+            }
         } finally {
             this.firePrevious = null;
         }

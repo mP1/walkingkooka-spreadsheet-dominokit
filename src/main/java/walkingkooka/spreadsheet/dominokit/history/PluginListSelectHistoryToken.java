@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
  * /plugin/STAR/offset/1/count/10/
  * </pre>
  */
-public final class PluginListSelectHistoryToken extends PluginListHistoryToken {
+public final class PluginListSelectHistoryToken extends PluginListHistoryToken implements HistoryTokenWatcher {
 
     static PluginListSelectHistoryToken with(final HistoryTokenOffsetAndCount offsetAndCount) {
         return new PluginListSelectHistoryToken(offsetAndCount);
@@ -50,7 +50,7 @@ public final class PluginListSelectHistoryToken extends PluginListHistoryToken {
         return HistoryToken.spreadsheetListSelect(HistoryTokenOffsetAndCount.EMPTY);
     }
 
-    // HistoryToken.....................................................................................................
+    // HistoryTokenWatcher..............................................................................................
 
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,

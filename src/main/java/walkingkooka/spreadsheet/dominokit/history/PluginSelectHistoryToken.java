@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
 import walkingkooka.plugin.PluginName;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 
 import java.util.Objects;
 
@@ -53,11 +52,5 @@ public final class PluginSelectHistoryToken extends PluginNameHistoryToken {
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.pluginListSelect(HistoryTokenOffsetAndCount.EMPTY);
-    }
-
-    @Override
-    public void onHistoryTokenChange(final HistoryToken previous,
-                                     final AppContext context) {
-        // NOP
     }
 }

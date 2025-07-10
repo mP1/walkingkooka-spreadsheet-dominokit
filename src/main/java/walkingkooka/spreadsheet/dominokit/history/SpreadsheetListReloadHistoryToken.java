@@ -27,7 +27,7 @@ import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListDialogCompo
  * /reload
  * </pre>
  */
-public final class SpreadsheetListReloadHistoryToken extends SpreadsheetListHistoryToken {
+public final class SpreadsheetListReloadHistoryToken extends SpreadsheetListHistoryToken implements HistoryTokenWatcher {
 
     static SpreadsheetListReloadHistoryToken with(final HistoryTokenOffsetAndCount offsetAndCount) {
         return new SpreadsheetListReloadHistoryToken(
@@ -57,7 +57,7 @@ public final class SpreadsheetListReloadHistoryToken extends SpreadsheetListHist
         );
     }
 
-    // HistoryToken.....................................................................................................
+    // HistoryTokenWatcher..............................................................................................
 
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,

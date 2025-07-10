@@ -33,7 +33,8 @@ import java.util.Objects;
  * /rename/123/save/new-spreadsheet-name-here
  * </pre>
  */
-public final class SpreadsheetListRenameSaveHistoryToken extends SpreadsheetListRenameHistoryToken implements Value<SpreadsheetName> {
+public final class SpreadsheetListRenameSaveHistoryToken extends SpreadsheetListRenameHistoryToken implements Value<SpreadsheetName>,
+    HistoryTokenWatcher{
 
     static SpreadsheetListRenameSaveHistoryToken with(final SpreadsheetId id,
                                                       final SpreadsheetName value) {
@@ -86,6 +87,8 @@ public final class SpreadsheetListRenameSaveHistoryToken extends SpreadsheetList
                            final TextCursor cursor) {
         return this; // ignore tokens after /save/SpreadsheetName
     }
+
+    // HistoryTokenWatcher..............................................................................................
 
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,

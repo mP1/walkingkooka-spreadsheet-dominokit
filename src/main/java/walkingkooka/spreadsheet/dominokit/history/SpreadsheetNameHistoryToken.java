@@ -30,7 +30,8 @@ import walkingkooka.tree.text.TextStylePropertyName;
 import java.util.Objects;
 import java.util.Optional;
 
-public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryToken implements HasName<SpreadsheetName> {
+public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryToken implements HasName<SpreadsheetName>,
+    HistoryTokenWatcher {
 
     SpreadsheetNameHistoryToken(final SpreadsheetId id,
                                 final SpreadsheetName name) {

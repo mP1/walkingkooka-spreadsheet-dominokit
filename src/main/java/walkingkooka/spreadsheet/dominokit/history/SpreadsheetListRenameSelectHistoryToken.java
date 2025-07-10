@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.text.cursor.TextCursor;
 
 /**
@@ -68,11 +67,5 @@ public final class SpreadsheetListRenameSelectHistoryToken extends SpreadsheetLi
         }
 
         return historyToken;
-    }
-
-    @Override
-    public void onHistoryTokenChange(final HistoryToken previous,
-                                     final AppContext context) {
-        // nop
     }
 }

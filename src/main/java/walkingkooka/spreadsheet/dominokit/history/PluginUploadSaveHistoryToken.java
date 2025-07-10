@@ -30,7 +30,8 @@ import java.util.Objects;
  * A history token that saves the given file.
  */
 public final class PluginUploadSaveHistoryToken extends PluginUploadHistoryToken
-    implements Value<BrowserFile> {
+    implements Value<BrowserFile>,
+    HistoryTokenWatcher{
 
     /**
      * Factory
@@ -77,6 +78,8 @@ public final class PluginUploadSaveHistoryToken extends PluginUploadHistoryToken
     public HistoryToken clearAction() {
         return HistoryToken.pluginUploadSelect();
     }
+
+    // HistoryTokenWatcher..............................................................................................
 
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,

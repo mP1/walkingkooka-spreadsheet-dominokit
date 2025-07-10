@@ -54,10 +54,10 @@ public interface HistoryTokenAwareComponentLifecycleTesting<T extends HistoryTok
         );
     }
 
-    default <TT extends HistoryTokenAwareComponentLifecycle & TreePrintable> void onHistoryTokenChangeAndCheck(final TT component,
-                                                                                                               final HistoryToken previous,
-                                                                                                               final AppContext context,
-                                                                                                               final String expected) {
+    default <TT extends HistoryTokenAwareComponentLifecycle & TreePrintable> void onHistoryTokenChangeAndCheck2(final TT component,
+                                                                                                                final HistoryToken previous,
+                                                                                                                final AppContext context,
+                                                                                                                final String expected) {
         this.onHistoryTokenChangeAndCheck(
             component,
             component,
