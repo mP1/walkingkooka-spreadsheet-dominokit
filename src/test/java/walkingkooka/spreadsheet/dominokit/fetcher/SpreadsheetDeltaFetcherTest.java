@@ -862,8 +862,8 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
 
     private final static OptionalInt COUNT = OptionalInt.of(34);
 
-    private final static Optional<String> VALUE_TYPE = Optional.of(
-        SpreadsheetValueType.DATE_STRING
+    private final static Optional<ValidationValueTypeName> VALUE_TYPE = Optional.of(
+        SpreadsheetValueType.DATE
     );
 
     private final static Optional<SpreadsheetCellQuery> QUERY = Optional.of(
@@ -947,7 +947,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
             SpreadsheetCellFindQuery.empty()
                 .setValueType(
                     Optional.of(
-                        SpreadsheetValueType.NUMBER_STRING)
+                        SpreadsheetValueType.NUMBER)
                 ),
             Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?value-type=number")
         );

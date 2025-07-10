@@ -28,6 +28,7 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
+import walkingkooka.validation.ValidationValueTypeName;
 
 import java.util.Optional;
 import java.util.OptionalInt;
@@ -270,7 +271,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
             ), // path
             OptionalInt.of(123), // offset
             OptionalInt.of(456), // count
-            Optional.of(SpreadsheetValueType.NUMBER_STRING), // valueType
+            Optional.of(SpreadsheetValueType.NUMBER),
             Optional.empty() // query
         );
     }
@@ -284,7 +285,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
             ), // path
             OptionalInt.of(1234), // offset
             OptionalInt.of(5678), // count
-            Optional.of(SpreadsheetValueType.DATE_STRING), // valueType
+            Optional.of(SpreadsheetValueType.DATE),
             Optional.empty() // query
         );
     }
@@ -300,7 +301,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
             ), // path
             OptionalInt.of(1234), // offset
             OptionalInt.of(5678), // count
-            Optional.of(SpreadsheetValueType.DATE_STRING), // valueType
+            Optional.of(SpreadsheetValueType.DATE),
             Optional.of(
                 SpreadsheetCellQuery.parse(query)
             )// query
@@ -318,7 +319,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
             ), // path
             OptionalInt.of(1234), // offset
             OptionalInt.of(5678), // count
-            Optional.of(SpreadsheetValueType.TIME_STRING), // valueType
+            Optional.of(SpreadsheetValueType.TIME),
             Optional.of(
                 SpreadsheetCellQuery.parse(query)
             )// query
@@ -368,7 +369,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
             Optional.empty(), // path
             OptionalInt.empty(), // offset
             OptionalInt.empty(), // count
-            Optional.of(SpreadsheetValueType.TIME_STRING), // valueType
+            Optional.of(SpreadsheetValueType.TIME),
             Optional.empty() // query
         );
     }
@@ -382,7 +383,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
             Optional.empty(), // path
             OptionalInt.empty(), // offset
             OptionalInt.empty(), // count
-            Optional.of(SpreadsheetValueType.TIME_STRING), // valueType
+            Optional.of(SpreadsheetValueType.TIME),
             Optional.of(
                 SpreadsheetCellQuery.parse(query)
             )// query
@@ -409,7 +410,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
                                 final Optional<SpreadsheetCellRangeReferencePath> path,
                                 final OptionalInt offset,
                                 final OptionalInt count,
-                                final Optional<String> valueType,
+                                final Optional<ValidationValueTypeName> valueType,
                                 final Optional<SpreadsheetCellQuery> query) {
         this.parseAndCheck(
             url,
