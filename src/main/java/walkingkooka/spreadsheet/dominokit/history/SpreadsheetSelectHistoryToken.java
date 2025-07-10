@@ -75,7 +75,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
                 result = this.parseColumn(cursor);
                 break;
             case DELETE_STRING:
-                result = this.parseDelete(cursor);
+                result = this.delete();
                 break;
             case FORM_STRING:
                 result = this.parseForm(cursor);
@@ -90,10 +90,10 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
                 result = this.parseMetadata(cursor);
                 break;
             case RELOAD_STRING:
-                result = this.parseReload(cursor);
+                result = this.reload();
                 break;
             case RENAME_STRING:
-                result = this.parseRename(cursor);
+                result = this.rename();
                 break;
             case ROW_STRING:
                 result = this.parseRow(cursor);
@@ -176,52 +176,6 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
         return result;
     }
 
-    private HistoryToken parseLabelCreate(final TextCursor cursor) {
-        return HistoryToken.labelMappingCreate(
-            this.id(),
-            this.name()
-        ).parse(cursor);
-    }
-
-    private HistoryToken parseLabel(final TextCursor cursor) {
-        final HistoryToken token;
-
-        final SpreadsheetId id = this.id();
-        final SpreadsheetName name = this.name();
-
-        final String component = parseComponentOrEmpty(cursor);
-
-        switch (component) {
-            case "":
-                token = HistoryToken.labelMappingList(
-                    id,
-                    name,
-                    HistoryTokenOffsetAndCount.EMPTY
-                );
-                break;
-            case WILDCARD_STRING:
-                token = HistoryToken.labelMappingList(
-                    id,
-                    name,
-                        HistoryTokenOffsetAndCount.EMPTY
-                    ).parseOffsetAndCount(cursor);
-                break;
-            default:
-                token = HistoryToken.labelMappingSelect(
-                    id,
-                    name,
-                    SpreadsheetSelection.labelName(component)
-                );
-                break;
-        }
-
-        return token;
-    }
-
-    private HistoryToken parseDelete(final TextCursor cursor) {
-        return this.delete();
-    }
-
     private HistoryToken parseForm(final TextCursor cursor) {
         final HistoryToken token;
 
@@ -250,6 +204,48 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
                     id,
                     name,
                     FormName.with(component)
+                );
+                break;
+        }
+
+        return token;
+    }
+
+    private HistoryToken parseLabelCreate(final TextCursor cursor) {
+        return HistoryToken.labelMappingCreate(
+            this.id(),
+            this.name()
+        ).parse(cursor);
+    }
+
+    private HistoryToken parseLabel(final TextCursor cursor) {
+        final HistoryToken token;
+
+        final SpreadsheetId id = this.id();
+        final SpreadsheetName name = this.name();
+
+        final String component = parseComponentOrEmpty(cursor);
+
+        switch (component) {
+            case "":
+                token = HistoryToken.labelMappingList(
+                    id,
+                    name,
+                    HistoryTokenOffsetAndCount.EMPTY
+                );
+                break;
+            case WILDCARD_STRING:
+                token = HistoryToken.labelMappingList(
+                    id,
+                    name,
+                    HistoryTokenOffsetAndCount.EMPTY
+                ).parseOffsetAndCount(cursor);
+                break;
+            default:
+                token = HistoryToken.labelMappingSelect(
+                    id,
+                    name,
+                    SpreadsheetSelection.labelName(component)
                 );
                 break;
         }
@@ -292,14 +288,6 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
         return result;
     }
 
-    private HistoryToken parseReload(final TextCursor cursor) {
-        return this.reload();
-    }
-
-    private HistoryToken parseRename(final TextCursor cursor) {
-        return this.rename();
-    }
-
     @Override
     public HistoryToken clearAction() {
         return this;
@@ -328,6 +316,6 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-
+        // NOP
     }
 }
