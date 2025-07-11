@@ -18,6 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.locale;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchersDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
@@ -25,7 +27,8 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Objects;
 
-final class AppContextSpreadsheetLocaleComponentDialogComponentContextSpreadsheetMetadataLocale extends AppContextSpreadsheetLocaleComponentDialogComponentContext {
+final class AppContextSpreadsheetLocaleComponentDialogComponentContextSpreadsheetMetadataLocale extends AppContextSpreadsheetLocaleComponentDialogComponentContext
+    implements HasSpreadsheetMetadataFetcherWatchersDelegator {
 
     static AppContextSpreadsheetLocaleComponentDialogComponentContextSpreadsheetMetadataLocale with(final AppContext context) {
         return new AppContextSpreadsheetLocaleComponentDialogComponentContextSpreadsheetMetadataLocale(
@@ -52,6 +55,13 @@ final class AppContextSpreadsheetLocaleComponentDialogComponentContextSpreadshee
     @Override
     public Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
         return null;
+    }
+
+    // HasSpreadsheetMetadataFetcherWatchersDelegator...................................................................
+
+    @Override
+    public HasSpreadsheetMetadataFetcherWatchers hasSpreadsheetMetadataFetcherWatchers() {
+        return this.context;
     }
 
     // ComponentLifecycleMatcher........................................................................................

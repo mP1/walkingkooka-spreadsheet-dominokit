@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.locale;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchersDelegator;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleSelectHistoryToken;
 
@@ -52,6 +53,20 @@ final class AppContextSpreadsheetLocaleComponentDialogComponentContextCellLocale
     @Override
     public HasSpreadsheetDeltaFetcher hasSpreadsheetDeltaFetcherWatchers() {
         return this.context;
+    }
+
+    // HasSpreadsheetMetadataFetcherWatchers............................................................................
+
+    @Override
+    public Runnable addSpreadsheetMetadataFetcherWatcherOnce(final SpreadsheetMetadataFetcherWatcher watcher) {
+        // NOP
+        return null;
+    }
+
+    @Override
+    public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+        // NOP
+        return null;
     }
 
     // ComponentLifecycleMatcher........................................................................................

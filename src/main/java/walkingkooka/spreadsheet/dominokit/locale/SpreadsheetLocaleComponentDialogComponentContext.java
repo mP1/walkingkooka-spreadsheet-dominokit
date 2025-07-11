@@ -21,11 +21,13 @@ import walkingkooka.locale.LocaleContext;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
 
 public interface SpreadsheetLocaleComponentDialogComponentContext extends SpreadsheetDialogComponentContext,
     LocaleContext,
     ComponentLifecycleMatcher,
-    HasSpreadsheetDeltaFetcherWatchers {
+    HasSpreadsheetDeltaFetcherWatchers,
+    HasSpreadsheetMetadataFetcherWatchers {
 
     /**
      * The title to display on the dialog.
