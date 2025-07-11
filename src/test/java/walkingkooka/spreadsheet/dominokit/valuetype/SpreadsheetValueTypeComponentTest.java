@@ -38,8 +38,8 @@ public final class SpreadsheetValueTypeComponentTest implements FormValueCompone
                 "      Any=*\n" +
                 "      Boolean=boolean\n" +
                 "      Date=date\n" +
+                "      Date Time=dateTime\n" +
                 "      Error=error\n" +
-                "      DateTime=dateTime\n" +
                 "      Number=number\n" +
                 "      Text=text\n" +
                 "      Time=time\n"
@@ -57,8 +57,8 @@ public final class SpreadsheetValueTypeComponentTest implements FormValueCompone
                 "      Any=*\n" +
                 "      Boolean=boolean\n" +
                 "      Date=date\n" +
+                "      Date Time=dateTime\n" +
                 "      Error=error\n" +
-                "      DateTime=dateTime\n" +
                 "      Number=number\n" +
                 "      Text=text\n" +
                 "      Time=time\n"
@@ -80,8 +80,8 @@ public final class SpreadsheetValueTypeComponentTest implements FormValueCompone
                 "      Any=*\n" +
                 "      Boolean=boolean\n" +
                 "      Date=date\n" +
+                "      Date Time=dateTime\n" +
                 "      Error=error\n" +
-                "      DateTime=dateTime\n" +
                 "      Number=number\n" +
                 "      Text=text\n" +
                 "      Time=time\n"
