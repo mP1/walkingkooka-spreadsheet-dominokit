@@ -35,6 +35,15 @@ final class AppContextSpreadsheetLocaleComponentDialogComponentContextCellLocale
         super(context);
     }
 
+    @Override
+    public String dialogTitle() {
+        return "Cell " + this.historyContext()
+            .historyToken()
+            .selection()
+            .get() +
+            " Locale";
+    }
+
     // ComponentLifecycleMatcher........................................................................................
 
     // /spreadsheet/1/SpreadsheetName/cell/A1/Locale/delete

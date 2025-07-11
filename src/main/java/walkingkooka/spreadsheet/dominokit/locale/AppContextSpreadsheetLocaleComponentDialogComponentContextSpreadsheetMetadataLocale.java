@@ -36,6 +36,11 @@ final class AppContextSpreadsheetLocaleComponentDialogComponentContextSpreadshee
         super(context);
     }
 
+    @Override
+    public String dialogTitle() {
+        return "Spreadsheet Locale";
+    }
+
     // ComponentLifecycleMatcher........................................................................................
 
     // /spreadsheet/1/SpreadsheetName/metadata/Locale/delete
