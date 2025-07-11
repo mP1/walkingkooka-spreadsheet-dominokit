@@ -38,6 +38,18 @@ public final class AppContextSpreadsheetLocaleComponentDialogComponentContextSpr
         );
     }
 
+    // DialogTitle......................................................................................................
+
+    @Test
+    public void testDialogTitle() {
+        this.dialogTitleAndCheck(
+            this.createContext(),
+            "Spreadsheet Locale"
+        );
+    }
+
+    // IsMatch..........................................................................................................
+
     @Test
     public void testisMatchWithSpreadsheetMetadataSelectWithLocale() {
         this.isMatchAndCheck(

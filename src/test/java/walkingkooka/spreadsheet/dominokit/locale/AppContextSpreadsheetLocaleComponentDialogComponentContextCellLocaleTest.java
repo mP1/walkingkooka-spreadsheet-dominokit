@@ -38,6 +38,18 @@ public final class AppContextSpreadsheetLocaleComponentDialogComponentContextCel
         );
     }
 
+    // DialogTitle......................................................................................................
+
+    @Test
+    public void testDialogTitle() {
+        this.dialogTitleAndCheck(
+            this.createContext(),
+            "Cell A1 Locale"
+        );
+    }
+
+    // IsMatch..........................................................................................................
+
     @Test
     public void testisMatchWithSpreadsheetMetadataSelectWithLocale() {
         this.isMatchAndCheck(
@@ -95,7 +107,16 @@ public final class AppContextSpreadsheetLocaleComponentDialogComponentContextCel
     @Override
     public AppContextSpreadsheetLocaleComponentDialogComponentContextCellLocale createContext() {
         return AppContextSpreadsheetLocaleComponentDialogComponentContextCellLocale.with(
-            new FakeAppContext()
+            new FakeAppContext() {
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.cellLocaleSelect(
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME,
+                        SpreadsheetSelection.A1.setDefaultAnchor()
+                    );
+                }
+            }
         );
     }
 

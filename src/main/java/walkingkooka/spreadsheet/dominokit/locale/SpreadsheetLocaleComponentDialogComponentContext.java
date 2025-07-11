@@ -24,4 +24,9 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentConte
 public interface SpreadsheetLocaleComponentDialogComponentContext extends SpreadsheetDialogComponentContext,
     LocaleContext,
     ComponentLifecycleMatcher {
+
+    /**
+     * The title to display on the dialog.
+     */
+    String dialogTitle();
 }

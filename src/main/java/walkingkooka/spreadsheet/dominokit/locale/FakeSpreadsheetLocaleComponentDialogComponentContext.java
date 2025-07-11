@@ -32,6 +32,11 @@ public class FakeSpreadsheetLocaleComponentDialogComponentContext extends FakeSp
         super();
     }
 
+    @Override
+    public String dialogTitle() {
+        throw new UnsupportedOperationException();
+    }
+
     // LocaleContext....................................................................................................
 
     @Override

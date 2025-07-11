@@ -25,6 +25,14 @@ public interface SpreadsheetLocaleComponentDialogComponentContextTesting<C exten
     LocaleContextTesting,
     ComponentLifecycleMatcherTesting<C> {
 
+    default void dialogTitleAndCheck(final C context,
+                                     final String expected) {
+        this.checkEquals(
+            expected,
+            context.dialogTitle()
+        );
+    }
+
     @Override
     default String typeNameSuffix() {
         return SpreadsheetLocaleComponentDialogComponentContext.class.getSimpleName();
