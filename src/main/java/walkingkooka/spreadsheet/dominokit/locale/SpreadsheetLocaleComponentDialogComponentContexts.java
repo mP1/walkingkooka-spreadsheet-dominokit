@@ -17,20 +17,17 @@
 
 package walkingkooka.spreadsheet.dominokit.locale;
 
-import walkingkooka.locale.LocaleContext;
 import walkingkooka.reflect.PublicStaticHelper;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 
 public final class SpreadsheetLocaleComponentDialogComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see BasicSpreadsheetLocaleComponentDialogComponentContext}
+     * {@see AppContextSpreadsheetLocaleComponentDialogComponentContext}
      */
-    public static SpreadsheetLocaleComponentDialogComponentContext basic(final SpreadsheetDialogComponentContext spreadsheetDialogComponentContext,
-                                                                         final LocaleContext localeContext) {
-        return BasicSpreadsheetLocaleComponentDialogComponentContext.with(
-            spreadsheetDialogComponentContext,
-            localeContext
+    public static SpreadsheetLocaleComponentDialogComponentContext appContext(final AppContext context) {
+        return AppContextSpreadsheetLocaleComponentDialogComponentContext.with(
+            context
         );
     }
 
