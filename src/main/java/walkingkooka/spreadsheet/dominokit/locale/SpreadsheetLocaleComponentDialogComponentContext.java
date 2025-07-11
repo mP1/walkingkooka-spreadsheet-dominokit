@@ -17,21 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.locale;
 
-import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.locale.LocaleContext;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 
-public final class SpreadsheetLocaleComponentDialogComponentContexts implements PublicStaticHelper {
-
-    /**
-     * {@see FakeSpreadsheetLocaleComponentDialogComponentContext}
-     */
-    public static FakeSpreadsheetLocaleComponentDialogComponentContext fake() {
-        throw new UnsupportedOperationException();
-    }
-
-    /**
-     * Stop creation
-     */
-    private SpreadsheetLocaleComponentDialogComponentContexts() {
-        throw new UnsupportedOperationException();
-    }
+public interface SpreadsheetLocaleComponentDialogComponentContext extends SpreadsheetDialogComponentContext,
+    LocaleContext {
 }
