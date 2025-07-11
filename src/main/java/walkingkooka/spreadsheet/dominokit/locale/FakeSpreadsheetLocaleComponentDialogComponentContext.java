@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.locale;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.spreadsheet.dominokit.dialog.FakeSpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 
 import java.util.Locale;
@@ -34,6 +35,18 @@ public class FakeSpreadsheetLocaleComponentDialogComponentContext extends FakeSp
 
     @Override
     public String dialogTitle() {
+        throw new UnsupportedOperationException();
+    }
+
+    // HasSpreadsheetDeltaWatcher.......................................................................................
+
+    @Override
+    public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 

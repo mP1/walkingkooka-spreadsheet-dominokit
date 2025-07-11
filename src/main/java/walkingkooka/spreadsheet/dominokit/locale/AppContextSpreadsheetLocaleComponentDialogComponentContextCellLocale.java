@@ -18,12 +18,15 @@
 package walkingkooka.spreadsheet.dominokit.locale;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchersDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleSelectHistoryToken;
 
 import java.util.Objects;
 
-final class AppContextSpreadsheetLocaleComponentDialogComponentContextCellLocale extends AppContextSpreadsheetLocaleComponentDialogComponentContext {
+final class AppContextSpreadsheetLocaleComponentDialogComponentContextCellLocale extends AppContextSpreadsheetLocaleComponentDialogComponentContext
+    implements HasSpreadsheetDeltaFetcherWatchersDelegator {
 
     static AppContextSpreadsheetLocaleComponentDialogComponentContextCellLocale with(final AppContext context) {
         return new AppContextSpreadsheetLocaleComponentDialogComponentContextCellLocale(
@@ -42,6 +45,13 @@ final class AppContextSpreadsheetLocaleComponentDialogComponentContextCellLocale
             .selection()
             .get() +
             " Locale";
+    }
+
+    // HasSpreadsheetDelta..............................................................................................
+
+    @Override
+    public HasSpreadsheetDeltaFetcher hasSpreadsheetDeltaFetcherWatchers() {
+        return this.context;
     }
 
     // ComponentLifecycleMatcher........................................................................................
