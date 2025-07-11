@@ -47,7 +47,7 @@ abstract class AppContextSpreadsheetLocaleComponentDialogComponentContext implem
         return this.context;
     }
 
-    private final AppContext context;
+    final AppContext context;
 
     // Object...........................................................................................................
 
