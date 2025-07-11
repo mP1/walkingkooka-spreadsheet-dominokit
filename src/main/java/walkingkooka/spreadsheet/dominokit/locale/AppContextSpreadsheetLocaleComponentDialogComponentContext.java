@@ -54,4 +54,11 @@ final class AppContextSpreadsheetLocaleComponentDialogComponentContext implement
     }
 
     private final AppContext context;
+
+    // Object...........................................................................................................
+
+    @Override
+    public String toString() {
+        return this.context.toString();
+    }
 }
