@@ -42,4 +42,9 @@ public interface SpreadsheetDialogComponentContextTesting<C extends SpreadsheetD
                 .collect(Collectors.toSet())
         );
     }
+
+    @Override
+    default String typeNameSuffix() {
+        return SpreadsheetDialogComponentContext.class.getSimpleName();
+    }
 }
