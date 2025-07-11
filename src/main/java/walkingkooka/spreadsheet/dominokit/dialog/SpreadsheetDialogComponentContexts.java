@@ -22,6 +22,13 @@ import walkingkooka.reflect.PublicStaticHelper;
 public final class SpreadsheetDialogComponentContexts implements PublicStaticHelper {
 
     /**
+     * {@see FakeSpreadsheetDialogComponentContext}
+     */
+    public static SpreadsheetDialogComponentContext fake() {
+        return new FakeSpreadsheetDialogComponentContext();
+    }
+
+    /**
      * Private ctor
      */
     private SpreadsheetDialogComponentContexts() {
