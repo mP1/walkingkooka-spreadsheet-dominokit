@@ -17,11 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.locale;
 
-import walkingkooka.locale.LocaleContext;
-import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
+abstract class AppContextSpreadsheetLocaleComponentDialogComponentContextTestCase<C extends AppContextSpreadsheetLocaleComponentDialogComponentContext>
+    implements SpreadsheetLocaleComponentDialogComponentContextTesting<C> {
 
-public interface SpreadsheetLocaleComponentDialogComponentContext extends SpreadsheetDialogComponentContext,
-    LocaleContext,
-    ComponentLifecycleMatcher {
+    AppContextSpreadsheetLocaleComponentDialogComponentContextTestCase() {
+        super();
+    }
+
+    @Override
+    public final void testTypeNaming() {
+        throw new UnsupportedOperationException();
+    }
 }

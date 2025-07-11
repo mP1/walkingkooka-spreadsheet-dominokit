@@ -18,10 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.locale;
 
 import walkingkooka.locale.LocaleContextTesting;
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextTesting;
 
 public interface SpreadsheetLocaleComponentDialogComponentContextTesting<C extends SpreadsheetLocaleComponentDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C>,
-    LocaleContextTesting {
+    LocaleContextTesting,
+    ComponentLifecycleMatcherTesting<C> {
 
     @Override
     default String typeNameSuffix() {

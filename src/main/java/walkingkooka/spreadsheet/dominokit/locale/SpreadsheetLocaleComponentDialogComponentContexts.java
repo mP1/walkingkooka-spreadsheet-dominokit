@@ -23,10 +23,10 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 public final class SpreadsheetLocaleComponentDialogComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see AppContextSpreadsheetLocaleComponentDialogComponentContext}
+     * {@see AppContextSpreadsheetLocaleComponentDialogComponentContextSpreadsheetMetadataLocale}
      */
-    public static SpreadsheetLocaleComponentDialogComponentContext appContext(final AppContext context) {
-        return AppContextSpreadsheetLocaleComponentDialogComponentContext.with(
+    public static SpreadsheetLocaleComponentDialogComponentContext appContextSpreadsheetMetadataLocale(final AppContext context) {
+        return AppContextSpreadsheetLocaleComponentDialogComponentContextSpreadsheetMetadataLocale.with(
             context
         );
     }
