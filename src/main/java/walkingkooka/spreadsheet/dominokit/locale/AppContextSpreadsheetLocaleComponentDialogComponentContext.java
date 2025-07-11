@@ -20,22 +20,16 @@ package walkingkooka.spreadsheet.dominokit.locale;
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.locale.LocaleContextDelegator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextDelegator;
 
-import java.util.Objects;
-
-final class AppContextSpreadsheetLocaleComponentDialogComponentContext implements SpreadsheetLocaleComponentDialogComponentContext,
+abstract class AppContextSpreadsheetLocaleComponentDialogComponentContext implements SpreadsheetLocaleComponentDialogComponentContext,
     SpreadsheetDialogComponentContextDelegator,
-    LocaleContextDelegator {
+    LocaleContextDelegator,
+    ComponentLifecycleMatcher {
 
-    static AppContextSpreadsheetLocaleComponentDialogComponentContext with(final AppContext context) {
-        return new AppContextSpreadsheetLocaleComponentDialogComponentContext(
-            Objects.requireNonNull(context, "context")
-        );
-    }
-
-    private AppContextSpreadsheetLocaleComponentDialogComponentContext(final AppContext context) {
+    AppContextSpreadsheetLocaleComponentDialogComponentContext(final AppContext context) {
         this.context = context;
     }
 

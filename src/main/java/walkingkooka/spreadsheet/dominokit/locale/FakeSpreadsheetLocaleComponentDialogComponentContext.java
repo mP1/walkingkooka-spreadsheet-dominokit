@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.locale;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.spreadsheet.dominokit.dialog.FakeSpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 
 import java.util.Locale;
 import java.util.Optional;
@@ -30,6 +31,8 @@ public class FakeSpreadsheetLocaleComponentDialogComponentContext extends FakeSp
     public FakeSpreadsheetLocaleComponentDialogComponentContext() {
         super();
     }
+
+    // LocaleContext....................................................................................................
 
     @Override
     public Set<Locale> availableLocales() {
@@ -53,6 +56,18 @@ public class FakeSpreadsheetLocaleComponentDialogComponentContext extends FakeSp
 
     @Override
     public Locale locale() {
+        throw new UnsupportedOperationException();
+    }
+
+    // LifeCycleMatcher.................................................................................................
+
+    @Override
+    public boolean shouldIgnore(final HistoryToken token) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean isMatch(HistoryToken token) {
         throw new UnsupportedOperationException();
     }
 }
