@@ -23,6 +23,7 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent;
+import walkingkooka.text.CaseKind;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.validation.ValidationValueTypeName;
@@ -45,13 +46,16 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
         final SpreadsheetSelectComponent<ValidationValueTypeName> select = SpreadsheetSelectComponent.empty();
 
         select.appendValue("Any", SpreadsheetValueType.ANY);
-        select.appendValue("Boolean", SpreadsheetValueType.BOOLEAN);
-        select.appendValue("Date", SpreadsheetValueType.DATE);
-        select.appendValue("Error", SpreadsheetValueType.ERROR);
-        select.appendValue("DateTime", SpreadsheetValueType.DATE_TIME);
-        select.appendValue("Number", SpreadsheetValueType.NUMBER);
-        select.appendValue("Text", SpreadsheetValueType.TEXT);
-        select.appendValue("Time", SpreadsheetValueType.TIME);
+
+        for(final ValidationValueTypeName typeName : SpreadsheetValueType.ALL_CELL_TYPES) {
+            select.appendValue(
+                CaseKind.PASCAL.change(
+                    typeName.text(),
+                    CaseKind.TITLE
+                ),
+                typeName
+            );
+        }
 
         this.select = select;
     }
