@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.locale;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -45,6 +46,18 @@ public final class AppContextSpreadsheetLocaleComponentDialogComponentContextSpr
         this.dialogTitleAndCheck(
             this.createContext(),
             "Spreadsheet Locale"
+        );
+    }
+
+    // undoLocale.......................................................................................................
+
+    private final static Locale LOCALE = Locale.forLanguageTag("en-AU");
+
+    @Test
+    public void testUndoLocale() {
+        this.undoLocaleAndCheck(
+            this.createContext(),
+            LOCALE
         );
     }
 
@@ -106,7 +119,16 @@ public final class AppContextSpreadsheetLocaleComponentDialogComponentContextSpr
     @Override
     public AppContextSpreadsheetLocaleComponentDialogComponentContextSpreadsheetMetadataLocale createContext() {
         return AppContextSpreadsheetLocaleComponentDialogComponentContextSpreadsheetMetadataLocale.with(
-            new FakeAppContext()
+            new FakeAppContext() {
+
+                @Override
+                public SpreadsheetMetadata spreadsheetMetadata() {
+                    return SpreadsheetMetadata.EMPTY.set(
+                        SpreadsheetMetadataPropertyName.LOCALE,
+                        LOCALE
+                    );
+                }
+            }
         );
     }
 

@@ -17,14 +17,18 @@
 
 package walkingkooka.spreadsheet.dominokit.locale;
 
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchersDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleSelectHistoryToken;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
+import java.util.Locale;
 import java.util.Objects;
+import java.util.Optional;
 
 final class AppContextSpreadsheetLocaleComponentDialogComponentContextCellLocale extends AppContextSpreadsheetLocaleComponentDialogComponentContext
     implements HasSpreadsheetDeltaFetcherWatchersDelegator {
@@ -46,6 +50,24 @@ final class AppContextSpreadsheetLocaleComponentDialogComponentContextCellLocale
             .selection()
             .get() +
             " Locale";
+    }
+
+    @Override
+    public Optional<Locale> undoLocale() {
+        Locale locale = null;
+
+        final AppContext context = this.context;
+        final SpreadsheetSelection cell = context.historyToken()
+            .selection()
+            .orElse(null);
+        if (null != cell) {
+            locale = context.spreadsheetViewportCache()
+                .cell(cell)
+                .flatMap(SpreadsheetCell::locale)
+                .orElse(null);
+        }
+
+        return Optional.ofNullable(locale);
     }
 
     // HasSpreadsheetDelta..............................................................................................

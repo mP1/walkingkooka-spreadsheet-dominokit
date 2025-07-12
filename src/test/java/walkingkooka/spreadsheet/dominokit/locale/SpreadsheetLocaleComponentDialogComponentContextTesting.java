@@ -21,6 +21,9 @@ import walkingkooka.locale.LocaleContextTesting;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextTesting;
 
+import java.util.Locale;
+import java.util.Optional;
+
 public interface SpreadsheetLocaleComponentDialogComponentContextTesting<C extends SpreadsheetLocaleComponentDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C>,
     LocaleContextTesting,
     ComponentLifecycleMatcherTesting<C> {
@@ -32,6 +35,33 @@ public interface SpreadsheetLocaleComponentDialogComponentContextTesting<C exten
             context.dialogTitle()
         );
     }
+
+    // undoLocale.......................................................................................................
+
+    default void undoLocaleAndCheck(final C context) {
+        this.undoLocaleAndCheck(
+            context,
+            Optional.empty()
+        );
+    }
+
+    default void undoLocaleAndCheck(final C context,
+                                    final Locale expected) {
+        this.undoLocaleAndCheck(
+            context,
+            Optional.ofNullable(expected)
+        );
+    }
+
+    default void undoLocaleAndCheck(final C context,
+                                    final Optional<Locale> expected) {
+        this.checkEquals(
+            expected,
+            context.undoLocale()
+        );
+    }
+
+    // type.............................................................................................................
 
     @Override
     default String typeNameSuffix() {
