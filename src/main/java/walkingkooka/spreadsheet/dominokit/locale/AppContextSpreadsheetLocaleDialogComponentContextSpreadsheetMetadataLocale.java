@@ -80,8 +80,8 @@ final class AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadata
     @Override
     public boolean shouldIgnore(final HistoryToken token) {
         return (
-            token instanceof SpreadsheetMetadataPropertySaveHistoryToken &&
-                token.cast(SpreadsheetMetadataPropertySelectHistoryToken.class)
+            token instanceof SpreadsheetMetadataPropertySelectHistoryToken &&
+            false == token.cast(SpreadsheetMetadataPropertySelectHistoryToken.class)
                     .propertyName()
                     .equals(SpreadsheetMetadataPropertyName.LOCALE)
         ) ||
