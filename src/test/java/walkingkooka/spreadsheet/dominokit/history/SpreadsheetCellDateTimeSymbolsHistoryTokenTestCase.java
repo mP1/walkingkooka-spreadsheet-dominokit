@@ -30,6 +30,20 @@ public abstract class SpreadsheetCellDateTimeSymbolsHistoryTokenTestCase<T exten
         super();
     }
 
+    // close............................................................................................................
+
+    @Test
+    public final void testClose() {
+        this.closeAndCheck(
+            this.createHistoryToken(),
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                SELECTION
+            )
+        );
+    }
+
     // setSaveValue.....................................................................................................
 
     @Test

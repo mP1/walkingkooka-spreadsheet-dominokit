@@ -64,13 +64,6 @@ public final class SpreadsheetCellDateTimeSymbolsUnselectHistoryTokenTest extend
         this.clearActionAndCheck();
     }
 
-    // close............................................................................................................
-
-    @Test
-    public void testClose() {
-        this.closeAndCheck();
-    }
-
     // delete...........................................................................................................
 
     @Test

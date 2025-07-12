@@ -105,27 +105,6 @@ public final class SpreadsheetCellFormatterSaveHistoryTokenTest extends Spreadsh
         );
     }
 
-    // close............................................................................................................
-
-    @Test
-    public void testClose() {
-        final SpreadsheetFormatPattern formatPattern = SpreadsheetPattern.parseTextFormatPattern("@");
-
-        this.closeAndCheck(
-            HistoryToken.cellFormatterSave(
-                ID,
-                NAME,
-                SELECTION,
-                Optional.of(formatPattern.spreadsheetFormatterSelector())
-            ),
-            HistoryToken.cellFormatterSelect(
-                ID,
-                NAME,
-                SELECTION
-            )
-        );
-    }
-
     @Override
     SpreadsheetCellFormatterSaveHistoryToken createHistoryToken(final SpreadsheetId id,
                                                                 final SpreadsheetName name,

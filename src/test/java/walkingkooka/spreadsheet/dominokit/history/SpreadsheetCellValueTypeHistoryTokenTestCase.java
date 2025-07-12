@@ -30,6 +30,20 @@ public abstract class SpreadsheetCellValueTypeHistoryTokenTestCase<T extends Spr
         super();
     }
 
+    // close............................................................................................................
+
+    @Test
+    public final void testClose() {
+        this.closeAndCheck(
+            this.createHistoryToken(),
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
     // setSaveValue.....................................................................................................
 
     @Test

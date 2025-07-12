@@ -64,19 +64,6 @@ public final class SpreadsheetCellValidatorSelectHistoryTokenTest extends Spread
         this.clearActionAndCheck();
     }
 
-    // close............................................................................................................
-
-    @Test
-    public void testClose() {
-        this.closeAndCheck(
-            HistoryToken.cellSelect(
-                ID,
-                NAME,
-                SELECTION
-            )
-        );
-    }
-
     @Override
     SpreadsheetCellValidatorSelectHistoryToken createHistoryToken(final SpreadsheetId id,
                                                                   final SpreadsheetName name,

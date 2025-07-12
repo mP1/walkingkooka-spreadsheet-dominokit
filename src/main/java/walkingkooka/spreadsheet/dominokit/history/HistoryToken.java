@@ -2255,38 +2255,6 @@ public abstract class HistoryToken implements HasUrlFragment,
                 final SpreadsheetId id = spreadsheetNameHistoryToken.id();
                 final SpreadsheetName name = spreadsheetNameHistoryToken.name();
 
-                if (this instanceof SpreadsheetCellFindHistoryToken) {
-                    closed = this.clearAction();
-                }
-
-                if (this instanceof SpreadsheetCellFormHistoryToken) {
-                    closed = this.cast(SpreadsheetCellFormHistoryToken.class)
-                        .selectionSelect();
-                }
-
-                if (this instanceof SpreadsheetCellLabelHistoryToken) {
-                    closed = this.cast(SpreadsheetCellLabelHistoryToken.class)
-                        .selectionSelect();
-                }
-
-                if (this instanceof SpreadsheetCellLabelListHistoryToken) {
-                    closed = this.cast(SpreadsheetCellLabelListHistoryToken.class)
-                        .selectionSelect();
-                }
-
-                if (this instanceof SpreadsheetCellReferenceListHistoryToken) {
-                    closed = this.clearAction();
-                }
-
-                if (this instanceof SpreadsheetCellSortHistoryToken || this instanceof SpreadsheetColumnSortHistoryToken || this instanceof SpreadsheetRowSortHistoryToken) {
-                    closed = this.clearAction();
-                }
-
-                if (this instanceof SpreadsheetCellValueHistoryToken) {
-                    closed = this.cast(SpreadsheetCellValueHistoryToken.class)
-                        .selectionSelect();
-                }
-
                 if (this instanceof SpreadsheetColumnInsertHistoryToken || this instanceof SpreadsheetRowInsertHistoryToken) {
                     closed = this.clearAction();
                 }
@@ -2306,108 +2274,70 @@ public abstract class HistoryToken implements HasUrlFragment,
                 }
 
                 if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
-                    final AnchoredSpreadsheetSelection anchoredSelection = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
-                        .anchoredSelection();
+                    final SpreadsheetAnchoredSelectionHistoryToken anchoredSelectionHistoryToken = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
 
-                    if (this instanceof SpreadsheetCellDateTimeSymbolsSaveHistoryToken) {
-                        closed = cellDateTimeSymbolsSelect(
-                            id,
-                            name,
-                            anchoredSelection
-                        );
+                    if (this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken) {
+                        closed = anchoredSelectionHistoryToken.selectionSelect();
                     }
 
-                    if (this instanceof SpreadsheetCellDateTimeSymbolsSelectHistoryToken) {
-                        closed = cellSelect(
-                            id,
-                            name,
-                            anchoredSelection
-                        );
+                    if (this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken) {
+                        closed = anchoredSelectionHistoryToken.selectionSelect();
                     }
 
-                    if (this instanceof SpreadsheetCellDecimalNumberSymbolsSelectHistoryToken) {
-                        closed = cellSelect(
-                            id,
-                            name,
-                            anchoredSelection
-                        );
+                    if (this instanceof SpreadsheetCellDecimalNumberSymbolsHistoryToken) {
+                        closed = anchoredSelectionHistoryToken.selectionSelect();
                     }
 
-                    if (this instanceof SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken) {
-                        closed = cellDecimalNumberSymbolsSelect(
-                            id,
-                            name,
-                            anchoredSelection
-                        );
+                    if (this instanceof SpreadsheetCellFindHistoryToken) {
+                        closed = anchoredSelectionHistoryToken.selectionSelect();
                     }
 
-                    if (this instanceof SpreadsheetCellFormatterSelectHistoryToken) {
-                        closed = cellSelect(
-                            id,
-                            name,
-                            anchoredSelection
-                        );
+                    if (this instanceof SpreadsheetCellFormHistoryToken) {
+                        closed = anchoredSelectionHistoryToken.selectionSelect();
                     }
 
-                    if (this instanceof SpreadsheetCellFormatterSaveHistoryToken) {
-                        closed = cellFormatterSelect(
-                            id,
-                            name,
-                            anchoredSelection
-                        );
+                    if (this instanceof SpreadsheetCellFormatterHistoryToken) {
+                        closed = anchoredSelectionHistoryToken.selectionSelect();
+                    }
+
+                    if (this instanceof SpreadsheetCellLabelHistoryToken) {
+                        closed = anchoredSelectionHistoryToken.selectionSelect();
+                    }
+
+                    if (this instanceof SpreadsheetCellLabelListHistoryToken) {
+                        closed = anchoredSelectionHistoryToken.selectionSelect();
                     }
 
                     if (this instanceof SpreadsheetCellLocaleHistoryToken) {
-                        closed = this.cast(SpreadsheetCellLocaleHistoryToken.class)
-                            .selectionSelect();
+                        closed = anchoredSelectionHistoryToken.selectionSelect();
                     }
 
-                    if (this instanceof SpreadsheetCellParserSelectHistoryToken) {
-                        closed = cellSelect(
-                            id,
-                            name,
-                            anchoredSelection
-                        );
+                    if (this instanceof SpreadsheetCellParserHistoryToken) {
+                        closed = anchoredSelectionHistoryToken.selectionSelect();
                     }
 
-                    if (this instanceof SpreadsheetCellParserSaveHistoryToken) {
-                        closed = cellParserSelect(
-                            id,
-                            name,
-                            anchoredSelection
-                        );
+                    if (this instanceof SpreadsheetCellReferenceListHistoryToken) {
+                        closed = anchoredSelectionHistoryToken.selectionSelect();
                     }
 
-                    if (this instanceof SpreadsheetCellValidatorSelectHistoryToken) {
-                        closed = cellSelect(
-                            id,
-                            name,
-                            anchoredSelection
-                        );
+                    if (this instanceof SpreadsheetCellSortHistoryToken || this instanceof SpreadsheetColumnSortHistoryToken || this instanceof SpreadsheetRowSortHistoryToken) {
+                        closed = anchoredSelectionHistoryToken.selectionSelect();
                     }
 
-                    if (this instanceof SpreadsheetCellValidatorSaveHistoryToken) {
-                        closed = cellValidatorSelect(
-                            id,
-                            name,
-                            anchoredSelection
-                        );
+                    if (this instanceof SpreadsheetCellValidatorHistoryToken) {
+                        closed = anchoredSelectionHistoryToken.selectionSelect();
                     }
 
-                    if (this instanceof SpreadsheetCellValueTypeSelectHistoryToken) {
-                        closed = cellSelect(
-                            id,
-                            name,
-                            anchoredSelection
-                        );
+                    if (this instanceof SpreadsheetCellValueHistoryToken) {
+                        closed = anchoredSelectionHistoryToken.selectionSelect();
                     }
 
-                    if (this instanceof SpreadsheetCellValueTypeSaveHistoryToken) {
-                        closed = cellValueTypeSelect(
-                            id,
-                            name,
-                            anchoredSelection
-                        );
+                    if (this instanceof SpreadsheetCellValueTypeHistoryToken) {
+                        closed = anchoredSelectionHistoryToken.selectionSelect();
+                    }
+
+                    if (this instanceof SpreadsheetCellValueTypeHistoryToken) {
+                        closed = anchoredSelectionHistoryToken.selectionSelect();
                     }
                 } else {
                     if (this instanceof SpreadsheetMetadataPropertyHistoryToken) {

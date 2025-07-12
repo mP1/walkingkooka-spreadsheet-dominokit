@@ -64,13 +64,6 @@ public final class SpreadsheetCellParserUnselectHistoryTokenTest extends Spreads
         this.clearActionAndCheck();
     }
 
-    // close............................................................................................................
-
-    @Test
-    public void testClose() {
-        this.closeAndCheck();
-    }
-
     @Override
     SpreadsheetCellParserUnselectHistoryToken createHistoryToken(final SpreadsheetId id,
                                                                  final SpreadsheetName name,

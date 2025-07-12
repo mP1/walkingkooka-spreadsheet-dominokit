@@ -64,13 +64,6 @@ public final class SpreadsheetCellFormatterUnselectHistoryTokenTest extends Spre
         this.clearActionAndCheck();
     }
 
-    // close............................................................................................................
-
-    @Test
-    public void testClose() {
-        this.closeAndCheck();
-    }
-
     // delete...........................................................................................................
 
     @Test

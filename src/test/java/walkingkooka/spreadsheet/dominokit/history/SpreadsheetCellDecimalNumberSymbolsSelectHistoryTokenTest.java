@@ -64,19 +64,6 @@ public final class SpreadsheetCellDecimalNumberSymbolsSelectHistoryTokenTest ext
         this.clearActionAndCheck();
     }
 
-    // close............................................................................................................
-
-    @Test
-    public void testClose() {
-        this.closeAndCheck(
-            HistoryToken.cellSelect(
-                ID,
-                NAME,
-                SELECTION
-            )
-        );
-    }
-
     @Override
     SpreadsheetCellDecimalNumberSymbolsSelectHistoryToken createHistoryToken(final SpreadsheetId id,
                                                                              final SpreadsheetName name,
