@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value;
+package walkingkooka.spreadsheet.dominokit.datetime;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
@@ -25,11 +25,12 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ValidatorHelper;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBoxTreePrintable;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -37,29 +38,29 @@ import java.util.function.Supplier;
 
 /**
  * A mock of main/SpreadsheetTextBox with the same public interface and a helpful {@link TreePrintable}. This will be useful for unit tests to verify the rough apperance of a component that includes
- * {@link SpreadsheetDateTimeComponent}.
+ * {@linkSpreadsheetDateComponent}.
  */
-public final class SpreadsheetDateTimeComponent implements FormValueComponent<HTMLFieldSetElement, LocalDateTime, SpreadsheetDateTimeComponent>,
-    SpreadsheetTextBoxTreePrintable<SpreadsheetDateTimeComponent, LocalDateTime>,
-    TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetDateTimeComponent>,
+public final class SpreadsheetDateComponent implements FormValueComponent<HTMLFieldSetElement, LocalDate, SpreadsheetDateComponent>,
+    SpreadsheetTextBoxTreePrintable<SpreadsheetDateComponent, LocalDate>,
+    TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetDateComponent>,
     ValidatorHelper {
 
-    public static SpreadsheetDateTimeComponent empty(final String id,
-                                                     final Supplier<LocalDateTime> clearValue) {
-        return new SpreadsheetDateTimeComponent(
+    public  static SpreadsheetDateComponent empty(final String id,
+                                                  final Supplier<LocalDate> clearValue) {
+        return new SpreadsheetDateComponent(
             id,
             clearValue
         );
     }
 
-    private SpreadsheetDateTimeComponent(final String id,
-                                         final Supplier<LocalDateTime> clearValue) {
+    private SpreadsheetDateComponent(final String id,
+                                     final Supplier<LocalDate> clearValue) {
         this.setId(id);
         this.clearValue = clearValue;
     }
 
     @Override
-    public SpreadsheetDateTimeComponent setId(final String id) {
+     public SpreadsheetDateComponent setId(final String id) {
         CharSequences.failIfNullOrEmpty(id, "id");
 
         this.id = id;
@@ -74,7 +75,7 @@ public final class SpreadsheetDateTimeComponent implements FormValueComponent<HT
     private String id;
 
     @Override
-    public SpreadsheetDateTimeComponent setLabel(final String label) {
+     public SpreadsheetDateComponent setLabel(final String label) {
         this.label = label;
         return this;
     }
@@ -87,7 +88,7 @@ public final class SpreadsheetDateTimeComponent implements FormValueComponent<HT
     private String label;
 
     @Override
-    public SpreadsheetDateTimeComponent setValue(final Optional<LocalDateTime> value) {
+     public SpreadsheetDateComponent setValue(final Optional<LocalDate> value) {
         Objects.requireNonNull(value, "value");
         this.value = value.isPresent() ?
             value :
@@ -96,28 +97,28 @@ public final class SpreadsheetDateTimeComponent implements FormValueComponent<HT
         return validate();
     }
 
-    private final Supplier<LocalDateTime> clearValue;
+    private final Supplier<LocalDate> clearValue;
 
     @Override
-    public Optional<LocalDateTime> value() {
+    public Optional<LocalDate> value() {
         return this.value;
     }
 
-    private Optional<LocalDateTime> value = Optional.empty();
+    private Optional<LocalDate> value = Optional.empty();
 
     @Override
-    public SpreadsheetDateTimeComponent focus() {
+     public SpreadsheetDateComponent focus() {
         return this;
     }
 
     @Override
-    public SpreadsheetDateTimeComponent optional() {
+     public SpreadsheetDateComponent optional() {
         this.required = false;
         return this;
     }
 
     @Override
-    public SpreadsheetDateTimeComponent required() {
+     public SpreadsheetDateComponent required() {
         this.required = true;
         return this;
     }
@@ -129,15 +130,15 @@ public final class SpreadsheetDateTimeComponent implements FormValueComponent<HT
 
     private boolean required;
 
-    public SpreadsheetDateTimeComponent setValidator(final Validator<Optional<LocalDateTime>> validator) {
+     public SpreadsheetDateComponent setValidator(final Validator<Optional<LocalDate>> validator) {
         this.validator = validator;
         return this;
     }
 
-    private Validator<Optional<LocalDateTime>> validator;
+    private Validator<Optional<LocalDate>> validator;
 
     @Override
-    public SpreadsheetDateTimeComponent validate() {
+     public SpreadsheetDateComponent validate() {
         this.setErrors(
             this.validateAndGetErrors(
                 this.value,
@@ -153,7 +154,7 @@ public final class SpreadsheetDateTimeComponent implements FormValueComponent<HT
     }
 
     @Override
-    public SpreadsheetDateTimeComponent setErrors(final List<String> errors) {
+     public SpreadsheetDateComponent setErrors(final List<String> errors) {
         Objects.requireNonNull(errors, "errors");
         this.errors = Lists.immutable(errors);
         return this;
@@ -167,49 +168,49 @@ public final class SpreadsheetDateTimeComponent implements FormValueComponent<HT
     }
 
     @Override
-    public SpreadsheetDateTimeComponent setDisabled(final boolean disabled) {
+     public SpreadsheetDateComponent setDisabled(final boolean disabled) {
         this.disabled = disabled;
         return this;
     }
 
     private boolean disabled;
 
-    public SpreadsheetDateTimeComponent resetView() {
+     public SpreadsheetDateComponent resetView() {
         return this;
     }
 
     @Override
-    public SpreadsheetDateTimeComponent addChangeListener(final ChangeListener<Optional<LocalDateTime>> listener) {
+     public SpreadsheetDateComponent addChangeListener(final ChangeListener<Optional<LocalDate>> listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetDateTimeComponent addClickListener(final EventListener listener) {
+     public SpreadsheetDateComponent addClickListener(final EventListener listener) {
+        return this;
+    }
+    
+    @Override
+     public SpreadsheetDateComponent addFocusListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetDateTimeComponent addFocusListener(final EventListener listener) {
+     public SpreadsheetDateComponent addKeydownListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetDateTimeComponent addKeydownListener(final EventListener listener) {
+     public SpreadsheetDateComponent addKeyupListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetDateTimeComponent addKeyupListener(final EventListener listener) {
+     public SpreadsheetDateComponent alwaysShowHelperText() {
         return this;
     }
 
     @Override
-    public SpreadsheetDateTimeComponent alwaysShowHelperText() {
-        return this;
-    }
-
-    @Override
-    public SpreadsheetDateTimeComponent setHelperText(final Optional<String> text) {
+     public SpreadsheetDateComponent setHelperText(final Optional<String> text) {
         Objects.requireNonNull(text, "text");
         this.helperText = text;
         return this;
@@ -222,32 +223,32 @@ public final class SpreadsheetDateTimeComponent implements FormValueComponent<HT
     private Optional<String> helperText = Optional.empty();
 
     @Override
-    public SpreadsheetDateTimeComponent hideMarginBottom() {
+     public SpreadsheetDateComponent hideMarginBottom() {
         return this;
     }
 
     @Override
-    public SpreadsheetDateTimeComponent removeBorders() {
+     public SpreadsheetDateComponent removeBorders() {
         return this;
     }
 
-    public SpreadsheetDateTimeComponent autocompleteOff() {
+     public SpreadsheetDateComponent autocompleteOff() {
         return this;
     }
 
-    public SpreadsheetDateTimeComponent clearIcon() {
+     public SpreadsheetDateComponent clearIcon() {
         return this;
     }
 
-    public SpreadsheetDateTimeComponent disableSpellcheck() {
+     public SpreadsheetDateComponent disableSpellcheck() {
         return this;
     }
 
-    public SpreadsheetDateTimeComponent enterFiresValueChange() {
+     public SpreadsheetDateComponent enterFiresValueChange() {
         return this;
     }
 
-    public SpreadsheetDateTimeComponent magnifyingGlassIcon() {
+     public SpreadsheetDateComponent magnifyingGlassIcon() {
         return this;
     }
 
@@ -255,7 +256,7 @@ public final class SpreadsheetDateTimeComponent implements FormValueComponent<HT
     //
     // java.lang.NoSuchMethodError: walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.setCssText(Ljava/lang/String;)Lwalkingkooka/spreadsheet/dominokit/ui/textbox/SpreadsheetTextBox;
     @Override
-    public SpreadsheetDateTimeComponent setCssText(final String css) {
+     public SpreadsheetDateComponent setCssText(final String css) {
         Objects.requireNonNull(css, "css");
         return this;
     }

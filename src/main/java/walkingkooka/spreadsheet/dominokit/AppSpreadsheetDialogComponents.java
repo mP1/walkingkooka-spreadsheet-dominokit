@@ -25,6 +25,9 @@ import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellValueDialogCompone
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellValueDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponent;
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.datetime.SpreadsheetDateComponent;
+import walkingkooka.spreadsheet.dominokit.datetime.SpreadsheetDateTimeComponent;
+import walkingkooka.spreadsheet.dominokit.datetime.SpreadsheetTimeComponent;
 import walkingkooka.spreadsheet.dominokit.datetimesymbols.DateTimeSymbolsDialogComponent;
 import walkingkooka.spreadsheet.dominokit.datetimesymbols.DateTimeSymbolsDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.decimalnumbersymbols.DecimalNumberSymbolsDialogComponent;
@@ -60,9 +63,6 @@ import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListDialogCompo
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponent;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
-import walkingkooka.spreadsheet.dominokit.value.SpreadsheetDateComponent;
-import walkingkooka.spreadsheet.dominokit.value.SpreadsheetDateTimeComponent;
-import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTimeComponent;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

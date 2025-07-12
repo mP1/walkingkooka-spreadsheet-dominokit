@@ -15,18 +15,19 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value;
+package walkingkooka.spreadsheet.dominokit.datetime;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetTimeComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, LocalTime, SpreadsheetTimeComponent> {
+public final class SpreadsheetDateTimeComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, LocalDateTime,SpreadsheetDateTimeComponent> {
 
     // setId............................................................................................................
 
@@ -61,7 +62,7 @@ public final class SpreadsheetTimeComponentTest implements FormValueComponentTes
 
     @Test
     public void testClearValue() {
-        final SpreadsheetTimeComponent component = this.createComponent()
+        final SpreadsheetDateTimeComponent component = this.createComponent()
             .setValue(
                 Optional.empty()
             );
@@ -74,20 +75,27 @@ public final class SpreadsheetTimeComponentTest implements FormValueComponentTes
     // ValueComponent...................................................................................................
 
     @Override
-    public SpreadsheetTimeComponent createComponent() {
-        return SpreadsheetTimeComponent.empty(
+     public SpreadsheetDateTimeComponent createComponent() {
+        return SpreadsheetDateTimeComponent.empty(
             "id",
             () -> CLEAR_VALUE
         );
     }
 
-    private final static LocalTime CLEAR_VALUE = LocalTime.of(12, 58, 59);
+    private final static LocalDateTime CLEAR_VALUE = LocalDateTime.of(
+        1999,
+        12,
+        31,
+        12,
+        58,
+        59
+    );
 
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SpreadsheetTimeComponent> type() {
-        return SpreadsheetTimeComponent.class;
+    public Class<SpreadsheetDateTimeComponent> type() {
+        return SpreadsheetDateTimeComponent.class;
     }
 
     @Override
