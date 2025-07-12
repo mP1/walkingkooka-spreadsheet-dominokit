@@ -223,6 +223,11 @@ public final class SpreadsheetSelectComponent<T> implements FormValueComponent<H
         return this;
     }
 
+    public SpreadsheetSelectComponent<T> clearValues() {
+        this.textToValue.clear();
+        return this;
+    }
+
     // order is important!
     private final Map<String, Optional<T>> textToValue = Maps.ordered();
 
