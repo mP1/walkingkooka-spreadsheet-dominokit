@@ -64,6 +64,25 @@ public final class AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetM
     // IsMatch..........................................................................................................
 
     @Test
+    public void testIsMatchWithSpreadsheetMetadataSelectNotLocale() {
+        for(final SpreadsheetMetadataPropertyName<?> propertyName : SpreadsheetMetadataPropertyName.ALL) {
+            if(SpreadsheetMetadataPropertyName.LOCALE.equals(propertyName)) {
+                continue;
+            }
+
+            this.isMatchAndCheck(
+                this.createContext(),
+                HistoryToken.metadataPropertySelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    propertyName
+                ),
+                false
+            );
+        };
+    }
+
+    @Test
     public void testisMatchWithSpreadsheetMetadataSelectWithLocale() {
         this.isMatchAndCheck(
             this.createContext(),
