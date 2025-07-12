@@ -23,7 +23,9 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchersDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleSelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleUnselectHistoryToken;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Locale;
@@ -93,11 +95,12 @@ final class AppContextSpreadsheetLocaleDialogComponentContextCellLocale extends 
 
     // ComponentLifecycleMatcher........................................................................................
 
-    // /spreadsheet/1/SpreadsheetName/cell/A1/Locale/delete
+    // /spreadsheet/1/SpreadsheetName/cell/A1/Locale/toolbar
     // /spreadsheet/1/SpreadsheetName/cell/A1/Locale/save/Locale
     @Override
     public boolean shouldIgnore(final HistoryToken token) {
-        return false == this.isMatch(token);
+        return token instanceof SpreadsheetCellLocaleSaveHistoryToken ||
+            token instanceof SpreadsheetCellLocaleUnselectHistoryToken;
     }
 
     // /spreadsheet/1/SpreadsheetName/cell/A1/Locale/save
