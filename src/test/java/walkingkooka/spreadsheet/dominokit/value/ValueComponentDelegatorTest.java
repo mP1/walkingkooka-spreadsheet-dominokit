@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentDelegatorTest.TestValueComponentDelegator;
 import walkingkooka.text.printer.IndentingPrinter;
 

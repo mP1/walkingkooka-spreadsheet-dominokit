@@ -21,7 +21,7 @@ import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
-import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
 
 public class SpreadsheetRowComponentTest implements HtmlElementComponentTesting<SpreadsheetRowComponent, HTMLDivElement> {
 

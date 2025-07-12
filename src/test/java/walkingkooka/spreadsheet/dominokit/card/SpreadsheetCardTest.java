@@ -21,7 +21,7 @@ import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
-import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
 
 import java.util.Optional;
 
@@ -40,7 +40,7 @@ public final class SpreadsheetCardTest implements HtmlElementComponentTesting<Sp
         this.treePrintAndCheck(
             SpreadsheetCard.empty()
                 .appendChild(
-                    walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.empty()
+                    SpreadsheetTextBox.empty()
                         .setValue(
                             Optional.of("Value123")
                         )

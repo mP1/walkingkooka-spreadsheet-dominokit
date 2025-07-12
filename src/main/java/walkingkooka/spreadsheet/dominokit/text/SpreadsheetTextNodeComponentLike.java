@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value;
+package walkingkooka.spreadsheet.dominokit.text;
 
 import walkingkooka.spreadsheet.dominokit.Component;
 import walkingkooka.text.printer.IndentingPrinter;

@@ -15,9 +15,10 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value;
+package walkingkooka.spreadsheet.dominokit.text;
 
 import elemental2.dom.Node;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.tree.text.TextNode;
 
 import java.util.Objects;
@@ -28,8 +29,8 @@ import java.util.Optional;
  */
 public final class SpreadsheetTextNodeComponent implements SpreadsheetTextNodeComponentLike {
 
-    public static SpreadsheetTextNodeComponent with(final Optional<TextNode> value) {
-        return new SpreadsheetTextNodeComponent(value);
+    public static walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextNodeComponent with(final Optional<TextNode> value) {
+        return new walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextNodeComponent(value);
     }
 
     private SpreadsheetTextNodeComponent(final Optional<TextNode> value) {

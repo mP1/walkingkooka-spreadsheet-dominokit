@@ -59,9 +59,9 @@ import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListDialogCompo
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponent;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetDateComponent;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetDateTimeComponent;
-import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTimeComponent;
 
 import java.time.LocalDate;

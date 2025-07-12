@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value;
+package walkingkooka.spreadsheet.dominokit.text;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
@@ -24,43 +24,29 @@ import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ValidatorHelper;
-import walkingkooka.text.CharSequences;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
-import java.time.LocalTime;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.function.Supplier;
 
 /**
- * A mock of main/SpreadsheetTimeComponent with the same public interface and a helpful {@link TreePrintable}.
- * This will be useful for rendering tests.
+ * A mock of main/SpreadsheetIntegerBox with the same public interface and a helpful {@link TreePrintable}. This will be useful for unit tests to verify the rough apperance of a component that includes
+ * {@link SpreadsheetIntegerBox}.
  */
-public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLFieldSetElement, LocalTime, SpreadsheetTimeComponent>,
-    SpreadsheetTextBoxTreePrintable<SpreadsheetTimeComponent, LocalTime>,
-    TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetTimeComponent>,
+public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLFieldSetElement, Integer, SpreadsheetIntegerBox>,
+    SpreadsheetTextBoxTreePrintable<SpreadsheetIntegerBox, Integer>,
+    TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetIntegerBox>,
     ValidatorHelper {
 
-    public static SpreadsheetTimeComponent empty(final String id,
-                                                 final Supplier<LocalTime> clearValue) {
-        return new SpreadsheetTimeComponent(
-            id,
-            clearValue
-        );
-    }
-
-    private SpreadsheetTimeComponent(final String id,
-                                     final Supplier<LocalTime> clearValue) {
-        this.setId(id);
-        this.clearValue = clearValue;
+    public static SpreadsheetIntegerBox empty() {
+        return new SpreadsheetIntegerBox();
     }
 
     @Override
-    public SpreadsheetTimeComponent setId(final String id) {
-        CharSequences.failIfNullOrEmpty(id, "id");
-
+    public SpreadsheetIntegerBox setId(final String id) {
         this.id = id;
         return this;
     }
@@ -73,7 +59,7 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLFi
     private String id;
 
     @Override
-    public SpreadsheetTimeComponent setLabel(final String label) {
+    public SpreadsheetIntegerBox setLabel(final String label) {
         this.label = label;
         return this;
     }
@@ -86,37 +72,33 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLFi
     private String label;
 
     @Override
-    public SpreadsheetTimeComponent setValue(final Optional<LocalTime> value) {
+    public SpreadsheetIntegerBox setValue(final Optional<Integer> value) {
         Objects.requireNonNull(value, "value");
-        this.value = value.isPresent() ?
-            value :
-            Optional.of(this.clearValue.get());
+        this.value = value;
 
         return validate();
     }
 
-    private final Supplier<LocalTime> clearValue;
-
     @Override
-    public Optional<LocalTime> value() {
+    public Optional<Integer> value() {
         return this.value;
     }
 
-    private Optional<LocalTime> value = Optional.empty();
+    private Optional<Integer> value = Optional.empty();
 
     @Override
-    public SpreadsheetTimeComponent focus() {
+    public SpreadsheetIntegerBox focus() {
         return this;
     }
 
     @Override
-    public SpreadsheetTimeComponent optional() {
+    public SpreadsheetIntegerBox optional() {
         this.required = false;
         return this;
     }
 
     @Override
-    public SpreadsheetTimeComponent required() {
+    public SpreadsheetIntegerBox required() {
         this.required = true;
         return this;
     }
@@ -128,19 +110,12 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLFi
 
     private boolean required;
 
-    public SpreadsheetTimeComponent setValidator(final Validator<Optional<LocalTime>> validator) {
-        this.validator = validator;
-        return this;
-    }
-
-    private Validator<Optional<LocalTime>> validator;
-
     @Override
-    public SpreadsheetTimeComponent validate() {
+    public SpreadsheetIntegerBox validate() {
         this.setErrors(
             this.validateAndGetErrors(
                 this.value,
-                Optional.ofNullable(this.validator)
+                this.validator
             )
         );
         return this;
@@ -152,13 +127,13 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLFi
     }
 
     @Override
-    public SpreadsheetTimeComponent setErrors(final List<String> errors) {
+    public SpreadsheetIntegerBox setErrors(final List<String> errors) {
         Objects.requireNonNull(errors, "errors");
         this.errors = Lists.immutable(errors);
         return this;
     }
 
-    private List<String> errors = Lists.empty();
+    private List<String> errors = Lists.array();
 
     @Override
     public boolean isDisabled() {
@@ -166,45 +141,45 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLFi
     }
 
     @Override
-    public SpreadsheetTimeComponent setDisabled(final boolean disabled) {
-        this.disabled = disabled;
+    public SpreadsheetIntegerBox setDisabled(final boolean disabled) {
+        this.disabled = true;
         return this;
     }
 
     private boolean disabled;
 
     @Override
-    public SpreadsheetTimeComponent addChangeListener(final ChangeListener<Optional<LocalTime>> listener) {
+    public SpreadsheetIntegerBox addChangeListener(final ChangeListener<Optional<Integer>> listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetTimeComponent addClickListener(final EventListener listener) {
+    public SpreadsheetIntegerBox addClickListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetTimeComponent addFocusListener(final EventListener listener) {
+    public SpreadsheetIntegerBox addFocusListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetTimeComponent addKeydownListener(final EventListener listener) {
+    public SpreadsheetIntegerBox addKeydownListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetTimeComponent addKeyupListener(final EventListener listener) {
+    public SpreadsheetIntegerBox addKeyupListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetTimeComponent alwaysShowHelperText() {
+    public SpreadsheetIntegerBox alwaysShowHelperText() {
         return this;
     }
 
     @Override
-    public SpreadsheetTimeComponent setHelperText(final Optional<String> text) {
+    public SpreadsheetIntegerBox setHelperText(final Optional<String> text) {
         Objects.requireNonNull(text, "text");
         this.helperText = text;
         return this;
@@ -217,40 +192,49 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLFi
     private Optional<String> helperText = Optional.empty();
 
     @Override
-    public SpreadsheetTimeComponent hideMarginBottom() {
+    public SpreadsheetIntegerBox hideMarginBottom() {
         return this;
     }
 
     @Override
-    public SpreadsheetTimeComponent removeBorders() {
+    public SpreadsheetIntegerBox removeBorders() {
         return this;
     }
 
-    public SpreadsheetTimeComponent autocompleteOff() {
+    public SpreadsheetIntegerBox clearIcon() {
         return this;
     }
 
-    public SpreadsheetTimeComponent clearIcon() {
+    public SpreadsheetIntegerBox disableSpellcheck() {
         return this;
     }
 
-    public SpreadsheetTimeComponent disableSpellcheck() {
+    public SpreadsheetIntegerBox enterFiresValueChange() {
         return this;
     }
 
-    public SpreadsheetTimeComponent enterFiresValueChange() {
+    public SpreadsheetIntegerBox setValidator(final Optional<Validator<Optional<Integer>>> validator) {
+        Objects.requireNonNull(validator, "validator");
+
+        this.validator = validator;
         return this;
     }
 
-    public SpreadsheetTimeComponent magnifyingGlassIcon() {
+    private Optional<Validator<Optional<Integer>>> validator = Optional.empty();
+
+    public SpreadsheetIntegerBox max(final int value) {
+        this.max = value;
         return this;
     }
 
-    @Override
-    public SpreadsheetTimeComponent setCssText(final String css) {
-        Objects.requireNonNull(css, "css");
+    private int max;
+
+    public SpreadsheetIntegerBox min(final int value) {
+        this.min = value;
         return this;
     }
+
+    private int min;
 
     // SpreadsheetTextBoxTreePrintable..................................................................................
 

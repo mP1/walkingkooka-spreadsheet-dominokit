@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponen
 import walkingkooka.spreadsheet.dominokit.formula.SpreadsheetFormulaSelectAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelLinksComponent;
 import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelSelectAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextNodeComponent;
+import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextNodeComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 

@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value;
+package walkingkooka.spreadsheet.dominokit.text;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
@@ -24,6 +24,7 @@ import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ValidatorHelper;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -34,15 +35,15 @@ import java.util.Optional;
 
 /**
  * A mock of main/SpreadsheetTextBox with the same public interface and a helpful {@link TreePrintable}. This will be useful for unit tests to verify the rough apperance of a component that includes
- * {@link SpreadsheetTextBox}.
+ * {@link walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox}.
  */
 public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSetElement, String, SpreadsheetTextBox>,
-    SpreadsheetTextBoxTreePrintable<SpreadsheetTextBox, String>,
-    TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetTextBox>,
+    SpreadsheetTextBoxTreePrintable<walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox, String>,
+    TestHtmlElementComponent<HTMLFieldSetElement, walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox>,
     ValidatorHelper {
 
-    public static SpreadsheetTextBox empty() {
-        return new SpreadsheetTextBox();
+    public static walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox empty() {
+        return new walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox();
     }
 
     @Override

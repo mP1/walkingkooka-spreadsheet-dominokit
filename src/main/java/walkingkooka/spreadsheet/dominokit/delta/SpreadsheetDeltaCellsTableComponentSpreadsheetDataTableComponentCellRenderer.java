@@ -24,8 +24,8 @@ import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellLinksComponent;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponentCellRenderer;
 import walkingkooka.spreadsheet.dominokit.formula.SpreadsheetFormulaSelectAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.spreadsheetexpressionreference.SpreadsheetExpressionReferenceSelectAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextComponent;
-import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextNodeComponent;
+import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextComponent;
+import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextNodeComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 
 import java.util.Optional;

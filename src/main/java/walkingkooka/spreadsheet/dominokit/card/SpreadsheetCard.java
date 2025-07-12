@@ -25,7 +25,7 @@ import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.ComponentWithChildren;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
