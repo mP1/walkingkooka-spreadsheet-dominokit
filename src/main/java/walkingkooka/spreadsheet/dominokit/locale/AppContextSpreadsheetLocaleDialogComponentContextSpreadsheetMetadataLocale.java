@@ -22,6 +22,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherW
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchersDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
@@ -74,11 +75,17 @@ final class AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadata
 
     // ComponentLifecycleMatcher........................................................................................
 
-    // /spreadsheet/1/SpreadsheetName/metadata/Locale/delete
+    // /spreadsheet/1/SpreadsheetName/metadata/RoundingMode
     // /spreadsheet/1/SpreadsheetName/metadata/Locale/save/Locale
     @Override
     public boolean shouldIgnore(final HistoryToken token) {
-        return false == this.isMatch(token);
+        return (
+            token instanceof SpreadsheetMetadataPropertySaveHistoryToken &&
+                token.cast(SpreadsheetMetadataPropertySelectHistoryToken.class)
+                    .propertyName()
+                    .equals(SpreadsheetMetadataPropertyName.LOCALE)
+        ) ||
+            token instanceof SpreadsheetMetadataPropertySaveHistoryToken;
     }
 
     // /spreadsheet/1/SpreadsheetName/metadata/Locale/save
