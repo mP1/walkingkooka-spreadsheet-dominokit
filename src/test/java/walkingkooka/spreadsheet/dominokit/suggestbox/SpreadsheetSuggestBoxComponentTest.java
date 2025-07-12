@@ -125,8 +125,8 @@ public final class SpreadsheetSuggestBoxComponentTest implements FormValueCompon
     // ValueComponent...................................................................................................
 
     @Override
-    public walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent<SpreadsheetCellReference> createComponent() {
-        return walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent.with(
+    public SpreadsheetSuggestBoxComponent<SpreadsheetCellReference> createComponent() {
+        return SpreadsheetSuggestBoxComponent.with(
             SpreadsheetSelection::parseCell,
             SUGGESTIONS_STORE
         );
@@ -135,7 +135,7 @@ public final class SpreadsheetSuggestBoxComponentTest implements FormValueCompon
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent<SpreadsheetCellReference>> type() {
+    public Class<SpreadsheetSuggestBoxComponent<SpreadsheetCellReference>> type() {
         return Cast.to(SpreadsheetSuggestBoxComponent.class);
     }
 
