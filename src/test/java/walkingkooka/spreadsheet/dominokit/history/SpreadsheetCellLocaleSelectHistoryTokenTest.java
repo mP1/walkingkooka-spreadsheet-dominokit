@@ -64,13 +64,6 @@ public final class SpreadsheetCellLocaleSelectHistoryTokenTest extends Spreadshe
         this.clearActionAndCheck();
     }
 
-    // close............................................................................................................
-
-    @Test
-    public void testClose() {
-        this.closeAndCheck();
-    }
-
     @Override
     SpreadsheetCellLocaleSelectHistoryToken createHistoryToken(final SpreadsheetId id,
                                                                final SpreadsheetName name,
