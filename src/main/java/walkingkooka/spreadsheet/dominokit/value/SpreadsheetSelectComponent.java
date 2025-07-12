@@ -95,12 +95,12 @@ public final class SpreadsheetSelectComponent<T> implements FormValueComponent<H
     /**
      * Appends a new value to the drop down.
      */
-    public SpreadsheetSelectComponent<T> appendValue(final String text,
+    public SpreadsheetSelectComponent<T> appendOption(final String text,
                                                      final T value) {
         checkText(text);
         checkValue(value);
 
-        return this.appendValue(
+        return this.appendOption(
             text,
             Optional.of(value)
         );
@@ -109,7 +109,7 @@ public final class SpreadsheetSelectComponent<T> implements FormValueComponent<H
     /**
      * Appends a new value to the drop down.
      */
-    public SpreadsheetSelectComponent<T> appendValue(final String text,
+    public SpreadsheetSelectComponent<T> appendOption(final String text,
                                                      final Optional<T> value) {
         checkText(text);
         checkValue(value);
@@ -123,7 +123,7 @@ public final class SpreadsheetSelectComponent<T> implements FormValueComponent<H
         return this;
     }
 
-    public SpreadsheetSelectComponent<T> clearValues() {
+    public SpreadsheetSelectComponent<T> clearOption() {
         this.select.removeAllOptions();
         return this;
     }

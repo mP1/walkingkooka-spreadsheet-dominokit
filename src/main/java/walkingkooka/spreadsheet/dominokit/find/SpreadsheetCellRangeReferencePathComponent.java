@@ -42,7 +42,7 @@ public final class SpreadsheetCellRangeReferencePathComponent implements FormVal
         this.select = SpreadsheetSelectComponent.empty();
 
         for (final SpreadsheetCellRangeReferencePath path : SpreadsheetCellRangeReferencePath.values()) {
-            this.select.appendValue(
+            this.select.appendOption(
                 path.labelText(), // text
                 path // value
             );

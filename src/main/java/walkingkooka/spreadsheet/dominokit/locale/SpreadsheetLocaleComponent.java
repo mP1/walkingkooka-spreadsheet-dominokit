@@ -237,7 +237,7 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
         Objects.requireNonNull(label, "label");
         Objects.requireNonNull(locale, "locale");
 
-        this.select.appendValue(
+        this.select.appendOption(
             label,
             locale
         );

@@ -45,10 +45,13 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
     private SpreadsheetValueTypeComponent() {
         final SpreadsheetSelectComponent<ValidationValueTypeName> select = SpreadsheetSelectComponent.empty();
 
-        select.appendValue("Any", SpreadsheetValueType.ANY);
+        select.appendOption(
+            "Any",
+            SpreadsheetValueType.ANY
+        );
 
         for(final ValidationValueTypeName typeName : SpreadsheetValueType.ALL_CELL_TYPES) {
-            select.appendValue(
+            select.appendOption(
                 CaseKind.PASCAL.change(
                     typeName.text(),
                     CaseKind.TITLE
