@@ -19,16 +19,27 @@ package walkingkooka.spreadsheet.dominokit.locale;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
+import org.dominokit.domino.ui.elements.SpanElement;
+import org.dominokit.domino.ui.forms.suggest.SuggestOption;
+import org.dominokit.domino.ui.forms.suggest.SuggestionsStore;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.spreadsheet.dominokit.select.SpreadsheetSelectComponent;
+import walkingkooka.collect.list.Lists;
+import walkingkooka.collect.map.Maps;
+import walkingkooka.locale.LocaleContext;
+import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
+import walkingkooka.spreadsheet.server.locale.LocaleHateosResource;
+import walkingkooka.spreadsheet.server.locale.LocaleTag;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.Consumer;
 
 /**
  * A drop down that supports picking an optional {@link Locale}.
@@ -41,133 +52,227 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
      * A {@link SpreadsheetLocaleComponent} which is initially empty, possible options to select must be added after
      * creation.
      */
-    public static SpreadsheetLocaleComponent empty() {
-        return new SpreadsheetLocaleComponent();
+    public static SpreadsheetLocaleComponent empty(final LocaleContext context) {
+        return new SpreadsheetLocaleComponent(
+            Objects.requireNonNull(context, "context")
+        );
     }
 
-    private SpreadsheetLocaleComponent() {
-        this.select = SpreadsheetSelectComponent.empty();
+    private SpreadsheetLocaleComponent(final LocaleContext context) {
+        final Map<String, Locale> localeTextToLocale = Maps.sorted(String.CASE_INSENSITIVE_ORDER);
+        final Map<String, LocaleHateosResource> languageTagToLocaleHateosResource = Maps.sorted(String.CASE_INSENSITIVE_ORDER);
+
+        for (final Locale locale : context.availableLocales()) {
+            final String localeText = context.localeText(locale)
+                .orElse(null);
+
+            if (null != localeText) {
+                localeTextToLocale.put(
+                    localeText,
+                    locale
+                );
+
+                final String languageTag = locale.toLanguageTag();
+
+                languageTagToLocaleHateosResource.put(
+                    languageTag,
+                    LocaleHateosResource.with(
+                        LocaleTag.with(locale),
+                        localeText
+                    )
+                );
+            }
+        }
+
+        this.languageTagToLocaleHateosResource = languageTagToLocaleHateosResource;
+
+        this.suggestBox = SpreadsheetSuggestBoxComponent.with(
+            // String -> LocaleHateousResource, exception will be shown as an error text
+            (String localeText) -> {
+                final Locale locale = localeTextToLocale.get(localeText);
+                if (null == locale) {
+                    throw new IllegalArgumentException("Unknown locale");
+                }
+                return LocaleHateosResource.with(
+                    LocaleTag.with(locale),
+                    localeText
+                );
+            },
+            new SuggestionsStore<LocaleHateosResource, SpanElement, SuggestOption<LocaleHateosResource>>() {
+
+                @Override
+                public void filter(final String startsWith,
+                                   final SuggestionsHandler<LocaleHateosResource, SpanElement, SuggestOption<LocaleHateosResource>> handler) {
+                    final List<SuggestOption<LocaleHateosResource>> suggestions = Lists.array();
+
+                    for (final Entry<String, Locale> localeTextAndLocale : localeTextToLocale.entrySet()) {
+                        final String localeText = localeTextAndLocale.getKey();
+                        if (isMatch(startsWith, localeText)) {
+                            suggestions.add(
+                                SuggestOption.create(
+                                    LocaleHateosResource.with(
+                                        LocaleTag.with(
+                                            localeTextAndLocale.getValue()
+                                        ),
+                                        localeText
+                                    )
+                                )
+                            );
+                        }
+                    }
+
+                    handler.onSuggestionsReady(suggestions);
+                }
+
+                @Override
+                public void find(final LocaleHateosResource searchValue,
+                                 final Consumer<SuggestOption<LocaleHateosResource>> handler) {
+                    final LocaleHateosResource localeHateosResource = languageTagToLocaleHateosResource.get(
+                        searchValue.locale()
+                            .toLanguageTag()
+                    );
+                    if (null == localeHateosResource) {
+                        throw new IllegalArgumentException("Unknown locale");
+                    }
+                    handler.accept(
+                        SuggestOption.create(localeHateosResource)
+                    );
+                }
+            }
+        );
+    }
+
+    private static boolean isMatch(final String startsWith,
+                                   final String text) {
+        return text.startsWith(startsWith) || text.equals(startsWith);
     }
 
     @Override
     public SpreadsheetLocaleComponent setId(final String id) {
-        this.select.setId(id);
+        this.suggestBox.setId(id);
         return this;
     }
 
     @Override
     public String id() {
-        return this.select.id();
+        return this.suggestBox.id();
     }
 
     @Override
     public SpreadsheetLocaleComponent setLabel(final String label) {
-        this.select.setLabel(label);
+        this.suggestBox.setLabel(label);
         return this;
     }
 
     @Override
     public String label() {
-        return this.select.label();
+        return this.suggestBox.label();
     }
 
     @Override
     public SpreadsheetLocaleComponent focus() {
-        this.select.focus();
+        this.suggestBox.focus();
         return this;
     }
 
     @Override
     public SpreadsheetLocaleComponent alwaysShowHelperText() {
-        this.select.alwaysShowHelperText();
+        this.suggestBox.alwaysShowHelperText();
         return this;
     }
 
     @Override
     public SpreadsheetLocaleComponent setHelperText(final Optional<String> text) {
-        this.select.setHelperText(text);
+        this.suggestBox.setHelperText(text);
         return this;
     }
 
     @Override
     public Optional<String> helperText() {
-        return this.select.helperText();
+        return this.suggestBox.helperText();
     }
 
     @Override
     public List<String> errors() {
-        return this.select.errors();
+        return this.suggestBox.errors();
     }
 
     @Override
     public SpreadsheetLocaleComponent setErrors(final List<String> errors) {
-        this.select.setErrors(errors);
+        this.suggestBox.setErrors(errors);
         return this;
     }
 
     @Override
     public SpreadsheetLocaleComponent hideMarginBottom() {
-        this.select.hideMarginBottom();
+        this.suggestBox.hideMarginBottom();
         return this;
     }
 
     @Override
     public SpreadsheetLocaleComponent removeBorders() {
-        this.select.removeBorders();
+        this.suggestBox.removeBorders();
         return this;
     }
 
     @Override
     public boolean isDisabled() {
-        return this.select.isDisabled();
+        return this.suggestBox.isDisabled();
     }
 
     @Override
     public SpreadsheetLocaleComponent setDisabled(final boolean disabled) {
-        this.select.setDisabled(disabled);
+        this.suggestBox.setDisabled(disabled);
         return this;
     }
 
     @Override
     public SpreadsheetLocaleComponent required() {
-        this.select.required();
+        this.suggestBox.required();
         return this;
     }
 
     @Override
     public boolean isRequired() {
-        return this.select.isRequired();
+        return this.suggestBox.isRequired();
     }
 
     @Override
     public SpreadsheetLocaleComponent optional() {
-        this.select.optional();
+        this.suggestBox.optional();
         return this;
     }
 
     @Override
     public SpreadsheetLocaleComponent validate() {
-        this.select.validate();
+        this.suggestBox.validate();
         return this;
     }
 
     @Override
     public SpreadsheetLocaleComponent addChangeListener(final ChangeListener<Optional<Locale>> listener) {
-        this.select.addChangeListener(listener);
+        Objects.requireNonNull(listener, "listener");
+
+        this.suggestBox.addChangeListener(
+            (Optional<LocaleHateosResource> oldLocale, Optional<LocaleHateosResource> newLocale) -> listener.onValueChanged(
+                oldLocale.map(LocaleHateosResource::locale),
+                newLocale.map(LocaleHateosResource::locale)
+            )
+        );
         return this;
     }
 
     @Override
     public SpreadsheetLocaleComponent addClickListener(final EventListener listener) {
-        this.select.addClickListener(
+        this.suggestBox.addClickListener(
             listener
         );
         return this;
     }
-    
+
     @Override
     public SpreadsheetLocaleComponent addFocusListener(final EventListener listener) {
-        this.select.addFocusListener(
+        this.suggestBox.addFocusListener(
             listener
         );
         return this;
@@ -175,13 +280,13 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
 
     @Override
     public SpreadsheetLocaleComponent addKeydownListener(final EventListener listener) {
-        this.select.addKeydownListener(listener);
+        this.suggestBox.addKeydownListener(listener);
         return this;
     }
 
     @Override
     public SpreadsheetLocaleComponent addKeyupListener(final EventListener listener) {
-        this.select.addKeyupListener(listener);
+        this.suggestBox.addKeyupListener(listener);
         return this;
     }
 
@@ -189,7 +294,7 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
 
     @Override
     public SpreadsheetLocaleComponent setCssText(final String css) {
-        this.select.setCssText(css);
+        this.suggestBox.setCssText(css);
         return this;
     }
 
@@ -198,7 +303,7 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
     @Override
     public SpreadsheetLocaleComponent setCssProperty(final String name,
                                                      final String value) {
-        this.select.setCssProperty(
+        this.suggestBox.setCssProperty(
             name,
             value
         );
@@ -209,7 +314,7 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
 
     @Override
     public HTMLFieldSetElement element() {
-        return this.select.element();
+        return this.suggestBox.element();
     }
 
     // Value............................................................................................................
@@ -218,46 +323,37 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
     public SpreadsheetLocaleComponent setValue(final Optional<Locale> locale) {
         Objects.requireNonNull(locale, "locale");
 
-        this.select.setValue(locale);
-        return this;
-    }
+        // translate Locale -> LocaleHateosResource. The later will have the locale text and Locale for the #suggestBox
+        LocaleHateosResource verified = null;
 
-    @Override //
-    public Optional<Locale> value() {
-        return this.select.value();
-    }
+        if (locale.isPresent()) {
+            final String languageLocale = locale.get()
+                .toLanguageTag();
 
-    private final SpreadsheetSelectComponent<Locale> select;
+            verified = this.languageTagToLocaleHateosResource.get(languageLocale);
+        }
 
-    /**
-     * Adds a {@link Locale}.
-     */
-    public SpreadsheetLocaleComponent addLocale(final String label,
-                                                final Locale locale) {
-        Objects.requireNonNull(label, "label");
-        Objects.requireNonNull(locale, "locale");
-
-        this.select.appendOption(
-            label,
-            locale
+        this.suggestBox.setValue(
+            Optional.ofNullable(verified)
         );
         return this;
     }
 
-    /**
-     * Clears any previous added {@link Locale}. This allows locales to be refreshed by clearing and then adding again.
-     */
-    public SpreadsheetLocaleComponent clearLocales() {
-        this.select.clearOptions();
+    private final Map<String, LocaleHateosResource> languageTagToLocaleHateosResource;
 
-        return this;
+    @Override //
+    public Optional<Locale> value() {
+        return this.suggestBox.value()
+            .map(LocaleHateosResource::locale);
     }
+
+    private final SpreadsheetSuggestBoxComponent<LocaleHateosResource> suggestBox;
 
     // Object...........................................................................................................
 
     @Override
     public String toString() {
-        return this.select.toString();
+        return this.suggestBox.toString();
     }
 
     // TreePrintable....................................................................................................
@@ -267,7 +363,7 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
         printer.println(this.getClass().getSimpleName());
         printer.indent();
         {
-            this.select.printTree(printer);
+            this.suggestBox.printTree(printer);
         }
         printer.outdent();
     }

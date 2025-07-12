@@ -19,68 +19,67 @@ package walkingkooka.spreadsheet.dominokit.locale;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.set.Sets;
+import walkingkooka.locale.FakeLocaleContext;
+import walkingkooka.locale.LocaleContext;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 
 import java.util.Locale;
 import java.util.Optional;
+import java.util.Set;
 
 public final class SpreadsheetLocaleComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, Locale, SpreadsheetLocaleComponent> {
 
     private final static Locale ENAU = Locale.forLanguageTag("en-AU");
     private final static Locale ENNZ = Locale.forLanguageTag("en-NZ");
 
+    private final static LocaleContext CONTEXT = new FakeLocaleContext() {
+
+        @Override
+        public Set<Locale> availableLocales() {
+            return Sets.of(
+                ENAU,
+                ENNZ
+            );
+        }
+
+        @Override
+        public Optional<String> localeText(final Locale locale) {
+            return Optional.ofNullable(
+                ENAU.equals(locale) ?
+                    "English (Australia)" :
+                    ENNZ.equals(locale) ?
+                        "English (New Zealand)" :
+                        null
+            );
+        }
+    };
+
     @Test
     public void testTreePrintWithoutValue() {
         this.treePrintAndCheck(
-            SpreadsheetLocaleComponent.empty()
-                .addLocale("English (Australia)", ENAU)
-                .addLocale("English (New Zealand)", ENNZ),
+            SpreadsheetLocaleComponent.empty(CONTEXT),
             "SpreadsheetLocaleComponent\n" +
-                "  SpreadsheetSelectComponent\n" +
-                "    []\n" +
-                "      English (Australia)=en_AU\n" +
-                "      English (New Zealand)=en_NZ\n"
+                "  SpreadsheetSuggestBoxComponent\n" +
+                "    [] REQUIRED\n" +
+                "    Errors\n" +
+                "      Required\n"
         );
     }
 
     @Test
     public void testTreePrintWithEnAu() {
         this.treePrintAndCheck(
-            SpreadsheetLocaleComponent.empty()
-                .addLocale("English (Australia)", ENAU)
-                .addLocale("English (New Zealand)", ENNZ)
+            SpreadsheetLocaleComponent.empty(CONTEXT)
                 .setValue(
                     Optional.of(
                         ENAU
                     )
                 ),
             "SpreadsheetLocaleComponent\n" +
-                "  SpreadsheetSelectComponent\n" +
-                "    [en_AU]\n" +
-                "      English (Australia)=en_AU\n" +
-                "      English (New Zealand)=en_NZ\n"
-        );
-    }
-
-    @Test
-    public void testTreePrintAddOptionClearOptionsAddOption() {
-        this.treePrintAndCheck(
-            SpreadsheetLocaleComponent.empty()
-                .addLocale("Zebra", Locale.FRANCE)
-                .clearLocales()
-                .addLocale("English (Australia)", ENAU)
-                .addLocale("English (New Zealand)", ENNZ)
-                .setValue(
-                    Optional.of(
-                        ENAU
-                    )
-                ),
-            "SpreadsheetLocaleComponent\n" +
-                "  SpreadsheetSelectComponent\n" +
-                "    [en_AU]\n" +
-                "      English (Australia)=en_AU\n" +
-                "      English (New Zealand)=en_NZ\n"
+                "  SpreadsheetSuggestBoxComponent\n" +
+                "    [en-AU \"English (Australia)\"] REQUIRED\n"
         );
     }
 
@@ -93,7 +92,7 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
 
     @Override
     public SpreadsheetLocaleComponent createComponent() {
-        return SpreadsheetLocaleComponent.empty();
+        return SpreadsheetLocaleComponent.empty(CONTEXT);
     }
 
     // class............................................................................................................
