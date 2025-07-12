@@ -15,18 +15,19 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value;
+package walkingkooka.spreadsheet.dominokit.datetime;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetDateTimeComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, LocalDateTime, SpreadsheetDateTimeComponent> {
+public final class SpreadsheetDateComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, LocalDate, SpreadsheetDateComponent> {
 
     // setId............................................................................................................
 
@@ -61,7 +62,7 @@ public final class SpreadsheetDateTimeComponentTest implements FormValueComponen
 
     @Test
     public void testClearValue() {
-        final SpreadsheetDateTimeComponent component = this.createComponent()
+        final SpreadsheetDateComponent component = this.createComponent()
             .setValue(
                 Optional.empty()
             );
@@ -74,27 +75,20 @@ public final class SpreadsheetDateTimeComponentTest implements FormValueComponen
     // ValueComponent...................................................................................................
 
     @Override
-    public SpreadsheetDateTimeComponent createComponent() {
-        return SpreadsheetDateTimeComponent.empty(
+     public SpreadsheetDateComponent createComponent() {
+        return SpreadsheetDateComponent.empty(
             "id",
             () -> CLEAR_VALUE
         );
     }
 
-    private final static LocalDateTime CLEAR_VALUE = LocalDateTime.of(
-        1999,
-        12,
-        31,
-        12,
-        58,
-        59
-    );
+    private final static LocalDate CLEAR_VALUE = LocalDate.of(1999, 12, 31);
 
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SpreadsheetDateTimeComponent> type() {
-        return SpreadsheetDateTimeComponent.class;
+    public Class<SpreadsheetDateComponent> type() {
+        return SpreadsheetDateComponent.class;
     }
 
     @Override

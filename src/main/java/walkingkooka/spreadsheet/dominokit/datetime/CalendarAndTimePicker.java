@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value;
+package walkingkooka.spreadsheet.dominokit.datetime;
 
 import org.dominokit.domino.ui.datepicker.CalendarDay;
 
