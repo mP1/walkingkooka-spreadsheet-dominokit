@@ -244,6 +244,15 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
         return this;
     }
 
+    /**
+     * Clears any previous added {@link Locale}. This allows locales to be refreshed by clearing and then adding again.
+     */
+    public SpreadsheetLocaleComponent clearLocales() {
+        this.select.clearOptions();
+
+        return this;
+    }
+
     // Object...........................................................................................................
 
     @Override
