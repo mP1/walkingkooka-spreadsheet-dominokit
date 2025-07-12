@@ -30,7 +30,7 @@ public final class SpreadsheetSelectComponentTest implements FormValueComponentT
     @Test
     public void testTreePrint() {
         this.treePrintAndCheck(
-            walkingkooka.spreadsheet.dominokit.select.SpreadsheetSelectComponent.empty()
+            SpreadsheetSelectComponent.empty()
                 .setLabel("Label123")
                 .setValue(Optional.of("Value456"))
                 .setId("id987")
@@ -51,14 +51,14 @@ public final class SpreadsheetSelectComponentTest implements FormValueComponentT
     // ValueComponent...................................................................................................
 
     @Override
-    public walkingkooka.spreadsheet.dominokit.select.SpreadsheetSelectComponent<String> createComponent() {
-        return walkingkooka.spreadsheet.dominokit.select.SpreadsheetSelectComponent.empty();
+    public SpreadsheetSelectComponent<String> createComponent() {
+        return SpreadsheetSelectComponent.empty();
     }
 
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<walkingkooka.spreadsheet.dominokit.select.SpreadsheetSelectComponent<String>> type() {
+    public Class<SpreadsheetSelectComponent<String>> type() {
         return Cast.to(SpreadsheetSelectComponent.class);
     }
 
