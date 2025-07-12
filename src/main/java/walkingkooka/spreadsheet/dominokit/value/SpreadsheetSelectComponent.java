@@ -123,7 +123,7 @@ public final class SpreadsheetSelectComponent<T> implements FormValueComponent<H
         return this;
     }
 
-    public SpreadsheetSelectComponent<T> clearOption() {
+    public SpreadsheetSelectComponent<T> clearOptions() {
         this.select.removeAllOptions();
         return this;
     }
