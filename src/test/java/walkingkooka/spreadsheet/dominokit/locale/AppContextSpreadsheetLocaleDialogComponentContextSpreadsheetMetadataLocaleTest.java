@@ -135,6 +135,40 @@ public final class AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetM
         );
     }
 
+    // shouldIgnore.....................................................................................................
+
+    @Test
+    public void testShouldIgnoreSpreadsheetMetadataPropertyNameWithNotLocale() {
+        for (final SpreadsheetMetadataPropertyName<?> propertyName : SpreadsheetMetadataPropertyName.ALL) {
+            if (SpreadsheetMetadataPropertyName.LOCALE.equals(propertyName)) {
+                continue;
+            }
+
+            this.shouldIgnoreAndCheck(
+                this.createContext(),
+                HistoryToken.metadataPropertySelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    propertyName
+                ),
+                true
+            );
+        }
+    }
+
+    @Test
+    public void testShouldIgnoreSpreadsheetMetadataPropertyNameWithLocale() {
+        this.shouldIgnoreAndCheck(
+            this.createContext(),
+            HistoryToken.metadataPropertySelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetMetadataPropertyName.LOCALE
+            ),
+            false
+        );
+    }
+
     @Override
     public AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocale createContext() {
         return AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocale.with(
