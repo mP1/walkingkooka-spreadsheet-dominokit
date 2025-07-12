@@ -28,9 +28,9 @@ import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
 
-public class FakeSpreadsheetLocaleComponentDialogComponentContext extends FakeSpreadsheetDialogComponentContext implements SpreadsheetLocaleComponentDialogComponentContext{
+public class FakeSpreadsheetLocaleDialogComponentContext extends FakeSpreadsheetDialogComponentContext implements SpreadsheetLocaleDialogComponentContext {
 
-    public FakeSpreadsheetLocaleComponentDialogComponentContext() {
+    public FakeSpreadsheetLocaleDialogComponentContext() {
         super();
     }
 

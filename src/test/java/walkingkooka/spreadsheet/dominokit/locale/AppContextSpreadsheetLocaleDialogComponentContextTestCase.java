@@ -17,10 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.locale;
 
-abstract class AppContextSpreadsheetLocaleComponentDialogComponentContextTestCase<C extends AppContextSpreadsheetLocaleComponentDialogComponentContext>
-    implements SpreadsheetLocaleComponentDialogComponentContextTesting<C> {
+abstract class AppContextSpreadsheetLocaleDialogComponentContextTestCase<C extends AppContextSpreadsheetLocaleDialogComponentContext>
+    implements SpreadsheetLocaleDialogComponentContextTesting<C> {
 
-    AppContextSpreadsheetLocaleComponentDialogComponentContextTestCase() {
+    AppContextSpreadsheetLocaleDialogComponentContextTestCase() {
         super();
     }
 

@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.locale;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -28,13 +29,13 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class AppContextSpreadsheetLocaleComponentDialogComponentContextCellLocaleTest extends AppContextSpreadsheetLocaleComponentDialogComponentContextTestCase<AppContextSpreadsheetLocaleComponentDialogComponentContextCellLocale> {
+public final class AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocaleTest extends AppContextSpreadsheetLocaleDialogComponentContextTestCase<AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocale> {
 
     @Test
     public void testWithNullAppContextFails() {
         assertThrows(
             NullPointerException.class,
-            () -> AppContextSpreadsheetLocaleComponentDialogComponentContextCellLocale.with(null)
+            () -> AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocale.with(null)
         );
     }
 
@@ -44,7 +45,19 @@ public final class AppContextSpreadsheetLocaleComponentDialogComponentContextCel
     public void testDialogTitle() {
         this.dialogTitleAndCheck(
             this.createContext(),
-            "Cell A1 Locale"
+            "Spreadsheet Locale"
+        );
+    }
+
+    // undoLocale.......................................................................................................
+
+    private final static Locale LOCALE = Locale.forLanguageTag("en-AU");
+
+    @Test
+    public void testUndoLocale() {
+        this.undoLocaleAndCheck(
+            this.createContext(),
+            LOCALE
         );
     }
 
@@ -59,18 +72,18 @@ public final class AppContextSpreadsheetLocaleComponentDialogComponentContextCel
                 SPREADSHEET_NAME,
                 SpreadsheetMetadataPropertyName.LOCALE
             ),
-            false
+            true
         );
     }
 
     @Test
-    public void testisMatchWithCellLocaleSave() {
+    public void testisMatchWithSpreadsheetMetadataSaveWithLocale() {
         this.isMatchAndCheck(
             this.createContext(),
-            HistoryToken.cellLocaleSave(
+            HistoryToken.metadataPropertySave(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                SpreadsheetSelection.A1.setDefaultAnchor(),
+                SpreadsheetMetadataPropertyName.LOCALE,
                 Optional.of(Locale.ENGLISH)
             ),
             false
@@ -90,7 +103,6 @@ public final class AppContextSpreadsheetLocaleComponentDialogComponentContextCel
         );
     }
 
-    // /1/SpreadsheetName/cell/locale
     @Test
     public void testisMatchWithCellLocaleSelect() {
         this.isMatchAndCheck(
@@ -100,20 +112,20 @@ public final class AppContextSpreadsheetLocaleComponentDialogComponentContextCel
                 SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor()
             ),
-            true
+            false
         );
     }
 
     @Override
-    public AppContextSpreadsheetLocaleComponentDialogComponentContextCellLocale createContext() {
-        return AppContextSpreadsheetLocaleComponentDialogComponentContextCellLocale.with(
+    public AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocale createContext() {
+        return AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocale.with(
             new FakeAppContext() {
+
                 @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellLocaleSelect(
-                        SPREADSHEET_ID,
-                        SPREADSHEET_NAME,
-                        SpreadsheetSelection.A1.setDefaultAnchor()
+                public SpreadsheetMetadata spreadsheetMetadata() {
+                    return SpreadsheetMetadata.EMPTY.set(
+                        SpreadsheetMetadataPropertyName.LOCALE,
+                        LOCALE
                     );
                 }
             }
@@ -121,7 +133,7 @@ public final class AppContextSpreadsheetLocaleComponentDialogComponentContextCel
     }
 
     @Override
-    public Class<AppContextSpreadsheetLocaleComponentDialogComponentContextCellLocale> type() {
-        return AppContextSpreadsheetLocaleComponentDialogComponentContextCellLocale.class;
+    public Class<AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocale> type() {
+        return AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocale.class;
     }
 }

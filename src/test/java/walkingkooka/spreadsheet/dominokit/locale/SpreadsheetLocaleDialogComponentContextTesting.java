@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentConte
 import java.util.Locale;
 import java.util.Optional;
 
-public interface SpreadsheetLocaleComponentDialogComponentContextTesting<C extends SpreadsheetLocaleComponentDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C>,
+public interface SpreadsheetLocaleDialogComponentContextTesting<C extends SpreadsheetLocaleDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C>,
     LocaleContextTesting,
     ComponentLifecycleMatcherTesting<C> {
 
@@ -65,6 +65,6 @@ public interface SpreadsheetLocaleComponentDialogComponentContextTesting<C exten
 
     @Override
     default String typeNameSuffix() {
-        return SpreadsheetLocaleComponentDialogComponentContext.class.getSimpleName();
+        return SpreadsheetLocaleDialogComponentContext.class.getSimpleName();
     }
 }
