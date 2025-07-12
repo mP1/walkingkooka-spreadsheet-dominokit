@@ -15,19 +15,23 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value;
+package walkingkooka.spreadsheet.dominokit.suggestbox;
 
+import elemental2.dom.Element;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.elements.SpanElement;
+import org.dominokit.domino.ui.events.EventType;
+import org.dominokit.domino.ui.forms.suggest.SuggestBox;
 import org.dominokit.domino.ui.forms.suggest.SuggestOption;
 import org.dominokit.domino.ui.forms.suggest.SuggestionsStore;
+import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.ValidatorHelper;
 import walkingkooka.spreadsheet.dominokit.validator.SpreadsheetValidators;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
+import walkingkooka.text.CharSequences;
 import walkingkooka.text.HasText;
 import walkingkooka.text.printer.IndentingPrinter;
 
@@ -36,12 +40,12 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 
+import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
+
 /**
- * A text box component that includes support for suggestions using a {@link SuggestionsStore}.
+ * A text box component that includes support for finding a label.
  */
-public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements SpreadsheetSuggestBoxComponentLike<T>,
-    TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetSuggestBoxComponent<T>>,
-    ValidatorHelper {
+public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements SpreadsheetSuggestBoxComponentLike<T> {
 
     public static <T extends HasText> SpreadsheetSuggestBoxComponent<T> with(final Function<String, T> parser,
                                                                              final SuggestionsStore<String, SpanElement, SuggestOption<String>> suggestionsStore) {
@@ -56,52 +60,53 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
 
     private SpreadsheetSuggestBoxComponent(final Function<String, T> parser,
                                            final SuggestionsStore<String, SpanElement, SuggestOption<String>> suggestionsStore) {
-        this.helperText = Optional.empty();
-
         this.parser = parser;
-        this.stringValue = Optional.empty();
-        this.errors = Lists.empty();
+        final SuggestBox<String, SpanElement, SuggestOption<String>> suggestBox = SuggestBox.create(
+            suggestionsStore
+        );
+        this.suggestBox = suggestBox;
+        suggestBox.setAutoValidation(true);
 
-        this.suggestionsStore = suggestionsStore;
-        this.validator = null;
         this.required();
-        this.validate();
     }
 
     // id...............................................................................................................
 
     @Override
     public SpreadsheetSuggestBoxComponent<T> setId(final String id) {
-        this.id = id;
+        this.suggestBox.getInputElement()
+            .setId(id);
         return this;
     }
 
     @Override
     public String id() {
-        return this.id;
+        return this.suggestBox.getInputElement()
+            .getId();
     }
-
-    private String id;
 
     // label............................................................................................................
 
     @Override
     public SpreadsheetSuggestBoxComponent<T> setLabel(final String label) {
-        this.label = label;
+        this.suggestBox.setLabel(label);
         return this;
     }
 
     @Override
     public String label() {
-        return this.label;
+        return this.suggestBox.getLabel();
     }
-
-    private String label;
 
     // helperText.......................................................................................................
 
     @Override
     public SpreadsheetSuggestBoxComponent<T> alwaysShowHelperText() {
+        final DominoElement<Element> element = elements.elementOf(
+            this.suggestBox.element()
+                .firstElementChild
+        );
+        element.setHeight(FormValueComponent.HELPER_TEXT_HEIGHT);
         return this;
     }
 
@@ -109,16 +114,18 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     public SpreadsheetSuggestBoxComponent<T> setHelperText(final Optional<String> text) {
         Objects.requireNonNull(text, "text");
 
-        this.helperText = text;
+        this.suggestBox.setHelperText(
+            text.orElse(null)
+        );
         return this;
     }
 
     @Override
     public Optional<String> helperText() {
-        return this.helperText;
+        return Optional.ofNullable(
+            this.suggestBox.getHelperText()
+        );
     }
-
-    private Optional<String> helperText;
 
     // StringValue......................................................................................................
 
@@ -126,32 +133,41 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     public SpreadsheetSuggestBoxComponent<T> setStringValue(final Optional<String> value) {
         Objects.requireNonNull(value, "value");
 
-        this.stringValue = value;
-        this.validate();
+        this.suggestBox.withValue(
+            value.orElse(""),
+            true // silent
+        );
         return this;
     }
 
-    @Override public Optional<String> stringValue() {
-        return this.stringValue;
-    }
+    @Override
+    public Optional<String> stringValue() {
+        final String text = this.suggestBox.getStringValue();
 
-    private Optional<String> stringValue;
+        return Optional.ofNullable(
+            CharSequences.isNullOrEmpty(text) ?
+                null :
+                text
+        );
+    }
 
     // Value............................................................................................................
 
     @Override
-    public SpreadsheetSuggestBoxComponent<T> setValue(final Optional<T> value) {
-        Objects.requireNonNull(value, "value");
+    public SpreadsheetSuggestBoxComponent<T> setValue(final Optional<T> label) {
+        Objects.requireNonNull(label, "label");
 
-        return this.setStringValue(
-            value.map(HasText::text)
+        this.suggestBox.setValue(
+            label.map(T::text)
+                .orElse("")
         );
+        return this;
     }
 
     @Override //
     public Optional<T> value() {
         return tryParse(
-            this.stringValue.orElse("")
+            this.suggestBox.getStringValue()
         );
     }
 
@@ -173,16 +189,14 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
 
     @Override
     public boolean isDisabled() {
-        return this.disabled;
+        return this.suggestBox.isDisabled();
     }
 
     @Override
     public SpreadsheetSuggestBoxComponent<T> setDisabled(final boolean disabled) {
-        this.disabled = disabled;
+        this.suggestBox.setDisabled(disabled);
         return this;
     }
-
-    private boolean disabled;
 
     // validation.......................................................................................................
 
@@ -209,11 +223,13 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     }
 
     private SpreadsheetSuggestBoxComponent<T> setValidator(final Validator<Optional<String>> validator) {
-        this.validator = validator;
+        this.suggestBox.getValidators()
+            .clear();
+        this.suggestBox.addValidator(
+            SpreadsheetSuggestBoxComponentValidator.with(validator)
+        );
         return this.validate();
     }
-
-    private Validator<Optional<String>> validator;
 
     @Override
     public boolean isRequired() {
@@ -224,31 +240,24 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
 
     @Override
     public SpreadsheetSuggestBoxComponent<T> validate() {
-        this.setErrors(
-            this.validateAndGetErrors(
-                this.stringValue,
-                Optional.ofNullable(
-                    this.validator
-                )
-            )
-        );
+        this.suggestBox.validate();
         return this;
     }
 
     @Override
     public List<String> errors() {
-        return this.errors;
+        return Lists.readOnly(
+            this.suggestBox.getErrors()
+        );
     }
 
     @Override
     public SpreadsheetSuggestBoxComponent<T> setErrors(final List<String> errors) {
-        this.errors = Lists.immutable(errors);
+        this.suggestBox.invalidate(
+            Lists.immutable(errors)
+        );
         return this;
     }
-
-    private List<String> errors;
-
-    private final SuggestionsStore<String, SpanElement, SuggestOption<String>> suggestionsStore;
 
     // events...........................................................................................................
 
@@ -256,33 +265,57 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     public SpreadsheetSuggestBoxComponent<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
         Objects.requireNonNull(listener, "listener");
 
+        this.suggestBox.addChangeListener(
+            (final String oldValue,
+             final String newValue) -> listener.onValueChanged(
+                tryParse(oldValue),
+                tryParse(newValue)
+            )
+        );
+
         return this;
     }
 
     @Override
     public SpreadsheetSuggestBoxComponent<T> addClickListener(final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        return this;
+        return this.addEventListener(
+            EventType.click,
+            listener
+        );
     }
 
     @Override
     public SpreadsheetSuggestBoxComponent<T> addFocusListener(final EventListener listener) {
-
-        return this;
+        return this.addEventListener(
+            EventType.focus,
+            listener
+        );
     }
 
     @Override
     public SpreadsheetSuggestBoxComponent<T> addKeydownListener(final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        return this;
+        return this.addEventListener(
+            EventType.keydown,
+            listener
+        );
     }
 
     @Override
     public SpreadsheetSuggestBoxComponent<T> addKeyupListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.keyup,
+            listener
+        );
+    }
+
+    private SpreadsheetSuggestBoxComponent<T> addEventListener(final EventType eventType,
+                                                final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
 
+        this.suggestBox.addEventListener(
+            eventType,
+            listener
+        );
         return this;
     }
 
@@ -290,6 +323,7 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
 
     @Override
     public SpreadsheetSuggestBoxComponent<T> focus() {
+        this.suggestBox.focus();
         return this;
     }
 
@@ -297,18 +331,61 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
 
     @Override
     public SpreadsheetSuggestBoxComponent<T> hideMarginBottom() {
+        this.suggestBox.setMarginBottom("");
         return this;
     }
 
     @Override
     public SpreadsheetSuggestBoxComponent<T> removeBorders() {
+        this.suggestBox.getInputElement()
+            .parent()
+            .parent()
+            .setBorder("0")
+            .setCssProperty("border-radius", 0);
         return this;
     }
 
-    // SpreadsheetTextBoxTreePrintable..................................................................................
+    // setCssText.......................................................................................................
+
+    @Override
+    public SpreadsheetSuggestBoxComponent<T> setCssText(final String css) {
+        Objects.requireNonNull(css, "css");
+
+        this.suggestBox.cssText(css);
+        return this;
+    }
+
+    // setCssProperty...................................................................................................
+
+    @Override
+    public SpreadsheetSuggestBoxComponent<T> setCssProperty(final String name,
+                                                            final String value) {
+        this.suggestBox.setCssProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
+    // IsElement........................................................................................................
+
+    @Override
+    public HTMLFieldSetElement element() {
+        return this.suggestBox.element();
+    }
+
+    private final SuggestBox<String, SpanElement, SuggestOption<String>> suggestBox;
+
+    // Object...........................................................................................................
+
+    @Override
+    public String toString() {
+        return this.element()
+            .toString();
+    }
 
     @Override
     public void treePrintAlternateValues(final IndentingPrinter printer) {
-        // NOP
+        // TODO
     }
 }

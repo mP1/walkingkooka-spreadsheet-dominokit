@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value;
+package walkingkooka.spreadsheet.dominokit.suggestbox;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.elements.SpanElement;
@@ -24,6 +24,7 @@ import org.dominokit.domino.ui.forms.suggest.SuggestionsStore;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -124,8 +125,8 @@ public final class SpreadsheetSuggestBoxComponentTest implements FormValueCompon
     // ValueComponent...................................................................................................
 
     @Override
-    public SpreadsheetSuggestBoxComponent<SpreadsheetCellReference> createComponent() {
-        return SpreadsheetSuggestBoxComponent.with(
+    public walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent<SpreadsheetCellReference> createComponent() {
+        return walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent.with(
             SpreadsheetSelection::parseCell,
             SUGGESTIONS_STORE
         );
@@ -134,7 +135,7 @@ public final class SpreadsheetSuggestBoxComponentTest implements FormValueCompon
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SpreadsheetSuggestBoxComponent<SpreadsheetCellReference>> type() {
+    public Class<walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent<SpreadsheetCellReference>> type() {
         return Cast.to(SpreadsheetSuggestBoxComponent.class);
     }
 
