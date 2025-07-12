@@ -30,6 +30,18 @@ public abstract class SpreadsheetCellDecimalNumberSymbolsHistoryTokenTestCase<T 
         super();
     }
 
+    @Test
+    public final void testClose() {
+        this.closeAndCheck(
+            this.createHistoryToken(),
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                SELECTION
+            )
+        );
+    }
+
     // setSaveStringValue.....................................................................................................
 
     @Test

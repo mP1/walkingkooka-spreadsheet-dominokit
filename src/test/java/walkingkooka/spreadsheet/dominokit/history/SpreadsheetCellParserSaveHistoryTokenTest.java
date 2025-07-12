@@ -105,27 +105,6 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
         );
     }
 
-    // close............................................................................................................
-
-    @Test
-    public void testClose() {
-        final SpreadsheetParsePattern pattern = SpreadsheetPattern.parseDateParsePattern("yyyy/mm/ddd");
-
-        this.closeAndCheck(
-            HistoryToken.cellParserSave(
-                ID,
-                NAME,
-                SELECTION,
-                Optional.of(pattern.spreadsheetParserSelector())
-            ),
-            HistoryToken.cellParserSelect(
-                ID,
-                NAME,
-                SELECTION
-            )
-        );
-    }
-
     @Override
     SpreadsheetCellParserSaveHistoryToken createHistoryToken(final SpreadsheetId id,
                                                              final SpreadsheetName name,

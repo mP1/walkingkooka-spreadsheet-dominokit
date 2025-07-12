@@ -28,6 +28,20 @@ public abstract class SpreadsheetCellFormatterHistoryTokenTestCase<T extends Spr
         super();
     }
 
+    // close............................................................................................................
+
+    @Test
+    public final void testClose() {
+        this.closeAndCheck(
+            this.createHistoryToken(),
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                SELECTION
+            )
+        );
+    }
+
     // setSaveValue.....................................................................................................
 
     @Test

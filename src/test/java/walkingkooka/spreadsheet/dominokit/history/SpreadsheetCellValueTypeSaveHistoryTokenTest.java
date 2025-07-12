@@ -106,25 +106,6 @@ public final class SpreadsheetCellValueTypeSaveHistoryTokenTest extends Spreadsh
         );
     }
 
-    // close............................................................................................................
-
-    @Test
-    public void testClose() {
-        this.closeAndCheck(
-            HistoryToken.cellValueTypeSave(
-                ID,
-                NAME,
-                SELECTION,
-                VALUE_TYPE
-            ),
-            HistoryToken.cellValueTypeSelect(
-                ID,
-                NAME,
-                SELECTION
-            )
-        );
-    }
-
     @Override
     SpreadsheetCellValueTypeSaveHistoryToken createHistoryToken(final SpreadsheetId id,
                                                                 final SpreadsheetName name,

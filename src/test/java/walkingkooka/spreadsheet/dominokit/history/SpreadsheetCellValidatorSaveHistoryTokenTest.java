@@ -106,25 +106,6 @@ public final class SpreadsheetCellValidatorSaveHistoryTokenTest extends Spreadsh
         );
     }
 
-    // close............................................................................................................
-
-    @Test
-    public void testClose() {
-        this.closeAndCheck(
-            HistoryToken.cellValidatorSave(
-                ID,
-                NAME,
-                SELECTION,
-                VALIDATOR
-            ),
-            HistoryToken.cellValidatorSelect(
-                ID,
-                NAME,
-                SELECTION
-            )
-        );
-    }
-
     @Override
     SpreadsheetCellValidatorSaveHistoryToken createHistoryToken(final SpreadsheetId id,
                                                                 final SpreadsheetName name,
