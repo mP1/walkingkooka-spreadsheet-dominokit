@@ -83,7 +83,7 @@ public final class AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetM
     }
 
     @Test
-    public void testisMatchWithSpreadsheetMetadataSelectWithLocale() {
+    public void testIsMatchWithSpreadsheetMetadataSelectWithLocale() {
         this.isMatchAndCheck(
             this.createContext(),
             HistoryToken.metadataPropertySelect(
@@ -96,7 +96,7 @@ public final class AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetM
     }
 
     @Test
-    public void testisMatchWithSpreadsheetMetadataSaveWithLocale() {
+    public void testIsMatchWithSpreadsheetMetadataSaveWithLocale() {
         this.isMatchAndCheck(
             this.createContext(),
             HistoryToken.metadataPropertySave(
@@ -110,7 +110,7 @@ public final class AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetM
     }
 
     @Test
-    public void testisMatchWithSpreadsheetMetadataSelectWithFormulaConverter() {
+    public void testIsMatchWithSpreadsheetMetadataSelectWithFormulaConverter() {
         this.isMatchAndCheck(
             this.createContext(),
             HistoryToken.metadataPropertySelect(
@@ -123,7 +123,7 @@ public final class AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetM
     }
 
     @Test
-    public void testisMatchWithCellLocaleSelect() {
+    public void testIsMatchWithCellLocaleSelect() {
         this.isMatchAndCheck(
             this.createContext(),
             HistoryToken.cellLocaleSelect(
