@@ -18,11 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.plugin;
 
 import walkingkooka.plugin.PluginName;
+import walkingkooka.spreadsheet.dominokit.anchor.ValueHistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.anchor.ValueHistoryTokenAnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.PluginDeleteHistoryToken;
-import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponentDelegator;
 
 import java.util.Optional;
 

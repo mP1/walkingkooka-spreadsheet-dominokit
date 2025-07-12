@@ -19,10 +19,10 @@ package walkingkooka.spreadsheet.dominokit.plugin;
 
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.plugin.PluginName;
+import walkingkooka.spreadsheet.dominokit.anchor.ValueHistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.anchor.ValueHistoryTokenAnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponentDelegator;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 
 import java.util.Optional;

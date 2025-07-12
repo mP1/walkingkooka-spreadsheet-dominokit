@@ -15,10 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value;
-
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
+package walkingkooka.spreadsheet.dominokit.anchor;
 
 import java.util.Optional;
 

@@ -17,12 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.label;
 
+import walkingkooka.spreadsheet.dominokit.anchor.ValueHistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.anchor.ValueHistoryTokenAnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingDeleteHistoryToken;
-import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponentDelegator;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.util.Objects;

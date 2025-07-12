@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value;
+package walkingkooka.spreadsheet.dominokit.anchor;
 
 import walkingkooka.Cast;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
