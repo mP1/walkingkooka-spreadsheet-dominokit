@@ -64,13 +64,6 @@ public final class SpreadsheetCellLocaleUnselectHistoryTokenTest extends Spreads
         this.clearActionAndCheck();
     }
 
-    // close............................................................................................................
-
-    @Test
-    public void testClose() {
-        this.closeAndCheck();
-    }
-
     // delete...........................................................................................................
 
     @Test

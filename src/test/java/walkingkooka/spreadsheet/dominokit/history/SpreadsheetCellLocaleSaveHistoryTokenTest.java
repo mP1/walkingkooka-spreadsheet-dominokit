@@ -105,25 +105,6 @@ public final class SpreadsheetCellLocaleSaveHistoryTokenTest extends Spreadsheet
         );
     }
 
-    // close............................................................................................................
-
-    @Test
-    public void testClose() {
-        this.closeAndCheck(
-            HistoryToken.cellLocaleSave(
-                ID,
-                NAME,
-                SELECTION,
-                Optional.of(LOCALE)
-            ),
-            HistoryToken.cellLocaleSelect(
-                ID,
-                NAME,
-                SELECTION
-            )
-        );
-    }
-
     @Override
     SpreadsheetCellLocaleSaveHistoryToken createHistoryToken(final SpreadsheetId id,
                                                              final SpreadsheetName name,

@@ -30,6 +30,20 @@ public abstract class SpreadsheetCellLocaleHistoryTokenTestCase<T extends Spread
         super();
     }
 
+    // close............................................................................................................
+
+    @Test
+    public final void testClose() {
+        this.closeAndCheck(
+            this.createHistoryToken(),
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
     // setSaveStringValue.....................................................................................................
 
     @Test

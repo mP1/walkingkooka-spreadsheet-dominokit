@@ -2357,12 +2357,9 @@ public abstract class HistoryToken implements HasUrlFragment,
                         );
                     }
 
-                    if (this instanceof SpreadsheetCellLocaleSaveHistoryToken) {
-                        closed = cellLocaleSelect(
-                            id,
-                            name,
-                            anchoredSelection
-                        );
+                    if (this instanceof SpreadsheetCellLocaleHistoryToken) {
+                        closed = this.cast(SpreadsheetCellLocaleHistoryToken.class)
+                            .selectionSelect();
                     }
 
                     if (this instanceof SpreadsheetCellParserSelectHistoryToken) {
