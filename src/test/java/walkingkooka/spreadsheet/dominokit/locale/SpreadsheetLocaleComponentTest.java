@@ -63,6 +63,27 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
         );
     }
 
+    @Test
+    public void testTreePrintAddOptionClearOptionsAddOption() {
+        this.treePrintAndCheck(
+            SpreadsheetLocaleComponent.empty()
+                .addLocale("Zebra", Locale.FRANCE)
+                .clearLocales()
+                .addLocale("English (Australia)", ENAU)
+                .addLocale("English (New Zealand)", ENNZ)
+                .setValue(
+                    Optional.of(
+                        ENAU
+                    )
+                ),
+            "SpreadsheetLocaleComponent\n" +
+                "  SpreadsheetSelectComponent\n" +
+                "    [en_AU]\n" +
+                "      English (Australia)=en_AU\n" +
+                "      English (New Zealand)=en_NZ\n"
+        );
+    }
+
     @Override
     public void testAllMethodsVisibility() {
         throw new UnsupportedOperationException();
