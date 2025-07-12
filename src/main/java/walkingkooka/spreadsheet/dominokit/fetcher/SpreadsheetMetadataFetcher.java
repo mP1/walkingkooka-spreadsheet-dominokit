@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.collect.iterable.Iterables;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
@@ -34,6 +33,7 @@ import walkingkooka.spreadsheet.server.meta.SpreadsheetMetadataSet;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
@@ -75,21 +75,25 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
 
     /**
      * Extracts the {@link SpreadsheetId} from a URL assumed to contain an endpoint.
+     * <pre>
+     * /api/spreadsheet/SpreadsheetId/
+     * 12   3           4
+     * </pre>
      */
     public static Optional<SpreadsheetId> extractSpreadsheetId(final AbsoluteOrRelativeUrl url) {
+        final List<UrlPathName> pathNames = url.path()
+            .namesList();
+
         SpreadsheetId id = null;
 
-        final UrlPath path = url.path();
-
-        int i = 0;
-        for (final UrlPathName component : Iterables.iterator(path.iterator())) {
-            i++;
-            if (4 == i) {
-                try {
-                    id = SpreadsheetId.parse(component.value());
-                } catch (final RuntimeException ignore) {
-                    id = null;
-                }
+        if (pathNames.size() > 3) {
+            try {
+                id = SpreadsheetId.parse(
+                    pathNames.get(3)
+                        .value()
+                );
+            } catch (final RuntimeException ignore) {
+                id = null;
             }
         }
 

@@ -73,6 +73,14 @@ public final class SpreadsheetMetadataFetcherTest implements ClassTesting<Spread
         );
     }
 
+    @Test
+    public void testExtractSpreadsheetIdCell() {
+        this.extractSpreadsheetIdAndCheck(
+            "/api/spreadsheet/456/cell/A1",
+            SpreadsheetId.parse("456")
+        );
+    }
+
     private void extractSpreadsheetIdAndCheck(final String url,
                                               final SpreadsheetId expected) {
         this.checkEquals(
