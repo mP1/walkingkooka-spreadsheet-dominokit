@@ -34,7 +34,7 @@ public interface ComponentLifecycleMatcherTesting<T extends ComponentLifecycleMa
         this.checkEquals(
             expected,
             matcher.shouldIgnore(token),
-            token::toString
+            () -> matcher + " should ignore " + token
         );
     }
 
@@ -51,7 +51,7 @@ public interface ComponentLifecycleMatcherTesting<T extends ComponentLifecycleMa
             this.checkEquals(
                 false,
                 matcher.shouldIgnore(token),
-                token::toString
+                () -> matcher + " isMatch " + token
             );
         }
     }
