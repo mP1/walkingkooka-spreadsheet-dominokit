@@ -19,11 +19,11 @@ package walkingkooka.spreadsheet.dominokit.cell;
 
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.anchor.ValueHistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellReferenceListHistoryToken;
-import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 
 import java.util.Objects;

@@ -19,11 +19,11 @@ package walkingkooka.spreadsheet.dominokit.cell;
 
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
+import walkingkooka.spreadsheet.dominokit.anchor.ValueHistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.anchor.ValueHistoryTokenAnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValueHistoryToken;
-import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponentDelegator;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.validation.ValidationValueTypeName;

@@ -15,13 +15,13 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value;
+package walkingkooka.spreadsheet.dominokit.anchor;
 
 import walkingkooka.Cast;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.anchor.ValueHistoryTokenAnchorComponentDelegatorTest.TestValueHistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponentDelegatorTest.TestValueHistoryTokenAnchorComponent;
 
 import java.util.Optional;
 

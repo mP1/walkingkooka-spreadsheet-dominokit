@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
+import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.character.CharacterComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
@@ -42,7 +43,6 @@ import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequi
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.validator.SpreadsheetValidators;
-import walkingkooka.spreadsheet.dominokit.value.HistoryTokenSaveValueAnchorComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.CaseKind;

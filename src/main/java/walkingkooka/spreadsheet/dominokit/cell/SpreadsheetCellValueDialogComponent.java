@@ -22,6 +22,7 @@ import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
+import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
@@ -34,7 +35,6 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValueSaveHistor
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValueSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
-import walkingkooka.spreadsheet.dominokit.value.HistoryTokenSaveValueAnchorComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.text.CaseKind;
 import walkingkooka.validation.ValidationValueTypeName;

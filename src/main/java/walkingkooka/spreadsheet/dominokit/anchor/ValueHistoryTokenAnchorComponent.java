@@ -15,11 +15,9 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value;
+package walkingkooka.spreadsheet.dominokit.anchor;
 
 import elemental2.dom.EventListener;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 
 import java.util.Objects;

@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.SpreadsheetStrings;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
+import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
@@ -38,7 +39,6 @@ import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequi
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
-import walkingkooka.spreadsheet.dominokit.value.HistoryTokenSaveValueAnchorComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
