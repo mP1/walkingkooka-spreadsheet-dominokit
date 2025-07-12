@@ -20,8 +20,8 @@ package walkingkooka.spreadsheet.dominokit.find;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+import walkingkooka.spreadsheet.dominokit.select.SpreadsheetSelectComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
-import walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.text.printer.IndentingPrinter;
 

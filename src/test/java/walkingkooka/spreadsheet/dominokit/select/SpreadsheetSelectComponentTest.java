@@ -15,12 +15,13 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value;
+package walkingkooka.spreadsheet.dominokit.select;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 
 import java.util.Optional;
 
@@ -29,7 +30,7 @@ public final class SpreadsheetSelectComponentTest implements FormValueComponentT
     @Test
     public void testTreePrint() {
         this.treePrintAndCheck(
-            SpreadsheetSelectComponent.empty()
+            walkingkooka.spreadsheet.dominokit.select.SpreadsheetSelectComponent.empty()
                 .setLabel("Label123")
                 .setValue(Optional.of("Value456"))
                 .setId("id987")
@@ -50,14 +51,14 @@ public final class SpreadsheetSelectComponentTest implements FormValueComponentT
     // ValueComponent...................................................................................................
 
     @Override
-    public SpreadsheetSelectComponent<String> createComponent() {
-        return SpreadsheetSelectComponent.empty();
+    public walkingkooka.spreadsheet.dominokit.select.SpreadsheetSelectComponent<String> createComponent() {
+        return walkingkooka.spreadsheet.dominokit.select.SpreadsheetSelectComponent.empty();
     }
 
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SpreadsheetSelectComponent<String>> type() {
+    public Class<walkingkooka.spreadsheet.dominokit.select.SpreadsheetSelectComponent<String>> type() {
         return Cast.to(SpreadsheetSelectComponent.class);
     }
 

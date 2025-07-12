@@ -20,8 +20,8 @@ package walkingkooka.spreadsheet.dominokit.locale;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+import walkingkooka.spreadsheet.dominokit.select.SpreadsheetSelectComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
-import walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
