@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.locale;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
-public final class SpreadsheetLocaleComponentDialogComponentContexts implements PublicStaticHelper {
+public final class SpreadsheetLocaleDialogComponentContexts implements PublicStaticHelper {
 
     /**
      * {@see AppContextSpreadsheetLocaleComponentDialogComponentContextCellLocale}
@@ -50,7 +50,7 @@ public final class SpreadsheetLocaleComponentDialogComponentContexts implements 
     /**
      * Stop creation
      */
-    private SpreadsheetLocaleComponentDialogComponentContexts() {
+    private SpreadsheetLocaleDialogComponentContexts() {
         throw new UnsupportedOperationException();
     }
 }

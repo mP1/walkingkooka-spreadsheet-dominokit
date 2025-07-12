@@ -22,11 +22,11 @@ import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
 
-public final class SpreadsheetLocaleComponentDialogComponentContextsTest implements PublicStaticHelperTesting<SpreadsheetLocaleComponentDialogComponentContexts> {
+public final class SpreadsheetLocaleDialogComponentContextsTest implements PublicStaticHelperTesting<SpreadsheetLocaleDialogComponentContexts> {
 
     @Override
-    public Class<SpreadsheetLocaleComponentDialogComponentContexts> type() {
-        return SpreadsheetLocaleComponentDialogComponentContexts.class;
+    public Class<SpreadsheetLocaleDialogComponentContexts> type() {
+        return SpreadsheetLocaleDialogComponentContexts.class;
     }
 
     @Override
