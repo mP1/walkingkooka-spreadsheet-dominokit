@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value;
+package walkingkooka.spreadsheet.dominokit.text;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.text.printer.TreePrintableTesting;

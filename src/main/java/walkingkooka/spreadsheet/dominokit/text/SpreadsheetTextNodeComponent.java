@@ -15,10 +15,11 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value;
+package walkingkooka.spreadsheet.dominokit.text;
 
 import elemental2.dom.Node;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.tree.text.TextNode;
 
 import java.util.Objects;

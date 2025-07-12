@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.format;
 import walkingkooka.spreadsheet.dominokit.Component;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponentCellRenderer;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextNodeComponent;
+import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextNodeComponent;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSample;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.tree.text.TextNode;

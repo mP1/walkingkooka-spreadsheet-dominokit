@@ -20,13 +20,14 @@ package walkingkooka.spreadsheet.dominokit.value;
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTimeComponent;
 
 import java.time.LocalTime;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetTimeComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, LocalTime, SpreadsheetTimeComponent> {
+public final class SpreadsheetTimeComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, LocalTime, walkingkooka.spreadsheet.dominokit.text.SpreadsheetTimeComponent> {
 
     // setId............................................................................................................
 
