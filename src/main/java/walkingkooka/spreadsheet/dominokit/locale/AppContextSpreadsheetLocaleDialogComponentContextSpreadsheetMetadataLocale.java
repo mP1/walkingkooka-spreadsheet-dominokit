@@ -29,16 +29,16 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 
-final class AppContextSpreadsheetLocaleComponentDialogComponentContextSpreadsheetMetadataLocale extends AppContextSpreadsheetLocaleComponentDialogComponentContext
+final class AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocale extends AppContextSpreadsheetLocaleDialogComponentContext
     implements HasSpreadsheetMetadataFetcherWatchersDelegator {
 
-    static AppContextSpreadsheetLocaleComponentDialogComponentContextSpreadsheetMetadataLocale with(final AppContext context) {
-        return new AppContextSpreadsheetLocaleComponentDialogComponentContextSpreadsheetMetadataLocale(
+    static AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocale with(final AppContext context) {
+        return new AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocale(
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private AppContextSpreadsheetLocaleComponentDialogComponentContextSpreadsheetMetadataLocale(final AppContext context) {
+    private AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocale(final AppContext context) {
         super(context);
     }
 

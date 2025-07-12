@@ -23,27 +23,27 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 public final class SpreadsheetLocaleDialogComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see AppContextSpreadsheetLocaleComponentDialogComponentContextCellLocale}
+     * {@see AppContextSpreadsheetLocaleDialogComponentContextCellLocale}
      */
-    public static SpreadsheetLocaleComponentDialogComponentContext appContextCellLocale(final AppContext context) {
-        return AppContextSpreadsheetLocaleComponentDialogComponentContextCellLocale.with(
+    public static SpreadsheetLocaleDialogComponentContext appContextCellLocale(final AppContext context) {
+        return AppContextSpreadsheetLocaleDialogComponentContextCellLocale.with(
             context
         );
     }
 
     /**
-     * {@see AppContextSpreadsheetLocaleComponentDialogComponentContextSpreadsheetMetadataLocale}
+     * {@see AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocale}
      */
-    public static SpreadsheetLocaleComponentDialogComponentContext appContextSpreadsheetMetadataLocale(final AppContext context) {
-        return AppContextSpreadsheetLocaleComponentDialogComponentContextSpreadsheetMetadataLocale.with(
+    public static SpreadsheetLocaleDialogComponentContext appContextSpreadsheetMetadataLocale(final AppContext context) {
+        return AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocale.with(
             context
         );
     }
 
     /**
-     * {@see FakeSpreadsheetLocaleComponentDialogComponentContext}
+     * {@see FakeSpreadsheetLocaleDialogComponentContext}
      */
-    public static FakeSpreadsheetLocaleComponentDialogComponentContext fake() {
+    public static FakeSpreadsheetLocaleDialogComponentContext fake() {
         throw new UnsupportedOperationException();
     }
 

@@ -24,12 +24,12 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextDelegator;
 
-abstract class AppContextSpreadsheetLocaleComponentDialogComponentContext implements SpreadsheetLocaleComponentDialogComponentContext,
+abstract class AppContextSpreadsheetLocaleDialogComponentContext implements SpreadsheetLocaleDialogComponentContext,
     SpreadsheetDialogComponentContextDelegator,
     LocaleContextDelegator,
     ComponentLifecycleMatcher {
 
-    AppContextSpreadsheetLocaleComponentDialogComponentContext(final AppContext context) {
+    AppContextSpreadsheetLocaleDialogComponentContext(final AppContext context) {
         this.context = context;
     }
 

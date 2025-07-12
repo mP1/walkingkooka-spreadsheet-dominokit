@@ -30,16 +30,16 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 
-final class AppContextSpreadsheetLocaleComponentDialogComponentContextCellLocale extends AppContextSpreadsheetLocaleComponentDialogComponentContext
+final class AppContextSpreadsheetLocaleDialogComponentContextCellLocale extends AppContextSpreadsheetLocaleDialogComponentContext
     implements HasSpreadsheetDeltaFetcherWatchersDelegator {
 
-    static AppContextSpreadsheetLocaleComponentDialogComponentContextCellLocale with(final AppContext context) {
-        return new AppContextSpreadsheetLocaleComponentDialogComponentContextCellLocale(
+    static AppContextSpreadsheetLocaleDialogComponentContextCellLocale with(final AppContext context) {
+        return new AppContextSpreadsheetLocaleDialogComponentContextCellLocale(
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private AppContextSpreadsheetLocaleComponentDialogComponentContextCellLocale(final AppContext context) {
+    private AppContextSpreadsheetLocaleDialogComponentContextCellLocale(final AppContext context) {
         super(context);
     }
 
