@@ -25,7 +25,9 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
+import java.util.Locale;
 import java.util.Objects;
+import java.util.Optional;
 
 final class AppContextSpreadsheetLocaleComponentDialogComponentContextSpreadsheetMetadataLocale extends AppContextSpreadsheetLocaleComponentDialogComponentContext
     implements HasSpreadsheetMetadataFetcherWatchersDelegator {
@@ -43,6 +45,12 @@ final class AppContextSpreadsheetLocaleComponentDialogComponentContextSpreadshee
     @Override
     public String dialogTitle() {
         return "Spreadsheet Locale";
+    }
+
+    @Override
+    public Optional<Locale> undoLocale() {
+        return this.context.spreadsheetMetadata()
+            .get(SpreadsheetMetadataPropertyName.LOCALE);
     }
 
     // HasSpreadsheetDeltaFetcherWatchers...............................................................................

@@ -39,6 +39,11 @@ public class FakeSpreadsheetLocaleComponentDialogComponentContext extends FakeSp
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public Optional<Locale> undoLocale() {
+        throw new UnsupportedOperationException();
+    }
+
     // HasSpreadsheetDeltaWatcher.......................................................................................
 
     @Override

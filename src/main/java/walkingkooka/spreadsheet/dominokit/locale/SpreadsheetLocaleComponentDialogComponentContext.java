@@ -23,6 +23,9 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentConte
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
 
+import java.util.Locale;
+import java.util.Optional;
+
 public interface SpreadsheetLocaleComponentDialogComponentContext extends SpreadsheetDialogComponentContext,
     LocaleContext,
     ComponentLifecycleMatcher,
@@ -33,4 +36,9 @@ public interface SpreadsheetLocaleComponentDialogComponentContext extends Spread
      * The title to display on the dialog.
      */
     String dialogTitle();
+
+    /**
+     * Provides the {@link Locale} for the undo link.
+     */
+    Optional<Locale> undoLocale();
 }
