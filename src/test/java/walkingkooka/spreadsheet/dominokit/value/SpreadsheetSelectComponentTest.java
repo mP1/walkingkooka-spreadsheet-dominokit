@@ -35,9 +35,9 @@ public final class SpreadsheetSelectComponentTest implements FormValueComponentT
                 .setId("id987")
                 .setDisabled(true)
                 .required()
-                .appendValue("text1", "value1")
-                .appendValue("text2", "value2")
-                .appendValue("text3", "value3")
+                .appendOption("text1", "value1")
+                .appendOption("text2", "value2")
+                .appendOption("text3", "value3")
             ,
             "SpreadsheetSelectComponent\n" +
                 "  Label123 [Value456] id=id987 DISABLED REQUIRED\n" +
