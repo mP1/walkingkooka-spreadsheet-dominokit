@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.csv;
 
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.CsvStringList;
-import walkingkooka.spreadsheet.dominokit.value.SpreadsheetValidators;
+import walkingkooka.spreadsheet.dominokit.validator.SpreadsheetValidators;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 

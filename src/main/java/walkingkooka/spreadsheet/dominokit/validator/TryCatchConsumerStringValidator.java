@@ -15,46 +15,53 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value;
+package walkingkooka.spreadsheet.dominokit.validator;
 
 import org.dominokit.domino.ui.forms.validations.ValidationResult;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
-import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.Consumer;
 
 /**
- * A {@link Validator} that skips the wrapped {@link Validator} if the text is missing or empty.
+ * A {@link Validator} that invokes {@link Consumer#accept(Object)}, catching any exceptions and using that as the fail message.
  */
-final class SpreadsheetOptionalStringValidator implements Validator<Optional<String>> {
+final class TryCatchConsumerStringValidator implements Validator<Optional<String>> {
 
     /**
      * Factory
      */
-    static SpreadsheetOptionalStringValidator with(final Validator<Optional<String>> validator) {
-        Objects.requireNonNull(validator, "validator");
+    static TryCatchConsumerStringValidator with(final Consumer<String> consumer) {
+        Objects.requireNonNull(consumer, "consumer");
 
-        return new SpreadsheetOptionalStringValidator(validator);
+        return new TryCatchConsumerStringValidator(consumer);
     }
 
-    private SpreadsheetOptionalStringValidator(final Validator<Optional<String>> validator) {
+    private TryCatchConsumerStringValidator(final Consumer<String> consumer) {
         super();
-        this.validator = validator;
+        this.consumer = consumer;
     }
 
     @Override
     public ValidationResult isValid(final Optional<String> value) {
-        // empty Optional or empty String are both missing
-        return false == value.isPresent() || CharSequences.isNullOrEmpty(value.get()) ?
-            ValidationResult.valid() :
-            this.validator.isValid(value);
+        ValidationResult result;
+
+        try {
+            this.consumer.accept(
+                value.orElse("")
+            );
+            result = ValidationResult.valid();
+        } catch (final Exception fail) {
+            result = ValidationResult.invalid(fail.getMessage());
+        }
+        return result;
     }
 
-    private final Validator<Optional<String>> validator;
+    private final Consumer<String> consumer;
 
     @Override
     public String toString() {
-        return this.validator.toString();
+        return this.consumer.toString();
     }
 }
