@@ -123,6 +123,11 @@ public final class SpreadsheetSelectComponent<T> implements FormValueComponent<H
         return this;
     }
 
+    public SpreadsheetSelectComponent<T> clearValues() {
+        this.select.removeAllOptions();
+        return this;
+    }
+
     @Override
     public SpreadsheetSelectComponent<T> setValue(final Optional<T> value) {
         checkValue(value);
