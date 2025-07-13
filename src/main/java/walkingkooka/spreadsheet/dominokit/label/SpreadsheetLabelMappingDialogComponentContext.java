@@ -18,21 +18,16 @@
 package walkingkooka.spreadsheet.dominokit.label;
 
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 /**
  * The {@link walkingkooka.Context} accompanying a {@link SpreadsheetLabelMappingDialogComponent}.
  */
-public interface SpreadsheetLabelMappingDialogComponentContext extends SpreadsheetDialogComponentContext {
+public interface SpreadsheetLabelMappingDialogComponentContext extends SpreadsheetDialogComponentContext,
+    SpreadsheetLabelComponentContext{
 
     /**
      * Attempts to load the given {@link SpreadsheetLabelName}.
      */
     void loadLabel(final SpreadsheetLabelName name);
-
-    /**
-     * Adds the given {@link SpreadsheetDeltaFetcherWatcher}.
-     */
-    void addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher);
 }

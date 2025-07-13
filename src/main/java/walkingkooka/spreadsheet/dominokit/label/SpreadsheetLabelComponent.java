@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.label;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.Context;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
@@ -37,13 +36,13 @@ import java.util.Optional;
  */
 public final class SpreadsheetLabelComponent implements FormValueComponent<HTMLFieldSetElement, SpreadsheetLabelName, SpreadsheetLabelComponent> {
 
-    public static SpreadsheetLabelComponent with(final Context context) {
+    public static SpreadsheetLabelComponent with(final SpreadsheetLabelComponentContext context) {
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetLabelComponent(context);
     }
 
-    private SpreadsheetLabelComponent(final Context context) {
+    private SpreadsheetLabelComponent(final SpreadsheetLabelComponentContext context) {
         this.suggestBox = SpreadsheetSuggestBoxComponent.with(
             SpreadsheetSelection::labelName,
             SpreadsheetLabelComponentSuggestStore.with(context)
