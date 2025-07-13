@@ -20,13 +20,16 @@ package walkingkooka.spreadsheet.dominokit.label;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchersDelegator;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 
 import java.util.Objects;
 import java.util.OptionalInt;
 
 final class AppContextSpreadsheetLabelComponentContext implements SpreadsheetLabelComponentContext,
-    HasSpreadsheetDeltaFetcherWatchersDelegator {
+    HasSpreadsheetDeltaFetcherWatchersDelegator,
+    HistoryContextDelegator {
 
     static AppContextSpreadsheetLabelComponentContext with(final AppContext context) {
         return new AppContextSpreadsheetLabelComponentContext(
@@ -59,6 +62,13 @@ final class AppContextSpreadsheetLabelComponentContext implements SpreadsheetLab
 
     @Override
     public HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers() {
+        return this.context;
+    }
+
+    // HistoryContextDelegator..........................................................................................
+
+    @Override
+    public HistoryContext historyContext() {
         return this.context;
     }
 

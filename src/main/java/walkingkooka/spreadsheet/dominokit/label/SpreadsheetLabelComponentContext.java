@@ -18,10 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.label;
 
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 
 import java.util.OptionalInt;
 
-public interface SpreadsheetLabelComponentContext extends HasSpreadsheetDeltaFetcherWatchers {
+public interface SpreadsheetLabelComponentContext extends HasSpreadsheetDeltaFetcherWatchers,
+    HistoryContext {
 
     /**
      * Typically invokes the server to find any labels by the given name.

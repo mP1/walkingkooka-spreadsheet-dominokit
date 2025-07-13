@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.label;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.AppContexts;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -31,6 +32,15 @@ public final class AppContextSpreadsheetLabelComponentContextTest implements Spr
             () -> AppContextSpreadsheetLabelComponentContext.with(null)
         );
     }
+
+    @Override
+    public AppContextSpreadsheetLabelComponentContext createContext() {
+        return AppContextSpreadsheetLabelComponentContext.with(
+            AppContexts.fake()
+        );
+    }
+
+    // class............................................................................................................
 
     @Override
     public Class<AppContextSpreadsheetLabelComponentContext> type() {
