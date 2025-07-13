@@ -48,7 +48,7 @@ import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
 public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements SpreadsheetSuggestBoxComponentLike<T> {
 
     public static <T extends HasText> SpreadsheetSuggestBoxComponent<T> with(final Function<String, T> parser,
-                                                                             final SuggestionsStore<String, SpanElement, SuggestOption<String>> suggestionsStore) {
+                                                                             final SuggestionsStore<T, SpanElement, SuggestOption<T>> suggestionsStore) {
         Objects.requireNonNull(parser, "parser");
         Objects.requireNonNull(suggestionsStore, "suggestionsStore");
 
@@ -59,9 +59,9 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     }
 
     private SpreadsheetSuggestBoxComponent(final Function<String, T> parser,
-                                           final SuggestionsStore<String, SpanElement, SuggestOption<String>> suggestionsStore) {
+                                           final SuggestionsStore<T, SpanElement, SuggestOption<T>> suggestionsStore) {
         this.parser = parser;
-        final SuggestBox<String, SpanElement, SuggestOption<String>> suggestBox = SuggestBox.create(
+        final SuggestBox<T, SpanElement, SuggestOption<T>> suggestBox = SuggestBox.create(
             suggestionsStore
         );
         this.suggestBox = suggestBox;
@@ -133,10 +133,10 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     public SpreadsheetSuggestBoxComponent<T> setStringValue(final Optional<String> value) {
         Objects.requireNonNull(value, "value");
 
-        this.suggestBox.withValue(
-            value.orElse(""),
-            true // silent
-        );
+//        this.suggestBox.withValue(
+//            value.orElse(""),
+//            true // silent
+//        );
         return this;
     }
 
@@ -158,8 +158,7 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
         Objects.requireNonNull(label, "label");
 
         this.suggestBox.setValue(
-            label.map(T::text)
-                .orElse("")
+            label.orElse(null)
         );
         return this;
     }
@@ -266,10 +265,10 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
         Objects.requireNonNull(listener, "listener");
 
         this.suggestBox.addChangeListener(
-            (final String oldValue,
-             final String newValue) -> listener.onValueChanged(
-                tryParse(oldValue),
-                tryParse(newValue)
+            (final T oldValue,
+             final T newValue) -> listener.onValueChanged(
+                Optional.ofNullable(oldValue),
+                Optional.ofNullable(newValue)
             )
         );
 
@@ -309,7 +308,7 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     }
 
     private SpreadsheetSuggestBoxComponent<T> addEventListener(final EventType eventType,
-                                                final EventListener listener) {
+                                                               final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
 
         this.suggestBox.addEventListener(
@@ -374,7 +373,7 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
         return this.suggestBox.element();
     }
 
-    private final SuggestBox<String, SpanElement, SuggestOption<String>> suggestBox;
+    private final SuggestBox<T, SpanElement, SuggestOption<T>> suggestBox;
 
     // Object...........................................................................................................
 

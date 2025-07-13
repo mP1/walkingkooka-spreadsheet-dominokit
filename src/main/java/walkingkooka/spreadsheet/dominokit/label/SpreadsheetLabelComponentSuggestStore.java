@@ -22,13 +22,15 @@ import org.dominokit.domino.ui.forms.suggest.SuggestOption;
 import org.dominokit.domino.ui.forms.suggest.SuggestionsStore;
 import walkingkooka.Context;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.function.Consumer;
 
 /**
  * An empty {@link SuggestionsStore}, eventually this will call a server API to search for matching {@link walkingkooka.spreadsheet.reference.SpreadsheetLabelName}
  */
-final class SpreadsheetLabelComponentSuggestStore implements SuggestionsStore<String, SpanElement, SuggestOption<String>> {
+final class SpreadsheetLabelComponentSuggestStore implements SuggestionsStore<SpreadsheetLabelName, SpanElement, SuggestOption<SpreadsheetLabelName>> {
 
     static SpreadsheetLabelComponentSuggestStore with(final Context context) {
         return new SpreadsheetLabelComponentSuggestStore(context);
@@ -40,8 +42,8 @@ final class SpreadsheetLabelComponentSuggestStore implements SuggestionsStore<St
     }
 
     @Override
-    public void find(final String searchValue,
-                     final Consumer<SuggestOption<String>> handler) {
+    public void find(final SpreadsheetLabelName searchValue,
+                     final Consumer<SuggestOption<SpreadsheetLabelName>> handler) {
         handler.accept(
             SuggestOption.create(searchValue)
         );
@@ -49,10 +51,12 @@ final class SpreadsheetLabelComponentSuggestStore implements SuggestionsStore<St
 
     @Override
     public void filter(final String filter,
-                       final SuggestionsHandler<String, SpanElement, SuggestOption<String>> handler) {
+                       final SuggestionsHandler<SpreadsheetLabelName, SpanElement, SuggestOption<SpreadsheetLabelName>> handler) {
         handler.onSuggestionsReady(
             Lists.of(
-                SuggestOption.create(filter)
+                SuggestOption.create(
+                    SpreadsheetSelection.labelName(filter)
+                )
             )
         );
     }
