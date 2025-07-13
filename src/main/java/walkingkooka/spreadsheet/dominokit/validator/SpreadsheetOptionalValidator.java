@@ -53,6 +53,6 @@ final class SpreadsheetOptionalValidator<T> implements Validator<Optional<T>> {
 
     @Override
     public String toString() {
-        return this.validator.toString();
+        return "Optional " + this.validator.toString();
     }
 }
