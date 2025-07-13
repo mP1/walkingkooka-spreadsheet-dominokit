@@ -19,12 +19,14 @@ package walkingkooka.spreadsheet.dominokit.label;
 
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 
+import java.util.OptionalInt;
+
 public interface SpreadsheetLabelComponentContext extends HasSpreadsheetDeltaFetcherWatchers {
 
     /**
      * Typically invokes the server to find any labels by the given name.
      */
     void findLabelByName(final String text,
-                         final int offset,
-                         final int count);
+                         final OptionalInt offset,
+                         final OptionalInt count);
 }
