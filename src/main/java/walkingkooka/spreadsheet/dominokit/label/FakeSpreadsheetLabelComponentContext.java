@@ -19,6 +19,8 @@ package walkingkooka.spreadsheet.dominokit.label;
 
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 
+import java.util.OptionalInt;
+
 public class FakeSpreadsheetLabelComponentContext implements SpreadsheetLabelComponentContext {
 
     public FakeSpreadsheetLabelComponentContext() {
@@ -27,8 +29,8 @@ public class FakeSpreadsheetLabelComponentContext implements SpreadsheetLabelCom
 
     @Override
     public void findLabelByName(final String text,
-                                final int offset,
-                                final int count) {
+                                final OptionalInt offset,
+                                final OptionalInt count) {
         throw new UnsupportedOperationException();
     }
 
