@@ -53,7 +53,8 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     }
 
     private SpreadsheetTextBox() {
-        this.textBox = new TextBox();
+        this.textBox = new TextBox()
+            .setEmptyAsNull(true);
     }
 
     @Override

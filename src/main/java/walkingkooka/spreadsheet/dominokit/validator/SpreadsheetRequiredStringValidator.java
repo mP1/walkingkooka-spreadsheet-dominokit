@@ -19,28 +19,30 @@ package walkingkooka.spreadsheet.dominokit.validator;
 
 import org.dominokit.domino.ui.forms.validations.ValidationResult;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
-import walkingkooka.text.CharSequences;
 
 import java.util.Optional;
 
 /**
  * A {@link Validator} that fails if the text is empty or missing.
  */
-final class SpreadsheetRequiredStringValidator implements Validator<Optional<String>> {
+final class SpreadsheetRequiredStringValidator<T> implements Validator<Optional<T>> {
+
+    static <T> SpreadsheetRequiredStringValidator<T> instance() {
+        return INSTANCE;
+    }
 
     /**
      * Singleton
      */
-    final static SpreadsheetRequiredStringValidator INSTANCE = new SpreadsheetRequiredStringValidator();
+    private final static SpreadsheetRequiredStringValidator INSTANCE = new SpreadsheetRequiredStringValidator();
 
     private SpreadsheetRequiredStringValidator() {
         super();
     }
 
     @Override
-    public ValidationResult isValid(final Optional<String> value) {
-        // empty Optional or empty String are both missing
-        return false == value.isPresent() || CharSequences.isNullOrEmpty(value.get()) ?
+    public ValidationResult isValid(final Optional<T> value) {
+        return false == value.isPresent() ?
             ValidationResult.invalid("Required") :
             ValidationResult.valid();
     }
