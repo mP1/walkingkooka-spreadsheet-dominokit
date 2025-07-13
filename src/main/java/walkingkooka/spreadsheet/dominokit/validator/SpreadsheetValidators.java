@@ -44,10 +44,10 @@ public final class SpreadsheetValidators implements PublicStaticHelper {
     }
 
     /**
-     * {@see SpreadsheetRequiredStringValidator}
+     * {@see SpreadsheetRequiredValidator}
      */
     public static <T> Validator<Optional<T>> required() {
-        return SpreadsheetRequiredStringValidator.instance();
+        return SpreadsheetRequiredValidator.instance();
     }
 
     /**
