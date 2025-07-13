@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.util.Objects;
+import java.util.OptionalInt;
 
 /**
  * A basic implementation of {@link SpreadsheetLabelMappingDialogComponentContext}.
@@ -42,11 +43,6 @@ final class AppContextSpreadsheetLabelMappingDialogComponentContext implements S
     }
 
     @Override
-    public void addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
-        this.context.addSpreadsheetDeltaFetcherWatcher(watcher);
-    }
-
-    @Override
     public void loadLabel(final SpreadsheetLabelName name) {
         final AppContext context = this.context;
         context.spreadsheetDeltaFetcher()
@@ -55,6 +51,37 @@ final class AppContextSpreadsheetLabelMappingDialogComponentContext implements S
                     .cast(SpreadsheetIdHistoryToken.class)
                     .id(),
                 name
+            );
+    }
+
+    // AddSpreadsheetDeltaFetcherWatchers...............................................................................
+
+    @Override
+    public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+        return this.context.addSpreadsheetDeltaFetcherWatcher(watcher);
+    }
+
+    @Override
+    public Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
+        return this.context.addSpreadsheetDeltaFetcherWatcherOnce(watcher);
+    }
+
+    // SpreadsheetLabelComponentContext.................................................................................
+
+    @Override
+    public void findLabelByName(final String text,
+                                final OptionalInt offset,
+                                final OptionalInt count) {
+        final AppContext context = this.context;
+
+        context.spreadsheetDeltaFetcher()
+            .getLabelMappingsFindByName(
+                context.historyToken()
+                    .cast(SpreadsheetIdHistoryToken.class)
+                    .id(),
+                text,
+                offset,
+                count
             );
     }
 

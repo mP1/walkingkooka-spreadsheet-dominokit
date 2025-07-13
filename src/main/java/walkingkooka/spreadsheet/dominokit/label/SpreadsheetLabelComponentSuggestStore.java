@@ -17,26 +17,38 @@
 
 package walkingkooka.spreadsheet.dominokit.label;
 
+import elemental2.dom.Headers;
 import org.dominokit.domino.ui.elements.SpanElement;
 import org.dominokit.domino.ui.forms.suggest.SuggestOption;
 import org.dominokit.domino.ui.forms.suggest.SuggestionsStore;
-import walkingkooka.Context;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.net.AbsoluteOrRelativeUrl;
+import walkingkooka.net.Url;
+import walkingkooka.net.http.HttpMethod;
+import walkingkooka.net.http.HttpStatus;
+import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
+import java.util.Optional;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 /**
  * An empty {@link SuggestionsStore}, eventually this will call a server API to search for matching {@link walkingkooka.spreadsheet.reference.SpreadsheetLabelName}
  */
 final class SpreadsheetLabelComponentSuggestStore implements SuggestionsStore<SpreadsheetLabelName, SpanElement, SuggestOption<SpreadsheetLabelName>> {
 
-    static SpreadsheetLabelComponentSuggestStore with(final Context context) {
+    static SpreadsheetLabelComponentSuggestStore with(final SpreadsheetLabelComponentContext context) {
         return new SpreadsheetLabelComponentSuggestStore(context);
     }
 
-    private SpreadsheetLabelComponentSuggestStore(final Context context) {
+    private SpreadsheetLabelComponentSuggestStore(final SpreadsheetLabelComponentContext context) {
         super();
         this.context = context;
     }
@@ -52,6 +64,55 @@ final class SpreadsheetLabelComponentSuggestStore implements SuggestionsStore<Sp
     @Override
     public void filter(final String filter,
                        final SuggestionsHandler<SpreadsheetLabelName, SpanElement, SuggestOption<SpreadsheetLabelName>> handler) {
+        this.context.addSpreadsheetDeltaFetcherWatcherOnce(
+            new SpreadsheetDeltaFetcherWatcher() {
+
+                @Override
+                public void onSpreadsheetDelta(final HttpMethod method,
+                                               final AbsoluteOrRelativeUrl url,
+                                               final SpreadsheetDelta delta,
+                                               final AppContext context) {
+                    if(SpreadsheetDeltaFetcher.isGetLabelMappingsFindByName(method, url.path())) {
+                        handler.onSuggestionsReady(
+                            delta.labels()
+                                .stream()
+                                .map((SpreadsheetLabelMapping m) -> SuggestOption.create(m.label()))
+                                .collect(Collectors.toList())
+                        );
+                    }
+                }
+
+                @Override
+                public void onBegin(final HttpMethod method,
+                                    final Url url,
+                                    final Optional<FetcherRequestBody<?>> body,
+                                    final AppContext context) {
+                    // NOP
+                }
+
+                @Override
+                public void onFailure(final HttpMethod method,
+                                      final AbsoluteOrRelativeUrl url,
+                                      final HttpStatus status,
+                                      final Headers headers,
+                                      final String body,
+                                      final AppContext context) {
+                    // NOP
+                }
+
+                @Override
+                public void onError(final Object cause,
+                                    final AppContext context) {
+                    // NOP
+                }
+
+                @Override
+                public void onEmptyResponse(final AppContext context) {
+                    // NOP
+                }
+            }
+        );
+
         handler.onSuggestionsReady(
             Lists.of(
                 SuggestOption.create(
@@ -61,5 +122,10 @@ final class SpreadsheetLabelComponentSuggestStore implements SuggestionsStore<Sp
         );
     }
 
-    private final Context context;
+    private final SpreadsheetLabelComponentContext context;
+
+    @Override
+    public String toString() {
+        return this.context.toString();
+    }
 }

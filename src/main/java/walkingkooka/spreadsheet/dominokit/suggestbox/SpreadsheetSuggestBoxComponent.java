@@ -64,7 +64,7 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
         final SuggestBox<T, SpanElement, SuggestOption<T>> suggestBox = SuggestBox.create(
             suggestionsStore
         );
-        this.suggestBox = suggestBox;
+        this.suggestBox = suggestBox.setEmptyAsNull(true);
         suggestBox.setAutoValidation(true);
 
         this.required();
