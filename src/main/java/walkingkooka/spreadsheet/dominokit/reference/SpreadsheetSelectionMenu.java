@@ -91,6 +91,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         // FORMATTER
         // DATE TIME SYMBOLS
         // DECIMAL NUMBER SYMBOLS
+        // LOCALE
         // VALUE TYPE
         // VALUE
         // HIDE ZERO VALUES
@@ -139,6 +140,12 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             );
 
             decimalNumberSymbols(
+                historyToken,
+                menu,
+                context
+            );
+
+            locale(
                 historyToken,
                 menu,
                 context
@@ -379,6 +386,31 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             ).checked(
                 context.selectionSummary()
                     .flatMap(SpreadsheetCell::decimalNumberSymbols)
+                    .isPresent()
+            )
+        );
+    }
+
+    private static void locale(final HistoryToken historyToken,
+                               final SpreadsheetContextMenu menu,
+                               final SpreadsheetSelectionMenuContext context) {
+        menu.item(
+            SpreadsheetContextMenuItem.with(
+                context.idPrefix() +
+                    "locale" +
+                    SpreadsheetElementIds.MENU_ITEM,
+                "Locale"
+            ).icon(
+                Optional.of(
+                    SpreadsheetIcons.locale()
+                )
+            ).historyToken(
+                Optional.of(
+                    historyToken.locale()
+                )
+            ).checked(
+                context.selectionSummary()
+                    .flatMap(SpreadsheetCell::locale)
                     .isPresent()
             )
         );
