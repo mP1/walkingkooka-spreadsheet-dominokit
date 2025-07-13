@@ -18,8 +18,16 @@
 package walkingkooka.spreadsheet.dominokit.label;
 
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 
 public final class SpreadsheetLabelComponentContexts implements PublicStaticHelper {
+
+    /**
+     * {@see AppContextSpreadsheetLabelComponentContext}
+     */
+    public static SpreadsheetLabelComponentContext appContext(final AppContext context) {
+        return AppContextSpreadsheetLabelComponentContext.with(context);
+    }
 
     /**
      * {@see FakeSpreadsheetLabelComponentContext}
