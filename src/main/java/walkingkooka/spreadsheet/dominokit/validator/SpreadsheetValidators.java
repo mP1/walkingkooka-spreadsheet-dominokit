@@ -30,17 +30,17 @@ public final class SpreadsheetValidators implements PublicStaticHelper {
 
 
     /**
-     * {@see SpreadsheetOptionalStringValidator}
+     * {@see SpreadsheetOptionalValidator}
      */
     public static <T> Validator<T> fake() {
         return new FakeValidator<>();
     }
 
     /**
-     * {@see SpreadsheetOptionalStringValidator}
+     * {@see SpreadsheetOptionalValidator}
      */
-    public static Validator<Optional<String>> optional(final Validator<Optional<String>> validator) {
-        return SpreadsheetOptionalStringValidator.with(validator);
+    public static <T> Validator<Optional<T>> optional(final Validator<Optional<T>> validator) {
+        return SpreadsheetOptionalValidator.with(validator);
     }
 
     /**
