@@ -218,14 +218,19 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
     // undo.............................................................................................................
 
     /**
-     * Refreshes the UNDO link with the undo label + reference.
+     * Refreshes the UNDO link with the undo label + reference. The link will be disabled if either component is missing.
      */
     private void refreshUndo() {
+        final Optional<SpreadsheetLabelName> undoLabelName = this.undoLabelName;
+        final Optional<SpreadsheetExpressionReference> undoLabelMappingReference = this.undoLabelMappingReference;
+
         this.undo.setHistoryToken(
-            Optional.of(
-                this.context.historyToken()
-                    .setLabelName(this.undoLabelName)
-                    .setLabelMappingReference(this.undoLabelMappingReference)
+            Optional.ofNullable(
+                undoLabelName.isPresent() && undoLabelMappingReference.isPresent() ?
+                    this.context.historyToken()
+                        .setLabelName(undoLabelName)
+                        .setLabelMappingReference(undoLabelMappingReference) :
+                    null
             )
         );
     }
