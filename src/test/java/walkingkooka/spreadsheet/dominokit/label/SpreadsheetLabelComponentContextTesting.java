@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.label;
 
-import walkingkooka.test.Testing;
+import walkingkooka.reflect.ClassTesting;
 
-public interface SpreadsheetLabelComponentContextTesting extends Testing {
+public interface SpreadsheetLabelComponentContextTesting<C extends SpreadsheetLabelComponentContext> extends ClassTesting<C> {
 }
