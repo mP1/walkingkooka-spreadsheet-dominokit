@@ -131,13 +131,7 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
 
     @Override
     public SpreadsheetSuggestBoxComponent<T> setStringValue(final Optional<String> value) {
-        Objects.requireNonNull(value, "value");
-
-//        this.suggestBox.withValue(
-//            value.orElse(""),
-//            true // silent
-//        );
-        return this;
+        throw new UnsupportedOperationException();
     }
 
     @Override
