@@ -18,6 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.label;
 
 import walkingkooka.reflect.ClassTesting;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContextTesting;
 
-public interface SpreadsheetLabelComponentContextTesting<C extends SpreadsheetLabelComponentContext> extends ClassTesting<C> {
+public interface SpreadsheetLabelComponentContextTesting<C extends SpreadsheetLabelComponentContext> extends HistoryContextTesting<C>,
+    ClassTesting<C> {
+
+    @Override
+    default String typeNameSuffix() {
+        return SpreadsheetLabelComponentContext.class.getSimpleName();
+    }
 }

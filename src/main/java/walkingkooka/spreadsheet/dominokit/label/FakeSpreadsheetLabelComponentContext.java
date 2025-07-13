@@ -18,10 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.label;
 
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 
 import java.util.OptionalInt;
 
-public class FakeSpreadsheetLabelComponentContext implements SpreadsheetLabelComponentContext {
+public class FakeSpreadsheetLabelComponentContext extends FakeHistoryContext
+    implements SpreadsheetLabelComponentContext {
 
     public FakeSpreadsheetLabelComponentContext() {
         super();
