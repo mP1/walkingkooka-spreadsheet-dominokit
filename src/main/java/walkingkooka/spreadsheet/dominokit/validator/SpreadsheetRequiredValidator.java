@@ -25,18 +25,18 @@ import java.util.Optional;
 /**
  * A {@link Validator} that fails if the text is empty or missing.
  */
-final class SpreadsheetRequiredStringValidator<T> implements Validator<Optional<T>> {
+final class SpreadsheetRequiredValidator<T> implements Validator<Optional<T>> {
 
-    static <T> SpreadsheetRequiredStringValidator<T> instance() {
+    static <T> SpreadsheetRequiredValidator<T> instance() {
         return INSTANCE;
     }
 
     /**
      * Singleton
      */
-    private final static SpreadsheetRequiredStringValidator INSTANCE = new SpreadsheetRequiredStringValidator();
+    private final static SpreadsheetRequiredValidator INSTANCE = new SpreadsheetRequiredValidator();
 
-    private SpreadsheetRequiredStringValidator() {
+    private SpreadsheetRequiredValidator() {
         super();
     }
 
