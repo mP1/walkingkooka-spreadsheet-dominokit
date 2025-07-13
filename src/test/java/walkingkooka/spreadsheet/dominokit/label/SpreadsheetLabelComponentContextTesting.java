@@ -17,21 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.label;
 
-import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.test.Testing;
 
-public final class SpreadsheetLabelComponentContexts implements PublicStaticHelper {
-
-    /**
-     * {@see FakeSpreadsheetLabelComponentContext}
-     */
-    public static SpreadsheetLabelComponentContext fake() {
-        return new FakeSpreadsheetLabelComponentContext();
-    }
-
-    /**
-     * Stop creation
-     */
-    private SpreadsheetLabelComponentContexts() {
-        throw new UnsupportedOperationException();
-    }
+public interface SpreadsheetLabelComponentContextTesting extends Testing {
 }
