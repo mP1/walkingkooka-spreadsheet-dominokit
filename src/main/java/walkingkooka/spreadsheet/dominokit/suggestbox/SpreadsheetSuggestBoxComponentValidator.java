@@ -27,9 +27,10 @@ import walkingkooka.text.CharSequences;
 import java.util.Optional;
 
 /**
- * Reads the text of the input for the {@link SuggestBox} and attempts to parse the text. Any caught {@link Exception#getMessage()} becomes the validation failure message.
+ * Reads the text of the input for the {@link SuggestBox} and attempts to validate the text, using the provided Validator.
+ * Any caught {@link Exception#getMessage()} becomes the validation failure message.
  */
-final class SpreadsheetSuggestBoxComponentValidator implements Validator<SuggestBox<String, SpanElement, SuggestOption<String>>> {
+final class SpreadsheetSuggestBoxComponentValidator<T> implements Validator<SuggestBox<T, SpanElement, SuggestOption<T>>> {
 
     /**
      * Factory
@@ -44,7 +45,7 @@ final class SpreadsheetSuggestBoxComponentValidator implements Validator<Suggest
     }
 
     @Override
-    public ValidationResult isValid(final SuggestBox<String, SpanElement, SuggestOption<String>> component) {
+    public ValidationResult isValid(final SuggestBox<T, SpanElement, SuggestOption<T>> component) {
         final String text = component.getInputElement()
             .element()
             .value;
