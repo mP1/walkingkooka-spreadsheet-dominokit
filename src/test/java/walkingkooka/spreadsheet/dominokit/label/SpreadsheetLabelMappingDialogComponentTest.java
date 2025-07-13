@@ -142,7 +142,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "        SpreadsheetSuggestBoxComponent\n" +
                 "          Label [] id=labelMapping-label-TextBox REQUIRED\n" +
                 "          Errors\n" +
-                "            Empty \"Label\"\n" +
+                "            Required\n" +
                 "      SpreadsheetExpressionReferenceComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
@@ -172,7 +172,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "        SpreadsheetSuggestBoxComponent\n" +
                 "          Label [] id=labelMapping-label-TextBox REQUIRED\n" +
                 "          Errors\n" +
-                "            Empty \"Label\"\n" +
+                "            Required\n" +
                 "      SpreadsheetExpressionReferenceComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
@@ -200,7 +200,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "        SpreadsheetSuggestBoxComponent\n" +
                 "          Label [] id=labelMapping-label-TextBox REQUIRED\n" +
                 "          Errors\n" +
-                "            Empty \"Label\"\n" +
+                "            Required\n" +
                 "      SpreadsheetExpressionReferenceComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
@@ -228,7 +228,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "        SpreadsheetSuggestBoxComponent\n" +
                 "          Label [] id=labelMapping-label-TextBox REQUIRED\n" +
                 "          Errors\n" +
-                "            Empty \"Label\"\n" +
+                "            Required\n" +
                 "      SpreadsheetExpressionReferenceComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
@@ -263,7 +263,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "        SpreadsheetSuggestBoxComponent\n" +
                 "          Label [] id=labelMapping-label-TextBox REQUIRED\n" +
                 "          Errors\n" +
-                "            Empty \"Label\"\n" +
+                "            Required\n" +
                 "      SpreadsheetExpressionReferenceComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
@@ -291,7 +291,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "        SpreadsheetSuggestBoxComponent\n" +
                 "          Label [] id=labelMapping-label-TextBox REQUIRED\n" +
                 "          Errors\n" +
-                "            Empty \"Label\"\n" +
+                "            Required\n" +
                 "      SpreadsheetExpressionReferenceComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +

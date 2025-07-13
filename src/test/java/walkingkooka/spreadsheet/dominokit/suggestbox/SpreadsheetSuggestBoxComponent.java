@@ -58,11 +58,9 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
                                            final SuggestionsStore<String, SpanElement, SuggestOption<String>> suggestionsStore) {
         this.helperText = Optional.empty();
 
-        this.parser = parser;
-        this.stringValue = Optional.empty();
+        this.value = Optional.empty();
         this.errors = Lists.empty();
 
-        this.suggestionsStore = suggestionsStore;
         this.validator = null;
         this.required();
         this.validate();
@@ -124,18 +122,13 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
 
     @Override
     public SpreadsheetSuggestBoxComponent<T> setStringValue(final Optional<String> value) {
-        Objects.requireNonNull(value, "value");
-
-        this.stringValue = value;
-        this.validate();
-        return this;
+        throw new UnsupportedOperationException();
     }
 
-    @Override public Optional<String> stringValue() {
-        return this.stringValue;
+    @Override
+    public Optional<String> stringValue() {
+        return this.value.map(HasText::text);
     }
-
-    private Optional<String> stringValue;
 
     // Value............................................................................................................
 
@@ -143,31 +136,17 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     public SpreadsheetSuggestBoxComponent<T> setValue(final Optional<T> value) {
         Objects.requireNonNull(value, "value");
 
-        return this.setStringValue(
-            value.map(HasText::text)
-        );
+        this.value = value;
+        this.validate();
+        return this;
     }
 
     @Override //
     public Optional<T> value() {
-        return tryParse(
-            this.stringValue.orElse("")
-        );
+        return this.value;
     }
 
-    private Optional<T> tryParse(final String string) {
-        T value;
-
-        try {
-            value = this.parser.apply(string);
-        } catch (final Exception ignore) {
-            value = null;
-        }
-
-        return Optional.ofNullable(value);
-    }
-
-    private final Function<String, T> parser;
+    private Optional<T> value;
 
     // isDisabled.......................................................................................................
 
@@ -191,9 +170,7 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
         this.required = false;
         return this.setValidator(
             SpreadsheetValidators.optional(
-                SpreadsheetValidators.tryCatch(
-                    this.parser::apply
-                )
+                SpreadsheetValidators.required()
             )
         );
     }
@@ -202,18 +179,16 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     public SpreadsheetSuggestBoxComponent<T> required() {
         this.required = true;
         return this.setValidator(
-            SpreadsheetValidators.tryCatch(
-                this.parser::apply
-            )
+            SpreadsheetValidators.required()
         );
     }
 
-    private SpreadsheetSuggestBoxComponent<T> setValidator(final Validator<Optional<String>> validator) {
+    private SpreadsheetSuggestBoxComponent<T> setValidator(final Validator<Optional<T>> validator) {
         this.validator = validator;
         return this.validate();
     }
 
-    private Validator<Optional<String>> validator;
+    private Validator<Optional<T>> validator;
 
     @Override
     public boolean isRequired() {
@@ -226,7 +201,7 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     public SpreadsheetSuggestBoxComponent<T> validate() {
         this.setErrors(
             this.validateAndGetErrors(
-                this.stringValue,
+                this.value,
                 Optional.ofNullable(
                     this.validator
                 )
@@ -247,8 +222,6 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     }
 
     private List<String> errors;
-
-    private final SuggestionsStore<String, SpanElement, SuggestOption<String>> suggestionsStore;
 
     // events...........................................................................................................
 

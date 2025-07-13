@@ -22,6 +22,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
@@ -33,45 +34,31 @@ public final class SpreadsheetLabelComponentTest implements FormValueComponentTe
     public void testSetValueMissingValue() {
         this.treePrintAndCheck(
             SpreadsheetLabelComponent.with(CONTEXT)
-                .setLabel("Label123")
+                .setLabel("Text123")
                 .setValue(
                     Optional.empty()
                 ),
             "SpreadsheetLabelComponent\n" +
                 "  SpreadsheetSuggestBoxComponent\n" +
-                "    Label123 [] REQUIRED\n" +
+                "    Text123 [] REQUIRED\n" +
                 "    Errors\n" +
-                "      Empty \"Label\"\n"
+                "      Required\n"
         );
     }
 
     @Test
-    public void testSetStringValueInvalidStringValue() {
+    public void testSetValueWithLabel() {
         this.treePrintAndCheck(
             SpreadsheetLabelComponent.with(CONTEXT)
-                .setLabel("Label123")
-                .setStringValue(
-                    Optional.of("X!")
+                .setLabel("Text123")
+                .setValue(
+                    Optional.of(
+                        SpreadsheetSelection.labelName("Label123")
+                    )
                 ),
             "SpreadsheetLabelComponent\n" +
                 "  SpreadsheetSuggestBoxComponent\n" +
-                "    Label123 [] REQUIRED\n" +
-                "    Errors\n" +
-                "      Invalid character '!' at 1\n"
-        );
-    }
-
-    @Test
-    public void testSetStringValue() {
-        this.treePrintAndCheck(
-            SpreadsheetLabelComponent.with(CONTEXT)
-                .setLabel("Label123")
-                .setStringValue(
-                    Optional.of("SpreadsheetLabel456")
-                ),
-            "SpreadsheetLabelComponent\n" +
-                "  SpreadsheetSuggestBoxComponent\n" +
-                "    Label123 [SpreadsheetLabel456] REQUIRED\n"
+                "    Text123 [Label123] REQUIRED\n"
         );
     }
 
