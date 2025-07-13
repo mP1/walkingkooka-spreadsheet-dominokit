@@ -647,6 +647,20 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
+    // /api/spreadsheet/SpreadsheetId/label/*/findByName
+    //  1   2           3             4     5 6
+    public static boolean isGetLabelMappingsFindByName(final HttpMethod method,
+                                                       final UrlPath path) {
+        boolean match = HttpMethod.GET.equals(method);
+
+        if (match) {
+            final List<UrlPathName> names = path.namesList();
+            match = names.size() >= 7 && names.get(6).equals(SpreadsheetDeltaHttpMappings.FIND_BY_NAME.toUrlPathName().get());
+        }
+
+        return match;
+    }
+
     /**
      * Saves/Creates the given {@link SpreadsheetLabelMapping}.
      */

@@ -131,6 +131,48 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
         );
     }
 
+    // isGetLabelMapping................................................................................................
+
+    @Test
+    public void testIsGetLabelMappingsFindByNameMissingFindByName() {
+        this.isGetLabelMappingsFindByNameAndCheck(
+            HttpMethod.GET,
+            UrlPath.parse("/api/spreadsheet/1/label/*?offset=0&count=1"),
+            false
+        );
+    }
+
+    @Test
+    public void testIsGetLabelMappingsFindByNameMissingQuery() {
+        this.isGetLabelMappingsFindByNameAndCheck(
+            HttpMethod.GET,
+            UrlPath.parse("/api/spreadsheet/1/label/*/findByName"),
+            true
+        );
+    }
+
+    @Test
+    public void testIsGetLabelMappingsFindByNameWithQuery() {
+        this.isGetLabelMappingsFindByNameAndCheck(
+            HttpMethod.GET,
+            UrlPath.parse("/api/spreadsheet/1/label/*/findByName/query"),
+            true
+        );
+    }
+
+    public void isGetLabelMappingsFindByNameAndCheck(final HttpMethod method,
+                                                     final UrlPath path,
+                                                     final boolean expected) {
+        this.checkEquals(
+            expected,
+            SpreadsheetDeltaFetcher.isGetLabelMappingsFindByName(
+                method,
+                path
+            ),
+            () -> "isGetLabelMapping " + method + " " + path
+        );
+    }
+
     // patchValuePatch..................................................................................................
 
     @Test
