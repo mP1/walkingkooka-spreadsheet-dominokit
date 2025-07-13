@@ -67,9 +67,16 @@ public final class HistoryTokenSaveValueAnchorComponent<T> implements ValueHisto
 
     private void setter(final Optional<T> value,
                         final HistoryTokenAnchorComponent anchor) {
-        HistoryToken historyToken = this.context.historyToken()
-            .setSaveValue(value);
-        if (false == (historyToken.isSave())) {
+        HistoryToken historyToken = null;
+
+        try {
+            historyToken = this.context.historyToken()
+                .setSaveValue(value);
+            if (false == (historyToken.isSave())) {
+                historyToken = null;
+            }
+        } catch (final RuntimeException ignore) {
+            // some history tokens do not accept empty values
             historyToken = null;
         }
 
