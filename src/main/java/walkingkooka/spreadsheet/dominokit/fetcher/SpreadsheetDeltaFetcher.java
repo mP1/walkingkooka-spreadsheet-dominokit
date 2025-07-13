@@ -55,6 +55,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
 import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
+import walkingkooka.spreadsheet.server.delta.SpreadsheetDeltaHttpMappings;
 import walkingkooka.spreadsheet.server.delta.SpreadsheetDeltaUrlQueryParameters;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
@@ -619,6 +620,34 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     }
 
     /**
+     * Invokes the label find by name API
+     * <pre>
+     * /api/spreadsheet/SpreadsheetId/label/&star;/findByName/query
+     * </pre>.
+     */
+    public void getLabelMappingsFindByName(final SpreadsheetId id,
+                                           final String query,
+                                           final OptionalInt offset,
+                                           final OptionalInt count) {
+        Objects.requireNonNull(id, "id");
+        Objects.requireNonNull(query, "query");
+
+        this.get(
+            url(
+                id
+            ).appendPathName(UrlPathName.WILDCARD)
+                .appendPathName(SpreadsheetDeltaHttpMappings.FIND_BY_NAME.toUrlPathName().get())
+                .appendPath(UrlPath.parse(query))
+                .setQuery(
+                    offsetAndCountQueryString(
+                        offset,
+                        count
+                    )
+                )
+        );
+    }
+
+    /**
      * Saves/Creates the given {@link SpreadsheetLabelMapping}.
      */
     public void postLabelMapping(final SpreadsheetId id,
@@ -1163,11 +1192,15 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
             ).appendPath(path);
     }
 
-    // GET http://localhost:3000/api/spreadsheet/1/label/Label123
+    // GET http://localhost:3000/api/spreadsheet/1/label
+    static RelativeUrl url(final SpreadsheetId id) {
+        return SpreadsheetMetadataFetcher.url(id)
+            .appendPathName(SpreadsheetHateosResourceNames.LABEL.toUrlPathName());
+    }
+
     static RelativeUrl url(final SpreadsheetId id,
                            final SpreadsheetLabelName labelName) {
-        return SpreadsheetMetadataFetcher.url(id)
-            .appendPathName(SpreadsheetHateosResourceNames.LABEL.toUrlPathName())
+        return url(id)
             .appendPath(
                 UrlPath.parse(
                     labelName.value()
