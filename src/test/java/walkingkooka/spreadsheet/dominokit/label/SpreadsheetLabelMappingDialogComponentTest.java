@@ -153,7 +153,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=labelMapping-save-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName111/create-label] id=labelMapping-undo-Link\n" +
+                "            \"Undo\" DISABLED id=labelMapping-undo-Link\n" +
                 "            \"Delete\" DISABLED id=labelMapping-delete-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName111] id=labelMapping-close-Link\n"
         );
@@ -181,7 +181,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=labelMapping-save-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName111/cell/A1/label] id=labelMapping-undo-Link\n" +
+                "            \"Undo\" DISABLED id=labelMapping-undo-Link\n" +
                 "            \"Delete\" DISABLED id=labelMapping-delete-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName111/cell/A1] id=labelMapping-close-Link\n"
         );
@@ -209,7 +209,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=labelMapping-save-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName111/cell/B2:C3/bottom-right/label] id=labelMapping-undo-Link\n" +
+                "            \"Undo\" DISABLED id=labelMapping-undo-Link\n" +
                 "            \"Delete\" DISABLED id=labelMapping-delete-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName111/cell/B2:C3/bottom-right] id=labelMapping-close-Link\n"
         );
@@ -237,7 +237,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=labelMapping-save-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName111/cell/Label123/label] id=labelMapping-undo-Link\n" +
+                "            \"Undo\" DISABLED id=labelMapping-undo-Link\n" +
                 "            \"Delete\" DISABLED id=labelMapping-delete-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName111/cell/Label123] id=labelMapping-close-Link\n"
         );
@@ -274,7 +274,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=labelMapping-save-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName111/create-label] id=labelMapping-undo-Link\n" +
+                "            \"Undo\" DISABLED id=labelMapping-undo-Link\n" +
                 "            \"Delete\" DISABLED id=labelMapping-delete-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName111] id=labelMapping-close-Link\n"
         );
@@ -302,7 +302,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=labelMapping-save-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName111/create-label] id=labelMapping-undo-Link\n" +
+                "            \"Undo\" DISABLED id=labelMapping-undo-Link\n" +
                 "            \"Delete\" DISABLED id=labelMapping-delete-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName111] id=labelMapping-close-Link\n"
         );
@@ -337,7 +337,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=labelMapping-save-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName111/create-label] id=labelMapping-undo-Link\n" +
+                "            \"Undo\" DISABLED id=labelMapping-undo-Link\n" +
                 "            \"Delete\" [#/1/SpreadsheetName111/label/Label999/delete] id=labelMapping-delete-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName111] id=labelMapping-close-Link\n"
         );
