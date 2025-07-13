@@ -17,21 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.label;
 
-import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 
-public final class SpreadsheetLabelComponentContexts implements PublicStaticHelper {
-
-    /**
-     * {@see FakeSpreadsheetLabelComponentContext}
-     */
-    public static SpreadsheetLabelComponentContext fake() {
-        return new FakeSpreadsheetLabelComponentContext();
-    }
+public interface SpreadsheetLabelComponentContext extends HasSpreadsheetDeltaFetcherWatchers {
 
     /**
-     * Stop creation
+     * Typically invokes the server to find any labels by the given name.
      */
-    private SpreadsheetLabelComponentContexts() {
-        throw new UnsupportedOperationException();
-    }
+    void findLabelByName(final String text,
+                         final int offset,
+                         final int count);
 }
