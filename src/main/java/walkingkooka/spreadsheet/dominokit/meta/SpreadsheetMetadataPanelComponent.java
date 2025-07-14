@@ -23,6 +23,7 @@ import org.dominokit.domino.ui.elements.TableElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.convert.provider.ConverterAliasSet;
+import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.environment.AuditInfo;
 import walkingkooka.math.DecimalNumberSymbols;
@@ -123,25 +124,30 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         items.add(this.plugins());
 
         items.add(this.comparators());
-        items.add(this.sortComparators());
-
         items.add(this.converters());
         items.add(this.exporters());
-
         items.add(this.expressionFunctions());
-        items.add(this.findFunctions());
-        items.add(this.formulaFunctions());
-
         items.add(this.formatters());
-        items.add(this.formattingFunctions());
-
         items.add(this.formHandlers());
-        items.add(this.defaultFormHandler());
-
         items.add(this.importers());
         items.add(this.parsers());
-
         items.add(this.validators());
+
+        items.add(this.findConverter());
+        items.add(this.findFunctions());
+
+        items.add(this.formulaConverter());
+        items.add(this.formulaFunctions());
+
+        items.add(this.formattingConverter());
+        items.add(this.formattingFunctions());
+
+        items.add(this.defaultFormHandler());
+
+        items.add(this.sortComparators());
+        items.add(this.sortConverter());
+
+        items.add(this.validationConverter());
         items.add(this.validationFunctions());
         items.add(this.validationValidators());
 
@@ -385,9 +391,21 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         );
     }
 
+    private SpreadsheetMetadataPanelComponentItem<ConverterSelector> findConverter() {
+        return link(
+            SpreadsheetMetadataPropertyName.FIND_CONVERTER
+        );
+    }
+
     private SpreadsheetMetadataPanelComponentItem<ExpressionFunctionAliasSet> findFunctions() {
         return link(
             SpreadsheetMetadataPropertyName.FIND_FUNCTIONS
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<ConverterSelector> formulaConverter() {
+        return link(
+            SpreadsheetMetadataPropertyName.FORMULA_CONVERTER
         );
     }
 
@@ -400,6 +418,12 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     private SpreadsheetMetadataPanelComponentItem<SpreadsheetFormatterAliasSet> formatters() {
         return link(
             SpreadsheetMetadataPropertyName.FORMATTERS
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<ConverterSelector> formattingConverter() {
+        return link(
+            SpreadsheetMetadataPropertyName.FORMATTING_CONVERTER
         );
     }
 
@@ -433,9 +457,21 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         );
     }
 
+    private SpreadsheetMetadataPanelComponentItem<ConverterSelector> sortConverter() {
+        return link(
+            SpreadsheetMetadataPropertyName.SORT_CONVERTER
+        );
+    }
+
     private SpreadsheetMetadataPanelComponentItem<ValidatorAliasSet> validators() {
         return link(
             SpreadsheetMetadataPropertyName.VALIDATORS
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<ConverterSelector> validationConverter() {
+        return link(
+            SpreadsheetMetadataPropertyName.VALIDATION_CONVERTER
         );
     }
 
