@@ -15,10 +15,9 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.form;
+package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.HTMLElement;
-import walkingkooka.spreadsheet.dominokit.ComponentLifecycleTesting;
 
 public interface SpreadsheetFormComponentLifecycleTesting<E extends HTMLElement,
     C extends SpreadsheetFormComponentLifecycle<E, C>,
