@@ -15,12 +15,9 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.form;
+package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.HTMLElement;
-import walkingkooka.spreadsheet.dominokit.ComponentLifecycle;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.RefreshContext;
 
 /**
  * A form holds form components such as text boxes, links etc. Note it does not receive {@link walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher}
