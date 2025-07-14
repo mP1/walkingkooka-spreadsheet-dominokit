@@ -25,7 +25,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.text.CaseKind;
 import walkingkooka.validation.form.provider.FormHandlerSelector;
 
 import java.util.Objects;
@@ -61,9 +60,7 @@ final class FormHandlerSelectorDialogComponentContextDefaultFormHandler implemen
 
     @Override
     public String dialogTitle() {
-        return CaseKind.kebabToTitle(
-            PROPERTY_NAME.text()
-        );
+        return SpreadsheetDialogComponentContext.spreadsheetMetadataPropertyNameDialogTitle(PROPERTY_NAME);
     }
 
     @Override
