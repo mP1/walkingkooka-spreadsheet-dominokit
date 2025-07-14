@@ -67,6 +67,12 @@ import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliasSet
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfo;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionSelector;
+import walkingkooka.validation.form.provider.FormHandlerAlias;
+import walkingkooka.validation.form.provider.FormHandlerAliasSet;
+import walkingkooka.validation.form.provider.FormHandlerInfo;
+import walkingkooka.validation.form.provider.FormHandlerInfoSet;
+import walkingkooka.validation.form.provider.FormHandlerName;
+import walkingkooka.validation.form.provider.FormHandlerSelector;
 import walkingkooka.validation.provider.ValidatorAlias;
 import walkingkooka.validation.provider.ValidatorAliasSet;
 import walkingkooka.validation.provider.ValidatorInfo;
@@ -132,6 +138,13 @@ public final class PluginAliasSetLikeDialogComponentContexts implements PublicSt
      */
     public static PluginAliasSetLikeDialogComponentContext<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> formattingFunctions(final AppContext context) {
         return AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFormattingFunctions.with(context);
+    }
+
+    /**
+     * {@see AppContextPluginAliasSetLikeDialogComponentContextFormHandlerAliasSetComparators}
+     */
+    public static PluginAliasSetLikeDialogComponentContext<FormHandlerName, FormHandlerInfo, FormHandlerInfoSet, FormHandlerSelector, FormHandlerAlias, FormHandlerAliasSet> formHandlers(final AppContext context) {
+        return AppContextPluginAliasSetLikeDialogComponentContextFormHandlerAliasSetFormHandlers.with(context);
     }
     
     /**
