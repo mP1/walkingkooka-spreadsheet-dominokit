@@ -18,8 +18,16 @@
 package walkingkooka.spreadsheet.dominokit.formhandler;
 
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 
 public final class FormHandlerSelectorDialogComponentContexts implements PublicStaticHelper {
+
+    /**
+     * {@link FormHandlerSelectorDialogComponentContextDefaultFormHandler}
+     */
+    public static FormHandlerSelectorDialogComponentContext defaultFormHandler(final AppContext context) {
+        return FormHandlerSelectorDialogComponentContextDefaultFormHandler.with(context);
+    }
 
     /**
      * {@see FakeFormHandlerSelectorDialogComponentContext}
