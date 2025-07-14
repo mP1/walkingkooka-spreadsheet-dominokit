@@ -50,6 +50,7 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliasSet;
+import walkingkooka.validation.form.provider.FormHandlerAliasSet;
 import walkingkooka.validation.provider.ValidatorAliasSet;
 
 import java.math.RoundingMode;
@@ -132,6 +133,8 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
 
         items.add(this.formatters());
         items.add(this.formattingFunctions());
+
+        items.add(this.formHandlers());
 
         items.add(this.importers());
         items.add(this.parsers());
@@ -395,6 +398,12 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     private SpreadsheetMetadataPanelComponentItem<ExpressionFunctionAliasSet> formattingFunctions() {
         return link(
             SpreadsheetMetadataPropertyName.FORMATTING_FUNCTIONS
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<FormHandlerAliasSet> formHandlers() {
+        return link(
+            SpreadsheetMetadataPropertyName.FORM_HANDLERS
         );
     }
 
