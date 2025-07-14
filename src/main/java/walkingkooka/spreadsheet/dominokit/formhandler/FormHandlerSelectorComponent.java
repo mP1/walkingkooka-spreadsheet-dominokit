@@ -16,7 +16,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.form;
+package walkingkooka.spreadsheet.dominokit.formhandler;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
