@@ -26,7 +26,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.text.CaseKind;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -61,9 +60,7 @@ final class SpreadsheetComparatorNameListDialogComponentContextSortComparators i
 
     @Override
     public String dialogTitle() {
-        return CaseKind.kebabToTitle(
-            PROPERTY_NAME.text()
-        );
+        return SpreadsheetDialogComponentContext.spreadsheetMetadataPropertyNameDialogTitle(PROPERTY_NAME);
     }
 
     @Override

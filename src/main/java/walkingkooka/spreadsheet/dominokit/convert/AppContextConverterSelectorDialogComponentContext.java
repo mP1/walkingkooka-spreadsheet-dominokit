@@ -26,7 +26,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.text.CaseKind;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -63,9 +62,7 @@ final class AppContextConverterSelectorDialogComponentContext implements Convert
 
     @Override
     public String dialogTitle() {
-        return CaseKind.kebabToTitle(
-            this.propertyName.text()
-        );
+        return SpreadsheetDialogComponentContext.spreadsheetMetadataPropertyNameDialogTitle(this.propertyName);
     }
 
     @Override

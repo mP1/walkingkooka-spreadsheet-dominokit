@@ -31,7 +31,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.text.CaseKind;
 
 import java.util.Objects;
 
@@ -61,10 +60,7 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContext<N extends Name
 
     @Override
     public final String dialogTitle() {
-        return CaseKind.kebabToTitle(
-            this.metadataPropertyName()
-                .text()
-        );
+        return SpreadsheetDialogComponentContext.spreadsheetMetadataPropertyNameDialogTitle(this.metadataPropertyName());
     }
 
     @Override
