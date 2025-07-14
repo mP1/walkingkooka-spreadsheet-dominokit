@@ -54,7 +54,6 @@ import walkingkooka.validation.provider.ValidatorAliasSet;
 
 import java.math.RoundingMode;
 import java.util.List;
-import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -218,10 +217,8 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     }
 
     private SpreadsheetMetadataPanelComponentItem<?> locale() {
-        return readOnlyText(
-            SpreadsheetMetadataPropertyName.LOCALE,
-            Optional.empty(),
-            Locale::toLanguageTag
+        return link(
+            SpreadsheetMetadataPropertyName.LOCALE
         );
     }
 
