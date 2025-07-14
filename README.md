@@ -130,7 +130,7 @@ Global settings that may be added or updated appear in a panel that appears on t
 
 - View audit info such as creator, last updated by, timestamps *DONE*
 - Locale editing, affects default format and parse patterns and various symbols decimal point character
-  etc. [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2065)
+  etc. *DONE*
 - Support for changing various locale sourced characters such as decimal point, currency sign etc *DONE*
 - Editing of default format & parse patterns, eg the default the Number format pattern when a cell is missing one *DONE*
 
