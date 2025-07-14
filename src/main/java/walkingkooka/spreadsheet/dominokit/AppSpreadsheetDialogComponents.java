@@ -17,6 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
+import walkingkooka.collect.list.Lists;
+import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesDialogComponent;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesDialogComponentContexts;
@@ -25,6 +27,8 @@ import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellValueDialogCompone
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellValueDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponent;
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.convert.ConverterSelectorDialogComponent;
+import walkingkooka.spreadsheet.dominokit.convert.ConverterSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.datetime.SpreadsheetDateComponent;
 import walkingkooka.spreadsheet.dominokit.datetime.SpreadsheetDateTimeComponent;
 import walkingkooka.spreadsheet.dominokit.datetime.SpreadsheetTimeComponent;
@@ -67,10 +71,12 @@ import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListDialogCompo
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponent;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.List;
 
 /**
  * Responsible for creating and the registry of all {@link walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent}.
@@ -274,6 +280,24 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
         PluginAliasSetLikeDialogComponent.with(
             PluginAliasSetLikeDialogComponentContexts.converters(context)
         );
+
+        final List<SpreadsheetMetadataPropertyName<ConverterSelector>> converterSelectors = Lists.of(
+            SpreadsheetMetadataPropertyName.FIND_CONVERTER,
+            SpreadsheetMetadataPropertyName.FORMATTING_CONVERTER,
+            SpreadsheetMetadataPropertyName.FORMULA_CONVERTER,
+            SpreadsheetMetadataPropertyName.SORT_CONVERTER,
+            SpreadsheetMetadataPropertyName.VALIDATION_CONVERTER
+        );
+
+        for (final SpreadsheetMetadataPropertyName<ConverterSelector> selector : converterSelectors) {
+            ConverterSelectorDialogComponent.with(
+                ConverterSelectorDialogComponentContexts.appContext(
+                    selector,
+                    context
+                )
+            );
+        }
+
         PluginAliasSetLikeDialogComponent.with(
             PluginAliasSetLikeDialogComponentContexts.comparators(context)
         );
