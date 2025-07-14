@@ -17,9 +17,23 @@
 
 package walkingkooka.spreadsheet.dominokit.convert;
 
+import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 public final class ConverterSelectorDialogComponentContexts implements PublicStaticHelper {
+
+    /**
+     * {@see AppContextConverterSelectorDialogComponentContext}
+     */
+    public static ConverterSelectorDialogComponentContext appContext(final SpreadsheetMetadataPropertyName<ConverterSelector> propertyName,
+                                                                     final AppContext context) {
+        return AppContextConverterSelectorDialogComponentContext.with(
+            propertyName,
+            context
+        );
+    }
 
     /**
      * {@see FakeConverterSelectorDialogComponentContext}
