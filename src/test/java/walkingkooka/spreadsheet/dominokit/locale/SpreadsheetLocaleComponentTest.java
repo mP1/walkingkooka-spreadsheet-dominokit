@@ -24,6 +24,8 @@ import walkingkooka.locale.FakeLocaleContext;
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.server.locale.LocaleHateosResource;
+import walkingkooka.spreadsheet.server.locale.LocaleTag;
 
 import java.util.Locale;
 import java.util.Optional;
@@ -33,6 +35,11 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
 
     private final static Locale ENAU = Locale.forLanguageTag("en-AU");
     private final static Locale ENNZ = Locale.forLanguageTag("en-NZ");
+    private final static Locale FR = Locale.FRENCH;
+
+    private final static String ENGLISH_AUSTRALIA_TEXT = "English (Australia)";
+    private final static String ENGLISH_NEW_ZEALAND_TEXT = "English (New Zealand)";
+    private final static String FRENCH_TEXT = "French 123";
 
     private final static LocaleContext CONTEXT = new FakeLocaleContext() {
 
@@ -40,7 +47,8 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
         public Set<Locale> availableLocales() {
             return Sets.of(
                 ENAU,
-                ENNZ
+                ENNZ,
+                FR
             );
         }
 
@@ -48,13 +56,122 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
         public Optional<String> localeText(final Locale locale) {
             return Optional.ofNullable(
                 ENAU.equals(locale) ?
-                    "English (Australia)" :
+                    ENGLISH_AUSTRALIA_TEXT :
                     ENNZ.equals(locale) ?
-                        "English (New Zealand)" :
-                        null
+                        ENGLISH_NEW_ZEALAND_TEXT :
+                        FR.equals(locale) ?
+                            FRENCH_TEXT :
+                            null
             );
         }
     };
+
+    // filter...........................................................................................................
+
+    @Test
+    public void testFilterMatchesNone() {
+        this.filterAndCheck(
+            "Z",
+            CONTEXT
+        );
+    }
+
+    @Test
+    public void testFilterMatchesSome() {
+        this.filterAndCheck(
+            "English",
+            CONTEXT,
+            LocaleHateosResource.with(
+                LocaleTag.with(ENAU),
+                ENGLISH_AUSTRALIA_TEXT
+            ),
+            LocaleHateosResource.with(
+                LocaleTag.with(ENNZ),
+                ENGLISH_NEW_ZEALAND_TEXT
+            )
+        );
+    }
+
+    @Test
+    public void testFilterMatchesSome2() {
+        this.filterAndCheck(
+            FRENCH_TEXT,
+            CONTEXT,
+            LocaleHateosResource.with(
+                LocaleTag.with(FR),
+                FRENCH_TEXT
+            )
+        );
+    }
+
+    private void filterAndCheck(final String startsWith,
+                                final LocaleContext context,
+                                final LocaleHateosResource...expected) {
+        this.filterAndCheck(
+            startsWith,
+            context,
+            Sets.of(expected)
+        );
+    }
+
+    private void filterAndCheck(final String startsWith,
+                                final LocaleContext context,
+                                final Set<LocaleHateosResource> expected) {
+        this.checkEquals(
+            expected,
+            SpreadsheetLocaleComponent.filter(
+                startsWith,
+                context
+            )
+        );
+    }
+
+    // spreadsheetLocaleComponentValue..................................................................................
+
+    @Test
+    public void testSpreadsheetLocaleComponentValue() {
+        this.spreadsheetLocaleComponentValueAndCheck(
+            ENGLISH_AUSTRALIA_TEXT,
+            CONTEXT,
+            SpreadsheetLocaleComponentValue.with(
+                ENAU,
+                ENGLISH_AUSTRALIA_TEXT
+            )
+        );
+    }
+
+    @Test
+    public void testSpreadsheetLocaleComponentValueDifferentCase() {
+        final String text = ENGLISH_NEW_ZEALAND_TEXT.toLowerCase();
+
+        this.checkNotEquals(
+            text,
+            ENGLISH_NEW_ZEALAND_TEXT
+        );
+
+        this.spreadsheetLocaleComponentValueAndCheck(
+            text,
+            CONTEXT,
+            SpreadsheetLocaleComponentValue.with(
+                ENNZ,
+                ENGLISH_NEW_ZEALAND_TEXT
+            )
+        );
+    }
+
+    private void spreadsheetLocaleComponentValueAndCheck(final String localeText,
+                                                         final LocaleContext context,
+                                                         final SpreadsheetLocaleComponentValue expected) {
+        this.checkEquals(
+            expected,
+            SpreadsheetLocaleComponent.spreadsheetLocaleComponentValue(
+                localeText,
+                context
+            )
+        );
+    }
+
+    // TreePrint........................................................................................................
 
     @Test
     public void testTreePrintWithoutValue() {
@@ -79,7 +196,7 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
                 ),
             "SpreadsheetLocaleComponent\n" +
                 "  SpreadsheetSuggestBoxComponent\n" +
-                "    [en-AU \"English (Australia)\"] REQUIRED\n"
+                "    [English (Australia)] REQUIRED\n"
         );
     }
 

@@ -22,24 +22,28 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.elements.SpanElement;
 import org.dominokit.domino.ui.forms.suggest.SuggestOption;
 import org.dominokit.domino.ui.forms.suggest.SuggestionsStore;
+import org.dominokit.domino.ui.menu.MenuItem;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.collect.list.Lists;
-import walkingkooka.collect.map.Maps;
+import walkingkooka.collect.set.Sets;
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResource;
 import walkingkooka.spreadsheet.server.locale.LocaleTag;
+import walkingkooka.text.CaseSensitivity;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
+import walkingkooka.util.HasLocale;
 
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
+
+import static org.dominokit.domino.ui.utils.Domino.span;
 
 /**
  * A drop down that supports picking an optional {@link Locale}.
@@ -59,23 +63,78 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
     }
 
     private SpreadsheetLocaleComponent(final LocaleContext context) {
-        final Map<String, Locale> localeTextToLocale = Maps.sorted(String.CASE_INSENSITIVE_ORDER);
-        final Map<String, LocaleHateosResource> languageTagToLocaleHateosResource = Maps.sorted(String.CASE_INSENSITIVE_ORDER);
+        this.context = context;
+
+        this.suggestBox = SpreadsheetSuggestBoxComponent.with(
+            // String -> SpreadsheetLocaleComponentValue, exception will be shown as an error text
+            (String localeText) -> spreadsheetLocaleComponentValue(
+                localeText,
+                context
+            ),
+            new SuggestionsStore<SpreadsheetLocaleComponentValue, SpanElement, SuggestOption<SpreadsheetLocaleComponentValue>>() {
+
+                @Override
+                public void filter(final String startsWith,
+                                   final SuggestionsHandler<SpreadsheetLocaleComponentValue, SpanElement, SuggestOption<SpreadsheetLocaleComponentValue>> handler) {
+                    handler.onSuggestionsReady(
+                        SpreadsheetLocaleComponent.filter(startsWith, context)
+                            .stream()
+                            .map((LocaleHateosResource lhr) -> suggestOption(
+                                SpreadsheetLocaleComponentValue.with(
+                                    lhr.locale(),
+                                    lhr.text()
+                                )
+                            )).collect(Collectors.toList())
+                    );
+                }
+
+                @Override
+                public void find(final SpreadsheetLocaleComponentValue searchValue,
+                                 final Consumer<SuggestOption<SpreadsheetLocaleComponentValue>> handler) {
+                    final SpreadsheetLocaleComponentValue verified = verifyLocale(
+                        searchValue,
+                        context
+                    ).orElse(null);
+
+                    if (null != verified) {
+                        handler.accept(
+                            suggestOption(verified)
+                        );
+                    }
+                }
+            }
+        );
+    }
+
+    // @VisibleForTesting
+    static SpreadsheetLocaleComponentValue spreadsheetLocaleComponentValue(final String localeText,
+                                                                           final LocaleContext context) {
+        for (final Locale locale : context.availableLocales()) {
+            final String possibleLocaleText = context.localeText(locale)
+                .orElse(null);
+
+            if (localeText.equalsIgnoreCase(possibleLocaleText)) {
+                return SpreadsheetLocaleComponentValue.with(
+                    locale,
+                    localeText
+                );
+            }
+        }
+
+        throw new IllegalArgumentException("Unknown locale");
+    }
+
+    // @VisibleForTesting
+    static Set<LocaleHateosResource> filter(final String startsWith,
+                                            final LocaleContext context) {
+        final Set<LocaleHateosResource> matched = Sets.ordered();
 
         for (final Locale locale : context.availableLocales()) {
             final String localeText = context.localeText(locale)
                 .orElse(null);
 
-            if (null != localeText) {
-                localeTextToLocale.put(
-                    localeText,
-                    locale
-                );
-
-                final String languageTag = locale.toLanguageTag();
-
-                languageTagToLocaleHateosResource.put(
-                    languageTag,
+            if (null != localeText && (CaseSensitivity.INSENSITIVE.startsWith(localeText, startsWith) || CaseSensitivity.INSENSITIVE.equals(localeText, startsWith))) {
+                matched.add(
                     LocaleHateosResource.with(
                         LocaleTag.with(locale),
                         localeText
@@ -84,67 +143,39 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
             }
         }
 
-        this.languageTagToLocaleHateosResource = languageTagToLocaleHateosResource;
-
-        this.suggestBox = SpreadsheetSuggestBoxComponent.with(
-            // String -> LocaleHateousResource, exception will be shown as an error text
-            (String localeText) -> {
-                final Locale locale = localeTextToLocale.get(localeText);
-                if (null == locale) {
-                    throw new IllegalArgumentException("Unknown locale");
-                }
-                return LocaleHateosResource.with(
-                    LocaleTag.with(locale),
-                    localeText
-                );
-            },
-            new SuggestionsStore<LocaleHateosResource, SpanElement, SuggestOption<LocaleHateosResource>>() {
-
-                @Override
-                public void filter(final String startsWith,
-                                   final SuggestionsHandler<LocaleHateosResource, SpanElement, SuggestOption<LocaleHateosResource>> handler) {
-                    final List<SuggestOption<LocaleHateosResource>> suggestions = Lists.array();
-
-                    for (final Entry<String, Locale> localeTextAndLocale : localeTextToLocale.entrySet()) {
-                        final String localeText = localeTextAndLocale.getKey();
-                        if (isMatch(startsWith, localeText)) {
-                            suggestions.add(
-                                SuggestOption.create(
-                                    LocaleHateosResource.with(
-                                        LocaleTag.with(
-                                            localeTextAndLocale.getValue()
-                                        ),
-                                        localeText
-                                    )
-                                )
-                            );
-                        }
-                    }
-
-                    handler.onSuggestionsReady(suggestions);
-                }
-
-                @Override
-                public void find(final LocaleHateosResource searchValue,
-                                 final Consumer<SuggestOption<LocaleHateosResource>> handler) {
-                    final LocaleHateosResource localeHateosResource = languageTagToLocaleHateosResource.get(
-                        searchValue.locale()
-                            .toLanguageTag()
-                    );
-                    if (null == localeHateosResource) {
-                        throw new IllegalArgumentException("Unknown locale");
-                    }
-                    handler.accept(
-                        SuggestOption.create(localeHateosResource)
-                    );
-                }
-            }
-        );
+        return matched;
     }
 
-    private static boolean isMatch(final String startsWith,
-                                   final String text) {
-        return text.startsWith(startsWith) || text.equals(startsWith);
+    /**
+     * Verifies that the given locale is valid, returning null if it is an unknown locale.
+     */
+    static Optional<SpreadsheetLocaleComponentValue> verifyLocale(final SpreadsheetLocaleComponentValue value,
+                                                                  final LocaleContext context) {
+        SpreadsheetLocaleComponentValue verified = null;
+
+        if (null != value) {
+            final Locale locale = value.locale();
+            final String localeText = context.localeText(locale)
+                .orElse(null);
+            verified = SpreadsheetLocaleComponentValue.with(
+                locale,
+                localeText
+            );
+        }
+
+        return Optional.ofNullable(verified);
+    }
+
+    static SuggestOption<SpreadsheetLocaleComponentValue> suggestOption(final SpreadsheetLocaleComponentValue value) {
+        final Locale locale = value.locale();
+        final String text = value.text();
+
+        return new SuggestOption<>(
+            locale.toLanguageTag(), // key
+            value, // value
+            (String k, SpreadsheetLocaleComponentValue v) -> span().textContent(v.text()),
+            (String k, SpreadsheetLocaleComponentValue v) -> MenuItem.create(v.text())
+        );
     }
 
     @Override
@@ -254,9 +285,9 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
         Objects.requireNonNull(listener, "listener");
 
         this.suggestBox.addChangeListener(
-            (Optional<LocaleHateosResource> oldLocale, Optional<LocaleHateosResource> newLocale) -> listener.onValueChanged(
-                oldLocale.map(LocaleHateosResource::locale),
-                newLocale.map(LocaleHateosResource::locale)
+            (Optional<SpreadsheetLocaleComponentValue> oldLocale, Optional<SpreadsheetLocaleComponentValue> newLocale) -> listener.onValueChanged(
+                oldLocale.map(HasLocale::locale),
+                newLocale.map(HasLocale::locale)
             )
         );
         return this;
@@ -324,13 +355,20 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
         Objects.requireNonNull(locale, "locale");
 
         // translate Locale -> LocaleHateosResource. The later will have the locale text and Locale for the #suggestBox
-        LocaleHateosResource verified = null;
+        SpreadsheetLocaleComponentValue verified = null;
 
         if (locale.isPresent()) {
-            final String languageLocale = locale.get()
-                .toLanguageTag();
+            final Locale gotLocale = locale.get();
 
-            verified = this.languageTagToLocaleHateosResource.get(languageLocale);
+            final String localeText = this.context.localeText(gotLocale)
+                .orElse(null);
+
+            if(null != localeText) {
+                verified = SpreadsheetLocaleComponentValue.with(
+                    gotLocale,
+                    localeText
+                );
+            }
         }
 
         this.suggestBox.setValue(
@@ -339,15 +377,15 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
         return this;
     }
 
-    private final Map<String, LocaleHateosResource> languageTagToLocaleHateosResource;
+    private final LocaleContext context;
 
     @Override //
     public Optional<Locale> value() {
         return this.suggestBox.value()
-            .map(LocaleHateosResource::locale);
+            .map(HasLocale::locale);
     }
 
-    private final SpreadsheetSuggestBoxComponent<LocaleHateosResource> suggestBox;
+    private final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentValue> suggestBox;
 
     // Object...........................................................................................................
 
