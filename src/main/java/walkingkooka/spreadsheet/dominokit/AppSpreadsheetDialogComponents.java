@@ -36,6 +36,8 @@ import walkingkooka.spreadsheet.dominokit.find.SpreadsheetFindDialogComponent;
 import walkingkooka.spreadsheet.dominokit.find.SpreadsheetFindDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterSelectorDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.formhandler.FormHandlerSelectorDialogComponent;
+import walkingkooka.spreadsheet.dominokit.formhandler.FormHandlerSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.insert.SpreadsheetColumnRowInsertCountDialogComponent;
 import walkingkooka.spreadsheet.dominokit.insert.SpreadsheetColumnRowInsertCountDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingDialogComponent;
@@ -287,9 +289,14 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
         PluginAliasSetLikeDialogComponent.with(
             PluginAliasSetLikeDialogComponentContexts.formattingFunctions(context)
         );
+
         PluginAliasSetLikeDialogComponent.with(
             PluginAliasSetLikeDialogComponentContexts.formHandlers(context)
         );
+        FormHandlerSelectorDialogComponent.with(
+            FormHandlerSelectorDialogComponentContexts.defaultFormHandler(context)
+        );
+
         PluginAliasSetLikeDialogComponent.with(
             PluginAliasSetLikeDialogComponentContexts.importers(context)
         );
