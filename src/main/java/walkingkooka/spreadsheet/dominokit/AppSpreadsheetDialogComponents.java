@@ -42,6 +42,8 @@ import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingDialogCom
 import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingListDialogComponent;
 import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingListDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleDialogComponent;
+import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.plugin.JarEntryInfoListDialogComponent;
@@ -96,6 +98,8 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
 
         label(context);
 
+        locale(context);
+        
         sort(context);
     }
 
@@ -232,6 +236,16 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
 
         SpreadsheetLabelMappingListDialogComponent.with(
             SpreadsheetLabelMappingListDialogComponentContexts.appContextLabel(context)
+        );
+    }
+
+    private static void locale(final AppContext context) {
+        SpreadsheetLocaleDialogComponent.with(
+            SpreadsheetLocaleDialogComponentContexts.appContextCellLocale(context)
+        );
+
+        SpreadsheetLocaleDialogComponent.with(
+            SpreadsheetLocaleDialogComponentContexts.appContextSpreadsheetMetadataLocale(context)
         );
     }
 
