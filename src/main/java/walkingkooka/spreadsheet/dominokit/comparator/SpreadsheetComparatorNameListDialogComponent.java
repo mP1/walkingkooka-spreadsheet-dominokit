@@ -33,7 +33,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.util.Objects;
@@ -205,7 +204,7 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
     }
 
     /**
-     * Refreshes the widget, typically done when the {@link SpreadsheetPatternKind} changes etc.
+     * Refreshes the widget, typically done when some variable within the {@link HistoryToken} changes.
      */
     @Override
     public void refresh(final RefreshContext context) {
