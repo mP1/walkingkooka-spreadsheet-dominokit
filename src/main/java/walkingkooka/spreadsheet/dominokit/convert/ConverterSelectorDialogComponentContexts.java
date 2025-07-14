@@ -22,6 +22,13 @@ import walkingkooka.reflect.PublicStaticHelper;
 public final class ConverterSelectorDialogComponentContexts implements PublicStaticHelper {
 
     /**
+     * {@see FakeConverterSelectorDialogComponentContext}
+     */
+    public static ConverterSelectorDialogComponentContext fake() {
+        return new FakeConverterSelectorDialogComponentContext();
+    }
+
+    /**
      * Stop creation
      */
     private ConverterSelectorDialogComponentContexts() {
