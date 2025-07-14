@@ -19,10 +19,28 @@ package walkingkooka.spreadsheet.dominokit.dialog;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.text.CaseKind;
+
+import java.util.Objects;
 
 /**
  * Base class for all {@link walkingkooka.Context} that accompanies a {@link SpreadsheetDialogComponent}
  */
 public interface SpreadsheetDialogComponentContext extends HistoryContext,
     LoggingContext {
+
+    /**
+     * Helper that may be used to create a standard dialog title for a {@link SpreadsheetMetadataPropertyName}.
+     */
+    static String spreadsheetMetadataPropertyNameDialogTitle(final SpreadsheetMetadataPropertyName<?> propertyName) {
+        Objects.requireNonNull(propertyName, "propertyName");
+
+        final String text = propertyName.text();
+
+        return "Spreadsheet metadata: " + CaseKind.CAMEL.change(
+            text,
+            CaseKind.TITLE
+        ) + "(" + text + ")";
+    }
 }
