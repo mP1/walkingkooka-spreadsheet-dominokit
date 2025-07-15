@@ -34,7 +34,6 @@ import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdi
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenuList;
 import walkingkooka.text.CharSequences;
-import walkingkooka.tree.json.JsonNode;
 
 import java.util.Optional;
 
@@ -80,17 +79,26 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
         );
     }
 
-    // POST /api/spreadsheet/SpreadsheetId/formatter/*/edit
-    public void postEdit(final SpreadsheetId id,
+    // GET /api/spreadsheet/SpreadsheetId/formatter/*/edit
+    public void getEdit(final SpreadsheetId id,
                          final String selector) {
-        this.post(
-            url(id)
-                .appendPath(EDIT),
-            FetcherRequestBody.string(
-                JsonNode.string(selector)
-                    .toString()
+        this.get(
+            editUrl(
+                id,
+                selector
             )
         );
+    }
+
+    static AbsoluteOrRelativeUrl editUrl(final SpreadsheetId id,
+                                         final String selector) {
+        return url(id)
+            .appendPath(EDIT)
+            .appendPath(
+                UrlPath.parse(
+                    UrlPath.SEPARATOR.string() + selector
+                )
+            );
     }
 
     private final static UrlPath EDIT = UrlPath.parse(
