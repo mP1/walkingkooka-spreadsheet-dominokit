@@ -27,6 +27,7 @@ import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.plugin.store.PluginStore;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.convert.SpreadsheetConverterContext;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextReadWatcher;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextWriteWatcher;
@@ -537,6 +538,11 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public SpreadsheetFormatter spreadsheetFormatter(final SpreadsheetFormatterSelector selector) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<SpreadsheetCell> cell() {
         throw new UnsupportedOperationException();
     }
 
