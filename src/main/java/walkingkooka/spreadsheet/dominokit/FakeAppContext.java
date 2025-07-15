@@ -531,7 +531,7 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     }
 
     @Override
-    public Optional<TextNode> format(final Optional<Object> value) {
+    public Optional<TextNode> formatValue(final Optional<Object> value) {
         throw new UnsupportedOperationException();
     }
 
