@@ -168,7 +168,6 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
 
     static SuggestOption<SpreadsheetLocaleComponentValue> suggestOption(final SpreadsheetLocaleComponentValue value) {
         final Locale locale = value.locale();
-        final String text = value.text();
 
         return new SuggestOption<>(
             locale.toLanguageTag(), // key
