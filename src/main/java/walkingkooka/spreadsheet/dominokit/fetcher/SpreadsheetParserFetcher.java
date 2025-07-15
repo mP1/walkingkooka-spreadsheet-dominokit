@@ -31,7 +31,6 @@ import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
 import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
 import walkingkooka.text.CharSequences;
-import walkingkooka.tree.json.JsonNode;
 
 import java.util.Optional;
 
@@ -69,20 +68,28 @@ public final class SpreadsheetParserFetcher extends Fetcher<SpreadsheetParserFet
         );
     }
 
-    // POST /api/spreadsheet/SpreadsheetId/parser/*/edit
-    public void postEdit(final SpreadsheetId id,
-                         final String selector) {
-        this.post(
-            url(id)
-                .appendPath(EDIT),
-            FetcherRequestBody.string(
-                JsonNode.string(selector)
-                    .toString()
+    // GET /api/spreadsheet/SpreadsheetId/parser/*/edit/SpreadsheetParserSelector
+    public void getEdit(final SpreadsheetId id,
+                        final String selector) {
+        this.get(
+            editUrl(
+                id,
+                selector
             )
         );
     }
 
-    // /api/spreadsheet/1/parser/*/edit
+    // /api/spreadsheet/1/parser/*/edit/SpreadsheetParserSelector
+    static AbsoluteOrRelativeUrl editUrl(final SpreadsheetId id,
+                                         final String selector) {
+        return url(id)
+            .appendPath(EDIT)
+            .appendPath(
+                UrlPath.parse(UrlPath.SEPARATOR.string()
+                    .concat(selector)
+                )
+            );
+    }
 
     private final static UrlPath EDIT = UrlPath.parse(
         "/*/" + SpreadsheetServerLinkRelations.EDIT
