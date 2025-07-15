@@ -80,7 +80,7 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
         );
     }
 
-    // GET /api/spreadsheet/SpreadsheetId/formatter/*/edit
+    // POST /api/spreadsheet/SpreadsheetId/formatter/*/edit
     public void postEdit(final SpreadsheetId id,
                          final String selector) {
         this.post(
