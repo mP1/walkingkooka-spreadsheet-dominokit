@@ -1390,8 +1390,8 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
             }
 
             @Override
-            public Optional<TextNode> format(final Optional<Object> value) {
-                return SPREADSHEET_FORMATTER_CONTEXT.format(value);
+            public Optional<TextNode> formatValue(final Optional<Object> value) {
+                return SPREADSHEET_FORMATTER_CONTEXT.formatValue(value);
             }
 
             @Override
