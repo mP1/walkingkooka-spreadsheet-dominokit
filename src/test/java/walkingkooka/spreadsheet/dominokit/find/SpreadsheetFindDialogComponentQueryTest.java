@@ -1014,12 +1014,9 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
     }
 
     private Optional<SpreadsheetFormula> parseFormula(final Optional<SpreadsheetFormula> formula) {
-        return Optional.ofNullable(
-            formula.map(
-                    f -> parseFormula0(f.text())
-                ).filter(CanBeEmpty::isNotEmpty)
-                .orElse(null)
-        );
+        return formula.map(
+                f -> parseFormula0(f.text())
+            ).filter(CanBeEmpty::isNotEmpty);
     }
 
     private Optional<SpreadsheetFormula> parseFormula(final String text) {
