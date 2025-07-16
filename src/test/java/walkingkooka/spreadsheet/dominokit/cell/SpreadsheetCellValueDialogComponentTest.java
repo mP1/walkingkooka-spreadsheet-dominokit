@@ -131,7 +131,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
                 DATE_COMPONENT_ID,
                 CLEAR_VALUE
             ),
-            new TestSpreadsheetCellValueDialogComponentContext<LocalDate>(
+            new TestSpreadsheetCellValueDialogComponentContext<>(
                 ValidationValueTypeName.DATE,
                 context
             )
@@ -169,7 +169,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
                 DATE_COMPONENT_ID,
                 CLEAR_VALUE
             ),
-            new TestSpreadsheetCellValueDialogComponentContext<LocalDate>(
+            new TestSpreadsheetCellValueDialogComponentContext<>(
                 ValidationValueTypeName.DATE,
                 Optional.of(
                     LocalDate.of(
@@ -217,7 +217,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
                     LocalTime.MIN
                 )
             ),
-            new TestSpreadsheetCellValueDialogComponentContext<LocalDateTime>(
+            new TestSpreadsheetCellValueDialogComponentContext<>(
                 ValidationValueTypeName.DATE_TIME,
                 Optional.of(
                     LocalDateTime.of(
@@ -267,7 +267,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
         final SpreadsheetCellValueDialogComponent<String> dialog = SpreadsheetCellValueDialogComponent.with(
             SpreadsheetTextBox.empty()
                 .setId("TextBox-Text"),
-            new TestSpreadsheetCellValueDialogComponentContext<String>(
+            new TestSpreadsheetCellValueDialogComponentContext<>(
                 ValidationValueTypeName.TEXT,
                 Optional.of("HelloTextValue"),
                 context
@@ -303,7 +303,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
         final SpreadsheetCellValueDialogComponent<String> dialog = SpreadsheetCellValueDialogComponent.with(
             SpreadsheetTextBox.empty()
                 .setId("TextBox-Text"),
-            new TestSpreadsheetCellValueDialogComponentContext<String>(
+            new TestSpreadsheetCellValueDialogComponentContext<>(
                 ValidationValueTypeName.TEXT,
                 context
             )
@@ -340,7 +340,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
                 "TestTime123",
                 () -> LocalTime.MIN
             ),
-            new TestSpreadsheetCellValueDialogComponentContext<LocalTime>(
+            new TestSpreadsheetCellValueDialogComponentContext<>(
                 ValidationValueTypeName.TIME,
                 Optional.of(
                     LocalTime.of(
@@ -521,7 +521,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
                 DATE_COMPONENT_ID,
                 CLEAR_VALUE
             ),
-            new TestSpreadsheetCellValueDialogComponentContext<LocalDate>(
+            new TestSpreadsheetCellValueDialogComponentContext<>(
                 ValidationValueTypeName.DATE,
                 this.appContext(historyToken)
             )
