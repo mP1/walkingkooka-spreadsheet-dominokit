@@ -35,8 +35,8 @@ final class SpreadsheetSuggestBoxComponentValidator<T> implements Validator<Sugg
     /**
      * Factory
      */
-    static SpreadsheetSuggestBoxComponentValidator with(final Validator<Optional<String>> validator) {
-        return new SpreadsheetSuggestBoxComponentValidator(validator);
+    static <T> SpreadsheetSuggestBoxComponentValidator<T> with(final Validator<Optional<String>> validator) {
+        return new SpreadsheetSuggestBoxComponentValidator<>(validator);
     }
 
     private SpreadsheetSuggestBoxComponentValidator(final Validator<Optional<String>> validator) {
