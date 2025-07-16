@@ -29,7 +29,7 @@ import walkingkooka.validation.ValidationValueTypeName;
 import java.time.LocalTime;
 import java.util.Optional;
 
-import static org.junit.Assert.assertSame;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetCellValueHistoryTokenTestCase<SpreadsheetCellValueSaveHistoryToken> {
