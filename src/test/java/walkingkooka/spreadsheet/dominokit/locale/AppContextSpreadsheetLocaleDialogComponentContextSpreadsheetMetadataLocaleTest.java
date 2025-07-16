@@ -79,7 +79,7 @@ public final class AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetM
                 ),
                 false
             );
-        };
+        }
     }
 
     @Test
