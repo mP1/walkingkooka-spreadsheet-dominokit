@@ -2548,7 +2548,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     }
 
     @Test
-    public void testResolveIfLabelWithCellRange() {
+    public void testResolveIfLabelWithCellRange2() {
         this.resolveIfLabelAndCheck2(
             SpreadsheetSelection.parseCellRange("A1:B2")
         );
