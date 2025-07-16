@@ -47,7 +47,7 @@ import static org.dominokit.domino.ui.utils.Domino.span;
 
 /**
  * A drop down that supports picking an optional {@link Locale}.
- * TODO Display flags for each locale
+ * https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/5450
  */
 public final class SpreadsheetLocaleComponent implements FormValueComponent<HTMLFieldSetElement, Locale, SpreadsheetLocaleComponent>,
     TreePrintable {
