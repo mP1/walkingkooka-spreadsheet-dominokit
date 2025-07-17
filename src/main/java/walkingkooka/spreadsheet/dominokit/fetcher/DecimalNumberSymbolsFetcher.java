@@ -24,6 +24,7 @@ import walkingkooka.net.UrlPathName;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
+import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResourceSet;
 import walkingkooka.spreadsheet.server.locale.LocaleTag;
@@ -64,13 +65,38 @@ public final class DecimalNumberSymbolsFetcher extends Fetcher<DecimalNumberSymb
         Objects.requireNonNull(id, "id");
 
         get(
-            Url.EMPTY_RELATIVE_URL.appendPath(
-                SpreadsheetHttpServer.API_LOCALE.append(
-                    UrlPathName.with(id.toString())
-                )
+            URL.appendPathName(
+                UrlPathName.with(id.toString())
             )
         );
     }
+
+    private final static AbsoluteOrRelativeUrl URL = Url.EMPTY_RELATIVE_URL.appendPath(
+        SpreadsheetHttpServer.API_DECIMAL_NUMBER_SYMBOLS
+    );
+
+    // GET /api/decimalNumberSymbols/*/localeStartsWith/startsWith
+    public void getDecimalNumberSymbolsLocaleStartsWith(final String startsWith) {
+        Objects.requireNonNull(startsWith, "startsWith");
+
+        get(
+            decimalNumberSymbolsLocaleStartsWithUrl(startsWith)
+        );
+    }
+
+    static AbsoluteOrRelativeUrl decimalNumberSymbolsLocaleStartsWithUrl(final String startsWith) {
+        return STARTS_WITH_BASE_URL.appendPath(
+            UrlPath.parse(
+                "/".concat(startsWith)
+            )
+        );
+    }
+
+    private final static AbsoluteOrRelativeUrl STARTS_WITH_BASE_URL = URL.appendPathName(UrlPathName.WILDCARD)
+        .appendPathName(
+            SpreadsheetServerLinkRelations.LOCALE_STARTS_WITH.toUrlPathName()
+                .get()
+        );
 
     @Override
     public void onSuccess(final HttpMethod method,
@@ -94,6 +120,17 @@ public final class DecimalNumberSymbolsFetcher extends Fetcher<DecimalNumberSymb
                     context
                 );
                 break;
+            case "DecimalNumberSymbolsHateosResourceSet":
+                // GET http://server/api/decimalNumberSymbols/*/localeStartsWith/STARTSWITH
+                this.watcher.onDecimalNumberSymbolsHateosResourceSet(
+                    localeStartsWith(url.path()), // the request url
+                    this.parse(
+                        body,
+                        DecimalNumberSymbolsHateosResourceSet.class
+                    ),
+                    context
+                );
+                break;
             default:
                 throw new IllegalArgumentException("Unexpected content type " + CharSequences.quote(contentTypeName));
         }
@@ -105,5 +142,15 @@ public final class DecimalNumberSymbolsFetcher extends Fetcher<DecimalNumberSymb
                 .get(3)
                 .text()
         );
+    }
+
+    // /api/decimalNumberSymbols/*/localeStartsWith/STARTSWITH
+    // 01   2               3 4                5
+    static String localeStartsWith(final UrlPath path) {
+        final String startsWith = path.pathAfter(4)
+            .value();
+        return startsWith.isEmpty() ?
+            "" :
+            startsWith.substring(1);
     }
 }
