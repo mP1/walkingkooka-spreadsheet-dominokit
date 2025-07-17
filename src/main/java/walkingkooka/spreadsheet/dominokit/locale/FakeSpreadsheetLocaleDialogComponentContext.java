@@ -86,6 +86,13 @@ public class FakeSpreadsheetLocaleDialogComponentContext extends FakeSpreadsheet
     }
 
     @Override
+    public Set<Locale> findByLocaleText(final String text,
+                                        final int offset,
+                                        final int count) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public Optional<String> localeText(final Locale locale) {
         throw new UnsupportedOperationException();
     }
