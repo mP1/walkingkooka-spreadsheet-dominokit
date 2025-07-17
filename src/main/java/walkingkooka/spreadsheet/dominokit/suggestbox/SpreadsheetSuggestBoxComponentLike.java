@@ -21,11 +21,14 @@ import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBoxTreePrintable;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.text.HasText;
+import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Optional;
+import java.util.Set;
 
 /**
- * A text box component that includes support for finding a label.
+ * A text box component that includes support for finding values that match the entered search text.
  */
 public interface SpreadsheetSuggestBoxComponentLike<T extends HasText> extends FormValueComponent<HTMLFieldSetElement, T, SpreadsheetSuggestBoxComponent<T>>,
     SpreadsheetTextBoxTreePrintable<SpreadsheetSuggestBoxComponent<T>, T> {
@@ -33,4 +36,29 @@ public interface SpreadsheetSuggestBoxComponentLike<T extends HasText> extends F
     SpreadsheetSuggestBoxComponent<T> setStringValue(final Optional<String> value);
 
     Optional<String> stringValue();
+
+    Set<T> options();
+
+    SpreadsheetSuggestBoxComponent<T> setOptions(final Set<T> options);
+
+    // SpreadsheetTextBoxTreePrintable..................................................................................
+
+    @Override
+    default void treePrintAlternateValues(final IndentingPrinter printer) {
+        final Set<T> options = this.options();
+        if(false == options.isEmpty()) {
+            printer.println("options");
+
+            printer.indent();
+            {
+                for(final T option : options) {
+                    TreePrintable.printTreeOrToString(
+                        option,
+                        printer
+                    );
+                }
+            }
+            printer.outdent();
+        }
+    }
 }
