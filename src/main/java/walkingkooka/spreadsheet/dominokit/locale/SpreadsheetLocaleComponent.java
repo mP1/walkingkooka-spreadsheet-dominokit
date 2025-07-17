@@ -20,14 +20,12 @@ package walkingkooka.spreadsheet.dominokit.locale;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.collect.set.Sets;
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponentSuggestionsProvider;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResource;
-import walkingkooka.spreadsheet.server.locale.LocaleTag;
-import walkingkooka.text.CaseSensitivity;
+import walkingkooka.spreadsheet.server.locale.LocaleHateosResourceSet;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.util.HasLocale;
@@ -36,7 +34,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -69,7 +66,7 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
                 @Override
                 public void filter(final String startsWith) {
                     SpreadsheetLocaleComponent.this.suggestBox.setOptions(
-                        SpreadsheetLocaleComponent.filter(startsWith, context)
+                        LocaleHateosResourceSet.filter(startsWith, context)
                             .stream()
                             .map(
                                 (LocaleHateosResource lhr) ->
@@ -119,28 +116,6 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
         }
 
         throw new IllegalArgumentException("Unknown locale");
-    }
-
-    // @VisibleForTesting
-    static Set<LocaleHateosResource> filter(final String startsWith,
-                                            final LocaleContext context) {
-        final Set<LocaleHateosResource> matched = Sets.ordered();
-
-        for (final Locale locale : context.availableLocales()) {
-            final String localeText = context.localeText(locale)
-                .orElse(null);
-
-            if (null != localeText && (CaseSensitivity.INSENSITIVE.startsWith(localeText, startsWith) || CaseSensitivity.INSENSITIVE.equals(localeText, startsWith))) {
-                matched.add(
-                    LocaleHateosResource.with(
-                        LocaleTag.with(locale),
-                        localeText
-                    )
-                );
-            }
-        }
-
-        return matched;
     }
 
     /**
