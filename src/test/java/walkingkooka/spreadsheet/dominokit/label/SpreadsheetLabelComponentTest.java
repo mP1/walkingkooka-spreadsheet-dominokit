@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.label;
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -28,7 +29,12 @@ import java.util.Optional;
 
 public final class SpreadsheetLabelComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, SpreadsheetLabelName, SpreadsheetLabelComponent> {
 
-    private final static SpreadsheetLabelComponentContext CONTEXT = SpreadsheetLabelComponentContexts.fake();
+    private final static SpreadsheetLabelComponentContext CONTEXT = new FakeSpreadsheetLabelComponentContext() {
+        @Override
+        public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+            return null;
+        }
+    };
 
     @Test
     public void testSetValueMissingValue() {

@@ -42,6 +42,8 @@ public interface SpreadsheetSuggestBoxComponentLike<T extends HasText> extends F
 
     SpreadsheetSuggestBoxComponent<T> setOptions(final List<T> options);
 
+    SpreadsheetSuggestBoxComponent<T> setVerifiedOption(final T option);
+
     // SpreadsheetTextBoxTreePrintable..................................................................................
 
     @Override

@@ -19,14 +19,11 @@ package walkingkooka.spreadsheet.dominokit.locale;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
-import org.dominokit.domino.ui.elements.SpanElement;
-import org.dominokit.domino.ui.forms.suggest.SuggestOption;
-import org.dominokit.domino.ui.forms.suggest.SuggestionsStore;
-import org.dominokit.domino.ui.menu.MenuItem;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent;
+import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponentSuggestionsProvider;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResource;
 import walkingkooka.spreadsheet.server.locale.LocaleTag;
@@ -40,10 +37,7 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
-import java.util.function.Consumer;
 import java.util.stream.Collectors;
-
-import static org.dominokit.domino.ui.utils.Domino.span;
 
 /**
  * A drop down that supports picking an optional {@link Locale}.
@@ -71,11 +65,9 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
                 localeText,
                 context
             ),
-            new SuggestionsStore<SpreadsheetLocaleComponentValue, SpanElement, SuggestOption<SpreadsheetLocaleComponentValue>>() {
-
+            new SpreadsheetSuggestBoxComponentSuggestionsProvider<SpreadsheetLocaleComponentValue>() {
                 @Override
-                public void filter(final String startsWith,
-                                   final SuggestionsHandler<SpreadsheetLocaleComponentValue, SpanElement, SuggestOption<SpreadsheetLocaleComponentValue>> handler) {
+                public void filter(final String startsWith) {
                     SpreadsheetLocaleComponent.this.suggestBox.setOptions(
                         SpreadsheetLocaleComponent.filter(startsWith, context)
                             .stream()
@@ -91,18 +83,21 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
                 }
 
                 @Override
-                public void find(final SpreadsheetLocaleComponentValue searchValue,
-                                 final Consumer<SuggestOption<SpreadsheetLocaleComponentValue>> handler) {
+                public void verifyOption(final SpreadsheetLocaleComponentValue value) {
                     final SpreadsheetLocaleComponentValue verified = verifyLocale(
-                        searchValue,
+                        value,
                         context
                     ).orElse(null);
 
                     if (null != verified) {
-                        handler.accept(
-                            suggestOption(verified)
-                        );
+                        SpreadsheetLocaleComponent.this.suggestBox.setVerifiedOption(verified);
                     }
+                }
+
+                @Override
+                public String menuItemKey(final SpreadsheetLocaleComponentValue value) {
+                    return value.locale()
+                        .toLanguageTag();
                 }
             }
         );
@@ -166,17 +161,6 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
         }
 
         return Optional.ofNullable(verified);
-    }
-
-    static SuggestOption<SpreadsheetLocaleComponentValue> suggestOption(final SpreadsheetLocaleComponentValue value) {
-        final Locale locale = value.locale();
-
-        return new SuggestOption<>(
-            locale.toLanguageTag(), // key
-            value, // value
-            (String k, SpreadsheetLocaleComponentValue v) -> span().textContent(v.text()),
-            (String k, SpreadsheetLocaleComponentValue v) -> MenuItem.create(v.text())
-        );
     }
 
     @Override

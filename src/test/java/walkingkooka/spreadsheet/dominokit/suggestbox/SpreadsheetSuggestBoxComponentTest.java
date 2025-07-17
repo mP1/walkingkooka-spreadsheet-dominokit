@@ -18,9 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.suggestbox;
 
 import elemental2.dom.HTMLFieldSetElement;
-import org.dominokit.domino.ui.elements.SpanElement;
-import org.dominokit.domino.ui.forms.suggest.SuggestOption;
-import org.dominokit.domino.ui.forms.suggest.SuggestionsStore;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.reflect.JavaVisibility;
@@ -29,22 +26,24 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
-import java.util.function.Consumer;
 
 public final class SpreadsheetSuggestBoxComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, SpreadsheetCellReference, SpreadsheetSuggestBoxComponent<SpreadsheetCellReference>> {
 
-    private final static SuggestionsStore<String, SpanElement, SuggestOption<String>> SUGGESTIONS_STORE = new SuggestionsStore<>() {
+    private final static SpreadsheetSuggestBoxComponentSuggestionsProvider<SpreadsheetCellReference> SUGGESTIONS_PROVIDER = new SpreadsheetSuggestBoxComponentSuggestionsProvider<>() {
 
         @Override
-        public void filter(final String value,
-                           final SuggestionsHandler<String, SpanElement, SuggestOption<String>> handler) {
+        public void filter(final String value) {
 
         }
 
         @Override
-        public void find(final String searchValue,
-                         final Consumer<SuggestOption<String>> handler) {
+        public void verifyOption(final SpreadsheetCellReference searchValue) {
 
+        }
+
+        @Override
+        public String menuItemKey(final SpreadsheetCellReference value) {
+            return value.text();
         }
     };
 
@@ -103,7 +102,7 @@ public final class SpreadsheetSuggestBoxComponentTest implements FormValueCompon
     public SpreadsheetSuggestBoxComponent<SpreadsheetCellReference> createComponent() {
         return SpreadsheetSuggestBoxComponent.with(
             SpreadsheetSelection::parseCell,
-            SUGGESTIONS_STORE
+            SUGGESTIONS_PROVIDER
         );
     }
 
