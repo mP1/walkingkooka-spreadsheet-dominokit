@@ -1116,7 +1116,7 @@ public class App implements EntryPoint,
             .stream()
             .filter(localeAndText -> {
                 final String localeText = localeAndText.getValue();
-                return false == localeText.isEmpty() && (localeText.equals(text) || text.startsWith(localeText));
+                return false == localeText.isEmpty() && (localeText.equals(text) || localeText.startsWith(text));
             }).skip(offset)
             .limit(count)
             .map(Entry::getKey)
@@ -1129,7 +1129,7 @@ public class App implements EntryPoint,
     public Optional<String> localeText(final Locale locale) {
         Objects.requireNonNull(locale, "locale");
 
-        return Optional.of(
+        return Optional.ofNullable(
             this.localeToText.get(locale)
         );
     }
