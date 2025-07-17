@@ -20,8 +20,19 @@ package walkingkooka.spreadsheet.dominokit.label;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+import walkingkooka.net.AbsoluteOrRelativeUrl;
+import walkingkooka.net.UrlPath;
+import walkingkooka.net.http.HttpMethod;
+import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent;
+import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponentSuggestionsProvider;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
+import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.HasText;
@@ -30,11 +41,16 @@ import walkingkooka.text.printer.IndentingPrinter;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.OptionalInt;
+import java.util.stream.Collectors;
 
 /**
  * A text box component that includes support for finding a label.
  */
-public final class SpreadsheetLabelComponent implements FormValueComponent<HTMLFieldSetElement, SpreadsheetLabelName, SpreadsheetLabelComponent> {
+public final class SpreadsheetLabelComponent implements FormValueComponent<HTMLFieldSetElement, SpreadsheetLabelName, SpreadsheetLabelComponent>,
+    SpreadsheetDeltaFetcherWatcher,
+    NopFetcherWatcher,
+    NopEmptyResponseFetcherWatcher {
 
     public static SpreadsheetLabelComponent with(final SpreadsheetLabelComponentContext context) {
         Objects.requireNonNull(context, "context");
@@ -45,11 +61,32 @@ public final class SpreadsheetLabelComponent implements FormValueComponent<HTMLF
     private SpreadsheetLabelComponent(final SpreadsheetLabelComponentContext context) {
         this.suggestBox = SpreadsheetSuggestBoxComponent.with(
             SpreadsheetSelection::labelName,
-            SpreadsheetLabelComponentSuggestStore.with(context)
+            new SpreadsheetSuggestBoxComponentSuggestionsProvider<>() {
+                @Override
+                public void filter(final String startsWith) {
+                    context.findLabelByName(
+                        startsWith,
+                        OptionalInt.of(0), // offset
+                        OptionalInt.of(20) // count
+                    );
+                }
+
+                @Override
+                public void verifyOption(final SpreadsheetLabelName value) {
+                    SpreadsheetLabelComponent.this.suggestBox.setVerifiedOption(value);
+                }
+
+                @Override
+                public String menuItemKey(final SpreadsheetLabelName value) {
+                    return value.text();
+                }
+            }
         );
 
         this.required();
         this.validate();
+
+        context.addSpreadsheetDeltaFetcherWatcher(this);
     }
 
     // id...............................................................................................................
@@ -272,5 +309,43 @@ public final class SpreadsheetLabelComponent implements FormValueComponent<HTMLF
         return this.value()
             .map(HasText::text)
             .orElse("");
+    }
+
+    // SpreadsheetDeltaFetcherWatcher...................................................................................
+
+    @Override
+    public void onSpreadsheetDelta(final HttpMethod method,
+                                   final AbsoluteOrRelativeUrl url,
+                                   final SpreadsheetDelta delta,
+                                   final AppContext context) {
+        final UrlPath path = url.path();
+
+        if (SpreadsheetDeltaFetcher.isGetLabelMappingsFindByName(method, path)) {
+            final List<SpreadsheetLabelName> labels = delta.labels()
+                .stream()
+                .map(SpreadsheetLabelMapping::label)
+                .collect(Collectors.toList());
+
+            try {
+                final SpreadsheetLabelName label = SpreadsheetSelection.labelName(
+                    path.namesList()
+                        .get(7)
+                        .value()
+                );
+
+                // if search label is missing from the matches insert at top of list.
+                if (false == labels.contains(label)) {
+                    labels.add(
+                        0,
+                        label
+                    );
+                }
+
+            } catch (final RuntimeException cause) {
+                // dont insert into top of list
+            }
+
+            this.suggestBox.setOptions(labels);
+        }
     }
 }

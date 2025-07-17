@@ -42,6 +42,7 @@ import walkingkooka.text.HasText;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 import static org.dominokit.domino.ui.utils.Domino.span;
@@ -53,23 +54,41 @@ import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
 public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements SpreadsheetSuggestBoxComponentLike<T> {
 
     public static <T extends HasText> SpreadsheetSuggestBoxComponent<T> with(final Function<String, T> parser,
-                                                                             final SuggestionsStore<T, SpanElement, SuggestOption<T>> suggestionsStore) {
+                                                                             final SpreadsheetSuggestBoxComponentSuggestionsProvider<T> suggestionsProvider) {
         Objects.requireNonNull(parser, "parser");
-        Objects.requireNonNull(suggestionsStore, "suggestionsStore");
+        Objects.requireNonNull(suggestionsProvider, "suggestionsProvider");
 
         return new SpreadsheetSuggestBoxComponent<>(
             parser,
-            suggestionsStore
+            suggestionsProvider
         );
     }
 
     private SpreadsheetSuggestBoxComponent(final Function<String, T> parser,
-                                           final SuggestionsStore<T, SpanElement, SuggestOption<T>> suggestionsStore) {
+                                           final SpreadsheetSuggestBoxComponentSuggestionsProvider<T> suggestionsProvider) {
         this.parser = parser;
-        final SuggestBox<T, SpanElement, SuggestOption<T>> suggestBox = SuggestBox.create(
-            suggestionsStore
+
+        final SpreadsheetSuggestBoxComponentSuggestBox<T> suggestBox = new SpreadsheetSuggestBoxComponentSuggestBox<>(
+            new SuggestionsStore<T, SpanElement, SuggestOption<T>>() {
+                @Override
+                public void filter(final String value,
+                                   final SuggestionsHandler<T, SpanElement, SuggestOption<T>> suggestionsHandler) {
+                    suggestionsProvider.filter(value);
+                }
+
+                @Override
+                public void find(final T searchValue,
+                                 final Consumer<SuggestOption<T>> handler) {
+                    if(null != searchValue) {
+                        suggestionsProvider.verifyOption(searchValue);
+                    }
+                }
+            }
         );
-        this.suggestBox = suggestBox.setEmptyAsNull(true);
+        this.suggestBox = suggestBox;
+        this.suggestionsProvider = suggestionsProvider;
+
+        suggestBox.setEmptyAsNull(true);
         suggestBox.setAutoValidation(true);
         suggestBox.withLoaderElement(
             (parent, loaderElement) -> {
@@ -106,19 +125,17 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
         menu.clearSelection(true);
 
         for(final T option : options) {
-            final AbstractMenuItem<T> menuItem = new SuggestOption<>(
-                option.text(),
-                option, // value
-                (String k, T v) -> span().textContent(v.text()),
-                (String k, T v) -> MenuItem.create(v.text())
-            ).getMenuItem();
+            final AbstractMenuItem<T> menuItem = this.suggestOption(option)
+                .getMenuItem();
 
             menu.appendChild(
                 menuItem
             );
         }
 
-        if(false == options.isEmpty()) {
+        if(options.isEmpty()) {
+            menu.close();
+        } else {
             menu.open(false);
         }
 
@@ -132,6 +149,28 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
      * to stop the loader.
      */
     private Loader loader;
+
+    @Override
+    public SpreadsheetSuggestBoxComponent<T> setVerifiedOption(final T option) {
+        Objects.requireNonNull(option, "option");
+
+        this.suggestBox.applyOptionValue(
+            this.suggestOption(option)
+        );
+        return this;
+    }
+
+    private SuggestOption<T> suggestOption(final T option) {
+        return new SuggestOption<>(
+            this.suggestionsProvider.menuItemKey(option),
+            option, // value
+            (String k, T v) -> span().textContent(v.text()),
+            (String k, T v) -> MenuItem.create(v.text())
+        );
+    }
+
+    private final SpreadsheetSuggestBoxComponentSuggestionsProvider<T> suggestionsProvider;
+
     // id...............................................................................................................
 
     @Override
@@ -429,7 +468,7 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
         return this.suggestBox.element();
     }
 
-    private final SuggestBox<T, SpanElement, SuggestOption<T>> suggestBox;
+    private final SpreadsheetSuggestBoxComponentSuggestBox<T> suggestBox;
 
     // Object...........................................................................................................
 
