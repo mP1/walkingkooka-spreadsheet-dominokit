@@ -34,7 +34,6 @@ import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.collect.set.Sets;
 import walkingkooka.spreadsheet.dominokit.validator.SpreadsheetValidators;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.text.CharSequences;
@@ -43,7 +42,6 @@ import walkingkooka.text.HasText;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.Set;
 import java.util.function.Function;
 
 import static org.dominokit.domino.ui.utils.Domino.span;
@@ -84,22 +82,22 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
 
         this.required();
 
-        this.options = Sets.empty();
+        this.options = Lists.empty();
     }
 
     @Override
-    public Set<T> options() {
+    public List<T> options() {
         return this.options;
     }
 
     @Override
-    public SpreadsheetSuggestBoxComponent<T> setOptions(final Set<T> options) {
+    public SpreadsheetSuggestBoxComponent<T> setOptions(final List<T> options) {
         Objects.requireNonNull(options, "options");
 
         // stop the loader, necessary as this might be called by SuggestBoxStore#filter
         this.loader.stop();
 
-        this.options = Sets.immutable(options);
+        this.options = Lists.immutable(options);
 
         final SuggestBox<T, SpanElement, SuggestOption<T>> suggestBox = this.suggestBox;
 
@@ -127,7 +125,7 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
         return this;
     }
 
-    private Set<T> options;
+    private List<T> options;
 
     /**
      * A reference to the {@link Loader} is necessary because {@link SuggestBox} does not provide a public getter

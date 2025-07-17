@@ -25,7 +25,6 @@ import org.dominokit.domino.ui.forms.suggest.SuggestionsStore;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.collect.set.Sets;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ValidatorHelper;
 import walkingkooka.spreadsheet.dominokit.validator.SpreadsheetValidators;
@@ -34,7 +33,6 @@ import walkingkooka.text.HasText;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.Set;
 import java.util.function.Function;
 
 /**
@@ -61,7 +59,7 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
 
         this.value = Optional.empty();
         this.errors = Lists.empty();
-        this.options = Sets.empty();
+        this.options = Lists.empty();
 
         this.validator = null;
         this.required();
@@ -69,19 +67,19 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     }
 
     @Override
-    public Set<T> options() {
+    public List<T> options() {
         return this.options;
     }
 
     @Override
-    public SpreadsheetSuggestBoxComponent<T> setOptions(final Set<T> options) {
+    public SpreadsheetSuggestBoxComponent<T> setOptions(final List<T> options) {
         Objects.requireNonNull(options, "options");
 
-        this.options = Sets.immutable(options);
+        this.options = Lists.immutable(options);
         return this;
     }
 
-    private Set<T> options;
+    private List<T> options;
 
     // id...............................................................................................................
 
