@@ -24,8 +24,9 @@ import walkingkooka.text.HasText;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
+import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 /**
  * A text box component that includes support for finding values that match the entered search text.
@@ -37,15 +38,15 @@ public interface SpreadsheetSuggestBoxComponentLike<T extends HasText> extends F
 
     Optional<String> stringValue();
 
-    Set<T> options();
+    List<T> options();
 
-    SpreadsheetSuggestBoxComponent<T> setOptions(final Set<T> options);
+    SpreadsheetSuggestBoxComponent<T> setOptions(final List<T> options);
 
     // SpreadsheetTextBoxTreePrintable..................................................................................
 
     @Override
     default void treePrintAlternateValues(final IndentingPrinter printer) {
-        final Set<T> options = this.options();
+        final Collection<T> options = this.options();
         if(false == options.isEmpty()) {
             printer.println("options");
 

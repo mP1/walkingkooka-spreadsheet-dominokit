@@ -25,7 +25,6 @@ import org.dominokit.domino.ui.forms.suggest.SuggestionsStore;
 import org.dominokit.domino.ui.menu.MenuItem;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.set.Sets;
-import walkingkooka.collect.set.SortedSets;
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
@@ -86,7 +85,8 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
                                         lhr.locale(),
                                         lhr.text()
                                     )
-                            ).collect(Collectors.toCollection(SortedSets::tree))
+                            ).sorted()
+                            .collect(Collectors.toList())
                     );
                 }
 
