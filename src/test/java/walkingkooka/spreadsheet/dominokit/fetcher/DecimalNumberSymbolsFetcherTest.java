@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.net.Url;
 import walkingkooka.net.UrlPath;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
@@ -41,6 +42,66 @@ public final class DecimalNumberSymbolsFetcherTest implements ClassTesting<Decim
         );
     }
 
+    // decimalNumberSymbolsLocaleStartsWith.............................................................................
+
+    @Test
+    public void testDecimalNumberSymbolsLocaleStartsWithUrlWithEmptyStartsWith() {
+        this.decimalNumberSymbolsLocaleStartsWithUrlAndCheck(
+            "",
+            "/api/decimalNumberSymbols/*/localeStartsWith"
+        );
+    }
+
+    @Test
+    public void testDecimalNumberSymbolsLocaleStartsWithUrlWithNotEmpty() {
+        this.decimalNumberSymbolsLocaleStartsWithUrlAndCheck(
+            "English",
+            "/api/decimalNumberSymbols/*/localeStartsWith/English"
+        );
+    }
+
+    private void decimalNumberSymbolsLocaleStartsWithUrlAndCheck(final String startsWith,
+                                                                 final String expected) {
+        this.decimalNumberSymbolsLocaleStartsWithUrlAndCheck(
+            startsWith,
+            Url.parse(expected)
+        );
+    }
+
+    private void decimalNumberSymbolsLocaleStartsWithUrlAndCheck(final String startsWith,
+                                                                 final Url expected) {
+        this.checkEquals(
+            expected,
+            DecimalNumberSymbolsFetcher.decimalNumberSymbolsLocaleStartsWithUrl(startsWith)
+        );
+    }
+
+    // localeStartsWith.................................................................................................
+
+    @Test
+    public void testLocaleStartsWithWithEmptyStartsWith() {
+        this.localeStartsWithAndCheck(
+            UrlPath.parse("/api/decimalNumberSymbols/*/localeStartsWith"),
+            ""
+        );
+    }
+
+    @Test
+    public void testLocaleStartsWithWithNotEmpty() {
+        this.localeStartsWithAndCheck(
+            UrlPath.parse("/api/decimalNumberSymbols/*/localeStartsWith/English"),
+            "English"
+        );
+    }
+
+    private void localeStartsWithAndCheck(final UrlPath path,
+                                          final String expected) {
+        this.checkEquals(
+            expected,
+            DecimalNumberSymbolsFetcher.localeStartsWith(path)
+        );
+    }
+    
     // class............................................................................................................
 
     @Override
