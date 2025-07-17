@@ -25,21 +25,28 @@ import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.suggest.SuggestBox;
 import org.dominokit.domino.ui.forms.suggest.SuggestOption;
 import org.dominokit.domino.ui.forms.suggest.SuggestionsStore;
+import org.dominokit.domino.ui.loaders.Loader;
+import org.dominokit.domino.ui.loaders.LoaderEffect;
+import org.dominokit.domino.ui.menu.AbstractMenuItem;
+import org.dominokit.domino.ui.menu.Menu;
+import org.dominokit.domino.ui.menu.MenuItem;
 import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.collect.set.Sets;
 import walkingkooka.spreadsheet.dominokit.validator.SpreadsheetValidators;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.HasText;
-import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 import java.util.function.Function;
 
+import static org.dominokit.domino.ui.utils.Domino.span;
 import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
 
 /**
@@ -66,10 +73,67 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
         );
         this.suggestBox = suggestBox.setEmptyAsNull(true);
         suggestBox.setAutoValidation(true);
+        suggestBox.withLoaderElement(
+            (parent, loaderElement) -> {
+                this.loader = Loader.create(loaderElement, LoaderEffect.FACEBOOK)
+                    .setLoadingTextPosition(Loader.LoadingTextPosition.TOP)
+                    .setRemoveLoadingText(true);
+            }
+        );
+        suggestBox.setLoader(this.loader);
 
         this.required();
+
+        this.options = Sets.empty();
     }
 
+    @Override
+    public Set<T> options() {
+        return this.options;
+    }
+
+    @Override
+    public SpreadsheetSuggestBoxComponent<T> setOptions(final Set<T> options) {
+        Objects.requireNonNull(options, "options");
+
+        // stop the loader, necessary as this might be called by SuggestBoxStore#filter
+        this.loader.stop();
+
+        this.options = Sets.immutable(options);
+
+        final SuggestBox<T, SpanElement, SuggestOption<T>> suggestBox = this.suggestBox;
+
+        final Menu<T> menu = suggestBox.getOptionsMenu();
+        menu.removeAll();
+        menu.clearSelection(true);
+
+        for(final T option : options) {
+            final AbstractMenuItem<T> menuItem = new SuggestOption<>(
+                option.text(),
+                option, // value
+                (String k, T v) -> span().textContent(v.text()),
+                (String k, T v) -> MenuItem.create(v.text())
+            ).getMenuItem();
+
+            menu.appendChild(
+                menuItem
+            );
+        }
+
+        if(false == options.isEmpty()) {
+            menu.open(false);
+        }
+
+        return this;
+    }
+
+    private Set<T> options;
+
+    /**
+     * A reference to the {@link Loader} is necessary because {@link SuggestBox} does not provide a public getter
+     * to stop the loader.
+     */
+    private Loader loader;
     // id...............................................................................................................
 
     @Override
@@ -375,10 +439,5 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     public String toString() {
         return this.element()
             .toString();
-    }
-
-    @Override
-    public void treePrintAlternateValues(final IndentingPrinter printer) {
-        // TODO
     }
 }

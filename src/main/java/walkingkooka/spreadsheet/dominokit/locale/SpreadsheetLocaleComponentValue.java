@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.locale;
 
+import walkingkooka.locale.LocaleContexts;
 import walkingkooka.text.HasText;
 import walkingkooka.util.HasLocale;
 
@@ -24,7 +25,8 @@ import java.util.Locale;
 import java.util.Objects;
 
 final class SpreadsheetLocaleComponentValue implements HasLocale,
-    HasText {
+    HasText,
+    Comparable<SpreadsheetLocaleComponentValue> {
 
     static SpreadsheetLocaleComponentValue with(final Locale locale,
                                                 final String text) {
@@ -79,4 +81,14 @@ final class SpreadsheetLocaleComponentValue implements HasLocale,
     }
 
     private final String text;
+
+    // Comparable.......................................................................................................
+
+    @Override
+    public int compareTo(final SpreadsheetLocaleComponentValue other) {
+        return LocaleContexts.LANGUAGE_TAG_COMPARATOR.compare(
+            this.locale,
+            other.locale
+        );
+    }
 }
