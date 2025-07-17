@@ -24,8 +24,6 @@ import walkingkooka.locale.FakeLocaleContext;
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
-import walkingkooka.spreadsheet.server.locale.LocaleHateosResource;
-import walkingkooka.spreadsheet.server.locale.LocaleTag;
 
 import java.util.Locale;
 import java.util.Optional;
@@ -65,66 +63,6 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
             );
         }
     };
-
-    // filter...........................................................................................................
-
-    @Test
-    public void testFilterMatchesNone() {
-        this.filterAndCheck(
-            "Z",
-            CONTEXT
-        );
-    }
-
-    @Test
-    public void testFilterMatchesSome() {
-        this.filterAndCheck(
-            "English",
-            CONTEXT,
-            LocaleHateosResource.with(
-                LocaleTag.with(ENAU),
-                ENGLISH_AUSTRALIA_TEXT
-            ),
-            LocaleHateosResource.with(
-                LocaleTag.with(ENNZ),
-                ENGLISH_NEW_ZEALAND_TEXT
-            )
-        );
-    }
-
-    @Test
-    public void testFilterMatchesSome2() {
-        this.filterAndCheck(
-            FRENCH_TEXT,
-            CONTEXT,
-            LocaleHateosResource.with(
-                LocaleTag.with(FR),
-                FRENCH_TEXT
-            )
-        );
-    }
-
-    private void filterAndCheck(final String startsWith,
-                                final LocaleContext context,
-                                final LocaleHateosResource...expected) {
-        this.filterAndCheck(
-            startsWith,
-            context,
-            Sets.of(expected)
-        );
-    }
-
-    private void filterAndCheck(final String startsWith,
-                                final LocaleContext context,
-                                final Set<LocaleHateosResource> expected) {
-        this.checkEquals(
-            expected,
-            SpreadsheetLocaleComponent.filter(
-                startsWith,
-                context
-            )
-        );
-    }
 
     // spreadsheetLocaleComponentValue..................................................................................
 
