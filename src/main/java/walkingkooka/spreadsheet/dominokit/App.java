@@ -157,6 +157,7 @@ import walkingkooka.spreadsheet.provider.SpreadsheetProviders;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResource;
+import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResourceSet;
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenuList;
@@ -829,6 +830,13 @@ public class App implements EntryPoint,
     public void onDateTimeSymbolsHateosResource(final LocaleTag id,
                                                 final DateTimeSymbolsHateosResource dateTimeSymbols,
                                                 final AppContext context) {
+        // NOP
+    }
+
+    @Override
+    public void onDateTimeSymbolsHateosResourceSet(final String localeStartsWith,
+                                                   final DateTimeSymbolsHateosResourceSet symbols,
+                                                   final AppContext context) {
         // NOP
     }
 

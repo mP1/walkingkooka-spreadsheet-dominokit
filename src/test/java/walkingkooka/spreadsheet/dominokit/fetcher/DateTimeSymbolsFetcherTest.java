@@ -18,12 +18,15 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.net.Url;
 import walkingkooka.net.UrlPath;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.server.locale.LocaleTag;
+import walkingkooka.text.printer.TreePrintableTesting;
 
-public final class DateTimeSymbolsFetcherTest implements ClassTesting<DateTimeSymbolsFetcher> {
+public final class DateTimeSymbolsFetcherTest implements TreePrintableTesting,
+    ClassTesting<DateTimeSymbolsFetcher> {
 
     @Test
     public void testParseLocaleTag() {
@@ -38,6 +41,66 @@ public final class DateTimeSymbolsFetcherTest implements ClassTesting<DateTimeSy
         this.checkEquals(
             expected,
             DateTimeSymbolsFetcher.parseLocaleTag(path)
+        );
+    }
+
+    // getDateTimeSymbolsLocaleStartsWith...............................................................................
+
+    @Test
+    public void testDateTimeSymbolsLocaleStartsWithUrlWithEmptyStartsWith() {
+        this.dateTimeSymbolsLocaleStartsWithUrlAndCheck(
+            "",
+            "/api/dateTimeSymbols/*/localeStartsWith"
+        );
+    }
+
+    @Test
+    public void testDateTimeSymbolsLocaleStartsWithUrlWithNotEmpty() {
+        this.dateTimeSymbolsLocaleStartsWithUrlAndCheck(
+            "English",
+            "/api/dateTimeSymbols/*/localeStartsWith/English"
+        );
+    }
+
+    private void dateTimeSymbolsLocaleStartsWithUrlAndCheck(final String startsWith,
+                                                            final String expected) {
+        this.dateTimeSymbolsLocaleStartsWithUrlAndCheck(
+            startsWith,
+            Url.parse(expected)
+        );
+    }
+
+    private void dateTimeSymbolsLocaleStartsWithUrlAndCheck(final String startsWith,
+                                                            final Url expected) {
+        this.checkEquals(
+            expected,
+            DateTimeSymbolsFetcher.dateTimeSymbolsLocaleStartsWithUrl(startsWith)
+        );
+    }
+
+    // localeStartsWith.................................................................................................
+
+    @Test
+    public void testLocaleStartsWithWithEmptyStartsWith() {
+        this.localeStartsWithAndCheck(
+            UrlPath.parse("/api/dateTimeSymbols/*/localeStartsWith"),
+            ""
+        );
+    }
+
+    @Test
+    public void testLocaleStartsWithWithNotEmpty() {
+        this.localeStartsWithAndCheck(
+            UrlPath.parse("/api/dateTimeSymbols/*/localeStartsWith/English"),
+            "English"
+        );
+    }
+
+    private void localeStartsWithAndCheck(final UrlPath path,
+                                          final String expected) {
+        this.checkEquals(
+            expected,
+            DateTimeSymbolsFetcher.localeStartsWith(path)
         );
     }
 
