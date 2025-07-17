@@ -22,6 +22,7 @@ import elemental2.dom.DomGlobal;
 import elemental2.dom.Headers;
 import walkingkooka.InvalidCharacterException;
 import walkingkooka.collect.map.Maps;
+import walkingkooka.collect.set.ImmutableSortedSet;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.convert.CanConvert;
 import walkingkooka.convert.ConverterContexts;
@@ -191,6 +192,7 @@ import java.math.MathContext;
 import java.time.LocalDateTime;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
@@ -1104,6 +1106,23 @@ public class App implements EntryPoint,
     @Override
     public Optional<DecimalNumberSymbols> decimalNumberSymbolsForLocale(final Locale locale) {
         return LOCALE_CONTEXT.decimalNumberSymbolsForLocale(locale);
+    }
+
+    @Override
+    public Set<Locale> findByLocaleText(final String text,
+                                        final int offset,
+                                        final int count) {
+        return this.localeToText.entrySet()
+            .stream()
+            .filter(localeAndText -> {
+                final String localeText = localeAndText.getValue();
+                return false == localeText.isEmpty() && (localeText.equals(text) || text.startsWith(localeText));
+            }).skip(offset)
+            .limit(count)
+            .map(Entry::getKey)
+            .collect(
+                ImmutableSortedSet.collector(LocaleContexts.LANGUAGE_TAG_COMPARATOR)
+            );
     }
 
     @Override

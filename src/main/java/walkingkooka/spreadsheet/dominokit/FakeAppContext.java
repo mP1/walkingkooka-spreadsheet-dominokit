@@ -415,6 +415,13 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     }
 
     @Override
+    public Set<Locale> findByLocaleText(final String text,
+                                        final int offset,
+                                        final int count) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public Locale locale() {
         throw new UnsupportedOperationException();
     }
