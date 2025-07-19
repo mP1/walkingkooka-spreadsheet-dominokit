@@ -22,12 +22,17 @@ import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlPath;
+import walkingkooka.net.UrlPathName;
 import walkingkooka.net.http.HttpMethod;
+import walkingkooka.spreadsheet.SpreadsheetHateosResourceNames;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
@@ -35,6 +40,7 @@ import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMen
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenuList;
 import walkingkooka.text.CharSequences;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -79,30 +85,88 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
         );
     }
 
-    // GET /api/spreadsheet/SpreadsheetId/formatter/*/edit
-    public void getEdit(final SpreadsheetId id,
-                         final String selector) {
+    // GET /api/spreadsheet/SpreadsheetId/cell/SpreadsheetExpressionReference/formatter-edit
+    public void getCellFormatterEdit(final SpreadsheetId id,
+                                     final SpreadsheetExpressionReference cellOrLabel,
+                                     final String selector) {
         this.get(
-            editUrl(
+            cellFormatterEditUrl(
                 id,
+                cellOrLabel,
                 selector
             )
         );
     }
 
-    static AbsoluteOrRelativeUrl editUrl(final SpreadsheetId id,
-                                         final String selector) {
-        return url(id)
-            .appendPath(EDIT)
-            .appendPath(
-                UrlPath.parse(
-                    UrlPath.SEPARATOR.string() + selector
+    static AbsoluteOrRelativeUrl cellFormatterEditUrl(final SpreadsheetId id,
+                                                      final SpreadsheetExpressionReference cellOrLabel,
+                                                      final String selector) {
+        return SpreadsheetDeltaFetcher.url(
+            id,
+            cellOrLabel,
+            selector.isEmpty() ?
+                FORMATTER_EDIT :
+                FORMATTER_EDIT.append(
+                    UrlPathName.with(selector)
                 )
-            );
+        );
     }
 
-    private final static UrlPath EDIT = UrlPath.parse(
-        "/*/" + SpreadsheetServerLinkRelations.EDIT
+    // GET /api/spreadsheet/SpreadsheetId/cell/SpreadsheetExpressionMenu/formatter-menu
+    public void getCellFormatterMenu(final SpreadsheetId id,
+                                     final SpreadsheetExpressionReference cellOrLabel) {
+        this.get(
+            cellFormatterMenuUrl(
+                id,
+                cellOrLabel
+            )
+        );
+    }
+
+    static AbsoluteOrRelativeUrl cellFormatterMenuUrl(final SpreadsheetId id,
+                                                      final SpreadsheetExpressionReference cellOrLabel) {
+        return SpreadsheetDeltaFetcher.url(
+            id,
+            cellOrLabel,
+            FORMATTER_MENU
+        );
+    }
+
+    private final static UrlPath FORMATTER_MENU = UrlPath.ROOT.append(
+        SpreadsheetServerLinkRelations.FORMATTER_MENU.toUrlPathName()
+            .get()
+    );
+
+    // GET /api/spreadsheet/SpreadsheetId/metadata/SpreadsheetMetadataPropertyNameFormatterSelector/edit/SpreadsheetFormatterSelector
+    public void getMetadataFormatterEdit(final SpreadsheetId id,
+                                         final SpreadsheetMetadataPropertyName<SpreadsheetFormatterSelector> propertyName,
+                                         final String selector) {
+        this.get(
+            metadataFormatterEditUrl(
+                id,
+                propertyName,
+                selector
+            )
+        );
+    }
+
+    static AbsoluteOrRelativeUrl metadataFormatterEditUrl(final SpreadsheetId id,
+                                                          final SpreadsheetMetadataPropertyName<SpreadsheetFormatterSelector> propertyName,
+                                                          final String selector) {
+        return SpreadsheetMetadataFetcher.propertyUrl(
+            id,
+            propertyName
+        ).appendPathName(
+            SpreadsheetServerLinkRelations.EDIT.toUrlPathName()
+                .get()
+        ).appendPath(
+            UrlPath.parse(selector)
+        );
+    }
+
+    private final static UrlPath FORMATTER_EDIT = UrlPath.ROOT.append(
+        SpreadsheetServerLinkRelations.FORMATTER_EDIT.toUrlPathName()
+            .get()
     );
 
     // GET /api/formatter/*
@@ -113,18 +177,6 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
     }
 
     private final static AbsoluteOrRelativeUrl GET_INFO_SET = Url.EMPTY_RELATIVE_URL.appendPath(SpreadsheetHttpServer.API_FORMATTER);
-
-    // GET /api/spreadsheet/SpreadsheetId/formatter/*/menu
-    public void getMenu(final SpreadsheetId id) {
-        this.get(
-            url(id)
-                .appendPath(MENU)
-        );
-    }
-
-    private final static UrlPath MENU = UrlPath.parse(
-        "/*/" + SpreadsheetServerLinkRelations.MENU
-    );
 
     // api/spreadsheet/SpreadsheetId/formatter
 
@@ -159,9 +211,11 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
                 );
                 break;
             case "SpreadsheetFormatterSelectorEdit":
-                // http://server/api/spreadsheet/1/formatter/*/edit
+                // http://server/api/spreadsheet/1/metadata/SpreadsheetMetadataPropertyNameFormatterSelector/edit/SpreadsheetFormatterSelector
+                // http://server/api/spreadsheet/1/cell/SpreadsheetExpressionReference/formatter-edit/SpreadsheetFormatterSelector
                 this.watcher.onSpreadsheetFormatterSelectorEdit(
                     SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
+                    extractOptionalCellOrLabel(url.path()),
                     this.parse(
                         body,
                         SpreadsheetFormatterSelectorEdit.class
@@ -170,9 +224,10 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
                 );
                 break;
             case "SpreadsheetFormatterSelectorMenuList":
-                // http://server/api/spreadsheet/1/formatter/*/menu
+                // http://server/api/spreadsheet/1/cell/SpreadsheetExpressionReference/formatter-menu
                 this.watcher.onSpreadsheetFormatterSelectorMenuList(
                     SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
+                    extractCellOrLabel(url.path()),
                     this.parse(
                         body,
                         SpreadsheetFormatterSelectorMenuList.class
@@ -183,5 +238,36 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
             default:
                 throw new IllegalArgumentException("Unexpected content type " + CharSequences.quote(contentTypeName));
         }
+    }
+
+    // http://server/api/spreadsheet/1/metadata/SpreadsheetMetadataPropertyNameFormatterSelector/edit/SpreadsheetFormatterSelector
+    //              01   2           3 4        5                                                6    7
+    // http://server/api/spreadsheet/1/cell/SpreadsheetExpressionReference/formatter-edit/SpreadsheetFormatterSelector
+    //              01   2           3 4    5                              6              7
+    // @VisibleForTesting
+    static Optional<SpreadsheetExpressionReference> extractOptionalCellOrLabel(final UrlPath path) {
+        final List<UrlPathName> nameList = path.namesList();
+        return Optional.ofNullable(
+            SpreadsheetHateosResourceNames.CELL.toUrlPathName()
+                .equals(
+                    nameList.get(4)
+                ) ?
+                SpreadsheetSelection.parseExpressionReference(
+                    nameList.get(5)
+                        .value()
+                ) :
+                null
+        );
+    }
+
+    // http://server/api/spreadsheet/1/cell/SpreadsheetExpressionReference/formatter-edit/SpreadsheetFormatterSelector
+    //              01   2           3 4    5                              6              7
+    // @VisibleForTesting
+    static SpreadsheetExpressionReference extractCellOrLabel(final UrlPath path) {
+        final List<UrlPathName> nameList = path.namesList();
+        return SpreadsheetSelection.parseExpressionReference(
+                    nameList.get(5)
+                        .value()
+                );
     }
 }

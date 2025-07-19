@@ -155,6 +155,7 @@ import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
 import walkingkooka.spreadsheet.provider.SpreadsheetProviderDelegator;
 import walkingkooka.spreadsheet.provider.SpreadsheetProviders;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResourceSet;
@@ -968,6 +969,7 @@ public class App implements EntryPoint,
 
     @Override
     public void onSpreadsheetFormatterSelectorEdit(final SpreadsheetId id,
+                                                   final Optional<SpreadsheetExpressionReference> cellOrLabel,
                                                    final SpreadsheetFormatterSelectorEdit edit,
                                                    final AppContext context) {
         // nop
@@ -975,6 +977,7 @@ public class App implements EntryPoint,
 
     @Override
     public void onSpreadsheetFormatterSelectorMenuList(final SpreadsheetId id,
+                                                       final SpreadsheetExpressionReference cellOrLabel,
                                                        final SpreadsheetFormatterSelectorMenuList menu,
                                                        final AppContext context) {
         // nop

@@ -18,10 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Optional;
 
@@ -44,6 +46,48 @@ public final class SpreadsheetMetadataFetcherTest implements ClassTesting<Spread
             SpreadsheetMetadataFetcher.url(
                 SpreadsheetId.with(0x123)
             )
+        );
+    }
+
+    // propertyUrl......................................................................................................
+
+    @Test
+    public void testPropertyUrlWithConverter() {
+        this.propertyUrlAndCheck(
+            SpreadsheetId.with(1),
+            SpreadsheetMetadataPropertyName.FORMATTING_CONVERTER,
+            Url.parseRelative("/api/spreadsheet/1/metadata/formattingConverter")
+        );
+    }
+
+    @Test
+    public void testPropertyUrlWithDateFormatter() {
+        this.propertyUrlAndCheck(
+            SpreadsheetId.with(1),
+            SpreadsheetMetadataPropertyName.DATE_FORMATTER,
+            Url.parseRelative("/api/spreadsheet/1/metadata/dateFormatter")
+        );
+    }
+
+    @Test
+    public void testPropertyUrlWithDateTimeFormatter() {
+        this.propertyUrlAndCheck(
+            SpreadsheetId.with(1),
+            SpreadsheetMetadataPropertyName.DATE_TIME_FORMATTER,
+            Url.parseRelative("/api/spreadsheet/1/metadata/dateTimeFormatter")
+        );
+    }
+
+    private void propertyUrlAndCheck(final SpreadsheetId id,
+                                     final SpreadsheetMetadataPropertyName<?> propertyName,
+                                     final RelativeUrl expected) {
+        this.checkEquals(
+            expected,
+            SpreadsheetMetadataFetcher.propertyUrl(
+                id,
+                propertyName
+            ),
+            () -> "spreadsheetId=" + id + " propertyName=" + propertyName
         );
     }
 

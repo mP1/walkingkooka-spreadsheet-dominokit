@@ -32,6 +32,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchersDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetFormatterFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
@@ -110,6 +111,11 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
     @Override
     public SpreadsheetDeltaFetcher spreadsheetDeltaFetcher() {
         return this.context.spreadsheetDeltaFetcher();
+    }
+
+    @Override
+    public SpreadsheetFormatterFetcher spreadsheetFormatterFetcher() {
+        return this.context.spreadsheetFormatterFetcher();
     }
 
     @Override
