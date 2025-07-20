@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
+import walkingkooka.spreadsheet.server.meta.SpreadsheetMetadataPropertyNameHateosResourceMappings;
 import walkingkooka.spreadsheet.server.meta.SpreadsheetMetadataSet;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
@@ -199,6 +200,16 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
                 metadata
             )
         );
+    }
+
+    // /api/spreadsheet/SpreadsheetId/metadata/SpreadsheetMetadataPropertyName
+    public static RelativeUrl propertyUrl(final SpreadsheetId id,
+                                          final SpreadsheetMetadataPropertyName<?> propertyName) {
+        return url(id)
+            .appendPathName(SpreadsheetMetadataPropertyNameHateosResourceMappings.HATEOS_RESOURCE_NAME.toUrlPathName())
+            .appendPathName(
+                UrlPathName.with(propertyName.value())
+            );
     }
 
     public static RelativeUrl url(final SpreadsheetId id) {

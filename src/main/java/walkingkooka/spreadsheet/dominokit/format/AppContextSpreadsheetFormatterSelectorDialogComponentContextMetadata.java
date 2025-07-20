@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.format;
 import walkingkooka.Cast;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -79,6 +80,24 @@ final class AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata
                     .get()
                     .spreadsheetMetadataPropertyName()
             )
+        );
+    }
+
+    @Override
+    public void loadSpreadsheetFormattersEdit(final String text) {
+        final AppContext context = this.context;
+        final SpreadsheetMetadataPropertyHistoryToken<?> spreadsheetMetadataPropertyHistoryToken = context.historyToken()
+            .cast(SpreadsheetMetadataPropertyHistoryToken.class);
+
+        this.throttler.add(
+            () -> context.spreadsheetFormatterFetcher()
+                .getMetadataFormatterEdit(
+                    spreadsheetMetadataPropertyHistoryToken.id(), // id
+                    Cast.to(
+                        spreadsheetMetadataPropertyHistoryToken.propertyName()
+                    ),
+                    text
+                )
         );
     }
 

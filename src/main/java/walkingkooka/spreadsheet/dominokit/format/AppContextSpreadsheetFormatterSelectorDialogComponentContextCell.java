@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.format;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSelectHistoryToken;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
@@ -68,6 +69,23 @@ final class AppContextSpreadsheetFormatterSelectorDialogComponentContextCell ext
         }
 
         return selector;
+    }
+
+    @Override
+    public void loadSpreadsheetFormattersEdit(final String text) {
+        final SpreadsheetCellFormatterHistoryToken spreadsheetCellFormatterHistoryToken = this.context.historyToken()
+            .cast(SpreadsheetCellFormatterHistoryToken.class);
+
+        this.throttler.add(
+            () -> this.context.spreadsheetFormatterFetcher()
+                .getCellFormatterEdit(
+                    spreadsheetCellFormatterHistoryToken.id(), // id
+                    spreadsheetCellFormatterHistoryToken.selection()
+                        .get()
+                        .toExpressionReference(),
+                    text
+                )
+        );
     }
 
     // ComponentLifecycleMatcher........................................................................................

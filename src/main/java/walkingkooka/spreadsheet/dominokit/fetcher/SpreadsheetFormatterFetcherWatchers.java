@@ -20,8 +20,11 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenuList;
+
+import java.util.Optional;
 
 public final class SpreadsheetFormatterFetcherWatchers extends FetcherWatchers<SpreadsheetFormatterFetcherWatcher>
     implements SpreadsheetFormatterFetcherWatcher {
@@ -47,11 +50,13 @@ public final class SpreadsheetFormatterFetcherWatchers extends FetcherWatchers<S
 
     @Override
     public void onSpreadsheetFormatterSelectorEdit(final SpreadsheetId id,
+                                                   final Optional<SpreadsheetExpressionReference> cellOrLabel,
                                                    final SpreadsheetFormatterSelectorEdit edit,
                                                    final AppContext context) {
         this.fire(
             SpreadsheetFormatterFetcherWatchersEditEvent.with(
                 id,
+                cellOrLabel,
                 edit,
                 context
             )
@@ -60,11 +65,13 @@ public final class SpreadsheetFormatterFetcherWatchers extends FetcherWatchers<S
 
     @Override
     public void onSpreadsheetFormatterSelectorMenuList(final SpreadsheetId id,
+                                                       final SpreadsheetExpressionReference cellOrLabel,
                                                        final SpreadsheetFormatterSelectorMenuList menu,
                                                        final AppContext context) {
         this.fire(
             SpreadsheetFormatterFetcherWatchersMenuListEvent.with(
                 id,
+                cellOrLabel,
                 menu,
                 context
             )

@@ -50,6 +50,7 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorToken;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorTokenAlternative;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenuList;
 import walkingkooka.text.CharSequences;
@@ -255,6 +256,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
 
     @Override
     public void onSpreadsheetFormatterSelectorEdit(final SpreadsheetId id,
+                                                   final Optional<SpreadsheetExpressionReference> cellOrLabel,
                                                    final SpreadsheetFormatterSelectorEdit edit,
                                                    final AppContext context) {
         if (this.isOpen()) {
@@ -328,6 +330,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
 
     @Override
     public void onSpreadsheetFormatterSelectorMenuList(final SpreadsheetId id,
+                                                       final SpreadsheetExpressionReference cellOrLabel,
                                                        final SpreadsheetFormatterSelectorMenuList menu,
                                                        final AppContext context) {
         // nop

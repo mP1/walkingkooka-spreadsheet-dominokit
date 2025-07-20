@@ -67,6 +67,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHi
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormulaHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormulaMenuHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellParserSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
@@ -88,6 +89,7 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
@@ -165,6 +167,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
             context
         );
 
+        this.spreadsheetFormatterSelectorSelection = null;
         this.spreadsheetFormatterSelectorMenus = null;
 
         this.recentParserSelectors = this.recentCellSaves(
@@ -673,6 +676,12 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     private final HistoryTokenRecorder<SpreadsheetFormatterSelector> recentFormatterSelectors;
 
     /**
+     * The {@link SpreadsheetExpressionReference} that was used to fetch {@link SpreadsheetFormatterSelectorMenu}.
+     * This is used to detect selection changes,
+     */
+    private SpreadsheetExpressionReference spreadsheetFormatterSelectorSelection;
+
+    /**
      * This should be updated each time the {@link SpreadsheetMetadataPropertyName#FORMATTERS} property changes.
      */
     private List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorMenus;
@@ -1094,6 +1103,42 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         final HistoryToken historyToken = context.historyToken();
         final Optional<AnchoredSpreadsheetSelection> maybeAnchorSelection = historyToken.anchoredSelectionOrEmpty();
 
+        // if selection changes, fetch the new formatter menus
+        {
+            SpreadsheetExpressionReference spreadsheetFormatterSelectorSelection = this.spreadsheetFormatterSelectorSelection;
+            List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorMenus = this.spreadsheetFormatterSelectorMenus;
+
+            if (historyToken instanceof SpreadsheetCellHistoryToken) {
+                if (historyToken instanceof SpreadsheetCellSelectHistoryToken) {
+                    final SpreadsheetCellSelectHistoryToken spreadsheetCellSelectHistoryToken = historyToken.cast(SpreadsheetCellSelectHistoryToken.class);
+                    final SpreadsheetExpressionReference currentSelection = spreadsheetCellSelectHistoryToken.selection()
+                        .map(SpreadsheetSelection::toExpressionReference)
+                        .orElse(null);
+                    if (null != currentSelection) {
+                        if (false == currentSelection.equalsIgnoreReferenceKind(spreadsheetFormatterSelectorSelection)) {
+                            spreadsheetFormatterSelectorSelection = currentSelection;
+                            spreadsheetFormatterSelectorMenus = Lists.empty(); // will be replaced in #onSpreadsheetFormatterSelectorMenuList
+
+                            this.context.spreadsheetFormatterFetcher()
+                                .getCellFormatterMenu(
+                                    spreadsheetCellSelectHistoryToken.id(),
+                                    currentSelection
+                                );
+                        }
+                    } else {
+                        spreadsheetFormatterSelectorSelection = null;
+                        spreadsheetFormatterSelectorMenus = null;
+                    }
+                }
+            } else {
+                spreadsheetFormatterSelectorSelection = null;
+                spreadsheetFormatterSelectorMenus = null;
+            }
+
+            this.spreadsheetFormatterSelectorSelection = spreadsheetFormatterSelectorSelection;
+            this.spreadsheetFormatterSelectorMenus = spreadsheetFormatterSelectorMenus;
+        }
+
         this.refreshTable(maybeAnchorSelection);
 
         if (historyToken instanceof SpreadsheetCellSelectHistoryToken ||
@@ -1286,6 +1331,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
     @Override
     public void onSpreadsheetFormatterSelectorEdit(final SpreadsheetId id,
+                                                   final Optional<SpreadsheetExpressionReference> cellOrLabel,
                                                    final SpreadsheetFormatterSelectorEdit edit,
                                                    final AppContext context) {
         // nop
@@ -1293,8 +1339,10 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
     @Override
     public void onSpreadsheetFormatterSelectorMenuList(final SpreadsheetId id,
+                                                       final SpreadsheetExpressionReference cellOrLabel,
                                                        final SpreadsheetFormatterSelectorMenuList menus,
                                                        final AppContext context) {
+        this.spreadsheetFormatterSelectorSelection = cellOrLabel;
         this.spreadsheetFormatterSelectorMenus = menus;
         this.refreshIfOpen(context);
     }
@@ -1340,12 +1388,11 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
             this.componentLifecycleHistoryTokenQuery(context);
         }
 
-        if (fetchSpreadsheetFormatterSelectorsMenu) {
-            context.spreadsheetFormatterFetcher()
-                .getMenu(
-                    metadata.id()
-                        .get()
-                );
+        if(fetchSpreadsheetFormatterSelectorsMenu) {
+            this.spreadsheetFormatterSelectorSelection = null;
+            this.spreadsheetFormatterSelectorMenus = null;
+
+            this.refreshIfOpen(context);
         }
     }
 

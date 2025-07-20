@@ -33,6 +33,7 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenuList;
 
@@ -80,6 +81,7 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetForm
 
                 @Override
                 public void onSpreadsheetFormatterSelectorEdit(final SpreadsheetId id,
+                                                               final Optional<SpreadsheetExpressionReference> cellOrLabel,
                                                                final SpreadsheetFormatterSelectorEdit edit,
                                                                final AppContext context) {
                     // nop
@@ -87,6 +89,7 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetForm
 
                 @Override
                 public void onSpreadsheetFormatterSelectorMenuList(final SpreadsheetId id,
+                                                                   final SpreadsheetExpressionReference cellOrLabel,
                                                                    final SpreadsheetFormatterSelectorMenuList menu,
                                                                    final AppContext context) {
                     // nop

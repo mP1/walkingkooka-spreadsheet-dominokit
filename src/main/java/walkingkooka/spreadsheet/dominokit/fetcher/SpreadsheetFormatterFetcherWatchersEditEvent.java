@@ -19,7 +19,10 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
+
+import java.util.Optional;
 
 /**
  * The event payload used by {@link SpreadsheetFormatterFetcherWatchers}.
@@ -27,20 +30,24 @@ import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdi
 final class SpreadsheetFormatterFetcherWatchersEditEvent extends FetcherWatchersEvent<SpreadsheetFormatterFetcherWatcher> {
 
     static SpreadsheetFormatterFetcherWatchersEditEvent with(final SpreadsheetId id,
+                                                             final Optional<SpreadsheetExpressionReference> cellOrLabel,
                                                              final SpreadsheetFormatterSelectorEdit edit,
                                                              final AppContext context) {
         return new SpreadsheetFormatterFetcherWatchersEditEvent(
             id,
+            cellOrLabel,
             edit,
             context
         );
     }
 
     private SpreadsheetFormatterFetcherWatchersEditEvent(final SpreadsheetId id,
+                                                         final Optional<SpreadsheetExpressionReference> cellOrLabel,
                                                          final SpreadsheetFormatterSelectorEdit edit,
                                                          final AppContext context) {
         super(context);
         this.id = id;
+        this.cellOrLabel = cellOrLabel;
         this.edit = edit;
     }
 
@@ -48,6 +55,7 @@ final class SpreadsheetFormatterFetcherWatchersEditEvent extends FetcherWatchers
     void fire(final SpreadsheetFormatterFetcherWatcher watcher) {
         watcher.onSpreadsheetFormatterSelectorEdit(
             this.id,
+            this.cellOrLabel,
             this.edit,
             this.context
         );
@@ -55,10 +63,12 @@ final class SpreadsheetFormatterFetcherWatchersEditEvent extends FetcherWatchers
 
     private final SpreadsheetId id;
 
+    private final Optional<SpreadsheetExpressionReference> cellOrLabel;
+
     private final SpreadsheetFormatterSelectorEdit edit;
 
     @Override
     public String toString() {
-        return this.id + " " + this.edit;
+        return this.id + " " + this.cellOrLabel + " " + this.edit;
     }
 }

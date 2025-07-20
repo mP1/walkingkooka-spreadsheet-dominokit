@@ -21,6 +21,7 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellLinksComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetFormatterFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetFormatterFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
@@ -31,6 +32,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
 public interface SpreadsheetViewportComponentContext extends HistoryContext,
     LoggingContext,
     HasSpreadsheetDeltaFetcher,
+    HasSpreadsheetFormatterFetcher,
     HasSpreadsheetFormatterFetcherWatchers,
     HasSpreadsheetMetadata,
     HasSpreadsheetMetadataFetcherWatchers,
