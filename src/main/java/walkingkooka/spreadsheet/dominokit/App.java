@@ -169,6 +169,7 @@ import walkingkooka.spreadsheet.server.locale.LocaleTag;
 import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
+import walkingkooka.text.CharSequences;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.parser.Parser;
 import walkingkooka.tree.expression.ExpressionNumberKind;
@@ -734,7 +735,11 @@ public class App implements EntryPoint,
                           final Headers headers,
                           final String body,
                           final AppContext context) {
-        context.error(method + " " + url + " " + status, body);
+        if (CharSequences.isNullOrEmpty(body)) {
+            context.error(method + " " + url + " " + status);
+        } else {
+            context.error(method + " " + url + " " + status, body);
+        }
     }
 
     @Override
