@@ -720,7 +720,11 @@ public class App implements EntryPoint,
                         final Url url,
                         final Optional<FetcherRequestBody<?>> body,
                         final AppContext context) {
-        context.debug(method + " " + url, body.orElse(null));
+        if(body.isPresent()) {
+            context.debug(method + " " + url, body.get());
+        } else {
+            context.debug(method + " " + url);
+        }
     }
 
     @Override
