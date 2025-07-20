@@ -62,7 +62,7 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
                 localeText,
                 context
             ),
-            new SpreadsheetSuggestBoxComponentSuggestionsProvider<SpreadsheetLocaleComponentValue>() {
+            new SpreadsheetSuggestBoxComponentSuggestionsProvider<>() {
                 @Override
                 public void filter(final String startsWith) {
                     SpreadsheetLocaleComponent.this.suggestBox.setOptions(
