@@ -497,7 +497,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                 break;
             }
 
-            final Optional<SpreadsheetSelection> maybeSelection = parseId(walk.id);
+            final Optional<SpreadsheetSelection> maybeSelection = parseElementId(walk.id);
             if (maybeSelection.isPresent()) {
                 final SpreadsheetSelection selection = maybeSelection.get();
                 if (selection.isCell()) {
@@ -600,7 +600,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                     break;
                 }
 
-                final Optional<SpreadsheetSelection> maybeSelection = parseId(element.id);
+                final Optional<SpreadsheetSelection> maybeSelection = parseElementId(element.id);
                 if (maybeSelection.isPresent()) {
                     final SpreadsheetSelection selection = maybeSelection.get();
 
@@ -1524,7 +1524,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
      * <br>
      * This is the inverse of {@link #id(SpreadsheetSelection)}.
      */
-    static Optional<SpreadsheetSelection> parseId(final String id) {
+    static Optional<SpreadsheetSelection> parseElementId(final String id) {
         SpreadsheetSelection selection = null;
 
         if (null != id && id.startsWith(ID_PREFIX)) {

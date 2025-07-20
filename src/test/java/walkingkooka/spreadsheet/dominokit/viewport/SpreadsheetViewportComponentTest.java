@@ -77,61 +77,61 @@ public final class SpreadsheetViewportComponentTest implements HtmlElementCompon
     }
 
     @Test
-    public void testParseIdWithNull() {
+    public void testParseElementIdWithNull() {
         this.parseStringAndCheck(null);
     }
 
     @Test
-    public void testParseIdWithEmpty() {
+    public void testParseElementIdWithEmpty() {
         this.parseStringAndCheck(
             ""
         );
     }
 
     @Test
-    public void testParseIdWithMissingViewportIdPrefix() {
+    public void testParseElementIdWithMissingViewportIdPrefix() {
         this.parseStringAndCheck(
             "xyz"
         );
     }
 
     @Test
-    public void testParseIdWithInvalidSelectionType() {
+    public void testParseElementIdWithInvalidSelectionType() {
         this.parseStringAndCheck(
             "viewport-invalid"
         );
     }
 
     @Test
-    public void testParseIdWithInvalidSelectionType2() {
+    public void testParseElementIdWithInvalidSelectionType2() {
         this.parseStringAndCheck(
             "viewport-invalid-A1"
         );
     }
 
     @Test
-    public void testParseIdWithCellRangeFails() {
+    public void testParseElementIdWithCellRangeFails() {
         this.parseStringAndCheck(
             "viewport-cell-A1:A2"
         );
     }
 
     @Test
-    public void testParseIdWithColumnRangeFails() {
+    public void testParseElementIdWithColumnRangeFails() {
         this.parseStringAndCheck(
             "viewport-column-B:C"
         );
     }
 
     @Test
-    public void testParseIdWithLabelFails() {
+    public void testParseElementIdWithLabelFails() {
         this.parseStringAndCheck(
             "viewport-cell-Label123"
         );
     }
 
     @Test
-    public void testParseIdWithRowRangeFails() {
+    public void testParseElementIdWithRowRangeFails() {
         this.parseStringAndCheck(
             "viewport-row-4:5"
         );
@@ -145,7 +145,7 @@ public final class SpreadsheetViewportComponentTest implements HtmlElementCompon
     }
 
     @Test
-    public void testParseIdWithCell() {
+    public void testParseElementIdWithCell() {
         this.parseStringAndCheck(
             "viewport-cell-A1",
             SpreadsheetSelection.A1
@@ -153,7 +153,7 @@ public final class SpreadsheetViewportComponentTest implements HtmlElementCompon
     }
 
     @Test
-    public void testParseIdWithColumn() {
+    public void testParseElementIdWithColumn() {
         this.parseStringAndCheck(
             "viewport-column-B",
             SpreadsheetSelection.parseColumn("B")
@@ -161,7 +161,7 @@ public final class SpreadsheetViewportComponentTest implements HtmlElementCompon
     }
 
     @Test
-    public void testParseIdWithRow() {
+    public void testParseElementIdWithRow() {
         this.parseStringAndCheck(
             "viewport-row-3",
             SpreadsheetSelection.parseRow("3")
@@ -185,7 +185,7 @@ public final class SpreadsheetViewportComponentTest implements HtmlElementCompon
 
     @Override
     public Optional<SpreadsheetSelection> parseString(final String id) {
-        return SpreadsheetViewportComponent.parseId(id);
+        return SpreadsheetViewportComponent.parseElementId(id);
     }
 
     @Override
