@@ -208,7 +208,7 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
         return url(id)
             .appendPathName(SpreadsheetMetadataPropertyNameHateosResourceMappings.HATEOS_RESOURCE_NAME.toUrlPathName())
             .appendPathName(
-                UrlPathName.with(propertyName.value())
+                propertyName.toUrlPathName()
             );
     }
 

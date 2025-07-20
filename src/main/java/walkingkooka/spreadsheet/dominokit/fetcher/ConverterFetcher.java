@@ -87,7 +87,7 @@ public final class ConverterFetcher extends Fetcher<ConverterFetcherWatcher> {
                     SpreadsheetServerLinkRelations.VERIFY.toUrlPathName()
                         .get()
                 ).appendPathName(
-                    UrlPathName.with(converterMetadataProperty.value())
+                    converterMetadataProperty.toUrlPathName()
                 ),
             FetcherRequestBody.string(
                 JsonNode.string(converterSelector)
