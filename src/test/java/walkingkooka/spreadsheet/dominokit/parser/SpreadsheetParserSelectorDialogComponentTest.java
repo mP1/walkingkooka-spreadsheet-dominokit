@@ -26,6 +26,7 @@ import walkingkooka.convert.provider.ConverterName;
 import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.convert.SpreadsheetConverterContext;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -1362,6 +1363,11 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
             @Override
             public Locale locale() {
                 return LOCALE;
+            }
+
+            @Override
+            public Optional<SpreadsheetCell> cell() {
+                return Optional.empty();
             }
 
             // SpreadsheetParserContext......................................................................................

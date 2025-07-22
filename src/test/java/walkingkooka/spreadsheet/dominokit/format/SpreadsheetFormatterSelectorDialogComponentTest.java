@@ -26,6 +26,7 @@ import walkingkooka.convert.provider.ConverterName;
 import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.convert.SpreadsheetConverterContext;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -1600,6 +1601,11 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
             }
 
             // SpreadsheetFormatterContext......................................................................................
+
+            @Override
+            public Optional<SpreadsheetCell> cell() {
+                return Optional.empty();
+            }
 
             @Override
             public boolean canConvert(final Object value,
