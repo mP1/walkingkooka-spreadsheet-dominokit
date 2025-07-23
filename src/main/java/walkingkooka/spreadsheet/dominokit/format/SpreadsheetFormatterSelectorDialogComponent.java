@@ -236,15 +236,14 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
             context
         );
 
-        // couldnt get edit in browser, try server
-        if (edit.message().startsWith("Unknown ")) {
-            context.loadSpreadsheetFormattersEdit(text);
-        } else {
-            this.onSpreadsheetFormatterSelectorEdit(
-                edit,
-                context
-            );
-        }
+        this.onSpreadsheetFormatterSelectorEdit(
+            edit,
+            context
+        );
+
+        // edit.message does not report failures such as evaluating ExpressionSpreadsheetFormatter with "1+2".
+        // https://github.com/mP1/walkingkooka-spreadsheet-server/issues/1758
+        context.loadSpreadsheetFormattersEdit(text);
     }
 
     /**
