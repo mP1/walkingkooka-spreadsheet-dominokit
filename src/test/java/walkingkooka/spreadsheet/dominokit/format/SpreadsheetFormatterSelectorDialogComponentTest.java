@@ -133,6 +133,12 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-format-pattern%20dddd,%20d%20mmmm%20yyyy] id=spreadsheetFormatterSelector-Full-Link\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
                 "                    Friday, 31 December 1999\n" +
+                "                ROW 4\n" +
+                "                  SpreadsheetTextNodeComponent\n" +
+                "                    Sample\n" +
+                "                  [#/1/Spreadsheet1/cell/A1/formatter/save/date-format-pattern] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  SpreadsheetTextNodeComponent\n" +
+                "                    Empty \"text\"\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
@@ -214,6 +220,12 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-format-pattern%20dddd,%20d%20mmmm%20yyyy] id=spreadsheetFormatterSelector-Full-Link\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
                 "                    Friday, 31 December 1999\n" +
+                "                ROW 4\n" +
+                "                  SpreadsheetTextNodeComponent\n" +
+                "                    Sample\n" +
+                "                  \"dd/mm/yyyy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-format-pattern%20dd/mm/yyyy] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  SpreadsheetTextNodeComponent\n" +
+                "                    31/12/1999\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
@@ -327,6 +339,12 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Full-Link\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
                 "                    Friday, 31 December 1999 at 12:58:00 PM\n" +
+                "                ROW 4\n" +
+                "                  SpreadsheetTextNodeComponent\n" +
+                "                    Sample\n" +
+                "                  \"dd/mm/yyyy hh:mm:ss\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  SpreadsheetTextNodeComponent\n" +
+                "                    31/12/1999 12:58:00\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
@@ -507,6 +525,12 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"$#,##0.00\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
                 "                    $0*00\n" +
+                "                ROW 12\n" +
+                "                  SpreadsheetTextNodeComponent\n" +
+                "                    Sample\n" +
+                "                  \"$#0.00\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20$%230.00] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  SpreadsheetTextNodeComponent\n" +
+                "                    $1234*50\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
@@ -594,6 +618,12 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"@\" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern%20@] id=spreadsheetFormatterSelector-Default-Link\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
                 "                    Hello 123\n" +
+                "                ROW 1\n" +
+                "                  SpreadsheetTextNodeComponent\n" +
+                "                    Sample\n" +
+                "                  \"@ \"Hello\"\" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern%20@%20%22Hello%22] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  SpreadsheetTextNodeComponent\n" +
+                "                    Hello World 123 Hello\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
@@ -679,6 +709,12 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"h:mm:ss AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Long-Link\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
                 "                    12:58:00 PM\n" +
+                "                ROW 2\n" +
+                "                  SpreadsheetTextNodeComponent\n" +
+                "                    Sample\n" +
+                "                  \"hh:mm\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20hh:mm] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  SpreadsheetTextNodeComponent\n" +
+                "                    12:58\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
@@ -797,6 +833,12 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date-format-pattern%20dddd,%20d%20mmmm%20yyyy] id=spreadsheetFormatterSelector-Full-Link\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
                 "                    Friday, 31 December 1999\n" +
+                "                ROW 4\n" +
+                "                  SpreadsheetTextNodeComponent\n" +
+                "                    Sample\n" +
+                "                  \"dd/mm/yyyy\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date-format-pattern%20dd/mm/yyyy] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  SpreadsheetTextNodeComponent\n" +
+                "                    31/12/1999\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
@@ -922,6 +964,12 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Full-Link\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
                 "                    Friday, 31 December 1999 at 12:58:00 PM\n" +
+                "                ROW 4\n" +
+                "                  SpreadsheetTextNodeComponent\n" +
+                "                    Sample\n" +
+                "                  \"dd/mm/yyyy hh:mm:ss\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  SpreadsheetTextNodeComponent\n" +
+                "                    31/12/1999 12:58:00\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
@@ -1114,6 +1162,12 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
                 "                    $0*00\n" +
+                "                ROW 12\n" +
+                "                  SpreadsheetTextNodeComponent\n" +
+                "                    Sample\n" +
+                "                  \"$#0.00\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20$%230.00] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  SpreadsheetTextNodeComponent\n" +
+                "                    $1234*50\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
@@ -1213,6 +1267,12 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"@\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text-format-pattern%20@] id=spreadsheetFormatterSelector-Default-Link\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
                 "                    Hello 123\n" +
+                "                ROW 1\n" +
+                "                  SpreadsheetTextNodeComponent\n" +
+                "                    Sample\n" +
+                "                  \"@ \"Hello\"\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text-format-pattern%20@%20%22Hello%22] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  SpreadsheetTextNodeComponent\n" +
+                "                    Hello World 123 Hello\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
@@ -1310,6 +1370,12 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"h:mm:ss AM/PM\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Long-Link\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
                 "                    12:58:00 PM\n" +
+                "                ROW 2\n" +
+                "                  SpreadsheetTextNodeComponent\n" +
+                "                    Sample\n" +
+                "                  \"hh:mm\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20hh:mm] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  SpreadsheetTextNodeComponent\n" +
+                "                    12:58\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
                 "        SpreadsheetCard\n" +
                 "          Card\n" +
