@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.format;
 
+import org.gwtproject.core.shared.GWT;
 import walkingkooka.Cast;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -89,16 +90,19 @@ final class AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata
         final SpreadsheetMetadataPropertyHistoryToken<?> spreadsheetMetadataPropertyHistoryToken = context.historyToken()
             .cast(SpreadsheetMetadataPropertyHistoryToken.class);
 
-        this.throttler.add(
-            () -> context.spreadsheetFormatterFetcher()
-                .getMetadataFormatterEdit(
-                    spreadsheetMetadataPropertyHistoryToken.id(), // id
-                    Cast.to(
-                        spreadsheetMetadataPropertyHistoryToken.propertyName()
-                    ),
-                    text
-                )
-        );
+        // HACK throttler and fetcher will in JVM
+        if(GWT.isScript()) {
+            this.throttler.add(
+                () -> context.spreadsheetFormatterFetcher()
+                    .getMetadataFormatterEdit(
+                        spreadsheetMetadataPropertyHistoryToken.id(), // id
+                        Cast.to(
+                            spreadsheetMetadataPropertyHistoryToken.propertyName()
+                        ),
+                        text
+                    )
+            );
+        }
     }
 
     // ComponentLifecycleMatcher........................................................................................

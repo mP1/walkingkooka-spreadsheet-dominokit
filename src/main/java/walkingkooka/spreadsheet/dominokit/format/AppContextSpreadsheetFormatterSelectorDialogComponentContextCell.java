@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.format;
 
+import org.gwtproject.core.shared.GWT;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -76,16 +77,19 @@ final class AppContextSpreadsheetFormatterSelectorDialogComponentContextCell ext
         final SpreadsheetCellFormatterHistoryToken spreadsheetCellFormatterHistoryToken = this.context.historyToken()
             .cast(SpreadsheetCellFormatterHistoryToken.class);
 
-        this.throttler.add(
-            () -> this.context.spreadsheetFormatterFetcher()
-                .getCellFormatterEdit(
-                    spreadsheetCellFormatterHistoryToken.id(), // id
-                    spreadsheetCellFormatterHistoryToken.selection()
-                        .get()
-                        .toExpressionReference(),
-                    text
-                )
-        );
+        // HACK throttler and fetcher will in JVM
+        if (GWT.isScript()) {
+            this.throttler.add(
+                () -> this.context.spreadsheetFormatterFetcher()
+                    .getCellFormatterEdit(
+                        spreadsheetCellFormatterHistoryToken.id(), // id
+                        spreadsheetCellFormatterHistoryToken.selection()
+                            .get()
+                            .toExpressionReference(),
+                        text
+                    )
+            );
+        }
     }
 
     // ComponentLifecycleMatcher........................................................................................
