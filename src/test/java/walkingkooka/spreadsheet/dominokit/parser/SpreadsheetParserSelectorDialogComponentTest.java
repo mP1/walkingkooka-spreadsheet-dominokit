@@ -1383,9 +1383,11 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
 
             @Override
             public List<SpreadsheetFormatterSample> spreadsheetFormatterSamples(final SpreadsheetFormatterSelector selector,
+                                                                                final boolean includeSamples,
                                                                                 final SpreadsheetFormatterProviderSamplesContext context) {
                 return SpreadsheetMetadataTesting.SPREADSHEET_FORMATTER_PROVIDER.spreadsheetFormatterSamples(
                     selector,
+                    includeSamples,
                     context
                 );
             }
