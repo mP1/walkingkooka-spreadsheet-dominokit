@@ -1569,10 +1569,10 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
             }
 
             @Override
-            public List<SpreadsheetFormatterSample> spreadsheetFormatterSamples(final SpreadsheetFormatterName spreadsheet_name,
+            public List<SpreadsheetFormatterSample> spreadsheetFormatterSamples(final SpreadsheetFormatterSelector selector,
                                                                                 final SpreadsheetFormatterProviderSamplesContext context) {
                 return SpreadsheetMetadataTesting.SPREADSHEET_FORMATTER_PROVIDER.spreadsheetFormatterSamples(
-                    spreadsheet_name,
+                    selector,
                     context
                 );
             }

@@ -57,7 +57,7 @@ public class FakeSpreadsheetFormatterNameLinkListComponentContext extends FakeHi
     }
 
     @Override
-    public List<SpreadsheetFormatterSample> spreadsheetFormatterSamples(final SpreadsheetFormatterName name,
+    public List<SpreadsheetFormatterSample> spreadsheetFormatterSamples(final SpreadsheetFormatterSelector selector,
                                                                         final SpreadsheetFormatterProviderSamplesContext context) {
         throw new UnsupportedOperationException();
     }
