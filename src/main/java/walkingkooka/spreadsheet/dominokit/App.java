@@ -25,7 +25,6 @@ import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.ImmutableSortedSet;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.convert.CanConvert;
-import walkingkooka.convert.ConverterContexts;
 import walkingkooka.convert.provider.ConverterInfoSet;
 import walkingkooka.convert.provider.ConverterProvider;
 import walkingkooka.convert.provider.ConverterProviders;
@@ -46,7 +45,6 @@ import walkingkooka.net.http.HttpStatus;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.ProviderContextDelegator;
-import walkingkooka.plugin.ProviderContexts;
 import walkingkooka.plugin.store.Plugin;
 import walkingkooka.plugin.store.PluginSet;
 import walkingkooka.plugin.store.PluginStores;
@@ -569,12 +567,11 @@ public class App implements EntryPoint,
                 )
             );
 
-            // TODO https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/4833
-            // App#onSpreadsheetMetadata ProviderContext given ConverterContexts.fake() for CanConvert
-            this.providerContext = ProviderContexts.basic(
-                ConverterContexts.fake(),
-                environmentContext,
-                PluginStores.fake()
+            this.providerContext = SpreadsheetProviderContexts.basic(
+                PluginStores.fake(),
+                this.locale(),
+                this.jsonNodeMarshallUnmarshallContext(),
+                environmentContext
             );
 
             final Optional<SpreadsheetId> maybeId = metadata.id();
