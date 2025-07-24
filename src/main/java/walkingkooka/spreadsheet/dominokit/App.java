@@ -1417,9 +1417,11 @@ public class App implements EntryPoint,
                 ConverterInfoSet.EMPTY
             ),
             SpreadsheetConvertersConverterProviders.spreadsheetConverters(
-                metadata,
-                spreadsheetFormatterProvider,
-                spreadsheetParserProvider
+                (ProviderContext p) -> metadata.generalConverter(
+                    spreadsheetFormatterProvider,
+                    spreadsheetParserProvider,
+                    p
+                )
             )
         );
 
