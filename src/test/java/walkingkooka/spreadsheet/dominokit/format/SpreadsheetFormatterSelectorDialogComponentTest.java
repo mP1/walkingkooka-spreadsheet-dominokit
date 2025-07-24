@@ -138,7 +138,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                    Sample\n" +
                 "                  [#/1/Spreadsheet1/cell/A1/formatter/save/date-format-pattern] id=spreadsheetFormatterSelector-Sample-Link\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
-                "                    Empty \"text\"\n" +
+                "                    ERROR Empty \"text\"\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
