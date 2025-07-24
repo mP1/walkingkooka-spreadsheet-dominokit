@@ -152,6 +152,7 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProviders;
 import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
+import walkingkooka.spreadsheet.provider.SpreadsheetProviderContexts;
 import walkingkooka.spreadsheet.provider.SpreadsheetProviderDelegator;
 import walkingkooka.spreadsheet.provider.SpreadsheetProviders;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -402,7 +403,19 @@ public class App implements EntryPoint,
         );
         this.addPluginFetcherWatcher(this);
 
-        this.providerContext = ProviderContexts.fake();
+        this.providerContext = SpreadsheetProviderContexts.basic(
+            PluginStores.fake(),
+            this.locale(),
+            this.jsonNodeMarshallUnmarshallContext(),
+            this.spreadsheetMetadata.environmentContext(
+                EnvironmentContexts.empty(
+                    this,
+                    Optional.of(
+                        EmailAddress.parse("user123@example.com")
+                    )
+                )
+            )
+        );
 
         // history
         this.apphistoryContextHistoryTokenWatcher = AppHistoryContextHistoryWatcher.with(this);
@@ -1361,6 +1374,13 @@ public class App implements EntryPoint,
     }
 
     private void refreshSpreadsheetProvider() {
+        this.providerContext = SpreadsheetProviderContexts.basic(
+            PluginStores.fake(),
+            this.locale(),
+            this.jsonNodeMarshallUnmarshallContext(),
+            this.environmentContext()
+        );
+
         final SpreadsheetMetadata metadata = this.spreadsheetMetadata();
 
         final SpreadsheetComparatorProvider spreadsheetComparatorProvider = SpreadsheetComparatorProviders.mergedMapped(
