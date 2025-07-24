@@ -131,7 +131,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "                    Sample\n" +
                 "                  [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern] id=spreadsheetParserSelector-Sample-Link\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
-                "                    Empty \"text\"\n" +
+                "                    ERROR Empty \"text\"\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "      SpreadsheetParserSelectorComponent\n" +
