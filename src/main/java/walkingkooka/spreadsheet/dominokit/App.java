@@ -410,9 +410,7 @@ public class App implements EntryPoint,
             this.spreadsheetMetadata.environmentContext(
                 EnvironmentContexts.empty(
                     this,
-                    Optional.of(
-                        EmailAddress.parse("user123@example.com")
-                    )
+                    EnvironmentContext.ANONYMOUS // will be replaced when the metadata loads
                 )
             )
         );
