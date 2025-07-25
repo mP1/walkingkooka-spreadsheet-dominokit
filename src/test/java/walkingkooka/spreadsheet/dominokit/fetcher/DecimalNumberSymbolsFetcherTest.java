@@ -48,7 +48,7 @@ public final class DecimalNumberSymbolsFetcherTest implements ClassTesting<Decim
     public void testDecimalNumberSymbolsLocaleStartsWithUrlWithEmptyStartsWith() {
         this.decimalNumberSymbolsLocaleStartsWithUrlAndCheck(
             "",
-            "/api/decimalNumberSymbols/*/localeStartsWith"
+            "/api/decimalNumberSymbols/*/localeStartsWith/"
         );
     }
 
