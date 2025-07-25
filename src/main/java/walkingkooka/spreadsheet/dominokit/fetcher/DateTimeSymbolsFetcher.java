@@ -28,10 +28,13 @@ import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResourceSet;
 import walkingkooka.spreadsheet.server.locale.LocaleTag;
+import walkingkooka.template.TemplateValueName;
+import walkingkooka.template.url.UrlPathTemplate;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.Function;
 
 /**
  * Fetcher for {@link DateTimeSymbolsHateosResource} end points.
@@ -145,12 +148,17 @@ public final class DateTimeSymbolsFetcher extends Fetcher<DateTimeSymbolsFetcher
     }
 
     // /api/dateTimeSymbols/*/localeStartsWith/STARTSWITH
-    // 01   2               3 4                5
     static String localeStartsWith(final UrlPath path) {
-        final String startsWith = path.pathAfter(4)
-            .value();
-        return startsWith.isEmpty() ?
-            "" :
-            startsWith.substring(1);
+        return STARTS_WITH_PATH_TEMPLATE.tryPrepareValues(path)
+            .flatMap(
+                v -> v.get(
+                    STARTS_WITH,
+                    Function.identity()
+                )
+            ).orElse("");
     }
+
+    private final static UrlPathTemplate STARTS_WITH_PATH_TEMPLATE = UrlPathTemplate.parse("/api/dateTimeSymbols/*/localeStartsWith/${startsWith}");
+
+    private final static TemplateValueName STARTS_WITH = TemplateValueName.with("startsWith");
 }
