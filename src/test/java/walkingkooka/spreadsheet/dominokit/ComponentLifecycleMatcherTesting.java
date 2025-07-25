@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.test.Testing;
 
-public interface ComponentLifecycleMatcherTesting<T extends ComponentLifecycleMatcher> extends Testing {
+public interface ComponentLifecycleMatcherTesting extends Testing {
 
     SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1);
 

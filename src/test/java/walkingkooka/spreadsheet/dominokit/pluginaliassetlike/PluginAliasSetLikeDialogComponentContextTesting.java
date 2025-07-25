@@ -39,7 +39,7 @@ public interface PluginAliasSetLikeDialogComponentContextTesting<C extends Plugi
     S extends PluginSelectorLike<N>,
     A extends PluginAliasLike<N, S, A>,
     AS extends PluginAliasSetLike<N, I, IS, S, A, AS>> extends SpreadsheetDialogComponentContextTesting<C>,
-    ComponentLifecycleMatcherTesting<C> {
+    ComponentLifecycleMatcherTesting {
 
     @Test
     default void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenWrong() {

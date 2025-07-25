@@ -26,7 +26,7 @@ import java.util.Optional;
 
 public interface SpreadsheetLocaleDialogComponentContextTesting<C extends SpreadsheetLocaleDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C>,
     LocaleContextTesting,
-    ComponentLifecycleMatcherTesting<C> {
+    ComponentLifecycleMatcherTesting {
 
     default void dialogTitleAndCheck(final C context,
                                      final String expected) {

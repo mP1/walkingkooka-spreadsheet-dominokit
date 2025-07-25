@@ -47,7 +47,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import java.util.Arrays;
 
 public final class SpreadsheetViewportFormulaComponentTest implements HtmlElementComponentTesting<SpreadsheetViewportFormulaComponent, HTMLFieldSetElement>,
-    ComponentLifecycleMatcherTesting<SpreadsheetViewportFormulaComponent>,
+    ComponentLifecycleMatcherTesting,
     SpreadsheetMetadataTesting {
 
     private final static SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1);

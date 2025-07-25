@@ -21,5 +21,5 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextTesting;
 
 public interface ConverterSelectorDialogComponentContextTesting<C extends ConverterSelectorDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C>,
-    ComponentLifecycleMatcherTesting<C> {
+    ComponentLifecycleMatcherTesting {
 }

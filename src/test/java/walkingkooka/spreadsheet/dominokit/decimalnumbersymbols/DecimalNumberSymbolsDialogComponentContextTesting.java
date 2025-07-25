@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentConte
 import java.util.Optional;
 
 public interface DecimalNumberSymbolsDialogComponentContextTesting<C extends DecimalNumberSymbolsDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C>,
-    ComponentLifecycleMatcherTesting<C> {
+    ComponentLifecycleMatcherTesting {
 
     default void loadDecimalNumberSymbolsAndCheck(final C context,
                                                   final Optional<DecimalNumberSymbols> expected) {

@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentConte
 import java.util.Optional;
 
 public interface DateTimeSymbolsDialogComponentContextTesting<C extends DateTimeSymbolsDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C>,
-    ComponentLifecycleMatcherTesting<C> {
+    ComponentLifecycleMatcherTesting {
 
     default void copyDateTimeSymbolsAndCheck(final C context) {
         this.copyDateTimeSymbolsAndCheck(
