@@ -112,7 +112,7 @@ public final class DateTimeSymbolsFetcher extends Fetcher<DateTimeSymbolsFetcher
             case "DateTimeSymbolsHateosResource":
                 // GET http://server/api/dateTimeSymbols/LocaleTagId
                 this.watcher.onDateTimeSymbolsHateosResource(
-                    extractParseLocaleTag(url.path()), // the request url
+                    extractLocaleTag(url.path()), // the request url
                     this.parse(
                         body,
                         DateTimeSymbolsHateosResource.class
@@ -136,13 +136,20 @@ public final class DateTimeSymbolsFetcher extends Fetcher<DateTimeSymbolsFetcher
         }
     }
 
-    static LocaleTag extractParseLocaleTag(final UrlPath path) {
-        return LocaleTag.parse(
-            path.namesList()
-                .get(3)
-                .text()
-        );
+    // /api/dateTimeSymbols/${LocaleTag}}
+    static LocaleTag extractLocaleTag(final UrlPath path) {
+        return LOCALE_TAG_TEMPLATE.tryPrepareValues(path)
+            .flatMap(
+                v -> v.get(
+                    LOCALE_TAG,
+                    LocaleTag::parse
+                )
+            ).orElseThrow(() -> new IllegalArgumentException("Url missing LocaleTag"));
     }
+
+    private final static UrlPathTemplate LOCALE_TAG_TEMPLATE = UrlPathTemplate.parse("/api/dateTimeSymbols/${LocaleTag}");
+
+    private final static TemplateValueName LOCALE_TAG = TemplateValueName.with("LocaleTag");
 
     // /api/dateTimeSymbols/*/localeStartsWith/STARTSWITH
     static String extractLocaleStartsWith(final UrlPath path) {
