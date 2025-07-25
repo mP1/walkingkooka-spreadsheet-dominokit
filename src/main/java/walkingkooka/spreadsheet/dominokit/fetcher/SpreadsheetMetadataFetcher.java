@@ -61,7 +61,7 @@ import java.util.OptionalInt;
  * Loading a different spreadsheet is as simple as {@link SpreadsheetMetadataFetcher#getSpreadsheetMetadata(SpreadsheetId)}.
  * </br>
  * <br>
- * Deletion of spreadsheets is accomplished by simplying call {@link SpreadsheetMetadataFetcher#deleteSpreadsheetMetadata(SpreadsheetId)}}.
+ * Deletion of spreadsheets is accomplished by simply call {@link SpreadsheetMetadataFetcher#deleteSpreadsheetMetadata(SpreadsheetId)}}.
  * </br>
  */
 public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadataFetcherWatcher> {
