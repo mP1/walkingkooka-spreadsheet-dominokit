@@ -27,18 +27,18 @@ import walkingkooka.spreadsheet.server.locale.LocaleTag;
 public final class DecimalNumberSymbolsFetcherTest implements ClassTesting<DecimalNumberSymbolsFetcher> {
 
     @Test
-    public void testParseLocaleTag() {
-        this.parseLocaleTagAndCheck(
+    public void testExtractLocaleTag() {
+        this.extractLocaleTagAndCheck(
             UrlPath.parse("/api/decimalNumberSymbols/EN-AU"),
             LocaleTag.parse("EN-AU")
         );
     }
 
-    private void parseLocaleTagAndCheck(final UrlPath path,
-                                        final LocaleTag expected) {
+    private void extractLocaleTagAndCheck(final UrlPath path,
+                                          final LocaleTag expected) {
         this.checkEquals(
             expected,
-            DecimalNumberSymbolsFetcher.parseLocaleTag(path)
+            DecimalNumberSymbolsFetcher.extractLocaleTag(path)
         );
     }
 
