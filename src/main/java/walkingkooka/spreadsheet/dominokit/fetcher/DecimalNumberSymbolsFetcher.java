@@ -28,10 +28,13 @@ import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResourceSet;
 import walkingkooka.spreadsheet.server.locale.LocaleTag;
+import walkingkooka.template.TemplateValueName;
+import walkingkooka.template.url.UrlPathTemplate;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.Function;
 
 /**
  * Fetcher for {@link DecimalNumberSymbolsHateosResource} end points.
@@ -123,7 +126,7 @@ public final class DecimalNumberSymbolsFetcher extends Fetcher<DecimalNumberSymb
             case "DecimalNumberSymbolsHateosResourceSet":
                 // GET http://server/api/decimalNumberSymbols/*/localeStartsWith/STARTSWITH
                 this.watcher.onDecimalNumberSymbolsHateosResourceSet(
-                    localeStartsWith(url.path()), // the request url
+                    extractLocaleStartsWith(url.path()), // the request url
                     this.parse(
                         body,
                         DecimalNumberSymbolsHateosResourceSet.class
@@ -144,13 +147,18 @@ public final class DecimalNumberSymbolsFetcher extends Fetcher<DecimalNumberSymb
         );
     }
 
-    // /api/decimalNumberSymbols/*/localeStartsWith/STARTSWITH
-    // 01   2               3 4                5
-    static String localeStartsWith(final UrlPath path) {
-        final String startsWith = path.pathAfter(4)
-            .value();
-        return startsWith.isEmpty() ?
-            "" :
-            startsWith.substring(1);
+    // /api/dateTimeSymbols/*/localeStartsWith/STARTSWITH
+    static String extractLocaleStartsWith(final UrlPath path) {
+        return STARTS_WITH_PATH_TEMPLATE.tryPrepareValues(path)
+            .flatMap(
+                v -> v.get(
+                    STARTS_WITH,
+                    Function.identity()
+                )
+            ).orElse("");
     }
+
+    private final static UrlPathTemplate STARTS_WITH_PATH_TEMPLATE = UrlPathTemplate.parse("/api/decimalNumberSymbols/*/localeStartsWith/${startsWith}");
+
+    private final static TemplateValueName STARTS_WITH = TemplateValueName.with("startsWith");
 }
