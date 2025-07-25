@@ -22,7 +22,6 @@ import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlPath;
-import walkingkooka.net.UrlPathName;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -31,10 +30,12 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.spreadsheet.server.meta.SpreadsheetMetadataPropertyNameHateosResourceMappings;
 import walkingkooka.spreadsheet.server.meta.SpreadsheetMetadataSet;
+import walkingkooka.template.TemplateValueName;
+import walkingkooka.template.url.UrlPathTemplate;
+import walkingkooka.template.url.UrlPathTemplateValues;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
@@ -77,29 +78,27 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
     /**
      * Extracts the {@link SpreadsheetId} from a URL assumed to contain an endpoint.
      * <pre>
-     * /api/spreadsheet/SpreadsheetId/
-     * 12   3           4
+     * /api/spreadsheet/SpreadsheetId
      * </pre>
      */
     public static Optional<SpreadsheetId> extractSpreadsheetId(final AbsoluteOrRelativeUrl url) {
-        final List<UrlPathName> pathNames = url.path()
-            .namesList();
+        Optional<SpreadsheetId> id = Optional.empty();
 
-        SpreadsheetId id = null;
-
-        if (pathNames.size() > 3) {
-            try {
-                id = SpreadsheetId.parse(
-                    pathNames.get(3)
-                        .value()
+        final Optional<UrlPathTemplateValues> pathValues = SPREADSHEET_ID_PATH_TEMPLATE.tryPrepareValues(url.path());
+        if(pathValues.isPresent()) {
+            id = pathValues.get()
+                .get(
+                    SPREADSHEET_ID,
+                    SpreadsheetId::parse
                 );
-            } catch (final RuntimeException ignore) {
-                id = null;
-            }
         }
 
-        return Optional.ofNullable(id);
+        return id;
     }
+
+    private final static UrlPathTemplate SPREADSHEET_ID_PATH_TEMPLATE = UrlPathTemplate.parse("/api/spreadsheet/${SpreadsheetId}/${any}");
+
+    private final static TemplateValueName SPREADSHEET_ID = TemplateValueName.with("SpreadsheetId");
 
     public static SpreadsheetId extractSpreadsheetIdOrFail(final AbsoluteOrRelativeUrl url) {
         return extractSpreadsheetId(url)
