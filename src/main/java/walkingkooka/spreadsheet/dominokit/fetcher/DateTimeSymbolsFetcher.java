@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
+import walkingkooka.collect.map.Maps;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlPath;
@@ -24,7 +25,6 @@ import walkingkooka.net.UrlPathName;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
-import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResourceSet;
 import walkingkooka.spreadsheet.server.locale.LocaleTag;
@@ -88,18 +88,15 @@ public final class DateTimeSymbolsFetcher extends Fetcher<DateTimeSymbolsFetcher
     }
 
     static AbsoluteOrRelativeUrl dateTimeSymbolsLocaleStartsWithUrl(final String startsWith) {
-        return STARTS_WITH_BASE_URL.appendPath(
-            UrlPath.parse(
-                "/".concat(startsWith)
+        return Url.EMPTY_RELATIVE_URL.appendPath(
+            STARTS_WITH_PATH_TEMPLATE.renderPathWithMap(
+                Maps.of(
+                    STARTS_WITH,
+                    startsWith
+                )
             )
         );
     }
-
-    private final static AbsoluteOrRelativeUrl STARTS_WITH_BASE_URL = URL.appendPathName(UrlPathName.WILDCARD)
-        .appendPathName(
-            SpreadsheetServerLinkRelations.LOCALE_STARTS_WITH.toUrlPathName()
-                .get()
-        );
 
     @Override
     public void onSuccess(final HttpMethod method,

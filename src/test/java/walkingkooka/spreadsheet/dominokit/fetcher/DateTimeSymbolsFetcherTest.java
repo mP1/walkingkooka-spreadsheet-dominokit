@@ -50,7 +50,7 @@ public final class DateTimeSymbolsFetcherTest implements TreePrintableTesting,
     public void testDateTimeSymbolsLocaleStartsWithUrlWithEmptyStartsWith() {
         this.dateTimeSymbolsLocaleStartsWithUrlAndCheck(
             "",
-            "/api/dateTimeSymbols/*/localeStartsWith"
+            "/api/dateTimeSymbols/*/localeStartsWith/"
         );
     }
 
