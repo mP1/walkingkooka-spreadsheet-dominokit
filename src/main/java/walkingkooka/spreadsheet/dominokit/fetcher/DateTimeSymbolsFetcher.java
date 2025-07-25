@@ -126,7 +126,7 @@ public final class DateTimeSymbolsFetcher extends Fetcher<DateTimeSymbolsFetcher
             case "DateTimeSymbolsHateosResourceSet":
                 // GET http://server/api/dateTimeSymbols/*/localeStartsWith/STARTSWITH
                 this.watcher.onDateTimeSymbolsHateosResourceSet(
-                    localeStartsWith(url.path()), // the request url
+                    extractLocaleStartsWith(url.path()), // the request url
                     this.parse(
                         body,
                         DateTimeSymbolsHateosResourceSet.class
@@ -148,7 +148,7 @@ public final class DateTimeSymbolsFetcher extends Fetcher<DateTimeSymbolsFetcher
     }
 
     // /api/dateTimeSymbols/*/localeStartsWith/STARTSWITH
-    static String localeStartsWith(final UrlPath path) {
+    static String extractLocaleStartsWith(final UrlPath path) {
         return STARTS_WITH_PATH_TEMPLATE.tryPrepareValues(path)
             .flatMap(
                 v -> v.get(
