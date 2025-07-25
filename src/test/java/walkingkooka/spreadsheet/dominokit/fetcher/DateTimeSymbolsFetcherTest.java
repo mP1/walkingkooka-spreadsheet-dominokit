@@ -29,18 +29,18 @@ public final class DateTimeSymbolsFetcherTest implements TreePrintableTesting,
     ClassTesting<DateTimeSymbolsFetcher> {
 
     @Test
-    public void testParseLocaleTag() {
-        this.parseLocaleTagAndCheck(
+    public void testExtractLocaleTag() {
+        this.extractLocaleTagAndCheck(
             UrlPath.parse("/api/dateTimeSymbols/EN-AU"),
             LocaleTag.parse("EN-AU")
         );
     }
 
-    private void parseLocaleTagAndCheck(final UrlPath path,
-                                        final LocaleTag expected) {
+    private void extractLocaleTagAndCheck(final UrlPath path,
+                                          final LocaleTag expected) {
         this.checkEquals(
             expected,
-            DateTimeSymbolsFetcher.parseLocaleTag(path)
+            DateTimeSymbolsFetcher.extractParseLocaleTag(path)
         );
     }
 
