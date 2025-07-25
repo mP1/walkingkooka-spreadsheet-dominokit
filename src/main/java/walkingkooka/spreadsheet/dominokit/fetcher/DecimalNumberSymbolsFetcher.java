@@ -115,7 +115,7 @@ public final class DecimalNumberSymbolsFetcher extends Fetcher<DecimalNumberSymb
             case "DecimalNumberSymbolsHateosResource":
                 // GET http://server/api/locale/LocaleTagId
                 this.watcher.onDecimalNumberSymbolsHateosResource(
-                    parseLocaleTag(url.path()), // the request url
+                    extractLocaleTag(url.path()), // the request url
                     this.parse(
                         body,
                         DecimalNumberSymbolsHateosResource.class
@@ -139,13 +139,20 @@ public final class DecimalNumberSymbolsFetcher extends Fetcher<DecimalNumberSymb
         }
     }
 
-    static LocaleTag parseLocaleTag(final UrlPath path) {
-        return LocaleTag.parse(
-            path.namesList()
-                .get(3)
-                .text()
-        );
+    // /api/decimalNumberSymbols/${LocaleTag}}
+    static LocaleTag extractLocaleTag(final UrlPath path) {
+        return LOCALE_TAG_TEMPLATE.tryPrepareValues(path)
+            .flatMap(
+                v -> v.get(
+                    LOCALE_TAG,
+                    LocaleTag::parse
+                )
+            ).orElseThrow(() -> new IllegalArgumentException("Url missing LocaleTag"));
     }
+
+    private final static UrlPathTemplate LOCALE_TAG_TEMPLATE = UrlPathTemplate.parse("/api/decimalNumberSymbols/${LocaleTag}");
+
+    private final static TemplateValueName LOCALE_TAG = TemplateValueName.with("LocaleTag");
 
     // /api/dateTimeSymbols/*/localeStartsWith/STARTSWITH
     static String extractLocaleStartsWith(final UrlPath path) {
