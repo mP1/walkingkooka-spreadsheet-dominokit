@@ -76,29 +76,29 @@ public final class DecimalNumberSymbolsFetcherTest implements ClassTesting<Decim
         );
     }
 
-    // localeStartsWith.................................................................................................
+    // extractLocaleStartsWith..........................................................................................
 
     @Test
-    public void testLocaleStartsWithWithEmptyStartsWith() {
-        this.localeStartsWithAndCheck(
+    public void testExtractLocaleStartsWithWithEmptyStartsWith() {
+        this.extractLocaleStartsWithAndCheck(
             UrlPath.parse("/api/decimalNumberSymbols/*/localeStartsWith"),
             ""
         );
     }
 
     @Test
-    public void testLocaleStartsWithWithNotEmpty() {
-        this.localeStartsWithAndCheck(
+    public void testExtractLocaleStartsWithWithNotEmpty() {
+        this.extractLocaleStartsWithAndCheck(
             UrlPath.parse("/api/decimalNumberSymbols/*/localeStartsWith/English"),
             "English"
         );
     }
 
-    private void localeStartsWithAndCheck(final UrlPath path,
-                                          final String expected) {
+    private void extractLocaleStartsWithAndCheck(final UrlPath path,
+                                                 final String expected) {
         this.checkEquals(
             expected,
-            DecimalNumberSymbolsFetcher.localeStartsWith(path)
+            DecimalNumberSymbolsFetcher.extractLocaleStartsWith(path)
         );
     }
     
