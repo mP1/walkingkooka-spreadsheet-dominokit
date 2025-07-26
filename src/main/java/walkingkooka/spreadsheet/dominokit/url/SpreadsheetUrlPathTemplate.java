@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReferenceOrRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetRowReferenceOrRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.server.locale.LocaleTag;
 import walkingkooka.template.Template;
@@ -48,7 +49,7 @@ import java.util.Set;
 public final class SpreadsheetUrlPathTemplate implements Template {
 
     public final static TemplateValueName SPREADSHEET_COLUMN_REFERENCE_OR_RANGE = TemplateValueName.with(SpreadsheetColumnReferenceOrRange.class.getSimpleName());
-
+    
     public final static TemplateValueName SPREADSHEET_ENGINE_EVALUATION = TemplateValueName.with(SpreadsheetEngineEvaluation.class.getSimpleName());
 
     public final static TemplateValueName SPREADSHEET_EXPRESSION_REFERENCE = TemplateValueName.with(SpreadsheetExpressionReference.class.getSimpleName());
@@ -56,6 +57,8 @@ public final class SpreadsheetUrlPathTemplate implements Template {
     public final static TemplateValueName SPREADSHEET_ID = TemplateValueName.with(SpreadsheetId.class.getSimpleName());
 
     public final static TemplateValueName SPREADSHEET_NAME = TemplateValueName.with(SpreadsheetName.class.getSimpleName());
+
+    public final static TemplateValueName SPREADSHEET_ROW_REFERENCE_OR_RANGE = TemplateValueName.with(SpreadsheetRowReferenceOrRange.class.getSimpleName());
 
     public final static TemplateValueName LOCALE_TAG = TemplateValueName.with("LocaleTag");
 
@@ -121,6 +124,15 @@ public final class SpreadsheetUrlPathTemplate implements Template {
             );
     }
 
+    public SpreadsheetRowReferenceOrRange spreadsheetRowReferenceOrRange(final UrlPath path) {
+        return Cast.to(
+            this.getOrFail(
+                path,
+                SPREADSHEET_ROW_REFERENCE_OR_RANGE
+            )
+        );
+    }
+    
     public Object getOrFail(final UrlPath path,
                             final TemplateValueName name) {
         return this.get(
@@ -194,6 +206,9 @@ public final class SpreadsheetUrlPathTemplate implements Template {
                     case "SpreadsheetName":
                         v = SpreadsheetName.with(s);
                         break;
+                    case "SpreadsheetRowReferenceOrRange":
+                        v = SpreadsheetSelection.parseRowOrRowRange(s);
+                        break;
                     default:
                         throw new IllegalArgumentException("Unknown placeholder: " + name);
                 }
@@ -226,6 +241,7 @@ public final class SpreadsheetUrlPathTemplate implements Template {
                         break;
                     case "SpreadsheetColumnReferenceOrRange":
                     case "SpreadsheetExpressionReference":
+                    case "SpreadsheetRowReferenceOrRange":
                         stringValue = ((SpreadsheetSelection)value)
                             .toStringMaybeStar();
                         break;
