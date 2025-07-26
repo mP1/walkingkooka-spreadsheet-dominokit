@@ -21,23 +21,27 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.net.UrlPath;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.url.SpreadsheetUrlPathTemplate;
 import walkingkooka.spreadsheet.server.locale.LocaleTag;
 
 public final class LocaleFetcherTest implements ClassTesting<LocaleFetcher> {
 
     @Test
-    public void testParseLocaleTag() {
-        this.parseLocaleTagAndCheck(
+    public void testLocaleTagGet() {
+        this.localeTagAndCheck(
             UrlPath.parse("/api/locale/EN-AU"),
             LocaleTag.parse("EN-AU")
         );
     }
 
-    private void parseLocaleTagAndCheck(final UrlPath path,
-                                        final LocaleTag expected) {
+    private void localeTagAndCheck(final UrlPath path,
+                                   final LocaleTag expected) {
         this.checkEquals(
             expected,
-            LocaleFetcher.parseLocaleTag(path)
+            LocaleFetcher.LOCALE_TAG_TEMPLATE.getOrFail(
+                path,
+                SpreadsheetUrlPathTemplate.LOCALE_TAG
+            )
         );
     }
 
