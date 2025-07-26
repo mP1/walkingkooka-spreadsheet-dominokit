@@ -57,6 +57,14 @@ public final class SpreadsheetUrlPathTemplate implements Template {
         this.template = template;
     }
 
+    public Object getOrFail(final UrlPath path,
+                            final TemplateValueName name) {
+        return this.get(
+            path,
+            name
+        ).orElseThrow(() -> new IllegalArgumentException("Unknown placeholder: " + name));
+    }
+
     public Optional<Object> get(final UrlPath path,
                                 final TemplateValueName name) {
         Objects.requireNonNull(path, "path");
