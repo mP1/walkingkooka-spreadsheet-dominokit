@@ -24,6 +24,7 @@ import walkingkooka.net.UrlPath;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
 import walkingkooka.spreadsheet.server.locale.LocaleTag;
 import walkingkooka.template.TemplateContext;
 import walkingkooka.template.TemplateContexts;
@@ -43,6 +44,7 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
     private final LocaleTag LOCALE_TAG = LocaleTag.with(
         Locale.forLanguageTag("en-AU")
     );
+    private final static SpreadsheetEngineEvaluation SPREADSHEET_ENGINE_EVALUATION = SpreadsheetEngineEvaluation.SKIP_EVALUATE;
 
     // get..........................................................................................................
 
@@ -149,6 +151,36 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
         );
     }
 
+    // spreadsheetEngineEvaluation......................................................................................
+
+    @Test
+    public void testSpreadsheetEngineEvaluation() {
+        this.spreadsheetEngineEvaluationAndCheck(
+            "/api/spreadsheet/${SpreadsheetId}/cell/A1/${SpreadsheetEngineEvaluation}",
+            "/api/spreadsheet/123/cell/A1/skip-evaluate",
+            SpreadsheetEngineEvaluation.SKIP_EVALUATE
+        );
+    }
+
+    private void spreadsheetEngineEvaluationAndCheck(final String template,
+                                                     final String path,
+                                                     final SpreadsheetEngineEvaluation expected) {
+        this.spreadsheetEngineEvaluationAndCheck(
+            SpreadsheetUrlPathTemplate.parse(template),
+            UrlPath.parse(path),
+            expected
+        );
+    }
+
+    private void spreadsheetEngineEvaluationAndCheck(final SpreadsheetUrlPathTemplate template,
+                                                     final UrlPath path,
+                                                     final SpreadsheetEngineEvaluation expected) {
+        this.checkEquals(
+            expected,
+            template.spreadsheetEngineEvaluation(path)
+        );
+    }
+
     // spreadsheetId....................................................................................................
 
     @Test
@@ -228,10 +260,12 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
                 SpreadsheetUrlPathTemplate.SPREADSHEET_ID,
                 ID,
                 SpreadsheetUrlPathTemplate.SPREADSHEET_NAME,
-                NAME
+                NAME,
+                SpreadsheetUrlPathTemplate.SPREADSHEET_ENGINE_EVALUATION,
+                SPREADSHEET_ENGINE_EVALUATION
             ),
             this.createTemplate()
-                .extract(UrlPath.parse("/api/spreadsheet/123/name/SpreadsheetName456/cell"))
+                .extract(UrlPath.parse("/api/spreadsheet/123/name/SpreadsheetName456/cell/A1/skip-evaluate"))
         );
     }
 
@@ -249,11 +283,17 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
                     if (n.equals(SpreadsheetUrlPathTemplate.SPREADSHEET_NAME)) {
                         return NAME.toString();
                     }
+                    if (n.equals(SpreadsheetUrlPathTemplate.SPREADSHEET_ENGINE_EVALUATION)) {
+                        return SPREADSHEET_ENGINE_EVALUATION.toLinkRelation()
+                            .toUrlPathName()
+                            .get()
+                            .value();
+                    }
 
                     throw new IllegalArgumentException("Unknown value=" + n);
                 }
             ),
-            "/api/spreadsheet/123/name/SpreadsheetName456/cell"
+            "/api/spreadsheet/123/name/SpreadsheetName456/cell/A1/skip-evaluate"
         );
     }
 
@@ -279,7 +319,7 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
 
     @Override
     public SpreadsheetUrlPathTemplate createTemplate() {
-        return SpreadsheetUrlPathTemplate.parse("/api/spreadsheet/${SpreadsheetId}/name/${SpreadsheetName}/cell");
+        return SpreadsheetUrlPathTemplate.parse("/api/spreadsheet/${SpreadsheetId}/name/${SpreadsheetName}/cell/A1/${SpreadsheetEngineEvaluation}");
     }
 
     @Override
@@ -329,7 +369,15 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
                 "      StringTemplate\n" +
                 "        \"/\"\n" +
                 "      StringTemplate\n" +
-                "        \"cell\"\n"
+                "        \"cell\"\n" +
+                "      StringTemplate\n" +
+                "        \"/\"\n" +
+                "      StringTemplate\n" +
+                "        \"A1\"\n" +
+                "      StringTemplate\n" +
+                "        \"/\"\n" +
+                "      TemplateValueNameTemplate\n" +
+                "        ${SpreadsheetEngineEvaluation}\n"
         );
     }
 
