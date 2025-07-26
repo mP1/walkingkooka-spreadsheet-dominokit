@@ -24,11 +24,13 @@ import walkingkooka.net.UrlPath;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.server.locale.LocaleTag;
 import walkingkooka.template.TemplateContext;
 import walkingkooka.template.TemplateContexts;
 import walkingkooka.template.TemplateTesting2;
 import walkingkooka.template.TemplateValueName;
 
+import java.util.Locale;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -38,6 +40,9 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
 
     private final static SpreadsheetId ID = SpreadsheetId.with(0x123);
     private final static SpreadsheetName NAME = SpreadsheetName.with("SpreadsheetName456");
+    private final LocaleTag LOCALE_TAG = LocaleTag.with(
+        Locale.forLanguageTag("en-AU")
+    );
 
     // get..........................................................................................................
 
@@ -66,7 +71,7 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
     }
 
     @Test
-    public void testGetExisting() {
+    public void testGetSpreadsheetIdExisting() {
         this.getAndCheck(
             "/api/spreadsheet/${SpreadsheetId}/name/${SpreadsheetName}/cell",
             "/api/spreadsheet/123/name/SpreadsheetName456/cell",
@@ -76,12 +81,22 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
     }
 
     @Test
-    public void testGetExisting2() {
+    public void testGetSpreadsheetNameExisting() {
         this.getAndCheck(
             "/api/spreadsheet/${SpreadsheetId}/name/${SpreadsheetName}/cell",
             "/api/spreadsheet/123/name/SpreadsheetName456/cell",
-            SpreadsheetUrlPathTemplate.SPREADSHEET_ID,
-            Optional.of(ID)
+            SpreadsheetUrlPathTemplate.SPREADSHEET_NAME,
+            Optional.of(NAME)
+        );
+    }
+
+    @Test
+    public void testGetLocaleTagExisting() {
+        this.getAndCheck(
+            "/api/dateTimeSymbols/${LocaleTag}/*",
+            "/api/dateTimeSymbols/en-AU/*",
+            SpreadsheetUrlPathTemplate.LOCALE_TAG,
+            Optional.of(LOCALE_TAG)
         );
     }
 
@@ -171,14 +186,16 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
     @Test
     public void testRenderPath() {
         this.checkEquals(
-            UrlPath.parse("/api/spreadsheet/123/name/SpreadsheetName456/cell"),
-            this.createTemplate()
+            UrlPath.parse("/api/spreadsheet/123/name/SpreadsheetName456/localeTag/en-AU"),
+            SpreadsheetUrlPathTemplate.parse("/api/spreadsheet/${SpreadsheetId}/name/${SpreadsheetName}/localeTag/${LocaleTag}")
                 .render(
                     Maps.of(
                         SpreadsheetUrlPathTemplate.SPREADSHEET_ID,
                         ID,
                         SpreadsheetUrlPathTemplate.SPREADSHEET_NAME,
-                        NAME
+                        NAME,
+                        SpreadsheetUrlPathTemplate.LOCALE_TAG,
+                        LOCALE_TAG
                     )
                 )
         );
