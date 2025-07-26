@@ -19,11 +19,11 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
-import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlPathName;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.url.SpreadsheetUrlPathTemplate;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.spreadsheet.server.SpreadsheetUrlQueryParameters;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResource;
@@ -115,7 +115,10 @@ public final class LocaleFetcher extends Fetcher<LocaleFetcherWatcher> {
             case "LocaleHateosResource":
                 // GET http://server/api/locale/LocaleTagId
                 this.watcher.onLocaleHateosResource(
-                    parseLocaleTag(url.path()), // the request url
+                    (LocaleTag) LOCALE_TAG_TEMPLATE.getOrFail(
+                        url.path(),
+                        SpreadsheetUrlPathTemplate.LOCALE_TAG
+                    ), // the request url
                     this.parse(
                         body,
                         LocaleHateosResource.class
@@ -138,11 +141,5 @@ public final class LocaleFetcher extends Fetcher<LocaleFetcherWatcher> {
         }
     }
 
-    static LocaleTag parseLocaleTag(final UrlPath path) {
-        return LocaleTag.parse(
-            path.namesList()
-                .get(3)
-                .text()
-        );
-    }
+    final static SpreadsheetUrlPathTemplate LOCALE_TAG_TEMPLATE = SpreadsheetUrlPathTemplate.parse("/api/locale/${LocaleTag}");
 }
