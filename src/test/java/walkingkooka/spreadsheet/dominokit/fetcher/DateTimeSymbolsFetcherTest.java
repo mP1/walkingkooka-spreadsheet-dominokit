@@ -22,6 +22,7 @@ import walkingkooka.net.Url;
 import walkingkooka.net.UrlPath;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.url.SpreadsheetUrlPathTemplate;
 import walkingkooka.spreadsheet.server.locale.LocaleTag;
 import walkingkooka.text.printer.TreePrintableTesting;
 
@@ -29,18 +30,21 @@ public final class DateTimeSymbolsFetcherTest implements TreePrintableTesting,
     ClassTesting<DateTimeSymbolsFetcher> {
 
     @Test
-    public void testExtractLocaleTag() {
-        this.extractLocaleTagAndCheck(
+    public void testLocaleTagTemplateGet() {
+        this.localeTagAndCheck(
             UrlPath.parse("/api/dateTimeSymbols/EN-AU"),
             LocaleTag.parse("EN-AU")
         );
     }
 
-    private void extractLocaleTagAndCheck(final UrlPath path,
-                                          final LocaleTag expected) {
+    private void localeTagAndCheck(final UrlPath path,
+                                   final LocaleTag expected) {
         this.checkEquals(
             expected,
-            DateTimeSymbolsFetcher.extractLocaleTag(path)
+            DateTimeSymbolsFetcher.LOCALE_TAG_TEMPLATE.getOrFail(
+                path,
+                SpreadsheetUrlPathTemplate.LOCALE_TAG
+            )
         );
     }
 
