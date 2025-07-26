@@ -23,6 +23,7 @@ import walkingkooka.net.UrlPath;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReferenceOrRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
@@ -58,6 +59,8 @@ public final class SpreadsheetUrlPathTemplate implements Template {
     public final static TemplateValueName SPREADSHEET_ID = TemplateValueName.with(SpreadsheetId.class.getSimpleName());
 
     public final static TemplateValueName SPREADSHEET_LABEL_NAME = TemplateValueName.with(SpreadsheetLabelName.class.getSimpleName());
+
+    public final static TemplateValueName SPREADSHEET_METADATA_PROPERTY_NAME = TemplateValueName.with(SpreadsheetMetadataPropertyName.class.getSimpleName());
 
     public final static TemplateValueName SPREADSHEET_NAME = TemplateValueName.with(SpreadsheetName.class.getSimpleName());
 
@@ -110,6 +113,14 @@ public final class SpreadsheetUrlPathTemplate implements Template {
                 SPREADSHEET_LABEL_NAME,
                 SpreadsheetLabelName.class
             )
+        );
+    }
+
+    public SpreadsheetMetadataPropertyName<?> spreadsheetMetadataPropertyName(final UrlPath path) {
+        return getOrFail(
+            path,
+            SPREADSHEET_METADATA_PROPERTY_NAME,
+            SpreadsheetMetadataPropertyName.class
         );
     }
 
@@ -226,6 +237,9 @@ public final class SpreadsheetUrlPathTemplate implements Template {
                     case "SpreadsheetLabelName":
                         v = SpreadsheetSelection.labelName(s);
                         break;
+                    case "SpreadsheetMetadataPropertyName":
+                        v = SpreadsheetMetadataPropertyName.with(s);
+                        break;
                     case "SpreadsheetName":
                         v = SpreadsheetName.with(s);
                         break;
@@ -270,6 +284,7 @@ public final class SpreadsheetUrlPathTemplate implements Template {
                             .toStringMaybeStar();
                         break;
                     case "SpreadsheetId":
+                    case "SpreadsheetMetadataPropertyName":
                     case "SpreadsheetName":
                         stringValue = value.toString();
                         break;
