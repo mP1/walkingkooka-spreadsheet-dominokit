@@ -25,6 +25,7 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
@@ -65,6 +66,8 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
 
     private final static SpreadsheetRowReference ROW  = SpreadsheetSelection.parseRow("2");
     private final static SpreadsheetRowRangeReference ROW_RANGE = SpreadsheetSelection.parseRowRange("3:4");
+
+    private final static SpreadsheetMetadataPropertyName<?> SPREADSHEET_METADATA_PROPERTY_NAME = SpreadsheetMetadataPropertyName.ROUNDING_MODE;
 
     // get..........................................................................................................
 
@@ -397,6 +400,36 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
             template.spreadsheetLabelName(path)
         );
     }
+
+    // spreadsheetMetadataPropertyName..................................................................................
+
+    @Test
+    public void testSpreadsheetMetadataPropertyName() {
+        this.spreadsheetMetadataPropertyNameAndCheck(
+            "/api/spreadsheet/${SpreadsheetMetadataPropertyName}/",
+            "/api/spreadsheet/roundingMode/different",
+            SPREADSHEET_METADATA_PROPERTY_NAME
+        );
+    }
+
+    private void spreadsheetMetadataPropertyNameAndCheck(final String template,
+                                                         final String path,
+                                                         final SpreadsheetMetadataPropertyName<?> expected) {
+        this.spreadsheetMetadataPropertyNameAndCheck(
+            SpreadsheetUrlPathTemplate.parse(template),
+            UrlPath.parse(path),
+            expected
+        );
+    }
+
+    private void spreadsheetMetadataPropertyNameAndCheck(final SpreadsheetUrlPathTemplate template,
+                                                         final UrlPath path,
+                                                         final SpreadsheetMetadataPropertyName<?> expected) {
+        this.checkEquals(
+            expected,
+            template.spreadsheetMetadataPropertyName(path)
+        );
+    }
     
     // spreadsheetName..................................................................................................
 
@@ -492,12 +525,18 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
             SpreadsheetUrlPathTemplate.SPREADSHEET_LABEL_NAME,
             LABEL
         );
+        expected.put(
+            SpreadsheetUrlPathTemplate.SPREADSHEET_METADATA_PROPERTY_NAME,
+            SPREADSHEET_METADATA_PROPERTY_NAME
+        );
 
         this.checkEquals(
             expected,
             this.createTemplate()
                 .extract(
-                    UrlPath.parse("/api/spreadsheet/123/name/SpreadsheetName456/cell/A1/skip-evaluate/column/B/row/2/label/Label123")
+                    UrlPath.parse(
+                        "/api/spreadsheet/123/name/SpreadsheetName456/cell/A1/skip-evaluate/column/B/row/2" +
+                            "/label/Label123/metadata/roundingMode")
                 )
         );
     }
@@ -534,11 +573,14 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
                     if (n.equals(SpreadsheetUrlPathTemplate.SPREADSHEET_LABEL_NAME)) {
                         return LABEL.toStringMaybeStar();
                     }
+                    if (n.equals(SpreadsheetUrlPathTemplate.SPREADSHEET_METADATA_PROPERTY_NAME)) {
+                        return SPREADSHEET_METADATA_PROPERTY_NAME.value();
+                    }
 
                     throw new IllegalArgumentException("Unknown value=" + n);
                 }
             ),
-            "/api/spreadsheet/123/name/SpreadsheetName456/cell/A1/skip-evaluate/column/B/row/2/label/Label123"
+            "/api/spreadsheet/123/name/SpreadsheetName456/cell/A1/skip-evaluate/column/B/row/2/label/Label123/metadata/roundingMode"
         );
     }
 
@@ -579,17 +621,27 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
             SpreadsheetUrlPathTemplate.LOCALE_TAG,
             LOCALE_TAG
         );
+        values.put(
+            SpreadsheetUrlPathTemplate.SPREADSHEET_METADATA_PROPERTY_NAME,
+            SPREADSHEET_METADATA_PROPERTY_NAME
+        );
 
         this.checkEquals(
-            UrlPath.parse("/api/spreadsheet/123/name/SpreadsheetName456/cell/A1/localeTag/en-AU/column/B/row/2/label/Label123"),
-            SpreadsheetUrlPathTemplate.parse("/api/spreadsheet/${SpreadsheetId}/name/${SpreadsheetName}/cell/${SpreadsheetExpressionReference}/localeTag/${LocaleTag}/column/${SpreadsheetColumnReferenceOrRange}/row/${SpreadsheetRowReferenceOrRange}/label/${SpreadsheetLabelName}")
-                .render(values)
+            UrlPath.parse("/api/spreadsheet/123/name/SpreadsheetName456/cell/A1/localeTag/en-AU/column/B/row/2/label/Label123/metadata/roundingMode"),
+            SpreadsheetUrlPathTemplate.parse(
+                "/api/spreadsheet/${SpreadsheetId}/name/${SpreadsheetName}/cell/${SpreadsheetExpressionReference}/localeTag/${LocaleTag}" +
+                    "/column/${SpreadsheetColumnReferenceOrRange}/row/${SpreadsheetRowReferenceOrRange}/label/${SpreadsheetLabelName}/metadata/roundingMode"
+                ).render(values)
         );
     }
 
     @Override
     public SpreadsheetUrlPathTemplate createTemplate() {
-        return SpreadsheetUrlPathTemplate.parse("/api/spreadsheet/${SpreadsheetId}/name/${SpreadsheetName}/cell/${SpreadsheetExpressionReference}/${SpreadsheetEngineEvaluation}/column/${SpreadsheetColumnReferenceOrRange}/row/${SpreadsheetRowReferenceOrRange}/label/${SpreadsheetLabelName}");
+        return SpreadsheetUrlPathTemplate.parse("/api/spreadsheet/${SpreadsheetId}/name/${SpreadsheetName}" +
+            "/cell/${SpreadsheetExpressionReference}/${SpreadsheetEngineEvaluation}" +
+            "/column/${SpreadsheetColumnReferenceOrRange}/row/${SpreadsheetRowReferenceOrRange}" +
+            "/label/${SpreadsheetLabelName}/metadata/${SpreadsheetMetadataPropertyName}"
+        );
     }
 
     @Override
@@ -671,7 +723,15 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
                 "      StringTemplate\n" +
                 "        \"/\"\n" +
                 "      TemplateValueNameTemplate\n" +
-                "        ${SpreadsheetLabelName}\n"
+                "        ${SpreadsheetLabelName}\n" +
+                "      StringTemplate\n" +
+                "        \"/\"\n" +
+                "      StringTemplate\n" +
+                "        \"metadata\"\n" +
+                "      StringTemplate\n" +
+                "        \"/\"\n" +
+                "      TemplateValueNameTemplate\n" +
+                "        ${SpreadsheetMetadataPropertyName}\n"
         );
     }
 
