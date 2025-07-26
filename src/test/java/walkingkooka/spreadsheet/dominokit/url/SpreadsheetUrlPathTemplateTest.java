@@ -75,7 +75,8 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
             () -> this.createTemplate()
                 .get(
                     null,
-                    TemplateValueName.with("Hello")
+                    TemplateValueName.with("Hello"),
+                    Object.class
                 )
         );
     }
@@ -87,6 +88,20 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
             () -> this.createTemplate()
                 .get(
                     UrlPath.EMPTY,
+                    null,
+                    Object.class
+                )
+        );
+    }
+
+    @Test
+    public void testGetWithNullTypeFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createTemplate()
+                .get(
+                    UrlPath.EMPTY,
+                    TemplateValueName.with("Hello"),
                     null
                 )
         );
@@ -98,6 +113,7 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
             "/api/spreadsheet/${SpreadsheetId}/name/${SpreadsheetName}/cell",
             "/api/spreadsheet/123/name/SpreadsheetName456/cell",
             SpreadsheetUrlPathTemplate.SPREADSHEET_ID,
+           SpreadsheetId.class,
            Optional.of(ID)
         );
     }
@@ -108,6 +124,7 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
             "/api/spreadsheet/${SpreadsheetId}/name/${SpreadsheetName}/cell",
             "/api/spreadsheet/123/name/SpreadsheetName456/cell",
             SpreadsheetUrlPathTemplate.SPREADSHEET_NAME,
+            SpreadsheetName.class,
             Optional.of(NAME)
         );
     }
@@ -118,6 +135,7 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
             "/api/dateTimeSymbols/${LocaleTag}/*",
             "/api/dateTimeSymbols/en-AU/*",
             SpreadsheetUrlPathTemplate.LOCALE_TAG,
+            LocaleTag.class,
             Optional.of(LOCALE_TAG)
         );
     }
@@ -128,31 +146,36 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
             "/api/spreadsheet/${SpreadsheetId}/name/${SpreadsheetName}/cell",
             "/api/spreadsheet/123/name/SpreadsheetName456/cell",
             TemplateValueName.with("Unknown"),
+            Void.class,
             Optional.empty()
         );
     }
 
-    private void getAndCheck(final String template,
-                             final String path,
-                             final TemplateValueName name,
-                             final Optional<Object> expected) {
+    private <T> void getAndCheck(final String template,
+                                 final String path,
+                                 final TemplateValueName name,
+                                 final Class<T> type,
+                                 final Optional<T> expected) {
         this.getAndCheck(
             SpreadsheetUrlPathTemplate.parse(template),
             UrlPath.parse(path),
             name,
+            type,
             expected
         );
     }
 
-    private void getAndCheck(final SpreadsheetUrlPathTemplate template,
-                             final UrlPath path,
-                             final TemplateValueName name,
-                             final Optional<Object> expected) {
+    private <T> void getAndCheck(final SpreadsheetUrlPathTemplate template,
+                                 final UrlPath path,
+                                 final TemplateValueName name,
+                                 final Class<T> type,
+                                 final Optional<T> expected) {
         this.checkEquals(
             expected,
             template.get(
                 path,
-                name
+                name,
+                type
             )
         );
     }
