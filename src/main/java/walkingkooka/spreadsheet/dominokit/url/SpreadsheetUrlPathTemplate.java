@@ -50,7 +50,7 @@ import java.util.Set;
 public final class SpreadsheetUrlPathTemplate implements Template {
 
     public final static TemplateValueName SPREADSHEET_COLUMN_REFERENCE_OR_RANGE = TemplateValueName.with(SpreadsheetColumnReferenceOrRange.class.getSimpleName());
-    
+
     public final static TemplateValueName SPREADSHEET_ENGINE_EVALUATION = TemplateValueName.with(SpreadsheetEngineEvaluation.class.getSimpleName());
 
     public final static TemplateValueName SPREADSHEET_EXPRESSION_REFERENCE = TemplateValueName.with(SpreadsheetExpressionReference.class.getSimpleName());
@@ -76,18 +76,19 @@ public final class SpreadsheetUrlPathTemplate implements Template {
     }
 
     public LocaleTag localeTag(final UrlPath path) {
-        return (LocaleTag)
-            getOrFail(
-                path,
-                LOCALE_TAG
-            );
+        return getOrFail(
+            path,
+            LOCALE_TAG,
+            LocaleTag.class
+        );
     }
 
     public SpreadsheetColumnReferenceOrRange spreadsheetColumnReferenceOrRange(final UrlPath path) {
         return Cast.to(
             this.getOrFail(
                 path,
-                SPREADSHEET_COLUMN_REFERENCE_OR_RANGE
+                SPREADSHEET_COLUMN_REFERENCE_OR_RANGE,
+                SpreadsheetColumnReferenceOrRange.class
             )
         );
     }
@@ -96,7 +97,8 @@ public final class SpreadsheetUrlPathTemplate implements Template {
         return Cast.to(
             this.getOrFail(
                 path,
-                SPREADSHEET_ENGINE_EVALUATION
+                SPREADSHEET_ENGINE_EVALUATION,
+                SpreadsheetExpressionReference.class
             )
         );
     }
@@ -105,7 +107,8 @@ public final class SpreadsheetUrlPathTemplate implements Template {
         return Cast.to(
             this.get(
                 path,
-                SPREADSHEET_LABEL_NAME
+                SPREADSHEET_LABEL_NAME,
+                SpreadsheetLabelName.class
             )
         );
     }
@@ -114,52 +117,57 @@ public final class SpreadsheetUrlPathTemplate implements Template {
         return Cast.to(
             this.getOrFail(
                 path,
-                SPREADSHEET_EXPRESSION_REFERENCE
+                SPREADSHEET_EXPRESSION_REFERENCE,
+                SpreadsheetExpressionReference.class
             )
         );
     }
 
     public Optional<SpreadsheetId> spreadsheetId(final UrlPath path) {
-        return Cast.to(
-            this.get(
-                path,
-                SPREADSHEET_ID
-            )
+        return this.get(
+            path,
+            SPREADSHEET_ID,
+            SpreadsheetId.class
         );
     }
 
     public SpreadsheetName spreadsheetName(final UrlPath path) {
-        return (SpreadsheetName)
-            getOrFail(
-                path,
-                SPREADSHEET_NAME
-            );
+        return getOrFail(
+            path,
+            SPREADSHEET_NAME,
+            SpreadsheetName.class
+        );
     }
 
     public SpreadsheetRowReferenceOrRange spreadsheetRowReferenceOrRange(final UrlPath path) {
-        return Cast.to(
-            this.getOrFail(
-                path,
-                SPREADSHEET_ROW_REFERENCE_OR_RANGE
-            )
+        return this.getOrFail(
+            path,
+            SPREADSHEET_ROW_REFERENCE_OR_RANGE,
+            SpreadsheetRowReferenceOrRange.class
         );
     }
-    
-    public Object getOrFail(final UrlPath path,
-                            final TemplateValueName name) {
+
+    public <T> T getOrFail(final UrlPath path,
+                           final TemplateValueName name,
+                           final Class<T> type) {
         return this.get(
             path,
-            name
+            name,
+            type
         ).orElseThrow(() -> new IllegalArgumentException("Unknown placeholder: " + name));
     }
 
-    public Optional<Object> get(final UrlPath path,
-                                final TemplateValueName name) {
+    public <T> Optional<T> get(final UrlPath path,
+                               final TemplateValueName name,
+                               final Class<T> type) {
         Objects.requireNonNull(path, "path");
         Objects.requireNonNull(name, "name");
+        Objects.requireNonNull(type, "type");
 
-        return this.template.tryPrepareValues(path)
-            .flatMap(v -> get(v, name));
+        return Cast.to(
+            this.template.tryPrepareValues(path)
+                .flatMap(v -> get(v, name))
+        );
     }
 
     public Map<TemplateValueName, Object> extract(final UrlPath path) {
@@ -243,12 +251,12 @@ public final class SpreadsheetUrlPathTemplate implements Template {
                 final Object value = nameToValue.get(n);
                 final String stringValue;
 
-                switch(n.value()) {
+                switch (n.value()) {
                     case "LocaleTag":
                         stringValue = value.toString();
                         break;
                     case "SpreadsheetEngineEvaluation":
-                        stringValue = ((SpreadsheetEngineEvaluation)value)
+                        stringValue = ((SpreadsheetEngineEvaluation) value)
                             .toLinkRelation()
                             .toUrlPathName()
                             .get()
@@ -258,7 +266,7 @@ public final class SpreadsheetUrlPathTemplate implements Template {
                     case "SpreadsheetExpressionReference":
                     case "SpreadsheetLabelName":
                     case "SpreadsheetRowReferenceOrRange":
-                        stringValue = ((SpreadsheetSelection)value)
+                        stringValue = ((SpreadsheetSelection) value)
                             .toStringMaybeStar();
                         break;
                     case "SpreadsheetId":
