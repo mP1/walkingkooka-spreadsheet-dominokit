@@ -193,8 +193,7 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
                                        final Optional<SpreadsheetId> expected) {
         this.checkEquals(
             expected,
-            SpreadsheetUrlPathTemplate.parse("/api/spreadsheet/${SpreadsheetId}/")
-                .spreadsheetId(path)
+            template.spreadsheetId(path)
         );
     }
 
