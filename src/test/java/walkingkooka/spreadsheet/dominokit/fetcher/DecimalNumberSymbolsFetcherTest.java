@@ -22,23 +22,27 @@ import walkingkooka.net.Url;
 import walkingkooka.net.UrlPath;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.url.SpreadsheetUrlPathTemplate;
 import walkingkooka.spreadsheet.server.locale.LocaleTag;
 
 public final class DecimalNumberSymbolsFetcherTest implements ClassTesting<DecimalNumberSymbolsFetcher> {
 
     @Test
-    public void testExtractLocaleTag() {
-        this.extractLocaleTagAndCheck(
+    public void testLocaleTag() {
+        this.localeTagAndCheck(
             UrlPath.parse("/api/decimalNumberSymbols/EN-AU"),
             LocaleTag.parse("EN-AU")
         );
     }
 
-    private void extractLocaleTagAndCheck(final UrlPath path,
-                                          final LocaleTag expected) {
+    private void localeTagAndCheck(final UrlPath path,
+                                   final LocaleTag expected) {
         this.checkEquals(
             expected,
-            DecimalNumberSymbolsFetcher.extractLocaleTag(path)
+            DecimalNumberSymbolsFetcher.LOCALE_TAG_TEMPLATE.getOrFail(
+                path,
+                SpreadsheetUrlPathTemplate.LOCALE_TAG
+            )
         );
     }
 

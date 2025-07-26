@@ -24,6 +24,7 @@ import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlPathName;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.url.SpreadsheetUrlPathTemplate;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResourceSet;
@@ -112,7 +113,10 @@ public final class DecimalNumberSymbolsFetcher extends Fetcher<DecimalNumberSymb
             case "DecimalNumberSymbolsHateosResource":
                 // GET http://server/api/locale/LocaleTagId
                 this.watcher.onDecimalNumberSymbolsHateosResource(
-                    extractLocaleTag(url.path()), // the request url
+                    (LocaleTag) LOCALE_TAG_TEMPLATE.getOrFail(
+                        url.path(),
+                        SpreadsheetUrlPathTemplate.LOCALE_TAG
+                    ),
                     this.parse(
                         body,
                         DecimalNumberSymbolsHateosResource.class
@@ -136,20 +140,7 @@ public final class DecimalNumberSymbolsFetcher extends Fetcher<DecimalNumberSymb
         }
     }
 
-    // /api/decimalNumberSymbols/${LocaleTag}}
-    static LocaleTag extractLocaleTag(final UrlPath path) {
-        return LOCALE_TAG_TEMPLATE.tryPrepareValues(path)
-            .flatMap(
-                v -> v.get(
-                    LOCALE_TAG,
-                    LocaleTag::parse
-                )
-            ).orElseThrow(() -> new IllegalArgumentException("Url missing LocaleTag"));
-    }
-
-    private final static UrlPathTemplate LOCALE_TAG_TEMPLATE = UrlPathTemplate.parse("/api/decimalNumberSymbols/${LocaleTag}");
-
-    private final static TemplateValueName LOCALE_TAG = TemplateValueName.with("LocaleTag");
+    final static SpreadsheetUrlPathTemplate LOCALE_TAG_TEMPLATE = SpreadsheetUrlPathTemplate.parse("/api/decimalNumberSymbols/${LocaleTag}");
 
     // /api/dateTimeSymbols/*/localeStartsWith/STARTSWITH
     static String extractLocaleStartsWith(final UrlPath path) {
