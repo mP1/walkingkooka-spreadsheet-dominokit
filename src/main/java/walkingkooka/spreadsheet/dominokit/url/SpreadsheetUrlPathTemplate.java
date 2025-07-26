@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReferenceOrRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReferenceOrRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.server.locale.LocaleTag;
@@ -55,6 +56,8 @@ public final class SpreadsheetUrlPathTemplate implements Template {
     public final static TemplateValueName SPREADSHEET_EXPRESSION_REFERENCE = TemplateValueName.with(SpreadsheetExpressionReference.class.getSimpleName());
 
     public final static TemplateValueName SPREADSHEET_ID = TemplateValueName.with(SpreadsheetId.class.getSimpleName());
+
+    public final static TemplateValueName SPREADSHEET_LABEL_NAME = TemplateValueName.with(SpreadsheetLabelName.class.getSimpleName());
 
     public final static TemplateValueName SPREADSHEET_NAME = TemplateValueName.with(SpreadsheetName.class.getSimpleName());
 
@@ -94,6 +97,15 @@ public final class SpreadsheetUrlPathTemplate implements Template {
             this.getOrFail(
                 path,
                 SPREADSHEET_ENGINE_EVALUATION
+            )
+        );
+    }
+
+    public Optional<SpreadsheetEngineEvaluation> spreadsheetLabelName(final UrlPath path) {
+        return Cast.to(
+            this.get(
+                path,
+                SPREADSHEET_LABEL_NAME
             )
         );
     }
@@ -203,6 +215,9 @@ public final class SpreadsheetUrlPathTemplate implements Template {
                     case "SpreadsheetId":
                         v = SpreadsheetId.parse(s);
                         break;
+                    case "SpreadsheetLabelName":
+                        v = SpreadsheetSelection.labelName(s);
+                        break;
                     case "SpreadsheetName":
                         v = SpreadsheetName.with(s);
                         break;
@@ -241,6 +256,7 @@ public final class SpreadsheetUrlPathTemplate implements Template {
                         break;
                     case "SpreadsheetColumnReferenceOrRange":
                     case "SpreadsheetExpressionReference":
+                    case "SpreadsheetLabelName":
                     case "SpreadsheetRowReferenceOrRange":
                         stringValue = ((SpreadsheetSelection)value)
                             .toStringMaybeStar();

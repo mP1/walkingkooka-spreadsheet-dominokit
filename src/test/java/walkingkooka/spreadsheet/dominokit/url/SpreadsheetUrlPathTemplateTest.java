@@ -42,6 +42,7 @@ import walkingkooka.template.TemplateTesting2;
 import walkingkooka.template.TemplateValueName;
 
 import java.util.Locale;
+import java.util.Map;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -335,6 +336,45 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
         );
     }
 
+    // spreadsheetLabelName............................................................................................
+
+    @Test
+    public void testSpreadsheetLabelName() {
+        this.spreadsheetLabelNameAndCheck(
+            "/api/spreadsheet/${SpreadsheetId}/label/${SpreadsheetLabelName}",
+            "/api/spreadsheet/123/label/Label123",
+            Optional.of(LABEL)
+        );
+    }
+
+    @Test
+    public void testSpreadsheetLabelNameMissing() {
+        this.spreadsheetLabelNameAndCheck(
+            "/api/spreadsheet/${SpreadsheetId}/label",
+            "/api/spreadsheet/123/label",
+            Optional.empty()
+        );
+    }
+
+    private void spreadsheetLabelNameAndCheck(final String template,
+                                              final String path,
+                                              final Optional<SpreadsheetLabelName> expected) {
+        this.spreadsheetLabelNameAndCheck(
+            SpreadsheetUrlPathTemplate.parse(template),
+            UrlPath.parse(path),
+            expected
+        );
+    }
+
+    private void spreadsheetLabelNameAndCheck(final SpreadsheetUrlPathTemplate template,
+                                              final UrlPath path,
+                                              final Optional<SpreadsheetLabelName> expected) {
+        this.checkEquals(
+            expected,
+            template.spreadsheetLabelName(path)
+        );
+    }
+    
     // spreadsheetName..................................................................................................
 
     @Test
@@ -400,23 +440,42 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
 
     @Test
     public void testExtract() {
+        final Map<TemplateValueName, Object> expected = Maps.sorted();
+        expected.put(
+            SpreadsheetUrlPathTemplate.SPREADSHEET_ID,
+            ID
+        );
+        expected.put(
+            SpreadsheetUrlPathTemplate.SPREADSHEET_NAME,
+            NAME
+        );
+        expected.put(
+            SpreadsheetUrlPathTemplate.SPREADSHEET_EXPRESSION_REFERENCE,
+            CELL
+        );
+        expected.put(
+            SpreadsheetUrlPathTemplate.SPREADSHEET_ENGINE_EVALUATION,
+            SPREADSHEET_ENGINE_EVALUATION
+        );
+        expected.put(
+            SpreadsheetUrlPathTemplate.SPREADSHEET_COLUMN_REFERENCE_OR_RANGE,
+            COLUMN
+        );
+        expected.put(
+            SpreadsheetUrlPathTemplate.SPREADSHEET_ROW_REFERENCE_OR_RANGE,
+            ROW
+        );
+        expected.put(
+            SpreadsheetUrlPathTemplate.SPREADSHEET_LABEL_NAME,
+            LABEL
+        );
+
         this.checkEquals(
-            Maps.of(
-                SpreadsheetUrlPathTemplate.SPREADSHEET_ID,
-                ID,
-                SpreadsheetUrlPathTemplate.SPREADSHEET_NAME,
-                NAME,
-                SpreadsheetUrlPathTemplate.SPREADSHEET_EXPRESSION_REFERENCE,
-                CELL,
-                SpreadsheetUrlPathTemplate.SPREADSHEET_ENGINE_EVALUATION,
-                SPREADSHEET_ENGINE_EVALUATION,
-                SpreadsheetUrlPathTemplate.SPREADSHEET_COLUMN_REFERENCE_OR_RANGE,
-                COLUMN,
-                SpreadsheetUrlPathTemplate.SPREADSHEET_ROW_REFERENCE_OR_RANGE,
-                ROW
-            ),
+            expected,
             this.createTemplate()
-                .extract(UrlPath.parse("/api/spreadsheet/123/name/SpreadsheetName456/cell/A1/skip-evaluate/column/B/row/2"))
+                .extract(
+                    UrlPath.parse("/api/spreadsheet/123/name/SpreadsheetName456/cell/A1/skip-evaluate/column/B/row/2/label/Label123")
+                )
         );
     }
 
@@ -449,11 +508,14 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
                     if (n.equals(SpreadsheetUrlPathTemplate.SPREADSHEET_ROW_REFERENCE_OR_RANGE)) {
                         return ROW.toStringMaybeStar();
                     }
+                    if (n.equals(SpreadsheetUrlPathTemplate.SPREADSHEET_LABEL_NAME)) {
+                        return LABEL.toStringMaybeStar();
+                    }
 
                     throw new IllegalArgumentException("Unknown value=" + n);
                 }
             ),
-            "/api/spreadsheet/123/name/SpreadsheetName456/cell/A1/skip-evaluate/column/B/row/2"
+            "/api/spreadsheet/123/name/SpreadsheetName456/cell/A1/skip-evaluate/column/B/row/2/label/Label123"
         );
     }
 
@@ -461,31 +523,50 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
 
     @Test
     public void testRenderPath() {
+        final Map<TemplateValueName, Object> values = Maps.sorted();
+        values.put(
+            SpreadsheetUrlPathTemplate.SPREADSHEET_ID,
+            ID
+        );
+        values.put(
+            SpreadsheetUrlPathTemplate.SPREADSHEET_NAME,
+            NAME
+        );
+        values.put(
+            SpreadsheetUrlPathTemplate.SPREADSHEET_EXPRESSION_REFERENCE,
+            CELL
+        );
+        values.put(
+            SpreadsheetUrlPathTemplate.SPREADSHEET_ENGINE_EVALUATION,
+            SPREADSHEET_ENGINE_EVALUATION
+        );
+        values.put(
+            SpreadsheetUrlPathTemplate.SPREADSHEET_COLUMN_REFERENCE_OR_RANGE,
+            COLUMN
+        );
+        values.put(
+            SpreadsheetUrlPathTemplate.SPREADSHEET_ROW_REFERENCE_OR_RANGE,
+            ROW
+        );
+        values.put(
+            SpreadsheetUrlPathTemplate.SPREADSHEET_LABEL_NAME,
+            LABEL
+        );
+        values.put(
+            SpreadsheetUrlPathTemplate.LOCALE_TAG,
+            LOCALE_TAG
+        );
+
         this.checkEquals(
-            UrlPath.parse("/api/spreadsheet/123/name/SpreadsheetName456/cell/A1/localeTag/en-AU/column/B/row/2"),
-            SpreadsheetUrlPathTemplate.parse("/api/spreadsheet/${SpreadsheetId}/name/${SpreadsheetName}/cell/${SpreadsheetExpressionReference}/localeTag/${LocaleTag}/column/${SpreadsheetColumnReferenceOrRange}/row/${SpreadsheetRowReferenceOrRange}")
-                .render(
-                    Maps.of(
-                        SpreadsheetUrlPathTemplate.SPREADSHEET_ID,
-                        ID,
-                        SpreadsheetUrlPathTemplate.SPREADSHEET_NAME,
-                        NAME,
-                        SpreadsheetUrlPathTemplate.LOCALE_TAG,
-                        LOCALE_TAG,
-                        SpreadsheetUrlPathTemplate.SPREADSHEET_EXPRESSION_REFERENCE,
-                        CELL,
-                        SpreadsheetUrlPathTemplate.SPREADSHEET_COLUMN_REFERENCE_OR_RANGE,
-                        COLUMN,
-                        SpreadsheetUrlPathTemplate.SPREADSHEET_ROW_REFERENCE_OR_RANGE,
-                        ROW
-                    )
-                )
+            UrlPath.parse("/api/spreadsheet/123/name/SpreadsheetName456/cell/A1/localeTag/en-AU/column/B/row/2/label/Label123"),
+            SpreadsheetUrlPathTemplate.parse("/api/spreadsheet/${SpreadsheetId}/name/${SpreadsheetName}/cell/${SpreadsheetExpressionReference}/localeTag/${LocaleTag}/column/${SpreadsheetColumnReferenceOrRange}/row/${SpreadsheetRowReferenceOrRange}/label/${SpreadsheetLabelName}")
+                .render(values)
         );
     }
 
     @Override
     public SpreadsheetUrlPathTemplate createTemplate() {
-        return SpreadsheetUrlPathTemplate.parse("/api/spreadsheet/${SpreadsheetId}/name/${SpreadsheetName}/cell/${SpreadsheetExpressionReference}/${SpreadsheetEngineEvaluation}/column/${SpreadsheetColumnReferenceOrRange}/row/${SpreadsheetRowReferenceOrRange}");
+        return SpreadsheetUrlPathTemplate.parse("/api/spreadsheet/${SpreadsheetId}/name/${SpreadsheetName}/cell/${SpreadsheetExpressionReference}/${SpreadsheetEngineEvaluation}/column/${SpreadsheetColumnReferenceOrRange}/row/${SpreadsheetRowReferenceOrRange}/label/${SpreadsheetLabelName}");
     }
 
     @Override
@@ -559,7 +640,15 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
                 "      StringTemplate\n" +
                 "        \"/\"\n" +
                 "      TemplateValueNameTemplate\n" +
-                "        ${SpreadsheetRowReferenceOrRange}\n"
+                "        ${SpreadsheetRowReferenceOrRange}\n" +
+                "      StringTemplate\n" +
+                "        \"/\"\n" +
+                "      StringTemplate\n" +
+                "        \"label\"\n" +
+                "      StringTemplate\n" +
+                "        \"/\"\n" +
+                "      TemplateValueNameTemplate\n" +
+                "        ${SpreadsheetLabelName}\n"
         );
     }
 
