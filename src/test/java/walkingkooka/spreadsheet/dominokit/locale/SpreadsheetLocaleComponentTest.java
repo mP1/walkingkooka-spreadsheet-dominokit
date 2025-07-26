@@ -71,7 +71,7 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
         this.spreadsheetLocaleComponentValueAndCheck(
             ENGLISH_AUSTRALIA_TEXT,
             CONTEXT,
-            SpreadsheetLocaleComponentValue.with(
+            SpreadsheetLocaleComponentSuggestionsValue.with(
                 ENAU,
                 ENGLISH_AUSTRALIA_TEXT
             )
@@ -90,7 +90,7 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
         this.spreadsheetLocaleComponentValueAndCheck(
             text,
             CONTEXT,
-            SpreadsheetLocaleComponentValue.with(
+            SpreadsheetLocaleComponentSuggestionsValue.with(
                 ENNZ,
                 ENGLISH_NEW_ZEALAND_TEXT
             )
@@ -99,7 +99,7 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
 
     private void spreadsheetLocaleComponentValueAndCheck(final String localeText,
                                                          final LocaleContext context,
-                                                         final SpreadsheetLocaleComponentValue expected) {
+                                                         final SpreadsheetLocaleComponentSuggestionsValue expected) {
         this.checkEquals(
             expected,
             SpreadsheetLocaleComponent.spreadsheetLocaleComponentValue(

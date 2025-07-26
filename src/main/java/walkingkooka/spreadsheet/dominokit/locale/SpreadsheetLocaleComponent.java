@@ -57,7 +57,7 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
         this.context = context;
 
         this.suggestBox = SpreadsheetSuggestBoxComponent.with(
-            // String -> SpreadsheetLocaleComponentValue, exception will be shown as an error text
+            // String -> SpreadsheetLocaleComponentSuggestionsValue, exception will be shown as an error text
             (String localeText) -> spreadsheetLocaleComponentValue(
                 localeText,
                 context
@@ -70,7 +70,7 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
                             .stream()
                             .map(
                                 (LocaleHateosResource lhr) ->
-                                    SpreadsheetLocaleComponentValue.with(
+                                    SpreadsheetLocaleComponentSuggestionsValue.with(
                                         lhr.locale(),
                                         lhr.text()
                                     )
@@ -80,8 +80,8 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
                 }
 
                 @Override
-                public void verifyOption(final SpreadsheetLocaleComponentValue value) {
-                    final SpreadsheetLocaleComponentValue verified = verifyLocale(
+                public void verifyOption(final SpreadsheetLocaleComponentSuggestionsValue value) {
+                    final SpreadsheetLocaleComponentSuggestionsValue verified = verifyLocale(
                         value,
                         context
                     ).orElse(null);
@@ -92,7 +92,7 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
                 }
 
                 @Override
-                public String menuItemKey(final SpreadsheetLocaleComponentValue value) {
+                public String menuItemKey(final SpreadsheetLocaleComponentSuggestionsValue value) {
                     return value.locale()
                         .toLanguageTag();
                 }
@@ -101,14 +101,14 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
     }
 
     // @VisibleForTesting
-    static SpreadsheetLocaleComponentValue spreadsheetLocaleComponentValue(final String localeText,
-                                                                           final LocaleContext context) {
+    static SpreadsheetLocaleComponentSuggestionsValue spreadsheetLocaleComponentValue(final String localeText,
+                                                                                      final LocaleContext context) {
         for (final Locale locale : context.availableLocales()) {
             final String possibleLocaleText = context.localeText(locale)
                 .orElse(null);
 
             if (localeText.equalsIgnoreCase(possibleLocaleText)) {
-                return SpreadsheetLocaleComponentValue.with(
+                return SpreadsheetLocaleComponentSuggestionsValue.with(
                     locale,
                     localeText
                 );
@@ -121,15 +121,15 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
     /**
      * Verifies that the given locale is valid, returning null if it is an unknown locale.
      */
-    static Optional<SpreadsheetLocaleComponentValue> verifyLocale(final SpreadsheetLocaleComponentValue value,
-                                                                  final LocaleContext context) {
-        SpreadsheetLocaleComponentValue verified = null;
+    static Optional<SpreadsheetLocaleComponentSuggestionsValue> verifyLocale(final SpreadsheetLocaleComponentSuggestionsValue value,
+                                                                             final LocaleContext context) {
+        SpreadsheetLocaleComponentSuggestionsValue verified = null;
 
         if (null != value) {
             final Locale locale = value.locale();
             final String localeText = context.localeText(locale)
                 .orElse(null);
-            verified = SpreadsheetLocaleComponentValue.with(
+            verified = SpreadsheetLocaleComponentSuggestionsValue.with(
                 locale,
                 localeText
             );
@@ -245,7 +245,7 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
         Objects.requireNonNull(listener, "listener");
 
         this.suggestBox.addChangeListener(
-            (Optional<SpreadsheetLocaleComponentValue> oldLocale, Optional<SpreadsheetLocaleComponentValue> newLocale) -> listener.onValueChanged(
+            (Optional<SpreadsheetLocaleComponentSuggestionsValue> oldLocale, Optional<SpreadsheetLocaleComponentSuggestionsValue> newLocale) -> listener.onValueChanged(
                 oldLocale.map(HasLocale::locale),
                 newLocale.map(HasLocale::locale)
             )
@@ -315,7 +315,7 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
         Objects.requireNonNull(locale, "locale");
 
         // translate Locale -> LocaleHateosResource. The later will have the locale text and Locale for the #suggestBox
-        SpreadsheetLocaleComponentValue verified = null;
+        SpreadsheetLocaleComponentSuggestionsValue verified = null;
 
         if (locale.isPresent()) {
             final Locale gotLocale = locale.get();
@@ -324,7 +324,7 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
                 .orElse(null);
 
             if(null != localeText) {
-                verified = SpreadsheetLocaleComponentValue.with(
+                verified = SpreadsheetLocaleComponentSuggestionsValue.with(
                     gotLocale,
                     localeText
                 );
@@ -345,7 +345,7 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
             .map(HasLocale::locale);
     }
 
-    private final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentValue> suggestBox;
+    private final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue> suggestBox;
 
     // Object...........................................................................................................
 
