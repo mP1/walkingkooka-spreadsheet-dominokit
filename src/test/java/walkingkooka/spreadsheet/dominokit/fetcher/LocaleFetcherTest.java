@@ -21,7 +21,6 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.net.UrlPath;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.url.SpreadsheetUrlPathTemplate;
 import walkingkooka.spreadsheet.server.locale.LocaleTag;
 
 public final class LocaleFetcherTest implements ClassTesting<LocaleFetcher> {
@@ -38,10 +37,7 @@ public final class LocaleFetcherTest implements ClassTesting<LocaleFetcher> {
                                    final LocaleTag expected) {
         this.checkEquals(
             expected,
-            LocaleFetcher.LOCALE_TAG_TEMPLATE.getOrFail(
-                path,
-                SpreadsheetUrlPathTemplate.LOCALE_TAG
-            )
+            LocaleFetcher.LOCALE_TAG_TEMPLATE.localeTag(path)
         );
     }
 
