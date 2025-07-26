@@ -21,6 +21,7 @@ import walkingkooka.collect.map.Maps;
 import walkingkooka.net.UrlPath;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.server.locale.LocaleTag;
 import walkingkooka.template.Template;
 import walkingkooka.template.TemplateContext;
 import walkingkooka.template.TemplateValueName;
@@ -43,6 +44,8 @@ public final class SpreadsheetUrlPathTemplate implements Template {
     public final static TemplateValueName SPREADSHEET_ID = TemplateValueName.with(SpreadsheetId.class.getSimpleName());
 
     public final static TemplateValueName SPREADSHEET_NAME = TemplateValueName.with(SpreadsheetName.class.getSimpleName());
+
+    public final static TemplateValueName LOCALE_TAG = TemplateValueName.with("LocaleTag");
 
     public static SpreadsheetUrlPathTemplate parse(final String template) {
         return new SpreadsheetUrlPathTemplate(
@@ -96,6 +99,9 @@ public final class SpreadsheetUrlPathTemplate implements Template {
                 final Object v;
 
                 switch (name.value()) {
+                    case "LocaleTag":
+                        v = LocaleTag.parse(s);
+                        break;
                     case "SpreadsheetId":
                         v = SpreadsheetId.parse(s);
                         break;
@@ -122,6 +128,9 @@ public final class SpreadsheetUrlPathTemplate implements Template {
                 final String stringValue;
 
                 switch(n.value()) {
+                    case "LocaleTag":
+                        stringValue = value.toString();
+                        break;
                     case "SpreadsheetId":
                     case "SpreadsheetName":
                         stringValue = value.toString();
