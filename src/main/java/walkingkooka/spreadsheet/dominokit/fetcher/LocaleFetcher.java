@@ -115,9 +115,8 @@ public final class LocaleFetcher extends Fetcher<LocaleFetcherWatcher> {
             case "LocaleHateosResource":
                 // GET http://server/api/locale/LocaleTagId
                 this.watcher.onLocaleHateosResource(
-                    (LocaleTag) LOCALE_TAG_TEMPLATE.getOrFail(
-                        url.path(),
-                        SpreadsheetUrlPathTemplate.LOCALE_TAG
+                    LOCALE_TAG_TEMPLATE.localeTag(
+                        url.path()
                     ), // the request url
                     this.parse(
                         body,

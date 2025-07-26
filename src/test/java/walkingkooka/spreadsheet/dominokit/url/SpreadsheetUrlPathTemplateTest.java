@@ -135,6 +135,20 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
         );
     }
 
+    // localeTag..................................................................................................
+
+    @Test
+    public void testLocaleTag() {
+        this.checkEquals(
+            LOCALE_TAG,
+            SpreadsheetUrlPathTemplate.parse("/api/locale/${LocaleTag}/")
+                .localeTag(
+                    UrlPath.parse("/api/locale/en-AU/"
+                    )
+                )
+        );
+    }
+    
     // spreadsheetId....................................................................................................
 
     @Test

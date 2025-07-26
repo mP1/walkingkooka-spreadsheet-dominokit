@@ -57,6 +57,14 @@ public final class SpreadsheetUrlPathTemplate implements Template {
         this.template = template;
     }
 
+    public LocaleTag localeTag(final UrlPath path) {
+        return (LocaleTag)
+            getOrFail(
+                path,
+                LOCALE_TAG
+            );
+    }
+    
     public SpreadsheetId spreadsheetId(final UrlPath path) {
         return (SpreadsheetId)
             getOrFail(
