@@ -23,6 +23,8 @@ import walkingkooka.net.UrlPath;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.server.locale.LocaleTag;
 import walkingkooka.template.Template;
 import walkingkooka.template.TemplateContext;
@@ -45,6 +47,8 @@ import java.util.Set;
 public final class SpreadsheetUrlPathTemplate implements Template {
 
     public final static TemplateValueName SPREADSHEET_ENGINE_EVALUATION = TemplateValueName.with(SpreadsheetEngineEvaluation.class.getSimpleName());
+
+    public final static TemplateValueName SPREADSHEET_EXPRESSION_REFERENCE = TemplateValueName.with(SpreadsheetExpressionReference.class.getSimpleName());
 
     public final static TemplateValueName SPREADSHEET_ID = TemplateValueName.with(SpreadsheetId.class.getSimpleName());
 
@@ -75,6 +79,15 @@ public final class SpreadsheetUrlPathTemplate implements Template {
             this.getOrFail(
                 path,
                 SPREADSHEET_ENGINE_EVALUATION
+            )
+        );
+    }
+
+    public SpreadsheetExpressionReference spreadsheetExpressionReference(final UrlPath path) {
+        return Cast.to(
+            this.getOrFail(
+                path,
+                SPREADSHEET_EXPRESSION_REFERENCE
             )
         );
     }
@@ -157,6 +170,9 @@ public final class SpreadsheetUrlPathTemplate implements Template {
                             )
                         );
                         break;
+                    case "SpreadsheetExpressionReference":
+                        v = SpreadsheetSelection.parseExpressionReference(s);
+                        break;
                     case "SpreadsheetId":
                         v = SpreadsheetId.parse(s);
                         break;
@@ -193,6 +209,7 @@ public final class SpreadsheetUrlPathTemplate implements Template {
                             .get()
                             .value();
                         break;
+                    case "SpreadsheetExpressionReference":
                     case "SpreadsheetId":
                     case "SpreadsheetName":
                         stringValue = value.toString();
