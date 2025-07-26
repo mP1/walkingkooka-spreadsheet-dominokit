@@ -22,7 +22,6 @@ import walkingkooka.net.Url;
 import walkingkooka.net.UrlPath;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.url.SpreadsheetUrlPathTemplate;
 import walkingkooka.spreadsheet.server.locale.LocaleTag;
 
 public final class DecimalNumberSymbolsFetcherTest implements ClassTesting<DecimalNumberSymbolsFetcher> {
@@ -39,10 +38,7 @@ public final class DecimalNumberSymbolsFetcherTest implements ClassTesting<Decim
                                    final LocaleTag expected) {
         this.checkEquals(
             expected,
-            DecimalNumberSymbolsFetcher.LOCALE_TAG_TEMPLATE.getOrFail(
-                path,
-                SpreadsheetUrlPathTemplate.LOCALE_TAG
-            )
+            DecimalNumberSymbolsFetcher.LOCALE_TAG_TEMPLATE.localeTag(path)
         );
     }
 
