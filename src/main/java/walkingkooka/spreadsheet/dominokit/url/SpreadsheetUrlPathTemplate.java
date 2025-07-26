@@ -22,12 +22,14 @@ import walkingkooka.collect.map.Maps;
 import walkingkooka.net.UrlPath;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
 import walkingkooka.spreadsheet.server.locale.LocaleTag;
 import walkingkooka.template.Template;
 import walkingkooka.template.TemplateContext;
 import walkingkooka.template.TemplateValueName;
 import walkingkooka.template.url.UrlPathTemplate;
 import walkingkooka.template.url.UrlPathTemplateValues;
+import walkingkooka.text.CaseKind;
 import walkingkooka.text.LineEnding;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.Printer;
@@ -41,6 +43,8 @@ import java.util.Set;
  * A {@link Template} that supports extracting well known named parameters having values path components automatically converted.
  */
 public final class SpreadsheetUrlPathTemplate implements Template {
+
+    public final static TemplateValueName SPREADSHEET_ENGINE_EVALUATION = TemplateValueName.with(SpreadsheetEngineEvaluation.class.getSimpleName());
 
     public final static TemplateValueName SPREADSHEET_ID = TemplateValueName.with(SpreadsheetId.class.getSimpleName());
 
@@ -64,6 +68,15 @@ public final class SpreadsheetUrlPathTemplate implements Template {
                 path,
                 LOCALE_TAG
             );
+    }
+
+    public SpreadsheetEngineEvaluation spreadsheetEngineEvaluation(final UrlPath path) {
+        return Cast.to(
+            this.getOrFail(
+                path,
+                SPREADSHEET_ENGINE_EVALUATION
+            )
+        );
     }
 
     public Optional<SpreadsheetId> spreadsheetId(final UrlPath path) {
@@ -136,6 +149,14 @@ public final class SpreadsheetUrlPathTemplate implements Template {
                     case "LocaleTag":
                         v = LocaleTag.parse(s);
                         break;
+                    case "SpreadsheetEngineEvaluation":
+                        v = SpreadsheetEngineEvaluation.valueOf(
+                            CaseKind.KEBAB.change(
+                                s,
+                                CaseKind.SNAKE
+                            )
+                        );
+                        break;
                     case "SpreadsheetId":
                         v = SpreadsheetId.parse(s);
                         break;
@@ -164,6 +185,13 @@ public final class SpreadsheetUrlPathTemplate implements Template {
                 switch(n.value()) {
                     case "LocaleTag":
                         stringValue = value.toString();
+                        break;
+                    case "SpreadsheetEngineEvaluation":
+                        stringValue = ((SpreadsheetEngineEvaluation)value)
+                            .toLinkRelation()
+                            .toUrlPathName()
+                            .get()
+                            .value();
                         break;
                     case "SpreadsheetId":
                     case "SpreadsheetName":
