@@ -65,6 +65,14 @@ public final class SpreadsheetUrlPathTemplate implements Template {
             );
     }
 
+    public SpreadsheetName spreadsheetName(final UrlPath path) {
+        return (SpreadsheetName)
+            getOrFail(
+                path,
+                SPREADSHEET_NAME
+            );
+    }
+
     public Object getOrFail(final UrlPath path,
                             final TemplateValueName name) {
         return this.get(
