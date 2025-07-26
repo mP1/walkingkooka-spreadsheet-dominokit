@@ -50,6 +50,8 @@ import java.util.Set;
  */
 public final class SpreadsheetUrlPathTemplate implements Template {
 
+    public final static TemplateValueName LOCALE_TAG = TemplateValueName.with("LocaleTag");
+
     public final static TemplateValueName SPREADSHEET_COLUMN_REFERENCE_OR_RANGE = TemplateValueName.with(SpreadsheetColumnReferenceOrRange.class.getSimpleName());
 
     public final static TemplateValueName SPREADSHEET_ENGINE_EVALUATION = TemplateValueName.with(SpreadsheetEngineEvaluation.class.getSimpleName());
@@ -65,8 +67,6 @@ public final class SpreadsheetUrlPathTemplate implements Template {
     public final static TemplateValueName SPREADSHEET_NAME = TemplateValueName.with(SpreadsheetName.class.getSimpleName());
 
     public final static TemplateValueName SPREADSHEET_ROW_REFERENCE_OR_RANGE = TemplateValueName.with(SpreadsheetRowReferenceOrRange.class.getSimpleName());
-
-    public final static TemplateValueName LOCALE_TAG = TemplateValueName.with("LocaleTag");
 
     public static SpreadsheetUrlPathTemplate parse(final String template) {
         return new SpreadsheetUrlPathTemplate(
