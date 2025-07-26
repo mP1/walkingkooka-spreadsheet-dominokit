@@ -86,9 +86,10 @@ final class SpreadsheetLocaleComponentValue implements HasLocale,
 
     @Override
     public int compareTo(final SpreadsheetLocaleComponentValue other) {
-        return LocaleContexts.LANGUAGE_TAG_COMPARATOR.compare(
-            this.locale,
-            other.locale
-        );
+        return LocaleContexts.CASE_SENSITIVITY.comparator()
+            .compare(
+                this.text,
+                other.text
+            );
     }
 }
