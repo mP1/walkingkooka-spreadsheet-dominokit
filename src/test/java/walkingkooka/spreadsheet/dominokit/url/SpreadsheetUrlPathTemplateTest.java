@@ -26,6 +26,9 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetColumnRangeReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetColumnReferenceOrRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -52,6 +55,9 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
     private final static SpreadsheetExpressionReference CELL = SpreadsheetSelection.A1;
     private final static SpreadsheetLabelName LABEL = SpreadsheetSelection.labelName("Label123");
     private final static SpreadsheetCellRangeReference CELL_RANGE = SpreadsheetSelection.parseCellRange("A2:A3");
+
+    private final static SpreadsheetColumnReference COLUMN  = SpreadsheetSelection.parseColumn("B");
+    private final static SpreadsheetColumnRangeReference COLUMN_RANGE = SpreadsheetSelection.parseColumnRange("C:D");
 
     // get..........................................................................................................
 
@@ -155,6 +161,45 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
                     UrlPath.parse("/api/locale/en-AU/"
                     )
                 )
+        );
+    }
+
+    // spreadsheetColumnReferenceOrRange................................................................................
+
+    @Test
+    public void testSpreadsheetColumnReferenceOrRangeWithCell() {
+        this.spreadsheetColumnReferenceOrRangeAndCheck(
+            "/api/spreadsheet/${SpreadsheetId}/column/${SpreadsheetColumnReferenceOrRange}",
+            "/api/spreadsheet/123/column/B",
+            COLUMN
+        );
+    }
+
+    @Test
+    public void testSpreadsheetColumnReferenceOrRangeWithCellRange() {
+        this.spreadsheetColumnReferenceOrRangeAndCheck(
+            "/api/spreadsheet/${SpreadsheetId}/column/${SpreadsheetColumnReferenceOrRange}",
+            "/api/spreadsheet/123/column/C:D",
+            COLUMN_RANGE
+        );
+    }
+
+    private void spreadsheetColumnReferenceOrRangeAndCheck(final String template,
+                                                           final String path,
+                                                           final SpreadsheetColumnReferenceOrRange expected) {
+        this.spreadsheetColumnReferenceOrRangeAndCheck(
+            SpreadsheetUrlPathTemplate.parse(template),
+            UrlPath.parse(path),
+            expected
+        );
+    }
+
+    private void spreadsheetColumnReferenceOrRangeAndCheck(final SpreadsheetUrlPathTemplate template,
+                                                           final UrlPath path,
+                                                           final SpreadsheetColumnReferenceOrRange expected) {
+        this.checkEquals(
+            expected,
+            template.spreadsheetColumnReferenceOrRange(path)
         );
     }
 
@@ -319,10 +364,12 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
                 SpreadsheetUrlPathTemplate.SPREADSHEET_EXPRESSION_REFERENCE,
                 CELL,
                 SpreadsheetUrlPathTemplate.SPREADSHEET_ENGINE_EVALUATION,
-                SPREADSHEET_ENGINE_EVALUATION
+                SPREADSHEET_ENGINE_EVALUATION,
+                SpreadsheetUrlPathTemplate.SPREADSHEET_COLUMN_REFERENCE_OR_RANGE,
+                COLUMN
             ),
             this.createTemplate()
-                .extract(UrlPath.parse("/api/spreadsheet/123/name/SpreadsheetName456/cell/A1/skip-evaluate"))
+                .extract(UrlPath.parse("/api/spreadsheet/123/name/SpreadsheetName456/cell/A1/skip-evaluate/column/B"))
         );
     }
 
@@ -349,11 +396,14 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
                             .get()
                             .value();
                     }
+                    if (n.equals(SpreadsheetUrlPathTemplate.SPREADSHEET_COLUMN_REFERENCE_OR_RANGE)) {
+                        return COLUMN.toStringMaybeStar();
+                    }
 
                     throw new IllegalArgumentException("Unknown value=" + n);
                 }
             ),
-            "/api/spreadsheet/123/name/SpreadsheetName456/cell/A1/skip-evaluate"
+            "/api/spreadsheet/123/name/SpreadsheetName456/cell/A1/skip-evaluate/column/B"
         );
     }
 
@@ -362,8 +412,8 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
     @Test
     public void testRenderPath() {
         this.checkEquals(
-            UrlPath.parse("/api/spreadsheet/123/name/SpreadsheetName456/cell/A1/localeTag/en-AU"),
-            SpreadsheetUrlPathTemplate.parse("/api/spreadsheet/${SpreadsheetId}/name/${SpreadsheetName}/cell/${SpreadsheetExpressionReference}/localeTag/${LocaleTag}")
+            UrlPath.parse("/api/spreadsheet/123/name/SpreadsheetName456/cell/A1/localeTag/en-AU/column/B"),
+            SpreadsheetUrlPathTemplate.parse("/api/spreadsheet/${SpreadsheetId}/name/${SpreadsheetName}/cell/${SpreadsheetExpressionReference}/localeTag/${LocaleTag}/column/${SpreadsheetColumnReferenceOrRange}")
                 .render(
                     Maps.of(
                         SpreadsheetUrlPathTemplate.SPREADSHEET_ID,
@@ -373,7 +423,9 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
                         SpreadsheetUrlPathTemplate.LOCALE_TAG,
                         LOCALE_TAG,
                         SpreadsheetUrlPathTemplate.SPREADSHEET_EXPRESSION_REFERENCE,
-                        CELL
+                        CELL,
+                        SpreadsheetUrlPathTemplate.SPREADSHEET_COLUMN_REFERENCE_OR_RANGE,
+                        COLUMN
                     )
                 )
         );
@@ -381,7 +433,7 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
 
     @Override
     public SpreadsheetUrlPathTemplate createTemplate() {
-        return SpreadsheetUrlPathTemplate.parse("/api/spreadsheet/${SpreadsheetId}/name/${SpreadsheetName}/cell/${SpreadsheetExpressionReference}/${SpreadsheetEngineEvaluation}");
+        return SpreadsheetUrlPathTemplate.parse("/api/spreadsheet/${SpreadsheetId}/name/${SpreadsheetName}/cell/${SpreadsheetExpressionReference}/${SpreadsheetEngineEvaluation}/column/${SpreadsheetColumnReferenceOrRange}");
     }
 
     @Override
@@ -439,7 +491,15 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
                 "      StringTemplate\n" +
                 "        \"/\"\n" +
                 "      TemplateValueNameTemplate\n" +
-                "        ${SpreadsheetEngineEvaluation}\n"
+                "        ${SpreadsheetEngineEvaluation}\n" +
+                "      StringTemplate\n" +
+                "        \"/\"\n" +
+                "      StringTemplate\n" +
+                "        \"column\"\n" +
+                "      StringTemplate\n" +
+                "        \"/\"\n" +
+                "      TemplateValueNameTemplate\n" +
+                "        ${SpreadsheetColumnReferenceOrRange}\n"
         );
     }
 
