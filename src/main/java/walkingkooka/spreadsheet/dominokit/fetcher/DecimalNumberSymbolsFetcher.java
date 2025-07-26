@@ -113,9 +113,8 @@ public final class DecimalNumberSymbolsFetcher extends Fetcher<DecimalNumberSymb
             case "DecimalNumberSymbolsHateosResource":
                 // GET http://server/api/locale/LocaleTagId
                 this.watcher.onDecimalNumberSymbolsHateosResource(
-                    (LocaleTag) LOCALE_TAG_TEMPLATE.getOrFail(
-                        url.path(),
-                        SpreadsheetUrlPathTemplate.LOCALE_TAG
+                    LOCALE_TAG_TEMPLATE.localeTag(
+                        url.path()
                     ),
                     this.parse(
                         body,

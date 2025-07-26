@@ -113,9 +113,8 @@ public final class DateTimeSymbolsFetcher extends Fetcher<DateTimeSymbolsFetcher
             case "DateTimeSymbolsHateosResource":
                 // GET http://server/api/dateTimeSymbols/LocaleTagId
                 this.watcher.onDateTimeSymbolsHateosResource(
-                    (LocaleTag) LOCALE_TAG_TEMPLATE.getOrFail(
-                        url.path(),
-                        SpreadsheetUrlPathTemplate.LOCALE_TAG
+                    LOCALE_TAG_TEMPLATE.localeTag(
+                        url.path()
                     ),
                     this.parse(
                         body,
