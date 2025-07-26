@@ -32,6 +32,7 @@ import walkingkooka.text.printer.Printer;
 
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 /**
@@ -53,6 +54,15 @@ public final class SpreadsheetUrlPathTemplate implements Template {
         this.template = template;
     }
 
+    public Optional<Object> get(final UrlPath path,
+                                final TemplateValueName name) {
+        Objects.requireNonNull(path, "path");
+        Objects.requireNonNull(name, "name");
+
+        return this.template.tryPrepareValues(path)
+            .flatMap(v -> get(v, name));
+    }
+
     public Map<TemplateValueName, Object> extract(final UrlPath path) {
         Map<TemplateValueName, Object> values;
         final UrlPathTemplateValues templateValues = this.template.tryPrepareValues(path)
@@ -61,23 +71,9 @@ public final class SpreadsheetUrlPathTemplate implements Template {
             values = Maps.sorted();
 
             for (final TemplateValueName name : this.template.templateValueNames()) {
-                final Object value = templateValues.get(
-                    name,
-                    (final String s) -> {
-                        final Object v;
-
-                        switch (name.value()) {
-                            case "SpreadsheetId":
-                                v = SpreadsheetId.parse(s);
-                                break;
-                            case "SpreadsheetName":
-                                v = SpreadsheetName.with(s);
-                                break;
-                            default:
-                                throw new IllegalArgumentException("Unknown placeholder: " + name);
-                        }
-                        return v;
-                    }
+                final Object value = get(
+                    templateValues,
+                    name
                 ).orElseThrow(() -> new IllegalArgumentException("Url missing " + name));
                 values.put(
                     name,
@@ -90,6 +86,28 @@ public final class SpreadsheetUrlPathTemplate implements Template {
         }
 
         return values;
+    }
+
+    private static Optional<Object> get(final UrlPathTemplateValues values,
+                                        final TemplateValueName name) {
+        return values.get(
+            name,
+            (final String s) -> {
+                final Object v;
+
+                switch (name.value()) {
+                    case "SpreadsheetId":
+                        v = SpreadsheetId.parse(s);
+                        break;
+                    case "SpreadsheetName":
+                        v = SpreadsheetName.with(s);
+                        break;
+                    default:
+                        throw new IllegalArgumentException("Unknown placeholder: " + name);
+                }
+                return v;
+            }
+        );
     }
 
     /**

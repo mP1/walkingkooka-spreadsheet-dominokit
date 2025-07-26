@@ -27,6 +27,9 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.template.TemplateContext;
 import walkingkooka.template.TemplateContexts;
 import walkingkooka.template.TemplateTesting2;
+import walkingkooka.template.TemplateValueName;
+
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -35,6 +38,89 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
 
     private final static SpreadsheetId ID = SpreadsheetId.with(0x123);
     private final static SpreadsheetName NAME = SpreadsheetName.with("SpreadsheetName456");
+
+    // get..........................................................................................................
+
+    @Test
+    public void testGetWithNullPathFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createTemplate()
+                .get(
+                    null,
+                    TemplateValueName.with("Hello")
+                )
+        );
+    }
+
+    @Test
+    public void testGetWithNullNameFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createTemplate()
+                .get(
+                    UrlPath.EMPTY,
+                    null
+                )
+        );
+    }
+
+    @Test
+    public void testGetExisting() {
+        this.getAndCheck(
+            "/api/spreadsheet/${SpreadsheetId}/name/${SpreadsheetName}/cell",
+            "/api/spreadsheet/123/name/SpreadsheetName456/cell",
+            SpreadsheetUrlPathTemplate.SPREADSHEET_ID,
+           Optional.of(ID)
+        );
+    }
+
+    @Test
+    public void testGetExisting2() {
+        this.getAndCheck(
+            "/api/spreadsheet/${SpreadsheetId}/name/${SpreadsheetName}/cell",
+            "/api/spreadsheet/123/name/SpreadsheetName456/cell",
+            SpreadsheetUrlPathTemplate.SPREADSHEET_ID,
+            Optional.of(ID)
+        );
+    }
+
+    @Test
+    public void testGetMissing() {
+        this.getAndCheck(
+            "/api/spreadsheet/${SpreadsheetId}/name/${SpreadsheetName}/cell",
+            "/api/spreadsheet/123/name/SpreadsheetName456/cell",
+            TemplateValueName.with("Unknown"),
+            Optional.empty()
+        );
+    }
+
+    private void getAndCheck(final String template,
+                             final String path,
+                             final TemplateValueName name,
+                             final Optional<Object> expected) {
+        this.getAndCheck(
+            SpreadsheetUrlPathTemplate.parse(template),
+            UrlPath.parse(path),
+            name,
+            expected
+        );
+    }
+
+    private void getAndCheck(final SpreadsheetUrlPathTemplate template,
+                             final UrlPath path,
+                             final TemplateValueName name,
+                             final Optional<Object> expected) {
+        this.checkEquals(
+            expected,
+            template.get(
+                path,
+                name
+            )
+        );
+    }
+
+    // extract..........................................................................................................
 
     @Test
     public void testExtractWithNullMapFails() {
