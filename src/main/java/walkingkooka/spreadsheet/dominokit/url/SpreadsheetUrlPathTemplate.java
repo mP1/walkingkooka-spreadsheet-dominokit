@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.url;
 
+import walkingkooka.Cast;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.net.UrlPath;
 import walkingkooka.spreadsheet.SpreadsheetId;
@@ -64,13 +65,14 @@ public final class SpreadsheetUrlPathTemplate implements Template {
                 LOCALE_TAG
             );
     }
-    
-    public SpreadsheetId spreadsheetId(final UrlPath path) {
-        return (SpreadsheetId)
-            getOrFail(
+
+    public Optional<SpreadsheetId> spreadsheetId(final UrlPath path) {
+        return Cast.to(
+            this.get(
                 path,
                 SPREADSHEET_ID
-            );
+            )
+        );
     }
 
     public SpreadsheetName spreadsheetName(final UrlPath path) {

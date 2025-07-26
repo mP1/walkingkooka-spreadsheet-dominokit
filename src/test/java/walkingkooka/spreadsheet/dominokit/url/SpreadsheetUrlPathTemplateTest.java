@@ -148,18 +148,53 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
                 )
         );
     }
-    
+
     // spreadsheetId....................................................................................................
 
     @Test
     public void testSpreadsheetId() {
+        this.spreadsheetIdAndCheck(
+            "/api/spreadsheet/${SpreadsheetId}/",
+            "/api/spreadsheet/123/different",
+            Optional.of(ID)
+        );
+    }
+
+    @Test
+    public void testSpreadsheetIdMissing() {
+        this.spreadsheetIdAndCheck(
+            "/api/spreadsheet/${SpreadsheetId}/",
+            "/api/different",
+            Optional.empty()
+        );
+    }
+
+    @Test
+    public void testSpreadsheetIdDifferentPath() {
+        this.spreadsheetIdAndCheck(
+            "/api/spreadsheet/${SpreadsheetId}/different",
+            "/api/spreadsheet/123",
+            Optional.empty()
+        );
+    }
+
+    private void spreadsheetIdAndCheck(final String template,
+                                       final String path,
+                                       final Optional<SpreadsheetId> expected) {
+        this.spreadsheetIdAndCheck(
+            SpreadsheetUrlPathTemplate.parse(template),
+            UrlPath.parse(path),
+            expected
+        );
+    }
+
+    private void spreadsheetIdAndCheck(final SpreadsheetUrlPathTemplate template,
+                                       final UrlPath path,
+                                       final Optional<SpreadsheetId> expected) {
         this.checkEquals(
-            ID,
+            expected,
             SpreadsheetUrlPathTemplate.parse("/api/spreadsheet/${SpreadsheetId}/")
-                .spreadsheetId(
-                    UrlPath.parse("/api/spreadsheet/123/"
-                    )
-                )
+                .spreadsheetId(path)
         );
     }
 
