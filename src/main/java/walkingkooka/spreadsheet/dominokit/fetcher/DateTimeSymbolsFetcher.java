@@ -24,6 +24,7 @@ import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlPathName;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.url.SpreadsheetUrlPathTemplate;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResourceSet;
@@ -112,7 +113,10 @@ public final class DateTimeSymbolsFetcher extends Fetcher<DateTimeSymbolsFetcher
             case "DateTimeSymbolsHateosResource":
                 // GET http://server/api/dateTimeSymbols/LocaleTagId
                 this.watcher.onDateTimeSymbolsHateosResource(
-                    extractLocaleTag(url.path()), // the request url
+                    (LocaleTag) LOCALE_TAG_TEMPLATE.getOrFail(
+                        url.path(),
+                        SpreadsheetUrlPathTemplate.LOCALE_TAG
+                    ),
                     this.parse(
                         body,
                         DateTimeSymbolsHateosResource.class
@@ -137,19 +141,7 @@ public final class DateTimeSymbolsFetcher extends Fetcher<DateTimeSymbolsFetcher
     }
 
     // /api/dateTimeSymbols/${LocaleTag}}
-    static LocaleTag extractLocaleTag(final UrlPath path) {
-        return LOCALE_TAG_TEMPLATE.tryPrepareValues(path)
-            .flatMap(
-                v -> v.get(
-                    LOCALE_TAG,
-                    LocaleTag::parse
-                )
-            ).orElseThrow(() -> new IllegalArgumentException("Url missing LocaleTag"));
-    }
-
-    private final static UrlPathTemplate LOCALE_TAG_TEMPLATE = UrlPathTemplate.parse("/api/dateTimeSymbols/${LocaleTag}");
-
-    private final static TemplateValueName LOCALE_TAG = TemplateValueName.with("LocaleTag");
+    final static SpreadsheetUrlPathTemplate LOCALE_TAG_TEMPLATE = SpreadsheetUrlPathTemplate.parse("/api/dateTimeSymbols/${LocaleTag}");
 
     // /api/dateTimeSymbols/*/localeStartsWith/STARTSWITH
     static String extractLocaleStartsWith(final UrlPath path) {
