@@ -28,23 +28,23 @@ import java.util.Locale;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public final class SpreadsheetLocaleComponentValueTest implements ComparableTesting2<SpreadsheetLocaleComponentValue>,
-    ClassTesting<SpreadsheetLocaleComponentValue> {
+public final class SpreadsheetLocaleComponentSuggestionsValueTest implements ComparableTesting2<SpreadsheetLocaleComponentSuggestionsValue>,
+    ClassTesting<SpreadsheetLocaleComponentSuggestionsValue> {
 
     // Comparable.......................................................................................................
 
     @Test
     public void testComparableSort() {
-        final Set<SpreadsheetLocaleComponentValue> values = SortedSets.tree();
+        final Set<SpreadsheetLocaleComponentSuggestionsValue> values = SortedSets.tree();
 
-        final SpreadsheetLocaleComponentValue english = this.createComparable();
+        final SpreadsheetLocaleComponentSuggestionsValue english = this.createComparable();
 
-        final SpreadsheetLocaleComponentValue au = SpreadsheetLocaleComponentValue.with(
+        final SpreadsheetLocaleComponentSuggestionsValue au = SpreadsheetLocaleComponentSuggestionsValue.with(
             Locale.ENGLISH,
             "English australia"
         );
 
-        final SpreadsheetLocaleComponentValue nz = SpreadsheetLocaleComponentValue.with(
+        final SpreadsheetLocaleComponentSuggestionsValue nz = SpreadsheetLocaleComponentSuggestionsValue.with(
             Locale.forLanguageTag("en-NZ"),
             "English NEW ZEALAND"
         );
@@ -65,8 +65,8 @@ public final class SpreadsheetLocaleComponentValueTest implements ComparableTest
     }
 
     @Override
-    public SpreadsheetLocaleComponentValue createComparable() {
-        return SpreadsheetLocaleComponentValue.with(
+    public SpreadsheetLocaleComponentSuggestionsValue createComparable() {
+        return SpreadsheetLocaleComponentSuggestionsValue.with(
             Locale.ENGLISH,
             "English"
         );
@@ -75,8 +75,8 @@ public final class SpreadsheetLocaleComponentValueTest implements ComparableTest
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetLocaleComponentValue> type() {
-        return SpreadsheetLocaleComponentValue.class;
+    public Class<SpreadsheetLocaleComponentSuggestionsValue> type() {
+        return SpreadsheetLocaleComponentSuggestionsValue.class;
     }
 
     @Override

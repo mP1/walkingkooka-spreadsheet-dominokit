@@ -24,20 +24,20 @@ import walkingkooka.util.HasLocale;
 import java.util.Locale;
 import java.util.Objects;
 
-final class SpreadsheetLocaleComponentValue implements HasLocale,
+final class SpreadsheetLocaleComponentSuggestionsValue implements HasLocale,
     HasText,
-    Comparable<SpreadsheetLocaleComponentValue> {
+    Comparable<SpreadsheetLocaleComponentSuggestionsValue> {
 
-    static SpreadsheetLocaleComponentValue with(final Locale locale,
-                                                final String text) {
-        return new SpreadsheetLocaleComponentValue(
+    static SpreadsheetLocaleComponentSuggestionsValue with(final Locale locale,
+                                                           final String text) {
+        return new SpreadsheetLocaleComponentSuggestionsValue(
             locale,
             text
         );
     }
 
-    private SpreadsheetLocaleComponentValue(final Locale locale,
-                                            final String text) {
+    private SpreadsheetLocaleComponentSuggestionsValue(final Locale locale,
+                                                       final String text) {
         this.locale = locale;
         this.text = text;
     }
@@ -67,10 +67,10 @@ final class SpreadsheetLocaleComponentValue implements HasLocale,
     @Override
     public boolean equals(final Object other) {
         return this == other ||
-            (other instanceof SpreadsheetLocaleComponentValue && this.equals0((SpreadsheetLocaleComponentValue) other));
+            (other instanceof SpreadsheetLocaleComponentSuggestionsValue && this.equals0((SpreadsheetLocaleComponentSuggestionsValue) other));
     }
 
-    private boolean equals0(final SpreadsheetLocaleComponentValue other) {
+    private boolean equals0(final SpreadsheetLocaleComponentSuggestionsValue other) {
         return this.locale.equals(other.locale) ||
             this.text.equals(other.text);
     }
@@ -85,7 +85,7 @@ final class SpreadsheetLocaleComponentValue implements HasLocale,
     // Comparable.......................................................................................................
 
     @Override
-    public int compareTo(final SpreadsheetLocaleComponentValue other) {
+    public int compareTo(final SpreadsheetLocaleComponentSuggestionsValue other) {
         return LocaleContexts.CASE_SENSITIVITY.comparator()
             .compare(
                 this.text,
