@@ -23,6 +23,7 @@ import walkingkooka.net.UrlPath;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
+import walkingkooka.spreadsheet.reference.SpreadsheetColumnReferenceOrRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.server.locale.LocaleTag;
@@ -45,6 +46,8 @@ import java.util.Set;
  * A {@link Template} that supports extracting well known named parameters having values path components automatically converted.
  */
 public final class SpreadsheetUrlPathTemplate implements Template {
+
+    public final static TemplateValueName SPREADSHEET_COLUMN_REFERENCE_OR_RANGE = TemplateValueName.with(SpreadsheetColumnReferenceOrRange.class.getSimpleName());
 
     public final static TemplateValueName SPREADSHEET_ENGINE_EVALUATION = TemplateValueName.with(SpreadsheetEngineEvaluation.class.getSimpleName());
 
@@ -72,6 +75,15 @@ public final class SpreadsheetUrlPathTemplate implements Template {
                 path,
                 LOCALE_TAG
             );
+    }
+
+    public SpreadsheetColumnReferenceOrRange spreadsheetColumnReferenceOrRange(final UrlPath path) {
+        return Cast.to(
+            this.getOrFail(
+                path,
+                SPREADSHEET_COLUMN_REFERENCE_OR_RANGE
+            )
+        );
     }
 
     public SpreadsheetEngineEvaluation spreadsheetEngineEvaluation(final UrlPath path) {
@@ -162,6 +174,9 @@ public final class SpreadsheetUrlPathTemplate implements Template {
                     case "LocaleTag":
                         v = LocaleTag.parse(s);
                         break;
+                    case "SpreadsheetColumnReferenceOrRange":
+                        v = SpreadsheetSelection.parseColumnOrColumnRange(s);
+                        break;
                     case "SpreadsheetEngineEvaluation":
                         v = SpreadsheetEngineEvaluation.valueOf(
                             CaseKind.KEBAB.change(
@@ -209,7 +224,11 @@ public final class SpreadsheetUrlPathTemplate implements Template {
                             .get()
                             .value();
                         break;
+                    case "SpreadsheetColumnReferenceOrRange":
                     case "SpreadsheetExpressionReference":
+                        stringValue = ((SpreadsheetSelection)value)
+                            .toStringMaybeStar();
+                        break;
                     case "SpreadsheetId":
                     case "SpreadsheetName":
                         stringValue = value.toString();
