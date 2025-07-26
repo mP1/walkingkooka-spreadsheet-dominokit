@@ -135,6 +135,20 @@ public final class SpreadsheetUrlPathTemplateTest implements TemplateTesting2<Sp
         );
     }
 
+    // spreadsheetId....................................................................................................
+
+    @Test
+    public void testSpreadsheetId() {
+        this.checkEquals(
+            ID,
+            SpreadsheetUrlPathTemplate.parse("/api/spreadsheet/${SpreadsheetId}/")
+                .spreadsheetId(
+                    UrlPath.parse("/api/spreadsheet/123/"
+                    )
+                )
+        );
+    }
+
     // extract..........................................................................................................
 
     @Test
