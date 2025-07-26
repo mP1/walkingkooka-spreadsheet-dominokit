@@ -39,6 +39,7 @@ import walkingkooka.text.CaseKind;
 import walkingkooka.text.LineEnding;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.Printer;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Map;
 import java.util.Objects;
@@ -67,6 +68,8 @@ public final class SpreadsheetUrlPathTemplate implements Template {
     public final static TemplateValueName SPREADSHEET_NAME = TemplateValueName.with(SpreadsheetName.class.getSimpleName());
 
     public final static TemplateValueName SPREADSHEET_ROW_REFERENCE_OR_RANGE = TemplateValueName.with(SpreadsheetRowReferenceOrRange.class.getSimpleName());
+
+    public final static TemplateValueName TEXT_STYLE_PROPERTY_NAME = TemplateValueName.with(TextStylePropertyName.class.getSimpleName());
 
     public static SpreadsheetUrlPathTemplate parse(final String template) {
         return new SpreadsheetUrlPathTemplate(
@@ -158,6 +161,14 @@ public final class SpreadsheetUrlPathTemplate implements Template {
         );
     }
 
+    public TextStylePropertyName<?> textStylePropertyName(final UrlPath path) {
+        return getOrFail(
+            path,
+            TEXT_STYLE_PROPERTY_NAME,
+            TextStylePropertyName.class
+        );
+    }
+
     public <T> T getOrFail(final UrlPath path,
                            final TemplateValueName name,
                            final Class<T> type) {
@@ -246,6 +257,9 @@ public final class SpreadsheetUrlPathTemplate implements Template {
                     case "SpreadsheetRowReferenceOrRange":
                         v = SpreadsheetSelection.parseRowOrRowRange(s);
                         break;
+                    case "TextStylePropertyName":
+                        v = TextStylePropertyName.with(s);
+                        break;
                     default:
                         throw new IllegalArgumentException("Unknown placeholder: " + name);
                 }
@@ -287,6 +301,9 @@ public final class SpreadsheetUrlPathTemplate implements Template {
                     case "SpreadsheetMetadataPropertyName":
                     case "SpreadsheetName":
                         stringValue = value.toString();
+                        break;
+                    case "TextStylePropertyName":
+                        stringValue = ((TextStylePropertyName)value).text();
                         break;
                     default:
                         throw new IllegalArgumentException("Unknown placeholder: " + n);
