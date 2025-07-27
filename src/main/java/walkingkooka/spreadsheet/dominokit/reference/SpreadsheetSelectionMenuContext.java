@@ -29,7 +29,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenu;
 import walkingkooka.tree.text.TextStyleProperty;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.provider.ValidatorSelector;
@@ -68,9 +68,9 @@ public interface SpreadsheetSelectionMenuContext extends Context,
     Set<SpreadsheetExpressionReference> references(final SpreadsheetSelection selection);
 
     /**
-     * Returns the {@link List<SpreadsheetFormatterSelectorMenu>} for the current {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector}.
+     * Returns the {@link List<SpreadsheetFormatterMenu>} for the current {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector}.
      */
-    List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorsMenus();
+    List<SpreadsheetFormatterMenu> spreadsheetFormatterMenus();
 
     /**
      * Returns recent {@link SpreadsheetParserSelector}.

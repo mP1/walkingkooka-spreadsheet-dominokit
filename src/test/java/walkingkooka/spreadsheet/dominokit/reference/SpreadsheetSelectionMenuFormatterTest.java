@@ -37,7 +37,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
-import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenu;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.List;
@@ -163,17 +163,17 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
             historyToken,
             Lists.empty(),
             Lists.of(
-                SpreadsheetFormatterSelectorMenu.with(
+                SpreadsheetFormatterMenu.with(
                     "Short",
                     SpreadsheetPattern.parseDateFormatPattern("yy/mm/dd")
                         .spreadsheetFormatterSelector()
                 ),
-                SpreadsheetFormatterSelectorMenu.with(
+                SpreadsheetFormatterMenu.with(
                     "Medium",
                     SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/ddd")
                         .spreadsheetFormatterSelector()
                 ),
-                SpreadsheetFormatterSelectorMenu.with(
+                SpreadsheetFormatterMenu.with(
                     "Default text",
                     SpreadsheetFormatterSelector.DEFAULT_TEXT_FORMAT
                 )
@@ -228,16 +228,16 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
             historyToken,
             Lists.empty(),
             Lists.of(
-                SpreadsheetFormatterSelectorMenu.with(
+                SpreadsheetFormatterMenu.with(
                     "Short",
                     selected
                 ),
-                SpreadsheetFormatterSelectorMenu.with(
+                SpreadsheetFormatterMenu.with(
                     "Medium",
                     SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/ddd")
                         .spreadsheetFormatterSelector()
                 ),
-                SpreadsheetFormatterSelectorMenu.with(
+                SpreadsheetFormatterMenu.with(
                     "Default text",
                     SpreadsheetFormatterSelector.DEFAULT_TEXT_FORMAT
                 )
@@ -297,31 +297,31 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
                 SpreadsheetFormatterSelector.parse("date-format-pattern recent-2B")
             ),
             Lists.of(
-                SpreadsheetFormatterSelectorMenu.with(
+                SpreadsheetFormatterMenu.with(
                     "Short",
                     SpreadsheetPattern.parseDateFormatPattern("yy/mm/dd")
                         .spreadsheetFormatterSelector()
                 ),
-                SpreadsheetFormatterSelectorMenu.with(
+                SpreadsheetFormatterMenu.with(
                     "Medium",
                     SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/ddd")
                         .spreadsheetFormatterSelector()
                 ),
-                SpreadsheetFormatterSelectorMenu.with(
+                SpreadsheetFormatterMenu.with(
                     "Default text",
                     SpreadsheetFormatterSelector.DEFAULT_TEXT_FORMAT
                 ),
-                SpreadsheetFormatterSelectorMenu.with(
+                SpreadsheetFormatterMenu.with(
                     "Short",
                     SpreadsheetPattern.parseDateTimeFormatPattern("yy/mm/dd")
                         .spreadsheetFormatterSelector()
                 ),
-                SpreadsheetFormatterSelectorMenu.with(
+                SpreadsheetFormatterMenu.with(
                     "Medium",
                     SpreadsheetPattern.parseDateTimeFormatPattern("yyyy/mm/ddd")
                         .spreadsheetFormatterSelector()
                 ),
-                SpreadsheetFormatterSelectorMenu.with(
+                SpreadsheetFormatterMenu.with(
                     "Long",
                     SpreadsheetPattern.parseDateTimeFormatPattern("yyyy/mmm/dddd")
                         .spreadsheetFormatterSelector()
@@ -368,7 +368,7 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
 
     private SpreadsheetSelectionMenuContext context(final HistoryToken historyToken,
                                                     final List<SpreadsheetFormatterSelector> recentFormatters,
-                                                    final List<SpreadsheetFormatterSelectorMenu> menus,
+                                                    final List<SpreadsheetFormatterMenu> menus,
                                                     final Optional<SpreadsheetCell> selectionSummary) {
         return new FakeSpreadsheetSelectionMenuContext() {
 
@@ -388,7 +388,7 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
             }
 
             @Override
-            public List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorsMenus() {
+            public List<SpreadsheetFormatterMenu> spreadsheetFormatterMenus() {
                 return menus;
             }
 

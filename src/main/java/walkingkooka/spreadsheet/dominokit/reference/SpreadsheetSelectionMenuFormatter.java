@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenu;
 import walkingkooka.text.CaseKind;
 
 import java.util.List;
@@ -38,7 +38,7 @@ import java.util.stream.Collectors;
 
 /**
  * Creates a sub menu for each {@link SpreadsheetFormatterName} in the {@link SpreadsheetSelectionMenuContext#spreadsheetFormatterSelectorsMenus()},
- * with items for each {@link SpreadsheetFormatterSelectorMenu} using the labels and {@link SpreadsheetFormatterSelector}.
+ * with items for each {@link SpreadsheetFormatterMenu} using the labels and {@link SpreadsheetFormatterSelector}.
  * <pre>
  * Formatter
  *   Date Format Pattern
@@ -69,7 +69,7 @@ final class SpreadsheetSelectionMenuFormatter {
                        final SpreadsheetContextMenu menu,
                        final String idPrefix,
                        final SpreadsheetSelectionMenuContext context) {
-        buildSpreadsheetFormatterSelectorsMenus(
+        buildSpreadsheetFormatterMenus(
             historyToken,
             menu,
             idPrefix,
@@ -94,21 +94,21 @@ final class SpreadsheetSelectionMenuFormatter {
         );
     }
 
-    private static void buildSpreadsheetFormatterSelectorsMenus(final HistoryToken historyToken,
-                                                                final SpreadsheetContextMenu menu,
-                                                                final String idPrefix,
-                                                                final SpreadsheetSelectionMenuContext context) {
-        final Map<SpreadsheetFormatterName, List<SpreadsheetFormatterSelectorMenu>> nameToMenus = context.spreadsheetFormatterSelectorsMenus()
+    private static void buildSpreadsheetFormatterMenus(final HistoryToken historyToken,
+                                                       final SpreadsheetContextMenu menu,
+                                                       final String idPrefix,
+                                                       final SpreadsheetSelectionMenuContext context) {
+        final Map<SpreadsheetFormatterName, List<SpreadsheetFormatterMenu>> nameToMenus = context.spreadsheetFormatterMenus()
             .stream()
             .collect(
                 Collectors.toMap(
-                    (SpreadsheetFormatterSelectorMenu m) -> m.selector().name(),
-                    (SpreadsheetFormatterSelectorMenu m) -> {
-                        final List<SpreadsheetFormatterSelectorMenu> first = Lists.array();
+                    (SpreadsheetFormatterMenu m) -> m.selector().name(),
+                    (SpreadsheetFormatterMenu m) -> {
+                        final List<SpreadsheetFormatterMenu> first = Lists.array();
                         first.add(m);
                         return first;
                     },
-                    (List<SpreadsheetFormatterSelectorMenu> before, List<SpreadsheetFormatterSelectorMenu> merge) -> {
+                    (List<SpreadsheetFormatterMenu> before, List<SpreadsheetFormatterMenu> merge) -> {
                         before.addAll(merge);
                         return before;
                     }
@@ -120,7 +120,7 @@ final class SpreadsheetSelectionMenuFormatter {
             .orElse(null);
 
         // sort SpreadsheetFormatterName
-        for (final Entry<SpreadsheetFormatterName, List<SpreadsheetFormatterSelectorMenu>> nameAndMenus : new TreeMap<>(nameToMenus).entrySet()) {
+        for (final Entry<SpreadsheetFormatterName, List<SpreadsheetFormatterMenu>> nameAndMenus : new TreeMap<>(nameToMenus).entrySet()) {
             final SpreadsheetFormatterName name = nameAndMenus.getKey();
             final String nameMenuId = idPrefix + name.value();
 
@@ -131,7 +131,7 @@ final class SpreadsheetSelectionMenuFormatter {
                 )
             );
 
-            for (final SpreadsheetFormatterSelectorMenu spreadsheetFormatterSelectorMenu : nameAndMenus.getValue()) {
+            for (final SpreadsheetFormatterMenu spreadsheetFormatterSelectorMenu : nameAndMenus.getValue()) {
                 final SpreadsheetFormatterSelector selector = spreadsheetFormatterSelectorMenu.selector();
 
                 nameMenu.item(

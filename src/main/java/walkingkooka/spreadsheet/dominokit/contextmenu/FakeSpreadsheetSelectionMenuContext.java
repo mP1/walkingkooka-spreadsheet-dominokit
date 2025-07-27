@@ -28,7 +28,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenu;
 import walkingkooka.tree.text.TextStyleProperty;
 import walkingkooka.validation.provider.ValidatorSelector;
 
@@ -59,7 +59,7 @@ public class FakeSpreadsheetSelectionMenuContext extends FakeHistoryContext impl
     }
 
     @Override
-    public List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorsMenus() {
+    public List<SpreadsheetFormatterMenu> spreadsheetFormatterMenus() {
         throw new UnsupportedOperationException();
     }
 

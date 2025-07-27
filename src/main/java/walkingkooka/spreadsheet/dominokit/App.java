@@ -160,8 +160,8 @@ import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosReso
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResourceSet;
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResourceSet;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenuList;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
-import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenuList;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResource;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResourceSet;
 import walkingkooka.spreadsheet.server.locale.LocaleTag;
@@ -993,10 +993,10 @@ public class App implements EntryPoint,
     }
 
     @Override
-    public void onSpreadsheetFormatterSelectorMenuList(final SpreadsheetId id,
-                                                       final SpreadsheetExpressionReference cellOrLabel,
-                                                       final SpreadsheetFormatterSelectorMenuList menu,
-                                                       final AppContext context) {
+    public void onSpreadsheetFormatterMenuList(final SpreadsheetId id,
+                                               final SpreadsheetExpressionReference cellOrLabel,
+                                               final SpreadsheetFormatterMenuList menu,
+                                               final AppContext context) {
         // nop
     }
 

@@ -94,9 +94,9 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigationList;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenu;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenuList;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
-import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
-import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenuList;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStyle;
@@ -648,7 +648,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                 context
             );
 
-            List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorMenus = this.spreadsheetFormatterSelectorMenus;
+            List<SpreadsheetFormatterMenu> spreadsheetFormatterSelectorMenus = this.spreadsheetFormatterSelectorMenus;
             if (null == spreadsheetFormatterSelectorMenus) {
                 spreadsheetFormatterSelectorMenus = Lists.empty();
             }
@@ -676,7 +676,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     private final HistoryTokenRecorder<SpreadsheetFormatterSelector> recentFormatterSelectors;
 
     /**
-     * The {@link SpreadsheetExpressionReference} that was used to fetch {@link SpreadsheetFormatterSelectorMenu}.
+     * The {@link SpreadsheetExpressionReference} that was used to fetch {@link SpreadsheetFormatterMenu}.
      * This is used to detect selection changes,
      */
     private SpreadsheetExpressionReference spreadsheetFormatterSelectorSelection;
@@ -684,7 +684,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     /**
      * This should be updated each time the {@link SpreadsheetMetadataPropertyName#FORMATTERS} property changes.
      */
-    private List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorMenus;
+    private List<SpreadsheetFormatterMenu> spreadsheetFormatterSelectorMenus;
 
     /**
      * Watches {@link HistoryToken} events for {@link SpreadsheetParserSelector} saves adding new entry.
@@ -1106,7 +1106,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         // if selection changes, fetch the new formatter menus
         {
             SpreadsheetExpressionReference spreadsheetFormatterSelectorSelection = this.spreadsheetFormatterSelectorSelection;
-            List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorMenus = this.spreadsheetFormatterSelectorMenus;
+            List<SpreadsheetFormatterMenu> spreadsheetFormatterSelectorMenus = this.spreadsheetFormatterSelectorMenus;
 
             if (historyToken instanceof SpreadsheetCellHistoryToken) {
                 if (historyToken instanceof SpreadsheetCellSelectHistoryToken) {
@@ -1117,7 +1117,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                     if (null != currentSelection) {
                         if (false == currentSelection.equalsIgnoreReferenceKind(spreadsheetFormatterSelectorSelection)) {
                             spreadsheetFormatterSelectorSelection = currentSelection;
-                            spreadsheetFormatterSelectorMenus = Lists.empty(); // will be replaced in #onSpreadsheetFormatterSelectorMenuList
+                            spreadsheetFormatterSelectorMenus = Lists.empty(); // will be replaced in #onSpreadsheetFormatterMenuList
 
                             this.context.spreadsheetFormatterFetcher()
                                 .getCellFormatterMenu(
@@ -1338,9 +1338,9 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     }
 
     @Override
-    public void onSpreadsheetFormatterSelectorMenuList(final SpreadsheetId id,
+    public void onSpreadsheetFormatterMenuList(final SpreadsheetId id,
                                                        final SpreadsheetExpressionReference cellOrLabel,
-                                                       final SpreadsheetFormatterSelectorMenuList menus,
+                                                       final SpreadsheetFormatterMenuList menus,
                                                        final AppContext context) {
         this.spreadsheetFormatterSelectorSelection = cellOrLabel;
         this.spreadsheetFormatterSelectorMenus = menus;

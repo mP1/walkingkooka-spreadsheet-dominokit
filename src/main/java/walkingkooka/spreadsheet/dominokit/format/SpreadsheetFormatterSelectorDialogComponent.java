@@ -51,8 +51,8 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorTokenAlternat
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenuList;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
-import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenuList;
 import walkingkooka.text.CharSequences;
 
 import java.util.List;
@@ -328,10 +328,10 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
     }
 
     @Override
-    public void onSpreadsheetFormatterSelectorMenuList(final SpreadsheetId id,
-                                                       final SpreadsheetExpressionReference cellOrLabel,
-                                                       final SpreadsheetFormatterSelectorMenuList menu,
-                                                       final AppContext context) {
+    public void onSpreadsheetFormatterMenuList(final SpreadsheetId id,
+                                               final SpreadsheetExpressionReference cellOrLabel,
+                                               final SpreadsheetFormatterMenuList menu,
+                                               final AppContext context) {
         // nop
     }
 

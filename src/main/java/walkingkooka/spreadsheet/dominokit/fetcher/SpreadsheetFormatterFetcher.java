@@ -35,9 +35,9 @@ import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenu;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenuList;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
-import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
-import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenuList;
 import walkingkooka.text.CharSequences;
 
 import java.util.List;
@@ -59,9 +59,9 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
         }
 
         // force json unmarshaller to register
-        SpreadsheetFormatterSelectorMenuList.with(
+        SpreadsheetFormatterMenuList.with(
             Lists.of(
-                SpreadsheetFormatterSelectorMenu.with(
+                SpreadsheetFormatterMenu.with(
                     "Label",
                     SpreadsheetFormatterSelector.DEFAULT_TEXT_FORMAT
                 )
@@ -223,14 +223,14 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
                     context
                 );
                 break;
-            case "SpreadsheetFormatterSelectorMenuList":
+            case "SpreadsheetFormatterMenuList":
                 // http://server/api/spreadsheet/1/cell/SpreadsheetExpressionReference/formatter-menu
-                this.watcher.onSpreadsheetFormatterSelectorMenuList(
+                this.watcher.onSpreadsheetFormatterMenuList(
                     SpreadsheetMetadataFetcher.extractSpreadsheetIdOrFail(url),
                     extractCellOrLabel(url.path()),
                     this.parse(
                         body,
-                        SpreadsheetFormatterSelectorMenuList.class
+                        SpreadsheetFormatterMenuList.class
                     ), // menu
                     context
                 );
