@@ -35,7 +35,6 @@ import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
 import java.util.Optional;
-import java.util.function.Function;
 
 /**
  * Fetcher for {@link DecimalNumberSymbolsHateosResource} end points.
@@ -147,7 +146,9 @@ public final class DecimalNumberSymbolsFetcher extends Fetcher<DecimalNumberSymb
             .flatMap(
                 v -> v.get(
                     STARTS_WITH,
-                    Function.identity()
+                    (s) -> s.startsWith(UrlPath.SEPARATOR.string()) ?
+                        s.substring(UrlPath.SEPARATOR.string().length()) :
+                        s
                 )
             ).orElse("");
     }
