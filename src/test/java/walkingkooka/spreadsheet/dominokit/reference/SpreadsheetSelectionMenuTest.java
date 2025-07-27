@@ -51,7 +51,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
-import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenu;
 import walkingkooka.text.printer.TreePrintableTesting;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextStyleProperty;
@@ -1105,7 +1105,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     }
 
     @Test
-    public void testCellRecentSpreadsheetFormatterSelectorAndSpreadsheetParserSelectorAndSpreadsheetFormatterSelectorMenus() {
+    public void testCellRecentSpreadsheetFormatterSelectorAndSpreadsheetParserSelectorAndSpreadsheetFormatterMenus() {
         final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
             SpreadsheetId.with(1), // id
             SpreadsheetName.with("SpreadsheetName-1"), // name
@@ -1119,17 +1119,17 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 SpreadsheetFormatterSelector.parse("date-format-pattern recent-1A")
             ), // recent formatters
             Lists.of(
-                SpreadsheetFormatterSelectorMenu.with(
+                SpreadsheetFormatterMenu.with(
                     "Short",
                     SpreadsheetPattern.parseDateFormatPattern("yy/mm/dd")
                         .spreadsheetFormatterSelector()
                 ),
-                SpreadsheetFormatterSelectorMenu.with(
+                SpreadsheetFormatterMenu.with(
                     "Medium",
                     SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/ddd")
                         .spreadsheetFormatterSelector()
                 ),
-                SpreadsheetFormatterSelectorMenu.with(
+                SpreadsheetFormatterMenu.with(
                     "Default text",
                     SpreadsheetFormatterSelector.DEFAULT_TEXT_FORMAT
                 )
@@ -4571,7 +4571,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 .map(SpreadsheetComparatorInfo::name)
                 .collect(Collectors.toList()),
             Lists.empty(), // format patterns
-            Lists.empty(), // SpreadsheetFormatterSelectorMenu
+            Lists.empty(), // SpreadsheetFormatterMenu
             Lists.empty(), // parse patterns
             Lists.empty(), // recentTextStyleProperties
             Lists.empty(), // recentValidatorSelectors
@@ -4582,7 +4582,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     private SpreadsheetSelectionMenuContext context(final HistoryToken historyToken,
                                                     final List<SpreadsheetComparatorName> sortComparatorNames,
                                                     final List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors,
-                                                    final List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorMenus,
+                                                    final List<SpreadsheetFormatterMenu> spreadsheetFormatterMenus,
                                                     final List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors,
                                                     final List<TextStyleProperty<?>> recentTextStyleProperties,
                                                     final List<ValidatorSelector> recentValidatorSelectors,
@@ -4642,8 +4642,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             }
 
             @Override
-            public List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorsMenus() {
-                return spreadsheetFormatterSelectorMenus;
+            public List<SpreadsheetFormatterMenu> spreadsheetFormatterMenus() {
+                return spreadsheetFormatterMenus;
             }
 
             @Override

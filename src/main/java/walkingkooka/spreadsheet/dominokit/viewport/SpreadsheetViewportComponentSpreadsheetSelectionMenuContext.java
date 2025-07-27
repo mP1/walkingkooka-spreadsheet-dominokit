@@ -36,7 +36,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenu;
 import walkingkooka.tree.text.TextStyleProperty;
 import walkingkooka.validation.provider.ValidatorAlias;
 import walkingkooka.validation.provider.ValidatorAliasSet;
@@ -55,14 +55,14 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     HistoryContextDelegator {
 
     static SpreadsheetViewportComponentSpreadsheetSelectionMenuContext with(final List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors,
-                                                                            final List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorsMenus,
+                                                                            final List<SpreadsheetFormatterMenu> spreadsheetFormatterMenus,
                                                                             final List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors,
                                                                             final List<TextStyleProperty<?>> recentTextStyleProperties,
                                                                             final List<ValidatorSelector> recentValidatorSelectors,
                                                                             final SpreadsheetViewportComponentContext context) {
         return new SpreadsheetViewportComponentSpreadsheetSelectionMenuContext(
             recentSpreadsheetFormatterSelectors,
-            spreadsheetFormatterSelectorsMenus,
+            spreadsheetFormatterMenus,
             recentSpreadsheetParserSelectors,
             recentTextStyleProperties,
             recentValidatorSelectors,
@@ -71,13 +71,13 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     }
 
     private SpreadsheetViewportComponentSpreadsheetSelectionMenuContext(final List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors,
-                                                                        final List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorsMenus,
+                                                                        final List<SpreadsheetFormatterMenu> spreadsheetFormatterMenus,
                                                                         final List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors,
                                                                         final List<TextStyleProperty<?>> recentTextStyleProperties,
                                                                         final List<ValidatorSelector> recentValidatorSelectors,
                                                                         final SpreadsheetViewportComponentContext context) {
         this.recentSpreadsheetFormatterSelectors = recentSpreadsheetFormatterSelectors;
-        this.spreadsheetFormatterSelectorsMenus = spreadsheetFormatterSelectorsMenus;
+        this.spreadsheetFormatterMenus = spreadsheetFormatterMenus;
 
         this.recentSpreadsheetParserSelectors = recentSpreadsheetParserSelectors;
 
@@ -142,11 +142,11 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     }
 
     @Override
-    public List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorsMenus() {
-        return this.spreadsheetFormatterSelectorsMenus;
+    public List<SpreadsheetFormatterMenu> spreadsheetFormatterMenus() {
+        return this.spreadsheetFormatterMenus;
     }
 
-    private final List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorsMenus;
+    private final List<SpreadsheetFormatterMenu> spreadsheetFormatterMenus;
 
     @Override
     public List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors() {

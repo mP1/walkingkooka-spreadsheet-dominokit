@@ -20,16 +20,16 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
-import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenuList;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenuList;
 
 /**
- * The event payload used by {@link SpreadsheetFormatterFetcherWatchers} when it receives a {@link SpreadsheetFormatterSelectorMenuList}.
+ * The event payload used by {@link SpreadsheetFormatterFetcherWatchers} when it receives a {@link SpreadsheetFormatterMenuList}.
  */
 final class SpreadsheetFormatterFetcherWatchersMenuListEvent extends FetcherWatchersEvent<SpreadsheetFormatterFetcherWatcher> {
 
     static SpreadsheetFormatterFetcherWatchersMenuListEvent with(final SpreadsheetId id,
                                                                  final SpreadsheetExpressionReference cellOrLabel,
-                                                                 final SpreadsheetFormatterSelectorMenuList menuList,
+                                                                 final SpreadsheetFormatterMenuList menuList,
                                                                  final AppContext context) {
         return new SpreadsheetFormatterFetcherWatchersMenuListEvent(
             id,
@@ -41,7 +41,7 @@ final class SpreadsheetFormatterFetcherWatchersMenuListEvent extends FetcherWatc
 
     private SpreadsheetFormatterFetcherWatchersMenuListEvent(final SpreadsheetId id,
                                                              final SpreadsheetExpressionReference cellOrLabel,
-                                                             final SpreadsheetFormatterSelectorMenuList menuList,
+                                                             final SpreadsheetFormatterMenuList menuList,
                                                              final AppContext context) {
         super(context);
         this.id = id;
@@ -51,7 +51,7 @@ final class SpreadsheetFormatterFetcherWatchersMenuListEvent extends FetcherWatc
 
     @Override
     void fire(final SpreadsheetFormatterFetcherWatcher watcher) {
-        watcher.onSpreadsheetFormatterSelectorMenuList(
+        watcher.onSpreadsheetFormatterMenuList(
             this.id,
             this.cellOrLabel,
             this.menuList,
@@ -63,7 +63,7 @@ final class SpreadsheetFormatterFetcherWatchersMenuListEvent extends FetcherWatc
 
     private final SpreadsheetExpressionReference cellOrLabel;
 
-    private final SpreadsheetFormatterSelectorMenuList menuList;
+    private final SpreadsheetFormatterMenuList menuList;
 
     @Override
     public String toString() {

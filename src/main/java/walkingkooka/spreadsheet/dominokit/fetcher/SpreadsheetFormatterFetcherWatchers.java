@@ -21,8 +21,8 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenuList;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
-import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenuList;
 
 import java.util.Optional;
 
@@ -64,10 +64,10 @@ public final class SpreadsheetFormatterFetcherWatchers extends FetcherWatchers<S
     }
 
     @Override
-    public void onSpreadsheetFormatterSelectorMenuList(final SpreadsheetId id,
-                                                       final SpreadsheetExpressionReference cellOrLabel,
-                                                       final SpreadsheetFormatterSelectorMenuList menu,
-                                                       final AppContext context) {
+    public void onSpreadsheetFormatterMenuList(final SpreadsheetId id,
+                                               final SpreadsheetExpressionReference cellOrLabel,
+                                               final SpreadsheetFormatterMenuList menu,
+                                               final AppContext context) {
         this.fire(
             SpreadsheetFormatterFetcherWatchersMenuListEvent.with(
                 id,
