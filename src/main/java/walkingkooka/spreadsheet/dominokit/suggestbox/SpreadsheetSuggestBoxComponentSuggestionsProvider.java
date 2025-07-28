@@ -17,6 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.suggestbox;
 
+/**
+ * A provider that eventually updates the options belonging to a {@link SpreadsheetSuggestBoxComponent}.
+ */
 public interface SpreadsheetSuggestBoxComponentSuggestionsProvider<T> {
 
     void filter(final String startsWith);
