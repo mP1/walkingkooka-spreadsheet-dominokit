@@ -102,10 +102,12 @@ public final class SpreadsheetMetadataFetcherTest implements ClassTesting<Spread
     }
 
     @Test
-    public void testExtractSpreadsheetIdInvalid() {
-        this.extractSpreadsheetIdAndCheck(
-            "/api/spreadsheet/!invalid",
-            null
+    public void testExtractSpreadsheetIdInvalidFails() {
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> SpreadsheetMetadataFetcher.extractSpreadsheetId(
+                Url.parseRelative("/api/spreadsheet/!invalid")
+            )
         );
     }
 
