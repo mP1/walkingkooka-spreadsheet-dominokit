@@ -92,6 +92,11 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
     }
 
     @Override
+    public boolean isEditing() {
+        return this.select.isEditing();
+    }
+
+    @Override
     public SpreadsheetValueTypeComponent alwaysShowHelperText() {
         this.select.alwaysShowHelperText();
         return this;

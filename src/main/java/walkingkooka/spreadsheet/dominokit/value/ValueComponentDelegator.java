@@ -124,6 +124,12 @@ public interface ValueComponentDelegator<E extends HTMLElement, V, C extends Val
     }
 
     @Override
+    default boolean isEditing() {
+        return this.valueComponent()
+            .isEditing();
+    }
+
+    @Override
     default C setCssText(final String css) {
         this.valueComponent()
             .setCssText(css);

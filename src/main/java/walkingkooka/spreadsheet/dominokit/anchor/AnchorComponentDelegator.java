@@ -201,6 +201,12 @@ public interface AnchorComponentDelegator<A extends AnchorComponent<A, T>, T> ex
         return (A) this;
     }
 
+    @Override
+    default boolean isEditing() {
+        return this.anchorComponent()
+            .isEditing();
+    }
+
     // TreePrintable....................................................................................................
 
     @Override

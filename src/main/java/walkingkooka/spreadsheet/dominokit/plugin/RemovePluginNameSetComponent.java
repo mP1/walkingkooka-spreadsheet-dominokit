@@ -162,6 +162,13 @@ public final class RemovePluginNameSetComponent implements HtmlElementComponent<
      */
     private final SpreadsheetFlexLayout flex;
 
+    // isEditing........................................................................................................
+
+    @Override
+    public boolean isEditing() {
+        return false;
+    }
+
     // setCssText.......................................................................................................
 
     @Override

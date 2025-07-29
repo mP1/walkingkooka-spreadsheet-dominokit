@@ -123,6 +123,11 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
     }
 
     @Override
+    public boolean isEditing() {
+        return false;
+    }
+
+    @Override
     public SpreadsheetUploadFileComponent setCssText(final String css) {
         return this;
     }

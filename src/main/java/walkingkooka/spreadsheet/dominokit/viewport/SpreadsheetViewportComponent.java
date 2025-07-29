@@ -1234,6 +1234,13 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         return true;
     }
 
+    // isEditing........................................................................................................
+
+    @Override
+    public boolean isEditing() {
+        return false;
+    }
+
     // SpreadsheetViewportComponentLifecycle............................................................................
 
     @Override

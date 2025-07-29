@@ -90,6 +90,13 @@ abstract class SpreadsheetToolbarComponentItemAnchor<C extends SpreadsheetToolba
         return (C) this;
     }
 
+    // isEditing........................................................................................................
+
+    @Override
+    public boolean isEditing() {
+        return this.anchor.isEditing();
+    }
+
     // IsElement........................................................................................................
 
     @Override

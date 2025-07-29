@@ -214,6 +214,13 @@ public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>
         return this;
     }
 
+    // isEditing........................................................................................................
+
+    @Override
+    public boolean isEditing() {
+        return false;
+    }
+
     // IsElement........................................................................................................
 
     @Override

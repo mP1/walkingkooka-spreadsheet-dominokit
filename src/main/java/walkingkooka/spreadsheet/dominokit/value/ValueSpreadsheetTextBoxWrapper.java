@@ -73,6 +73,12 @@ public interface ValueSpreadsheetTextBoxWrapper<C extends ValueSpreadsheetTextBo
     }
 
     @Override
+    default boolean isEditing() {
+        return this.valueSpreadsheetTextBox()
+            .isEditing();
+    }
+
+    @Override
     default C optional() {
         this.valueSpreadsheetTextBox()
             .optional();

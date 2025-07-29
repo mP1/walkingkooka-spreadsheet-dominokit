@@ -244,6 +244,11 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
         return this;
     }
 
+    @Override
+    public boolean isEditing() {
+        return false;
+    }
+
     // SpreadsheetTextBoxTreePrintable..................................................................................
 
     @Override

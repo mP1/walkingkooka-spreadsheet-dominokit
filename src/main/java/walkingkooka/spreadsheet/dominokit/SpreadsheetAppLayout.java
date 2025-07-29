@@ -204,6 +204,13 @@ final class SpreadsheetAppLayout extends AppLayout implements
         return false;
     }
 
+    // isEditing........................................................................................................
+
+    @Override
+    public boolean isEditing() {
+        return false;
+    }
+
     // setCssText.......................................................................................................
 
     @Override

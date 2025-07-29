@@ -433,6 +433,13 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
         return this;
     }
 
+    // isEditing........................................................................................................
+
+    @Override
+    public boolean isEditing() {
+        return this.suggestBox.isFocused();
+    }
+
     // styling..........................................................................................................
 
     @Override

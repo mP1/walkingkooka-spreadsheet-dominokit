@@ -155,6 +155,13 @@ public class SpreadsheetFlexLayout extends SpreadsheetFlexLayoutLike {
         return this;
     }
 
+    // isEditing........................................................................................................
+
+    @Override
+    public boolean isEditing() {
+        return false;
+    }
+
     // IsElement........................................................................................................
 
     @Override

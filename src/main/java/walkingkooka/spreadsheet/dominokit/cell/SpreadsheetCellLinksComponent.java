@@ -112,6 +112,13 @@ public final class SpreadsheetCellLinksComponent implements HtmlElementComponent
 
     private final SpreadsheetCellDeleteAnchorComponent delete;
 
+    // isEditing........................................................................................................
+
+    @Override
+    public boolean isEditing() {
+        return HtmlElementComponent.hasFocus(this.element());
+    }
+
     // setCssText.......................................................................................................
 
     @Override

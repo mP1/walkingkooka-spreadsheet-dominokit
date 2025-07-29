@@ -84,6 +84,13 @@ public final class SpreadsheetRowComponent implements HtmlElementComponent<HTMLD
         return this;
     }
 
+    // isEditing........................................................................................................
+
+    @Override
+    public boolean isEditing() {
+        return this.row.isExpanded(); // should really ask components within the row
+    }
+
     @Override
     public HTMLDivElement element() {
         return this.row.element();

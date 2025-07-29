@@ -17,15 +17,43 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
+import elemental2.dom.DomGlobal;
+import elemental2.dom.Element;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.IsElement;
+import walkingkooka.spreadsheet.dominokit.dom.Doms;
 
 /**
  * A {@link Component} that adds a few helpers relating to {@link HTMLElement} and {@link Node}.
  */
 public interface HtmlElementComponent<E extends HTMLElement, C extends HtmlElementComponent<E, C>> extends Component,
     IsElement<E> {
+
+    /**
+     * Helper that may be used mostly by implementations to test if an element has focus.
+     */
+    static boolean hasFocus(final Element element) {
+        boolean focused = false;
+
+        final Element active = DomGlobal.document.activeElement;
+        if (null != active) {
+            // verify active element belongs to the same selection. if it does it must have focus so no need to focus again
+            focused = Doms.isOrHasChild(
+                element,
+                active
+            );
+        }
+
+        return focused;
+    }
+
+    /**
+     * Returns true indicating that user has focus on an element or something similar.
+     * This is useful to test if a component should NOT have its value replaced because an event introduces a new value,
+     * such as a history token change.
+     */
+    boolean isEditing();
 
     // setCssText.......................................................................................................
 

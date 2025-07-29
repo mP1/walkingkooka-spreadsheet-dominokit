@@ -185,6 +185,13 @@ public final class RemoveOrReplacePluginSelectorTokenComponent<T extends PluginS
      */
     private final SpreadsheetFlexLayout flex;
 
+    // isEditing........................................................................................................
+
+    @Override
+    public boolean isEditing() {
+        return false;
+    }
+
     // setCssText.......................................................................................................
 
     @Override

@@ -31,6 +31,7 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
@@ -243,6 +244,13 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
             SpreadsheetIntegerBoxValidator.with(validator)
         );
         return this;
+    }
+
+    // isEditing........................................................................................................
+
+    @Override
+    public boolean isEditing() {
+        return HtmlElementComponent.hasFocus(this.integerBox.element());
     }
 
     // IsElement........................................................................................................

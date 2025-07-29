@@ -228,6 +228,11 @@ public final class SpreadsheetDateComponent implements FormValueComponent<HTMLDi
         return this;
     }
 
+    @Override
+    public boolean isEditing() {
+        return this.calendar.isExpanded();
+    }
+
     // IsElement........................................................................................................
 
     @Override

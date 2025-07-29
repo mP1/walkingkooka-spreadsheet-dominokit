@@ -144,6 +144,11 @@ abstract class SpreadsheetTextViewComponentLike implements FormValueComponent<HT
     }
 
     @Override
+    public boolean isEditing() {
+        return false;
+    }
+
+    @Override
     public final void printTree(final IndentingPrinter printer) {
         printer.println(this.getClass().getSimpleName());
         printer.indent();

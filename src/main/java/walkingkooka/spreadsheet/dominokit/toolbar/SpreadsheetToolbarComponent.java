@@ -166,6 +166,13 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
         );
     }
 
+    // isEditing........................................................................................................
+
+    @Override
+    public boolean isEditing() {
+        return false; // ask individual components
+    }
+
     // SpreadsheetDeltaFetcherWatcher..........................................................................................
 
     @Override

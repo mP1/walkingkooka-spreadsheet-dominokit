@@ -142,6 +142,13 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirect
         return this;
     }
 
+    // isEditing........................................................................................................
+
+    @Override
+    public boolean isEditing() {
+        return HtmlElementComponent.hasFocus(this.element());
+    }
+
     // HtmlElementComponent.............................................................................................
 
     @Override

@@ -57,6 +57,11 @@ abstract class SpreadsheetDataTableComponentLike<T> implements TableComponent<HT
         return (SpreadsheetDataTableComponent<T>)this;
     }
 
+    @Override
+    public final boolean isEditing() {
+        return false; // always NO
+    }
+
     // prev/next links..................................................................................................
 
     public abstract SpreadsheetDataTableComponent<T> previousNextLinks(final String idPrefix);

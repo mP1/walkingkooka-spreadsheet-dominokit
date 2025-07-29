@@ -80,6 +80,13 @@ public final class SpreadsheetParserNameLinkListComponent implements HtmlElement
         return this;
     }
 
+    // isEditing........................................................................................................
+
+    @Override
+    public boolean isEditing() {
+        return this.list.isEditing();
+    }
+
     @Override
     public HTMLDivElement element() {
         return this.list.element();

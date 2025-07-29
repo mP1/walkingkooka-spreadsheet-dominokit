@@ -181,6 +181,11 @@ public final class ValueSpreadsheetTextBox<T> implements FormValueComponent<HTML
     }
 
     @Override
+    public boolean isEditing() {
+        return this.textBox.isEditing();
+    }
+
+    @Override
     public ValueSpreadsheetTextBox<T> alwaysShowHelperText() {
         this.textBox.alwaysShowHelperText();
         return this;

@@ -297,6 +297,14 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
      */
     private HistoryToken previousHistoryToken;
 
+    // isEditing........................................................................................................
+
+    @Override
+    public boolean isEditing() {
+        return this.formula.isEditing();
+    }
+
+
     @Override
     public boolean shouldLogLifecycleChanges() {
         return false;

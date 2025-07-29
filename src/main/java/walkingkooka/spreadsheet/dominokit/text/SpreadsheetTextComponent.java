@@ -186,6 +186,11 @@ public final class SpreadsheetTextComponent implements FormValueComponent<HTMLDi
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public boolean isEditing() {
+        return false;
+    }
+
     // IsElement........................................................................................................
 
     @Override
