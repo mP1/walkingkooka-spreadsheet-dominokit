@@ -4405,6 +4405,13 @@ public abstract class HistoryToken implements HasUrlFragment,
                 }
 
                 if (this instanceof SpreadsheetLabelMappingSelectHistoryToken || this instanceof SpreadsheetLabelMappingSaveHistoryToken) {
+                    if (null != valueOrNull && false == valueOrNull instanceof SpreadsheetExpressionReference) {
+                        this.reportInvalidSaveValue(
+                            valueOrNull,
+                            SpreadsheetExpressionReference.class
+                        );
+                    }
+
                     if (null != valueOrNull) {
                         historyToken = HistoryToken.labelMappingSave(
                             id,
