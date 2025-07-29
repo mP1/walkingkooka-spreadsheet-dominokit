@@ -4288,11 +4288,18 @@ public abstract class HistoryToken implements HasUrlFragment,
                         }
 
                         if (this instanceof SpreadsheetCellSortHistoryToken) {
+                            if (null != valueOrNull && false == valueOrNull instanceof SpreadsheetColumnOrRowSpreadsheetComparatorNamesList) {
+                                this.reportInvalidSaveValue(
+                                    valueOrNull,
+                                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.class
+                                );
+                            }
+
                             historyToken = HistoryToken.cellSortSave(
                                 id,
                                 name,
                                 spreadsheetSelection,
-                                Cast.to(valueOrNull)
+                                (SpreadsheetColumnOrRowSpreadsheetComparatorNamesList)valueOrNull
                             );
                         }
 
