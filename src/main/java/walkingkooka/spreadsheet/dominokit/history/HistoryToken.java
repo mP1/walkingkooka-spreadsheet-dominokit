@@ -4223,6 +4223,13 @@ public abstract class HistoryToken implements HasUrlFragment,
                         }
 
                         if (this instanceof SpreadsheetCellFormulaHistoryToken) {
+                            if (null != valueOrNull && false == valueOrNull instanceof String) {
+                                this.reportInvalidSaveValue(
+                                    valueOrNull,
+                                    String.class
+                                );
+                            }
+
                             historyToken = HistoryToken.cellFormulaSave(
                                 id,
                                 name,
