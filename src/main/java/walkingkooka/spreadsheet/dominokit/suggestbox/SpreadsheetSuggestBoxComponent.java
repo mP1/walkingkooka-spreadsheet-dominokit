@@ -54,18 +54,22 @@ import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
 public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements SpreadsheetSuggestBoxComponentLike<T> {
 
     public static <T extends HasText> SpreadsheetSuggestBoxComponent<T> with(final Function<String, T> parser,
-                                                                             final SpreadsheetSuggestBoxComponentSuggestionsProvider<T> suggestionsProvider) {
+                                                                             final SpreadsheetSuggestBoxComponentSuggestionsProvider<T> suggestionsProvider,
+                                                                             final Function<T, MenuItem<T>> menuItemCreator) {
         Objects.requireNonNull(parser, "parser");
         Objects.requireNonNull(suggestionsProvider, "suggestionsProvider");
+        Objects.requireNonNull(menuItemCreator, "menuItemCreator");
 
         return new SpreadsheetSuggestBoxComponent<>(
             parser,
-            suggestionsProvider
+            suggestionsProvider,
+            menuItemCreator
         );
     }
 
     private SpreadsheetSuggestBoxComponent(final Function<String, T> parser,
-                                           final SpreadsheetSuggestBoxComponentSuggestionsProvider<T> suggestionsProvider) {
+                                           final SpreadsheetSuggestBoxComponentSuggestionsProvider<T> suggestionsProvider,
+                                           final Function<T, MenuItem<T>> menuItemCreator) {
         this.parser = parser;
 
         final SpreadsheetSuggestBoxComponentSuggestBox<T> suggestBox = new SpreadsheetSuggestBoxComponentSuggestBox<>(
@@ -102,6 +106,8 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
         this.required();
 
         this.options = Lists.empty();
+
+        this.menuItemCreator = menuItemCreator;
     }
 
     @Override
@@ -164,12 +170,18 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
         return new SuggestOption<>(
             this.suggestionsProvider.menuItemKey(option),
             option, // value
-            (String k, T v) -> span().textContent(v.text()),
-            (String k, T v) -> MenuItem.create(v.text())
+            (String k, T v) -> span().textContent("1" + v.text()), // ignored
+            //(String k, T v) -> MenuItem.create("2" + v.text()) // this is the real component that the user sees and can interact with.
+            (String k, T v) -> this.menuItemCreator.apply(v)
         );
     }
 
     private final SpreadsheetSuggestBoxComponentSuggestionsProvider<T> suggestionsProvider;
+
+    /**
+     * This factory will be called for each option creating the {@link MenuItem}.
+     */
+    private final Function<T, MenuItem<T>> menuItemCreator;
 
     // id...............................................................................................................
 

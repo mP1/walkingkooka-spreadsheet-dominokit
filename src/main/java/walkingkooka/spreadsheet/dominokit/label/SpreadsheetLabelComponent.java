@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.label;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
+import org.dominokit.domino.ui.menu.MenuItem;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.UrlPath;
@@ -80,7 +81,8 @@ public final class SpreadsheetLabelComponent implements FormValueComponent<HTMLF
                 public String menuItemKey(final SpreadsheetLabelName value) {
                     return value.text();
                 }
-            }
+            },
+            (SpreadsheetLabelName name) -> MenuItem.create(name.text())
         );
 
         this.required();

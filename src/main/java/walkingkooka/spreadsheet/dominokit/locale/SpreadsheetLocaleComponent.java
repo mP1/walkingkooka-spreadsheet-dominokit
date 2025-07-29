@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.locale;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
+import org.dominokit.domino.ui.menu.MenuItem;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent;
@@ -96,7 +97,8 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
                     return value.locale()
                         .toLanguageTag();
                 }
-            }
+            },
+            (SpreadsheetLocaleComponentSuggestionsValue s) -> MenuItem.create(s.text())
         );
     }
 
