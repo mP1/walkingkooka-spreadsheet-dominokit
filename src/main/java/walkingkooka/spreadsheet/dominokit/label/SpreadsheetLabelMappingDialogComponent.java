@@ -138,7 +138,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
 
     private SpreadsheetLabelComponent labelName(final SpreadsheetLabelComponentContext context) {
         return SpreadsheetLabelComponent.with(
-                (SpreadsheetLabelName name) -> MenuItem.create(name.text()),
+                (SpreadsheetLabelName label) -> createOptionMenuItem(label, context),
                 context
             ).setId(ID_PREFIX + "label" + SpreadsheetElementIds.TEXT_BOX)
             .setLabel("Label")
@@ -162,6 +162,20 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
     }
 
     private final SpreadsheetLabelComponent labelName;
+
+    private MenuItem<SpreadsheetLabelName> createOptionMenuItem(final SpreadsheetLabelName labelName,
+                                                                final SpreadsheetLabelComponentContext context) {
+        return context.menuItem(
+            ID_PREFIX + "option" + SpreadsheetElementIds.MENU_ITEM,
+            labelName.value(),
+            Optional.ofNullable(
+                context.historyToken()
+                    .setLabelName(
+                        Optional.of(labelName)
+                    )
+            )
+        );
+    }
 
     // labelMappingReference...............................................................................................
 
