@@ -4387,6 +4387,13 @@ public abstract class HistoryToken implements HasUrlFragment,
 
                     if (this instanceof SpreadsheetRowSortHistoryToken) {
                         if (null != valueOrNull) {
+                            if (false == valueOrNull instanceof SpreadsheetColumnOrRowSpreadsheetComparatorNamesList) {
+                                this.reportInvalidSaveValue(
+                                    valueOrNull,
+                                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.class
+                                );
+                            }
+
                             historyToken = HistoryToken.rowSortSave(
                                 id,
                                 name,
