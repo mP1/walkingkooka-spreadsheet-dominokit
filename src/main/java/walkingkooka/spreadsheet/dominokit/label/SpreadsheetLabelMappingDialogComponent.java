@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.label;
 
+import org.dominokit.domino.ui.menu.MenuItem;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -136,8 +137,10 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
     // SpreadsheetLabelComponent........................................................................................
 
     private SpreadsheetLabelComponent labelName(final SpreadsheetLabelComponentContext context) {
-        return SpreadsheetLabelComponent.with(context)
-            .setId(ID_PREFIX + "label" + SpreadsheetElementIds.TEXT_BOX)
+        return SpreadsheetLabelComponent.with(
+                (SpreadsheetLabelName name) -> MenuItem.create(name.text()),
+                context
+            ).setId(ID_PREFIX + "label" + SpreadsheetElementIds.TEXT_BOX)
             .setLabel("Label")
             .required()
             .addChangeListener(

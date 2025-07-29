@@ -43,6 +43,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -53,13 +54,16 @@ public final class SpreadsheetLabelComponent implements FormValueComponent<HTMLF
     NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher {
 
-    public static SpreadsheetLabelComponent with(final SpreadsheetLabelComponentContext context) {
-        Objects.requireNonNull(context, "context");
-
-        return new SpreadsheetLabelComponent(context);
+    public static SpreadsheetLabelComponent with(final Function<SpreadsheetLabelName, MenuItem<SpreadsheetLabelName>> optionMenuItemCreator,
+                                                 final SpreadsheetLabelComponentContext context) {
+        return new SpreadsheetLabelComponent(
+            Objects.requireNonNull(optionMenuItemCreator, "optionMenuItemCreator"),
+            Objects.requireNonNull(context, "context")
+        );
     }
 
-    private SpreadsheetLabelComponent(final SpreadsheetLabelComponentContext context) {
+    private SpreadsheetLabelComponent(final Function<SpreadsheetLabelName, MenuItem<SpreadsheetLabelName>> optionMenuItemCreator,
+                                      final SpreadsheetLabelComponentContext context) {
         this.suggestBox = SpreadsheetSuggestBoxComponent.with(
             SpreadsheetSelection::labelName,
             new SpreadsheetSuggestBoxComponentSuggestionsProvider<>() {
@@ -82,7 +86,7 @@ public final class SpreadsheetLabelComponent implements FormValueComponent<HTMLF
                     return value.text();
                 }
             },
-            (SpreadsheetLabelName name) -> MenuItem.create(name.text())
+            optionMenuItemCreator
         );
 
         this.required();

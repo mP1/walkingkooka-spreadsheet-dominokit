@@ -39,7 +39,7 @@ public final class SpreadsheetLabelComponentTest implements FormValueComponentTe
     @Test
     public void testSetValueMissingValue() {
         this.treePrintAndCheck(
-            SpreadsheetLabelComponent.with(CONTEXT)
+            this.createComponent()
                 .setLabel("Text123")
                 .setValue(
                     Optional.empty()
@@ -55,7 +55,7 @@ public final class SpreadsheetLabelComponentTest implements FormValueComponentTe
     @Test
     public void testSetValueWithLabel() {
         this.treePrintAndCheck(
-            SpreadsheetLabelComponent.with(CONTEXT)
+            this.createComponent()
                 .setLabel("Text123")
                 .setValue(
                     Optional.of(
@@ -72,7 +72,12 @@ public final class SpreadsheetLabelComponentTest implements FormValueComponentTe
 
     @Override
     public SpreadsheetLabelComponent createComponent() {
-        return SpreadsheetLabelComponent.with(CONTEXT);
+        return SpreadsheetLabelComponent.with(
+            (l) -> {
+                throw new UnsupportedOperationException();
+            },
+            CONTEXT
+        );
     }
 
     // ClassTesting.....................................................................................................
