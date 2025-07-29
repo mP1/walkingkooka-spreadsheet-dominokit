@@ -129,7 +129,7 @@ public final class SpreadsheetContextMenu implements TreePrintable {
             );
         }
 
-        checkText(text);
+        CharSequences.failIfNullOrEmpty(text, "text");
 
         this.addSeparatorIfNecessary();
 
@@ -214,10 +214,6 @@ public final class SpreadsheetContextMenu implements TreePrintable {
 
         this.allowSeparator = true;
         return this;
-    }
-
-    private static String checkText(final String text) {
-        return CharSequences.failIfNullOrEmpty(text, "text");
     }
 
     /**
