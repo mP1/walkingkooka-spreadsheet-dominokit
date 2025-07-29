@@ -4161,14 +4161,14 @@ public abstract class HistoryToken implements HasUrlFragment,
                                                 );
                                                 break;
                                             default:
-                                                throw new IllegalArgumentException("Invalid value");
+                                                throw new IllegalArgumentException("Invalid value: got " + valueOrNull.getClass().getSimpleName());
                                         }
                                     }
                                 } else {
                                     if (null == valueOrNull) {
                                         historyToken = this.clearAction();
                                     } else {
-                                        throw new IllegalArgumentException("Invalid value");
+                                        throw new IllegalArgumentException("Invalid value: got " + valueOrNull.getClass().getSimpleName());
                                     }
                                 }
                             }
@@ -4176,7 +4176,10 @@ public abstract class HistoryToken implements HasUrlFragment,
 
                         if (this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken) {
                             if (null != valueOrNull && false == valueOrNull instanceof DateTimeSymbols) {
-                                throw new IllegalArgumentException("Invalid value");
+                                this.reportInvalidSaveValue(
+                                    valueOrNull,
+                                    DateTimeSymbols.class
+                                );
                             }
 
                             historyToken = HistoryToken.cellDateTimeSymbolsSave(
@@ -4189,7 +4192,10 @@ public abstract class HistoryToken implements HasUrlFragment,
 
                         if (this instanceof SpreadsheetCellDecimalNumberSymbolsHistoryToken) {
                             if (null != valueOrNull && false == valueOrNull instanceof DecimalNumberSymbols) {
-                                throw new IllegalArgumentException("Invalid value");
+                                this.reportInvalidSaveValue(
+                                    valueOrNull,
+                                    DecimalNumberSymbols.class
+                                );
                             }
 
                             historyToken = HistoryToken.cellDecimalNumberSymbolsSave(
@@ -4202,7 +4208,10 @@ public abstract class HistoryToken implements HasUrlFragment,
 
                         if (this instanceof SpreadsheetCellFormatterHistoryToken) {
                             if (null != valueOrNull && false == valueOrNull instanceof SpreadsheetFormatterSelector) {
-                                throw new IllegalArgumentException("Invalid value");
+                                this.reportInvalidSaveValue(
+                                    valueOrNull,
+                                    SpreadsheetFormatterSelector.class
+                                );
                             }
 
                             historyToken = HistoryToken.cellFormatterSave(
@@ -4234,7 +4243,10 @@ public abstract class HistoryToken implements HasUrlFragment,
 
                         if (this instanceof SpreadsheetCellLocaleHistoryToken) {
                             if (null != valueOrNull && false == valueOrNull instanceof Locale) {
-                                throw new IllegalArgumentException("Invalid value");
+                                this.reportInvalidSaveValue(
+                                    valueOrNull,
+                                    Locale.class
+                                );
                             }
 
                             historyToken = HistoryToken.cellLocaleSave(
@@ -4247,7 +4259,10 @@ public abstract class HistoryToken implements HasUrlFragment,
 
                         if (this instanceof SpreadsheetCellParserHistoryToken) {
                             if (null != valueOrNull && false == valueOrNull instanceof SpreadsheetParserSelector) {
-                                throw new IllegalArgumentException("Invalid value");
+                                this.reportInvalidSaveValue(
+                                    valueOrNull,
+                                    SpreadsheetParserSelector.class
+                                );
                             }
 
                             historyToken = HistoryToken.cellParserSave(
@@ -4280,7 +4295,10 @@ public abstract class HistoryToken implements HasUrlFragment,
 
                         if (this instanceof SpreadsheetCellValidatorHistoryToken) {
                             if (null != valueOrNull && false == valueOrNull instanceof ValidatorSelector) {
-                                throw new IllegalArgumentException("Invalid value");
+                                this.reportInvalidSaveValue(
+                                    valueOrNull,
+                                    ValidatorSelector.class
+                                );
                             }
 
                             historyToken = HistoryToken.cellValidatorSave(
@@ -4293,7 +4311,10 @@ public abstract class HistoryToken implements HasUrlFragment,
 
                         if (this instanceof SpreadsheetCellValueHistoryToken) {
                             if (null != valueOrNull && false == valueOrNull instanceof String) {
-                                throw new IllegalArgumentException("Invalid value");
+                                this.reportInvalidSaveValue(
+                                    valueOrNull,
+                                    String.class
+                                );
                             }
 
                             historyToken = HistoryToken.cellValueSave(
@@ -4310,7 +4331,10 @@ public abstract class HistoryToken implements HasUrlFragment,
 
                         if (this instanceof SpreadsheetCellValueTypeHistoryToken) {
                             if (null != valueOrNull && false == valueOrNull instanceof ValidationValueTypeName) {
-                                throw new IllegalArgumentException("Invalid value");
+                                this.reportInvalidSaveValue(
+                                    valueOrNull,
+                                    ValidationValueTypeName.class
+                                );
                             }
 
                             historyToken = HistoryToken.cellValueTypeSave(
@@ -4386,6 +4410,18 @@ public abstract class HistoryToken implements HasUrlFragment,
         return null == historyToken || this.equals(historyToken) ?
             this :
             historyToken;
+    }
+
+    private void reportInvalidSaveValue(final Object value,
+                                        final Class<?> expected) {
+        // Invalid value: got String expected Integer
+
+        throw new IllegalArgumentException(
+            "Invalid value: got " +
+                value.getClass().getSimpleName() +
+                " expected " +
+                expected.getSimpleName()
+        );
     }
 
     /**
