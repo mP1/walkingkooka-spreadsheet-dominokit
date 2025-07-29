@@ -1148,9 +1148,6 @@ public class App implements EntryPoint,
     public Set<Locale> findByLocaleText(final String text,
                                         final int offset,
                                         final int count) {
-        //if (null != localeText && (LocaleContexts.CASE_SENSITIVITY.startsWith(localeText, startsWith) || LocaleContexts.CASE_SENSITIVITY.equals(localeText, startsWith))) {
-
-
         return this.localeToText.entrySet()
             .stream()
             .filter(localeAndText -> {
