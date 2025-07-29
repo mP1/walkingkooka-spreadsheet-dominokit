@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.suggestbox;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.forms.suggest.SuggestionsStore;
+import org.dominokit.domino.ui.menu.MenuItem;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.Lists;
@@ -41,9 +42,11 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     ValidatorHelper {
 
     public static <T extends HasText> SpreadsheetSuggestBoxComponent<T> with(final Function<String, T> parser,
-                                                                             final SpreadsheetSuggestBoxComponentSuggestionsProvider<T> suggestionsProvider) {
+                                                                             final SpreadsheetSuggestBoxComponentSuggestionsProvider<T> suggestionsProvider,
+                                                                             final Function<T, MenuItem<T>> menuItemCreator) {
         Objects.requireNonNull(parser, "parser");
         Objects.requireNonNull(suggestionsProvider, "suggestionsProvider");
+        Objects.requireNonNull(menuItemCreator, "menuItemCreator");
 
         return new SpreadsheetSuggestBoxComponent<>(
             parser
