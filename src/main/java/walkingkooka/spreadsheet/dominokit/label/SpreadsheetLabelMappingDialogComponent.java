@@ -180,7 +180,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
     // labelMappingReference...............................................................................................
 
     /**
-     * Creates the {@link walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference} text box and installs a value change listener.
+     * Creates the {@link SpreadsheetExpressionReference} text box and installs a value change listener.
      */
     private SpreadsheetExpressionReferenceComponent labelMappingReference() {
         return SpreadsheetExpressionReferenceComponent.empty()
