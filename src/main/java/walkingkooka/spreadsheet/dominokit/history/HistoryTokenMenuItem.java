@@ -24,7 +24,7 @@ import org.dominokit.domino.ui.menu.MenuItem;
  * A {@link AbstractMenuItem} that includes a {@link HistoryTokenAnchorComponent},
  * a clickable link with text that will update the history token of the apps URL.
  */
-public final class HistoryTokenMenuItem extends MenuItem<Void> {
+public final class HistoryTokenMenuItem<T> extends MenuItem<T> {
 
     public HistoryTokenMenuItem(final HistoryTokenAnchorComponent anchor) {
         super(null); // no text

@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.locale;
 
 import org.dominokit.domino.ui.menu.MenuItem;
-import walkingkooka.Cast;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -131,19 +130,16 @@ public final class SpreadsheetLocaleDialogComponent implements SpreadsheetDialog
     private SpreadsheetLocaleComponent locale() {
         final Function<SpreadsheetLocaleComponentSuggestionsValue, MenuItem<SpreadsheetLocaleComponentSuggestionsValue>> optionMenuItemCreator =
             (SpreadsheetLocaleComponentSuggestionsValue s) ->
-                Cast.to(
-                    // Cast HACK required because HistoryTokenMenuItem extends MenuItem<Void>
-                    this.context.menuItem(
-                        ID + "-option-" + s.locale().toLanguageTag(), // id
-                        s.text(),
-                        Optional.of(
-                            this.context.historyToken()
-                                .setSaveValue(
-                                    Optional.of(s.locale())
-                                )
-                        )
+                this.context.menuItem(
+                    ID + "-option-" + s.locale().toLanguageTag(), // id
+                    s.text(),
+                    Optional.of(
+                        this.context.historyToken()
+                            .setSaveValue(
+                                Optional.of(s.locale())
+                            )
                     )
-                ); // yes type-parameters dont match but it doesnt matter. the value is never given to the MenuItem
+            ); // yes type-parameters dont match but it doesnt matter. the value is never given to the MenuItem
 
         return SpreadsheetLocaleComponent.empty(
                 optionMenuItemCreator,
