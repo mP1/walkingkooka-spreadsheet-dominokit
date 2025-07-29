@@ -18,15 +18,16 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.dominokit.domino.ui.menu.AbstractMenuItem;
+import org.dominokit.domino.ui.menu.MenuItem;
 
 /**
  * A {@link AbstractMenuItem} that includes a {@link HistoryTokenAnchorComponent},
  * a clickable link with text that will update the history token of the apps URL.
  */
-public final class HistoryTokenMenuItem extends AbstractMenuItem<Void> {
+public final class HistoryTokenMenuItem extends MenuItem<Void> {
 
     public HistoryTokenMenuItem(final HistoryTokenAnchorComponent anchor) {
-        super();
+        super(null); // no text
         this.anchor = anchor;
 
         this.appendChild(anchor);
