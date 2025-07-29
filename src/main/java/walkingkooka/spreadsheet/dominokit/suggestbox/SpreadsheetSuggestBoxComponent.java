@@ -264,9 +264,14 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     public SpreadsheetSuggestBoxComponent<T> setValue(final Optional<T> label) {
         Objects.requireNonNull(label, "label");
 
-        this.suggestBox.setValue(
-            label.orElse(null)
-        );
+        if(label.isPresent()) {
+            this.suggestBox.setValue(
+                label.get()
+            );
+        } else {
+            this.suggestBox.clear();
+        }
+
         return this;
     }
 
