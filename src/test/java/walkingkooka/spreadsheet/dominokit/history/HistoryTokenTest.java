@@ -1667,6 +1667,28 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     // setSaveStringValue.....................................................................................................
 
     @Test
+    public void testSetSaveValueWithInvalidValueFails() {
+        final HistoryToken historyToken = HistoryToken.cellDateTimeSymbolsSelect(
+            ID,
+            NAME,
+            CELL.setDefaultAnchor()
+        );
+
+        final IllegalArgumentException thrown = assertThrows(
+            IllegalArgumentException.class,
+            () -> historyToken.setSaveValue(
+                Optional.of(this)
+            )
+        );
+
+        this.checkEquals(
+            "Invalid value: got HistoryTokenTest expected DateTimeSymbols",
+            thrown.getMessage(),
+            "message"
+        );
+    }
+
+    @Test
     public void testSetSaveValueWithNotSpreadsheetNameHistoryTokenSubclass() {
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
