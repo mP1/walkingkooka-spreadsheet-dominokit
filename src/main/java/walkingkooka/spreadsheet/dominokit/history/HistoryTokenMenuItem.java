@@ -20,7 +20,8 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.dominokit.domino.ui.menu.AbstractMenuItem;
 
 /**
- * A {@link AbstractMenuItem} that includes a {@link HistoryTokenAnchorComponent}.
+ * A {@link AbstractMenuItem} that includes a {@link HistoryTokenAnchorComponent},
+ * a clickable link with text that will update the history token of the apps URL.
  */
 public final class HistoryTokenMenuItem extends AbstractMenuItem<Void> {
 
