@@ -48,6 +48,10 @@ public interface HtmlElementComponent<E extends HTMLElement, C extends HtmlEleme
         return focused;
     }
 
+    default boolean isNotEditing() {
+        return false == this.isEditing();
+    }
+
     /**
      * Returns true indicating that user has focus on an element or something similar.
      * This is useful to test if a component should NOT have its value replaced because an event introduces a new value,
