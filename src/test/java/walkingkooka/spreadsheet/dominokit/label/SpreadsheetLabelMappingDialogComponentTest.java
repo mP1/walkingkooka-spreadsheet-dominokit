@@ -364,17 +364,19 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "    id=labelMapping-Dialog includeClose=true\n" +
                 "      SpreadsheetLabelComponent\n" +
                 "        SpreadsheetSuggestBoxComponent\n" +
-                "          Label [LoadedLabel123] id=labelMapping-label-TextBox REQUIRED\n" +
+                "          Label [Label999] id=labelMapping-label-TextBox REQUIRED\n" +
                 "      SpreadsheetExpressionReferenceComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
-                "            Cell, cell range or Label [C3] id=labelMapping-reference-TextBox\n" +
+                "            Cell, cell range or Label [] id=labelMapping-reference-TextBox\n" +
+                "            Errors\n" +
+                "              Empty \"text\"\n" +
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/SpreadsheetName111/label/LoadedLabel123/save/C3] id=labelMapping-save-Link\n" +
+                "            \"Save\" DISABLED id=labelMapping-save-Link\n" +
                 "            \"Undo\" [#/1/SpreadsheetName111/label/LoadedLabel123/save/C3] id=labelMapping-undo-Link\n" +
-                "            \"Delete\" [#/1/SpreadsheetName111/label/LoadedLabel123/delete] id=labelMapping-delete-Link\n" +
+                "            \"Delete\" [#/1/SpreadsheetName111/label/Label999/delete] id=labelMapping-delete-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName111] id=labelMapping-close-Link\n"
         );
     }

@@ -287,6 +287,8 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
         // guarantee that label and reference from previous edits are cleared.
         this.labelName.clearValue();
         this.labelMappingReference.clearValue();
+
+        this.forceLabelNameLabelMappingReference = true;
     }
 
     @Override
@@ -294,6 +296,8 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
         context.giveFocus(
             this.labelName::focus
         );
+
+        this.forceLabelNameLabelMappingReference = true;
     }
 
     /**
@@ -346,7 +350,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
 
     /**
      * Refreshes the label and label mapping reference from the loaded {@link SpreadsheetLabelMapping} or
-     * {@link HistoryToken}
+     * {@link HistoryToken}. Skipping any value updating if the component is being edited.
      */
     private void refreshLabelNameAndLabelMappingReference() {
         final Optional<SpreadsheetLabelMapping> loaded = this.loaded;
@@ -354,50 +358,78 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
         final SpreadsheetLabelComponent labelNameComponent = this.labelName;
         final SpreadsheetExpressionReferenceComponent labelMappingReferenceComponent = this.labelMappingReference;
 
+        final boolean forceLabelNameLabelMappingReference = this.forceLabelNameLabelMappingReference;
+
         if (null != loaded) {
             if (loaded.isPresent()) {
-                labelNameComponent.setValue(
-                    loaded.map(SpreadsheetLabelMapping::label)
-                );
-                labelMappingReferenceComponent.setValue(
-                    loaded.map(SpreadsheetLabelMapping::reference)
-                );
-            }
-
-            this.loaded = Optional.empty();
-        } else {
-            final HistoryToken token = this.context.historyToken();
-
-            if (token instanceof SpreadsheetCellLabelHistoryToken) {
-                final Optional<SpreadsheetExpressionReference> historyLabelMappingReference = token.labelMappingReference();
-                final Optional<SpreadsheetExpressionReference> componentLabelMappingReference = labelMappingReferenceComponent.value();
-
-                if (false == historyLabelMappingReference.equals(componentLabelMappingReference)) {
-                    labelMappingReferenceComponent.setValue(
-                        historyLabelMappingReference
+                if (labelNameComponent.isNotEditing()) {
+                    labelNameComponent.setValue(
+                        loaded.map(SpreadsheetLabelMapping::label)
                     );
-                    labelNameComponent.clearValue();
+                }
+
+                if (labelMappingReferenceComponent.isNotEditing()) {
+                    labelMappingReferenceComponent.setValue(
+                        loaded.map(SpreadsheetLabelMapping::reference)
+                    );
                 }
             }
 
-            if (token instanceof SpreadsheetLabelMappingHistoryToken) {
-                final Optional<SpreadsheetLabelName> historyLabelName = token.labelName();
-                final Optional<SpreadsheetLabelName> componentLabelName = labelNameComponent.value();
+            this.loaded = Optional.empty();
+        }
 
-                if (false == historyLabelName.equals(componentLabelName)) {
+        final HistoryToken token = this.context.historyToken();
+
+        if (token instanceof SpreadsheetCellLabelHistoryToken) {
+            final Optional<SpreadsheetExpressionReference> historyLabelMappingReference = token.labelMappingReference();
+            final Optional<SpreadsheetExpressionReference> componentLabelMappingReference = labelMappingReferenceComponent.value();
+
+            if (false == historyLabelMappingReference.equals(componentLabelMappingReference)) {
+                if (forceLabelNameLabelMappingReference || labelMappingReferenceComponent.isNotEditing()) {
+                    labelMappingReferenceComponent.setValue(
+                        historyLabelMappingReference
+                    );
+                }
+
+                if (forceLabelNameLabelMappingReference || labelNameComponent.isNotEditing()) {
+                    labelNameComponent.clearValue();
+                }
+            }
+        }
+
+        if (token instanceof SpreadsheetLabelMappingHistoryToken) {
+            final Optional<SpreadsheetLabelName> historyLabelName = token.labelName();
+            final Optional<SpreadsheetLabelName> componentLabelName = labelNameComponent.value();
+
+            if (false == historyLabelName.equals(componentLabelName)) {
+
+                if (forceLabelNameLabelMappingReference || labelNameComponent.isNotEditing()) {
                     labelNameComponent.setValue(
                         historyLabelName
                     );
+                }
+
+                if (forceLabelNameLabelMappingReference || labelMappingReferenceComponent.isNotEditing()) {
                     labelMappingReferenceComponent.clearValue();
                 }
             }
         }
+
+        this.forceLabelNameLabelMappingReference = false;
     }
 
     /**
      * When null indicates that when a label is available it should be loaded.
      */
     private Optional<SpreadsheetLabelMapping> loaded;
+
+    /**
+     * This flag is necessary to force the {@link #labelName} and {@link #labelMappingReference} to be updated
+     * from the {@link HistoryToken} during a refresh, when the dialog appears. Because focus is given before
+     * refresh is called, the refresh will fail because the label is active. This flag forces the label to be always
+     * updated when it is true.
+     */
+    private boolean forceLabelNameLabelMappingReference;
 
     // SpreadsheetDeltaFetcherWatcher...................................................................................
 
