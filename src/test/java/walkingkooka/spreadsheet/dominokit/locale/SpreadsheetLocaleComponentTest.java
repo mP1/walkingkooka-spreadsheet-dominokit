@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.locale;
 
 import elemental2.dom.HTMLFieldSetElement;
+import org.dominokit.domino.ui.menu.MenuItem;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.locale.FakeLocaleContext;
@@ -28,6 +29,7 @@ import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
+import java.util.function.Function;
 
 public final class SpreadsheetLocaleComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, Locale, SpreadsheetLocaleComponent> {
 
@@ -38,6 +40,10 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
     private final static String ENGLISH_AUSTRALIA_TEXT = "English (Australia)";
     private final static String ENGLISH_NEW_ZEALAND_TEXT = "English (New Zealand)";
     private final static String FRENCH_TEXT = "French 123";
+
+    private final static Function<SpreadsheetLocaleComponentSuggestionsValue, MenuItem<SpreadsheetLocaleComponentSuggestionsValue>> OPTION_MENU_ITEM_CREATOR = (v) -> {
+        throw new UnsupportedOperationException(); // never actually called within a test
+    };
 
     private final static LocaleContext CONTEXT = new FakeLocaleContext() {
 
@@ -114,7 +120,7 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
     @Test
     public void testTreePrintWithoutValue() {
         this.treePrintAndCheck(
-            SpreadsheetLocaleComponent.empty(CONTEXT),
+            this.createComponent(),
             "SpreadsheetLocaleComponent\n" +
                 "  SpreadsheetSuggestBoxComponent\n" +
                 "    [] REQUIRED\n" +
@@ -126,7 +132,7 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
     @Test
     public void testTreePrintWithEnAu() {
         this.treePrintAndCheck(
-            SpreadsheetLocaleComponent.empty(CONTEXT)
+            this.createComponent()
                 .setValue(
                     Optional.of(
                         ENAU
@@ -147,7 +153,10 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
 
     @Override
     public SpreadsheetLocaleComponent createComponent() {
-        return SpreadsheetLocaleComponent.empty(CONTEXT);
+        return SpreadsheetLocaleComponent.empty(
+            OPTION_MENU_ITEM_CREATOR,
+            CONTEXT
+        );
     }
 
     // class............................................................................................................

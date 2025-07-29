@@ -35,6 +35,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -48,13 +49,16 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
      * A {@link SpreadsheetLocaleComponent} which is initially empty, possible options to select must be added after
      * creation.
      */
-    public static SpreadsheetLocaleComponent empty(final LocaleContext context) {
+    public static SpreadsheetLocaleComponent empty(final Function<SpreadsheetLocaleComponentSuggestionsValue, MenuItem<SpreadsheetLocaleComponentSuggestionsValue>> optionMenuItemCreator,
+                                                   final LocaleContext context) {
         return new SpreadsheetLocaleComponent(
+            Objects.requireNonNull(optionMenuItemCreator, "optionMenuItemCreator"),
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private SpreadsheetLocaleComponent(final LocaleContext context) {
+    private SpreadsheetLocaleComponent(final Function<SpreadsheetLocaleComponentSuggestionsValue, MenuItem<SpreadsheetLocaleComponentSuggestionsValue>> optionMenuItemCreator,
+                                       final LocaleContext context) {
         this.context = context;
 
         this.suggestBox = SpreadsheetSuggestBoxComponent.with(
@@ -98,7 +102,7 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
                         .toLanguageTag();
                 }
             },
-            (SpreadsheetLocaleComponentSuggestionsValue s) -> MenuItem.create(s.text())
+            optionMenuItemCreator
         );
     }
 
