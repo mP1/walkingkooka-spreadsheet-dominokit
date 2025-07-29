@@ -4368,14 +4368,14 @@ public abstract class HistoryToken implements HasUrlFragment,
                     }
 
                     if (this instanceof SpreadsheetColumnSortHistoryToken) {
-                        if (null != valueOrNull && false == valueOrNull instanceof SpreadsheetColumnOrRowSpreadsheetComparatorNamesList) {
-                            this.reportInvalidSaveValue(
-                                valueOrNull,
-                                SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.class
-                            );
-                        }
-
                         if (null != valueOrNull) {
+                            if (false == valueOrNull instanceof SpreadsheetColumnOrRowSpreadsheetComparatorNamesList) {
+                                this.reportInvalidSaveValue(
+                                    valueOrNull,
+                                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.class
+                                );
+                            }
+
                             historyToken = HistoryToken.columnSortSave(
                                 id,
                                 name,
