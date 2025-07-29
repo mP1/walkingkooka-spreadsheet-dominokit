@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.contextmenu;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
 import walkingkooka.ToStringTesting;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
@@ -30,9 +31,9 @@ import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;
 
-public class SpreadsheetContextMenuItemTest implements ClassTesting<SpreadsheetContextMenuItem>,
+public class SpreadsheetContextMenuItemTest implements ClassTesting<SpreadsheetContextMenuItem<Void>>,
     TreePrintableTesting,
-    ToStringTesting<SpreadsheetContextMenuItem> {
+    ToStringTesting<SpreadsheetContextMenuItem<Void>> {
 
     // TreePrintable....................................................................................................
 
@@ -191,8 +192,8 @@ public class SpreadsheetContextMenuItemTest implements ClassTesting<SpreadsheetC
     }
 
     @Override
-    public Class<SpreadsheetContextMenuItem> type() {
-        return SpreadsheetContextMenuItem.class;
+    public Class<SpreadsheetContextMenuItem<Void>> type() {
+        return Cast.to(SpreadsheetContextMenuItem.class);
     }
 
     @Override

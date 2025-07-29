@@ -37,17 +37,17 @@ import java.util.Optional;
 /**
  * Abstraction for building a context menu.
  */
-public final class SpreadsheetContextMenu implements TreePrintable {
+public final class SpreadsheetContextMenu<T> implements TreePrintable {
 
     /**
      * Returns an empty {@link SpreadsheetContextMenu} for the given {@link Element}.
      */
-    public static SpreadsheetContextMenu wrap(final SpreadsheetContextMenuTarget<? extends Element> target,
-                                              final HistoryContext context) {
+    public static <T> SpreadsheetContextMenu<T> wrap(final SpreadsheetContextMenuTarget<? extends Element> target,
+                                                     final HistoryContext context) {
         Objects.requireNonNull(target, "target");
         Objects.requireNonNull(context, "context");
 
-        final SpreadsheetContextMenu contextMenu = SpreadsheetContextMenuNative.empty(
+        final SpreadsheetContextMenu<T> contextMenu = SpreadsheetContextMenuNative.empty(
             target,
             context
         );
@@ -55,15 +55,15 @@ public final class SpreadsheetContextMenu implements TreePrintable {
         return contextMenu;
     }
 
-    static SpreadsheetContextMenu with(final Menu<Void> menu,
-                                       final HistoryContext context) {
-        return new SpreadsheetContextMenu(
+    static <T> SpreadsheetContextMenu<T> with(final Menu<T> menu,
+                                              final HistoryContext context) {
+        return new SpreadsheetContextMenu<>(
             menu,
             context
         );
     }
 
-    private SpreadsheetContextMenu(final Menu<Void> menu,
+    private SpreadsheetContextMenu(final Menu<T> menu,
                                    final HistoryContext context) {
         this.menu = menu;
         this.context = context;
@@ -74,8 +74,8 @@ public final class SpreadsheetContextMenu implements TreePrintable {
     /**
      * Creates an empty sub menu returning the {@link SpreadsheetContextMenu} which may be used to add items.
      */
-    public SpreadsheetContextMenu subMenu(final String id,
-                                          final String text) {
+    public SpreadsheetContextMenu<T> subMenu(final String id,
+                                             final String text) {
         return this.subMenu(
             id,
             text,
@@ -87,9 +87,9 @@ public final class SpreadsheetContextMenu implements TreePrintable {
     /**
      * Creates an empty sub menu returning the {@link SpreadsheetContextMenu} which may be used to add items.
      */
-    public SpreadsheetContextMenu subMenu(final String id,
-                                          final String text,
-                                          final Icon<?> icon) {
+    public SpreadsheetContextMenu<T> subMenu(final String id,
+                                             final String text,
+                                             final Icon<?> icon) {
         return this.subMenu(
             id,
             text,
@@ -101,9 +101,9 @@ public final class SpreadsheetContextMenu implements TreePrintable {
     /**
      * Creates an empty sub menu returning the {@link SpreadsheetContextMenu} which may be used to add items.
      */
-    public SpreadsheetContextMenu subMenu(final String id,
-                                          final String text,
-                                          final String badge) {
+    public SpreadsheetContextMenu<T> subMenu(final String id,
+                                             final String text,
+                                             final String badge) {
         return this.subMenu(
             id,
             text,
@@ -115,10 +115,10 @@ public final class SpreadsheetContextMenu implements TreePrintable {
     /**
      * Creates an empty sub menu returning the {@link SpreadsheetContextMenu} which may be used to add items.
      */
-    public SpreadsheetContextMenu subMenu(final String id,
-                                          final String text,
-                                          final Optional<Icon<?>> icon,
-                                          final Optional<String> badge) {
+    public SpreadsheetContextMenu<T> subMenu(final String id,
+                                             final String text,
+                                             final Optional<Icon<?>> icon,
+                                             final Optional<String> badge) {
         CharSequences.failIfNullOrEmpty(id, "id");
         if (false == id.endsWith(SpreadsheetElementIds.SUB_MENU)) {
             throw new IllegalArgumentException(
@@ -133,7 +133,7 @@ public final class SpreadsheetContextMenu implements TreePrintable {
 
         this.addSeparatorIfNecessary();
 
-        final Menu<Void> subMenu = SpreadsheetContextMenuNative.addSubMenu(
+        final Menu<T> subMenu = SpreadsheetContextMenuNative.addSubMenu(
             id,
             text,
             icon,
@@ -143,7 +143,7 @@ public final class SpreadsheetContextMenu implements TreePrintable {
         this.allowSeparator = true;
         this.empty = false;
 
-        return new SpreadsheetContextMenu(
+        return new SpreadsheetContextMenu<>(
             subMenu,
             this.context
         );
@@ -152,13 +152,13 @@ public final class SpreadsheetContextMenu implements TreePrintable {
     /**
      * Adds a checked menu item, conditionally setting the check mark and conditional clearing/saving the value.
      */
-    public <T> SpreadsheetContextMenu checkedItem(final String id,
-                                                  final String text,
-                                                  final Optional<Icon<?>> icon,
-                                                  final TextStylePropertyName<T> stylePropertyName,
-                                                  final T stylePropertyValue,
-                                                  final String key,
-                                                  final SpreadsheetSelectionMenuContext context) {
+    public <TT> SpreadsheetContextMenu<T> checkedItem(final String id,
+                                                      final String text,
+                                                      final Optional<Icon<?>> icon,
+                                                      final TextStylePropertyName<TT> stylePropertyName,
+                                                      final TT stylePropertyValue,
+                                                      final String key,
+                                                      final SpreadsheetSelectionMenuContext context) {
         final boolean set = context.isChecked(
             stylePropertyName,
             stylePropertyValue
@@ -172,7 +172,7 @@ public final class SpreadsheetContextMenu implements TreePrintable {
                             null :
                             stylePropertyValue
                     )
-                ).contextMenuItem(
+                ).<T>contextMenuItem(
                     id,
                     text
                 ).icon(icon)
@@ -184,7 +184,7 @@ public final class SpreadsheetContextMenu implements TreePrintable {
     /**
      * Adds the given {@link SpreadsheetContextMenuItem} to this menu.
      */
-    public SpreadsheetContextMenu item(final SpreadsheetContextMenuItem item) {
+    public SpreadsheetContextMenu<T> item(final SpreadsheetContextMenuItem<T> item) {
         Objects.requireNonNull(item, "item");
 
         this.addSeparatorIfNecessary();
@@ -202,7 +202,7 @@ public final class SpreadsheetContextMenu implements TreePrintable {
     /**
      * Adds a {@link IsElement} which is responsible for providing the content of the menu item.
      */
-    public SpreadsheetContextMenu item(final IsElement<?> component) {
+    public SpreadsheetContextMenu<T> item(final IsElement<?> component) {
         Objects.requireNonNull(component, "component");
 
         this.addSeparatorIfNecessary();
@@ -231,7 +231,7 @@ public final class SpreadsheetContextMenu implements TreePrintable {
     /**
      * Adds a separator before the next item is added.
      */
-    public SpreadsheetContextMenu separator() {
+    public SpreadsheetContextMenu<T> separator() {
         if (this.allowSeparator) {
             this.addSeparator = true;
         }
@@ -248,7 +248,7 @@ public final class SpreadsheetContextMenu implements TreePrintable {
     /**
      * Disables this menu if its empty. This should only be called after all items have been added.
      */
-    public SpreadsheetContextMenu disableIfEmpty() {
+    public SpreadsheetContextMenu<T> disableIfEmpty() {
         if (this.empty) {
             SpreadsheetContextMenuNative.menuDisable(this);
         }
@@ -260,7 +260,7 @@ public final class SpreadsheetContextMenu implements TreePrintable {
     /**
      * Gives focus to the menu
      */
-    public SpreadsheetContextMenu focus() {
+    public SpreadsheetContextMenu<T> focus() {
         this.menu.open(true);
         this.context.addHistoryTokenWatcher(
             (final HistoryToken previous,
@@ -283,7 +283,7 @@ public final class SpreadsheetContextMenu implements TreePrintable {
         this.menu.setTarget(null);
     }
 
-    final Menu<Void> menu;
+    final Menu<T> menu;
 
     final HistoryContext context;
 

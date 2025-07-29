@@ -32,10 +32,10 @@ import java.util.Optional;
 /**
  * Captures the properties used to build a single context menu item.
  */
-public final class SpreadsheetContextMenuItem implements TreePrintable {
+public final class SpreadsheetContextMenuItem<T> implements TreePrintable {
 
-    public static SpreadsheetContextMenuItem with(final String id,
-                                                  final String text) {
+    public static <T> SpreadsheetContextMenuItem<T> with(final String id, 
+                                                         final String text) {
         CharSequences.failIfNullOrEmpty(id, "id");
         if (false == id.endsWith(SpreadsheetElementIds.MENU_ITEM)) {
             throw new IllegalArgumentException(
@@ -47,7 +47,7 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
         }
         CharSequences.failIfNullOrEmpty(text, "text");
 
-        return new SpreadsheetContextMenuItem(
+        return new SpreadsheetContextMenuItem<>(
             id,
             text,
             Optional.empty(), // badge
@@ -81,12 +81,12 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
 
     final String text;
 
-    public SpreadsheetContextMenuItem badge(final Optional<String> badge) {
+    public SpreadsheetContextMenuItem<T> badge(final Optional<String> badge) {
         Objects.requireNonNull(badge, "badge");
 
         return this.badge.equals(badge) ?
             this :
-            new SpreadsheetContextMenuItem(
+            new SpreadsheetContextMenuItem<>(
                 this.id,
                 this.text,
                 badge,
@@ -100,12 +100,12 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
 
     final Optional<String> badge;
 
-    public SpreadsheetContextMenuItem historyToken(final Optional<HistoryToken> historyToken) {
+    public SpreadsheetContextMenuItem<T> historyToken(final Optional<HistoryToken> historyToken) {
         Objects.requireNonNull(historyToken, "historyToken");
 
         return this.historyToken.equals(historyToken) ?
             this :
-            new SpreadsheetContextMenuItem(
+            new SpreadsheetContextMenuItem<>(
                 this.id,
                 this.text,
                 this.badge,
@@ -119,12 +119,12 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
 
     final Optional<HistoryToken> historyToken;
 
-    public SpreadsheetContextMenuItem icon(final Optional<Icon<?>> icon) {
+    public SpreadsheetContextMenuItem<T> icon(final Optional<Icon<?>> icon) {
         Objects.requireNonNull(icon, "icon");
 
         return this.icon.equals(icon) ?
             this :
-            new SpreadsheetContextMenuItem(
+            new SpreadsheetContextMenuItem<>(
                 this.id,
                 this.text,
                 this.badge,
@@ -138,12 +138,12 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
 
     final Optional<Icon<?>> icon;
 
-    public SpreadsheetContextMenuItem key(final String key) {
+    public SpreadsheetContextMenuItem<T> key(final String key) {
         Objects.requireNonNull(key, "key");
 
         return this.key.equals(key) ?
             this :
-            new SpreadsheetContextMenuItem(
+            new SpreadsheetContextMenuItem<>(
                 this.id,
                 this.text,
                 this.badge,
@@ -157,11 +157,11 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
 
     final String key;
 
-    public SpreadsheetContextMenuItem checked(final boolean checked) {
+    public SpreadsheetContextMenuItem<T> checked(final boolean checked) {
 
         return this.checked == checked ?
             this :
-            new SpreadsheetContextMenuItem(
+            new SpreadsheetContextMenuItem<>(
                 this.id,
                 this.text,
                 this.badge,
@@ -178,10 +178,10 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
     /**
      * May be used to enable/disable a {@link SpreadsheetContextMenuItem}.
      */
-    public SpreadsheetContextMenuItem enabled(final boolean enabled) {
+    public SpreadsheetContextMenuItem<T> enabled(final boolean enabled) {
         return this.enabled == enabled ?
             this :
-            new SpreadsheetContextMenuItem(
+            new SpreadsheetContextMenuItem<>(
                 this.id,
                 this.text,
                 this.badge,

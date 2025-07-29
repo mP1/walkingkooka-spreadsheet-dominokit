@@ -22,6 +22,7 @@ import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.icons.MdiIcon;
 import org.dominokit.domino.ui.menu.Menu;
 import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
@@ -34,7 +35,7 @@ import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetContextMenuTest implements ClassTesting<SpreadsheetContextMenu>,
+public final class SpreadsheetContextMenuTest implements ClassTesting<SpreadsheetContextMenu<Void>>,
     TreePrintableTesting {
 
     @Test
@@ -43,7 +44,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
             topLevelMenu(),
             HistoryContexts.fake()
         ).item(
-            SpreadsheetContextMenuItem.with(
+            SpreadsheetContextMenuItem.<Void>with(
                 "id-MenuItem",
                 "SubMenuText"
             )
@@ -73,7 +74,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
                 HistoryContexts.fake()
             ).separator()
             .item(
-                SpreadsheetContextMenuItem.with(
+                SpreadsheetContextMenuItem.<Void>with(
                     "id-MenuItem",
                     "SubMenuText"
                 )
@@ -139,7 +140,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
             "id-SubMenu",
             "SubMenu"
         ).item(
-            SpreadsheetContextMenuItem.with(
+            SpreadsheetContextMenuItem.<Void>with(
                 "id-MenuItem",
                 "item-text-123"
             )
@@ -154,12 +155,12 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
             topLevelMenu(),
             HistoryContexts.fake()
         ).item(
-            SpreadsheetContextMenuItem.with(
+            SpreadsheetContextMenuItem.<Void>with(
                 "id-MenuItem",
                 "item-text-111"
             )
         ).item(
-            SpreadsheetContextMenuItem.with(
+            SpreadsheetContextMenuItem.<Void>with(
                 "id-MenuItem",
                 "item-text-222"
             )
@@ -179,13 +180,13 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
                 topLevelMenu(),
                 HistoryContexts.fake()
             ).item(
-                SpreadsheetContextMenuItem.with(
+                SpreadsheetContextMenuItem.<Void>with(
                     "id-MenuItem",
                     "item-text-111"
                 )
             ).separator()
             .item(
-                SpreadsheetContextMenuItem.with(
+                SpreadsheetContextMenuItem.<Void>with(
                     "id-MenuItem",
                     "item-text-222"
                 )
@@ -202,11 +203,11 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
 
     @Test
     public void testTreePrintMenuWithItemsWithIconAndBadge() {
-        final SpreadsheetContextMenu menu = SpreadsheetContextMenu.with(
+        final SpreadsheetContextMenu<Void> menu = SpreadsheetContextMenu.with(
             topLevelMenu(),
             HistoryContexts.fake()
         ).item(
-            SpreadsheetContextMenuItem.with(
+            SpreadsheetContextMenuItem.<Void>with(
                 "id-MenuItem",
                 "item-text-111"
             ).icon(
@@ -219,7 +220,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
                 )
             )
         ).item(
-            SpreadsheetContextMenuItem.with(
+            SpreadsheetContextMenuItem.<Void>with(
                 "id-MenuItem",
                 "item-text-222"
             ).badge(
@@ -228,7 +229,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
                 )
             )
         ).item(
-            SpreadsheetContextMenuItem.with(
+            SpreadsheetContextMenuItem.<Void>with(
                 "id-MenuItem",
                 "item-text-333"
             ).icon(
@@ -253,12 +254,12 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
             topLevelMenu(),
             HistoryContexts.fake()
         ).item(
-            SpreadsheetContextMenuItem.with(
+            SpreadsheetContextMenuItem.<Void>with(
                 "id-MenuItem",
                 "item-text-111-checked"
             ).checked(true)
         ).item(
-            SpreadsheetContextMenuItem.with(
+            SpreadsheetContextMenuItem.<Void>with(
                 "id-MenuItem",
                 "item-text-222"
             )
@@ -278,7 +279,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
             topLevelMenu(),
             HistoryContexts.fake()
         ).item(
-            SpreadsheetContextMenuItem.with(
+            SpreadsheetContextMenuItem.<Void>with(
                 "id-MenuItem",
                 "item-text-111"
             ).historyToken(
@@ -290,7 +291,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
                 )
             )
         ).item(
-            SpreadsheetContextMenuItem.with(
+            SpreadsheetContextMenuItem.<Void>with(
                 "id-MenuItem",
                 "item-text-222"
             ).historyToken(
@@ -303,7 +304,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
                 )
             )
         ).item(
-            SpreadsheetContextMenuItem.with(
+            SpreadsheetContextMenuItem.<Void>with(
                 "id-MenuItem",
                 "item-text-333"
             )
@@ -324,12 +325,12 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
             topLevelMenu(),
             HistoryContexts.fake()
         ).item(
-            SpreadsheetContextMenuItem.with(
+            SpreadsheetContextMenuItem.<Void>with(
                 "id-1-MenuItem",
                 "item-text-111"
             )
         ).item(
-            SpreadsheetContextMenuItem.with(
+            SpreadsheetContextMenuItem.<Void>with(
                 "id-2-MenuItem",
                 "item-text-222"
             )
@@ -339,7 +340,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
             "id-3-SubMenu",
             "sub-menu-item-text-333"
         ).item(
-            SpreadsheetContextMenuItem.with(
+            SpreadsheetContextMenuItem.<Void>with(
                 "id-4-MenuItem",
                 "item-text-444"
             )
@@ -361,12 +362,12 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
             topLevelMenu(),
             HistoryContexts.fake()
         ).item(
-            SpreadsheetContextMenuItem.with(
+            SpreadsheetContextMenuItem.<Void>with(
                 "id-1-MenuItem",
                 "item-text-111"
             )
         ).item(
-            SpreadsheetContextMenuItem.with(
+            SpreadsheetContextMenuItem.<Void>with(
                 "id-2-MenuItem",
                 "item-text-222"
             )
@@ -376,7 +377,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
             "id-3-SubMenu",
             "sub-menu-item-text-333"
         ).item(
-            SpreadsheetContextMenuItem.with(
+            SpreadsheetContextMenuItem.<Void>with(
                 "id-4-MenuItem",
                 "item-text-444"
             )
@@ -386,14 +387,14 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
             "id-5-SubMenu",
             "sub-sub-menu-item-text-555"
         ).item(
-            SpreadsheetContextMenuItem.with(
+            SpreadsheetContextMenuItem.<Void>with(
                 "id-6-MenuItem",
                 "item-text-666"
             )
         );
 
         subMenu.item(
-            SpreadsheetContextMenuItem.with(
+            SpreadsheetContextMenuItem.<Void>with(
                 "id-7-MenuItem",
                 "item-text-777"
             )
@@ -424,8 +425,8 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
     // ClassTesting...................................................................................................,,
 
     @Override
-    public Class<SpreadsheetContextMenu> type() {
-        return SpreadsheetContextMenu.class;
+    public Class<SpreadsheetContextMenu<Void>> type() {
+        return Cast.to(SpreadsheetContextMenu.class);
     }
 
     @Override
