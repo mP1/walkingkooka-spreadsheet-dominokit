@@ -4240,11 +4240,18 @@ public abstract class HistoryToken implements HasUrlFragment,
                         }
 
                         if (this instanceof SpreadsheetCellLabelHistoryToken) {
+                            if (null != valueOrNull && false == valueOrNull instanceof SpreadsheetLabelName) {
+                                this.reportInvalidSaveValue(
+                                    valueOrNull,
+                                    SpreadsheetLabelName.class
+                                );
+                            }
+
                             historyToken = HistoryToken.cellLabelSave(
                                 id,
                                 name,
                                 spreadsheetSelection,
-                                Cast.to(valueOrNull)
+                                (SpreadsheetLabelName) valueOrNull
                             );
                         }
 
