@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.upload;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 import walkingkooka.text.CharSequences;
 
@@ -29,7 +30,8 @@ import java.util.Optional;
 /**
  * Wraps a
  */
-public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileComponentLike {
+public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileComponentLike
+    implements TestHtmlElementComponent<HTMLDivElement, SpreadsheetUploadFileComponent> {
 
     public static SpreadsheetUploadFileComponent empty(final String id) {
         return new SpreadsheetUploadFileComponent()
@@ -120,26 +122,5 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
     @Override
     public SpreadsheetUploadFileComponent focus() {
         return this;
-    }
-
-    @Override
-    public boolean isEditing() {
-        return false;
-    }
-
-    @Override
-    public SpreadsheetUploadFileComponent setCssText(final String css) {
-        return this;
-    }
-
-    @Override
-    public SpreadsheetUploadFileComponent setCssProperty(final String name,
-                                                         final String value) {
-        return this;
-    }
-
-    @Override
-    public HTMLDivElement element() {
-        throw new UnsupportedOperationException();
     }
 }
