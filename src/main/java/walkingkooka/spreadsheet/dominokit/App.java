@@ -1148,11 +1148,15 @@ public class App implements EntryPoint,
     public Set<Locale> findByLocaleText(final String text,
                                         final int offset,
                                         final int count) {
+        //if (null != localeText && (LocaleContexts.CASE_SENSITIVITY.startsWith(localeText, startsWith) || LocaleContexts.CASE_SENSITIVITY.equals(localeText, startsWith))) {
+
+
         return this.localeToText.entrySet()
             .stream()
             .filter(localeAndText -> {
                 final String localeText = localeAndText.getValue();
-                return false == localeText.isEmpty() && (localeText.equals(text) || localeText.startsWith(text));
+                return false == localeText.isEmpty() &&
+                    (LocaleContexts.CASE_SENSITIVITY.equals(text, localeText) || LocaleContexts.CASE_SENSITIVITY.startsWith(localeText, text));
             }).skip(offset)
             .limit(count)
             .map(Entry::getKey)
