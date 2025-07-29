@@ -17,6 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.locale;
 
+import org.dominokit.domino.ui.menu.MenuItem;
+import walkingkooka.Cast;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -42,6 +44,7 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
+import java.util.function.Function;
 
 /**
  * A model dialog that displays a {@link SpreadsheetLocaleComponent} allowing the user to pick a {@link java.util.Locale}.
@@ -126,8 +129,26 @@ public final class SpreadsheetLocaleDialogComponent implements SpreadsheetDialog
     // localeComponent..................................................................................................
 
     private SpreadsheetLocaleComponent locale() {
-        return SpreadsheetLocaleComponent.empty(this.context)
-            .optional()
+        final Function<SpreadsheetLocaleComponentSuggestionsValue, MenuItem<SpreadsheetLocaleComponentSuggestionsValue>> optionMenuItemCreator =
+            (SpreadsheetLocaleComponentSuggestionsValue s) ->
+                Cast.to(
+                    // Cast HACK required because HistoryTokenMenuItem extends MenuItem<Void>
+                    this.context.menuItem(
+                        ID + "-option-" + s.locale().toLanguageTag(), // id
+                        s.text(),
+                        Optional.of(
+                            this.context.historyToken()
+                                .setSaveValue(
+                                    Optional.of(s.locale())
+                                )
+                        )
+                    )
+                ); // yes type-parameters dont match but it doesnt matter. the value is never given to the MenuItem
+
+        return SpreadsheetLocaleComponent.empty(
+                optionMenuItemCreator,
+                this.context
+            ).optional()
             .addChangeListener(
                 (Optional<Locale> oldLocale, Optional<Locale> newLocale) -> this.save.setValue(newLocale)
             );
