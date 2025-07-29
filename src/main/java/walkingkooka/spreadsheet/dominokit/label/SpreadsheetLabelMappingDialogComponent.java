@@ -366,7 +366,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
 
             this.loaded = Optional.empty();
         } else {
-            final HistoryToken token = context.historyToken();
+            final HistoryToken token = this.context.historyToken();
 
             if (token instanceof SpreadsheetCellLabelHistoryToken) {
                 final Optional<SpreadsheetExpressionReference> historyLabelMappingReference = token.labelMappingReference();
