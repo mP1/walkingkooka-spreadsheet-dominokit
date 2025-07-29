@@ -21,8 +21,84 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetDialogComponentContextTest implements ClassTesting<SpreadsheetDialogComponentContext> {
+
+    @Test
+    public void testSelectionDialogTitleWithNullSelectionFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetDialogComponentContext.selectionDialogTitle(
+                null,
+                "Action123"
+            )
+        );
+    }
+
+    @Test
+    public void testSelectionDialogTitleWithNullActionFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetDialogComponentContext.selectionDialogTitle(
+                SpreadsheetSelection.A1,
+                null
+            )
+        );
+    }
+
+    @Test
+    public void testSelectionDialogTitleWithEmptyActionFails() {
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> SpreadsheetDialogComponentContext.selectionDialogTitle(
+                SpreadsheetSelection.A1,
+                ""
+            )
+        );
+    }
+
+    @Test
+    public void testSelectionDialogTitleWithCell() {
+        this.selectionDialogTitleAndCheck(
+            SpreadsheetSelection.A1,
+            "Action123",
+            "A1: Action123"
+        );
+    }
+
+    @Test
+    public void testSelectionDialogTitleWithCellRange() {
+        this.selectionDialogTitleAndCheck(
+            SpreadsheetSelection.parseCellRange("B2:C3"),
+            "Action456",
+            "B2:C3: Action456"
+        );
+    }
+
+    @Test
+    public void testSelectionDialogTitleWithLabel() {
+        this.selectionDialogTitleAndCheck(
+            SpreadsheetSelection.labelName("Label123"),
+            "Action789",
+            "Label123: Action789"
+        );
+    }
+
+    private void selectionDialogTitleAndCheck(final SpreadsheetSelection selection,
+                                              final String action,
+                                              final String expected) {
+        this.checkEquals(
+            expected,
+            SpreadsheetDialogComponentContext.selectionDialogTitle(
+                selection,
+                action
+            ),
+            () -> "selection: " + selection + " action: " + action
+        );
+    }
 
     // spreadsheetMetadataPropertyNameDialogTitle.......................................................................
 
