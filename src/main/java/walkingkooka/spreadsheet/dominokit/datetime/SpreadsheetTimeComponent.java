@@ -225,6 +225,12 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLDi
         return this;
     }
 
+    @Override
+    public boolean isEditing() {
+        return this.timePicker.isExpanded();
+    }
+
+
     // IsElement........................................................................................................
 
     @Override

@@ -161,6 +161,11 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
         );
     }
 
+    @Override
+    public boolean isEditing() {
+        return false;
+    }
+
     /**
      * Holds all added child components.
      */

@@ -81,6 +81,13 @@ abstract class SpreadsheetAppLayoutDrawerComponent<E extends HTMLElement, T exte
 
     abstract void hideDrawer();
 
+    // isEditing........................................................................................................
+
+    @Override
+    public final boolean isEditing() {
+        return false; // too complex just say no
+    }
+
     // TreePrintable....................................................................................................
 
     @Override

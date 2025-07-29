@@ -178,6 +178,13 @@ public final class RemovePluginAliasSetLikeComponent<N extends Name & Comparable
      */
     private final SpreadsheetFlexLayout flex;
 
+    // isEditing........................................................................................................
+
+    @Override
+    public boolean isEditing() {
+        return false;
+    }
+
     // setCssText.......................................................................................................
 
     @Override

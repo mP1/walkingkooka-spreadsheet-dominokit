@@ -173,6 +173,11 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
     }
 
     @Override
+    public boolean isEditing() {
+        return this.suggestBox.isEditing();
+    }
+
+    @Override
     public SpreadsheetLocaleComponent alwaysShowHelperText() {
         this.suggestBox.alwaysShowHelperText();
         return this;

@@ -35,6 +35,13 @@ abstract class SpreadsheetDivComponentLike implements HtmlElementComponent<HTMLD
 
     final List<HtmlElementComponent<?, ?>> children;
 
+    // isEditing........................................................................................................
+
+    @Override
+    public boolean isEditing() {
+        return false;
+    }
+
     // TreePrintable....................................................................................................
 
     @Override

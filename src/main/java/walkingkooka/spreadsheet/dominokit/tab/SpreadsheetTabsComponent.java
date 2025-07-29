@@ -150,6 +150,13 @@ public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentL
         return this;
     }
 
+    // isEditing........................................................................................................
+
+    @Override
+    public boolean isEditing() {
+        return this.tabsPanel.isExpanded();
+    }
+
     // element..........................................................................................................
 
     @Override

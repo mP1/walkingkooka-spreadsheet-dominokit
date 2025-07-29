@@ -153,6 +153,13 @@ public final class SpreadsheetCardLinkListComponent implements HtmlElementCompon
     // IsElement........................................................................................................
 
     @Override
+    public boolean isEditing() {
+        return false;
+    }
+
+    // IsElement........................................................................................................
+
+    @Override
     public HTMLDivElement element() {
         return this.root.element();
     }

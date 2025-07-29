@@ -644,6 +644,11 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
 
     private final List<SpreadsheetMetadataPanelComponentItem<?>> items;
 
+    @Override
+    public boolean isEditing() {
+        return false;
+    }
+
     // SpreadsheetMetadataFetcherWatcher.............................................,.........................................
 
     @Override

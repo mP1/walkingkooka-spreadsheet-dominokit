@@ -24,6 +24,15 @@ import elemental2.dom.HTMLElement;
  */
 public interface TestHtmlElementComponent<E extends HTMLElement, C extends HtmlElementComponent<E, C>> extends HtmlElementComponent<E, C> {
 
+    // isEditing........................................................................................................
+
+    @Override
+    default boolean isEditing() {
+        return false;
+    }
+
+    // element..........................................................................................................
+
     @Override
     default E element() {
         throw new UnsupportedOperationException();

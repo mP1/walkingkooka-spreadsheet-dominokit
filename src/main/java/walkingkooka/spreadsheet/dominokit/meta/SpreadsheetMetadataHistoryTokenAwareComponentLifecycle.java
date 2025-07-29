@@ -103,6 +103,13 @@ public final class SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E exte
         return true;
     }
 
+    // isEditing........................................................................................................
+
+    @Override
+    public boolean isEditing() {
+        return false; // query form components not the form itself
+    }
+
     // Object...........................................................................................................
 
     @Override

@@ -196,6 +196,13 @@ public final class AddPluginNameSetComponent implements HtmlElementComponent<HTM
         return this;
     }
 
+    // isEditing........................................................................................................
+
+    @Override
+    public boolean isEditing() {
+        return false;
+    }
+
     // IsElement........................................................................................................
 
     @Override

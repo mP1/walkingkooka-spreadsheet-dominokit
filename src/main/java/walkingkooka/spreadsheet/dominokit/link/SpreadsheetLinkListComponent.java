@@ -68,6 +68,13 @@ public final class SpreadsheetLinkListComponent implements HtmlElementComponent<
         return this;
     }
 
+    // isEditing........................................................................................................
+
+    @Override
+    public boolean isEditing() {
+        return this.root.isEditing();
+    }
+
     // IsElement........................................................................................................
 
     @Override

@@ -82,4 +82,9 @@ public interface TableComponent<E extends HTMLElement, V, C extends TableCompone
     default C removeBorders() {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    default boolean isEditing() {
+        return false; // query individual components
+    }
 }

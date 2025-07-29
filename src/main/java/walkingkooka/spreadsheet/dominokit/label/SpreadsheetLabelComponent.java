@@ -249,6 +249,11 @@ public final class SpreadsheetLabelComponent implements FormValueComponent<HTMLF
         return this;
     }
 
+    @Override
+    public boolean isEditing() {
+        return this.suggestBox.isEditing();
+    }
+
     // styling..........................................................................................................
 
     @Override

@@ -223,6 +223,11 @@ public final class SpreadsheetCellRangeReferencePathComponent implements FormVal
         return this.select.value();
     }
 
+    @Override
+    public boolean isEditing() {
+        return this.select.isEditing();
+    }
+
     private final SpreadsheetSelectComponent<SpreadsheetCellRangeReferencePath> select;
 
     // Object...........................................................................................................

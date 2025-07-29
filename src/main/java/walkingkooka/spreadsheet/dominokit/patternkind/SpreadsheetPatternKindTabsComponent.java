@@ -157,6 +157,13 @@ public final class SpreadsheetPatternKindTabsComponent implements HtmlElementCom
         return this;
     }
 
+    // isEditing........................................................................................................
+
+    @Override
+    public boolean isEditing() {
+        return HtmlElementComponent.hasFocus(this.element());
+    }
+
     // TreePrinter......................................................................................................
 
     @Override

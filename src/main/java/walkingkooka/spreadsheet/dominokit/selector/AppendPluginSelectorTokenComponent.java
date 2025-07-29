@@ -146,6 +146,13 @@ public final class AppendPluginSelectorTokenComponent<T extends PluginSelectorTo
         return this;
     }
 
+    // isEditing........................................................................................................
+
+    @Override
+    public boolean isEditing() {
+        return false;
+    }
+
     // IsElement........................................................................................................
 
     @Override

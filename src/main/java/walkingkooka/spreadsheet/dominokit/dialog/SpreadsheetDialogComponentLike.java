@@ -76,6 +76,13 @@ abstract class SpreadsheetDialogComponentLike implements HtmlElementComponent<HT
      */
     abstract public void close();
 
+    // isEditing........................................................................................................
+
+    @Override
+    public boolean isEditing() {
+        return false;
+    }
+
     // TreePrintable....................................................................................................
 
     @Override

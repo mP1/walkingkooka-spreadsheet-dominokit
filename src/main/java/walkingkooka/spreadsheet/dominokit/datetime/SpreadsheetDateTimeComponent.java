@@ -25,6 +25,7 @@ import org.dominokit.domino.ui.datepicker.CalendarDay;
 import org.dominokit.domino.ui.timepicker.TimePicker;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -297,6 +298,13 @@ public final class SpreadsheetDateTimeComponent implements FormValueComponent<HT
     public SpreadsheetDateTimeComponent focus() {
         // NOP
         return this;
+    }
+
+    @Override
+    public boolean isEditing() {
+        return HtmlElementComponent.hasFocus(this.element()) ||
+            this.calendar.isExpanded() ||
+            this.timePicker.isExpanded();
     }
 
     // IsElement........................................................................................................

@@ -105,6 +105,13 @@ public final class SpreadsheetLabelLinksComponent implements HtmlElementComponen
         return this;
     }
 
+    // isEditing........................................................................................................
+
+    @Override
+    public boolean isEditing() {
+        return this.root.isEditing();
+    }
+
     // IsElement........................................................................................................
 
     @Override
