@@ -35,15 +35,15 @@ import java.util.Optional;
 
 /**
  * A mock of main/SpreadsheetTextBox with the same public interface and a helpful {@link TreePrintable}. This will be useful for unit tests to verify the rough apperance of a component that includes
- * {@link walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox}.
+ * {@link SpreadsheetTextBox}.
  */
 public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSetElement, String, SpreadsheetTextBox>,
-    SpreadsheetTextBoxTreePrintable<walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox, String>,
-    TestHtmlElementComponent<HTMLFieldSetElement, walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox>,
+    SpreadsheetTextBoxTreePrintable<SpreadsheetTextBox, String>,
+    TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetTextBox>,
     ValidatorHelper {
 
-    public static walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox empty() {
-        return new walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox();
+    public static SpreadsheetTextBox empty() {
+        return new SpreadsheetTextBox();
     }
 
     @Override
