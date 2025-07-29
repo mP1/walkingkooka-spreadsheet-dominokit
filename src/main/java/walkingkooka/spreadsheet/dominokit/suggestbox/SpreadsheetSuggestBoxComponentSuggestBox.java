@@ -28,6 +28,7 @@ final class SpreadsheetSuggestBoxComponentSuggestBox<T> extends SuggestBox<T, Sp
         super(store);
     }
 
+    // overridden and made public so SpreadsheetSuggestBoxComponent can force a refresh after #setValue is called
     @Override
     protected void applyOptionValue(final SuggestOption<T> option) {
         super.applyOptionValue(option);
