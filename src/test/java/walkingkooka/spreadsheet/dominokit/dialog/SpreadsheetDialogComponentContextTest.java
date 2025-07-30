@@ -22,6 +22,7 @@ import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -97,6 +98,79 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
                 action
             ),
             () -> "selection: " + selection + " action: " + action
+        );
+    }
+
+    // selectionTextStylePropertyDialogTitle............................................................................
+
+    @Test
+    public void testSelectionTextStylePropertyDialogTitleWithNullSelectionFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetDialogComponentContext.selectionTextStylePropertyDialogTitle(
+                null,
+                TextStylePropertyName.TEXT_ALIGN
+            )
+        );
+    }
+
+    @Test
+    public void testSelectionTextStylePropertyDialogTitleWithNullActionFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetDialogComponentContext.selectionTextStylePropertyDialogTitle(
+                SpreadsheetSelection.A1,
+                null
+            )
+        );
+    }
+
+    @Test
+    public void testSelectionTextStylePropertyDialogTitleWithTextAlign() {
+        this.selectionStylePropertyDialogTitleAndCheck(
+            SpreadsheetSelection.A1,
+            TextStylePropertyName.TEXT_ALIGN,
+            "A1: Text Align"
+        );
+    }
+
+    @Test
+    public void testSelectionTextStylePropertyDialogTitleWithBackgroundColor() {
+        this.selectionStylePropertyDialogTitleAndCheck(
+            SpreadsheetSelection.A1,
+            TextStylePropertyName.BACKGROUND_COLOR,
+            "A1: Background Color"
+        );
+    }
+
+    @Test
+    public void testSelectionTextStylePropertyDialogTitleWithCellRange() {
+        this.selectionStylePropertyDialogTitleAndCheck(
+            SpreadsheetSelection.parseCellRange("B2:C3"),
+            TextStylePropertyName.TEXT_ALIGN,
+            "B2:C3: Text Align"
+        );
+    }
+
+    @Test
+    public void testSelectionTextStylePropertyDialogTitleWithLabel() {
+        this.selectionStylePropertyDialogTitleAndCheck(
+            SpreadsheetSelection.labelName("Label123"),
+            TextStylePropertyName.TEXT_ALIGN,
+            "Label123: Text Align"
+        );
+    }
+
+    private void selectionStylePropertyDialogTitleAndCheck(final SpreadsheetSelection selection,
+                                                           final TextStylePropertyName<?> propertyName,
+                                                           final String expected) {
+        this.checkEquals(
+            expected,
+            SpreadsheetDialogComponentContext.selectionTextStylePropertyDialogTitle(
+                selection,
+                propertyName
+            ),
+            () -> "selection: " + selection + " propertyName: " + propertyName
         );
     }
 
