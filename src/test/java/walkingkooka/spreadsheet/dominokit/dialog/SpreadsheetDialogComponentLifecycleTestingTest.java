@@ -64,7 +64,6 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
             },
             "TestSpreadsheetDialogComponentLifecycle\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    Title456\n" +
                 "    id=id123 includeClose=true CLOSED\n" +
                 "      SpreadsheetTextBox\n" +
                 "        [NOT onGiveFocus]\n" +
@@ -145,7 +144,6 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
             },
             "TestSpreadsheetDialogComponentLifecycle\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    Title456\n" +
                 "    id=id123 includeClose=true CLOSED\n" +
                 "      SpreadsheetTextBox\n" +
                 "        [onGiveFocus]\n" +
@@ -181,7 +179,6 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
                     null,
                     null,
                     "id123",
-                    "Title456",
                     SpreadsheetDialogComponent.INCLUDE_CLOSE,
                     SpreadsheetDialogComponentContexts.fake()
                 ).appendChild(this.onGiveFocus)
@@ -191,6 +188,7 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
         @Override
         public void dialogReset() {
             this.dialogReset++;
+            this.dialog.setTitle("");
         }
 
         int dialogReset;
@@ -216,6 +214,7 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
 
         @Override
         public void refresh(final RefreshContext context) {
+            this.dialog.setTitle("Title456");
             this.refreshed.setValue(
                 Optional.of("refreshed")
             );
