@@ -61,7 +61,7 @@ final class SpreadsheetComparatorNameListDialogComponentContextSortComparators i
 
     @Override
     public String dialogTitle() {
-        return SpreadsheetDialogComponentContext.spreadsheetMetadataPropertyNameDialogTitle(PROPERTY_NAME);
+        return this.spreadsheetMetadataPropertyNameDialogTitle(PROPERTY_NAME);
     }
 
     @Override

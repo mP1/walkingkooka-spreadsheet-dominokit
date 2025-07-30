@@ -78,7 +78,7 @@ public interface SpreadsheetDialogComponentContext extends HistoryContext,
     /**
      * Helper that may be used to create a standard dialog title for a {@link SpreadsheetMetadataPropertyName}.
      */
-    static String spreadsheetMetadataPropertyNameDialogTitle(final SpreadsheetMetadataPropertyName<?> propertyName) {
+    default String spreadsheetMetadataPropertyNameDialogTitle(final SpreadsheetMetadataPropertyName<?> propertyName) {
         Objects.requireNonNull(propertyName, "propertyName");
 
         final String text = propertyName.text();
@@ -91,7 +91,7 @@ public interface SpreadsheetDialogComponentContext extends HistoryContext,
         );
     }
 
-    static String spreadsheetDialogTitle(final String title) {
+    default String spreadsheetDialogTitle(final String title) {
         CharSequences.failIfNullOrEmpty(title, "title");
 
         return "Spreadsheet: " + title;

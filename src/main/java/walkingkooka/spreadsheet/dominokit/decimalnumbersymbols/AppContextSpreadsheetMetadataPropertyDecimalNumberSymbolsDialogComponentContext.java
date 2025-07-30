@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.decimalnumbersymbols;
 
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
@@ -52,7 +51,7 @@ public class AppContextSpreadsheetMetadataPropertyDecimalNumberSymbolsDialogComp
 
     @Override
     public String dialogTitle() {
-        return SpreadsheetDialogComponentContext.spreadsheetMetadataPropertyNameDialogTitle(SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_SYMBOLS);
+        return this.spreadsheetMetadataPropertyNameDialogTitle(SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_SYMBOLS);
     }
 
     @Override

@@ -63,7 +63,7 @@ final class AppContextConverterSelectorDialogComponentContext implements Convert
 
     @Override
     public String dialogTitle() {
-        return SpreadsheetDialogComponentContext.spreadsheetMetadataPropertyNameDialogTitle(this.propertyName);
+        return this.spreadsheetMetadataPropertyNameDialogTitle(this.propertyName);
     }
 
     @Override
