@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
 
@@ -41,6 +42,22 @@ public interface SpreadsheetDialogComponentContext extends HistoryContext,
         CharSequences.failIfNullOrEmpty(action, "action");
 
         return selection.text() + ": " + action;
+    }
+
+    /**
+     * Helper that may be used to create a standard dialog for a {@link SpreadsheetSelection} and a style view or edit.
+     */
+    static String selectionTextStylePropertyDialogTitle(final SpreadsheetSelection selection,
+                                                        final TextStylePropertyName<?> propertyName) {
+        Objects.requireNonNull(selection, "selection");
+        Objects.requireNonNull(propertyName, "propertyName");
+
+        return selectionDialogTitle(
+            selection,
+            CaseKind.kebabToTitle(
+                propertyName.value()
+            )
+        );
     }
 
     /**
