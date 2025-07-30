@@ -243,8 +243,6 @@ public final class PluginFileViewDialogComponent implements SpreadsheetDialogCom
      */
     @Override
     public void dialogReset() {
-        this.dialog.setTitle("");
-
         this.resetTextView();
 
         this.download.setDisabled(true);
@@ -258,6 +256,7 @@ public final class PluginFileViewDialogComponent implements SpreadsheetDialogCom
 
     @Override
     public void refresh(final RefreshContext context) {
+        this.context.refreshDialogTitle(this);
         this.refreshDialog();
         this.refreshTextView();
         this.refreshDownload();

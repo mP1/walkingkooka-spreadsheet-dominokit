@@ -208,11 +208,9 @@ public final class SpreadsheetLocaleDialogComponent implements SpreadsheetDialog
      */
     @Override
     public void refresh(final RefreshContext context) {
-        final Optional<Locale> undoLocale = this.context.undoLocale();
+        this.context.refreshDialogTitle(this);
 
-        this.dialog.setTitle(
-            this.context.dialogTitle()
-        );
+        final Optional<Locale> undoLocale = this.context.undoLocale();
 
         this.locale.setValue(undoLocale);
         this.save.setValue(undoLocale);

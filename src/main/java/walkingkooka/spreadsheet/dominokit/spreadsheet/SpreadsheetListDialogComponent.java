@@ -210,6 +210,8 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
 
     @Override
     public void refresh(final RefreshContext context) {
+        this.context.refreshDialogTitle(this);
+
         final SpreadsheetListHistoryToken historyToken = context.historyToken()
             .cast(SpreadsheetListHistoryToken.class);
 

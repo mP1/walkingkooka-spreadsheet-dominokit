@@ -172,6 +172,8 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
 
     @Override
     public void refresh(final RefreshContext context) {
+        this.context.refreshDialogTitle(this);
+
         this.refreshInsert();
         this.refreshClose();
     }

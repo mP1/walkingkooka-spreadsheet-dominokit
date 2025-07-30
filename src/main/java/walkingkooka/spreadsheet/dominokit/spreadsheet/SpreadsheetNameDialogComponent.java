@@ -194,6 +194,8 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
 
     @Override
     public void refresh(final RefreshContext context) {
+        this.context.refreshDialogTitle(this);
+
         final Optional<SpreadsheetName> name = this.context.spreadsheetName();
         this.refreshSave(name);
         this.refreshUndo(name);

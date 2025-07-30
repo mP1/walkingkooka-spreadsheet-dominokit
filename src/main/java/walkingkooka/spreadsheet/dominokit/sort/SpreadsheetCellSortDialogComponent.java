@@ -125,6 +125,8 @@ public final class SpreadsheetCellSortDialogComponent implements SpreadsheetDial
 
     @Override
     public void refresh(final RefreshContext context) {
+        this.context.refreshDialogTitle(this);
+
         this.refreshSelection(context);
         this.refreshColumnOrRowComparatorNamesList(context); // maybe sync from history token
         this.refreshColumnOrRowComparatorNamesList(); // sync everything from the namesList component

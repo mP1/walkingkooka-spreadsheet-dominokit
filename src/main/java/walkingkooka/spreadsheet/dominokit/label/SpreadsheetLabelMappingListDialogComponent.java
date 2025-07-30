@@ -156,6 +156,8 @@ public final class SpreadsheetLabelMappingListDialogComponent implements Spreads
      */
     @Override
     public void refresh(final RefreshContext context) {
+        this.context.refreshDialogTitle(this);
+
         final HistoryToken historyToken = context.historyToken();
 
         this.refreshCreate();

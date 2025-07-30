@@ -202,6 +202,8 @@ public final class PluginSetDialogComponent implements SpreadsheetDialogComponen
 
     @Override
     public void refresh(final RefreshContext context) {
+        this.context.refreshDialogTitle(this);
+
         this.table.refresh(
             context.historyToken()
                 .cast(PluginListSelectHistoryToken.class)

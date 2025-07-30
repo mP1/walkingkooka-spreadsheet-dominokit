@@ -278,6 +278,8 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
 
     @Override
     public void refresh(final RefreshContext context) {
+        this.context.refreshDialogTitle(this);
+
         this.refreshValue();
 
         this.refreshSave();

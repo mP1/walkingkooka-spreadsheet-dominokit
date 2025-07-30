@@ -321,6 +321,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
      */
     @Override
     public void refresh(final RefreshContext context) {
+        this.context.refreshDialogTitle(this);
         this.refreshLabelNameAndLabelMappingReference();
         this.loadLabelMappingIfNecessary();
 

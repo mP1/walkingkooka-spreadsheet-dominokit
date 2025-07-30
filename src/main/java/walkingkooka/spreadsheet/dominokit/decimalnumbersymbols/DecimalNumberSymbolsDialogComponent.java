@@ -663,6 +663,8 @@ public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDia
      */
     @Override
     public void refresh(final RefreshContext context) {
+        this.context.refreshDialogTitle(this);
+
         final Optional<DecimalNumberSymbols> decimalNumberSymbols = this.context.loadDecimalNumberSymbols();
         this.decimalNumberSymbols.setValue(decimalNumberSymbols);
         this.refreshDecimalNumberSymbolsComponentsAndSave(decimalNumberSymbols);

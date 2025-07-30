@@ -217,12 +217,9 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
 
     private void refreshTitleAndLinks() {
         final SpreadsheetComparatorNameListDialogComponentContext context = this.context;
+        context.refreshDialogTitle(this);
 
         final HistoryToken historyToken = context.historyToken();
-
-        this.dialog.setTitle(
-            context.dialogTitle()
-        );
 
         this.clear.clearValue();
 
