@@ -178,6 +178,8 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
                     Optional.of("NOT refreshed")
                 );
             this.dialog = SpreadsheetDialogComponent.with(
+                    null,
+                    null,
                     "id123",
                     "Title456",
                     SpreadsheetDialogComponent.INCLUDE_CLOSE,
