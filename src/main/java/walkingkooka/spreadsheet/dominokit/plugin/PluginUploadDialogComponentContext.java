@@ -27,6 +27,6 @@ public interface PluginUploadDialogComponentContext extends SpreadsheetDialogCom
 
     @Override
     default String dialogTitle() {
-        return "Upload Plugin";
+        return this.pluginDialogTitle("Upload");
     }
 }
