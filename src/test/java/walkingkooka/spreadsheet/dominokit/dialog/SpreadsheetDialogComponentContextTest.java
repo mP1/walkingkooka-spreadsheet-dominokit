@@ -180,7 +180,7 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
     public void testSpreadsheetMetadataPropertyNameDialogTitleWithConverters() {
         this.spreadsheetMetadataPropertyNameDialogTitleAndCheck(
             SpreadsheetMetadataPropertyName.CONVERTERS,
-            "Spreadsheet metadata: Converters(converters)"
+            "Spreadsheet: Converters(converters)"
         );
     }
 
@@ -188,7 +188,7 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
     public void testSpreadsheetMetadataPropertyNameDialogTitleWithFindConverter() {
         this.spreadsheetMetadataPropertyNameDialogTitleAndCheck(
             SpreadsheetMetadataPropertyName.FIND_CONVERTER,
-            "Spreadsheet metadata: Find Converter(findConverter)"
+            "Spreadsheet: Find Converter(findConverter)"
         );
     }
 
@@ -196,7 +196,7 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
     public void testSpreadsheetMetadataPropertyNameDialogTitleWithRoundingMode() {
         this.spreadsheetMetadataPropertyNameDialogTitleAndCheck(
             SpreadsheetMetadataPropertyName.ROUNDING_MODE,
-            "Spreadsheet metadata: Rounding Mode(roundingMode)"
+            "Spreadsheet: Rounding Mode(roundingMode)"
         );
     }
 
@@ -204,7 +204,7 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
     public void testSpreadsheetMetadataPropertyNameDialogTitleWithHideZeroValues() {
         this.spreadsheetMetadataPropertyNameDialogTitleAndCheck(
             SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES,
-            "Spreadsheet metadata: Hide Zero Values(hideZeroValues)"
+            "Spreadsheet: Hide Zero Values(hideZeroValues)"
         );
     }
 
