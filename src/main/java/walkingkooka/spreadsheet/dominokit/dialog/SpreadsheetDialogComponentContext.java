@@ -63,13 +63,13 @@ public interface SpreadsheetDialogComponentContext extends HistoryContext,
     /**
      * Helper that may be used to create a standard dialog title for the viewing/editing of a cell property.
      */
-    static String selectionValueDialogTitle(final SpreadsheetSelection selection,
-                                            final Class<?> type) {
-        Objects.requireNonNull(selection, "selection");
+    default String selectionValueDialogTitle(final Class<?> type) {
         Objects.requireNonNull(type, "type");
 
         return selectionDialogTitle(
-            selection,
+            this.historyToken()
+                .selection()
+                .get(),
             CaseKind.PASCAL.change(
                 type.getSimpleName()
                     .replace("Spreadsheet", "")

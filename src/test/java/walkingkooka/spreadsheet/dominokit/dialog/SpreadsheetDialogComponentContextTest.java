@@ -21,6 +21,9 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
@@ -33,6 +36,10 @@ import java.util.Locale;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetDialogComponentContextTest implements ClassTesting<SpreadsheetDialogComponentContext> {
+
+    private final static SpreadsheetId ID = SpreadsheetId.with(1);
+
+    private final static SpreadsheetName NAME = SpreadsheetName.with("SpreadsheetName123");
 
     @Test
     public void testSelectionDialogTitleWithNullSelectionFails() {
@@ -183,28 +190,6 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
     // selectionValueDialogTitle........................................................................................
 
     @Test
-    public void testSelectionValueDialogTitleWithNullSelectionFails() {
-        assertThrows(
-            NullPointerException.class,
-            () -> SpreadsheetDialogComponentContext.selectionValueDialogTitle(
-                null,
-                DateTimeSymbols.class
-            )
-        );
-    }
-
-    @Test
-    public void testSelectionValueDialogTitleWithNullValueTypeFails() {
-        assertThrows(
-            NullPointerException.class,
-            () -> SpreadsheetDialogComponentContext.selectionValueDialogTitle(
-                SpreadsheetSelection.A1,
-                null
-            )
-        );
-    }
-
-    @Test
     public void testSelectionValueDialogTitleWithDateTimeSymbols() {
         this.selectionValueAndCheck(
             SpreadsheetSelection.A1,
@@ -272,13 +257,20 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
                                         final String expected) {
         this.checkEquals(
             expected,
-            SpreadsheetDialogComponentContext.selectionValueDialogTitle(
-                selection,
-                type
-            ),
+            new FakeSpreadsheetDialogComponentContext() {
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.selection(
+                        ID,
+                        NAME,
+                        selection.setDefaultAnchor()
+                    );
+                }
+            }.selectionValueDialogTitle(type),
             () -> "selection: " + selection + " type: " + type.getSimpleName()
         );
     }
+
     // spreadsheetMetadataPropertyNameDialogTitle.......................................................................
 
     @Test
