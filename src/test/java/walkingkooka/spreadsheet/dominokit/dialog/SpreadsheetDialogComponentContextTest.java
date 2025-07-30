@@ -117,28 +117,6 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
     // selectionTextStylePropertyDialogTitle............................................................................
 
     @Test
-    public void testSelectionTextStylePropertyDialogTitleWithNullSelectionFails() {
-        assertThrows(
-            NullPointerException.class,
-            () -> SpreadsheetDialogComponentContext.selectionTextStylePropertyDialogTitle(
-                null,
-                TextStylePropertyName.TEXT_ALIGN
-            )
-        );
-    }
-
-    @Test
-    public void testSelectionTextStylePropertyDialogTitleWithNullActionFails() {
-        assertThrows(
-            NullPointerException.class,
-            () -> SpreadsheetDialogComponentContext.selectionTextStylePropertyDialogTitle(
-                SpreadsheetSelection.A1,
-                null
-            )
-        );
-    }
-
-    @Test
     public void testSelectionTextStylePropertyDialogTitleWithTextAlign() {
         this.selectionStylePropertyDialogTitleAndCheck(
             SpreadsheetSelection.A1,
@@ -179,10 +157,17 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
                                                            final String expected) {
         this.checkEquals(
             expected,
-            SpreadsheetDialogComponentContext.selectionTextStylePropertyDialogTitle(
-                selection,
-                propertyName
-            ),
+            new FakeSpreadsheetDialogComponentContext() {
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.cellStyle(
+                        ID,
+                        NAME,
+                        selection.setDefaultAnchor(),
+                        propertyName
+                    );
+                }
+            }.selectionTextStylePropertyDialogTitle(propertyName),
             () -> "selection: " + selection + " propertyName: " + propertyName
         );
     }
