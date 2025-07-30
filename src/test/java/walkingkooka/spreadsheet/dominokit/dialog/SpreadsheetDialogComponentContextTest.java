@@ -33,46 +33,11 @@ import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Locale;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 public final class SpreadsheetDialogComponentContextTest implements ClassTesting<SpreadsheetDialogComponentContext> {
 
     private final static SpreadsheetId ID = SpreadsheetId.with(1);
 
     private final static SpreadsheetName NAME = SpreadsheetName.with("SpreadsheetName123");
-
-    @Test
-    public void testSelectionDialogTitleWithNullSelectionFails() {
-        assertThrows(
-            NullPointerException.class,
-            () -> SpreadsheetDialogComponentContext.selectionDialogTitle(
-                null,
-                "Action123"
-            )
-        );
-    }
-
-    @Test
-    public void testSelectionDialogTitleWithNullActionFails() {
-        assertThrows(
-            NullPointerException.class,
-            () -> SpreadsheetDialogComponentContext.selectionDialogTitle(
-                SpreadsheetSelection.A1,
-                null
-            )
-        );
-    }
-
-    @Test
-    public void testSelectionDialogTitleWithEmptyActionFails() {
-        assertThrows(
-            IllegalArgumentException.class,
-            () -> SpreadsheetDialogComponentContext.selectionDialogTitle(
-                SpreadsheetSelection.A1,
-                ""
-            )
-        );
-    }
 
     @Test
     public void testSelectionDialogTitleWithCell() {
@@ -106,10 +71,17 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
                                               final String expected) {
         this.checkEquals(
             expected,
-            SpreadsheetDialogComponentContext.selectionDialogTitle(
-                selection,
-                action
-            ),
+            new FakeSpreadsheetDialogComponentContext() {
+
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.cellSelect(
+                        ID,
+                        NAME,
+                        selection.setDefaultAnchor()
+                    );
+                }
+            }.selectionDialogTitle(action),
             () -> "selection: " + selection + " action: " + action
         );
     }

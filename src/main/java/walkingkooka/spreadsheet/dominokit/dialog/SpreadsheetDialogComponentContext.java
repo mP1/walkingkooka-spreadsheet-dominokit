@@ -34,14 +34,15 @@ public interface SpreadsheetDialogComponentContext extends HistoryContext,
     LoggingContext {
 
     /**
-     * Helper that may be used to create a standard dialog for a {@link SpreadsheetSelection} and some action.
+     * Helper that may be used to create a standard dialog title for a {@link SpreadsheetSelection} and some action.
      */
-    static String selectionDialogTitle(final SpreadsheetSelection selection,
-                                       final String action) {
-        Objects.requireNonNull(selection, "selection");
+    default String selectionDialogTitle(final String action) {
         CharSequences.failIfNullOrEmpty(action, "action");
 
-        return selection.text() + ": " + action;
+        return this.historyToken()
+            .selection()
+            .get()
+            .text() + ": " + action;
     }
 
     /**
@@ -52,9 +53,6 @@ public interface SpreadsheetDialogComponentContext extends HistoryContext,
         Objects.requireNonNull(propertyName, "propertyName");
 
         return selectionDialogTitle(
-            this.historyToken()
-                .selection()
-                .get(),
             CaseKind.kebabToTitle(
                 propertyName.value()
             )
@@ -68,9 +66,6 @@ public interface SpreadsheetDialogComponentContext extends HistoryContext,
         Objects.requireNonNull(type, "type");
 
         return selectionDialogTitle(
-            this.historyToken()
-                .selection()
-                .get(),
             CaseKind.PASCAL.change(
                 type.getSimpleName()
                     .replace("Spreadsheet", "")
