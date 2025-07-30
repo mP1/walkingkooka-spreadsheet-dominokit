@@ -99,7 +99,7 @@ public final class SpreadsheetLocaleDialogComponentTest implements SpreadsheetDi
             context,
             "SpreadsheetLocaleDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    Cell A1 Locale\n" +
+                "    A1: Locale\n" +
                 "    id=locale-Dialog includeClose=true\n" +
                 "      SpreadsheetFlexLayout\n" +
                 "        ROW\n" +
@@ -162,7 +162,7 @@ public final class SpreadsheetLocaleDialogComponentTest implements SpreadsheetDi
             context,
             "SpreadsheetLocaleDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    Cell A1 Locale\n" +
+                "    A1: Locale\n" +
                 "    id=locale-Dialog includeClose=true\n" +
                 "      SpreadsheetFlexLayout\n" +
                 "        ROW\n" +
