@@ -21,6 +21,7 @@ import walkingkooka.plugin.PluginName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextDelegator;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchersDelegator;
 import walkingkooka.spreadsheet.dominokit.history.PluginSelectHistoryToken;
@@ -71,7 +72,10 @@ final class AppContextJarEntryInfoListDialogComponentContext implements JarEntry
 
     @Override
     public SpreadsheetDialogComponentContext spreadsheetDialogComponentContext() {
-        return context;
+        return SpreadsheetDialogComponentContexts.basic(
+            this.context,
+            this.context
+        );
     }
 
     private final AppContext context;

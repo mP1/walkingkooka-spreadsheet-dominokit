@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.insert;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextDelegator;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnInsertHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowInsertHistoryToken;
@@ -96,7 +97,10 @@ final class AppContextSpreadsheetColumnRowInsertCountDialogComponentContext impl
 
     @Override
     public SpreadsheetDialogComponentContext spreadsheetDialogComponentContext() {
-        return this.context;
+        return SpreadsheetDialogComponentContexts.basic(
+            this.context,
+            this.context
+        );
     }
 
     private final AppContext context;

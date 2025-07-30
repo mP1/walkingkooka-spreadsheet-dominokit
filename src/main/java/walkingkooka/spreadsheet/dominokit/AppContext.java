@@ -29,7 +29,6 @@ import walkingkooka.net.http.HttpStatus;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasConverterFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasDateTimeSymbolsFetcher;
@@ -100,7 +99,6 @@ public interface AppContext extends CanGiveFocus,
     ProviderContext,
     SpreadsheetFormatterContext,
     SpreadsheetParserContext,
-    SpreadsheetDialogComponentContext,
     HistoryContext,
     LoggingContext,
     RefreshContext,
