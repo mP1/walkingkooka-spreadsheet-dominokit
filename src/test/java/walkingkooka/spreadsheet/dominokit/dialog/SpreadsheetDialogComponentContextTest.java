@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.dialog;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.datetime.DateTimeSymbols;
+import walkingkooka.plugin.PluginName;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
@@ -32,6 +33,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Locale;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -41,6 +43,48 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
 
     private final static SpreadsheetName NAME = SpreadsheetName.with("SpreadsheetName123");
 
+    // pluginDialogTitle................................................................................................
+
+    @Test
+    public void testPluginDialogTitleWithoutPluginName() {
+        this.pluginDialogTitleAndCheck(
+            Optional.empty(),
+            "Action123",
+            "Plugin: Action123"
+        );
+    }
+
+    @Test
+    public void testPluginDialogTitleWithPluginName() {
+        this.pluginDialogTitleAndCheck(
+            Optional.of(
+                PluginName.with("HelloPlugin")
+            ),
+            "Action456",
+            "Plugin HelloPlugin: Action456"
+        );
+    }
+
+    private void pluginDialogTitleAndCheck(final Optional<PluginName> plugin,
+                                           final String action,
+                                           final String expected) {
+        this.checkEquals(
+            expected,
+            new FakeSpreadsheetDialogComponentContext() {
+
+                @Override
+                public HistoryToken historyToken() {
+                    return plugin.isPresent() ?
+                        HistoryToken.pluginSelect(plugin.get()) :
+                        HistoryToken.pluginUploadSelect();
+                }
+            }.pluginDialogTitle(action),
+            () -> "plugin: " + plugin + " action: " + action
+        );
+    }
+    
+    // selectionDialogTitle.............................................................................................
+    
     @Test
     public void testSelectionDialogTitleWithCell() {
         this.selectionDialogTitleAndCheck(
