@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.dialog;
 
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
+import org.dominokit.domino.ui.dialogs.DialogSize;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 
@@ -31,6 +32,74 @@ abstract class SpreadsheetDialogComponentLike implements HtmlElementComponent<HT
     public final static boolean INCLUDE_CLOSE = true;
 
     public final static boolean WITHOUT_CLOSE = false;
+
+    /**
+     * A dialog box for small prompts from the user like presenting a single text box with a few links.
+     */
+    public static SpreadsheetDialogComponent smallerPrompt(final String id,
+                                                           final String title,
+                                                           final boolean includeClose,
+                                                           final SpreadsheetDialogComponentContext context) {
+        return SpreadsheetDialogComponent.with(
+            DialogSize.MEDIUM, // width
+            DialogSize.SMALL, // height
+            id,
+            title,
+            includeClose,
+            context
+        );
+    }
+
+    /**
+     * A dialog box with a small number of few components such as editing a {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector}.
+     */
+    public static SpreadsheetDialogComponent smallEdit(final String id,
+                                                       final String title,
+                                                       final boolean includeClose,
+                                                       final SpreadsheetDialogComponentContext context) {
+        return SpreadsheetDialogComponent.with(
+            DialogSize.SMALL, // width
+            DialogSize.SMALL, // height
+            id,
+            title,
+            includeClose,
+            context
+        );
+    }
+
+    /**
+     * A dialog box with quite a few components such as editing a {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector}.
+     */
+    public static SpreadsheetDialogComponent largeEdit(final String id,
+                                                       final String title,
+                                                       final boolean includeClose,
+                                                       final SpreadsheetDialogComponentContext context) {
+        return SpreadsheetDialogComponent.with(
+            DialogSize.LARGE, // width
+            DialogSize.LARGE, // height
+            id,
+            title,
+            includeClose,
+            context
+        );
+    }
+
+    /**
+     * A larger dialog box displaying a largeish list, such as cells that match a query, spreadsheet open etc.
+     */
+    public static SpreadsheetDialogComponent largeList(final String id,
+                                                       final String title,
+                                                       final boolean includeClose,
+                                                       final SpreadsheetDialogComponentContext context) {
+        return SpreadsheetDialogComponent.with(
+            DialogSize.VERY_LARGE, // width
+            DialogSize.LARGE, // height
+            id,
+            title,
+            includeClose,
+            context
+        );
+    }
 
     SpreadsheetDialogComponentLike() {
         super();

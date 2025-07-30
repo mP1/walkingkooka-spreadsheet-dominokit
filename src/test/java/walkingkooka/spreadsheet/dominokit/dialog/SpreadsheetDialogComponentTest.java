@@ -30,6 +30,8 @@ public final class SpreadsheetDialogComponentTest implements HtmlElementComponen
     @Test
     public void testOpenTitleCloseableChildren() {
         final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
+            null,
+            null,
             "id123",
             "Title456",
             SpreadsheetDialogComponent.INCLUDE_CLOSE,
@@ -71,6 +73,8 @@ public final class SpreadsheetDialogComponentTest implements HtmlElementComponen
     @Test
     public void testClosedTitleCloseableChildren() {
         final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
+            null,
+            null,
             "id123",
             "Title456",
             SpreadsheetDialogComponent.INCLUDE_CLOSE,
