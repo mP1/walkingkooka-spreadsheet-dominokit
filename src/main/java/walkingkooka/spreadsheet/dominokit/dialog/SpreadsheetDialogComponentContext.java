@@ -20,7 +20,9 @@ package walkingkooka.spreadsheet.dominokit.dialog;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CaseKind;
+import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
 
@@ -29,6 +31,17 @@ import java.util.Objects;
  */
 public interface SpreadsheetDialogComponentContext extends HistoryContext,
     LoggingContext {
+
+    /**
+     * Helper that may be used to create a standard dialog for a {@link SpreadsheetSelection} and some action.
+     */
+    static String selectionDialogTitle(final SpreadsheetSelection selection,
+                                       final String action) {
+        Objects.requireNonNull(selection, "selection");
+        CharSequences.failIfNullOrEmpty(action, "action");
+
+        return selection.text() + ": " + action;
+    }
 
     /**
      * Helper that may be used to create a standard dialog title for a {@link SpreadsheetMetadataPropertyName}.
