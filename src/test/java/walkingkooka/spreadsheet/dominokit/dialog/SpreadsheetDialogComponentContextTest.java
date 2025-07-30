@@ -18,11 +18,17 @@
 package walkingkooka.spreadsheet.dominokit.dialog;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
+import walkingkooka.validation.provider.ValidatorSelector;
+
+import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -174,6 +180,105 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
         );
     }
 
+    // selectionValueDialogTitle........................................................................................
+
+    @Test
+    public void testSelectionValueDialogTitleWithNullSelectionFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetDialogComponentContext.selectionValueDialogTitle(
+                null,
+                DateTimeSymbols.class
+            )
+        );
+    }
+
+    @Test
+    public void testSelectionValueDialogTitleWithNullValueTypeFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetDialogComponentContext.selectionValueDialogTitle(
+                SpreadsheetSelection.A1,
+                null
+            )
+        );
+    }
+
+    @Test
+    public void testSelectionValueDialogTitleWithDateTimeSymbols() {
+        this.selectionValueAndCheck(
+            SpreadsheetSelection.A1,
+            DateTimeSymbols.class,
+            "A1: Date Time Symbols"
+        );
+    }
+
+    @Test
+    public void testSelectionValueDialogTitleWithLocale() {
+        this.selectionValueAndCheck(
+            SpreadsheetSelection.A1,
+            Locale.class,
+            "A1: Locale"
+        );
+    }
+
+    @Test
+    public void testSelectionValueDialogTitleWithSpreadsheetFormatterSelector() {
+        this.selectionValueAndCheck(
+            SpreadsheetSelection.A1,
+            SpreadsheetFormatterSelector.class,
+            "A1: Formatter"
+        );
+    }
+
+    @Test
+    public void testSelectionValueDialogTitleWithSpreadsheetParserSelector() {
+        this.selectionValueAndCheck(
+            SpreadsheetSelection.A1,
+            SpreadsheetParserSelector.class,
+            "A1: Parser"
+        );
+    }
+
+    @Test
+    public void testSelectionValueDialogTitleWithValidator() {
+        this.selectionValueAndCheck(
+            SpreadsheetSelection.A1,
+            ValidatorSelector.class,
+            "A1: Validator"
+        );
+    }
+
+    @Test
+    public void testSelectionValueDialogTitleWithCellRange() {
+        this.selectionValueAndCheck(
+            SpreadsheetSelection.parseCellRange("B2:C3"),
+            Locale.class,
+            "B2:C3: Locale"
+        );
+    }
+
+    @Test
+    public void testSelectionValueDialogTitleWithLabel() {
+        this.selectionValueAndCheck(
+            SpreadsheetSelection.labelName("Label123"),
+            Locale.class,
+            "Label123: Locale"
+        );
+    }
+
+    private void selectionValueAndCheck(final SpreadsheetSelection selection,
+                                        final Class<?> type,
+                                        final String expected) {
+        this.checkEquals(
+            expected,
+            SpreadsheetDialogComponentContext.selectionValueDialogTitle(
+                selection,
+                type
+            ),
+            () -> "selection: " + selection + " type: " + type.getSimpleName()
+        );
+    }
     // spreadsheetMetadataPropertyNameDialogTitle.......................................................................
 
     @Test
