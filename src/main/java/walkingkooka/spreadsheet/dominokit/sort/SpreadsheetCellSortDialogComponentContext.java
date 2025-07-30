@@ -27,9 +27,4 @@ import walkingkooka.spreadsheet.dominokit.viewport.HasSpreadsheetViewportCache;
 public interface SpreadsheetCellSortDialogComponentContext extends SpreadsheetDialogComponentContext,
     SpreadsheetComparatorProvider,
     HasSpreadsheetViewportCache {
-
-    @Override
-    default String dialogTitle() {
-        return "Sort";
-    }
 }
