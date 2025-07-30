@@ -44,6 +44,11 @@ final class AppContextJarEntryInfoListDialogComponentContext implements JarEntry
     }
 
     @Override
+    public String dialogTitle() {
+        return this.pluginDialogTitle("File list");
+    }
+
+    @Override
     public PluginName pluginName() {
         return this.historyToken()
             .cast(PluginSelectHistoryToken.class)

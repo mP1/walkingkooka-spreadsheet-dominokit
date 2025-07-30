@@ -26,11 +26,6 @@ public interface JarEntryInfoListDialogComponentContext extends
     HasPluginFetcherWatchers,
     JarEntryInfoListTableComponentContext {
 
-    @Override
-    default String dialogTitle() {
-        return "Plugin";
-    }
-
     /**
      * Gets all {@link walkingkooka.spreadsheet.server.plugin.JarEntryInfoList} for a given {@link PluginName}.
      */
