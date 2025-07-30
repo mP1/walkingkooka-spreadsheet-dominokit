@@ -17,12 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
+import walkingkooka.spreadsheet.dominokit.dialog.FakeSpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 
 import java.util.Locale;
 
-public class FakeSpreadsheetListDialogComponentContext extends FakeHistoryContext
+public class FakeSpreadsheetListDialogComponentContext extends FakeSpreadsheetDialogComponentContext
     implements SpreadsheetListDialogComponentContext {
 
     @Override

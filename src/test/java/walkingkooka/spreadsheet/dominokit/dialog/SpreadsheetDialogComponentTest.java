@@ -21,7 +21,6 @@ import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
 
 import java.util.Optional;
@@ -34,7 +33,7 @@ public final class SpreadsheetDialogComponentTest implements HtmlElementComponen
             "id123",
             "Title456",
             SpreadsheetDialogComponent.INCLUDE_CLOSE,
-            HistoryContexts.fake()
+            SpreadsheetDialogComponentContexts.fake()
         );
         dialog.appendChild(
             SpreadsheetTextBox.empty()
@@ -75,7 +74,7 @@ public final class SpreadsheetDialogComponentTest implements HtmlElementComponen
             "id123",
             "Title456",
             SpreadsheetDialogComponent.INCLUDE_CLOSE,
-            HistoryContexts.fake()
+            SpreadsheetDialogComponentContexts.fake()
         ).appendChild(
             SpreadsheetTextBox.empty()
                 .setId("TextBoxId111")

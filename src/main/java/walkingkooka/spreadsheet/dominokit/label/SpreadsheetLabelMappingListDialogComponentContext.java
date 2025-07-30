@@ -36,6 +36,10 @@ public interface SpreadsheetLabelMappingListDialogComponentContext extends Histo
     ComponentLifecycleMatcher,
     SpreadsheetDialogComponentContext {
 
+    @Override
+    default String dialogTitle() {
+        return "Labels";
+    }
     /**
      * {@link walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher#getLabelMappings(SpreadsheetId, OptionalInt, OptionalInt)} 
      */

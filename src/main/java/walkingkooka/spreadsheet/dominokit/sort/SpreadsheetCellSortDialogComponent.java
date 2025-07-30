@@ -90,7 +90,7 @@ public final class SpreadsheetCellSortDialogComponent implements SpreadsheetDial
     private SpreadsheetDialogComponent dialogCreate() {
         return SpreadsheetDialogComponent.largeEdit(
                 ID + SpreadsheetElementIds.DIALOG,
-                "Sort",
+                this.context.dialogTitle(),
                 SpreadsheetDialogComponent.INCLUDE_CLOSE,
                 this.context
             ).appendChild(this.columnOrRowComparatorNamesList)

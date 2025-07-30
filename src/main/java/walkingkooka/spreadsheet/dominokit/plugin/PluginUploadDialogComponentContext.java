@@ -24,4 +24,9 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
 public interface PluginUploadDialogComponentContext extends SpreadsheetDialogComponentContext,
     HasPluginFetcherWatchers,
     RefreshContext {
+
+    @Override
+    default String dialogTitle() {
+        return "Upload Plugin";
+    }
 }

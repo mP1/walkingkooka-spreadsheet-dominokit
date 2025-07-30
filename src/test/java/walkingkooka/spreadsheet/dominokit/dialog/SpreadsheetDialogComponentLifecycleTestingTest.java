@@ -23,7 +23,6 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTestingTest.TestSpreadsheetDialogComponentLifecycle;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
 import walkingkooka.text.printer.TreePrintable;
@@ -182,7 +181,7 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
                     "id123",
                     "Title456",
                     SpreadsheetDialogComponent.INCLUDE_CLOSE,
-                    HistoryContexts.fake()
+                    SpreadsheetDialogComponentContexts.fake()
                 ).appendChild(this.onGiveFocus)
                 .appendChild(this.refreshed);
         }

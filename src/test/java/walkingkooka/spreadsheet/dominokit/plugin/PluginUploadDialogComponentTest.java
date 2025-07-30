@@ -280,6 +280,11 @@ public final class PluginUploadDialogComponentTest implements SpreadsheetDialogC
         return new FakePluginUploadDialogComponentContext() {
 
             @Override
+            public String dialogTitle() {
+                return "Upload Plugin";
+            }
+
+            @Override
             public Runnable addPluginFetcherWatcher(final PluginFetcherWatcher watcher) {
                 return context.addPluginFetcherWatcher(watcher);
             }

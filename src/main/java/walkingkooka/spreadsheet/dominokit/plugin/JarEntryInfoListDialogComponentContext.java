@@ -18,10 +18,18 @@
 package walkingkooka.spreadsheet.dominokit.plugin;
 
 import walkingkooka.plugin.PluginName;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
 
-public interface JarEntryInfoListDialogComponentContext extends HasPluginFetcherWatchers,
+public interface JarEntryInfoListDialogComponentContext extends
+    SpreadsheetDialogComponentContext,
+    HasPluginFetcherWatchers,
     JarEntryInfoListTableComponentContext {
+
+    @Override
+    default String dialogTitle() {
+        return "";
+    }
 
     /**
      * Gets all {@link walkingkooka.spreadsheet.server.plugin.JarEntryInfoList} for a given {@link PluginName}.

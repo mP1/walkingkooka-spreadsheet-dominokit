@@ -1553,6 +1553,11 @@ public final class SpreadsheetCellSortDialogComponentTest implements Spreadsheet
             new FakeSpreadsheetCellSortDialogComponentContext() {
 
                 @Override
+                public String dialogTitle() {
+                    return "Sort";
+                }
+
+                @Override
                 public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
                     return context.addHistoryTokenWatcher(watcher);
                 }
@@ -1608,6 +1613,12 @@ public final class SpreadsheetCellSortDialogComponentTest implements Spreadsheet
     public SpreadsheetCellSortDialogComponent createSpreadsheetDialogComponentLifecycle(HistoryToken historyToken) {
         return SpreadsheetCellSortDialogComponent.with(
             new FakeSpreadsheetCellSortDialogComponentContext() {
+
+                @Override
+                public String dialogTitle() {
+                    return "Sort";
+                }
+
                 @Override
                 public HistoryToken historyToken() {
                     return historyToken;

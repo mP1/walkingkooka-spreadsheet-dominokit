@@ -73,4 +73,9 @@ public interface SpreadsheetDialogComponentContext extends HistoryContext,
             CaseKind.TITLE
         ) + "(" + text + ")";
     }
+
+    /**
+     * Getter that returns the title.
+     */
+    String dialogTitle();
 }

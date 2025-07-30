@@ -24,7 +24,12 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
  * The {@link walkingkooka.Context} accompanying a {@link SpreadsheetLabelMappingDialogComponent}.
  */
 public interface SpreadsheetLabelMappingDialogComponentContext extends SpreadsheetDialogComponentContext,
-    SpreadsheetLabelComponentContext{
+    SpreadsheetLabelComponentContext {
+
+    @Override
+    default String dialogTitle() {
+        return "Label";
+    }
 
     /**
      * Attempts to load the given {@link SpreadsheetLabelName}.

@@ -21,6 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatchers;
@@ -251,6 +252,11 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
 
         TestPluginFileViewDialogComponentContext(final TestAppContext context) {
             this.context = context;
+        }
+
+        @Override
+        public String dialogTitle() {
+            return SpreadsheetDialogComponent.class.getSimpleName();
         }
 
         @Override

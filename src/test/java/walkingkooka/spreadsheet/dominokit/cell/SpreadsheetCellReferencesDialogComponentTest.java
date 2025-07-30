@@ -314,6 +314,11 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
         }
 
         @Override
+        public String dialogTitle() {
+            return "Cell References";
+        }
+
+        @Override
         public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
             return this.context.addSpreadsheetDeltaFetcherWatcher(watcher);
         }

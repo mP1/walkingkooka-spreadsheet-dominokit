@@ -21,7 +21,6 @@ import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
@@ -37,7 +36,7 @@ public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponent
     public static SpreadsheetDialogComponent smallerPrompt(final String id,
                                                            final String title,
                                                            final boolean includeClose,
-                                                           final HistoryContext context) {
+                                                           final SpreadsheetDialogComponentContext context) {
         return with(
             id,
             title,
@@ -52,7 +51,7 @@ public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponent
     public static SpreadsheetDialogComponent smallEdit(final String id,
                                                        final String title,
                                                        final boolean includeClose,
-                                                       final HistoryContext context) {
+                                                       final SpreadsheetDialogComponentContext context) {
         return with(
             id,
             title,
@@ -67,7 +66,7 @@ public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponent
     public static SpreadsheetDialogComponent largeEdit(final String id,
                                                        final String title,
                                                        final boolean includeClose,
-                                                       final HistoryContext context) {
+                                                       final SpreadsheetDialogComponentContext context) {
         return with(
             id,
             title,
@@ -82,7 +81,7 @@ public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponent
     public static SpreadsheetDialogComponent largeList(final String id,
                                                        final String title,
                                                        final boolean includeClose,
-                                                       final HistoryContext context) {
+                                                       final SpreadsheetDialogComponentContext context) {
         return with(
             id,
             title,
@@ -98,7 +97,7 @@ public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponent
     static SpreadsheetDialogComponent with(final String id,
                                            final String title,
                                            final boolean includeClose,
-                                           final HistoryContext context) {
+                                           final SpreadsheetDialogComponentContext context) {
         Objects.requireNonNull(id, "id");
         Objects.requireNonNull(title, "title");
         Objects.requireNonNull(context, "context");

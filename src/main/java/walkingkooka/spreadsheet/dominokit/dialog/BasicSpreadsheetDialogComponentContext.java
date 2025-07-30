@@ -24,6 +24,10 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 
 import java.util.Objects;
 
+/**
+ * An incomplete {@link SpreadsheetDialogComponentContext} intended to be target of a {@link SpreadsheetDialogComponentContextDelegator}.
+ * Note the {@link #dialogTitle()} throws {@link UnsupportedOperationException}.
+ */
 final class BasicSpreadsheetDialogComponentContext implements SpreadsheetDialogComponentContext,
     HistoryContextDelegator,
     LoggingContextDelegator {
@@ -40,6 +44,11 @@ final class BasicSpreadsheetDialogComponentContext implements SpreadsheetDialogC
                                                    final LoggingContext loggingContext) {
         this.historyContext = historyContext;
         this.loggingContext = loggingContext;
+    }
+
+    @Override
+    public String dialogTitle() {
+        throw new UnsupportedOperationException();
     }
 
     // HistoryContextDelegator..........................................................................................

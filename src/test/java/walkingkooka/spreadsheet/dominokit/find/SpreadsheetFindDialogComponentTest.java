@@ -2376,6 +2376,11 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
         }
 
         @Override
+        public String dialogTitle() {
+            return "Find";
+        }
+
+        @Override
         public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
             return this.context.addSpreadsheetDeltaFetcherWatcher(watcher);
         }

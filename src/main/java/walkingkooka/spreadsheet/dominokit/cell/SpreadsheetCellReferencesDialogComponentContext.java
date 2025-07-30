@@ -37,6 +37,11 @@ public interface SpreadsheetCellReferencesDialogComponentContext extends History
 
     int REFERENCES_MAX_COUNT = 20;
 
+    @Override
+    default String dialogTitle() {
+        return "Cell References";
+    }
+
     /**
      * {@see SpeadsheetDeltaFetcher#references}
      */
