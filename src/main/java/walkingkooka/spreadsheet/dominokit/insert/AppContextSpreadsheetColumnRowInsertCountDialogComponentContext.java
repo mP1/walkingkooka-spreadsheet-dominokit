@@ -74,14 +74,14 @@ final class AppContextSpreadsheetColumnRowInsertCountDialogComponentContext impl
                         "before"
                 ) +
                 " " +
-                text +
-                " " +
-                selection.toStringMaybeStar();
+                text;
         }
 
-        return null != title ?
+        return this.selectionDialogTitle(
+            null != title ?
             title :
-            "Insert";
+            "Insert"
+        );
     }
 
     @Override
