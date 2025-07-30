@@ -53,7 +53,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
 
         this.onHistoryTokenChangeAndCheck(
             DecimalNumberSymbolsDialogComponent.with(
-                DecimalNumberSymbolsDialogComponentContexts.metadata(context)
+                DecimalNumberSymbolsDialogComponentContexts.cell(context)
             ),
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
@@ -63,7 +63,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
             context,
             "DecimalNumberSymbolsDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    DecimalNumberSymbols\n" +
+                "    A1: Decimal Number Symbols\n" +
                 "    id=decimalNumberSymbols-Dialog includeClose=true CLOSED\n" +
                 "      SpreadsheetFlexLayout\n" +
                 "        ROW\n" +
@@ -163,7 +163,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
             context,
             "DecimalNumberSymbolsDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    DecimalNumberSymbols\n" +
+                "    Spreadsheet: Decimal Number Symbols (decimalNumberSymbols)\n" +
                 "    id=decimalNumberSymbols-Dialog includeClose=true\n" +
                 "      SpreadsheetFlexLayout\n" +
                 "        ROW\n" +
@@ -245,7 +245,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
             context,
             "DecimalNumberSymbolsDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    DecimalNumberSymbols\n" +
+                "    Spreadsheet: Decimal Number Symbols (decimalNumberSymbols)\n" +
                 "    id=decimalNumberSymbols-Dialog includeClose=true\n" +
                 "      SpreadsheetFlexLayout\n" +
                 "        ROW\n" +
