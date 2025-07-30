@@ -23,6 +23,13 @@ public class FakeSpreadsheetDialogComponentContext extends FakeHistoryContext
     implements SpreadsheetDialogComponentContext {
 
     @Override
+    public String dialogTitle() {
+        throw new UnsupportedOperationException();
+    }
+
+    // LoggingContext...................................................................................................
+
+    @Override
     public void debug(final Object... values) {
         throw new UnsupportedOperationException();
     }

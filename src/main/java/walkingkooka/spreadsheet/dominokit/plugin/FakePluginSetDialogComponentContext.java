@@ -43,4 +43,26 @@ public class FakePluginSetDialogComponentContext extends FakeHistoryContext
     public Runnable addPluginFetcherWatcherOnce(final PluginFetcherWatcher watcher) {
         throw new UnsupportedOperationException();
     }
+
+    // LoggingContext...................................................................................................
+
+    @Override
+    public void debug(final Object... values) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void info(final Object... values) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void warn(final Object... values) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void error(final Object... values) {
+        throw new UnsupportedOperationException();
+    }
 }

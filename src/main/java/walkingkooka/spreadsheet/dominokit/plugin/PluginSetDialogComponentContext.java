@@ -17,8 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.plugin;
 
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
 
-public interface PluginSetDialogComponentContext extends HasPluginFetcherWatchers,
+public interface PluginSetDialogComponentContext extends SpreadsheetDialogComponentContext,
+    HasPluginFetcherWatchers,
     PluginSetTableComponentContext {
+
+    @Override
+    default String dialogTitle() {
+        return "Plugin";
+    }
 }

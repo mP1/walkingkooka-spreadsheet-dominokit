@@ -18,10 +18,15 @@
 package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
 import walkingkooka.spreadsheet.dominokit.UiFormattingContext;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 
 public interface SpreadsheetListDialogComponentContext extends HasSpreadsheetMetadataFetcherWatchers,
-    HistoryContext,
+    SpreadsheetDialogComponentContext,
     UiFormattingContext {
+
+    @Override
+    default String dialogTitle() {
+        return "Spreadsheet List";
+    }
 }

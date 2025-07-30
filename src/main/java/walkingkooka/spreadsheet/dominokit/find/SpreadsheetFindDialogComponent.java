@@ -28,7 +28,6 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.formula.SpreadsheetFormulaComponent;
 import walkingkooka.spreadsheet.dominokit.formula.SpreadsheetFormulaComponentFunctions;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
@@ -110,11 +109,11 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
      * the matching cells.
      */
     private SpreadsheetDialogComponent dialogCreate() {
-        final HistoryContext context = this.context;
+        final SpreadsheetFindDialogComponentContext context = this.context;
 
         return SpreadsheetDialogComponent.largeList(
             ID + SpreadsheetElementIds.DIALOG,
-            "Find",
+            context.dialogTitle(),
             SpreadsheetDialogComponent.INCLUDE_CLOSE,
             context
         ).appendChild(

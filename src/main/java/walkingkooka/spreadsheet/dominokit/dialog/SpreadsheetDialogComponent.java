@@ -56,7 +56,7 @@ public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponent
     public static SpreadsheetDialogComponent smallerPrompt(final String id,
                                                            final String title,
                                                            final boolean includeClose,
-                                                           final HistoryContext context) {
+                                                           final SpreadsheetDialogComponentContext context) {
         return with(
             DialogSize.MEDIUM, // width
             DialogSize.SMALL, // height
@@ -73,7 +73,7 @@ public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponent
     public static SpreadsheetDialogComponent smallEdit(final String id,
                                                        final String title,
                                                        final boolean includeClose,
-                                                       final HistoryContext context) {
+                                                       final SpreadsheetDialogComponentContext context) {
         return with(
             DialogSize.SMALL, // width
             DialogSize.SMALL, // height
@@ -90,7 +90,7 @@ public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponent
     public static SpreadsheetDialogComponent largeEdit(final String id,
                                                        final String title,
                                                        final boolean includeClose,
-                                                       final HistoryContext context) {
+                                                       final SpreadsheetDialogComponentContext context) {
         return with(
             DialogSize.LARGE, // width
             DialogSize.LARGE, // height
@@ -107,7 +107,7 @@ public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponent
     public static SpreadsheetDialogComponent largeList(final String id,
                                                        final String title,
                                                        final boolean includeClose,
-                                                       final HistoryContext context) {
+                                                       final SpreadsheetDialogComponentContext context) {
         return with(
             DialogSize.VERY_LARGE, // width
             DialogSize.LARGE, // height
@@ -126,7 +126,7 @@ public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponent
                                                    final String id,
                                                    final String title,
                                                    final boolean includeClose,
-                                                   final HistoryContext context) {
+                                                   final SpreadsheetDialogComponentContext context) {
         Objects.requireNonNull(width, "width");
         Objects.requireNonNull(height, "height");
         Objects.requireNonNull(id, "id");
@@ -148,7 +148,7 @@ public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponent
                                        final String id,
                                        final String title,
                                        final boolean includeClose,
-                                       final HistoryContext context) {
+                                       final SpreadsheetDialogComponentContext context) {
         this.context = context;
 
         final NavBar navBar = dialogNavBar();
@@ -249,7 +249,7 @@ public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponent
      */
     private boolean closeListenerEnabled;
 
-    private final HistoryContext context;
+    private final SpreadsheetDialogComponentContext context;
 
     @Override
     public String id() {

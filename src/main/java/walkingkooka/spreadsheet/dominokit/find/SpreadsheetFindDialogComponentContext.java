@@ -41,6 +41,11 @@ public interface SpreadsheetFindDialogComponentContext extends HistoryContext,
     SpreadsheetParserProvider,
     ProviderContext {
 
+    @Override
+    default String dialogTitle() {
+        return "Find";
+    }
+
     /**
      * {@see SpeadsheetDeltaFetcher#getFindCells}
      */

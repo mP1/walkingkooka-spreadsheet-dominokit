@@ -29,6 +29,11 @@ public interface SpreadsheetNameDialogComponentContext extends SpreadsheetDialog
     ComponentLifecycleMatcher,
     HasSpreadsheetMetadataFetcherWatchers {
 
+    @Override
+    default String dialogTitle() {
+        return "Spreadsheet Name";
+    }
+
     void loadSpreadsheetMetadata(final SpreadsheetId id);
 
     boolean shouldLoadSpreadsheetMetadata();
