@@ -26,39 +26,25 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
+import walkingkooka.text.CaseKind;
 import walkingkooka.text.Indentation;
 import walkingkooka.text.LineEnding;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.Printers;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
-import walkingkooka.validation.ValidationValueTypeName;
 
 import java.util.Objects;
 import java.util.Optional;
 
-final class SpreadsheetCellValueDialogComponentContextText implements SpreadsheetCellValueDialogComponentContext<String>,
+abstract class BasicSpreadsheetCellValueDialogComponentContext<T> implements SpreadsheetCellValueDialogComponentContext<T>,
     HistoryContextDelegator,
     LoggingContextDelegator {
 
-    static SpreadsheetCellValueDialogComponentContextText with(final SpreadsheetViewportCache viewportCache,
-                                                               final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
-                                                               final JsonNodeMarshallContext marshallContext,
-                                                               final HistoryContext historyContext,
-                                                               final LoggingContext loggingContext) {
-        return new SpreadsheetCellValueDialogComponentContextText(
-            Objects.requireNonNull(viewportCache, "viewportCache"),
-            Objects.requireNonNull(deltaFetcherWatchers, "deltaFetcherWatchers"),
-            Objects.requireNonNull(marshallContext, "marshallContext"),
-            Objects.requireNonNull(historyContext, "historyContext"),
-            Objects.requireNonNull(loggingContext, "loggingContext")
-        );
-    }
-
-    private SpreadsheetCellValueDialogComponentContextText(final SpreadsheetViewportCache viewportCache,
-                                                           final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
-                                                           final JsonNodeMarshallContext marshallContext,
-                                                           final HistoryContext historyContext,
-                                                           final LoggingContext loggingContext) {
+    BasicSpreadsheetCellValueDialogComponentContext(final SpreadsheetViewportCache viewportCache,
+                                                    final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
+                                                    final JsonNodeMarshallContext marshallContext,
+                                                    final HistoryContext historyContext,
+                                                    final LoggingContext loggingContext) {
         this.viewportCache = viewportCache;
         this.deltaFetcherWatchers = deltaFetcherWatchers;
         this.marshallContext = marshallContext;
@@ -67,24 +53,18 @@ final class SpreadsheetCellValueDialogComponentContextText implements Spreadshee
     }
 
     @Override
-    public String id() {
-        return ID;
-    }
-
-    private final static String ID = "cellValueText";
-
-    @Override
-    public String dialogTitle() {
-        return "Text";
-    }
-
-    @Override
-    public ValidationValueTypeName valueType() {
-        return ValidationValueTypeName.TEXT;
+    public final String dialogTitle() {
+        return this.selectionDialogTitle(
+            CaseKind.CAMEL.change(
+                this.valueType()
+                    .text(),
+                CaseKind.TITLE
+            )
+        );
     }
 
     @Override
-    public Optional<String> value() {
+    public final Optional<T> value() {
         return this.historyContext.historyToken()
             .selection()
             .flatMap(this.viewportCache::cell)
@@ -94,10 +74,10 @@ final class SpreadsheetCellValueDialogComponentContextText implements Spreadshee
             );
     }
 
-    private final SpreadsheetViewportCache viewportCache;
+    final SpreadsheetViewportCache viewportCache;
 
     @Override
-    public String toHistoryTokenSaveStringValue(final Optional<String> value) {
+    public final String toHistoryTokenSaveStringValue(final Optional<T> value) {
         Objects.requireNonNull(value, "value");
 
         String string = "";
@@ -118,44 +98,44 @@ final class SpreadsheetCellValueDialogComponentContextText implements Spreadshee
         return string;
     }
 
-    private final JsonNodeMarshallContext marshallContext;
+    final JsonNodeMarshallContext marshallContext;
 
     // HistoryContextDelegator..........................................................................................
 
     @Override
-    public HistoryContext historyContext() {
+    public final HistoryContext historyContext() {
         return this.historyContext;
     }
 
-    private final HistoryContext historyContext;
+    final HistoryContext historyContext;
 
     // LoggingContextDelegator..........................................................................................
 
     @Override
-    public LoggingContext loggingContext() {
+    public final LoggingContext loggingContext() {
         return this.loggingContext;
     }
 
-    private final LoggingContext loggingContext;
+    final LoggingContext loggingContext;
 
     // SpreadsheetDeltaFetcherWatchers..................................................................................
 
     @Override
-    public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+    public final Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
         return this.deltaFetcherWatchers.addSpreadsheetDeltaFetcherWatcher(watcher);
     }
 
     @Override
-    public Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
+    public final Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
         return this.deltaFetcherWatchers.addSpreadsheetDeltaFetcherWatcherOnce(watcher);
     }
 
-    private final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers;
+    final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers;
 
     // toString.........................................................................................................
 
     @Override
-    public String toString() {
+    public final String toString() {
         return this.historyContext.toString();
     }
 }

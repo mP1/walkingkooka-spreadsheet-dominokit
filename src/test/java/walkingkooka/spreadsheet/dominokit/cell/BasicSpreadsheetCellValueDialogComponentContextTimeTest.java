@@ -36,7 +36,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetCellValueDialogComponentContextTimeTest implements SpreadsheetCellValueDialogComponentContextTesting<LocalTime, SpreadsheetCellValueDialogComponentContextTime> {
+public final class BasicSpreadsheetCellValueDialogComponentContextTimeTest implements SpreadsheetCellValueDialogComponentContextTesting<LocalTime, BasicSpreadsheetCellValueDialogComponentContextTime> {
 
     private final static SpreadsheetDeltaFetcherWatchers DELTA_FETCHER_WATCHERS = SpreadsheetDeltaFetcherWatchers.empty();
     private final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
@@ -49,7 +49,7 @@ public final class SpreadsheetCellValueDialogComponentContextTimeTest implements
     public void testWithNullSpreadsheetViewportCacheFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetCellValueDialogComponentContextTime.with(
+            () -> BasicSpreadsheetCellValueDialogComponentContextTime.with(
                 null,
                 DELTA_FETCHER_WATCHERS,
                 MARSHALL_CONTEXT,
@@ -63,7 +63,7 @@ public final class SpreadsheetCellValueDialogComponentContextTimeTest implements
     public void testWithNullSpreadsheetDeltaFetcherWatchersFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetCellValueDialogComponentContextTime.with(
+            () -> BasicSpreadsheetCellValueDialogComponentContextTime.with(
                 this.spreadsheetViewportCache(),
                 null,
                 MARSHALL_CONTEXT,
@@ -77,7 +77,7 @@ public final class SpreadsheetCellValueDialogComponentContextTimeTest implements
     public void testWithNullMarshallContextFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetCellValueDialogComponentContextTime.with(
+            () -> BasicSpreadsheetCellValueDialogComponentContextTime.with(
                 this.spreadsheetViewportCache(),
                 DELTA_FETCHER_WATCHERS,
                 null,
@@ -91,7 +91,7 @@ public final class SpreadsheetCellValueDialogComponentContextTimeTest implements
     public void testWithNullHistoryContextFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetCellValueDialogComponentContextTime.with(
+            () -> BasicSpreadsheetCellValueDialogComponentContextTime.with(
                 this.spreadsheetViewportCache(),
                 DELTA_FETCHER_WATCHERS,
                 MARSHALL_CONTEXT,
@@ -105,7 +105,7 @@ public final class SpreadsheetCellValueDialogComponentContextTimeTest implements
     public void testWithNullLoggingContextFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetCellValueDialogComponentContextTime.with(
+            () -> BasicSpreadsheetCellValueDialogComponentContextTime.with(
                 this.spreadsheetViewportCache(),
                 DELTA_FETCHER_WATCHERS,
                 MARSHALL_CONTEXT,
@@ -153,8 +153,8 @@ public final class SpreadsheetCellValueDialogComponentContextTimeTest implements
     }
 
     @Override
-    public SpreadsheetCellValueDialogComponentContextTime createContext() {
-        return SpreadsheetCellValueDialogComponentContextTime.with(
+    public BasicSpreadsheetCellValueDialogComponentContextTime createContext() {
+        return BasicSpreadsheetCellValueDialogComponentContextTime.with(
             this.spreadsheetViewportCache(),
             DELTA_FETCHER_WATCHERS,
             MARSHALL_CONTEXT,
@@ -192,7 +192,7 @@ public final class SpreadsheetCellValueDialogComponentContextTimeTest implements
     }
 
     @Override
-    public Class<SpreadsheetCellValueDialogComponentContextTime> type() {
-        return SpreadsheetCellValueDialogComponentContextTime.class;
+    public Class<BasicSpreadsheetCellValueDialogComponentContextTime> type() {
+        return BasicSpreadsheetCellValueDialogComponentContextTime.class;
     }
 }

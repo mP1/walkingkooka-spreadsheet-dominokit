@@ -81,6 +81,8 @@ public interface SpreadsheetDialogComponentContext extends HistoryContext,
         Objects.requireNonNull(type, "type");
 
         return selectionDialogTitle(
+            String.class == type ?
+                "Text" :
             CaseKind.PASCAL.change(
                 type.getSimpleName()
                     .replace("Spreadsheet", "")
