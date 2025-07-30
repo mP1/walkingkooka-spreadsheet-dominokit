@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyHis
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
-import walkingkooka.text.CaseKind;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -47,19 +47,9 @@ final class AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata
 
     @Override
     public String dialogTitle() {
-        return this.historyToken()
-            .patternKind()
-            .map(this::prepareTitle)
-            .orElse("");
-    }
-
-    private String prepareTitle(final SpreadsheetPatternKind kind) {
-        return CaseKind.SNAKE.change(
-                kind.name(),
-                CaseKind.TITLE
-            ).replace("Pattern", "")
-            .replace("Format", "formatter")
-            .trim();
+        return this.spreadsheetMetadataPropertyNameDialogTitle(
+            this.spreadsheetMetadataPropertyName()
+        );
     }
 
     @Override
@@ -76,12 +66,16 @@ final class AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata
         return Cast.to(
             this.context.spreadsheetMetadata()
             .getIgnoringDefaults(
-                this.historyToken()
-                    .patternKind()
-                    .get()
-                    .spreadsheetMetadataPropertyName()
+                this.spreadsheetMetadataPropertyName()
             )
         );
+    }
+
+    private SpreadsheetMetadataPropertyName<?> spreadsheetMetadataPropertyName() {
+        return this.historyToken()
+            .patternKind()
+            .get()
+            .spreadsheetMetadataPropertyName();
     }
 
     @Override
