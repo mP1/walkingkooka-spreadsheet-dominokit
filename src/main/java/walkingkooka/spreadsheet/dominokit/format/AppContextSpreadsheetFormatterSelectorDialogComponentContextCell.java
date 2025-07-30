@@ -46,7 +46,7 @@ final class AppContextSpreadsheetFormatterSelectorDialogComponentContextCell ext
 
     @Override
     public String dialogTitle() {
-        return "Formatter";
+        return this.selectionValueDialogTitle(SpreadsheetFormatterSelector.class);
     }
 
     @Override
