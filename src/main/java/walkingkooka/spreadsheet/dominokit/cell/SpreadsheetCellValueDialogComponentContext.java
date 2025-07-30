@@ -36,11 +36,6 @@ public interface SpreadsheetCellValueDialogComponentContext<T> extends Spreadshe
     String id();
 
     /**
-     * The dialog title.
-     */
-    String dialogTitle();
-
-    /**
      * The {@link ValidationValueTypeName} for this value being edited by this dialog.
      */
     ValidationValueTypeName valueType();

@@ -33,11 +33,6 @@ public interface SpreadsheetLocaleDialogComponentContext extends SpreadsheetDial
     HasSpreadsheetMetadataFetcherWatchers {
 
     /**
-     * The title to display on the dialog.
-     */
-    String dialogTitle();
-
-    /**
      * Provides the {@link Locale} for the undo link.
      */
     Optional<Locale> undoLocale();

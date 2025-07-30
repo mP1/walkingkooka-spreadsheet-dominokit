@@ -30,11 +30,6 @@ public interface FormHandlerSelectorDialogComponentContext extends ComponentLife
     SpreadsheetDialogComponentContext {
 
     /**
-     * Logic to provide the dialog title.
-     */
-    String dialogTitle();
-
-    /**
      * Provides the UNDO text.
      */
     Optional<FormHandlerSelector> undo();
