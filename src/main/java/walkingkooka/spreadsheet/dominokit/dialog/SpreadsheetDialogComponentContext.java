@@ -90,7 +90,7 @@ public interface SpreadsheetDialogComponentContext extends HistoryContext,
         return "Spreadsheet: " + CaseKind.CAMEL.change(
             text,
             CaseKind.TITLE
-        ) + "(" + text + ")";
+        ) + " (" + text + ")";
     }
 
     /**

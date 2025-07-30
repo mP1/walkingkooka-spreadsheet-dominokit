@@ -285,7 +285,7 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
     public void testSpreadsheetMetadataPropertyNameDialogTitleWithConverters() {
         this.spreadsheetMetadataPropertyNameDialogTitleAndCheck(
             SpreadsheetMetadataPropertyName.CONVERTERS,
-            "Spreadsheet: Converters(converters)"
+            "Spreadsheet: Converters (converters)"
         );
     }
 
@@ -293,7 +293,7 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
     public void testSpreadsheetMetadataPropertyNameDialogTitleWithFindConverter() {
         this.spreadsheetMetadataPropertyNameDialogTitleAndCheck(
             SpreadsheetMetadataPropertyName.FIND_CONVERTER,
-            "Spreadsheet: Find Converter(findConverter)"
+            "Spreadsheet: Find Converter (findConverter)"
         );
     }
 
@@ -301,7 +301,7 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
     public void testSpreadsheetMetadataPropertyNameDialogTitleWithRoundingMode() {
         this.spreadsheetMetadataPropertyNameDialogTitleAndCheck(
             SpreadsheetMetadataPropertyName.ROUNDING_MODE,
-            "Spreadsheet: Rounding Mode(roundingMode)"
+            "Spreadsheet: Rounding Mode (roundingMode)"
         );
     }
 
@@ -309,7 +309,7 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
     public void testSpreadsheetMetadataPropertyNameDialogTitleWithHideZeroValues() {
         this.spreadsheetMetadataPropertyNameDialogTitleAndCheck(
             SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES,
-            "Spreadsheet: Hide Zero Values(hideZeroValues)"
+            "Spreadsheet: Hide Zero Values (hideZeroValues)"
         );
     }
 
@@ -317,7 +317,7 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
     public void testSpreadsheetMetadataPropertyNameDialogTitleWithDateFormatter() {
         this.spreadsheetMetadataPropertyNameDialogTitleAndCheck(
             SpreadsheetMetadataPropertyName.DATE_FORMATTER,
-            "Spreadsheet: Date Formatter(dateFormatter)"
+            "Spreadsheet: Date Formatter (dateFormatter)"
         );
     }
 
@@ -325,7 +325,7 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
     public void testSpreadsheetMetadataPropertyNameDialogTitleWithDateTimeFormatter() {
         this.spreadsheetMetadataPropertyNameDialogTitleAndCheck(
             SpreadsheetMetadataPropertyName.DATE_TIME_FORMATTER,
-            "Spreadsheet: Date Time Formatter(dateTimeFormatter)"
+            "Spreadsheet: Date Time Formatter (dateTimeFormatter)"
         );
     }
 
