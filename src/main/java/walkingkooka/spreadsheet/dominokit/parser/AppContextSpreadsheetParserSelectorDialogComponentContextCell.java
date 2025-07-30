@@ -44,7 +44,7 @@ final class AppContextSpreadsheetParserSelectorDialogComponentContextCell extend
 
     @Override
     public String dialogTitle() {
-        return "Parser";
+        return this.selectionValueDialogTitle(SpreadsheetParserSelector.class);
     }
 
     @Override

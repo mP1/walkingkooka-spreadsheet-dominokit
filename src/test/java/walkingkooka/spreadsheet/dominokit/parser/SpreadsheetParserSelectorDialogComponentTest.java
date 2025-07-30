@@ -84,7 +84,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
             context,
             "SpreadsheetParserSelectorDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    Parser\n" +
+                "    A1: Parser\n" +
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
                 "        SpreadsheetCardLinkListComponent\n" +
@@ -164,7 +164,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
             context,
             "SpreadsheetParserSelectorDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    Parser\n" +
+                "    A1: Parser\n" +
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
                 "        SpreadsheetCardLinkListComponent\n" +
@@ -276,7 +276,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
             context,
             "SpreadsheetParserSelectorDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    Parser\n" +
+                "    A1: Parser\n" +
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
                 "        SpreadsheetCardLinkListComponent\n" +
@@ -407,7 +407,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
             context,
             "SpreadsheetParserSelectorDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    Parser\n" +
+                "    A1: Parser\n" +
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
                 "        SpreadsheetCardLinkListComponent\n" +
@@ -559,7 +559,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
             context,
             "SpreadsheetParserSelectorDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    Parser\n" +
+                "    A1: Parser\n" +
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
                 "        SpreadsheetCardLinkListComponent\n" +
@@ -652,7 +652,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
             context,
             "SpreadsheetParserSelectorDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    Date parser\n" +
+                "    Spreadsheet: Date Parser (dateParser)\n" +
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetPatternKindTabsComponent\n" +
                 "        SpreadsheetTabsComponent\n" +
@@ -774,7 +774,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
             context,
             "SpreadsheetParserSelectorDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    Date Time parser\n" +
+                "    Spreadsheet: Date Time Parser (dateTimeParser)\n" +
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetPatternKindTabsComponent\n" +
                 "        SpreadsheetTabsComponent\n" +
@@ -915,7 +915,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
             context,
             "SpreadsheetParserSelectorDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    Number parser\n" +
+                "    Spreadsheet: Number Parser (numberParser)\n" +
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetPatternKindTabsComponent\n" +
                 "        SpreadsheetTabsComponent\n" +
@@ -1077,7 +1077,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
             context,
             "SpreadsheetParserSelectorDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    Time parser\n" +
+                "    Spreadsheet: Time Parser (timeParser)\n" +
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetPatternKindTabsComponent\n" +
                 "        SpreadsheetTabsComponent\n" +
