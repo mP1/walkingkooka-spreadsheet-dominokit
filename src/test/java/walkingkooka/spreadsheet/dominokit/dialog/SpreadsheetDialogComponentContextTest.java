@@ -33,6 +33,8 @@ import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Locale;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public final class SpreadsheetDialogComponentContextTest implements ClassTesting<SpreadsheetDialogComponentContext> {
 
     private final static SpreadsheetId ID = SpreadsheetId.with(1);
@@ -283,6 +285,40 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
         this.checkEquals(
             expected,
             SpreadsheetDialogComponentContext.spreadsheetMetadataPropertyNameDialogTitle(propertyName)
+        );
+    }
+
+    // spreadsheetDialogTitle...........................................................................................
+
+    @Test
+    public void testSpreadsheetDialogTitleWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetDialogComponentContext.spreadsheetDialogTitle(null)
+        );
+    }
+
+    @Test
+    public void testSpreadsheetDialogTitleWithEmptyFails() {
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> SpreadsheetDialogComponentContext.spreadsheetDialogTitle("")
+        );
+    }
+
+    @Test
+    public void testSpreadsheetDialogTitleWithText() {
+        this.spreadsheetDialogTitleAndCheck(
+            "Text123",
+            "Spreadsheet: Text123"
+        );
+    }
+
+    private void spreadsheetDialogTitleAndCheck(final String title,
+                                                final String expected) {
+        this.checkEquals(
+            expected,
+            SpreadsheetDialogComponentContext.spreadsheetDialogTitle(title)
         );
     }
 

@@ -83,10 +83,18 @@ public interface SpreadsheetDialogComponentContext extends HistoryContext,
 
         final String text = propertyName.text();
 
-        return "Spreadsheet: " + CaseKind.CAMEL.change(
+        return spreadsheetDialogTitle(
+            CaseKind.CAMEL.change(
             text,
             CaseKind.TITLE
-        ) + " (" + text + ")";
+        ) + " (" + text + ")"
+        );
+    }
+
+    static String spreadsheetDialogTitle(final String title) {
+        CharSequences.failIfNullOrEmpty(title, "title");
+
+        return "Spreadsheet: " + title;
     }
 
     /**
