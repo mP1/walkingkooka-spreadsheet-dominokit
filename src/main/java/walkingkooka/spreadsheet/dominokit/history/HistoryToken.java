@@ -3752,6 +3752,22 @@ public abstract class HistoryToken implements HasUrlFragment,
         return historyToken;
     }
 
+    // pluginName.......................................................................................................
+
+    /**
+     * Returns a {@link PluginName} if one is available.
+     */
+    public Optional<PluginName> pluginName() {
+        PluginName pluginName = null;
+
+        if(this instanceof PluginNameHistoryToken) {
+            pluginName = this.cast(PluginNameHistoryToken.class)
+                .name();
+        }
+
+        return Optional.ofNullable(pluginName);
+    }
+
     // QUERY............................................................................................................
 
     /**

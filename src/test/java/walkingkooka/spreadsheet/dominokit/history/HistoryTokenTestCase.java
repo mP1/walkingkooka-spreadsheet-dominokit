@@ -26,6 +26,7 @@ import walkingkooka.collect.set.Sets;
 import walkingkooka.collect.set.SortedSets;
 import walkingkooka.net.HasUrlFragmentTesting;
 import walkingkooka.net.UrlFragment;
+import walkingkooka.plugin.PluginName;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.MethodAttributes;
@@ -749,6 +750,32 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
             expected,
             token.setPatternKind(patternKind),
             () -> token + " setPatternKind " + patternKind
+        );
+    }
+
+    // pluginName.......................................................................................................
+
+    final void pluginNameAndCheck(final HistoryToken token) {
+        this.pluginNameAndCheck(
+            token,
+            Optional.empty()
+        );
+    }
+
+    final void pluginNameAndCheck(final HistoryToken token,
+                                  final PluginName expected) {
+        this.pluginNameAndCheck(
+            token,
+            Optional.of(expected)
+        );
+    }
+
+    final void pluginNameAndCheck(final HistoryToken token,
+                                  final Optional<PluginName> expected) {
+        this.checkEquals(
+            expected,
+            token.pluginName(),
+            token::toString
         );
     }
 
