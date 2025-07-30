@@ -284,7 +284,7 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
                                                                     final String expected) {
         this.checkEquals(
             expected,
-            SpreadsheetDialogComponentContext.spreadsheetMetadataPropertyNameDialogTitle(propertyName)
+            new FakeSpreadsheetDialogComponentContext().spreadsheetMetadataPropertyNameDialogTitle(propertyName)
         );
     }
 
@@ -294,7 +294,8 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
     public void testSpreadsheetDialogTitleWithNullFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetDialogComponentContext.spreadsheetDialogTitle(null)
+            () -> new FakeSpreadsheetDialogComponentContext()
+                .spreadsheetDialogTitle(null)
         );
     }
 
@@ -302,7 +303,8 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
     public void testSpreadsheetDialogTitleWithEmptyFails() {
         assertThrows(
             IllegalArgumentException.class,
-            () -> SpreadsheetDialogComponentContext.spreadsheetDialogTitle("")
+            () -> new FakeSpreadsheetDialogComponentContext()
+                .spreadsheetDialogTitle("")
         );
     }
 
@@ -318,7 +320,8 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
                                                 final String expected) {
         this.checkEquals(
             expected,
-            SpreadsheetDialogComponentContext.spreadsheetDialogTitle(title)
+            new FakeSpreadsheetDialogComponentContext()
+                .spreadsheetDialogTitle(title)
         );
     }
 

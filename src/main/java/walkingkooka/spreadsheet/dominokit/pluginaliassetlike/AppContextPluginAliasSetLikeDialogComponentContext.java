@@ -61,7 +61,7 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContext<N extends Name
 
     @Override
     public final String dialogTitle() {
-        return SpreadsheetDialogComponentContext.spreadsheetMetadataPropertyNameDialogTitle(this.metadataPropertyName());
+        return this.spreadsheetMetadataPropertyNameDialogTitle(this.metadataPropertyName());
     }
 
     @Override
