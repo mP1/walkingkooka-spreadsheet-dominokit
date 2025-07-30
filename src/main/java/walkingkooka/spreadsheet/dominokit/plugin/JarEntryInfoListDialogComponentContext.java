@@ -28,7 +28,7 @@ public interface JarEntryInfoListDialogComponentContext extends
 
     @Override
     default String dialogTitle() {
-        return "";
+        return "Plugin";
     }
 
     /**

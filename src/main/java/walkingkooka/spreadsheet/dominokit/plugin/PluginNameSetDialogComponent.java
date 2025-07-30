@@ -115,7 +115,6 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
 
         return SpreadsheetDialogComponent.smallerPrompt(
                 ID + SpreadsheetElementIds.DIALOG,
-                context.dialogTitle(),
                 SpreadsheetDialogComponent.INCLUDE_CLOSE,
                 context
             ).setTitle(

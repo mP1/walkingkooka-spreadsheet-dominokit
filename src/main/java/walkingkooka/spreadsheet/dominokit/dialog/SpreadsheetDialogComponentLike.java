@@ -37,14 +37,13 @@ abstract class SpreadsheetDialogComponentLike implements HtmlElementComponent<HT
      * A dialog box for small prompts from the user like presenting a single text box with a few links.
      */
     public static SpreadsheetDialogComponent smallerPrompt(final String id,
-                                                           final String title,
                                                            final boolean includeClose,
                                                            final SpreadsheetDialogComponentContext context) {
         return SpreadsheetDialogComponent.with(
             DialogSize.MEDIUM, // width
             DialogSize.SMALL, // height
             id,
-            title,
+            context.dialogTitle(),
             includeClose,
             context
         );
@@ -54,14 +53,13 @@ abstract class SpreadsheetDialogComponentLike implements HtmlElementComponent<HT
      * A dialog box with a small number of few components such as editing a {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector}.
      */
     public static SpreadsheetDialogComponent smallEdit(final String id,
-                                                       final String title,
                                                        final boolean includeClose,
                                                        final SpreadsheetDialogComponentContext context) {
         return SpreadsheetDialogComponent.with(
             DialogSize.SMALL, // width
             DialogSize.SMALL, // height
             id,
-            title,
+            context.dialogTitle(),
             includeClose,
             context
         );
@@ -71,14 +69,13 @@ abstract class SpreadsheetDialogComponentLike implements HtmlElementComponent<HT
      * A dialog box with quite a few components such as editing a {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector}.
      */
     public static SpreadsheetDialogComponent largeEdit(final String id,
-                                                       final String title,
                                                        final boolean includeClose,
                                                        final SpreadsheetDialogComponentContext context) {
         return SpreadsheetDialogComponent.with(
             DialogSize.LARGE, // width
             DialogSize.LARGE, // height
             id,
-            title,
+            context.dialogTitle(),
             includeClose,
             context
         );
@@ -88,14 +85,13 @@ abstract class SpreadsheetDialogComponentLike implements HtmlElementComponent<HT
      * A larger dialog box displaying a largeish list, such as cells that match a query, spreadsheet open etc.
      */
     public static SpreadsheetDialogComponent largeList(final String id,
-                                                       final String title,
                                                        final boolean includeClose,
                                                        final SpreadsheetDialogComponentContext context) {
         return SpreadsheetDialogComponent.with(
             DialogSize.VERY_LARGE, // width
             DialogSize.LARGE, // height
             id,
-            title,
+            context.dialogTitle(),
             includeClose,
             context
         );

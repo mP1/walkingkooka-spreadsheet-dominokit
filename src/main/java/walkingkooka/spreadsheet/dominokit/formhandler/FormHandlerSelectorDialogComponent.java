@@ -93,7 +93,6 @@ public final class FormHandlerSelectorDialogComponent implements SpreadsheetDial
 
         SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.largeEdit(
             ID + SpreadsheetElementIds.DIALOG,
-            context.dialogTitle(),
             SpreadsheetDialogComponent.INCLUDE_CLOSE,
             context
         );

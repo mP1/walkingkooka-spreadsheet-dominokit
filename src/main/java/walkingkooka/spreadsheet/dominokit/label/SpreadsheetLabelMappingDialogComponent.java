@@ -100,7 +100,6 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
 
         return SpreadsheetDialogComponent.smallerPrompt(
                 ID + SpreadsheetElementIds.DIALOG,
-                context.dialogTitle(),
                 SpreadsheetDialogComponent.INCLUDE_CLOSE,
                 context
             ).appendChild(this.labelName)

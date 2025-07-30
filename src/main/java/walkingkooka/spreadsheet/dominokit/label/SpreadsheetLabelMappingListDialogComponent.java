@@ -80,7 +80,6 @@ public final class SpreadsheetLabelMappingListDialogComponent implements Spreads
 
         return SpreadsheetDialogComponent.largeList(
                 ID + SpreadsheetElementIds.DIALOG,
-                context.dialogTitle(),
                 SpreadsheetDialogComponent.INCLUDE_CLOSE,
                 context
             ).appendChild(this.table)

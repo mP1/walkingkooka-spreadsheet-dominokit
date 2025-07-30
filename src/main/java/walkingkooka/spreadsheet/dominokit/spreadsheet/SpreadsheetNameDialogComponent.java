@@ -78,7 +78,6 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
     private SpreadsheetDialogComponent dialogCreate() {
         return SpreadsheetDialogComponent.smallerPrompt(
                 ID + SpreadsheetElementIds.DIALOG,
-                this.context.dialogTitle(),
                 SpreadsheetDialogComponent.INCLUDE_CLOSE,
                 this.context
             ).appendChild(this.name)

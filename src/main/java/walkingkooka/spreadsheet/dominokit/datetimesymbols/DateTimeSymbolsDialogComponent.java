@@ -117,7 +117,6 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
 
         return SpreadsheetDialogComponent.smallerPrompt(
             ID + SpreadsheetElementIds.DIALOG,
-            context.dialogTitle(),
             SpreadsheetDialogComponent.INCLUDE_CLOSE,
             context
         ).appendChild(
