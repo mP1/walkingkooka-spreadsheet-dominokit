@@ -22,6 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextDelegator;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchersDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
@@ -117,7 +118,10 @@ final class AppContextSpreadsheetCellReferencesDialogComponentContext implements
 
     @Override
     public SpreadsheetDialogComponentContext spreadsheetDialogComponentContext() {
-        return this.context;
+        return SpreadsheetDialogComponentContexts.basic(
+            this.context,
+            this.context
+        );
     }
 
     private final AppContext context;

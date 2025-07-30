@@ -21,6 +21,7 @@ import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextDelegator;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
@@ -80,7 +81,10 @@ final class AppContextConverterSelectorDialogComponentContext implements Convert
 
     @Override
     public SpreadsheetDialogComponentContext spreadsheetDialogComponentContext() {
-        return this.context;
+        return SpreadsheetDialogComponentContexts.basic(
+            this.context,
+            this.context
+        );
     }
 
     private final SpreadsheetMetadataPropertyName<ConverterSelector> propertyName;

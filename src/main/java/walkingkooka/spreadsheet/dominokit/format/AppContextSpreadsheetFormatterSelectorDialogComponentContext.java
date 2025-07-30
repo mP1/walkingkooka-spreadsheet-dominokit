@@ -23,6 +23,7 @@ import walkingkooka.plugin.ProviderContextDelegator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextDelegator;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetFormatterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -129,7 +130,10 @@ abstract class AppContextSpreadsheetFormatterSelectorDialogComponentContext impl
 
     @Override
     public final SpreadsheetDialogComponentContext spreadsheetDialogComponentContext() {
-        return this.context;
+        return SpreadsheetDialogComponentContexts.basic(
+            this.context,
+            this.context
+        );
     }
 
     // Object..........................................................................................................
