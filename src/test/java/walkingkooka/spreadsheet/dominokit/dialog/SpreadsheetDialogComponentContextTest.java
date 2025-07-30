@@ -313,6 +313,22 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
         );
     }
 
+    @Test
+    public void testSpreadsheetMetadataPropertyNameDialogTitleWithDateFormatter() {
+        this.spreadsheetMetadataPropertyNameDialogTitleAndCheck(
+            SpreadsheetMetadataPropertyName.DATE_FORMATTER,
+            "Spreadsheet: Date Formatter(dateFormatter)"
+        );
+    }
+
+    @Test
+    public void testSpreadsheetMetadataPropertyNameDialogTitleWithDateTimeFormatter() {
+        this.spreadsheetMetadataPropertyNameDialogTitleAndCheck(
+            SpreadsheetMetadataPropertyName.DATE_TIME_FORMATTER,
+            "Spreadsheet: Date Time Formatter(dateTimeFormatter)"
+        );
+    }
+
     private void spreadsheetMetadataPropertyNameDialogTitleAndCheck(final SpreadsheetMetadataPropertyName<?> propertyName,
                                                                     final String expected) {
         this.checkEquals(
