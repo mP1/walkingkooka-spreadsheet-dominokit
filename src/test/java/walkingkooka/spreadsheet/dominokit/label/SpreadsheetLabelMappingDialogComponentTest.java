@@ -136,7 +136,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
             "/1/SpreadsheetName111/create-label",
             "SpreadsheetLabelMappingDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    Label\n" +
+                "    Spreadsheet: Label\n" +
                 "    id=labelMapping-Dialog includeClose=true\n" +
                 "      SpreadsheetLabelComponent\n" +
                 "        SpreadsheetSuggestBoxComponent\n" +
@@ -166,7 +166,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
             "/1/SpreadsheetName111/cell/A1/label",
             "SpreadsheetLabelMappingDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    Label\n" +
+                "    Spreadsheet: Label\n" +
                 "    id=labelMapping-Dialog includeClose=true\n" +
                 "      SpreadsheetLabelComponent\n" +
                 "        SpreadsheetSuggestBoxComponent\n" +
@@ -194,7 +194,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
             "/1/SpreadsheetName111/cell/B2:C3/label",
             "SpreadsheetLabelMappingDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    Label\n" +
+                "    Spreadsheet: Label\n" +
                 "    id=labelMapping-Dialog includeClose=true\n" +
                 "      SpreadsheetLabelComponent\n" +
                 "        SpreadsheetSuggestBoxComponent\n" +
@@ -222,7 +222,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
             "/1/SpreadsheetName111/cell/Label123/label",
             "SpreadsheetLabelMappingDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    Label\n" +
+                "    Spreadsheet: Label\n" +
                 "    id=labelMapping-Dialog includeClose=true\n" +
                 "      SpreadsheetLabelComponent\n" +
                 "        SpreadsheetSuggestBoxComponent\n" +
@@ -257,7 +257,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
             context,
             "SpreadsheetLabelMappingDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    Label\n" +
+                "    Spreadsheet: Label\n" +
                 "    id=labelMapping-Dialog includeClose=true\n" +
                 "      SpreadsheetLabelComponent\n" +
                 "        SpreadsheetSuggestBoxComponent\n" +
@@ -285,7 +285,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
             context,
                 "SpreadsheetLabelMappingDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    Label\n" +
+                "    Spreadsheet: Label\n" +
                 "    id=labelMapping-Dialog includeClose=true\n" +
                 "      SpreadsheetLabelComponent\n" +
                 "        SpreadsheetSuggestBoxComponent\n" +
@@ -322,7 +322,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
             context,
             "SpreadsheetLabelMappingDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    Label\n" +
+                "    Spreadsheet: Label\n" +
                 "    id=labelMapping-Dialog includeClose=true\n" +
                 "      SpreadsheetLabelComponent\n" +
                 "        SpreadsheetSuggestBoxComponent\n" +
@@ -360,7 +360,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
             context,
             "SpreadsheetLabelMappingDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    Label\n" +
+                "    Spreadsheet: Label\n" +
                 "    id=labelMapping-Dialog includeClose=true\n" +
                 "      SpreadsheetLabelComponent\n" +
                 "        SpreadsheetSuggestBoxComponent\n" +

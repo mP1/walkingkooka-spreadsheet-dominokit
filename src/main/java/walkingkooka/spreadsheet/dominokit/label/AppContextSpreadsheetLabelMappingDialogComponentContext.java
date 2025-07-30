@@ -44,6 +44,11 @@ final class AppContextSpreadsheetLabelMappingDialogComponentContext implements S
     }
 
     @Override
+    public String dialogTitle() {
+        return this.spreadsheetDialogTitle("Label");
+    }
+
+    @Override
     public void loadLabel(final SpreadsheetLabelName name) {
         final AppContext context = this.context;
         context.spreadsheetDeltaFetcher()
