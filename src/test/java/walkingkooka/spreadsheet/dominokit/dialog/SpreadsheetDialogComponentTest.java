@@ -33,7 +33,6 @@ public final class SpreadsheetDialogComponentTest implements HtmlElementComponen
             null,
             null,
             "id123",
-            "Title456",
             SpreadsheetDialogComponent.INCLUDE_CLOSE,
             SpreadsheetDialogComponentContexts.fake()
         );
@@ -61,7 +60,6 @@ public final class SpreadsheetDialogComponentTest implements HtmlElementComponen
         this.treePrintAndCheck(
             dialog,
             "SpreadsheetDialogComponent\n" +
-                "  Title456\n" +
                 "  id=id123 includeClose=true\n" +
                 "    SpreadsheetTextBox\n" +
                 "      [Value111] id=TextBoxId111\n" +
@@ -76,7 +74,6 @@ public final class SpreadsheetDialogComponentTest implements HtmlElementComponen
             null,
             null,
             "id123",
-            "Title456",
             SpreadsheetDialogComponent.INCLUDE_CLOSE,
             SpreadsheetDialogComponentContexts.fake()
         ).appendChild(
@@ -92,7 +89,6 @@ public final class SpreadsheetDialogComponentTest implements HtmlElementComponen
         this.treePrintAndCheck(
             dialog,
             "SpreadsheetDialogComponent\n" +
-                "  Title456\n" +
                 "  id=id123 includeClose=true CLOSED\n" +
                 "    SpreadsheetTextBox\n" +
                 "      [Value111] id=TextBoxId111\n"

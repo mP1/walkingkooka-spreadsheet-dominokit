@@ -55,20 +55,17 @@ public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponent
     static SpreadsheetDialogComponent with(final IsDialogWidth width,
                                            final IsDialogHeight height,
                                            final String id,
-                                           final String title,
                                            final boolean includeClose,
                                            final SpreadsheetDialogComponentContext context) {
         Objects.requireNonNull(width, "width");
         Objects.requireNonNull(height, "height");
         Objects.requireNonNull(id, "id");
-        Objects.requireNonNull(title, "title");
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetDialogComponent(
             width,
             height,
             id,
-            title,
             includeClose,
             context
         );
@@ -77,7 +74,6 @@ public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponent
     private SpreadsheetDialogComponent(final IsDialogWidth width,
                                        final IsDialogHeight height,
                                        final String id,
-                                       final String title,
                                        final boolean includeClose,
                                        final SpreadsheetDialogComponentContext context) {
         this.context = context;
@@ -109,8 +105,6 @@ public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponent
             height,
             navBar).id(id)
             .setAutoClose(includeClose);
-
-        this.setTitle(title);
     }
 
     private HistoryTokenAnchorComponent closeLink(final String id,

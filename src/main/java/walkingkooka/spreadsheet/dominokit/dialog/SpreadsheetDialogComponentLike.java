@@ -21,6 +21,7 @@ import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.dialogs.DialogSize;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 
 /**
@@ -43,7 +44,6 @@ abstract class SpreadsheetDialogComponentLike implements HtmlElementComponent<HT
             DialogSize.MEDIUM, // width
             DialogSize.SMALL, // height
             id,
-            context.dialogTitle(),
             includeClose,
             context
         );
@@ -59,7 +59,6 @@ abstract class SpreadsheetDialogComponentLike implements HtmlElementComponent<HT
             DialogSize.SMALL, // width
             DialogSize.SMALL, // height
             id,
-            context.dialogTitle(),
             includeClose,
             context
         );
@@ -75,7 +74,6 @@ abstract class SpreadsheetDialogComponentLike implements HtmlElementComponent<HT
             DialogSize.LARGE, // width
             DialogSize.LARGE, // height
             id,
-            context.dialogTitle(),
             includeClose,
             context
         );
@@ -91,7 +89,6 @@ abstract class SpreadsheetDialogComponentLike implements HtmlElementComponent<HT
             DialogSize.VERY_LARGE, // width
             DialogSize.LARGE, // height
             id,
-            context.dialogTitle(),
             includeClose,
             context
         );
@@ -156,7 +153,7 @@ abstract class SpreadsheetDialogComponentLike implements HtmlElementComponent<HT
         printer.indent();
         {
             final String title = this.title();
-            if (false == title.isEmpty()) {
+            if (false == CharSequences.isNullOrEmpty(title)) {
                 printer.println(title);
             }
 
