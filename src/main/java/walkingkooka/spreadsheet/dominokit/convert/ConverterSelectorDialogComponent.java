@@ -214,12 +214,9 @@ public final class ConverterSelectorDialogComponent implements SpreadsheetDialog
 
     private void refreshTitleAndLinks() {
         final ConverterSelectorDialogComponentContext context = this.context;
+        context.refreshDialogTitle(this);
 
         final HistoryToken historyToken = context.historyToken();
-
-        this.dialog.setTitle(
-            context.dialogTitle()
-        );
 
         this.clear.clearValue();
 

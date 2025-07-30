@@ -477,6 +477,8 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
      */
     @Override
     public void refresh(final RefreshContext context) {
+        this.context.refreshDialogTitle(this);
+
         final Optional<DateTimeSymbols> dateTimeSymbols = this.context.loadDateTimeSymbols();
         this.dateTimeSymbols.setValue(dateTimeSymbols);
         this.refreshDateTimeSymbolsComponentsAndSave(dateTimeSymbols);

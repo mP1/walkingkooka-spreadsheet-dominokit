@@ -214,12 +214,9 @@ public final class FormHandlerSelectorDialogComponent implements SpreadsheetDial
 
     private void refreshTitleAndLinks() {
         final FormHandlerSelectorDialogComponentContext context = this.context;
+        this.context.refreshDialogTitle(this);
 
         final HistoryToken historyToken = context.historyToken();
-
-        this.dialog.setTitle(
-            context.dialogTitle()
-        );
 
         this.clear.clearValue();
 

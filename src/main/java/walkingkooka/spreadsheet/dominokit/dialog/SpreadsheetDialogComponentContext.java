@@ -78,4 +78,12 @@ public interface SpreadsheetDialogComponentContext extends HistoryContext,
      * Getter that returns the title.
      */
     String dialogTitle();
+
+    /**
+     * Helper that refreshes the dialog title.
+     */
+    default void refreshDialogTitle(final SpreadsheetDialogComponentLifecycle dialog) {
+        dialog.dialog()
+            .setTitle(this.dialogTitle());
+    }
 }

@@ -314,6 +314,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
      */
     @Override
     public void refresh(final RefreshContext context) {
+        this.context.refreshDialogTitle(this);
         this.refreshLinks();
     }
 

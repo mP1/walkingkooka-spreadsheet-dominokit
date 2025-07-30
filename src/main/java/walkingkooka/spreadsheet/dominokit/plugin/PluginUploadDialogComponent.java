@@ -205,6 +205,8 @@ public final class PluginUploadDialogComponent implements SpreadsheetDialogCompo
 
     @Override
     public void refresh(final RefreshContext context) {
+        this.context.refreshDialogTitle(this);
+
         this.refreshUploadFile();
         this.refreshUploadLink();
         this.refreshClose(context);

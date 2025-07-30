@@ -359,6 +359,8 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
      */
     @Override
     public void refresh(final RefreshContext context) {
+        this.context.refreshDialogTitle(this);
+
         this.refreshLinks();
     }
 

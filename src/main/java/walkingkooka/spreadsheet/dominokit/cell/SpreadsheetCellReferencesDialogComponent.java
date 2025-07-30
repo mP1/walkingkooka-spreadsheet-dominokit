@@ -146,6 +146,8 @@ public final class SpreadsheetCellReferencesDialogComponent implements Spreadshe
      */
     @Override
     public void refresh(final RefreshContext context) {
+        this.context.refreshDialogTitle(this);
+
         final SpreadsheetCellReferenceListHistoryToken historyToken = context.historyToken()
             .cast(SpreadsheetCellReferenceListHistoryToken.class);
 
