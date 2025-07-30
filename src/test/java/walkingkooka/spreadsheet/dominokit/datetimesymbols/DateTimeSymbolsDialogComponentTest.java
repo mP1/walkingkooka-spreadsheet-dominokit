@@ -63,7 +63,7 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
             context,
             "DateTimeSymbolsDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    DateTimeSymbols\n" +
+                "    A1: Date Time Symbols\n" +
                 "    id=dateTimeSymbols-Dialog includeClose=true\n" +
                 "      SpreadsheetFlexLayout\n" +
                 "        ROW\n" +
@@ -137,7 +137,7 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
             context,
             "DateTimeSymbolsDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    DateTimeSymbols\n" +
+                "    Spreadsheet: Date Time Symbols (dateTimeSymbols)\n" +
                 "    id=dateTimeSymbols-Dialog includeClose=true\n" +
                 "      SpreadsheetFlexLayout\n" +
                 "        ROW\n" +
@@ -199,7 +199,7 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
             context,
             "DateTimeSymbolsDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    DateTimeSymbols\n" +
+                "    Spreadsheet: Date Time Symbols (dateTimeSymbols)\n" +
                 "    id=dateTimeSymbols-Dialog includeClose=true\n" +
                 "      SpreadsheetFlexLayout\n" +
                 "        ROW\n" +

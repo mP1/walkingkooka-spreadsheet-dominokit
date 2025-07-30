@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.datetimesymbols;
 
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
@@ -51,7 +52,7 @@ public class AppContextSpreadsheetMetadataPropertyDateTimeSymbolsDialogComponent
 
     @Override
     public String dialogTitle() {
-        return DateTimeSymbols.class.getSimpleName();
+        return SpreadsheetDialogComponentContext.spreadsheetMetadataPropertyNameDialogTitle(SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS);
     }
 
     /**
