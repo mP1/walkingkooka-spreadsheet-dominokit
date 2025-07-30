@@ -36,10 +36,6 @@ public interface PluginNameSetDialogComponentContext
     HasPluginFetcherWatchers,
     HasSpreadsheetMetadataFetcherWatchers,
     HasSpreadsheetMetadata {
-    /**
-     * Returns the dialog title.
-     */
-    String dialogTitle();
 
     /**
      * Loads an existing spreadsheet

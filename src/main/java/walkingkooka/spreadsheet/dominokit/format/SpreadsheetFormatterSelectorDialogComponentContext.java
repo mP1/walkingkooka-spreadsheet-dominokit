@@ -44,12 +44,6 @@ public interface SpreadsheetFormatterSelectorDialogComponentContext extends CanG
     SpreadsheetFormatterTableComponentContext {
 
     /**
-     * Logic to provide the dialog title. In some cases the title might not be currently enabled as it is extracted from
-     * the {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken} which will change after the dialog is actually created.
-     */
-    String dialogTitle();
-
-    /**
      * Tabs should only be shown when editing a metadata formatter.
      */
     boolean shouldShowTabs();

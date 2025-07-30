@@ -50,11 +50,6 @@ public interface PluginAliasSetLikeDialogComponentContext<N extends Name & Compa
     RemovePluginAliasSetLikeComponentContext {
 
     /**
-     * Returns the dialog title.
-     */
-    String dialogTitle();
-
-    /**
      * Creates a textbox that will be used to edit the {@link PluginInfoSetLike}.
      */
     ValueSpreadsheetTextBoxWrapper<?, AS> textBox();

@@ -29,12 +29,6 @@ public interface SpreadsheetColumnRowInsertCountDialogComponentContext extends
     ComponentLifecycleMatcher {
 
     /**
-     * A label which is used for the title of the dialog box.
-     */
-    String dialogTitle();
-
-
-    /**
      * Saves the given value, preparing the {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken}
      * which will cause the column/row to be inserted.
      */
