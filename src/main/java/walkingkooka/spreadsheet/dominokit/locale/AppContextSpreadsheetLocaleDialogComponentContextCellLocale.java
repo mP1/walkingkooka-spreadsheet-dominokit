@@ -47,11 +47,7 @@ final class AppContextSpreadsheetLocaleDialogComponentContextCellLocale extends 
 
     @Override
     public String dialogTitle() {
-        return "Cell " + this.historyContext()
-            .historyToken()
-            .selection()
-            .get() +
-            " Locale";
+        return this.selectionValueDialogTitle(Locale.class);
     }
 
     @Override

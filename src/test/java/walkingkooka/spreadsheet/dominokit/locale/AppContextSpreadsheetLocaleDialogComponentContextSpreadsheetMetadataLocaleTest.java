@@ -45,7 +45,7 @@ public final class AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetM
     public void testDialogTitle() {
         this.dialogTitleAndCheck(
             this.createContext(),
-            "Spreadsheet Locale"
+            "Spreadsheet: Locale (locale)"
         );
     }
 

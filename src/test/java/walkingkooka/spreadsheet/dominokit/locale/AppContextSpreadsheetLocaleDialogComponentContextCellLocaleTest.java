@@ -44,7 +44,7 @@ public final class AppContextSpreadsheetLocaleDialogComponentContextCellLocaleTe
     public void testDialogTitle() {
         this.dialogTitleAndCheck(
             this.createContext(),
-            "Cell A1 Locale"
+            "A1: Locale"
         );
     }
 

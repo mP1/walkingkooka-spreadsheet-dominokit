@@ -43,15 +43,17 @@ final class AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadata
         super(context);
     }
 
+    private final static SpreadsheetMetadataPropertyName<Locale> PROPERTY_NAME = SpreadsheetMetadataPropertyName.LOCALE;
+
     @Override
     public String dialogTitle() {
-        return "Spreadsheet Locale";
+        return this.spreadsheetMetadataPropertyNameDialogTitle(SpreadsheetMetadataPropertyName.LOCALE);
     }
 
     @Override
     public Optional<Locale> undoLocale() {
         return this.context.spreadsheetMetadata()
-            .get(SpreadsheetMetadataPropertyName.LOCALE);
+            .get(PROPERTY_NAME);
     }
 
     // HasSpreadsheetDeltaFetcherWatchers...............................................................................
@@ -83,7 +85,7 @@ final class AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadata
             token instanceof SpreadsheetMetadataPropertySelectHistoryToken &&
             false == token.cast(SpreadsheetMetadataPropertySelectHistoryToken.class)
                     .propertyName()
-                    .equals(SpreadsheetMetadataPropertyName.LOCALE)
+                    .equals(PROPERTY_NAME)
         ) ||
             token instanceof SpreadsheetMetadataPropertySaveHistoryToken;
     }
@@ -94,6 +96,6 @@ final class AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadata
         return token instanceof SpreadsheetMetadataPropertySelectHistoryToken &&
             token.cast(SpreadsheetMetadataPropertySelectHistoryToken.class)
                 .propertyName()
-                .equals(SpreadsheetMetadataPropertyName.LOCALE);
+                .equals(PROPERTY_NAME);
     }
 }
