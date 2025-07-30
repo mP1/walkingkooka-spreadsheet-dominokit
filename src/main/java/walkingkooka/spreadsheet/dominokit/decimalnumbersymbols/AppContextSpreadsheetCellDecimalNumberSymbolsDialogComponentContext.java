@@ -52,7 +52,7 @@ final class AppContextSpreadsheetCellDecimalNumberSymbolsDialogComponentContext 
 
     @Override
     public String dialogTitle() {
-        return DecimalNumberSymbols.class.getSimpleName();
+        return this.selectionValueDialogTitle(DecimalNumberSymbols.class);
     }
 
     @Override
