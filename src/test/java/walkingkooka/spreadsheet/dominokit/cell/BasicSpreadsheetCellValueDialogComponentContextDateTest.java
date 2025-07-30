@@ -31,11 +31,12 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetCellValueDialogComponentContextTextTest implements SpreadsheetCellValueDialogComponentContextTesting<String, SpreadsheetCellValueDialogComponentContextText> {
+public final class BasicSpreadsheetCellValueDialogComponentContextDateTest implements SpreadsheetCellValueDialogComponentContextTesting<LocalDate, BasicSpreadsheetCellValueDialogComponentContextDate> {
 
     private final static SpreadsheetDeltaFetcherWatchers DELTA_FETCHER_WATCHERS = SpreadsheetDeltaFetcherWatchers.empty();
     private final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
@@ -48,7 +49,7 @@ public final class SpreadsheetCellValueDialogComponentContextTextTest implements
     public void testWithNullSpreadsheetViewportCacheFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetCellValueDialogComponentContextText.with(
+            () -> BasicSpreadsheetCellValueDialogComponentContextDate.with(
                 null,
                 DELTA_FETCHER_WATCHERS,
                 MARSHALL_CONTEXT,
@@ -62,7 +63,7 @@ public final class SpreadsheetCellValueDialogComponentContextTextTest implements
     public void testWithNullSpreadsheetDeltaFetcherWatchersFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetCellValueDialogComponentContextText.with(
+            () -> BasicSpreadsheetCellValueDialogComponentContextDate.with(
                 this.spreadsheetViewportCache(),
                 null,
                 MARSHALL_CONTEXT,
@@ -76,7 +77,7 @@ public final class SpreadsheetCellValueDialogComponentContextTextTest implements
     public void testWithNullMarshallContextFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetCellValueDialogComponentContextText.with(
+            () -> BasicSpreadsheetCellValueDialogComponentContextDate.with(
                 this.spreadsheetViewportCache(),
                 DELTA_FETCHER_WATCHERS,
                 null,
@@ -90,7 +91,7 @@ public final class SpreadsheetCellValueDialogComponentContextTextTest implements
     public void testWithNullHistoryContextFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetCellValueDialogComponentContextText.with(
+            () -> BasicSpreadsheetCellValueDialogComponentContextDate.with(
                 this.spreadsheetViewportCache(),
                 DELTA_FETCHER_WATCHERS,
                 MARSHALL_CONTEXT,
@@ -104,7 +105,7 @@ public final class SpreadsheetCellValueDialogComponentContextTextTest implements
     public void testWithNullLoggingContextFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetCellValueDialogComponentContextText.with(
+            () -> BasicSpreadsheetCellValueDialogComponentContextDate.with(
                 this.spreadsheetViewportCache(),
                 DELTA_FETCHER_WATCHERS,
                 MARSHALL_CONTEXT,
@@ -140,14 +141,20 @@ public final class SpreadsheetCellValueDialogComponentContextTextTest implements
     @Test
     public void testToHistoryTokenSaveStringValueWithNotEmpty() {
         this.toHistoryTokenSaveStringValueAndCheck(
-            Optional.of("Hello"),
-            "\"Hello\""
+            Optional.of(
+                LocalDate.of(
+                    1999,
+                    12,
+                    31
+                )
+            ),
+            "\"1999-12-31\""
         );
     }
 
     @Override
-    public SpreadsheetCellValueDialogComponentContextText createContext() {
-        return SpreadsheetCellValueDialogComponentContextText.with(
+    public BasicSpreadsheetCellValueDialogComponentContextDate createContext() {
+        return BasicSpreadsheetCellValueDialogComponentContextDate.with(
             this.spreadsheetViewportCache(),
             DELTA_FETCHER_WATCHERS,
             MARSHALL_CONTEXT,
@@ -185,7 +192,7 @@ public final class SpreadsheetCellValueDialogComponentContextTextTest implements
     }
 
     @Override
-    public Class<SpreadsheetCellValueDialogComponentContextText> type() {
-        return SpreadsheetCellValueDialogComponentContextText.class;
+    public Class<BasicSpreadsheetCellValueDialogComponentContextDate> type() {
+        return BasicSpreadsheetCellValueDialogComponentContextDate.class;
     }
 }
