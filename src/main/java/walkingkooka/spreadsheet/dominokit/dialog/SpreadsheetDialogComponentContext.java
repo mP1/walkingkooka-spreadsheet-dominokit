@@ -47,13 +47,14 @@ public interface SpreadsheetDialogComponentContext extends HistoryContext,
     /**
      * Helper that may be used to create a standard dialog for a {@link SpreadsheetSelection} and a style view or edit.
      */
-    static String selectionTextStylePropertyDialogTitle(final SpreadsheetSelection selection,
-                                                        final TextStylePropertyName<?> propertyName) {
-        Objects.requireNonNull(selection, "selection");
+    default String selectionTextStylePropertyDialogTitle(final TextStylePropertyName<?> propertyName) {
+
         Objects.requireNonNull(propertyName, "propertyName");
 
         return selectionDialogTitle(
-            selection,
+            this.historyToken()
+                .selection()
+                .get(),
             CaseKind.kebabToTitle(
                 propertyName.value()
             )
