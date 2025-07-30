@@ -43,6 +43,11 @@ final class AppContextSpreadsheetCellSortDialogComponentContext implements Sprea
         this.context = context;
     }
 
+    @Override
+    public String dialogTitle() {
+        return this.spreadsheetDialogTitle("Sort");
+    }
+
     // SpreadsheetViewportCache.........................................................................................
 
     @Override
