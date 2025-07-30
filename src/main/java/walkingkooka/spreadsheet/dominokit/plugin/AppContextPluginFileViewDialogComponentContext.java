@@ -45,6 +45,11 @@ public final class AppContextPluginFileViewDialogComponentContext implements Plu
     }
 
     @Override
+    public String dialogTitle() {
+        return this.pluginDialogTitle("File View");
+    }
+
+    @Override
     public void loadJarTextFile(final PluginName pluginName,
                                 final JarEntryInfoName filename) {
         this.context.pluginFetcher()

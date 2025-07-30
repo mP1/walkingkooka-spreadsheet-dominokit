@@ -27,11 +27,6 @@ public interface PluginFileViewDialogComponentContext extends SpreadsheetDialogC
     HasPluginFetcherWatchers,
     HistoryContext {
 
-    @Override
-    default String dialogTitle() {
-        return "Plugin";
-    }
-
     /**
      * Loads the text for a plugin archive file.
      */
