@@ -52,7 +52,7 @@ final class AppContextSpreadsheetCellDateTimeSymbolsDialogComponentContext imple
 
     @Override
     public String dialogTitle() {
-        return DateTimeSymbols.class.getSimpleName();
+        return this.selectionValueDialogTitle(DateTimeSymbols.class);
     }
 
     @Override
