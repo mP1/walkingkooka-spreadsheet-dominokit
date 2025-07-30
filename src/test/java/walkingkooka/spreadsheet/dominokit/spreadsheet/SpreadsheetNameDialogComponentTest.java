@@ -56,7 +56,7 @@ public final class SpreadsheetNameDialogComponentTest implements SpreadsheetDial
             context,
             "SpreadsheetNameDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
-                "    Spreadsheet Name\n" +
+                "    Spreadsheet: Name\n" +
                 "    id=spreadsheetName-Dialog includeClose=true\n" +
                 "      SpreadsheetNameComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
