@@ -57,6 +57,11 @@ final class AppContextSpreadsheetFindDialogComponentContext implements Spreadshe
         this.context = context;
     }
 
+    @Override
+    public String dialogTitle() {
+        return this.selectionDialogTitle("Find");
+    }
+
     // SpreadsheetCellLabelsAnchorComponentContext......................................................................
 
     @Override
