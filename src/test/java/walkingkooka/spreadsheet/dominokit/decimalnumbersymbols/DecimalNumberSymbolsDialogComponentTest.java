@@ -51,7 +51,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
             DECIMAL_NUMBER_SYMBOLS
         );
 
-        this.onHistoryTokenChangeAndCheck(
+        this.onHistoryTokenChangeAndCheck2(
             DecimalNumberSymbolsDialogComponent.with(
                 DecimalNumberSymbolsDialogComponentContexts.cell(context)
             ),
@@ -64,7 +64,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
             "DecimalNumberSymbolsDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    A1: Decimal Number Symbols\n" +
-                "    id=decimalNumberSymbols-Dialog includeClose=true CLOSED\n" +
+                "    id=decimalNumberSymbols-Dialog includeClose=true\n" +
                 "      SpreadsheetFlexLayout\n" +
                 "        ROW\n" +
                 "          CharacterComponent\n" +
@@ -87,6 +87,8 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
                 "                  Empty \"Zero digit\"\n" +
                 "          SpreadsheetTextBox\n" +
                 "            Currency [] id=decimalNumberSymbolsCurrencySymbol-TextBox\n" +
+                "            Errors\n" +
+                "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
@@ -95,6 +97,8 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
                 "                  Empty \"Decimal separator\"\n" +
                 "          SpreadsheetTextBox\n" +
                 "            Exponent [] id=decimalNumberSymbolsExponentSymbol-TextBox\n" +
+                "            Errors\n" +
+                "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
@@ -103,6 +107,8 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
                 "                  Empty \"Group separator\"\n" +
                 "          SpreadsheetTextBox\n" +
                 "            Infinity [] id=decimalNumberSymbolsInfinitySymbol-TextBox\n" +
+                "            Errors\n" +
+                "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
@@ -111,6 +117,8 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
                 "                  Empty \"Monetary decimal separator\"\n" +
                 "          SpreadsheetTextBox\n" +
                 "            Nan [] id=decimalNumberSymbolsNanSymbol-TextBox\n" +
+                "            Errors\n" +
+                "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
@@ -133,10 +141,10 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=decimalNumberSymbols-save-Link\n" +
-                "            \"Clear\" DISABLED id=decimalNumberSymbols-clear-Link\n" +
-                "            \"Undo\" DISABLED id=decimalNumberSymbols-undo-Link\n" +
-                "            \"Copy Defaults\" DISABLED id=decimalNumberSymbols-copyDefaults-Link\n" +
-                "            \"Close\" DISABLED id=decimalNumberSymbols-close-Link\n"
+                "            \"Clear\" [#/1/SpreadsheetName1/cell/A1/decimalNumberSymbols/save/] id=decimalNumberSymbols-clear-Link\n" +
+                "            \"Undo\" [#/1/SpreadsheetName1/cell/A1/decimalNumberSymbols/save/] id=decimalNumberSymbols-undo-Link\n" +
+                "            \"Copy Defaults\" [#/1/SpreadsheetName1/cell/A1/decimalNumberSymbols/save/-,+,0,$,.,e,%22,%22,%E2%88%9E,.,NaN,%25,%E2%80%B0] id=decimalNumberSymbols-copyDefaults-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName1/cell/A1] id=decimalNumberSymbols-close-Link\n"
         );
     }
 
