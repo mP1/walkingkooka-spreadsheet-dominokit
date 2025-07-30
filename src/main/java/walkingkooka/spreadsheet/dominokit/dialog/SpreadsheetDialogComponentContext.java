@@ -68,7 +68,7 @@ public interface SpreadsheetDialogComponentContext extends HistoryContext,
 
         final String text = propertyName.text();
 
-        return "Spreadsheet metadata: " + CaseKind.CAMEL.change(
+        return "Spreadsheet: " + CaseKind.CAMEL.change(
             text,
             CaseKind.TITLE
         ) + "(" + text + ")";
