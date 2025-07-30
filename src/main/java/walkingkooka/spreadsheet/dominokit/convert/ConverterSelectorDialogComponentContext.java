@@ -31,11 +31,6 @@ public interface ConverterSelectorDialogComponentContext extends ComponentLifecy
     SpreadsheetDialogComponentContext {
 
     /**
-     * Logic to provide the dialog title.
-     */
-    String dialogTitle();
-
-    /**
      * Provides the UNDO text.
      */
     Optional<ConverterSelector> undo();
