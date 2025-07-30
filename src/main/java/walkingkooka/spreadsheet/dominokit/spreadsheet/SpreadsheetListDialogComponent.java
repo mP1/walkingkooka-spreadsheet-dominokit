@@ -125,7 +125,6 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
     private SpreadsheetDialogComponent dialogCreate(final SpreadsheetListDialogComponentContext context) {
         return SpreadsheetDialogComponent.largeList(
                 ID + SpreadsheetElementIds.DIALOG, // id
-                context.dialogTitle(),
                 SpreadsheetDialogComponent.WITHOUT_CLOSE,
                 context
             ).appendChild(this.table)

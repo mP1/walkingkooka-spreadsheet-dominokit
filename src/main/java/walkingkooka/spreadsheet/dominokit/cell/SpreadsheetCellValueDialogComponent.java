@@ -153,7 +153,6 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
 
         return SpreadsheetDialogComponent.smallEdit(
                 context.id() + SpreadsheetElementIds.DIALOG,
-                context.dialogTitle(),
                 SpreadsheetDialogComponent.INCLUDE_CLOSE,
                 context
             ).appendChild(this.value)

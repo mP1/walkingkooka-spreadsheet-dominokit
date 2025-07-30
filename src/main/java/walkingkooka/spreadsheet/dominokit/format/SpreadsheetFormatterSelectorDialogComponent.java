@@ -140,7 +140,6 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
 
         SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.largeEdit(
             ID + SpreadsheetElementIds.DIALOG,
-            context.dialogTitle(),
             SpreadsheetDialogComponent.INCLUDE_CLOSE,
             context
         );

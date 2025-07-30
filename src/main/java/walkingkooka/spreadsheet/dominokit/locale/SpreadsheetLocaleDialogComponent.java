@@ -90,7 +90,6 @@ public final class SpreadsheetLocaleDialogComponent implements SpreadsheetDialog
 
         return SpreadsheetDialogComponent.smallerPrompt(
             ID + SpreadsheetElementIds.DIALOG,
-            "Locale",
             SpreadsheetDialogComponent.INCLUDE_CLOSE,
             context
         ).appendChild(

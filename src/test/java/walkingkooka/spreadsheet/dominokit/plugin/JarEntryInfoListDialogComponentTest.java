@@ -547,6 +547,12 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
 
     private JarEntryInfoListDialogComponentContext pluginDialogComponentContext(final TestAppContext context) {
         return new FakeJarEntryInfoListDialogComponentContext() {
+
+            @Override
+            public String dialogTitle() {
+                return "Plugin";
+            }
+
             @Override
             public Runnable addPluginFetcherWatcher(final PluginFetcherWatcher watcher) {
                 return this.watchers.addPluginFetcherWatcher(watcher);

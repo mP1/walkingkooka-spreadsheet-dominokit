@@ -129,7 +129,6 @@ public final class JarEntryInfoListDialogComponent implements SpreadsheetDialogC
     private SpreadsheetDialogComponent dialogCreate(final JarEntryInfoListDialogComponentContext context) {
         return SpreadsheetDialogComponent.largeList(
                 ID + SpreadsheetElementIds.DIALOG, // id
-                "Plugin", // title
                 SpreadsheetDialogComponent.INCLUDE_CLOSE,
                 context
             ).appendChild(this.table)
