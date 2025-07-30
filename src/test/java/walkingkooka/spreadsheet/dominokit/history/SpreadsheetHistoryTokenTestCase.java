@@ -65,4 +65,14 @@ public abstract class SpreadsheetHistoryTokenTestCase<T extends SpreadsheetHisto
             token.urlFragment()
         );
     }
+
+    // pluginName.......................................................................................................
+
+    @Test
+    public final void testPluginName() {
+        this.pluginNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
 }

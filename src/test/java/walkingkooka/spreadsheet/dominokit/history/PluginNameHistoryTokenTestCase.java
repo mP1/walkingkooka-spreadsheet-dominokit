@@ -39,6 +39,14 @@ public abstract class PluginNameHistoryTokenTestCase<T extends PluginNameHistory
     }
 
     @Test
+    public void testPluginName() {
+        this.pluginNameAndCheck(
+            this.createHistoryToken(),
+            PLUGIN_NAME
+        );
+    }
+
+    @Test
     public final void testSetSaveStringValue() {
         final String value = "save-value-456";
 
