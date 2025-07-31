@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
-import walkingkooka.Cast;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
@@ -64,14 +63,10 @@ abstract class BasicSpreadsheetCellValueDialogComponentContext<T> implements Spr
     }
 
     @Override
-    public final Optional<T> value() {
+    public final Optional<SpreadsheetCell> cell() {
         return this.historyContext.historyToken()
             .selection()
-            .flatMap(this.viewportCache::cell)
-            .flatMap((SpreadsheetCell cell) -> Cast.to(
-                cell.formula()
-                    .value())
-            );
+            .flatMap(this.viewportCache::cell);
     }
 
     final SpreadsheetViewportCache viewportCache;
