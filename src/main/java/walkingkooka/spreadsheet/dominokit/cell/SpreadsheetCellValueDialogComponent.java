@@ -17,8 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
+import walkingkooka.Cast;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
+import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.SpreadsheetError;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
@@ -36,9 +40,11 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValueSelectHist
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.text.CaseKind;
 import walkingkooka.validation.ValidationValueTypeName;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -163,10 +169,30 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
 
     private final SpreadsheetCellValueDialogComponentContext<T> context;
 
-    private void refreshValue() {
+    private void refreshValueAndErrors() {
+        final Optional<SpreadsheetFormula> formula = this.context.cell()
+            .map(SpreadsheetCell::formula);
+
         this.value.setValue(
-            this.context.value()
+            Cast.to(
+                formula.flatMap(SpreadsheetFormula::value)
+            )
         );
+
+        final List<String> errors = Lists.array();
+
+        if (formula.isPresent()) {
+            final String errorText = formula.get()
+                .error()
+                .map(SpreadsheetError::text)
+                .orElse(null);
+
+            if (null != errorText) {
+                errors.add(errorText);
+            }
+        }
+
+        this.value.setErrors(errors);
     }
 
     private final FormValueComponent<?, T, ?> value;
@@ -177,7 +203,11 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
         this.save.setValue(
             Optional.of(
                 this.context.toHistoryTokenSaveStringValue(
-                    this.context.value()
+                    this.context.cell()
+                        .flatMap((SpreadsheetCell cell) -> Cast.to(
+                            cell.formula()
+                                .value())
+                        )
                 )
             )
         );
@@ -219,7 +249,11 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
         this.undo.setValue(
             Optional.of(
                 this.context.toHistoryTokenSaveStringValue(
-                    this.context.value()
+                    this.context.cell()
+                        .flatMap((SpreadsheetCell cell) -> Cast.to(
+                            cell.formula()
+                                .value())
+                        )
                 )
             )
         );
@@ -280,7 +314,7 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
     public void refresh(final RefreshContext context) {
         this.context.refreshDialogTitle(this);
 
-        this.refreshValue();
+        this.refreshValueAndErrors();
 
         this.refreshSave();
         this.refreshNowOrToday();

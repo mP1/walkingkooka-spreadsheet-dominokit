@@ -17,11 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.validation.ValidationValueTypeName;
 
-import java.time.LocalDate;
 import java.util.Optional;
 
 /**
@@ -41,9 +41,9 @@ public interface SpreadsheetCellValueDialogComponentContext<T> extends Spreadshe
     ValidationValueTypeName valueType();
 
     /**
-     * Gets the current {@link LocalDate} value from the currently selected cell.
+     * Get the current cell if available, which will be useful to get the value and errors.
      */
-    Optional<T> value();
+    Optional<SpreadsheetCell> cell();
 
     /**
      * Serializes the given value into a {@link String} which can be passed to {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken#setSaveStringValue(String).

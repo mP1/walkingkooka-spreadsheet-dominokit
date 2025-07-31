@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.cell;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.datetime.SpreadsheetDateComponent;
@@ -37,6 +38,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryTo
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValueHistoryToken;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
@@ -453,7 +455,16 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
                                                        final Optional<T> value,
                                                        final AppContext context) {
             this.valueType = valueType;
-            this.value = Objects.requireNonNull(value, "value");
+            this.cell = Objects.requireNonNull(value, "value")
+                .map(v ->
+                    SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY.setValue(
+                            Cast.to(
+                                Optional.of(v)
+                            )
+                        )
+                    )
+                );
             this.context = context;
         }
 
@@ -494,11 +505,11 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
         private final SpreadsheetDeltaFetcherWatchers watchers = SpreadsheetDeltaFetcherWatchers.empty();
 
         @Override
-        public Optional<T> value() {
-            return this.value;
+        public Optional<SpreadsheetCell> cell() {
+            return this.cell;
         }
 
-        private final Optional<T> value;
+        private final Optional<SpreadsheetCell> cell;
 
         @Override
         public String toHistoryTokenSaveStringValue(final Optional<T> value) {
