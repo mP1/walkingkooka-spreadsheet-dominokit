@@ -23,6 +23,7 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
@@ -87,6 +88,11 @@ public final class ConverterSelectorDialogComponentTest implements SpreadsheetDi
         }
 
         @Override
+        public Runnable addConverterFetcherWatcher(final ConverterFetcherWatcher watcher) {
+            return null;
+        }
+
+        @Override
         public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
             return () -> {
             };
@@ -107,6 +113,11 @@ public final class ConverterSelectorDialogComponentTest implements SpreadsheetDi
 
             @Override
             public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                return null;
+            }
+
+            @Override
+            public Runnable addConverterFetcherWatcher(final ConverterFetcherWatcher watcher) {
                 return null;
             }
 

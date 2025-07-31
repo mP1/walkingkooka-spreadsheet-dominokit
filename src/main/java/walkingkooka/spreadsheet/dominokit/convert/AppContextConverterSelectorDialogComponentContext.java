@@ -17,16 +17,21 @@
 
 package walkingkooka.spreadsheet.dominokit.convert;
 
+import walkingkooka.collect.map.Maps;
 import walkingkooka.convert.provider.ConverterSelector;
+import walkingkooka.net.UrlPath;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextDelegator;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.server.url.SpreadsheetUrlPathTemplate;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -70,6 +75,43 @@ final class AppContextConverterSelectorDialogComponentContext implements Convert
     public Optional<ConverterSelector> undo() {
         return this.context.spreadsheetMetadata()
             .get(this.propertyName);
+    }
+
+    @Override
+    public void verifySelector(final String selector) {
+        Objects.requireNonNull(selector, "selector");
+
+        this.context.converterFetcher()
+            .postVerify(
+                this.context.historyToken()
+                    .cast(SpreadsheetIdHistoryToken.class)
+                    .id(),
+                this.propertyName,
+                selector
+            );
+    }
+
+    @Override
+    public boolean isVerifyConverterSelectorUrl(final UrlPath path) {
+        return VERIFY_PATH.extract(path)
+            .equals(
+                Maps.of(
+                    SpreadsheetUrlPathTemplate.SPREADSHEET_ID,
+                    this.historyToken()
+                        .cast(SpreadsheetIdHistoryToken.class)
+                        .id(),
+                    SpreadsheetUrlPathTemplate.SPREADSHEET_METADATA_PROPERTY_NAME,
+                    this.propertyName
+                )
+            );
+    }
+
+    private final SpreadsheetUrlPathTemplate VERIFY_PATH = SpreadsheetUrlPathTemplate.parse("/api/spreadsheet/${SpreadsheetId}/metadata/${SpreadsheetMetadataPropertyName}/verify");
+
+
+    @Override
+    public Runnable addConverterFetcherWatcher(final ConverterFetcherWatcher watcher) {
+        return this.context.addConverterFetcherWatcher(watcher);
     }
 
     @Override
