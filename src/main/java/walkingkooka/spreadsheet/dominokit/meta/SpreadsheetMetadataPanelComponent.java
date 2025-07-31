@@ -144,6 +144,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
 
         items.add(this.defaultFormHandler());
 
+        items.add(this.scriptingFunctions());
         items.add(this.scriptingConverter());
         
         items.add(this.sortComparators());
@@ -456,6 +457,12 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     private SpreadsheetMetadataPanelComponentItem<ConverterSelector> scriptingConverter() {
         return link(
             SpreadsheetMetadataPropertyName.SCRIPTING_CONVERTER
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<ExpressionFunctionAliasSet> scriptingFunctions() {
+        return link(
+            SpreadsheetMetadataPropertyName.SCRIPTING_FUNCTIONS
         );
     }
     
