@@ -144,6 +144,8 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
 
         items.add(this.defaultFormHandler());
 
+        items.add(this.scriptingConverter());
+        
         items.add(this.sortComparators());
         items.add(this.sortConverter());
 
@@ -451,6 +453,12 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         );
     }
 
+    private SpreadsheetMetadataPanelComponentItem<ConverterSelector> scriptingConverter() {
+        return link(
+            SpreadsheetMetadataPropertyName.SCRIPTING_CONVERTER
+        );
+    }
+    
     private SpreadsheetMetadataPanelComponentItem<SpreadsheetComparatorNameList> sortComparators() {
         return link(
             SpreadsheetMetadataPropertyName.SORT_COMPARATORS

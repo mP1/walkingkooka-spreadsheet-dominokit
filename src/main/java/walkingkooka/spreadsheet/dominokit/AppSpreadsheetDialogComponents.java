@@ -285,6 +285,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
             SpreadsheetMetadataPropertyName.FIND_CONVERTER,
             SpreadsheetMetadataPropertyName.FORMATTING_CONVERTER,
             SpreadsheetMetadataPropertyName.FORMULA_CONVERTER,
+            SpreadsheetMetadataPropertyName.SCRIPTING_CONVERTER,
             SpreadsheetMetadataPropertyName.SORT_CONVERTER,
             SpreadsheetMetadataPropertyName.VALIDATION_CONVERTER
         );
