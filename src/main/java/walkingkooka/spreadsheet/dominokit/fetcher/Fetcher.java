@@ -326,7 +326,7 @@ abstract public class Fetcher<W extends FetcherWatcher> {
      * 	at walkingkooka.plugin.PluginSelector.evaluateValueText(PluginSelector.java:289)
      * </pre>
      */
-    static String errorMessage(final String message) {
+    public static String errorMessage(final String message) {
         String error = "";
 
         final int colon = message.indexOf(':');
