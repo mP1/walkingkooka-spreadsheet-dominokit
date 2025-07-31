@@ -176,6 +176,13 @@ public final class PluginAliasSetLikeDialogComponentContexts implements PublicSt
     }
 
     /**
+     * {@see AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSet}
+     */
+    public static PluginAliasSetLikeDialogComponentContext<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> scriptingFunctions(final AppContext context) {
+        return AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetScriptingFunctions.with(context);
+    }
+    
+    /**
      * {@see AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidators}
      */
     public static PluginAliasSetLikeDialogComponentContext<ValidatorName, ValidatorInfo, ValidatorInfoSet, ValidatorSelector, ValidatorAlias, ValidatorAliasSet> validators(final AppContext context) {
