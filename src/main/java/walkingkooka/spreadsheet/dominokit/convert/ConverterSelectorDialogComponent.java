@@ -17,7 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.convert;
 
+import elemental2.dom.Headers;
+import walkingkooka.collect.list.Lists;
+import walkingkooka.convert.provider.ConverterInfoSet;
 import walkingkooka.convert.provider.ConverterSelector;
+import walkingkooka.net.AbsoluteOrRelativeUrl;
+import walkingkooka.net.Url;
+import walkingkooka.net.http.HttpMethod;
+import walkingkooka.net.http.HttpStatus;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.convert.MissingConverter;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
@@ -26,6 +35,9 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.Fetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -34,6 +46,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -46,6 +59,7 @@ public final class ConverterSelectorDialogComponent implements SpreadsheetDialog
     LoadedSpreadsheetMetadataRequired,
     NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher,
+    ConverterFetcherWatcher,
     SpreadsheetMetadataFetcherWatcher,
     ComponentLifecycleMatcherDelegator {
 
@@ -63,6 +77,7 @@ public final class ConverterSelectorDialogComponent implements SpreadsheetDialog
         context.addHistoryTokenWatcher(this);
 
         context.addSpreadsheetMetadataFetcherWatcher(this);
+        context.addConverterFetcherWatcher(this);
 
         this.selector = this.selector();
 
@@ -129,8 +144,16 @@ public final class ConverterSelectorDialogComponent implements SpreadsheetDialog
                     this.selector.value()
                 )
             ).addChangeListener(
-                (oldValue, newValue) ->
-                    this.refreshSaveLink(newValue)
+                (oldValue, newValue) -> {
+                    this.refreshSaveLink(newValue);
+
+                    if(newValue.isPresent()) {
+                        this.context.verifySelector(
+                            newValue.get()
+                                .toString()
+                        );
+                    }
+                }
             );
     }
 
@@ -169,6 +192,58 @@ public final class ConverterSelectorDialogComponent implements SpreadsheetDialog
      * A CLOSE link which will close the dialog.
      */
     private final HistoryTokenAnchorComponent close;
+
+    // FetcherWatcher...................................................................................................
+
+    @Override //
+    public void onBegin(final HttpMethod method,
+                         final Url url,
+                         final Optional<FetcherRequestBody<?>> body,
+                         final AppContext context) {
+        // nop
+    }
+
+    @Override //
+    public void onFailure(final HttpMethod method,
+                          final AbsoluteOrRelativeUrl url,
+                          final HttpStatus status,
+                          final Headers headers,
+                          final String body,
+                          final AppContext context) {
+        if(this.isOpen()) {
+            if(HttpMethod.POST.equals(method) && this.context.isVerifyConverterSelectorUrl(url.path())) {
+                this.selector.setErrors(
+                    Lists.of(
+                        Fetcher.errorMessage(body)
+                    )
+                );
+            } else {
+                this.selector.clearErrors();
+            }
+        }
+    }
+
+    @Override//
+    public void onError(final Object cause,
+                        final AppContext context) {
+        // nop
+    }
+
+    // ConverterFetcherWatcher..........................................................................................
+
+    @Override
+    public void onConverterInfoSet(final ConverterInfoSet infos,
+                                   final AppContext context) {
+        // ignore
+    }
+
+    @Override
+    public void onVerify(final SpreadsheetId id,
+                         final SpreadsheetMetadataPropertyName<ConverterSelector> metadataPropertyName,
+                         final Set<MissingConverter> missingConverters,
+                         final AppContext context) {
+        this.selector.clearErrors();
+    }
 
     // SpreadsheetMetadataFetcherWatcher................................................................................
     @Override

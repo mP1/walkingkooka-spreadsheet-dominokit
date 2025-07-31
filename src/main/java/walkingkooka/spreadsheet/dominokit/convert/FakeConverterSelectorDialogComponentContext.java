@@ -18,7 +18,9 @@
 package walkingkooka.spreadsheet.dominokit.convert;
 
 import walkingkooka.convert.provider.ConverterSelector;
+import walkingkooka.net.UrlPath;
 import walkingkooka.spreadsheet.dominokit.dialog.FakeSpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 
@@ -47,6 +49,21 @@ public class FakeConverterSelectorDialogComponentContext extends FakeSpreadsheet
 
     @Override
     public Optional<ConverterSelector> undo() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void verifySelector(final String selector) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean isVerifyConverterSelectorUrl(final UrlPath path) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addConverterFetcherWatcher(final ConverterFetcherWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 
