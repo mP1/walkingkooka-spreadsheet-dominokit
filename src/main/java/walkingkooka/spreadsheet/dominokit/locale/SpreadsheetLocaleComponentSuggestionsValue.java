@@ -18,21 +18,22 @@
 package walkingkooka.spreadsheet.dominokit.locale;
 
 import walkingkooka.locale.LocaleContexts;
+import walkingkooka.text.CharSequences;
 import walkingkooka.text.HasText;
 import walkingkooka.util.HasLocale;
 
 import java.util.Locale;
 import java.util.Objects;
 
-final class SpreadsheetLocaleComponentSuggestionsValue implements HasLocale,
+public final class SpreadsheetLocaleComponentSuggestionsValue implements HasLocale,
     HasText,
     Comparable<SpreadsheetLocaleComponentSuggestionsValue> {
 
-    static SpreadsheetLocaleComponentSuggestionsValue with(final Locale locale,
-                                                           final String text) {
+    public static SpreadsheetLocaleComponentSuggestionsValue with(final Locale locale,
+                                                                  final String text) {
         return new SpreadsheetLocaleComponentSuggestionsValue(
-            locale,
-            text
+            Objects.requireNonNull(locale, "locale"),
+            CharSequences.failIfNullOrEmpty(text, "text")
         );
     }
 
