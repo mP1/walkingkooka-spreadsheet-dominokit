@@ -17,8 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
-import walkingkooka.collect.list.Lists;
-import walkingkooka.convert.provider.ConverterSelector;
+import walkingkooka.Cast;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesDialogComponent;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesDialogComponentContexts;
@@ -76,7 +75,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.List;
 
 /**
  * Responsible for creating and the registry of all {@link walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent}.
@@ -281,22 +279,15 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
             PluginAliasSetLikeDialogComponentContexts.converters(context)
         );
 
-        final List<SpreadsheetMetadataPropertyName<ConverterSelector>> converterSelectors = Lists.of(
-            SpreadsheetMetadataPropertyName.FIND_CONVERTER,
-            SpreadsheetMetadataPropertyName.FORMATTING_CONVERTER,
-            SpreadsheetMetadataPropertyName.FORMULA_CONVERTER,
-            SpreadsheetMetadataPropertyName.SCRIPTING_CONVERTER,
-            SpreadsheetMetadataPropertyName.SORT_CONVERTER,
-            SpreadsheetMetadataPropertyName.VALIDATION_CONVERTER
-        );
-
-        for (final SpreadsheetMetadataPropertyName<ConverterSelector> selector : converterSelectors) {
-            ConverterSelectorDialogComponent.with(
-                ConverterSelectorDialogComponentContexts.appContext(
-                    selector,
-                    context
-                )
-            );
+        for (final SpreadsheetMetadataPropertyName<?> selector : SpreadsheetMetadataPropertyName.ALL) {
+            if(selector.isConverterSelector()) {
+                ConverterSelectorDialogComponent.with(
+                    ConverterSelectorDialogComponentContexts.appContext(
+                        Cast.to(selector),
+                        context
+                    )
+                );
+            }
         }
 
         PluginAliasSetLikeDialogComponent.with(
