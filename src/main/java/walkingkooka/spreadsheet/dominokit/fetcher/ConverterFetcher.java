@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.Cast;
+import walkingkooka.collect.map.Maps;
 import walkingkooka.convert.Converter;
 import walkingkooka.convert.provider.ConverterInfoSet;
 import walkingkooka.convert.provider.ConverterName;
@@ -25,15 +26,15 @@ import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
-import walkingkooka.net.UrlPathName;
+import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.convert.MissingConverterSet;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
-import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
 import walkingkooka.spreadsheet.server.convert.ConverterHateosResourceMappings;
+import walkingkooka.spreadsheet.server.url.SpreadsheetUrlPathTemplate;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
 
@@ -76,25 +77,25 @@ public final class ConverterFetcher extends Fetcher<ConverterFetcherWatcher> {
 
     private final static RelativeUrl URL = Url.EMPTY_RELATIVE_URL.appendPath(SpreadsheetHttpServer.API_CONVERTER);
 
-    // POST /api/spreadsheet/SpreadsheetId/metadata/*/verify/SpreadsheetMetadataPropertyName<ConverterSelector>
+    // POST /api/spreadsheet/SpreadsheetId/metadata/SpreadsheetMetadataPropertyName<ConverterSelector>/verify
     public void postVerify(final SpreadsheetId id,
                            final SpreadsheetMetadataPropertyName<ConverterSelector> converterMetadataProperty,
                            final String converterSelector) {
         this.post(
-            url(id)
-                .appendPathName(UrlPathName.WILDCARD)
-                .appendPathName(
-                    SpreadsheetServerLinkRelations.VERIFY.toUrlPathName()
-                        .get()
-                ).appendPathName(
-                    converterMetadataProperty.toUrlPathName()
-                ),
+            VERIFY.render(
+                Maps.of(
+                    SpreadsheetUrlPathTemplate.SPREADSHEET_ID, id,
+                    SpreadsheetUrlPathTemplate.SPREADSHEET_METADATA_PROPERTY_NAME, converterMetadataProperty
+                )
+            ).addQueryString(UrlQueryString.EMPTY),
             FetcherRequestBody.string(
                 JsonNode.string(converterSelector)
                     .toString()
             )
         );
     }
+
+    private final SpreadsheetUrlPathTemplate VERIFY = SpreadsheetUrlPathTemplate.parse("/api/spreadsheet/${SpreadsheetId}/metadata/${SpreadsheetMetadataPropertyName}/verify");
 
     @Override
     public void onSuccess(final HttpMethod method,
