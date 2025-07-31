@@ -32,6 +32,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.SpreadsheetServerMediaTypes;
 import walkingkooka.spreadsheet.server.SpreadsheetUrlQueryParameters;
 import walkingkooka.text.CharSequences;
+import walkingkooka.text.LineEnding;
 import walkingkooka.tree.json.JsonNode;
 
 import java.util.Map;
@@ -314,6 +315,39 @@ abstract public class Fetcher<W extends FetcherWatcher> {
     }
 
     final W watcher;
+
+    /**
+     * Helper that may be used to extract the message following an error response.
+     * <pre>
+     * java.lang.IllegalArgumentException: Expected at least 1 converter but got 0
+     * 	at walkingkooka.convert.ConverterCollection.with(ConverterCollection.java:46)
+     * 	at walkingkooka.convert.Converters.collection(Converters.java:132)
+     * 	at walkingkooka.spreadsheet.convert.SpreadsheetConvertersConverterProvider.converter(SpreadsheetConvertersConverterProvider.java:88)
+     * 	at walkingkooka.plugin.PluginSelector.evaluateValueText(PluginSelector.java:289)
+     * </pre>
+     */
+    static String errorMessage(final String message) {
+        String error = "";
+
+        final int colon = message.indexOf(':');
+        if(-1 != colon) {
+            int eol = message.length();
+            final int cr = message.indexOf(LineEnding.CR.toString(), colon);
+            if(-1 != cr) {
+                eol = cr;
+            }
+
+            final int lf = message.indexOf(LineEnding.NL.toString(), colon);
+            if(-1 != lf && cr < eol) {
+                eol = lf;
+            }
+
+            error = message.substring(colon + 1, eol)
+                .trim();
+        }
+
+        return error;
+    }
 
     /**
      * Parses the JSON String into the requested type.
