@@ -20,22 +20,61 @@ package walkingkooka.spreadsheet.dominokit.datetime;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
-import walkingkooka.collect.list.Lists;
+import org.dominokit.domino.ui.elements.DivElement;
+import org.dominokit.domino.ui.elements.SpanElement;
+import org.dominokit.domino.ui.forms.FormsStyles;
+import org.dominokit.domino.ui.utils.BaseDominoElement;
+import org.dominokit.domino.ui.utils.LazyChild;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
+import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.function.Supplier;
+
+import static org.dominokit.domino.ui.utils.Domino.div;
+import static org.dominokit.domino.ui.utils.Domino.span;
 
 /**
  * Abstract base class for date/datetime/time pickers.
  */
-abstract class SpreadsheetPickerComponent<T, C extends SpreadsheetPickerComponent<T, C>> implements FormValueComponent<HTMLDivElement, T, C> {
-    
-    SpreadsheetPickerComponent(final Supplier<T> clearValue) {
+abstract class SpreadsheetPickerComponent<V, C extends SpreadsheetPickerComponent<V, C>> implements FormValueComponent<HTMLDivElement, V, C> {
+
+    /**
+     * Parent of the picker and messages.
+     */
+    protected final DivElement bodyElement;
+    protected final LazyChild<DivElement> messagesWrapper;
+    protected final LazyChild<SpanElement> helperTextElement;
+    protected Function<String, SpanElement> errorElementSupplier;
+
+    protected final List<String> errors = new ArrayList<>();
+
+    SpreadsheetPickerComponent(final Supplier<V> clearValue) {
         this.clearValue = Objects.requireNonNull(clearValue, "clearValue");
+
+        // AbstractFormElement
+        this.bodyElement =
+            div()
+                .addCss(FormsStyles.dui_field_body);
+        this.messagesWrapper = LazyChild.of(
+            div()
+                .addCss(FormsStyles.dui_messages_wrapper),
+            this.bodyElement
+        );
+        this.helperTextElement = LazyChild.of(
+            span()
+                .addCss(FormsStyles.dui_field_helper),
+            this.messagesWrapper
+        );
+        this.errorElementSupplier =
+            errorMessage -> span()
+                .addCss(FormsStyles.dui_field_error)
+                .setTextContent(errorMessage);
     }
 
     @Override
@@ -76,15 +115,28 @@ abstract class SpreadsheetPickerComponent<T, C extends SpreadsheetPickerComponen
 
     @Override
     public final Optional<String> helperText() {
-        return Optional.empty();
+        final String text = this.helperTextElement.get()
+            .getTextContent();
+        return Optional.ofNullable(
+            CharSequences.isNullOrEmpty(text) ?
+                null :
+                text
+        );
     }
 
     @Override
     public final C setHelperText(final Optional<String> text) {
-        throw new UnsupportedOperationException();
+        Objects.requireNonNull(text, "text");
+
+        this.helperTextElement.get()
+            .setTextContent(
+                text.orElse("")
+            );
+
+        return (C)this;
     }
     
-    final Supplier<T> clearValue;
+    final Supplier<V> clearValue;
 
     @Override
     public final C validate() {
@@ -108,12 +160,39 @@ abstract class SpreadsheetPickerComponent<T, C extends SpreadsheetPickerComponen
 
     @Override
     public List<String> errors() {
-        return Lists.empty();
+        return this.errors;
     }
 
     @Override
     public final C setErrors(final List<String> errors) {
-        throw new UnsupportedOperationException();
+        this.removeErrors();
+        this.invalidate(errors);
+
+        return (C)this;
+    }
+
+    // AbstractFormElement.invalidate
+    private void invalidate(List<String> errorMessages) {
+        removeErrors();
+        errorMessages.forEach(
+            message -> {
+                this.errors.add(message);
+                messagesWrapper.get().appendChild(errorElementSupplier.apply(message));
+            });
+
+        if (!errorMessages.isEmpty()) {
+            this.bodyElement.addCss(FormsStyles.dui_field_invalid);
+        }
+    }
+
+    // AbstractFormElement.removeErrors
+    private void removeErrors() {
+        this.errors.clear();
+        this.messagesWrapper
+            .get()
+            .querySelectorAll("." + FormsStyles.dui_field_error.getCssClass())
+            .forEach(BaseDominoElement::remove);
+        FormsStyles.dui_field_invalid.remove(this);
     }
 
     @Override
@@ -146,6 +225,13 @@ abstract class SpreadsheetPickerComponent<T, C extends SpreadsheetPickerComponen
     @Override
     public final Node node() {
         return this.element();
+    }
+
+    // IsElement........................................................................................................
+
+    @Override
+    public final HTMLDivElement element() {
+        return this.bodyElement.element();
     }
 
     // TreePrintable....................................................................................................

@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.datetime;
 
 import elemental2.dom.EventListener;
-import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.datepicker.Calendar;
 import org.dominokit.domino.ui.datepicker.CalendarDay;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
@@ -47,6 +46,7 @@ public final class SpreadsheetDateComponent extends SpreadsheetPickerComponent<L
            clearValue
         );
         this.calendar = Calendar.create();
+        this.bodyElement.insertFirst(this.calendar.element());
         this.setId(id);
     }
 
@@ -125,13 +125,6 @@ public final class SpreadsheetDateComponent extends SpreadsheetPickerComponent<L
     @Override
     public boolean isEditing() {
         return this.calendar.isExpanded();
-    }
-
-    // IsElement........................................................................................................
-
-    @Override
-    public HTMLDivElement element() {
-        return this.calendar.element();
     }
 
     private final Calendar calendar;

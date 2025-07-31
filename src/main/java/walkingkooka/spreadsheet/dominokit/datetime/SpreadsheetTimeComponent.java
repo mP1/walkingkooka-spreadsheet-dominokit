@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.datetime;
 
 import elemental2.dom.EventListener;
-import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.timepicker.TimePicker;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 
@@ -46,6 +45,7 @@ public final class SpreadsheetTimeComponent extends SpreadsheetPickerComponent<L
                                      final Supplier<LocalTime> clearValue) {
         super(clearValue);
         this.timePicker = TimePicker.create(); // TODO Add support allowing user to pick locale/DateTimeSymbols/DecimalNumberSymbols ?
+        this.bodyElement.insertFirst(this.timePicker.element());
         this.setId(id);
     }
 
@@ -123,10 +123,10 @@ public final class SpreadsheetTimeComponent extends SpreadsheetPickerComponent<L
 
     // IsElement........................................................................................................
 
-    @Override
-    public HTMLDivElement element() {
-        return this.timePicker.element();
-    }
+//    @Override
+//    public HTMLDivElement element() {
+//        return this.timePicker.element();
+//    }
 
     private final TimePicker timePicker;
 }
