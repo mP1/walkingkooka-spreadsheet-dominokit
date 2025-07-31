@@ -19,16 +19,11 @@ package walkingkooka.spreadsheet.dominokit.datetime;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
-import elemental2.dom.Node;
 import org.dominokit.domino.ui.timepicker.TimePicker;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
-import walkingkooka.text.printer.IndentingPrinter;
 
 import java.time.LocalTime;
 import java.util.Date;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Supplier;
@@ -37,7 +32,7 @@ import java.util.function.Supplier;
  * A time picker that displays a timePicker that supports picking {@link LocalTime}.
  * A {@link Supplier} is required to supply a NOW time when an {@link Optional#empty()} is given to {@link #setValue(Optional)}.
  */
-public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLDivElement, LocalTime, SpreadsheetTimeComponent> {
+public final class SpreadsheetTimeComponent extends SpreadsheetPickerComponent<LocalTime, SpreadsheetTimeComponent> {
 
     public static SpreadsheetTimeComponent empty(final String id,
                                                  final Supplier<LocalTime> clearValue) {
@@ -49,56 +44,9 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLDi
 
     private SpreadsheetTimeComponent(final String id,
                                      final Supplier<LocalTime> clearValue) {
+        super(clearValue);
         this.timePicker = TimePicker.create(); // TODO Add support allowing user to pick locale/DateTimeSymbols/DecimalNumberSymbols ?
         this.setId(id);
-
-        this.clearValue = Objects.requireNonNull(clearValue, "clearValue");
-    }
-
-    @Override
-    public SpreadsheetTimeComponent setId(final String id) {
-        this.element().id = id;
-        return this;
-    }
-
-    @Override
-    public String id() {
-        return this.element().id;
-    }
-
-    @Override
-    public SpreadsheetTimeComponent setLabel(final String label) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public String label() {
-        return "";
-    }
-
-    @Override
-    public boolean isDisabled() {
-        return false;
-    }
-
-    @Override
-    public SpreadsheetTimeComponent setDisabled(final boolean disabled) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetTimeComponent alwaysShowHelperText() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Optional<String> helperText() {
-        return Optional.empty();
-    }
-
-    @Override
-    public SpreadsheetTimeComponent setHelperText(final Optional<String> text) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -121,38 +69,6 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLDi
         );
 
         return this;
-    }
-
-    private final Supplier<LocalTime> clearValue;
-
-    @Override
-    public SpreadsheetTimeComponent validate() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetTimeComponent optional() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetTimeComponent required() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public boolean isRequired() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public List<String> errors() {
-        return Lists.empty();
-    }
-
-    @Override
-    public SpreadsheetTimeComponent setErrors(final List<String> errors) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -195,31 +111,6 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLDi
     }
 
     @Override
-    public SpreadsheetTimeComponent addFocusListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetTimeComponent addKeydownListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetTimeComponent addKeyupListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetTimeComponent hideMarginBottom() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetTimeComponent removeBorders() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public SpreadsheetTimeComponent focus() {
         // NOP
         return this;
@@ -230,7 +121,6 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLDi
         return this.timePicker.isExpanded();
     }
 
-
     // IsElement........................................................................................................
 
     @Override
@@ -239,34 +129,4 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLDi
     }
 
     private final TimePicker timePicker;
-
-    // node.............................................................................................................
-
-    @Override
-    public Node node() {
-        return this.element();
-    }
-
-    // TreePrintable....................................................................................................
-
-    @Override
-    public void printTree(final IndentingPrinter printer) {
-        printer.println(this.getClass().getSimpleName());
-        printer.indent();
-        {
-            printer.println(
-                this.toString()
-            );
-        }
-        printer.outdent();
-    }
-
-    // Object...........................................................................................................
-
-    @Override
-    public String toString() {
-        return this.value()
-            .map(Object::toString)
-            .orElse("");
-    }
 }

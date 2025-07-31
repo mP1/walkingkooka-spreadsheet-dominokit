@@ -19,22 +19,17 @@ package walkingkooka.spreadsheet.dominokit.datetime;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
-import elemental2.dom.Node;
 import org.dominokit.domino.ui.datepicker.Calendar;
 import org.dominokit.domino.ui.datepicker.CalendarDay;
 import org.dominokit.domino.ui.timepicker.TimePicker;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
-import walkingkooka.text.printer.IndentingPrinter;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Date;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Supplier;
@@ -42,7 +37,7 @@ import java.util.function.Supplier;
 /**
  * A date picker that displays a calendar and time picker {@link LocalDateTime}.
  */
-public final class SpreadsheetDateTimeComponent implements FormValueComponent<HTMLDivElement, LocalDateTime, SpreadsheetDateTimeComponent> {
+public final class SpreadsheetDateTimeComponent extends SpreadsheetPickerComponent<LocalDateTime, SpreadsheetDateTimeComponent> {
 
     public static SpreadsheetDateTimeComponent empty(final String id,
                                                      final Supplier<LocalDateTime> clearValue) {
@@ -54,6 +49,8 @@ public final class SpreadsheetDateTimeComponent implements FormValueComponent<HT
 
     private SpreadsheetDateTimeComponent(final String id,
                                          final Supplier<LocalDateTime> clearValue) {
+        super(clearValue);
+
         final Calendar calendar = Calendar.create();
         this.calendar = calendar;
 
@@ -64,54 +61,7 @@ public final class SpreadsheetDateTimeComponent implements FormValueComponent<HT
             .appendChild(calendar)
             .appendChild(timePicker);
 
-        this.clearValue = Objects.requireNonNull(clearValue, "clearValue");
         this.setId(id);
-    }
-
-    @Override
-    public SpreadsheetDateTimeComponent setId(final String id) {
-        this.element().id = id;
-        return this;
-    }
-
-    @Override
-    public String id() {
-        return this.element().id;
-    }
-
-    @Override
-    public SpreadsheetDateTimeComponent setLabel(final String label) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public String label() {
-        return "";
-    }
-
-    @Override
-    public boolean isDisabled() {
-        return false;
-    }
-
-    @Override
-    public SpreadsheetDateTimeComponent setDisabled(final boolean disabled) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetDateTimeComponent alwaysShowHelperText() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Optional<String> helperText() {
-        return Optional.empty();
-    }
-
-    @Override
-    public SpreadsheetDateTimeComponent setHelperText(final Optional<String> text) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -148,38 +98,6 @@ public final class SpreadsheetDateTimeComponent implements FormValueComponent<HT
         );
 
         return this;
-    }
-
-    private final Supplier<LocalDateTime> clearValue;
-
-    @Override
-    public SpreadsheetDateTimeComponent validate() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetDateTimeComponent optional() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetDateTimeComponent required() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public boolean isRequired() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public List<String> errors() {
-        return Lists.empty();
-    }
-
-    @Override
-    public SpreadsheetDateTimeComponent setErrors(final List<String> errors) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -270,31 +188,6 @@ public final class SpreadsheetDateTimeComponent implements FormValueComponent<HT
     }
 
     @Override
-    public SpreadsheetDateTimeComponent addFocusListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetDateTimeComponent addKeydownListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetDateTimeComponent addKeyupListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetDateTimeComponent hideMarginBottom() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetDateTimeComponent removeBorders() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public SpreadsheetDateTimeComponent focus() {
         // NOP
         return this;
@@ -319,34 +212,4 @@ public final class SpreadsheetDateTimeComponent implements FormValueComponent<HT
     private final Calendar calendar;
 
     private final TimePicker timePicker;
-
-    // node.............................................................................................................
-
-    @Override
-    public Node node() {
-        return this.element();
-    }
-
-    // TreePrintable....................................................................................................
-
-    @Override
-    public void printTree(final IndentingPrinter printer) {
-        printer.println(this.getClass().getSimpleName());
-        printer.indent();
-        {
-            printer.println(
-                this.toString()
-            );
-        }
-        printer.outdent();
-    }
-
-    // Object...........................................................................................................
-
-    @Override
-    public String toString() {
-        return this.value()
-            .map(Object::toString)
-            .orElse("");
-    }
 }
