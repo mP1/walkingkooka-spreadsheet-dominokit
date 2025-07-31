@@ -27,6 +27,69 @@ import java.util.OptionalInt;
 
 public final class FetcherTest implements ClassTesting2<Fetcher<?>> {
 
+    // errorMessage.....................................................................................................
+
+    @Test
+    public void testErrorMessageWithEmpty() {
+        this.errorMessageAndCheck(
+            "",
+            ""
+        );
+    }
+
+    @Test
+    public void testErrorMessageWithInvalidStackTrace() {
+        this.errorMessageAndCheck(
+            "Missing exception",
+            ""
+        );
+    }
+
+    @Test
+    public void testErrorMessageWithStackTraceCarriageReturn() {
+        this.errorMessageAndCheck(
+            "java.lang.IllegalArgumentException: Expected at least 1 converter but got 0\r" +
+                "\tat walkingkooka.convert.ConverterCollection.with(ConverterCollection.java:46)\r" +
+                "\tat walkingkooka.convert.Converters.collection(Converters.java:132)\r" +
+                "\tat walkingkooka.spreadsheet.convert.SpreadsheetConvertersConverterProvider.converter(SpreadsheetConvertersConverterProvider.java:88)\r" +
+                "\tat walkingkooka.plugin.PluginSelector.evaluateValueText(PluginSelector.java:289)\r",
+            "Expected at least 1 converter but got 0"
+        );
+    }
+
+    @Test
+    public void testErrorMessageWithStackTraceCarriageNewLine() {
+        this.errorMessageAndCheck(
+            "java.lang.IllegalArgumentException: Expected at least 1 converter but got 0\r\n" +
+                "\tat walkingkooka.convert.ConverterCollection.with(ConverterCollection.java:46)\r\n" +
+                "\tat walkingkooka.convert.Converters.collection(Converters.java:132)\r\n" +
+                "\tat walkingkooka.spreadsheet.convert.SpreadsheetConvertersConverterProvider.converter(SpreadsheetConvertersConverterProvider.java:88)\r\n" +
+                "\tat walkingkooka.plugin.PluginSelector.evaluateValueText(PluginSelector.java:289)\r\n",
+            "Expected at least 1 converter but got 0"
+        );
+    }
+    
+    @Test
+    public void testErrorMessageWithStackTraceNewLine() {
+        this.errorMessageAndCheck(
+            "java.lang.IllegalArgumentException: Expected at least 1 converter but got 0\n" +
+                "\tat walkingkooka.convert.ConverterCollection.with(ConverterCollection.java:46)\n" +
+                "\tat walkingkooka.convert.Converters.collection(Converters.java:132)\n" +
+                "\tat walkingkooka.spreadsheet.convert.SpreadsheetConvertersConverterProvider.converter(SpreadsheetConvertersConverterProvider.java:88)\n" +
+                "\tat walkingkooka.plugin.PluginSelector.evaluateValueText(PluginSelector.java:289)\n",
+            "Expected at least 1 converter but got 0"
+        );
+    }
+
+    private void errorMessageAndCheck(final String responseBody,
+                                      final String expected) {
+        this.checkEquals(
+            expected,
+            Fetcher.errorMessage(responseBody),
+            responseBody
+        );
+    }
+
     // offsetAndCountQueryString........................................................................................
 
     @Test
