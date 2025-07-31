@@ -28,8 +28,45 @@ import java.util.Locale;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public final class SpreadsheetLocaleComponentSuggestionsValueTest implements ComparableTesting2<SpreadsheetLocaleComponentSuggestionsValue>,
     ClassTesting<SpreadsheetLocaleComponentSuggestionsValue> {
+
+    // with.............................................................................................................
+
+    @Test
+    public void testWithNullLocaleFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetLocaleComponentSuggestionsValue.with(
+                null,
+                "Text"
+            )
+        );
+    }
+
+    @Test
+    public void testWithNullTextFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetLocaleComponentSuggestionsValue.with(
+                Locale.ENGLISH,
+                null
+            )
+        );
+    }
+
+    @Test
+    public void testWithEmptyTextFails() {
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> SpreadsheetLocaleComponentSuggestionsValue.with(
+                Locale.ENGLISH,
+                ""
+            )
+        );
+    }
 
     // Comparable.......................................................................................................
 
@@ -81,6 +118,6 @@ public final class SpreadsheetLocaleComponentSuggestionsValueTest implements Com
 
     @Override
     public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
+        return JavaVisibility.PUBLIC;
     }
 }
