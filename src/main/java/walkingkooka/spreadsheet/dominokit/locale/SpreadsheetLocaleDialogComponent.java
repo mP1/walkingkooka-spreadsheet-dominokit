@@ -37,7 +37,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent;
-import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponentSuggestionsProvider;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResource;
@@ -47,7 +46,6 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -132,21 +130,19 @@ public final class SpreadsheetLocaleDialogComponent implements SpreadsheetDialog
     // localeComponent..................................................................................................
 
     private SpreadsheetLocaleComponent locale() {
-        final Function<SpreadsheetLocaleComponentSuggestionsValue, MenuItem<SpreadsheetLocaleComponentSuggestionsValue>> optionMenuItemCreator =
-            (SpreadsheetLocaleComponentSuggestionsValue s) ->
-                this.context.menuItem(
-                    ID + "-option-" + s.locale().toLanguageTag(), // id
-                    s.text(),
-                    Optional.of(
-                        this.context.historyToken()
-                            .setSaveValue(
-                                Optional.of(s.locale())
-                            )
-                    )
-                );
-
         return SpreadsheetLocaleComponent.empty(
-                new SpreadsheetSuggestBoxComponentSuggestionsProvider<>() {
+                new SpreadsheetLocaleComponentContext() {
+
+                    @Override
+                    public Optional<SpreadsheetLocaleComponentSuggestionsValue> toValue(final Locale locale) {
+                        return context.localeText(locale)
+                            .map(t -> SpreadsheetLocaleComponentSuggestionsValue.with(
+                                    locale,
+                                    t
+                                )
+                            );
+                    }
+
                     @Override
                     public void filter(final String startsWith,
                                        final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue> suggestBox) {
@@ -189,9 +185,21 @@ public final class SpreadsheetLocaleDialogComponent implements SpreadsheetDialog
                         return value.locale()
                             .toLanguageTag();
                     }
-                },
-                optionMenuItemCreator,
-                this.context
+
+                    @Override
+                    public MenuItem<SpreadsheetLocaleComponentSuggestionsValue> createMenuItem(final SpreadsheetLocaleComponentSuggestionsValue value) {
+                        return context.menuItem(
+                            ID + "-option-" + value.locale().toLanguageTag(), // id
+                            value.text(),
+                            Optional.of(
+                                context.historyToken()
+                                    .setSaveValue(
+                                        Optional.of(value.locale())
+                                    )
+                            )
+                        );
+                    }
+                }
             ).optional()
             .addChangeListener(
                 (Optional<Locale> oldLocale, Optional<Locale> newLocale) -> this.save.setValue(newLocale)

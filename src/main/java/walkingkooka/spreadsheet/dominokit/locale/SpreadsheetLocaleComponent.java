@@ -19,12 +19,9 @@ package walkingkooka.spreadsheet.dominokit.locale;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
-import org.dominokit.domino.ui.menu.MenuItem;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.locale.LocaleContext;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponentDelegator;
-import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponentSuggestionsProvider;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.util.HasLocale;
@@ -32,7 +29,6 @@ import walkingkooka.util.HasLocale;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.function.Function;
 
 /**
  * A drop down that supports picking an optional {@link Locale}.
@@ -44,25 +40,18 @@ public final class SpreadsheetLocaleComponent implements SpreadsheetSuggestBoxCo
      * A {@link SpreadsheetLocaleComponent} which is initially empty, possible options to select must be added after
      * creation.
      */
-    public static SpreadsheetLocaleComponent empty(final SpreadsheetSuggestBoxComponentSuggestionsProvider<SpreadsheetLocaleComponentSuggestionsValue> suggestionsProvider,
-                                                   final Function<SpreadsheetLocaleComponentSuggestionsValue, MenuItem<SpreadsheetLocaleComponentSuggestionsValue>> optionMenuItemCreator,
-                                                   final LocaleContext context) {
+    public static SpreadsheetLocaleComponent empty(final SpreadsheetLocaleComponentContext context) {
         return new SpreadsheetLocaleComponent(
-            Objects.requireNonNull(suggestionsProvider, "suggestionsProvider"),
-            Objects.requireNonNull(optionMenuItemCreator, "optionMenuItemCreator"),
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private SpreadsheetLocaleComponent(final SpreadsheetSuggestBoxComponentSuggestionsProvider<SpreadsheetLocaleComponentSuggestionsValue> suggestionsProvider,
-                                       final Function<SpreadsheetLocaleComponentSuggestionsValue, MenuItem<SpreadsheetLocaleComponentSuggestionsValue>> optionMenuItemCreator,
-                                       final LocaleContext context) {
-        this.context = context;
-
+    private SpreadsheetLocaleComponent(final SpreadsheetLocaleComponentContext context) {
         this.suggestBox = SpreadsheetSuggestBoxComponent.with(
-            suggestionsProvider,
-            optionMenuItemCreator
+            context,
+            context::createMenuItem
         );
+        this.context = context;
     }
 
     @Override
@@ -150,30 +139,13 @@ public final class SpreadsheetLocaleComponent implements SpreadsheetSuggestBoxCo
     public SpreadsheetLocaleComponent setValue(final Optional<Locale> locale) {
         Objects.requireNonNull(locale, "locale");
 
-        // translate Locale -> LocaleHateosResource. The later will have the locale text and Locale for the #suggestBox
-        SpreadsheetLocaleComponentSuggestionsValue verified = null;
-
-        if (locale.isPresent()) {
-            final Locale gotLocale = locale.get();
-
-            final String localeText = this.context.localeText(gotLocale)
-                .orElse(null);
-
-            if (null != localeText) {
-                verified = SpreadsheetLocaleComponentSuggestionsValue.with(
-                    gotLocale,
-                    localeText
-                );
-            }
-        }
-
         this.suggestBox.setValue(
-            Optional.ofNullable(verified)
+            locale.flatMap(this.context::toValue)
         );
         return this;
     }
 
-    private final LocaleContext context;
+    private final SpreadsheetLocaleComponentContext context;
 
     @Override //
     public Optional<Locale> value() {

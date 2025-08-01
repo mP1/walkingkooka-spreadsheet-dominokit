@@ -78,7 +78,9 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
 
     @Override
     public SpreadsheetSuggestBoxComponent<T> setVerifiedOption(final T option) {
-        // NOP
+        this.setValue(
+            Optional.of(option)
+        );
         return this;
     }
 
