@@ -68,8 +68,9 @@ public final class SpreadsheetLocaleComponent implements SpreadsheetSuggestBoxCo
             ),
             new SpreadsheetSuggestBoxComponentSuggestionsProvider<>() {
                 @Override
-                public void filter(final String startsWith) {
-                    SpreadsheetLocaleComponent.this.suggestBox.setOptions(
+                public void filter(final String startsWith,
+                                   final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue> suggestBox) {
+                    suggestBox.setOptions(
                         LocaleHateosResourceSet.filter(startsWith, context)
                             .stream()
                             .map(
@@ -84,14 +85,15 @@ public final class SpreadsheetLocaleComponent implements SpreadsheetSuggestBoxCo
                 }
 
                 @Override
-                public void verifyOption(final SpreadsheetLocaleComponentSuggestionsValue value) {
+                public void verifyOption(final SpreadsheetLocaleComponentSuggestionsValue value,
+                                         final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue> suggestBox) {
                     final SpreadsheetLocaleComponentSuggestionsValue verified = verifyLocale(
                         value,
                         context
                     ).orElse(null);
 
                     if (null != verified) {
-                        SpreadsheetLocaleComponent.this.suggestBox.setVerifiedOption(verified);
+                        suggestBox.setVerifiedOption(verified);
                     }
                 }
 

@@ -22,9 +22,11 @@ package walkingkooka.spreadsheet.dominokit.suggestbox;
  */
 public interface SpreadsheetSuggestBoxComponentSuggestionsProvider<T> {
 
-    void filter(final String startsWith);
+    void filter(final String startsWith,
+                final SpreadsheetSuggestBoxComponent<T> suggestBox);
 
-    void verifyOption(final T value);
+    void verifyOption(final T value,
+                      final SpreadsheetSuggestBoxComponent<T> suggestBox);
 
     String menuItemKey(final T value);
 }

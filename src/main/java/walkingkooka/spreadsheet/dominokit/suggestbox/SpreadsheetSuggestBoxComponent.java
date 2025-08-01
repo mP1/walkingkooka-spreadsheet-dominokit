@@ -71,24 +71,29 @@ public final class SpreadsheetSuggestBoxComponent<T> implements SpreadsheetSugge
                                            final Function<T, MenuItem<T>> menuItemCreator) {
         this.parser = parser;
 
-        final SpreadsheetSuggestBoxComponentSuggestBox<T> suggestBox = new SpreadsheetSuggestBoxComponentSuggestBox<>(
+        this.suggestBox = new SpreadsheetSuggestBoxComponentSuggestBox<>(
             new SuggestionsStore<T, SpanElement, SuggestOption<T>>() {
                 @Override
                 public void filter(final String value,
                                    final SuggestionsHandler<T, SpanElement, SuggestOption<T>> suggestionsHandler) {
-                    suggestionsProvider.filter(value);
+                    suggestionsProvider.filter(
+                        value,
+                        SpreadsheetSuggestBoxComponent.this
+                    );
                 }
 
                 @Override
                 public void find(final T searchValue,
                                  final Consumer<SuggestOption<T>> handler) {
                     if (null != searchValue) {
-                        suggestionsProvider.verifyOption(searchValue);
+                        suggestionsProvider.verifyOption(
+                            searchValue,
+                            SpreadsheetSuggestBoxComponent.this
+                        );
                     }
                 }
             }
         );
-        this.suggestBox = suggestBox;
         this.suggestionsProvider = suggestionsProvider;
 
         suggestBox.setEmptyAsNull(true);

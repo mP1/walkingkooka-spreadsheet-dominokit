@@ -32,13 +32,15 @@ public final class SpreadsheetSuggestBoxComponentTest implements FormValueCompon
     private final static SpreadsheetSuggestBoxComponentSuggestionsProvider<SpreadsheetCellReference> SUGGESTIONS_PROVIDER = new SpreadsheetSuggestBoxComponentSuggestionsProvider<>() {
 
         @Override
-        public void filter(final String value) {
-
+        public void filter(final String value,
+                           final SpreadsheetSuggestBoxComponent<SpreadsheetCellReference> suggestBox) {
+            // NOP
         }
 
         @Override
-        public void verifyOption(final SpreadsheetCellReference searchValue) {
-
+        public void verifyOption(final SpreadsheetCellReference searchValue,
+                                 final SpreadsheetSuggestBoxComponent<SpreadsheetCellReference> suggestBox) {
+            // NOP
         }
 
         @Override
