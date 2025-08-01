@@ -23,6 +23,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.locale.FakeLocaleContext;
 import walkingkooka.locale.LocaleContext;
+import walkingkooka.locale.LocaleContexts;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.suggestbox.FakeSpreadsheetSuggestBoxComponentSuggestionsProvider;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponentSuggestionsProvider;
@@ -50,14 +51,21 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
     };
 
     private final static LocaleContext CONTEXT = new FakeLocaleContext() {
-
         @Override
-        public Set<Locale> availableLocales() {
-            return Sets.of(
-                ENAU,
-                ENNZ,
-                FR
-            );
+        public Set<Locale> findByLocaleText(final String text,
+                                            final int offset,
+                                            final int count) {
+            if (LocaleContexts.CASE_SENSITIVITY.equals(text, ENGLISH_AUSTRALIA_TEXT)) {
+                return Sets.of(ENAU);
+            }
+            if (LocaleContexts.CASE_SENSITIVITY.equals(text, ENGLISH_NEW_ZEALAND_TEXT)) {
+                return Sets.of(ENNZ);
+            }
+            if (LocaleContexts.CASE_SENSITIVITY.equals(text, FRENCH_TEXT)) {
+                return Sets.of(FR);
+            }
+
+            return Sets.empty();
         }
 
         @Override
