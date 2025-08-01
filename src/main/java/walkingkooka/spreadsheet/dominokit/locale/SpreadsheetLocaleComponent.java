@@ -23,15 +23,14 @@ import org.dominokit.domino.ui.menu.MenuItem;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent;
+import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponentSuggestionsProvider;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResource;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResourceSet;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.util.HasLocale;
 
-import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
@@ -42,7 +41,7 @@ import java.util.stream.Collectors;
  * A drop down that supports picking an optional {@link Locale}.
  * https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/5450
  */
-public final class SpreadsheetLocaleComponent implements FormValueComponent<HTMLFieldSetElement, Locale, SpreadsheetLocaleComponent>,
+public final class SpreadsheetLocaleComponent implements SpreadsheetSuggestBoxComponentDelegator<HTMLFieldSetElement, Locale, SpreadsheetLocaleComponent>,
     TreePrintable {
 
     /**
@@ -145,28 +144,6 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
     }
 
     @Override
-    public SpreadsheetLocaleComponent setId(final String id) {
-        this.suggestBox.setId(id);
-        return this;
-    }
-
-    @Override
-    public String id() {
-        return this.suggestBox.id();
-    }
-
-    @Override
-    public SpreadsheetLocaleComponent setLabel(final String label) {
-        this.suggestBox.setLabel(label);
-        return this;
-    }
-
-    @Override
-    public String label() {
-        return this.suggestBox.label();
-    }
-
-    @Override
     public SpreadsheetLocaleComponent focus() {
         this.suggestBox.focus();
         return this;
@@ -175,80 +152,6 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
     @Override
     public boolean isEditing() {
         return this.suggestBox.isEditing();
-    }
-
-    @Override
-    public SpreadsheetLocaleComponent alwaysShowHelperText() {
-        this.suggestBox.alwaysShowHelperText();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetLocaleComponent setHelperText(final Optional<String> text) {
-        this.suggestBox.setHelperText(text);
-        return this;
-    }
-
-    @Override
-    public Optional<String> helperText() {
-        return this.suggestBox.helperText();
-    }
-
-    @Override
-    public List<String> errors() {
-        return this.suggestBox.errors();
-    }
-
-    @Override
-    public SpreadsheetLocaleComponent setErrors(final List<String> errors) {
-        this.suggestBox.setErrors(errors);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetLocaleComponent hideMarginBottom() {
-        this.suggestBox.hideMarginBottom();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetLocaleComponent removeBorders() {
-        this.suggestBox.removeBorders();
-        return this;
-    }
-
-    @Override
-    public boolean isDisabled() {
-        return this.suggestBox.isDisabled();
-    }
-
-    @Override
-    public SpreadsheetLocaleComponent setDisabled(final boolean disabled) {
-        this.suggestBox.setDisabled(disabled);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetLocaleComponent required() {
-        this.suggestBox.required();
-        return this;
-    }
-
-    @Override
-    public boolean isRequired() {
-        return this.suggestBox.isRequired();
-    }
-
-    @Override
-    public SpreadsheetLocaleComponent optional() {
-        this.suggestBox.optional();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetLocaleComponent validate() {
-        this.suggestBox.validate();
-        return this;
     }
 
     @Override
@@ -354,6 +257,13 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
     public Optional<Locale> value() {
         return this.suggestBox.value()
             .map(HasLocale::locale);
+    }
+
+    // SpreadsheetSuggestBoxComponentDelegator..........................................................................
+
+    @Override
+    public SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue> spreadsheetSuggestBoxComponent() {
+        return this.suggestBox;
     }
 
     private final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue> suggestBox;
