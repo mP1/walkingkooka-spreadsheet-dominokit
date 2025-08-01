@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.suggestbox;
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBoxTreePrintable;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
-import walkingkooka.text.HasText;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
@@ -31,7 +30,7 @@ import java.util.Optional;
 /**
  * A text box component that includes support for finding values that match the entered search text.
  */
-public interface SpreadsheetSuggestBoxComponentLike<T extends HasText> extends FormValueComponent<HTMLFieldSetElement, T, SpreadsheetSuggestBoxComponent<T>>,
+public interface SpreadsheetSuggestBoxComponentLike<T> extends FormValueComponent<HTMLFieldSetElement, T, SpreadsheetSuggestBoxComponent<T>>,
     SpreadsheetTextBoxTreePrintable<SpreadsheetSuggestBoxComponent<T>, T> {
 
     SpreadsheetSuggestBoxComponent<T> setStringValue(final Optional<String> value);
