@@ -24,6 +24,8 @@ import walkingkooka.collect.set.Sets;
 import walkingkooka.locale.FakeLocaleContext;
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent;
+import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponentSuggestionsProvider;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 
 import java.util.Locale;
@@ -40,6 +42,25 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
     private final static String ENGLISH_AUSTRALIA_TEXT = "English (Australia)";
     private final static String ENGLISH_NEW_ZEALAND_TEXT = "English (New Zealand)";
     private final static String FRENCH_TEXT = "French 123";
+
+    private final static SpreadsheetSuggestBoxComponentSuggestionsProvider<SpreadsheetLocaleComponentSuggestionsValue> SUGGESTIONS_PROVIDER = new SpreadsheetSuggestBoxComponentSuggestionsProvider<SpreadsheetLocaleComponentSuggestionsValue>() {
+        @Override
+        public void filter(final String startsWith,
+                           final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue> suggestBox) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public void verifyOption(final SpreadsheetLocaleComponentSuggestionsValue value,
+                                 final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue> suggestBox) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public String menuItemKey(final SpreadsheetLocaleComponentSuggestionsValue value) {
+            throw new UnsupportedOperationException();
+        }
+    };
 
     private final static Function<SpreadsheetLocaleComponentSuggestionsValue, MenuItem<SpreadsheetLocaleComponentSuggestionsValue>> OPTION_MENU_ITEM_CREATOR = (v) -> {
         throw new UnsupportedOperationException(); // never actually called within a test
@@ -154,6 +175,7 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
     @Override
     public SpreadsheetLocaleComponent createComponent() {
         return SpreadsheetLocaleComponent.empty(
+            SUGGESTIONS_PROVIDER,
             OPTION_MENU_ITEM_CREATOR,
             CONTEXT
         );
