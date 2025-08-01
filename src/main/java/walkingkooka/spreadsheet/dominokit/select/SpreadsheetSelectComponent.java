@@ -100,8 +100,8 @@ public final class SpreadsheetSelectComponent<T> implements FormValueComponent<H
      */
     public SpreadsheetSelectComponent<T> appendOption(final String text,
                                                      final T value) {
-        checkText(text);
-        checkValue(value);
+        Objects.requireNonNull(text, "text");
+        Objects.requireNonNull(value, "value");
 
         return this.appendOption(
             text,
@@ -114,8 +114,8 @@ public final class SpreadsheetSelectComponent<T> implements FormValueComponent<H
      */
     public SpreadsheetSelectComponent<T> appendOption(final String text,
                                                      final Optional<T> value) {
-        checkText(text);
-        checkValue(value);
+        Objects.requireNonNull(text, "text");
+        Objects.requireNonNull(value, "value");
 
         this.select.appendChild(
             SelectOption.create(
@@ -133,7 +133,7 @@ public final class SpreadsheetSelectComponent<T> implements FormValueComponent<H
 
     @Override
     public SpreadsheetSelectComponent<T> setValue(final Optional<T> value) {
-        checkValue(value);
+        Objects.requireNonNull(value, "value");
 
         this.select.setValue(
             value.orElse(null)
@@ -146,14 +146,6 @@ public final class SpreadsheetSelectComponent<T> implements FormValueComponent<H
         return Optional.ofNullable(
             this.select.getValue()
         );
-    }
-
-    private static String checkText(final String text) {
-        return Objects.requireNonNull(text, "text");
-    }
-
-    private static <T> T checkValue(final T value) {
-        return Objects.requireNonNull(value, "value");
     }
 
     // validation.......................................................................................................
