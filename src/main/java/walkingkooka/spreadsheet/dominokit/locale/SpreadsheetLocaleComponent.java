@@ -29,6 +29,7 @@ import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.util.HasLocale;
 
+import java.util.Iterator;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
@@ -73,16 +74,19 @@ public final class SpreadsheetLocaleComponent implements SpreadsheetSuggestBoxCo
     // @VisibleForTesting
     static SpreadsheetLocaleComponentSuggestionsValue spreadsheetLocaleComponentValue(final String localeText,
                                                                                       final LocaleContext context) {
-        for (final Locale locale : context.availableLocales()) {
-            final String possibleLocaleText = context.localeText(locale)
-                .orElse(null);
+        final Iterator<Locale> locales = context.findByLocaleText(
+            localeText,
+            0,
+            1
+        ).iterator();
 
-            if (localeText.equalsIgnoreCase(possibleLocaleText)) {
-                return SpreadsheetLocaleComponentSuggestionsValue.with(
-                    locale,
-                    localeText
-                );
-            }
+        if (locales.hasNext()) {
+            final Locale locale = locales.next();
+            return SpreadsheetLocaleComponentSuggestionsValue.with(
+                locale,
+                context.localeText(locale)
+                    .orElseThrow(() -> new IllegalArgumentException("Unable to find locale=" + locale))
+            );
         }
 
         throw new IllegalArgumentException("Unknown locale");
