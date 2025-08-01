@@ -25,12 +25,12 @@ import walkingkooka.util.HasLocale;
 import java.util.Locale;
 import java.util.Objects;
 
-public final class SpreadsheetLocaleComponentSuggestionsValue implements HasLocale,
+final class SpreadsheetLocaleComponentSuggestionsValue implements HasLocale,
     HasText,
     Comparable<SpreadsheetLocaleComponentSuggestionsValue> {
 
-    public static SpreadsheetLocaleComponentSuggestionsValue with(final Locale locale,
-                                                                  final String text) {
+    static SpreadsheetLocaleComponentSuggestionsValue with(final Locale locale,
+                                                           final String text) {
         return new SpreadsheetLocaleComponentSuggestionsValue(
             Objects.requireNonNull(locale, "locale"),
             CharSequences.failIfNullOrEmpty(text, "text")

@@ -118,6 +118,6 @@ public final class SpreadsheetLocaleComponentSuggestionsValueTest implements Com
 
     @Override
     public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
+        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }
