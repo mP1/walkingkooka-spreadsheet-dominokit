@@ -22,7 +22,6 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.menu.MenuItem;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.locale.LocaleContext;
-import walkingkooka.locale.LocaleContexts;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponentSuggestionsProvider;
@@ -30,7 +29,6 @@ import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.util.HasLocale;
 
-import java.util.Iterator;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
@@ -62,39 +60,9 @@ public final class SpreadsheetLocaleComponent implements SpreadsheetSuggestBoxCo
         this.context = context;
 
         this.suggestBox = SpreadsheetSuggestBoxComponent.with(
-            // String -> SpreadsheetLocaleComponentSuggestionsValue, exception will be shown as an error text
-            (String localeText) -> spreadsheetLocaleComponentValue(
-                localeText,
-                context
-            ),
             suggestionsProvider,
             optionMenuItemCreator
         );
-    }
-
-    // @VisibleForTesting
-    static SpreadsheetLocaleComponentSuggestionsValue spreadsheetLocaleComponentValue(final String localeText,
-                                                                                      final LocaleContext context) {
-        final Iterator<Locale> locales = context.findByLocaleText(
-            localeText,
-            0,
-            1
-        ).iterator();
-
-        if (locales.hasNext()) {
-            final Locale locale = locales.next();
-            final String localeLocaleText = context.localeText(locale)
-                .orElseThrow(() -> new IllegalArgumentException("Unable to find locale=" + locale));
-
-            if (LocaleContexts.CASE_SENSITIVITY.equals(localeText, localeLocaleText)) {
-                return SpreadsheetLocaleComponentSuggestionsValue.with(
-                    locale,
-                    localeLocaleText
-                );
-            }
-        }
-
-        throw new IllegalArgumentException("Unknown locale");
     }
 
     @Override

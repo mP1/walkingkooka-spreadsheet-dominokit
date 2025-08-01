@@ -52,25 +52,19 @@ import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
  */
 public final class SpreadsheetSuggestBoxComponent<T> implements SpreadsheetSuggestBoxComponentLike<T> {
 
-    public static <T> SpreadsheetSuggestBoxComponent<T> with(final Function<String, T> parser,
-                                                             final SpreadsheetSuggestBoxComponentSuggestionsProvider<T> suggestionsProvider,
+    public static <T> SpreadsheetSuggestBoxComponent<T> with(final SpreadsheetSuggestBoxComponentSuggestionsProvider<T> suggestionsProvider,
                                                              final Function<T, MenuItem<T>> menuItemCreator) {
-        Objects.requireNonNull(parser, "parser");
         Objects.requireNonNull(suggestionsProvider, "suggestionsProvider");
         Objects.requireNonNull(menuItemCreator, "menuItemCreator");
 
         return new SpreadsheetSuggestBoxComponent<>(
-            parser,
             suggestionsProvider,
             menuItemCreator
         );
     }
 
-    private SpreadsheetSuggestBoxComponent(final Function<String, T> parser,
-                                           final SpreadsheetSuggestBoxComponentSuggestionsProvider<T> suggestionsProvider,
+    private SpreadsheetSuggestBoxComponent(final SpreadsheetSuggestBoxComponentSuggestionsProvider<T> suggestionsProvider,
                                            final Function<T, MenuItem<T>> menuItemCreator) {
-        this.parser = parser;
-
         this.suggestBox = new SpreadsheetSuggestBoxComponentSuggestBox<>(
             new SuggestionsStore<T, SpanElement, SuggestOption<T>>() {
                 @Override
@@ -280,24 +274,10 @@ public final class SpreadsheetSuggestBoxComponent<T> implements SpreadsheetSugge
 
     @Override //
     public Optional<T> value() {
-        return tryParse(
-            this.suggestBox.getStringValue()
+        return Optional.ofNullable(
+            this.suggestBox.getValue()
         );
     }
-
-    private Optional<T> tryParse(final String string) {
-        T value;
-
-        try {
-            value = this.parser.apply(string);
-        } catch (final Exception ignore) {
-            value = null;
-        }
-
-        return Optional.ofNullable(value);
-    }
-
-    private final Function<String, T> parser;
 
     // isDisabled.......................................................................................................
 
@@ -319,9 +299,7 @@ public final class SpreadsheetSuggestBoxComponent<T> implements SpreadsheetSugge
         this.required = false;
         return this.setValidator(
             SpreadsheetValidators.optional(
-                SpreadsheetValidators.tryCatch(
-                    this.parser::apply
-                )
+                SpreadsheetValidators.required()
             )
         );
     }
@@ -330,13 +308,11 @@ public final class SpreadsheetSuggestBoxComponent<T> implements SpreadsheetSugge
     public SpreadsheetSuggestBoxComponent<T> required() {
         this.required = true;
         return this.setValidator(
-            SpreadsheetValidators.tryCatch(
-                this.parser::apply
-            )
+            SpreadsheetValidators.required()
         );
     }
 
-    private SpreadsheetSuggestBoxComponent<T> setValidator(final Validator<Optional<String>> validator) {
+    private SpreadsheetSuggestBoxComponent<T> setValidator(final Validator<Optional<T>> validator) {
         this.suggestBox.getValidators()
             .clear();
         this.suggestBox.addValidator(

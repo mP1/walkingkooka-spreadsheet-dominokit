@@ -22,7 +22,6 @@ import org.dominokit.domino.ui.forms.suggest.SuggestBox;
 import org.dominokit.domino.ui.forms.suggest.SuggestOption;
 import org.dominokit.domino.ui.forms.validations.ValidationResult;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
-import walkingkooka.text.CharSequences;
 
 import java.util.Optional;
 
@@ -35,26 +34,22 @@ final class SpreadsheetSuggestBoxComponentValidator<T> implements Validator<Sugg
     /**
      * Factory
      */
-    static <T> SpreadsheetSuggestBoxComponentValidator<T> with(final Validator<Optional<String>> validator) {
+    static <T> SpreadsheetSuggestBoxComponentValidator<T> with(final Validator<Optional<T>> validator) {
         return new SpreadsheetSuggestBoxComponentValidator<>(validator);
     }
 
-    private SpreadsheetSuggestBoxComponentValidator(final Validator<Optional<String>> validator) {
+    private SpreadsheetSuggestBoxComponentValidator(final Validator<Optional<T>> validator) {
         super();
         this.validator = validator;
     }
 
     @Override
     public ValidationResult isValid(final SuggestBox<T, SpanElement, SuggestOption<T>> component) {
-        final String text = component.getInputElement()
-            .element()
-            .value;
-
         return this.validator.isValid(
             Optional.ofNullable(
-                CharSequences.isNullOrEmpty(text) ?
-                    null :
-                    text
+                component.isEmpty() ?
+                null :
+                    component.getValue()
             )
         );
     }
@@ -64,5 +59,5 @@ final class SpreadsheetSuggestBoxComponentValidator<T> implements Validator<Sugg
         return this.validator.toString();
     }
 
-    private final Validator<Optional<String>> validator;
+    private final Validator<Optional<T>> validator;
 }
