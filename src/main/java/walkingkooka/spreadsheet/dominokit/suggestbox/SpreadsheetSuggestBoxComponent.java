@@ -90,16 +90,16 @@ public final class SpreadsheetSuggestBoxComponent<T> implements SpreadsheetSugge
         );
         this.suggestionsProvider = suggestionsProvider;
 
-        suggestBox.setEmptyAsNull(true);
-        suggestBox.setAutoValidation(true);
-        suggestBox.withLoaderElement(
+        this.suggestBox.setEmptyAsNull(true);
+        this.suggestBox.setAutoValidation(true);
+        this.suggestBox.withLoaderElement(
             (parent, loaderElement) -> {
                 this.loader = Loader.create(loaderElement, LoaderEffect.FACEBOOK)
                     .setLoadingTextPosition(Loader.LoadingTextPosition.TOP)
                     .setRemoveLoadingText(true);
             }
         );
-        suggestBox.setLoader(this.loader);
+        this.suggestBox.setLoader(this.loader);
 
         this.required();
 
