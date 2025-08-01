@@ -68,7 +68,8 @@ public final class SpreadsheetLabelComponent implements SpreadsheetSuggestBoxCom
             SpreadsheetSelection::labelName,
             new SpreadsheetSuggestBoxComponentSuggestionsProvider<>() {
                 @Override
-                public void filter(final String startsWith) {
+                public void filter(final String startsWith,
+                                   final SpreadsheetSuggestBoxComponent<SpreadsheetLabelName> suggestBox) {
                     context.findLabelByName(
                         startsWith,
                         OptionalInt.of(0), // offset
@@ -77,8 +78,9 @@ public final class SpreadsheetLabelComponent implements SpreadsheetSuggestBoxCom
                 }
 
                 @Override
-                public void verifyOption(final SpreadsheetLabelName value) {
-                    SpreadsheetLabelComponent.this.suggestBox.setVerifiedOption(value);
+                public void verifyOption(final SpreadsheetLabelName value,
+                                         final SpreadsheetSuggestBoxComponent<SpreadsheetLabelName> suggestBox) {
+                    suggestBox.setVerifiedOption(value);
                 }
 
                 @Override
