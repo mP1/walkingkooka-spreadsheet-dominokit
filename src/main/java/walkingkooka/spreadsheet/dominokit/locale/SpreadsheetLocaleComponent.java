@@ -22,6 +22,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.menu.MenuItem;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.locale.LocaleContext;
+import walkingkooka.locale.LocaleContexts;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponentSuggestionsProvider;
@@ -82,11 +83,15 @@ public final class SpreadsheetLocaleComponent implements SpreadsheetSuggestBoxCo
 
         if (locales.hasNext()) {
             final Locale locale = locales.next();
-            return SpreadsheetLocaleComponentSuggestionsValue.with(
-                locale,
-                context.localeText(locale)
-                    .orElseThrow(() -> new IllegalArgumentException("Unable to find locale=" + locale))
-            );
+            final String localeLocaleText = context.localeText(locale)
+                .orElseThrow(() -> new IllegalArgumentException("Unable to find locale=" + locale));
+
+            if (LocaleContexts.CASE_SENSITIVITY.equals(localeText, localeLocaleText)) {
+                return SpreadsheetLocaleComponentSuggestionsValue.with(
+                    locale,
+                    localeLocaleText
+                );
+            }
         }
 
         throw new IllegalArgumentException("Unknown locale");
