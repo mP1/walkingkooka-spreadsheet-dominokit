@@ -36,7 +36,6 @@ import java.util.function.Function;
 
 /**
  * A drop down that supports picking an optional {@link Locale}.
- * https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/5450
  */
 public final class SpreadsheetLocaleComponent implements SpreadsheetSuggestBoxComponentDelegator<HTMLFieldSetElement, Locale, SpreadsheetLocaleComponent>,
     TreePrintable {
