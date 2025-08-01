@@ -37,7 +37,6 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.validator.SpreadsheetValidators;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.text.CharSequences;
-import walkingkooka.text.HasText;
 
 import java.util.List;
 import java.util.Objects;
@@ -51,11 +50,11 @@ import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
 /**
  * A text box component that includes support for finding a label.
  */
-public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements SpreadsheetSuggestBoxComponentLike<T> {
+public final class SpreadsheetSuggestBoxComponent<T> implements SpreadsheetSuggestBoxComponentLike<T> {
 
-    public static <T extends HasText> SpreadsheetSuggestBoxComponent<T> with(final Function<String, T> parser,
-                                                                             final SpreadsheetSuggestBoxComponentSuggestionsProvider<T> suggestionsProvider,
-                                                                             final Function<T, MenuItem<T>> menuItemCreator) {
+    public static <T> SpreadsheetSuggestBoxComponent<T> with(final Function<String, T> parser,
+                                                             final SpreadsheetSuggestBoxComponentSuggestionsProvider<T> suggestionsProvider,
+                                                             final Function<T, MenuItem<T>> menuItemCreator) {
         Objects.requireNonNull(parser, "parser");
         Objects.requireNonNull(suggestionsProvider, "suggestionsProvider");
         Objects.requireNonNull(menuItemCreator, "menuItemCreator");
@@ -170,8 +169,7 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
         return new SuggestOption<>(
             this.suggestionsProvider.menuItemKey(option),
             option, // value
-            (String k, T v) -> span().textContent("1" + v.text()), // ignored
-            //(String k, T v) -> MenuItem.create("2" + v.text()) // this is the real component that the user sees and can interact with.
+            (String k, T v) -> span().textContent(v.toString()), // ignored
             (String k, T v) -> this.menuItemCreator.apply(v)
         );
     }
