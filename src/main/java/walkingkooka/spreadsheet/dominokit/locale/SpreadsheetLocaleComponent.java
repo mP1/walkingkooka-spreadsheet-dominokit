@@ -25,8 +25,6 @@ import walkingkooka.locale.LocaleContext;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponentSuggestionsProvider;
-import walkingkooka.spreadsheet.server.locale.LocaleHateosResource;
-import walkingkooka.spreadsheet.server.locale.LocaleHateosResourceSet;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.util.HasLocale;
@@ -35,7 +33,6 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 /**
  * A drop down that supports picking an optional {@link Locale}.
@@ -48,15 +45,18 @@ public final class SpreadsheetLocaleComponent implements SpreadsheetSuggestBoxCo
      * A {@link SpreadsheetLocaleComponent} which is initially empty, possible options to select must be added after
      * creation.
      */
-    public static SpreadsheetLocaleComponent empty(final Function<SpreadsheetLocaleComponentSuggestionsValue, MenuItem<SpreadsheetLocaleComponentSuggestionsValue>> optionMenuItemCreator,
+    public static SpreadsheetLocaleComponent empty(final SpreadsheetSuggestBoxComponentSuggestionsProvider<SpreadsheetLocaleComponentSuggestionsValue> suggestionsProvider,
+                                                   final Function<SpreadsheetLocaleComponentSuggestionsValue, MenuItem<SpreadsheetLocaleComponentSuggestionsValue>> optionMenuItemCreator,
                                                    final LocaleContext context) {
         return new SpreadsheetLocaleComponent(
+            Objects.requireNonNull(suggestionsProvider, "suggestionsProvider"),
             Objects.requireNonNull(optionMenuItemCreator, "optionMenuItemCreator"),
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private SpreadsheetLocaleComponent(final Function<SpreadsheetLocaleComponentSuggestionsValue, MenuItem<SpreadsheetLocaleComponentSuggestionsValue>> optionMenuItemCreator,
+    private SpreadsheetLocaleComponent(final SpreadsheetSuggestBoxComponentSuggestionsProvider<SpreadsheetLocaleComponentSuggestionsValue> suggestionsProvider,
+                                       final Function<SpreadsheetLocaleComponentSuggestionsValue, MenuItem<SpreadsheetLocaleComponentSuggestionsValue>> optionMenuItemCreator,
                                        final LocaleContext context) {
         this.context = context;
 
@@ -66,50 +66,7 @@ public final class SpreadsheetLocaleComponent implements SpreadsheetSuggestBoxCo
                 localeText,
                 context
             ),
-            new SpreadsheetSuggestBoxComponentSuggestionsProvider<>() {
-                @Override
-                public void filter(final String startsWith,
-                                   final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue> suggestBox) {
-                    suggestBox.setOptions(
-                        LocaleHateosResourceSet.filter(startsWith, context)
-                            .stream()
-                            .map(
-                                (LocaleHateosResource lhr) ->
-                                    SpreadsheetLocaleComponentSuggestionsValue.with(
-                                        lhr.locale(),
-                                        lhr.text()
-                                    )
-                            ).sorted()
-                            .collect(Collectors.toList())
-                    );
-                }
-
-                @Override
-                public void verifyOption(final SpreadsheetLocaleComponentSuggestionsValue value,
-                                         final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue> suggestBox) {
-                    SpreadsheetLocaleComponentSuggestionsValue verified = null;
-
-                    if (null != value) {
-                        final Locale locale = value.locale();
-                        final String localeText = context.localeText(locale)
-                            .orElse(null);
-                        verified = SpreadsheetLocaleComponentSuggestionsValue.with(
-                            locale,
-                            localeText
-                        );
-                    }
-
-                    if (null != verified) {
-                        suggestBox.setVerifiedOption(verified);
-                    }
-                }
-
-                @Override
-                public String menuItemKey(final SpreadsheetLocaleComponentSuggestionsValue value) {
-                    return value.locale()
-                        .toLanguageTag();
-                }
-            },
+            suggestionsProvider,
             optionMenuItemCreator
         );
     }

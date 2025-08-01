@@ -36,14 +36,19 @@ import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent;
+import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponentSuggestionsProvider;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.server.locale.LocaleHateosResource;
+import walkingkooka.spreadsheet.server.locale.LocaleHateosResourceSet;
 
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * A model dialog that displays a {@link SpreadsheetLocaleComponent} allowing the user to pick a {@link java.util.Locale}.
@@ -141,6 +146,50 @@ public final class SpreadsheetLocaleDialogComponent implements SpreadsheetDialog
                 );
 
         return SpreadsheetLocaleComponent.empty(
+                new SpreadsheetSuggestBoxComponentSuggestionsProvider<>() {
+                    @Override
+                    public void filter(final String startsWith,
+                                       final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue> suggestBox) {
+                        suggestBox.setOptions(
+                            LocaleHateosResourceSet.filter(startsWith, context)
+                                .stream()
+                                .map(
+                                    (LocaleHateosResource lhr) ->
+                                        SpreadsheetLocaleComponentSuggestionsValue.with(
+                                            lhr.locale(),
+                                            lhr.text()
+                                        )
+                                ).sorted()
+                                .collect(Collectors.toList())
+                        );
+                    }
+
+                    @Override
+                    public void verifyOption(final SpreadsheetLocaleComponentSuggestionsValue value,
+                                             final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue> suggestBox) {
+                        SpreadsheetLocaleComponentSuggestionsValue verified = null;
+
+                        if (null != value) {
+                            final Locale locale = value.locale();
+                            final String localeText = context.localeText(locale)
+                                .orElse(null);
+                            verified = SpreadsheetLocaleComponentSuggestionsValue.with(
+                                locale,
+                                localeText
+                            );
+                        }
+
+                        if (null != verified) {
+                            suggestBox.setVerifiedOption(verified);
+                        }
+                    }
+
+                    @Override
+                    public String menuItemKey(final SpreadsheetLocaleComponentSuggestionsValue value) {
+                        return value.locale()
+                            .toLanguageTag();
+                    }
+                },
                 optionMenuItemCreator,
                 this.context
             ).optional()
