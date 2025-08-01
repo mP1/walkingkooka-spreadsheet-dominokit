@@ -138,7 +138,7 @@ public final class SpreadsheetLocaleDialogComponent implements SpreadsheetDialog
                                 Optional.of(s.locale())
                             )
                     )
-                ); // yes type-parameters dont match but it doesnt matter. the value is never given to the MenuItem
+                );
 
         return SpreadsheetLocaleComponent.empty(
                 optionMenuItemCreator,
