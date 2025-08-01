@@ -26,6 +26,7 @@ import walkingkooka.locale.LocaleContext;
 import walkingkooka.locale.LocaleContexts;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.suggestbox.FakeSpreadsheetSuggestBoxComponentSuggestionsProvider;
+import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponentSuggestionsProvider;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 
@@ -121,9 +122,23 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
     @Override
     public SpreadsheetLocaleComponent createComponent() {
         return SpreadsheetLocaleComponent.empty(
-            SUGGESTIONS_PROVIDER,
-            OPTION_MENU_ITEM_CREATOR,
-            CONTEXT
+            new FakeSpreadsheetLocaleComponentContext() {
+
+                @Override
+                public Optional<SpreadsheetLocaleComponentSuggestionsValue> toValue(final Locale locale) {
+                    return CONTEXT.localeText(locale)
+                        .map(t -> SpreadsheetLocaleComponentSuggestionsValue.with(
+                            locale,
+                            t
+                        ));
+                }
+
+                @Override
+                public void verifyOption(final SpreadsheetLocaleComponentSuggestionsValue value,
+                                         final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue> suggestBox) {
+                    suggestBox.setVerifiedOption(value);
+                }
+            }
         );
     }
 
