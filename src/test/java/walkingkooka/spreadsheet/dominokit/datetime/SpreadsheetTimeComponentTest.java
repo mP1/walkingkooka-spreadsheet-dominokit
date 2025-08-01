@@ -27,7 +27,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetTimeComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, LocalTime,SpreadsheetTimeComponent> {
+public final class SpreadsheetTimeComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, LocalTime, SpreadsheetTimeComponent> {
 
     // setId............................................................................................................
 
@@ -75,7 +75,7 @@ public final class SpreadsheetTimeComponentTest implements FormValueComponentTes
     // ValueComponent...................................................................................................
 
     @Override
-     public SpreadsheetTimeComponent createComponent() {
+    public SpreadsheetTimeComponent createComponent() {
         return SpreadsheetTimeComponent.empty(
             "id",
             () -> CLEAR_VALUE

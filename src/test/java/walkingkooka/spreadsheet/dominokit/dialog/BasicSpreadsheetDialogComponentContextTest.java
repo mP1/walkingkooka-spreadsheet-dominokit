@@ -67,7 +67,7 @@ public final class BasicSpreadsheetDialogComponentContextTest implements Spreads
     public void testPushHistoryTokenWithNullFails() {
         throw new UnsupportedOperationException();
     }
-    
+
     @Override
     public BasicSpreadsheetDialogComponentContext createContext() {
         return BasicSpreadsheetDialogComponentContext.with(

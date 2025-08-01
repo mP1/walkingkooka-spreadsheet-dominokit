@@ -261,10 +261,10 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
         formula.setStringValue(text);
         formula.setErrors(
             cell.flatMap(
-                c -> c.formula()
-                    .error()
-                    .map(SpreadsheetError::message)
-            ).stream()
+                    c -> c.formula()
+                        .error()
+                        .map(SpreadsheetError::message)
+                ).stream()
                 .collect(Collectors.toList())
         );
 

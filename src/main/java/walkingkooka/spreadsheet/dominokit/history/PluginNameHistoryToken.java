@@ -87,7 +87,7 @@ public abstract class PluginNameHistoryToken extends PluginHistoryToken {
 
     // UrlFragment......................................................................................................
 
-    @Override
+    @Override //
     final UrlFragment pluginUrlFragment() {
         return UrlFragment.with(name.value())
             .appendSlashThen(

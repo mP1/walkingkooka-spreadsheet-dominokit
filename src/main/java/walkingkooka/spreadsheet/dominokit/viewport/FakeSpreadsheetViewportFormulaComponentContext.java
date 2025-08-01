@@ -46,27 +46,27 @@ public class FakeSpreadsheetViewportFormulaComponentContext extends FakeHistoryC
         super();
     }
 
-    @Override 
+    @Override
     public PluginStore pluginStore() {
         throw new UnsupportedOperationException();
     }
 
-    @Override 
+    @Override
     public <T> Optional<T> environmentValue(final EnvironmentValueName<T> environmentValueName) {
         throw new UnsupportedOperationException();
     }
 
-    @Override 
+    @Override
     public Set<EnvironmentValueName<?>> environmentValueNames() {
         throw new UnsupportedOperationException();
     }
 
-    @Override 
+    @Override
     public Optional<EmailAddress> user() {
         throw new UnsupportedOperationException();
     }
 
-    @Override 
+    @Override
     public LocalDateTime now() {
         throw new UnsupportedOperationException();
     }
@@ -83,17 +83,17 @@ public class FakeSpreadsheetViewportFormulaComponentContext extends FakeHistoryC
         throw new UnsupportedOperationException();
     }
 
-    @Override 
+    @Override
     public SpreadsheetDeltaFetcher spreadsheetDeltaFetcher() {
         throw new UnsupportedOperationException();
     }
 
-    @Override 
+    @Override
     public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 
-    @Override 
+    @Override
     public Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
         throw new UnsupportedOperationException();
     }
@@ -123,7 +123,7 @@ public class FakeSpreadsheetViewportFormulaComponentContext extends FakeHistoryC
 
     }
 
-    @Override 
+    @Override
     public void warn(final Object... values) {
 
     }
@@ -133,7 +133,7 @@ public class FakeSpreadsheetViewportFormulaComponentContext extends FakeHistoryC
 
     }
 
-    @Override 
+    @Override
     public SpreadsheetViewportCache spreadsheetViewportCache() {
         throw new UnsupportedOperationException();
     }
@@ -144,7 +144,7 @@ public class FakeSpreadsheetViewportFormulaComponentContext extends FakeHistoryC
     }
 
     @Override
-    public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector spreadsheetParserSelector, 
+    public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector spreadsheetParserSelector,
                                                final ProviderContext providerContext) {
         throw new UnsupportedOperationException();
     }
@@ -166,7 +166,7 @@ public class FakeSpreadsheetViewportFormulaComponentContext extends FakeHistoryC
         throw new UnsupportedOperationException();
     }
 
-    @Override 
+    @Override
     public SpreadsheetParserInfoSet spreadsheetParserInfos() {
         throw new UnsupportedOperationException();
     }

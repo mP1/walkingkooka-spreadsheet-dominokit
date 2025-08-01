@@ -57,9 +57,8 @@ public abstract class SpreadsheetFormHistoryToken extends SpreadsheetNameHistory
 
     // parse............................................................................................................
 
-    @Override
-    final HistoryToken parseNext(final String component,
-                                 final TextCursor cursor) {
+    @Override final HistoryToken parseNext(final String component,
+                                           final TextCursor cursor) {
         final HistoryToken historyToken;
 
         switch (component) {

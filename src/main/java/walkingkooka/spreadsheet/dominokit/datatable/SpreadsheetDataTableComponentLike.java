@@ -54,7 +54,7 @@ abstract class SpreadsheetDataTableComponentLike<T> implements TableComponent<HT
 
     @Override
     public final SpreadsheetDataTableComponent<T> focus() {
-        return (SpreadsheetDataTableComponent<T>)this;
+        return (SpreadsheetDataTableComponent<T>) this;
     }
 
     @Override

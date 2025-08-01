@@ -105,7 +105,7 @@ public final class SpreadsheetCellLabelSaveHistoryTokenTest extends SpreadsheetC
 
     @Override
     void setLabelMappingReferenceAndCheck(final SpreadsheetExpressionReference selection,
-                                       final SpreadsheetExpressionReference target) {
+                                          final SpreadsheetExpressionReference target) {
         this.checkNotEquals(
             selection,
             target
@@ -183,8 +183,8 @@ public final class SpreadsheetCellLabelSaveHistoryTokenTest extends SpreadsheetC
 
     @Override
     SpreadsheetCellLabelSaveHistoryToken createHistoryToken(final SpreadsheetId id,
-                                                              final SpreadsheetName name,
-                                                              final AnchoredSpreadsheetSelection anchoredSelection) {
+                                                            final SpreadsheetName name,
+                                                            final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellLabelSaveHistoryToken.with(
             id,
             name,

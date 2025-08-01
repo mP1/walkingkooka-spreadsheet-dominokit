@@ -266,8 +266,8 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
     static SpreadsheetExpressionReference extractCellOrLabel(final UrlPath path) {
         final List<UrlPathName> nameList = path.namesList();
         return SpreadsheetSelection.parseExpressionReference(
-                    nameList.get(5)
-                        .value()
-                );
+            nameList.get(5)
+                .value()
+        );
     }
 }

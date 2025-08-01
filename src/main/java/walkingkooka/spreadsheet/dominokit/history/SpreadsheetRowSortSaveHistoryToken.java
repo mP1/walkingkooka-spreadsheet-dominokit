@@ -35,7 +35,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
  * </pre>
  */
 public final class SpreadsheetRowSortSaveHistoryToken extends SpreadsheetRowSortHistoryToken
-    implements Value<SpreadsheetColumnOrRowSpreadsheetComparatorNamesList>  {
+    implements Value<SpreadsheetColumnOrRowSpreadsheetComparatorNamesList> {
 
     static SpreadsheetRowSortSaveHistoryToken with(final SpreadsheetId id,
                                                    final SpreadsheetName name,

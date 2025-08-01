@@ -218,11 +218,11 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
      * Sets the target attribute of an ANCHOR.<br>
      * Typical values include:
      * <li>
-     *     <li>_self</li>
-     *     <li>_blank</li>
-     *     <li>_parent</li>
-     *     <li>_top</li>
-     *     <li>_unfencedTop</li>
+     * <li>_self</li>
+     * <li>_blank</li>
+     * <li>_parent</li>
+     * <li>_top</li>
+     * <li>_unfencedTop</li>
      * </li>
      * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target
      */
@@ -505,7 +505,8 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
         this.tooltip = Optional.empty();
     }
 
-    @Override public Optional<SpreadsheetTooltipComponent> spreadsheetTooltipComponent() {
+    @Override
+    public Optional<SpreadsheetTooltipComponent> spreadsheetTooltipComponent() {
         return this.tooltip;
     }
 

@@ -43,7 +43,7 @@ public interface SpreadsheetDialogComponentContext extends HistoryContext,
             this.historyToken()
                 .pluginName()
                 .map(p -> " " + p)
-                .orElse("")+
+                .orElse("") +
             ": " +
             action;
     }
@@ -83,12 +83,12 @@ public interface SpreadsheetDialogComponentContext extends HistoryContext,
         return selectionDialogTitle(
             String.class == type ?
                 "Text" :
-            CaseKind.PASCAL.change(
-                type.getSimpleName()
-                    .replace("Spreadsheet", "")
-                    .replace("Selector", ""),
-                CaseKind.TITLE
-            )
+                CaseKind.PASCAL.change(
+                    type.getSimpleName()
+                        .replace("Spreadsheet", "")
+                        .replace("Selector", ""),
+                    CaseKind.TITLE
+                )
         );
     }
 
@@ -102,9 +102,9 @@ public interface SpreadsheetDialogComponentContext extends HistoryContext,
 
         return spreadsheetDialogTitle(
             CaseKind.CAMEL.change(
-            text,
-            CaseKind.TITLE
-        ) + " (" + text + ")"
+                text,
+                CaseKind.TITLE
+            ) + " (" + text + ")"
         );
     }
 

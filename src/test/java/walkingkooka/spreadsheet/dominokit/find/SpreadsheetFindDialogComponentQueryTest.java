@@ -1015,8 +1015,8 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
 
     private Optional<SpreadsheetFormula> parseFormula(final Optional<SpreadsheetFormula> formula) {
         return formula.map(
-                f -> parseFormula0(f.text())
-            ).filter(CanBeEmpty::isNotEmpty);
+            f -> parseFormula0(f.text())
+        ).filter(CanBeEmpty::isNotEmpty);
     }
 
     private Optional<SpreadsheetFormula> parseFormula(final String text) {

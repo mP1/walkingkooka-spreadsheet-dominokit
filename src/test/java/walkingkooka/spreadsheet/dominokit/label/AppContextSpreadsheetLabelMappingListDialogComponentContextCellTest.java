@@ -92,7 +92,7 @@ public final class AppContextSpreadsheetLabelMappingListDialogComponentContextCe
         );
     }
 
-    @Override 
+    @Override
     public Class<AppContextSpreadsheetLabelMappingListDialogComponentContextCell> type() {
         return AppContextSpreadsheetLabelMappingListDialogComponentContextCell.class;
     }

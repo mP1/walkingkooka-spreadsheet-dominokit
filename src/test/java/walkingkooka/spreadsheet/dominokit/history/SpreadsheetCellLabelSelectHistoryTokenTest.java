@@ -68,7 +68,7 @@ public final class SpreadsheetCellLabelSelectHistoryTokenTest extends Spreadshee
 
     @Override
     void setLabelMappingReferenceAndCheck(final SpreadsheetExpressionReference selection,
-                                       final SpreadsheetExpressionReference target) {
+                                          final SpreadsheetExpressionReference target) {
         this.checkNotEquals(
             selection,
             target

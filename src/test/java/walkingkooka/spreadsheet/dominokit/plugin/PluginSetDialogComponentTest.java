@@ -85,7 +85,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
     }
 
     // onHistoryToken...................................................................................................
-    
+
     @Test
     public void testOnHistoryTokenChangeWithoutPlugins() {
         final TestAppContext appContext = new TestAppContext("/plugin/*");

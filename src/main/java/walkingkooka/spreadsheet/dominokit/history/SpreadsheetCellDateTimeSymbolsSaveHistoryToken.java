@@ -27,7 +27,7 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 import java.util.Optional;
 
-public final class SpreadsheetCellDateTimeSymbolsSaveHistoryToken extends SpreadsheetCellDateTimeSymbolsHistoryToken implements Value<Optional<DateTimeSymbols>>  {
+public final class SpreadsheetCellDateTimeSymbolsSaveHistoryToken extends SpreadsheetCellDateTimeSymbolsHistoryToken implements Value<Optional<DateTimeSymbols>> {
 
     static SpreadsheetCellDateTimeSymbolsSaveHistoryToken with(final SpreadsheetId id,
                                                                final SpreadsheetName name,

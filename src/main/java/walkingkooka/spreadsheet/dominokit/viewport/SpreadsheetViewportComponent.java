@@ -700,7 +700,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
      * Watches {@link HistoryToken} events for {@link ValidatorSelector} saves adding new entry.
      */
     private final HistoryTokenRecorder<ValidatorSelector> recentValidatorSelectors;
-    
+
     /**
      * A TABLE that holds the grid of cells including the column and row headers.
      */
@@ -1346,9 +1346,9 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
     @Override
     public void onSpreadsheetFormatterMenuList(final SpreadsheetId id,
-                                                       final SpreadsheetExpressionReference cellOrLabel,
-                                                       final SpreadsheetFormatterMenuList menus,
-                                                       final AppContext context) {
+                                               final SpreadsheetExpressionReference cellOrLabel,
+                                               final SpreadsheetFormatterMenuList menus,
+                                               final AppContext context) {
         this.spreadsheetFormatterSelectorSelection = cellOrLabel;
         this.spreadsheetFormatterSelectorMenus = menus;
         this.refreshIfOpen(context);
@@ -1395,7 +1395,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
             this.componentLifecycleHistoryTokenQuery(context);
         }
 
-        if(fetchSpreadsheetFormatterSelectorsMenu) {
+        if (fetchSpreadsheetFormatterSelectorsMenu) {
             this.spreadsheetFormatterSelectorSelection = null;
             this.spreadsheetFormatterSelectorMenus = null;
 

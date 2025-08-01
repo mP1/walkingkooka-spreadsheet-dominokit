@@ -82,7 +82,7 @@ public final class SpreadsheetSuggestBoxComponent<T> implements SpreadsheetSugge
                 @Override
                 public void find(final T searchValue,
                                  final Consumer<SuggestOption<T>> handler) {
-                    if(null != searchValue) {
+                    if (null != searchValue) {
                         suggestionsProvider.verifyOption(searchValue);
                     }
                 }
@@ -129,7 +129,7 @@ public final class SpreadsheetSuggestBoxComponent<T> implements SpreadsheetSugge
         menu.removeAll();
         menu.clearSelection(true);
 
-        for(final T option : options) {
+        for (final T option : options) {
             final AbstractMenuItem<T> menuItem = this.suggestOption(option)
                 .getMenuItem();
 
@@ -138,7 +138,7 @@ public final class SpreadsheetSuggestBoxComponent<T> implements SpreadsheetSugge
             );
         }
 
-        if(options.isEmpty()) {
+        if (options.isEmpty()) {
             menu.close();
         } else {
             menu.open(false);
@@ -262,7 +262,7 @@ public final class SpreadsheetSuggestBoxComponent<T> implements SpreadsheetSugge
     public SpreadsheetSuggestBoxComponent<T> setValue(final Optional<T> label) {
         Objects.requireNonNull(label, "label");
 
-        if(label.isPresent()) {
+        if (label.isPresent()) {
             this.suggestBox.setValue(
                 label.get()
             );

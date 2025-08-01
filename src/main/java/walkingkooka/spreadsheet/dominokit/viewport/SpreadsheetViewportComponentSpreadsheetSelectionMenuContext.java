@@ -113,11 +113,11 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
             .orElse(ValidatorAliasSet.EMPTY);
 
         return metadata.get(SpreadsheetMetadataPropertyName.VALIDATORS)
-                .orElse(ValidatorAliasSet.EMPTY)
-                .stream()
-                .map((final ValidatorAlias v) -> v.selector().orElse(null))
-                .filter((final ValidatorSelector s) -> null != s && validators.containsAliasOrName(s.name()))
-                .collect(Collectors.toList());
+            .orElse(ValidatorAliasSet.EMPTY)
+            .stream()
+            .map((final ValidatorAlias v) -> v.selector().orElse(null))
+            .filter((final ValidatorSelector s) -> null != s && validators.containsAliasOrName(s.name()))
+            .collect(Collectors.toList());
     }
 
     @Override

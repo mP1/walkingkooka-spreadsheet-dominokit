@@ -200,7 +200,7 @@ public final class SpreadsheetSelectComponent<T> implements FormValueComponent<H
      * Appends a new value to the drop down.
      */
     public SpreadsheetSelectComponent<T> appendOption(final String text,
-                                                                                                final T value) {
+                                                      final T value) {
         checkText(text);
         checkValue(value);
 
@@ -214,7 +214,7 @@ public final class SpreadsheetSelectComponent<T> implements FormValueComponent<H
      * Appends a new value to the drop down.
      */
     public SpreadsheetSelectComponent<T> appendOption(final String text,
-                                                                                                final Optional<T> value) {
+                                                      final Optional<T> value) {
         checkText(text);
         checkValue(value);
 

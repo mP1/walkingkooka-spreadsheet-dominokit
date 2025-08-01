@@ -164,9 +164,9 @@ final class SpreadsheetListTableComponent implements TableComponent<HTMLDivEleme
     public SpreadsheetListTableComponent setCssProperty(final String name,
                                                         final String value) {
         this.card.setCssProperty(
-                name,
-                value
-            );
+            name,
+            value
+        );
         return this;
     }
 

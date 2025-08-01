@@ -140,9 +140,9 @@ public final class AppendPluginSelectorTokenComponent<T extends PluginSelectorTo
     public AppendPluginSelectorTokenComponent<T, A> setCssProperty(final String name,
                                                                    final String value) {
         this.root.setCssProperty(
-                name,
-                value
-            );
+            name,
+            value
+        );
         return this;
     }
 

@@ -95,10 +95,10 @@ final class SpreadsheetDeltaLabelsTableComponentSpreadsheetDataTableComponentCel
 
         // https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/4799
         // Prefer to show target reference (cell etc) than the label, if formula is shown leave as is.
-        if(component.textContent().equalsIgnoreCase(labelName.text())) {
+        if (component.textContent().equalsIgnoreCase(labelName.text())) {
             final SpreadsheetSelection notLabel = this.context.resolveLabel(labelName)
                 .orElse(null);
-            if(null != notLabel) {
+            if (null != notLabel) {
                 component.setTextContent(notLabel.text());
             }
         }
@@ -110,7 +110,7 @@ final class SpreadsheetDeltaLabelsTableComponentSpreadsheetDataTableComponentCel
         return
             SpreadsheetTextNodeComponent.with(
                 row.cell.flatMap(SpreadsheetCell::formattedValue)
-        );
+            );
     }
 
     private SpreadsheetLabelLinksComponent renderLabelLinks(final SpreadsheetDeltaLabelsTableComponentRow row) {

@@ -53,7 +53,7 @@ final class HistoryTokenWatchersEvent implements Consumer<HistoryTokenWatcher> {
             );
         } finally {
             // dont log too slow messages in JVM run mode (could be debugging etc).
-            if(GWT.isClient()) {
+            if (GWT.isClient()) {
                 final long after = System.currentTimeMillis();
                 final long millsTaken = after - before;
                 if (millsTaken > App.SLOW_HISTORY_TOKEN_CHANGE) {

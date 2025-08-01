@@ -104,7 +104,7 @@ public final class AppContextSpreadsheetParserSelectorDialogComponentContextCell
             false
         );
     }
-    
+
     @Override
     public AppContextSpreadsheetParserSelectorDialogComponentContextCell createContext() {
         return AppContextSpreadsheetParserSelectorDialogComponentContextCell.with(AppContexts.fake());

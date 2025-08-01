@@ -67,7 +67,8 @@ public interface SpreadsheetParserSelectorDialogComponentContext extends CanGive
     /**
      * Adds a {@link SpreadsheetParserFetcherWatcher}.
      */
-    @Override Runnable addSpreadsheetParserFetcherWatcher(final SpreadsheetParserFetcherWatcher watcher);
+    @Override
+    Runnable addSpreadsheetParserFetcherWatcher(final SpreadsheetParserFetcherWatcher watcher);
 
     /**
      * Adds a {@link SpreadsheetMetadataFetcherWatcher}.

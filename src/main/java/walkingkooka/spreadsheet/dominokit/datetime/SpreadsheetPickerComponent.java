@@ -80,7 +80,7 @@ abstract class SpreadsheetPickerComponent<V, C extends SpreadsheetPickerComponen
     @Override
     public final C setId(final String id) {
         this.element().id = id;
-        return (C)this;
+        return (C) this;
     }
 
     @Override
@@ -133,9 +133,9 @@ abstract class SpreadsheetPickerComponent<V, C extends SpreadsheetPickerComponen
                 text.orElse("")
             );
 
-        return (C)this;
+        return (C) this;
     }
-    
+
     final Supplier<V> clearValue;
 
     @Override
@@ -168,7 +168,7 @@ abstract class SpreadsheetPickerComponent<V, C extends SpreadsheetPickerComponen
         this.removeErrors();
         this.invalidate(errors);
 
-        return (C)this;
+        return (C) this;
     }
 
     // AbstractFormElement.invalidate
@@ -219,7 +219,7 @@ abstract class SpreadsheetPickerComponent<V, C extends SpreadsheetPickerComponen
     public final C removeBorders() {
         throw new UnsupportedOperationException();
     }
-    
+
     // node.............................................................................................................
 
     @Override

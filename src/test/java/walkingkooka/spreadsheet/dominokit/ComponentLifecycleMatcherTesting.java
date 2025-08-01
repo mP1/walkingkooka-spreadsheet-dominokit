@@ -47,7 +47,7 @@ public interface ComponentLifecycleMatcherTesting extends Testing {
             token::toString
         );
 
-        if(expected) {
+        if (expected) {
             this.checkEquals(
                 false,
                 matcher.shouldIgnore(token),

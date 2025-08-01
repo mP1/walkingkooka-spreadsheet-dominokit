@@ -46,7 +46,7 @@ public final class SpreadsheetCellDecimalNumberSymbolsSaveHistoryTokenTest exten
     // urlFragment......................................................................................................
 
     private final static String DECIMAL_NUMBER_SYMBOLS_URL = urlEncode(DECIMAL_NUMBER_SYMBOLS.text());
-    
+
     @Test
     public void testUrlFragmentCell() {
         this.urlFragmentAndCheck(

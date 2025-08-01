@@ -146,7 +146,7 @@ public final class PluginAliasSetLikeDialogComponentContexts implements PublicSt
     public static PluginAliasSetLikeDialogComponentContext<FormHandlerName, FormHandlerInfo, FormHandlerInfoSet, FormHandlerSelector, FormHandlerAlias, FormHandlerAliasSet> formHandlers(final AppContext context) {
         return AppContextPluginAliasSetLikeDialogComponentContextFormHandlerAliasSetFormHandlers.with(context);
     }
-    
+
     /**
      * {@see AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFormulaFunctions}
      */
@@ -181,7 +181,7 @@ public final class PluginAliasSetLikeDialogComponentContexts implements PublicSt
     public static PluginAliasSetLikeDialogComponentContext<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> scriptingFunctions(final AppContext context) {
         return AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetScriptingFunctions.with(context);
     }
-    
+
     /**
      * {@see AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetValidators}
      */

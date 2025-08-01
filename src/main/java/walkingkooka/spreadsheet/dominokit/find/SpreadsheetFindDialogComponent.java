@@ -112,37 +112,37 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         final SpreadsheetFindDialogComponentContext context = this.context;
 
         return SpreadsheetDialogComponent.largeList(
-            ID + SpreadsheetElementIds.DIALOG,
+                ID + SpreadsheetElementIds.DIALOG,
                 SpreadsheetDialogComponent.INCLUDE_CLOSE,
-            context
-        ).appendChild(
-            SpreadsheetRowComponent.columnSpan3()
-                .appendChild(this.cellRange)
-                .appendChild(this.path)
-                .appendChild(this.valueType)
-                .appendChild(this.formula)
-        ).appendChild(
-            SpreadsheetRowComponent.columnSpan3()
-                .appendChild(this.dateTimeSymbols)
-                .appendChild(this.decimalNumberSymbols)
-                .appendChild(this.formatter)
-                .appendChild(this.parser)
-        ).appendChild(
-            SpreadsheetRowComponent.columnSpan3()
-                .appendChild(this.style)
-                .appendChild(this.value)
-                .appendChild(this.validator)
-                .appendChild(this.formattedValue)
-        ).appendChild(this.query)
+                context
+            ).appendChild(
+                SpreadsheetRowComponent.columnSpan3()
+                    .appendChild(this.cellRange)
+                    .appendChild(this.path)
+                    .appendChild(this.valueType)
+                    .appendChild(this.formula)
+            ).appendChild(
+                SpreadsheetRowComponent.columnSpan3()
+                    .appendChild(this.dateTimeSymbols)
+                    .appendChild(this.decimalNumberSymbols)
+                    .appendChild(this.formatter)
+                    .appendChild(this.parser)
+            ).appendChild(
+                SpreadsheetRowComponent.columnSpan3()
+                    .appendChild(this.style)
+                    .appendChild(this.value)
+                    .appendChild(this.validator)
+                    .appendChild(this.formattedValue)
+            ).appendChild(this.query)
             .appendChild(
-                        SpreadsheetLinkListComponent.empty()
-                            .setCssProperty("margin-top", "5px")
-                            .setCssProperty("margin-left", "-5px")
-                            .appendChild(this.find)
-                            .appendChild(this.reset)
-                            .appendChild(this.loadHighlightingQuery)
-                            .appendChild(this.saveAsHighlightingQuery)
-                            .appendChild(this.close)
+                SpreadsheetLinkListComponent.empty()
+                    .setCssProperty("margin-top", "5px")
+                    .setCssProperty("margin-left", "-5px")
+                    .appendChild(this.find)
+                    .appendChild(this.reset)
+                    .appendChild(this.loadHighlightingQuery)
+                    .appendChild(this.saveAsHighlightingQuery)
+                    .appendChild(this.close)
             ).appendChild(this.table);
     }
 
@@ -163,7 +163,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     private SpreadsheetCellRangeReferenceComponent cellRange() {
         return SpreadsheetCellRangeReferenceComponent.with(
-            ID_PREFIX + "cell-range" + SpreadsheetElementIds.TEXT_BOX
+                ID_PREFIX + "cell-range" + SpreadsheetElementIds.TEXT_BOX
             ).setLabel("Cell Range")
             .addChangeListener(this::onCellRangeValueChange)
             .required();
@@ -262,7 +262,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         this.query.setValue(formula);
 
         SpreadsheetCellQuery query = null;
-        if(formula.isPresent()) {
+        if (formula.isPresent()) {
             query = formula.get()
                 .token()
                 .map(SpreadsheetCellQuery::with)

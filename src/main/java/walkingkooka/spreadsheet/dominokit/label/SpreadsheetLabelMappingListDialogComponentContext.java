@@ -40,8 +40,9 @@ public interface SpreadsheetLabelMappingListDialogComponentContext extends Histo
     default String dialogTitle() {
         return "Labels";
     }
+
     /**
-     * {@link walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher#getLabelMappings(SpreadsheetId, OptionalInt, OptionalInt)} 
+     * {@link walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher#getLabelMappings(SpreadsheetId, OptionalInt, OptionalInt)}
      */
     void loadLabelMappings(final SpreadsheetId id,
                            final HistoryTokenOffsetAndCount offsetAndCount);

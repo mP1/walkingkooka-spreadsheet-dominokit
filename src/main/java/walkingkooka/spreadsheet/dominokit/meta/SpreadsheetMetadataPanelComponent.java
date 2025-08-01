@@ -146,7 +146,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
 
         items.add(this.scriptingFunctions());
         items.add(this.scriptingConverter());
-        
+
         items.add(this.sortComparators());
         items.add(this.sortConverter());
 
@@ -465,7 +465,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
             SpreadsheetMetadataPropertyName.SCRIPTING_FUNCTIONS
         );
     }
-    
+
     private SpreadsheetMetadataPanelComponentItem<SpreadsheetComparatorNameList> sortComparators() {
         return link(
             SpreadsheetMetadataPropertyName.SORT_COMPARATORS

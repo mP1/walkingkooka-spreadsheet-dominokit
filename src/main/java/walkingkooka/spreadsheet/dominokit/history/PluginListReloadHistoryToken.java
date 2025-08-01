@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
  * /plugin/reload
  * </pre>
  */
-public final class PluginListReloadHistoryToken extends PluginListHistoryToken implements HistoryTokenWatcher{
+public final class PluginListReloadHistoryToken extends PluginListHistoryToken implements HistoryTokenWatcher {
 
     static PluginListReloadHistoryToken with(final HistoryTokenOffsetAndCount offsetAndCount) {
         return new PluginListReloadHistoryToken(offsetAndCount);

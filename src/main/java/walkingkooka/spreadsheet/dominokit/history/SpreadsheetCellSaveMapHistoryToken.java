@@ -76,8 +76,9 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
      * Factory method used by various would be setters when one or more components have changed and a new instance needs
      * to be created.
      */
-    @Override abstract SpreadsheetCellSaveMapHistoryToken<V> replace(final SpreadsheetId id,
-                                                                     final SpreadsheetName name,
-                                                                     final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                     final Map<SpreadsheetCellReference, V> values);
+    @Override //
+    abstract SpreadsheetCellSaveMapHistoryToken<V> replace(final SpreadsheetId id,
+                                                           final SpreadsheetName name,
+                                                           final AnchoredSpreadsheetSelection anchoredSelection,
+                                                           final Map<SpreadsheetCellReference, V> values);
 }

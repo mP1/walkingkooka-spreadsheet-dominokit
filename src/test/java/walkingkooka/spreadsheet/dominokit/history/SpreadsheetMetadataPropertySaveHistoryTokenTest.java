@@ -359,23 +359,23 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
 
         // verify that SpreadsheetMetadata has all properties
         for (final SpreadsheetMetadataPropertyName<?> propertyName : SpreadsheetMetadataPropertyName.ALL) {
-            if(SpreadsheetMetadataPropertyName.SPREADSHEET_ID == propertyName) {
+            if (SpreadsheetMetadataPropertyName.SPREADSHEET_ID == propertyName) {
                 continue;
             }
-            if(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME == propertyName) {
+            if (SpreadsheetMetadataPropertyName.SPREADSHEET_NAME == propertyName) {
                 continue;
             }
-            if(SpreadsheetMetadataPropertyName.AUDIT_INFO == propertyName) {
+            if (SpreadsheetMetadataPropertyName.AUDIT_INFO == propertyName) {
                 continue;
             }
-            if(SpreadsheetMetadataPropertyName.STYLE == propertyName) {
+            if (SpreadsheetMetadataPropertyName.STYLE == propertyName) {
                 continue;
             }
 
             final Object value = metadata.getOrFail(propertyName);
             if (value instanceof Collection) {
                 final Collection<?> collection = (Collection<?>) value;
-                if(collection.isEmpty()) {
+                if (collection.isEmpty()) {
                     continue;
                 }
                 this.checkEquals(

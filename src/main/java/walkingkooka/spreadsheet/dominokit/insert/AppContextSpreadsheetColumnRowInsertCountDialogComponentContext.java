@@ -79,8 +79,8 @@ final class AppContextSpreadsheetColumnRowInsertCountDialogComponentContext impl
 
         return this.selectionDialogTitle(
             null != title ?
-            title :
-            "Insert"
+                title :
+                "Insert"
         );
     }
 

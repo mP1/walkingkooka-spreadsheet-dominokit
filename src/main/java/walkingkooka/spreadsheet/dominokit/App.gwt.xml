@@ -26,5 +26,5 @@
     </source>
     <public path="public"/>
 
-    <entry-point class="walkingkooka.spreadsheet.dominokit.App" />
+    <entry-point class="walkingkooka.spreadsheet.dominokit.App"/>
 </module>

@@ -75,9 +75,9 @@ public final class SpreadsheetFormatterFetcherTest implements ClassTesting<Sprea
         );
     }
 
-    private void cellFormatterEditUrlAndCheck(final SpreadsheetId id, 
-                                              final SpreadsheetExpressionReference cellOrLabel, 
-                                              final String selector, 
+    private void cellFormatterEditUrlAndCheck(final SpreadsheetId id,
+                                              final SpreadsheetExpressionReference cellOrLabel,
+                                              final String selector,
                                               final String expected) {
         this.cellFormatterEditUrlAndCheck(
             id,
@@ -87,9 +87,9 @@ public final class SpreadsheetFormatterFetcherTest implements ClassTesting<Sprea
         );
     }
 
-    private void cellFormatterEditUrlAndCheck(final SpreadsheetId id, 
-                                              final SpreadsheetExpressionReference cellOrLabel, 
-                                              final String selector, 
+    private void cellFormatterEditUrlAndCheck(final SpreadsheetId id,
+                                              final SpreadsheetExpressionReference cellOrLabel,
+                                              final String selector,
                                               final AbsoluteOrRelativeUrl expected) {
         this.checkEquals(
             expected,
@@ -284,7 +284,7 @@ public final class SpreadsheetFormatterFetcherTest implements ClassTesting<Sprea
             () -> "path=" + path
         );
     }
-    
+
     // ClassTesting.....................................................................................................
 
     @Override

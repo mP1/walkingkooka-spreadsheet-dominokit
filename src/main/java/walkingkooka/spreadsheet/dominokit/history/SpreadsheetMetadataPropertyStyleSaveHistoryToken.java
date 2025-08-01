@@ -31,7 +31,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends SpreadsheetMetadataPropertyStyleHistoryToken<T>
-implements Value<Optional<T>>  {
+    implements Value<Optional<T>> {
 
     static <T> SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> with(final SpreadsheetId id,
                                                                         final SpreadsheetName name,

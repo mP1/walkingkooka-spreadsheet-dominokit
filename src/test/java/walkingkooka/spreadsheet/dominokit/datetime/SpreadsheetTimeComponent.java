@@ -40,13 +40,13 @@ import java.util.function.Supplier;
  * A mock of main/SpreadsheetTimeComponent with the same public interface and a helpful {@link TreePrintable}.
  * This will be useful for rendering tests.
  */
-public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLFieldSetElement, LocalTime,SpreadsheetTimeComponent>,
+public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLFieldSetElement, LocalTime, SpreadsheetTimeComponent>,
     SpreadsheetTextBoxTreePrintable<SpreadsheetTimeComponent, LocalTime>,
-    TestHtmlElementComponent<HTMLFieldSetElement,SpreadsheetTimeComponent>,
+    TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetTimeComponent>,
     ValidatorHelper {
 
-    public  static SpreadsheetTimeComponent empty(final String id,
-                                                                                             final Supplier<LocalTime> clearValue) {
+    public static SpreadsheetTimeComponent empty(final String id,
+                                                 final Supplier<LocalTime> clearValue) {
         return new SpreadsheetTimeComponent(
             id,
             clearValue
@@ -60,7 +60,7 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLFi
     }
 
     @Override
-     public SpreadsheetTimeComponent setId(final String id) {
+    public SpreadsheetTimeComponent setId(final String id) {
         CharSequences.failIfNullOrEmpty(id, "id");
 
         this.id = id;
@@ -75,7 +75,7 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLFi
     private String id;
 
     @Override
-     public SpreadsheetTimeComponent setLabel(final String label) {
+    public SpreadsheetTimeComponent setLabel(final String label) {
         this.label = label;
         return this;
     }
@@ -88,7 +88,7 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLFi
     private String label;
 
     @Override
-     public SpreadsheetTimeComponent setValue(final Optional<LocalTime> value) {
+    public SpreadsheetTimeComponent setValue(final Optional<LocalTime> value) {
         Objects.requireNonNull(value, "value");
         this.value = value.isPresent() ?
             value :
@@ -107,18 +107,18 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLFi
     private Optional<LocalTime> value = Optional.empty();
 
     @Override
-     public SpreadsheetTimeComponent focus() {
+    public SpreadsheetTimeComponent focus() {
         return this;
     }
 
     @Override
-     public SpreadsheetTimeComponent optional() {
+    public SpreadsheetTimeComponent optional() {
         this.required = false;
         return this;
     }
 
     @Override
-     public SpreadsheetTimeComponent required() {
+    public SpreadsheetTimeComponent required() {
         this.required = true;
         return this;
     }
@@ -130,7 +130,7 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLFi
 
     private boolean required;
 
-     public SpreadsheetTimeComponent setValidator(final Validator<Optional<LocalTime>> validator) {
+    public SpreadsheetTimeComponent setValidator(final Validator<Optional<LocalTime>> validator) {
         this.validator = validator;
         return this;
     }
@@ -138,7 +138,7 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLFi
     private Validator<Optional<LocalTime>> validator;
 
     @Override
-     public SpreadsheetTimeComponent validate() {
+    public SpreadsheetTimeComponent validate() {
         this.setErrors(
             this.validateAndGetErrors(
                 this.value,
@@ -154,7 +154,7 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLFi
     }
 
     @Override
-     public SpreadsheetTimeComponent setErrors(final List<String> errors) {
+    public SpreadsheetTimeComponent setErrors(final List<String> errors) {
         Objects.requireNonNull(errors, "errors");
         this.errors = Lists.immutable(errors);
         return this;
@@ -168,7 +168,7 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLFi
     }
 
     @Override
-     public SpreadsheetTimeComponent setDisabled(final boolean disabled) {
+    public SpreadsheetTimeComponent setDisabled(final boolean disabled) {
         this.disabled = disabled;
         return this;
     }
@@ -176,37 +176,37 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLFi
     private boolean disabled;
 
     @Override
-     public SpreadsheetTimeComponent addChangeListener(final ChangeListener<Optional<LocalTime>> listener) {
+    public SpreadsheetTimeComponent addChangeListener(final ChangeListener<Optional<LocalTime>> listener) {
         return this;
     }
 
     @Override
-     public SpreadsheetTimeComponent addClickListener(final EventListener listener) {
+    public SpreadsheetTimeComponent addClickListener(final EventListener listener) {
         return this;
     }
 
     @Override
-     public SpreadsheetTimeComponent addFocusListener(final EventListener listener) {
+    public SpreadsheetTimeComponent addFocusListener(final EventListener listener) {
         return this;
     }
 
     @Override
-     public SpreadsheetTimeComponent addKeydownListener(final EventListener listener) {
+    public SpreadsheetTimeComponent addKeydownListener(final EventListener listener) {
         return this;
     }
 
     @Override
-     public SpreadsheetTimeComponent addKeyupListener(final EventListener listener) {
+    public SpreadsheetTimeComponent addKeyupListener(final EventListener listener) {
         return this;
     }
 
     @Override
-     public SpreadsheetTimeComponent alwaysShowHelperText() {
+    public SpreadsheetTimeComponent alwaysShowHelperText() {
         return this;
     }
 
     @Override
-     public SpreadsheetTimeComponent setHelperText(final Optional<String> text) {
+    public SpreadsheetTimeComponent setHelperText(final Optional<String> text) {
         Objects.requireNonNull(text, "text");
         this.helperText = text;
         return this;
@@ -219,37 +219,37 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLFi
     private Optional<String> helperText = Optional.empty();
 
     @Override
-     public SpreadsheetTimeComponent hideMarginBottom() {
+    public SpreadsheetTimeComponent hideMarginBottom() {
         return this;
     }
 
     @Override
-     public SpreadsheetTimeComponent removeBorders() {
+    public SpreadsheetTimeComponent removeBorders() {
         return this;
     }
 
-     public SpreadsheetTimeComponent autocompleteOff() {
+    public SpreadsheetTimeComponent autocompleteOff() {
         return this;
     }
 
-     public SpreadsheetTimeComponent clearIcon() {
+    public SpreadsheetTimeComponent clearIcon() {
         return this;
     }
 
-     public SpreadsheetTimeComponent disableSpellcheck() {
+    public SpreadsheetTimeComponent disableSpellcheck() {
         return this;
     }
 
-     public SpreadsheetTimeComponent enterFiresValueChange() {
+    public SpreadsheetTimeComponent enterFiresValueChange() {
         return this;
     }
 
-     public SpreadsheetTimeComponent magnifyingGlassIcon() {
+    public SpreadsheetTimeComponent magnifyingGlassIcon() {
         return this;
     }
 
     @Override
-     public SpreadsheetTimeComponent setCssText(final String css) {
+    public SpreadsheetTimeComponent setCssText(final String css) {
         Objects.requireNonNull(css, "css");
         return this;
     }

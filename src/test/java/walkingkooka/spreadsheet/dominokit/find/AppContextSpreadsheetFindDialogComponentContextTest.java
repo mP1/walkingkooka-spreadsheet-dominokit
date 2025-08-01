@@ -82,15 +82,15 @@ public final class AppContextSpreadsheetFindDialogComponentContextTest implement
                         );
 
                         cache.onSpreadsheetDelta(
-                                HttpMethod.GET,
-                                Url.parseRelative("/api/spreadsheet/1/SpreadsheetName2/cell/"),
-                                SpreadsheetDelta.EMPTY.setLabels(
-                                    Sets.of(
-                                        label.setLabelMappingReference(spreadsheetExpressionReference)
-                                    )
-                                ),
-                                this
-                            );
+                            HttpMethod.GET,
+                            Url.parseRelative("/api/spreadsheet/1/SpreadsheetName2/cell/"),
+                            SpreadsheetDelta.EMPTY.setLabels(
+                                Sets.of(
+                                    label.setLabelMappingReference(spreadsheetExpressionReference)
+                                )
+                            ),
+                            this
+                        );
                         return cache;
                     }
                 }
@@ -201,32 +201,32 @@ public final class AppContextSpreadsheetFindDialogComponentContextTest implement
         return AppContextSpreadsheetFindDialogComponentContext.with(AppContexts.fake());
     }
 
-     abstract static class TestAppContext extends FakeAppContext {
+    abstract static class TestAppContext extends FakeAppContext {
 
-         TestAppContext() {
-             super();
-         }
+        TestAppContext() {
+            super();
+        }
 
-         @Override
-         public final Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-             return null;
-         }
+        @Override
+        public final Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+            return null;
+        }
 
-         @Override
-         public final Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
-             return null;
-         }
+        @Override
+        public final Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+            return null;
+        }
 
-         @Override
-         public final Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
-             return null;
-         }
+        @Override
+        public final Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+            return null;
+        }
 
-         @Override
-         public final void debug(final Object... values) {
-             System.out.println(Arrays.toString(values));
-         }
-     }
+        @Override
+        public final void debug(final Object... values) {
+            System.out.println(Arrays.toString(values));
+        }
+    }
 
     @Override
     public String typeNameSuffix() {

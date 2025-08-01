@@ -105,7 +105,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
         label(context);
 
         locale(context);
-        
+
         sort(context);
     }
 
@@ -280,7 +280,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
         );
 
         for (final SpreadsheetMetadataPropertyName<?> selector : SpreadsheetMetadataPropertyName.ALL) {
-            if(selector.isConverterSelector()) {
+            if (selector.isConverterSelector()) {
                 ConverterSelectorDialogComponent.with(
                     ConverterSelectorDialogComponentContexts.appContext(
                         Cast.to(selector),

@@ -147,7 +147,7 @@ public final class ConverterSelectorDialogComponent implements SpreadsheetDialog
                 (oldValue, newValue) -> {
                     this.refreshSaveLink(newValue);
 
-                    if(newValue.isPresent()) {
+                    if (newValue.isPresent()) {
                         this.context.verifySelector(
                             newValue.get()
                                 .toString()
@@ -197,9 +197,9 @@ public final class ConverterSelectorDialogComponent implements SpreadsheetDialog
 
     @Override //
     public void onBegin(final HttpMethod method,
-                         final Url url,
-                         final Optional<FetcherRequestBody<?>> body,
-                         final AppContext context) {
+                        final Url url,
+                        final Optional<FetcherRequestBody<?>> body,
+                        final AppContext context) {
         // nop
     }
 
@@ -210,8 +210,8 @@ public final class ConverterSelectorDialogComponent implements SpreadsheetDialog
                           final Headers headers,
                           final String body,
                           final AppContext context) {
-        if(this.isOpen()) {
-            if(HttpMethod.POST.equals(method) && this.context.isVerifyConverterSelectorUrl(url.path())) {
+        if (this.isOpen()) {
+            if (HttpMethod.POST.equals(method) && this.context.isVerifyConverterSelectorUrl(url.path())) {
                 this.selector.setErrors(
                     Lists.of(
                         Fetcher.errorMessage(body)

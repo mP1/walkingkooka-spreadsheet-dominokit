@@ -3760,7 +3760,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     public Optional<PluginName> pluginName() {
         PluginName pluginName = null;
 
-        if(this instanceof PluginNameHistoryToken) {
+        if (this instanceof PluginNameHistoryToken) {
             pluginName = this.cast(PluginNameHistoryToken.class)
                 .name();
         }
@@ -4315,7 +4315,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                                 id,
                                 name,
                                 spreadsheetSelection,
-                                (SpreadsheetColumnOrRowSpreadsheetComparatorNamesList)valueOrNull
+                                (SpreadsheetColumnOrRowSpreadsheetComparatorNamesList) valueOrNull
                             );
                         }
 

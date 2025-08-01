@@ -43,7 +43,7 @@ public final class SpreadsheetDateComponent extends SpreadsheetPickerComponent<L
     private SpreadsheetDateComponent(final String id,
                                      final Supplier<LocalDate> clearValue) {
         super(
-           clearValue
+            clearValue
         );
         this.calendar = Calendar.create();
         this.bodyElement.insertFirst(this.calendar.element());

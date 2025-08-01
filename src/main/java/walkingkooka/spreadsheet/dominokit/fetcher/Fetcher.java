@@ -330,15 +330,15 @@ abstract public class Fetcher<W extends FetcherWatcher> {
         String error = "";
 
         final int colon = message.indexOf(':');
-        if(-1 != colon) {
+        if (-1 != colon) {
             int eol = message.length();
             final int cr = message.indexOf(LineEnding.CR.toString(), colon);
-            if(-1 != cr) {
+            if (-1 != cr) {
                 eol = cr;
             }
 
             final int lf = message.indexOf(LineEnding.NL.toString(), colon);
-            if(-1 != lf && cr < eol) {
+            if (-1 != lf && cr < eol) {
                 eol = lf;
             }
 

@@ -283,7 +283,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
         this.onHistoryTokenChangeAndCheck(
             dialog,
             context,
-                "SpreadsheetLabelMappingDialogComponent\n" +
+            "SpreadsheetLabelMappingDialogComponent\n" +
                 "  SpreadsheetDialogComponent\n" +
                 "    Spreadsheet: Label\n" +
                 "    id=labelMapping-Dialog includeClose=true\n" +

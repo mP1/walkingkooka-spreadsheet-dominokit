@@ -34,7 +34,7 @@ import java.util.Objects;
  * </pre>
  */
 public final class SpreadsheetListRenameSaveHistoryToken extends SpreadsheetListRenameHistoryToken implements Value<SpreadsheetName>,
-    HistoryTokenWatcher{
+    HistoryTokenWatcher {
 
     static SpreadsheetListRenameSaveHistoryToken with(final SpreadsheetId id,
                                                       final SpreadsheetName value) {

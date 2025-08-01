@@ -208,9 +208,9 @@ public final class RemoveOrReplacePluginSelectorTokenComponent<T extends PluginS
     public RemoveOrReplacePluginSelectorTokenComponent<T, A> setCssProperty(final String name,
                                                                             final String value) {
         this.root.setCssProperty(
-                name,
-                value
-            );
+            name,
+            value
+        );
         return this;
     }
 

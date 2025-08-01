@@ -36,7 +36,7 @@ import java.util.Optional;
 /**
  * A table that displays {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterSample} with one per row.
  */
-public final class SpreadsheetFormatterTableComponent implements TableComponent<HTMLDivElement, List<SpreadsheetFormatterSample>, SpreadsheetFormatterTableComponent>  {
+public final class SpreadsheetFormatterTableComponent implements TableComponent<HTMLDivElement, List<SpreadsheetFormatterSample>, SpreadsheetFormatterTableComponent> {
 
     /**
      * Creates an empty {@link SpreadsheetFormatterTableComponent}.

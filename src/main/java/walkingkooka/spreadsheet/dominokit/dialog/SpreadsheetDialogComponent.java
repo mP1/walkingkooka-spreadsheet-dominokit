@@ -101,9 +101,9 @@ public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponent
 
         // only auto close when the user clicks the background if a CLOSE icon is included
         this.dialog = this.dialog(
-            width,
-            height,
-            navBar).id(id)
+                width,
+                height,
+                navBar).id(id)
             .setAutoClose(includeClose);
     }
 

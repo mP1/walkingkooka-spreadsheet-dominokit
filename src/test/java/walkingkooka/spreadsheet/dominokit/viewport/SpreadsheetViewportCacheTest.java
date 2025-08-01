@@ -4012,14 +4012,14 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         this.selectionSummaryAndCheck(
             cache,
             SpreadsheetSelection.A1.setFormula(
-                    SpreadsheetFormula.EMPTY.setValueType(
-                        Optional.of(valueType)
-                    )
-                ).setStyle(
-                    TextStyle.EMPTY.set(colorName, color1)
-                ).setValidator(
-                    Optional.of(validator)
+                SpreadsheetFormula.EMPTY.setValueType(
+                    Optional.of(valueType)
                 )
+            ).setStyle(
+                TextStyle.EMPTY.set(colorName, color1)
+            ).setValidator(
+                Optional.of(validator)
+            )
         );
     }
 

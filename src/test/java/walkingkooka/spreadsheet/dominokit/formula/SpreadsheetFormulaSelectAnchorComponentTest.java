@@ -173,8 +173,8 @@ public final class SpreadsheetFormulaSelectAnchorComponentTest implements Anchor
                 public Optional<String> formulaText(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
                     return Optional.ofNullable(
                         SpreadsheetSelection.A1.equals(spreadsheetExpressionReference) ?
-                        "=1+2+3000" :
-                        null
+                            "=1+2+3000" :
+                            null
                     );
                 }
             }

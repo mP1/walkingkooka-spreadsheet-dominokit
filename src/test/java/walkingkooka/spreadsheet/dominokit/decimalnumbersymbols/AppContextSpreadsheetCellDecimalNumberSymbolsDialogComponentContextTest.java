@@ -155,10 +155,10 @@ public final class AppContextSpreadsheetCellDecimalNumberSymbolsDialogComponentC
         };
 
         appContext.spreadsheetViewportCache()
-                .onSpreadsheetMetadata(
-                    METADATA_EN_AU.set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, SPREADSHEET_ID),
-                    appContext
-                );
+            .onSpreadsheetMetadata(
+                METADATA_EN_AU.set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, SPREADSHEET_ID),
+                appContext
+            );
 
         appContext.spreadsheetViewportCache()
             .onSpreadsheetDelta(

@@ -136,9 +136,9 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirect
     public SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent setCssProperty(final String name,
                                                                                                                   final String value) {
         this.root.setCssProperty(
-                name,
-                value
-            );
+            name,
+            value
+        );
         return this;
     }
 

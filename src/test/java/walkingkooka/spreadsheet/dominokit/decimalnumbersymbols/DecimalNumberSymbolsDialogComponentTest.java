@@ -351,7 +351,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
     }
 
     private AppContext appContext(final HistoryToken historyToken,
-                                  final DecimalNumberSymbols decimalNumberSymbols ) {
+                                  final DecimalNumberSymbols decimalNumberSymbols) {
         return new FakeAppContext() {
 
             @Override

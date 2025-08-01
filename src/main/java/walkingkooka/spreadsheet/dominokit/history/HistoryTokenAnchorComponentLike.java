@@ -161,7 +161,7 @@ abstract class HistoryTokenAnchorComponentLike implements AnchorComponent<Histor
         }
 
         String badge = this.badge();
-        if(false == badge.isEmpty()) {
+        if (false == badge.isEmpty()) {
             badge = "(" + badge + ")";
         }
 

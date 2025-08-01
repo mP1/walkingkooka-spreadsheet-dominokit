@@ -604,7 +604,7 @@ public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDia
     }
 
     private final HistoryTokenSaveValueAnchorComponent<DecimalNumberSymbols> copyDefaults;
-    
+
     // clear............................................................................................................
 
     private void refreshClear() {

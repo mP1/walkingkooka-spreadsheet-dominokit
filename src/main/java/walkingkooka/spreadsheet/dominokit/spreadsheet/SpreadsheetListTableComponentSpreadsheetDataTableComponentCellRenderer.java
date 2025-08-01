@@ -107,9 +107,9 @@ final class SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRender
         return this.text(
             metadata.get(SpreadsheetMetadataPropertyName.AUDIT_INFO)
                 .map(a -> this.context.formatDateTime(
-                    dateTimeGetter.apply(a)
+                        dateTimeGetter.apply(a)
+                    )
                 )
-            )
         );
     }
 
