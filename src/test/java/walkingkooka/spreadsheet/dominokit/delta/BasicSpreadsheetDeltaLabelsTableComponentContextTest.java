@@ -43,7 +43,7 @@ public final class BasicSpreadsheetDeltaLabelsTableComponentContextTest implemen
     private final static Function<SpreadsheetExpressionReference, Optional<String>> CELL_TO_FORMULA_TEXT = (SpreadsheetExpressionReference reference) -> {
         Objects.requireNonNull(reference, "reference");
 
-        if(reference.equals(SpreadsheetSelection.A1)) {
+        if (reference.equals(SpreadsheetSelection.A1)) {
             return Optional.of("=1+2+3000");
         }
 
@@ -199,7 +199,7 @@ public final class BasicSpreadsheetDeltaLabelsTableComponentContextTest implemen
             ),
             CELL_TO_FORMULA_TEXT +
                 " " +
-            CELL_TO_REFERENCES +
+                CELL_TO_REFERENCES +
                 " " +
                 LABEL_TO_CELL +
                 " " +

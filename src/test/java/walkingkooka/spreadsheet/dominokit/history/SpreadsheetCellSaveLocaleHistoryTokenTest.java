@@ -255,7 +255,7 @@ public final class SpreadsheetCellSaveLocaleHistoryTokenTest extends Spreadsheet
             SpreadsheetCellReferenceToLocaleMap.with(map)
         );
     }
-    
+
     // setSaveStringValue...............................................................................................
 
     @Test

@@ -27,6 +27,7 @@ public final class SpreadsheetCellReferencesAnchorComponentContexts implements P
     public static SpreadsheetCellReferencesAnchorComponentContext fake() {
         return new FakeSpreadsheetCellReferencesAnchorComponentContext();
     }
+
     /**
      * Stop creation
      */

@@ -85,7 +85,7 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
         Optional<SpreadsheetId> id = Optional.empty();
 
         final Optional<UrlPathTemplateValues> pathValues = SPREADSHEET_ID_PATH_TEMPLATE.tryPrepareValues(url.path());
-        if(pathValues.isPresent()) {
+        if (pathValues.isPresent()) {
             id = pathValues.get()
                 .get(
                     SPREADSHEET_ID,

@@ -40,13 +40,13 @@ import java.util.function.Supplier;
  * A mock of main/SpreadsheetTextBox with the same public interface and a helpful {@link TreePrintable}. This will be useful for unit tests to verify the rough apperance of a component that includes
  * {@linkSpreadsheetDateTimeComponent}.
  */
-public final class SpreadsheetDateTimeComponent implements FormValueComponent<HTMLFieldSetElement, LocalDateTime,SpreadsheetDateTimeComponent>,
+public final class SpreadsheetDateTimeComponent implements FormValueComponent<HTMLFieldSetElement, LocalDateTime, SpreadsheetDateTimeComponent>,
     SpreadsheetTextBoxTreePrintable<SpreadsheetDateTimeComponent, LocalDateTime>,
-    TestHtmlElementComponent<HTMLFieldSetElement,SpreadsheetDateTimeComponent>,
+    TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetDateTimeComponent>,
     ValidatorHelper {
 
-    public  static SpreadsheetDateTimeComponent empty(final String id,
-                                                                                                 final Supplier<LocalDateTime> clearValue) {
+    public static SpreadsheetDateTimeComponent empty(final String id,
+                                                     final Supplier<LocalDateTime> clearValue) {
         return new SpreadsheetDateTimeComponent(
             id,
             clearValue
@@ -60,7 +60,7 @@ public final class SpreadsheetDateTimeComponent implements FormValueComponent<HT
     }
 
     @Override
-     public SpreadsheetDateTimeComponent setId(final String id) {
+    public SpreadsheetDateTimeComponent setId(final String id) {
         CharSequences.failIfNullOrEmpty(id, "id");
 
         this.id = id;
@@ -75,7 +75,7 @@ public final class SpreadsheetDateTimeComponent implements FormValueComponent<HT
     private String id;
 
     @Override
-     public SpreadsheetDateTimeComponent setLabel(final String label) {
+    public SpreadsheetDateTimeComponent setLabel(final String label) {
         this.label = label;
         return this;
     }
@@ -88,7 +88,7 @@ public final class SpreadsheetDateTimeComponent implements FormValueComponent<HT
     private String label;
 
     @Override
-     public SpreadsheetDateTimeComponent setValue(final Optional<LocalDateTime> value) {
+    public SpreadsheetDateTimeComponent setValue(final Optional<LocalDateTime> value) {
         Objects.requireNonNull(value, "value");
         this.value = value.isPresent() ?
             value :
@@ -107,18 +107,18 @@ public final class SpreadsheetDateTimeComponent implements FormValueComponent<HT
     private Optional<LocalDateTime> value = Optional.empty();
 
     @Override
-     public SpreadsheetDateTimeComponent focus() {
+    public SpreadsheetDateTimeComponent focus() {
         return this;
     }
 
     @Override
-     public SpreadsheetDateTimeComponent optional() {
+    public SpreadsheetDateTimeComponent optional() {
         this.required = false;
         return this;
     }
 
     @Override
-     public SpreadsheetDateTimeComponent required() {
+    public SpreadsheetDateTimeComponent required() {
         this.required = true;
         return this;
     }
@@ -130,7 +130,7 @@ public final class SpreadsheetDateTimeComponent implements FormValueComponent<HT
 
     private boolean required;
 
-     public SpreadsheetDateTimeComponent setValidator(final Validator<Optional<LocalDateTime>> validator) {
+    public SpreadsheetDateTimeComponent setValidator(final Validator<Optional<LocalDateTime>> validator) {
         this.validator = validator;
         return this;
     }
@@ -138,7 +138,7 @@ public final class SpreadsheetDateTimeComponent implements FormValueComponent<HT
     private Validator<Optional<LocalDateTime>> validator;
 
     @Override
-     public SpreadsheetDateTimeComponent validate() {
+    public SpreadsheetDateTimeComponent validate() {
         this.setErrors(
             this.validateAndGetErrors(
                 this.value,
@@ -154,7 +154,7 @@ public final class SpreadsheetDateTimeComponent implements FormValueComponent<HT
     }
 
     @Override
-     public SpreadsheetDateTimeComponent setErrors(final List<String> errors) {
+    public SpreadsheetDateTimeComponent setErrors(final List<String> errors) {
         Objects.requireNonNull(errors, "errors");
         this.errors = Lists.immutable(errors);
         return this;
@@ -168,49 +168,49 @@ public final class SpreadsheetDateTimeComponent implements FormValueComponent<HT
     }
 
     @Override
-     public SpreadsheetDateTimeComponent setDisabled(final boolean disabled) {
+    public SpreadsheetDateTimeComponent setDisabled(final boolean disabled) {
         this.disabled = disabled;
         return this;
     }
 
     private boolean disabled;
 
-     public SpreadsheetDateTimeComponent resetView() {
+    public SpreadsheetDateTimeComponent resetView() {
         return this;
     }
 
     @Override
-     public SpreadsheetDateTimeComponent addChangeListener(final ChangeListener<Optional<LocalDateTime>> listener) {
+    public SpreadsheetDateTimeComponent addChangeListener(final ChangeListener<Optional<LocalDateTime>> listener) {
         return this;
     }
 
     @Override
-     public SpreadsheetDateTimeComponent addClickListener(final EventListener listener) {
+    public SpreadsheetDateTimeComponent addClickListener(final EventListener listener) {
         return this;
     }
 
     @Override
-     public SpreadsheetDateTimeComponent addFocusListener(final EventListener listener) {
+    public SpreadsheetDateTimeComponent addFocusListener(final EventListener listener) {
         return this;
     }
 
     @Override
-     public SpreadsheetDateTimeComponent addKeydownListener(final EventListener listener) {
+    public SpreadsheetDateTimeComponent addKeydownListener(final EventListener listener) {
         return this;
     }
 
     @Override
-     public SpreadsheetDateTimeComponent addKeyupListener(final EventListener listener) {
+    public SpreadsheetDateTimeComponent addKeyupListener(final EventListener listener) {
         return this;
     }
 
     @Override
-     public SpreadsheetDateTimeComponent alwaysShowHelperText() {
+    public SpreadsheetDateTimeComponent alwaysShowHelperText() {
         return this;
     }
 
     @Override
-     public SpreadsheetDateTimeComponent setHelperText(final Optional<String> text) {
+    public SpreadsheetDateTimeComponent setHelperText(final Optional<String> text) {
         Objects.requireNonNull(text, "text");
         this.helperText = text;
         return this;
@@ -223,32 +223,32 @@ public final class SpreadsheetDateTimeComponent implements FormValueComponent<HT
     private Optional<String> helperText = Optional.empty();
 
     @Override
-     public SpreadsheetDateTimeComponent hideMarginBottom() {
+    public SpreadsheetDateTimeComponent hideMarginBottom() {
         return this;
     }
 
     @Override
-     public SpreadsheetDateTimeComponent removeBorders() {
+    public SpreadsheetDateTimeComponent removeBorders() {
         return this;
     }
 
-     public SpreadsheetDateTimeComponent autocompleteOff() {
+    public SpreadsheetDateTimeComponent autocompleteOff() {
         return this;
     }
 
-     public SpreadsheetDateTimeComponent clearIcon() {
+    public SpreadsheetDateTimeComponent clearIcon() {
         return this;
     }
 
-     public SpreadsheetDateTimeComponent disableSpellcheck() {
+    public SpreadsheetDateTimeComponent disableSpellcheck() {
         return this;
     }
 
-     public SpreadsheetDateTimeComponent enterFiresValueChange() {
+    public SpreadsheetDateTimeComponent enterFiresValueChange() {
         return this;
     }
 
-     public SpreadsheetDateTimeComponent magnifyingGlassIcon() {
+    public SpreadsheetDateTimeComponent magnifyingGlassIcon() {
         return this;
     }
 
@@ -256,7 +256,7 @@ public final class SpreadsheetDateTimeComponent implements FormValueComponent<HT
     //
     // java.lang.NoSuchMethodError: walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.setCssText(Ljava/lang/String;)Lwalkingkooka/spreadsheet/dominokit/ui/textbox/SpreadsheetTextBox;
     @Override
-     public SpreadsheetDateTimeComponent setCssText(final String css) {
+    public SpreadsheetDateTimeComponent setCssText(final String css) {
         Objects.requireNonNull(css, "css");
         return this;
     }

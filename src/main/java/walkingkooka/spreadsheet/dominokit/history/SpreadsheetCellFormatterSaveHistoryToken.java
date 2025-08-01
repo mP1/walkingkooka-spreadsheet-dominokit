@@ -27,7 +27,7 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 import java.util.Optional;
 
-public final class SpreadsheetCellFormatterSaveHistoryToken extends SpreadsheetCellFormatterHistoryToken implements Value<Optional<SpreadsheetFormatterSelector>>  {
+public final class SpreadsheetCellFormatterSaveHistoryToken extends SpreadsheetCellFormatterHistoryToken implements Value<Optional<SpreadsheetFormatterSelector>> {
 
     static SpreadsheetCellFormatterSaveHistoryToken with(final SpreadsheetId id,
                                                          final SpreadsheetName name,

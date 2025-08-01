@@ -435,7 +435,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
             );
         }
     }
-    
+
     // setLabel.........................................................................................................
 
     final static SpreadsheetLabelName LABEL = SpreadsheetSelection.labelName("Label123");
@@ -628,7 +628,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     }
 
     final void offsetAndCheck(final HistoryToken historyToken,
-                             final int expected) {
+                              final int expected) {
         this.offsetAndCheck(
             historyToken,
             OptionalInt.of(expected)
@@ -636,7 +636,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     }
 
     final void offsetAndCheck(final HistoryToken historyToken,
-                             final OptionalInt expected) {
+                              final OptionalInt expected) {
         this.checkEquals(
             expected,
             historyToken.offset()
@@ -655,8 +655,8 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     }
 
     final void setOffsetAndCheck(final HistoryToken historyToken,
-                                final OptionalInt offset,
-                                final HistoryToken expected) {
+                                 final OptionalInt offset,
+                                 final HistoryToken expected) {
         final HistoryToken set = historyToken.setOffset(offset);
         assertNotSame(
             set,
@@ -668,7 +668,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
             set
         );
     }
-    
+
     // patternKind......................................................................................................
 
     final void patternKindAndCheck(final HistoryToken token) {

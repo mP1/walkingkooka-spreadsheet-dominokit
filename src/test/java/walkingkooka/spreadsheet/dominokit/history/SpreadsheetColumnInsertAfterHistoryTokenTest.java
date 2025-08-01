@@ -88,7 +88,7 @@ public final class SpreadsheetColumnInsertAfterHistoryTokenTest extends Spreadsh
             )
         );
     }
-    
+
     // UrlFragment......................................................................................................
 
     @Test

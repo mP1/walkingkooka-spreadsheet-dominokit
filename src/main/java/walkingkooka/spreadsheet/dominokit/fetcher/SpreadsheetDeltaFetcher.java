@@ -436,24 +436,24 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         // /api/spreadsheet/SpreadsheetId/column/A:B/insertBefore?count=1
         this.post(
             SpreadsheetMetadataFetcher.url(
-                    id
-                ).appendPath(
-                    UrlPath.parse(
-                        selection.cellColumnOrRowText() +
-                            UrlPath.SEPARATOR +
-                            selection.toStringMaybeStar()
-                    )
-                ).appendPathName(
-                    afterOrBefore.toUrlPathName()
-                        .get()
-                ).setQuery(
-                    offsetAndCountQueryString(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.of(count)
-                    ).addParameters(
-                        context.viewportAndWindowQueryString()
-                    )
-                ),
+                id
+            ).appendPath(
+                UrlPath.parse(
+                    selection.cellColumnOrRowText() +
+                        UrlPath.SEPARATOR +
+                        selection.toStringMaybeStar()
+                )
+            ).appendPathName(
+                afterOrBefore.toUrlPathName()
+                    .get()
+            ).setQuery(
+                offsetAndCountQueryString(
+                    OptionalInt.empty(), // offset
+                    OptionalInt.of(count)
+                ).addParameters(
+                    context.viewportAndWindowQueryString()
+                )
+            ),
             FetcherRequestBody.string("")
         );
     }
@@ -471,23 +471,23 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         // GET /api/spreadsheet/{SpreadsheetId}/cell/{SpreadsheetExpressionReference}/labels?offset=1&count=1
         this.get(
             SpreadsheetMetadataFetcher.url(
-                    id
-                ).appendPath(
-                    UrlPath.parse(
-                        reference.cellColumnOrRowText() +
-                            UrlPath.SEPARATOR +
-                            reference.toStringMaybeStar() +
-                            UrlPath.SEPARATOR
-                    )
-                ).appendPathName(
-                    SpreadsheetServerLinkRelations.LABELS.toUrlPathName()
-                        .get()
-                ).setQuery(
-                    offsetAndCountQueryString(
-                        offset,
-                        count
-                    )
+                id
+            ).appendPath(
+                UrlPath.parse(
+                    reference.cellColumnOrRowText() +
+                        UrlPath.SEPARATOR +
+                        reference.toStringMaybeStar() +
+                        UrlPath.SEPARATOR
                 )
+            ).appendPathName(
+                SpreadsheetServerLinkRelations.LABELS.toUrlPathName()
+                    .get()
+            ).setQuery(
+                offsetAndCountQueryString(
+                    offset,
+                    count
+                )
+            )
         );
     }
 
@@ -504,23 +504,23 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         // GET /api/spreadsheet/{SpreadsheetId}/cell/{SpreadsheetExpressionReference}/references?offset=1&count=1
         this.get(
             SpreadsheetMetadataFetcher.url(
-                    id
-                ).appendPath(
-                    UrlPath.parse(
-                        reference.cellColumnOrRowText() +
-                            UrlPath.SEPARATOR +
-                            reference.toStringMaybeStar() +
-                            UrlPath.SEPARATOR
-                    )
-                ).appendPathName(
-                    SpreadsheetServerLinkRelations.REFERENCES.toUrlPathName()
-                        .get()
-                ).setQuery(
-                    offsetAndCountQueryString(
-                        offset,
-                        count
-                    )
+                id
+            ).appendPath(
+                UrlPath.parse(
+                    reference.cellColumnOrRowText() +
+                        UrlPath.SEPARATOR +
+                        reference.toStringMaybeStar() +
+                        UrlPath.SEPARATOR
                 )
+            ).appendPathName(
+                SpreadsheetServerLinkRelations.REFERENCES.toUrlPathName()
+                    .get()
+            ).setQuery(
+                offsetAndCountQueryString(
+                    offset,
+                    count
+                )
+            )
         );
     }
 
@@ -537,24 +537,24 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         // GET /api/spreadsheet/{SpreadsheetId}/label/{label}/references?offset=1&count=1
         this.get(
             SpreadsheetMetadataFetcher.url(
-                    id
-                ).appendPath(
-                    UrlPath.parse(
-                        "" +
-                            SpreadsheetHateosResourceNames.LABEL +
-                            UrlPath.SEPARATOR +
-                            label.toStringMaybeStar() +
-                            UrlPath.SEPARATOR
-                    )
-                ).appendPathName(
-                    SpreadsheetServerLinkRelations.REFERENCES.toUrlPathName()
-                        .get()
-                ).setQuery(
-                    offsetAndCountQueryString(
-                        offset,
-                        count
-                    )
+                id
+            ).appendPath(
+                UrlPath.parse(
+                    "" +
+                        SpreadsheetHateosResourceNames.LABEL +
+                        UrlPath.SEPARATOR +
+                        label.toStringMaybeStar() +
+                        UrlPath.SEPARATOR
                 )
+            ).appendPathName(
+                SpreadsheetServerLinkRelations.REFERENCES.toUrlPathName()
+                    .get()
+            ).setQuery(
+                offsetAndCountQueryString(
+                    offset,
+                    count
+                )
+            )
         );
     }
 

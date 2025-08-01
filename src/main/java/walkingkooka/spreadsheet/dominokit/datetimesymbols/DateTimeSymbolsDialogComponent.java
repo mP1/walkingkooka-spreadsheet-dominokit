@@ -404,11 +404,11 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
      */
     private HistoryTokenSaveValueAnchorComponent<DateTimeSymbols> copyDefaultValueAnchor(final DateTimeSymbolsDialogComponentContext context) {
         return HistoryTokenSaveValueAnchorComponent.<DateTimeSymbols>with(
-            this.idPrefix() +
-                "copyDefaults" +
-                SpreadsheetElementIds.LINK,
-            context
-        ).setTextContent("Copy Defaults")
+                this.idPrefix() +
+                    "copyDefaults" +
+                    SpreadsheetElementIds.LINK,
+                context
+            ).setTextContent("Copy Defaults")
             .autoDisableWhenMissingValue();
     }
 

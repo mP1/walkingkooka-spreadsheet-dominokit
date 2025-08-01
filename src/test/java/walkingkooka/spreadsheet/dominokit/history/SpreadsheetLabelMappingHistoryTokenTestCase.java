@@ -111,7 +111,7 @@ public abstract class SpreadsheetLabelMappingHistoryTokenTestCase<T extends Spre
             )
         );
     }
-    
+
     @Test
     public final void testSetSelectionWithCell() {
         final SpreadsheetSelection selection = SpreadsheetSelection.A1;

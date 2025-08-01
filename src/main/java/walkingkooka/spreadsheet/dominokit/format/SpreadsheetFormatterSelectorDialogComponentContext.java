@@ -68,7 +68,8 @@ public interface SpreadsheetFormatterSelectorDialogComponentContext extends CanG
     /**
      * Adds a {@link SpreadsheetFormatterFetcherWatcher}.
      */
-    @Override Runnable addSpreadsheetFormatterFetcherWatcher(final SpreadsheetFormatterFetcherWatcher watcher);
+    @Override //
+    Runnable addSpreadsheetFormatterFetcherWatcher(final SpreadsheetFormatterFetcherWatcher watcher);
 
     /**
      * Adds a {@link SpreadsheetMetadataFetcherWatcher}.

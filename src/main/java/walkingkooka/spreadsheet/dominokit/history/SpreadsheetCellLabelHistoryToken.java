@@ -41,7 +41,7 @@ public abstract class SpreadsheetCellLabelHistoryToken extends SpreadsheetCellHi
         );
     }
 
-    @Override
+    @Override //
     final UrlFragment cellUrlFragment() {
         return LABEL.appendSlashThen(this.cellLabelUrlFragment());
     }

@@ -79,8 +79,9 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
         this.tooltipMessage = "";
     }
 
-    @Override void setIdAndName(final SpreadsheetId id,
-                                final SpreadsheetName name) {
+    @Override
+    void setIdAndName(final SpreadsheetId id,
+                      final SpreadsheetName name) {
         // nop
     }
 

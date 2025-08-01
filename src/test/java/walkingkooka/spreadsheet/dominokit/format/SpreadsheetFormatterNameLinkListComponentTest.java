@@ -96,7 +96,8 @@ public class SpreadsheetFormatterNameLinkListComponentTest implements HtmlElemen
                     return SPREADSHEET_FORMATTER_PROVIDER.spreadsheetFormatterInfos();
                 }
 
-                @Override public Optional<SpreadsheetFormatterName> formatterName() {
+                @Override
+                public Optional<SpreadsheetFormatterName> formatterName() {
                     return spreadsheetFormatterName;
                 }
 

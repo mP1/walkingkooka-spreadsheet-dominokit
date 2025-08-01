@@ -313,7 +313,7 @@ public class App implements EntryPoint,
             this
         );
         this.addDecimalNumberSymbolsFetcherWatcher(this);
-        
+
         // delta
         this.spreadsheetDeltaFetcherWatchers = SpreadsheetDeltaFetcherWatchers.empty();
         this.spreadsheetDeltaFetcher = SpreadsheetDeltaFetcher.with(
@@ -374,7 +374,7 @@ public class App implements EntryPoint,
             this
         );
         this.addLocaleFetcherWatcher(this);
-        
+
         // parser
         this.spreadsheetParserFetcherWatchers = SpreadsheetParserFetcherWatchers.empty();
         this.spreadsheetParserFetcher = SpreadsheetParserFetcher.with(
@@ -392,7 +392,7 @@ public class App implements EntryPoint,
         );
         this.validatorInfoSet = ValidatorInfoSet.EMPTY;
         this.addValidatorFetcherWatcher(this);
-        
+
         // plugins
         this.pluginFetcherWatchers = PluginFetcherWatchers.empty();
         this.pluginFetcher = PluginFetcher.with(
@@ -729,7 +729,7 @@ public class App implements EntryPoint,
                         final Url url,
                         final Optional<FetcherRequestBody<?>> body,
                         final AppContext context) {
-        if(body.isPresent()) {
+        if (body.isPresent()) {
             context.debug(method + " " + url, body.get());
         } else {
             context.debug(method + " " + url);
@@ -882,8 +882,8 @@ public class App implements EntryPoint,
 
     @Override
     public void onDecimalNumberSymbolsHateosResource(final LocaleTag id,
-                                                final DecimalNumberSymbolsHateosResource decimalNumberSymbols,
-                                                final AppContext context) {
+                                                     final DecimalNumberSymbolsHateosResource decimalNumberSymbols,
+                                                     final AppContext context) {
         // NOP
     }
 
@@ -1102,7 +1102,7 @@ public class App implements EntryPoint,
         final Set<Locale> availableLocales = Sets.hash();
         final Map<Locale, String> localeToText = Maps.hash();
 
-        for(final LocaleHateosResource localeHateosResource : locales) {
+        for (final LocaleHateosResource localeHateosResource : locales) {
             final Locale locale = localeHateosResource.locale();
 
             availableLocales.add(locale);

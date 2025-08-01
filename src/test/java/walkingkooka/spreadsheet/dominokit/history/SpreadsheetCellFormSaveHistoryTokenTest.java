@@ -91,9 +91,9 @@ public final class SpreadsheetCellFormSaveHistoryTokenTest extends SpreadsheetCe
 
     @Override
     SpreadsheetCellFormSaveHistoryToken createHistoryToken(final SpreadsheetId id,
-                                                             final SpreadsheetName name,
-                                                             final AnchoredSpreadsheetSelection anchoredSelection,
-                                                             final FormName formName) {
+                                                           final SpreadsheetName name,
+                                                           final AnchoredSpreadsheetSelection anchoredSelection,
+                                                           final FormName formName) {
         return SpreadsheetCellFormSaveHistoryToken.with(
             id,
             name,

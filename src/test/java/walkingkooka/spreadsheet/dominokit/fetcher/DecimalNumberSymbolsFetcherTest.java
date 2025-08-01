@@ -101,7 +101,7 @@ public final class DecimalNumberSymbolsFetcherTest implements ClassTesting<Decim
             DecimalNumberSymbolsFetcher.extractLocaleStartsWith(path)
         );
     }
-    
+
     // class............................................................................................................
 
     @Override

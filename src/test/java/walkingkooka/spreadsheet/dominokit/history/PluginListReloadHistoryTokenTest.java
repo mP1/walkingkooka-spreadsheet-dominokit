@@ -128,7 +128,7 @@ public final class PluginListReloadHistoryTokenTest extends PluginListHistoryTok
             )
         );
     }
-    
+
     // parse............................................................................................................
 
     @Test

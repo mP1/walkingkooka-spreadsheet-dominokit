@@ -293,8 +293,8 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
 
     @Override
     SpreadsheetCellSaveDateTimeSymbolsHistoryToken createHistoryToken(final SpreadsheetId id,
-                                                                final SpreadsheetName name,
-                                                                final AnchoredSpreadsheetSelection anchoredSelection) {
+                                                                      final SpreadsheetName name,
+                                                                      final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellSaveDateTimeSymbolsHistoryToken.with(
             id,
             name,

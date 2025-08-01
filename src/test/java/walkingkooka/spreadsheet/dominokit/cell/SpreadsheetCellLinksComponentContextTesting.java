@@ -18,5 +18,5 @@
 package walkingkooka.spreadsheet.dominokit.cell;
 
 public interface SpreadsheetCellLinksComponentContextTesting<C extends SpreadsheetCellLinksComponentContext> extends SpreadsheetCellLabelsAnchorComponentContextTesting<C>,
-    SpreadsheetCellReferencesAnchorComponentContextTesting<C>{
+    SpreadsheetCellReferencesAnchorComponentContextTesting<C> {
 }

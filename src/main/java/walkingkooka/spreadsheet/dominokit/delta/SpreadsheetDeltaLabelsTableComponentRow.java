@@ -27,8 +27,8 @@ import java.util.Optional;
 
 final class SpreadsheetDeltaLabelsTableComponentRow {
 
-    static  SpreadsheetDeltaLabelsTableComponentRow with(final SpreadsheetLabelMapping mapping,
-                                                         final Optional<SpreadsheetCell> cell) {
+    static SpreadsheetDeltaLabelsTableComponentRow with(final SpreadsheetLabelMapping mapping,
+                                                        final Optional<SpreadsheetCell> cell) {
         return new SpreadsheetDeltaLabelsTableComponentRow(
             mapping,
             cell

@@ -61,7 +61,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
 
     // parse............................................................................................................
 
-    @Override
+    @Override //
     final HistoryToken parseNext(final String component,
                                  final TextCursor cursor) {
         final HistoryToken result;

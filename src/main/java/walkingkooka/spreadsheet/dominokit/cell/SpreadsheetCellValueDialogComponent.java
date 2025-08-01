@@ -83,15 +83,15 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
         this.context = context;
 
         this.value = valueComponent.addChangeListener(
-                (final Optional<T> oldValue,
-                 final Optional<T> newValue) -> context.pushHistoryToken(
-                    context.historyToken()
-                        .setSaveStringValue(
-                            context.toHistoryTokenSaveStringValue(newValue)
-                        )
-                )
-            );
-        
+            (final Optional<T> oldValue,
+             final Optional<T> newValue) -> context.pushHistoryToken(
+                context.historyToken()
+                    .setSaveStringValue(
+                        context.toHistoryTokenSaveStringValue(newValue)
+                    )
+            )
+        );
+
         this.save = this.<String>saveValueAnchor(context)
             .autoDisableWhenMissingValue();
 
@@ -148,7 +148,7 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
             .appendChild(this.clear);
 
         final ValidationValueTypeName valueType = context.valueType();
-        if(ValidationValueTypeName.DATE.equals(valueType) ||
+        if (ValidationValueTypeName.DATE.equals(valueType) ||
             ValidationValueTypeName.DATE_TIME.equals(valueType) ||
             ValidationValueTypeName.TIME.equals(valueType)) {
             links.appendChild(this.nowOrToday);

@@ -334,7 +334,7 @@ public final class SpreadsheetLocaleComponent implements FormValueComponent<HTML
             final String localeText = this.context.localeText(gotLocale)
                 .orElse(null);
 
-            if(null != localeText) {
+            if (null != localeText) {
                 verified = SpreadsheetLocaleComponentSuggestionsValue.with(
                     gotLocale,
                     localeText

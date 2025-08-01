@@ -27,6 +27,7 @@ public final class SpreadsheetCellLabelsAnchorComponentContexts implements Publi
     public static SpreadsheetCellLabelsAnchorComponentContext fake() {
         return new FakeSpreadsheetCellLabelsAnchorComponentContext();
     }
+
     /**
      * Stop creation
      */

@@ -75,7 +75,7 @@ public final class SpreadsheetDateComponentTest implements FormValueComponentTes
     // ValueComponent...................................................................................................
 
     @Override
-     public SpreadsheetDateComponent createComponent() {
+    public SpreadsheetDateComponent createComponent() {
         return SpreadsheetDateComponent.empty(
             "id",
             () -> CLEAR_VALUE

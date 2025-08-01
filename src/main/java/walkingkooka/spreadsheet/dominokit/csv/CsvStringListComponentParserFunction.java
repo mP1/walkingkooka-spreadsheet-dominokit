@@ -65,7 +65,7 @@ final class CsvStringListComponentParserFunction implements Function<String, Csv
 
         String orMore = "";
         String orLess = "";
-        if(minLength != maxLength) {
+        if (minLength != maxLength) {
             orLess = " or less";
             orMore = " or more";
         }

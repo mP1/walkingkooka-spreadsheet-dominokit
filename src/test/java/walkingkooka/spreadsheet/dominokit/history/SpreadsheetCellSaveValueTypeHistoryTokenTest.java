@@ -259,7 +259,7 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
             SpreadsheetCellReferenceToValidationValueTypeNameMap.with(map)
         );
     }
-    
+
     // setSaveStringValue.....................................................................................................
 
     @Test

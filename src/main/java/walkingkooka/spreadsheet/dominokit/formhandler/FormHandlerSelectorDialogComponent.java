@@ -143,7 +143,7 @@ public final class FormHandlerSelectorDialogComponent implements SpreadsheetDial
 
     void refreshSaveLink(final Optional<FormHandlerSelector> list) {
         this.selector.validate();
-        if(this.selector.hasErrors()) {
+        if (this.selector.hasErrors()) {
             this.save.disabled();
         } else {
             this.save.setValue(list);

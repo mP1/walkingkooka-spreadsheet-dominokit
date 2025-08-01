@@ -188,7 +188,7 @@ public final class SpreadsheetDeltaCellsTableComponent implements TableComponent
 
     @Override
     public SpreadsheetDeltaCellsTableComponent setCssProperty(final String name,
-                                                        final String value) {
+                                                              final String value) {
         this.card.setCssProperty(
             name,
             value

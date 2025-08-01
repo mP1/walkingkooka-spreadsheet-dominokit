@@ -148,7 +148,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
                     this.loaded = null;
 
                     final HistoryToken historyToken = context.historyToken();
-                    if(historyToken instanceof SpreadsheetLabelMappingHistoryToken) {
+                    if (historyToken instanceof SpreadsheetLabelMappingHistoryToken) {
                         context.pushHistoryToken(
                             historyToken.setLabelName(newValue)
                         );
@@ -202,7 +202,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
 
     private void onLabelMappingReferenceNewValue(final Optional<SpreadsheetExpressionReference> newValue) {
         final HistoryToken historyToken = context.historyToken();
-        if(historyToken instanceof SpreadsheetCellLabelHistoryToken) {
+        if (historyToken instanceof SpreadsheetCellLabelHistoryToken) {
             context.pushHistoryToken(
                 historyToken.setLabelMappingReference(newValue)
             );

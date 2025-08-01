@@ -3602,7 +3602,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             )
         );
     }
-    
+
     // column.............................................................................................................
 
     @Test

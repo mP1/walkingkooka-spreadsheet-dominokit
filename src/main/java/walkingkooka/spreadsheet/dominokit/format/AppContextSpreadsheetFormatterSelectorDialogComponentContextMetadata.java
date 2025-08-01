@@ -65,9 +65,9 @@ final class AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata
     public Optional<SpreadsheetFormatterSelector> undo() {
         return Cast.to(
             this.context.spreadsheetMetadata()
-            .getIgnoringDefaults(
-                this.spreadsheetMetadataPropertyName()
-            )
+                .getIgnoringDefaults(
+                    this.spreadsheetMetadataPropertyName()
+                )
         );
     }
 
@@ -85,7 +85,7 @@ final class AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata
             .cast(SpreadsheetMetadataPropertyHistoryToken.class);
 
         // HACK throttler and fetcher will in JVM
-        if(GWT.isScript()) {
+        if (GWT.isScript()) {
             this.throttler.add(
                 () -> context.spreadsheetFormatterFetcher()
                     .getMetadataFormatterEdit(

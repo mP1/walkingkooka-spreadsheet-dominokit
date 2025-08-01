@@ -51,23 +51,23 @@ public interface ValueComponentDelegator<E extends HTMLElement, V, C extends Val
     default C setValue(final Optional<V> value) {
         this.valueComponent()
             .setValue(value);
-        return (C)this;
+        return (C) this;
     }
 
-    @Override 
+    @Override
     default boolean isDisabled() {
         return this.valueComponent()
             .isDisabled();
     }
 
-    @Override 
+    @Override
     default C setDisabled(final boolean disabled) {
         this.valueComponent()
             .setDisabled(disabled);
         return (C) this;
     }
 
-    @Override 
+    @Override
     default C addChangeListener(final ChangeListener<Optional<V>> listener) {
         this.valueComponent()
             .addChangeListener(listener);
@@ -80,7 +80,7 @@ public interface ValueComponentDelegator<E extends HTMLElement, V, C extends Val
             .addClickListener(listener);
         return (C) this;
     }
-    
+
     @Override
     default C addFocusListener(final EventListener listener) {
         this.valueComponent()

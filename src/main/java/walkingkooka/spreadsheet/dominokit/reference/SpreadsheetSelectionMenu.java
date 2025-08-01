@@ -460,7 +460,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
 
         subMenu.disableIfEmpty();
     }
-    
+
     // valueTypes.......................................................................................................
 
     private static void valueTypes(final HistoryToken historyToken,
@@ -1159,7 +1159,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
 
         final SpreadsheetSelection selectionNotLabel = context.resolveIfLabel(selection)
-                .orElse(null);
+            .orElse(null);
 
         if (null != selectionNotLabel && (selection.isColumnOrColumnRange() | selection.isExternalReference())) {
             final HistoryToken columnHistoryToken = historyToken.setAnchoredSelection(

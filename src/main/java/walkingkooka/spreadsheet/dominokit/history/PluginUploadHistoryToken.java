@@ -37,7 +37,8 @@ public abstract class PluginUploadHistoryToken extends PluginHistoryToken {
     //
     // /plugin-upload
     //
-    @Override final UrlFragment pluginUrlFragment() {
+    @Override //
+    final UrlFragment pluginUrlFragment() {
         return UrlFragment.SLASH.append(PLUGIN_UPLOAD)
             .appendSlashThen(this.pluginUploadUrlFragment());
     }

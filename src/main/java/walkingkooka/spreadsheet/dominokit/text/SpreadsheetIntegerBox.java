@@ -115,7 +115,7 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     }
 
     private SpreadsheetIntegerBox addEventListener(final EventType eventType,
-                                                final EventListener listener) {
+                                                   final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
 
         this.integerBox.addEventListener(

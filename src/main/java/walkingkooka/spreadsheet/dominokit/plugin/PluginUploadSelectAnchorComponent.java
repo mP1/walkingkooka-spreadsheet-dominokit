@@ -59,16 +59,16 @@ public final class PluginUploadSelectAnchorComponent implements AnchorComponentD
 
         return Optional.ofNullable(
             historyToken instanceof PluginUploadSelectHistoryToken ?
-            Boolean.TRUE :
-            null
+                Boolean.TRUE :
+                null
         );
     }
 
     @Override
     public PluginUploadSelectAnchorComponent setValue(final Optional<Boolean> value) {
-       return this.setDisabled(
-           value.orElse(false)
-       );
+        return this.setDisabled(
+            value.orElse(false)
+        );
     }
 
     // AnchorComponentDelegator.....................................................................................

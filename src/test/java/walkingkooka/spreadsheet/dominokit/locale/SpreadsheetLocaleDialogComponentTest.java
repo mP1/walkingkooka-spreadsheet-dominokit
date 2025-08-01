@@ -130,10 +130,10 @@ public final class SpreadsheetLocaleDialogComponentTest implements SpreadsheetDi
         );
 
         context.spreadsheetViewportCache()
-                .onSpreadsheetMetadata(
-                    METADATA,
-                    context
-                );
+            .onSpreadsheetMetadata(
+                METADATA,
+                context
+            );
 
         context.spreadsheetViewportCache()
             .onSpreadsheetDelta(
@@ -246,13 +246,13 @@ public final class SpreadsheetLocaleDialogComponentTest implements SpreadsheetDi
 
             @Override
             public Optional<String> localeText(final Locale locale) {
-                if(locale.equals(LOCALE)) {
+                if (locale.equals(LOCALE)) {
                     return Optional.of("English (Australian)");
                 }
-                if(locale.equals(Locale.ENGLISH)) {
+                if (locale.equals(Locale.ENGLISH)) {
                     return Optional.of("English");
                 }
-                if(locale.equals(Locale.FRENCH)) {
+                if (locale.equals(Locale.FRENCH)) {
                     return Optional.of("French");
                 }
                 return Optional.empty();

@@ -68,7 +68,7 @@ public final class FetcherTest implements ClassTesting2<Fetcher<?>> {
             "Expected at least 1 converter but got 0"
         );
     }
-    
+
     @Test
     public void testErrorMessageWithStackTraceNewLine() {
         this.errorMessageAndCheck(

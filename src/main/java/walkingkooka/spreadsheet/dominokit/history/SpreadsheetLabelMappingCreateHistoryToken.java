@@ -46,6 +46,7 @@ public final class SpreadsheetLabelMappingCreateHistoryToken extends Spreadsheet
             name
         );
     }
+
     //
     // Label123
     @Override

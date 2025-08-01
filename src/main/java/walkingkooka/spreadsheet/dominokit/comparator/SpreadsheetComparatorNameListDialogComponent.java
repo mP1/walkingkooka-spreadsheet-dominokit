@@ -143,7 +143,7 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
 
     void refreshSaveLink(final Optional<SpreadsheetComparatorNameList> list) {
         this.comparatorNameList.validate();
-        if(this.comparatorNameList.hasErrors()) {
+        if (this.comparatorNameList.hasErrors()) {
             this.save.disabled();
         } else {
             this.save.setValue(list);

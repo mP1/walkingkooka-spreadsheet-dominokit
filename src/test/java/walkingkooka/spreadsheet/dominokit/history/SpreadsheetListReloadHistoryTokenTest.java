@@ -120,7 +120,7 @@ public final class SpreadsheetListReloadHistoryTokenTest extends SpreadsheetList
             )
         );
     }
-    
+
     // parse............................................................................................................
 
     @Test

@@ -100,13 +100,13 @@ final class SpreadsheetSelectionMenuValidator {
             .flatMap(SpreadsheetCell::validator)
             .orElse(null);
 
-        if(null != selected) {
+        if (null != selected) {
             sorted.add(selected);
         }
 
         for (final ValidatorSelector validatorSelector : sorted) {
             final String name = validatorSelector.name()
-                    .value();
+                .value();
 
             menu.item(
                 SpreadsheetContextMenuItem.with(

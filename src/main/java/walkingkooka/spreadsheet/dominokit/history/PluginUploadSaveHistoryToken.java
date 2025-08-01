@@ -31,7 +31,7 @@ import java.util.Objects;
  */
 public final class PluginUploadSaveHistoryToken extends PluginUploadHistoryToken
     implements Value<BrowserFile>,
-    HistoryTokenWatcher{
+    HistoryTokenWatcher {
 
     /**
      * Factory

@@ -102,12 +102,12 @@ public final class SpreadsheetCellReferencesAnchorComponentTest implements Ancho
     public void testSetValueWithCellRange() {
         this.treePrintAndCheck(
             this.createComponent(
-                    SpreadsheetSelection.parseCell("B2")
-                ).setValue(
-                    Optional.of(
-                        SpreadsheetSelection.parseCellRange("B2:C3")
-                    )
-                ),
+                SpreadsheetSelection.parseCell("B2")
+            ).setValue(
+                Optional.of(
+                    SpreadsheetSelection.parseCellRange("B2:C3")
+                )
+            ),
             "\"B2:C3\" [#/1/SpreadsheetName22/cell/B2:C3/bottom-right/references] (1) id=cell-references-anchor-id"
         );
     }
@@ -116,13 +116,13 @@ public final class SpreadsheetCellReferencesAnchorComponentTest implements Ancho
     public void testSetValueWithLabel() {
         this.treePrintAndCheck(
             this.createComponent(
-                    SpreadsheetSelection.parseCell("B2"),
-                    SpreadsheetSelection.parseCellRange("C3:D4")
-                ).setValue(
-                    Optional.of(
-                        SpreadsheetSelection.labelName("Label9999")
-                    )
-                ),
+                SpreadsheetSelection.parseCell("B2"),
+                SpreadsheetSelection.parseCellRange("C3:D4")
+            ).setValue(
+                Optional.of(
+                    SpreadsheetSelection.labelName("Label9999")
+                )
+            ),
             "\"Label9999\" [#/1/SpreadsheetName22/cell/Label9999/references] (2) id=cell-references-anchor-id"
         );
     }
@@ -134,7 +134,7 @@ public final class SpreadsheetCellReferencesAnchorComponentTest implements Ancho
         );
     }
 
-    private SpreadsheetCellReferencesAnchorComponent createComponent(final SpreadsheetExpressionReference...spreadsheetExpressionReference) {
+    private SpreadsheetCellReferencesAnchorComponent createComponent(final SpreadsheetExpressionReference... spreadsheetExpressionReference) {
         return this.createComponent(
             "/1/SpreadsheetName22",
             spreadsheetExpressionReference
@@ -142,7 +142,7 @@ public final class SpreadsheetCellReferencesAnchorComponentTest implements Ancho
     }
 
     private SpreadsheetCellReferencesAnchorComponent createComponent(final String currentHistoryToken,
-                                                                     final SpreadsheetExpressionReference...spreadsheetExpressionReference) {
+                                                                     final SpreadsheetExpressionReference... spreadsheetExpressionReference) {
         return SpreadsheetCellReferencesAnchorComponent.with(
             "cell-references-anchor-id",
             new FakeSpreadsheetCellReferencesAnchorComponentContext() {

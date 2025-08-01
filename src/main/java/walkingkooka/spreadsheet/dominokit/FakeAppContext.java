@@ -187,7 +187,7 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     public DecimalNumberSymbolsFetcher decimalNumberSymbolsFetcher() {
         throw new UnsupportedOperationException();
     }
-    
+
     // SpreadsheetDeltaFetcherWatcher...................................................................................
 
     @Override
@@ -255,7 +255,7 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     public FormHandlerFetcher formHandlerFetcher() {
         throw new UnsupportedOperationException();
     }
-    
+
     // SpreadsheetFormatterWatcher......................................................................................
 
     @Override

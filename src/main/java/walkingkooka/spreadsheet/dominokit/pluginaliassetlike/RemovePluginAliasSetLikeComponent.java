@@ -201,9 +201,9 @@ public final class RemovePluginAliasSetLikeComponent<N extends Name & Comparable
     public RemovePluginAliasSetLikeComponent<N, I, IS, S, A, AS> setCssProperty(final String name,
                                                                                 final String value) {
         this.root.setCssProperty(
-                name,
-                value
-            );
+            name,
+            value
+        );
         return this;
     }
 

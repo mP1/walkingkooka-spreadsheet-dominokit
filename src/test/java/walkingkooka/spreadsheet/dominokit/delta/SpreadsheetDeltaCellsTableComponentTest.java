@@ -276,7 +276,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                     SpreadsheetSelection.parseCell("B2")
                 ), // cellReferences
                 (SpreadsheetExpressionReference r) -> {
-                    switch(r.toString().toUpperCase()) {
+                    switch (r.toString().toUpperCase()) {
                         case "A1":
                             return Optional.of("A1=1+2+3000");
                         default:
@@ -284,7 +284,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                     }
                 }, // formulaText
                 (SpreadsheetSelection s) -> {
-                    switch(s.toString().toUpperCase()) {
+                    switch (s.toString().toUpperCase()) {
                         case "A1":
                             return Optional.of(
                                 SpreadsheetSelection.A1.setFormula(

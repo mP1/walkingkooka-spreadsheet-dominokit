@@ -69,7 +69,8 @@ public final class SpreadsheetMetadataPropertySelectHistoryToken<T> extends Spre
         );
     }
 
-    @Override HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
+    @Override
+    HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
         final SpreadsheetId id = this.id();
         final SpreadsheetName name = this.name();
 

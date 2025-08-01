@@ -34,7 +34,7 @@ import java.util.Optional;
  */
 public final class SpreadsheetContextMenuItem<T> implements TreePrintable {
 
-    public static <T> SpreadsheetContextMenuItem<T> with(final String id, 
+    public static <T> SpreadsheetContextMenuItem<T> with(final String id,
                                                          final String text) {
         CharSequences.failIfNullOrEmpty(id, "id");
         if (false == id.endsWith(SpreadsheetElementIds.MENU_ITEM)) {

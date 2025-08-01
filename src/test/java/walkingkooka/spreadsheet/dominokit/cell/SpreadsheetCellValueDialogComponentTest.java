@@ -328,7 +328,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
                 "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
         );
     }
-    
+
     @Test
     public void testOnHistoryTokenChangeWithSpreadsheetCellValueHistoryTokenAndTimeValue() {
         final HistoryToken historyToken = HistoryToken.parseString(

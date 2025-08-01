@@ -104,7 +104,7 @@ public final class AppContextSpreadsheetParserSelectorDialogComponentContextMeta
             false
         );
     }
-    
+
     @Override
     public AppContextSpreadsheetParserSelectorDialogComponentContextMetadata createContext() {
         return AppContextSpreadsheetParserSelectorDialogComponentContextMetadata.with(AppContexts.fake());

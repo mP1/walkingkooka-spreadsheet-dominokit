@@ -64,7 +64,7 @@ public final class BasicSpreadsheetDeltaCellsTableComponentContextTest implement
     private final static Function<SpreadsheetExpressionReference, Optional<String>> CELL_TO_FORMULA_TEXT = (SpreadsheetExpressionReference reference) -> {
         Objects.requireNonNull(reference, "reference");
 
-        if(reference.equals(SpreadsheetSelection.A1)) {
+        if (reference.equals(SpreadsheetSelection.A1)) {
             return Optional.of("=1+2+3000");
         }
 
@@ -74,7 +74,7 @@ public final class BasicSpreadsheetDeltaCellsTableComponentContextTest implement
     private final static Function<SpreadsheetSelection, Optional<SpreadsheetCell>> SELECTION_TO_CELL = (SpreadsheetSelection selection) -> {
         Objects.requireNonNull(selection, "selection");
 
-        if(selection.equals(SpreadsheetSelection.A1)) {
+        if (selection.equals(SpreadsheetSelection.A1)) {
             return Optional.of(
                 SpreadsheetSelection.A1.setFormula(
                     SpreadsheetFormula.EMPTY.setValueType(

@@ -177,7 +177,7 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
                 );
             }
         } else {
-            if(null != textMatch) {
+            if (null != textMatch) {
                 // EXACT replace try replace any previous textMatch(component.value, cellXXX())
                 token = old.replaceIf(
                     SpreadsheetFindDialogComponentQueryTextMatchFunctionParserTokenPredicate.with(cellPropertyGetter), // predicate
@@ -200,7 +200,7 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
                         .get(1)
                 );
 
-                if(old.equals(token)) {
+                if (old.equals(token)) {
                     // second -> find OR ( OTHER, cellPropertyGetter) -> OTHER
                     token = old.replaceIf(
                         SpreadsheetFindDialogComponentQueryOrTextMatchFunctionParserTokenPredicate.with(
@@ -213,7 +213,7 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
                             .get(0)
                     );
 
-                    if(old.equals(token)) {
+                    if (old.equals(token)) {
                         // third -> remove cellPropertyGetter
                         token = old.removeIf(
                             SpreadsheetFindDialogComponentQueryTextMatchFunctionParserTokenPredicate.with(cellPropertyGetter)

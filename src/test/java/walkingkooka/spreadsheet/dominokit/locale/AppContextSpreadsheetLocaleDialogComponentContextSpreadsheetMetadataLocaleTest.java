@@ -65,8 +65,8 @@ public final class AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetM
 
     @Test
     public void testIsMatchWithSpreadsheetMetadataSelectNotLocale() {
-        for(final SpreadsheetMetadataPropertyName<?> propertyName : SpreadsheetMetadataPropertyName.ALL) {
-            if(SpreadsheetMetadataPropertyName.LOCALE.equals(propertyName)) {
+        for (final SpreadsheetMetadataPropertyName<?> propertyName : SpreadsheetMetadataPropertyName.ALL) {
+            if (SpreadsheetMetadataPropertyName.LOCALE.equals(propertyName)) {
                 continue;
             }
 

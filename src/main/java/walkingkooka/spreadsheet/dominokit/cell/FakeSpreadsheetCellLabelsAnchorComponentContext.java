@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.util.Set;
 
-public class FakeSpreadsheetCellLabelsAnchorComponentContext extends FakeHistoryContext implements SpreadsheetCellLabelsAnchorComponentContext{
+public class FakeSpreadsheetCellLabelsAnchorComponentContext extends FakeHistoryContext implements SpreadsheetCellLabelsAnchorComponentContext {
 
     @Override
     public Set<SpreadsheetLabelName> cellLabels(final SpreadsheetExpressionReference spreadsheetExpressionReference) {

@@ -284,7 +284,7 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
             SpreadsheetCellReferenceToSpreadsheetParserSelectorMap.with(map)
         );
     }
-    
+
     // setSaveValue.....................................................................................................
 
     @Test

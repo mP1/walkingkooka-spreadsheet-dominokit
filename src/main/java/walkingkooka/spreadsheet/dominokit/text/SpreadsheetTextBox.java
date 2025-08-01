@@ -73,7 +73,7 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
             listener
         );
     }
-    
+
     @Override
     public SpreadsheetTextBox addFocusListener(final EventListener listener) {
         return this.addEventListener(

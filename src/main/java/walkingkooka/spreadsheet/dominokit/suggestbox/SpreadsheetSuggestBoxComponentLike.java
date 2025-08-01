@@ -48,12 +48,12 @@ public interface SpreadsheetSuggestBoxComponentLike<T> extends FormValueComponen
     @Override
     default void treePrintAlternateValues(final IndentingPrinter printer) {
         final Collection<T> options = this.options();
-        if(false == options.isEmpty()) {
+        if (false == options.isEmpty()) {
             printer.println("options");
 
             printer.indent();
             {
-                for(final T option : options) {
+                for (final T option : options) {
                     TreePrintable.printTreeOrToString(
                         option,
                         printer

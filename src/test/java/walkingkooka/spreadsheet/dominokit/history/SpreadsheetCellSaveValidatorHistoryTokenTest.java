@@ -270,7 +270,7 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
             SpreadsheetCellReferenceToValidatorSelectorMap.with(map)
         );
     }
-    
+
     // setSaveValue.....................................................................................................
 
     @Test

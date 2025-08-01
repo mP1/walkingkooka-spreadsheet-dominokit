@@ -28,7 +28,7 @@ import java.util.OptionalInt;
  * /STAR/offset/1/count/10/
  * </pre>
  */
-public final class SpreadsheetListSelectHistoryToken extends SpreadsheetListHistoryToken implements HistoryTokenWatcher{
+public final class SpreadsheetListSelectHistoryToken extends SpreadsheetListHistoryToken implements HistoryTokenWatcher {
 
     static SpreadsheetListSelectHistoryToken with(final HistoryTokenOffsetAndCount offsetAndCount) {
         return new SpreadsheetListSelectHistoryToken(

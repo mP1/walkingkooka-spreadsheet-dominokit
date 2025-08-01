@@ -61,9 +61,8 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
 
     // parse............................................................................................................
 
-    @Override
-    final HistoryToken parseNext(final String component,
-                                 final TextCursor cursor) {
+    @Override final HistoryToken parseNext(final String component,
+                                           final TextCursor cursor) {
         final HistoryToken result;
 
         switch (component) {

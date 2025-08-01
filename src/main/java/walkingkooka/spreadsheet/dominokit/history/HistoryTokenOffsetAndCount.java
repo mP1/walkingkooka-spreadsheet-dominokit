@@ -89,7 +89,7 @@ public final class HistoryTokenOffsetAndCount implements HasUrlFragment,
     private static OptionalInt parseOptionalInt(final TextCursor text,
                                                 final String label) {
         final String value = HistoryToken.parseComponentOrEmpty(text);
-        if(value.isEmpty()) {
+        if (value.isEmpty()) {
             throw new IllegalArgumentException("Missing value for " + CharSequences.quoteAndEscape(label));
         }
         return OptionalInt.of(

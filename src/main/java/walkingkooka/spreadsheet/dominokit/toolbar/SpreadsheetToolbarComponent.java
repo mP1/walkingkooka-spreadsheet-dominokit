@@ -78,9 +78,9 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
     public SpreadsheetToolbarComponent setCssProperty(final String name,
                                                       final String value) {
         this.flexLayout.setCssProperty(
-                name,
-                value
-            );
+            name,
+            value
+        );
         return this;
     }
 

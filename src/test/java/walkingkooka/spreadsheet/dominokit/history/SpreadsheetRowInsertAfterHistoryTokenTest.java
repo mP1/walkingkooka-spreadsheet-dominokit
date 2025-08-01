@@ -90,7 +90,7 @@ public final class SpreadsheetRowInsertAfterHistoryTokenTest extends Spreadsheet
     }
 
     // UrlFragment......................................................................................................
-    
+
     @Test
     public void testUrlFragmentRow1() {
         this.urlFragmentAndCheck(

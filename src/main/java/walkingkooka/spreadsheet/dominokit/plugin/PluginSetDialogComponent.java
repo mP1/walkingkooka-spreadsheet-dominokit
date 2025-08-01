@@ -171,7 +171,7 @@ public final class PluginSetDialogComponent implements SpreadsheetDialogComponen
             Optional.ofNullable(
                 plugins.isEmpty() ?
                     null :
-                plugins
+                    plugins
             )
         );
         this.refreshIfOpen(context);

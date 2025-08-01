@@ -341,7 +341,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
                 .orElse("")
         );
     }
-    
+
     /**
      * A SAVE link which will be updated each time the {@link #textBox} is also updated.
      */

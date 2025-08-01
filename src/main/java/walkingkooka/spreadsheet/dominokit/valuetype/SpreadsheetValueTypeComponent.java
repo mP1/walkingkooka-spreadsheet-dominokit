@@ -50,7 +50,7 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
             SpreadsheetValueType.ANY
         );
 
-        for(final ValidationValueTypeName typeName : SpreadsheetValueType.ALL_CELL_TYPES) {
+        for (final ValidationValueTypeName typeName : SpreadsheetValueType.ALL_CELL_TYPES) {
             select.appendOption(
                 CaseKind.PASCAL.change(
                     typeName.text(),
@@ -183,7 +183,7 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
         );
         return this;
     }
-    
+
     @Override
     public SpreadsheetValueTypeComponent addFocusListener(final EventListener listener) {
         this.select.addFocusListener(

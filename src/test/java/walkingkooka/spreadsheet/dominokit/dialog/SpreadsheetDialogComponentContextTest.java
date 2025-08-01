@@ -82,9 +82,9 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
             () -> "plugin: " + plugin + " action: " + action
         );
     }
-    
+
     // selectionDialogTitle.............................................................................................
-    
+
     @Test
     public void testSelectionDialogTitleWithCell() {
         this.selectionDialogTitleAndCheck(

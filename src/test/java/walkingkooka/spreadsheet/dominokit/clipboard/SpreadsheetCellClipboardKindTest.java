@@ -840,7 +840,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     public void testUnmarshallFormatter() {
         final Optional<SpreadsheetFormatterSelector> formatter = Optional.of(
             SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/dd")
-            .spreadsheetFormatterSelector()
+                .spreadsheetFormatterSelector()
         );
 
         this.unmarshallAndCheck(
@@ -863,7 +863,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     public void testUnmarshallParser() {
         final Optional<SpreadsheetParserSelector> parser = Optional.of(
             SpreadsheetPattern.parseDateParsePattern("yyyy/mm/dd")
-            .spreadsheetParserSelector()
+                .spreadsheetParserSelector()
         );
 
         this.unmarshallAndCheck(

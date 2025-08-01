@@ -144,9 +144,9 @@ public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentL
     public SpreadsheetTabsComponent setCssProperty(final String name,
                                                    final String value) {
         this.tabsPanel.setCssProperty(
-                name,
-                value
-            );
+            name,
+            value
+        );
         return this;
     }
 
