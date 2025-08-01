@@ -82,51 +82,6 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
         }
     };
 
-    // spreadsheetLocaleComponentValue..................................................................................
-
-    @Test
-    public void testSpreadsheetLocaleComponentValue() {
-        this.spreadsheetLocaleComponentValueAndCheck(
-            ENGLISH_AUSTRALIA_TEXT,
-            CONTEXT,
-            SpreadsheetLocaleComponentSuggestionsValue.with(
-                ENAU,
-                ENGLISH_AUSTRALIA_TEXT
-            )
-        );
-    }
-
-    @Test
-    public void testSpreadsheetLocaleComponentValueDifferentCase() {
-        final String text = ENGLISH_NEW_ZEALAND_TEXT.toLowerCase();
-
-        this.checkNotEquals(
-            text,
-            ENGLISH_NEW_ZEALAND_TEXT
-        );
-
-        this.spreadsheetLocaleComponentValueAndCheck(
-            text,
-            CONTEXT,
-            SpreadsheetLocaleComponentSuggestionsValue.with(
-                ENNZ,
-                ENGLISH_NEW_ZEALAND_TEXT
-            )
-        );
-    }
-
-    private void spreadsheetLocaleComponentValueAndCheck(final String localeText,
-                                                         final LocaleContext context,
-                                                         final SpreadsheetLocaleComponentSuggestionsValue expected) {
-        this.checkEquals(
-            expected,
-            SpreadsheetLocaleComponent.spreadsheetLocaleComponentValue(
-                localeText,
-                context
-            )
-        );
-    }
-
     // TreePrint........................................................................................................
 
     @Test

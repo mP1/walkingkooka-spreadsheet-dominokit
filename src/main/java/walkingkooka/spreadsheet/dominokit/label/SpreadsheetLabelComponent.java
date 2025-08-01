@@ -65,7 +65,6 @@ public final class SpreadsheetLabelComponent implements SpreadsheetSuggestBoxCom
     private SpreadsheetLabelComponent(final Function<SpreadsheetLabelName, MenuItem<SpreadsheetLabelName>> optionMenuItemCreator,
                                       final SpreadsheetLabelComponentContext context) {
         this.suggestBox = SpreadsheetSuggestBoxComponent.with(
-            SpreadsheetSelection::labelName,
             new SpreadsheetSuggestBoxComponentSuggestionsProvider<>() {
                 @Override
                 public void filter(final String startsWith,

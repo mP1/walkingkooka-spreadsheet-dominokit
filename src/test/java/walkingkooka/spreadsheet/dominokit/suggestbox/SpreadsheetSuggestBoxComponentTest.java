@@ -103,7 +103,6 @@ public final class SpreadsheetSuggestBoxComponentTest implements FormValueCompon
     @Override
     public SpreadsheetSuggestBoxComponent<SpreadsheetCellReference> createComponent() {
         return SpreadsheetSuggestBoxComponent.with(
-            SpreadsheetSelection::parseCell,
             SUGGESTIONS_PROVIDER,
             (SpreadsheetCellReference c) -> {
                 throw new UnsupportedOperationException();

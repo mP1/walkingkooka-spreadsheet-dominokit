@@ -41,19 +41,15 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetSuggestBoxComponent<T>>,
     ValidatorHelper {
 
-    public static <T extends HasText> SpreadsheetSuggestBoxComponent<T> with(final Function<String, T> parser,
-                                                                             final SpreadsheetSuggestBoxComponentSuggestionsProvider<T> suggestionsProvider,
+    public static <T extends HasText> SpreadsheetSuggestBoxComponent<T> with(final SpreadsheetSuggestBoxComponentSuggestionsProvider<T> suggestionsProvider,
                                                                              final Function<T, MenuItem<T>> menuItemCreator) {
-        Objects.requireNonNull(parser, "parser");
         Objects.requireNonNull(suggestionsProvider, "suggestionsProvider");
         Objects.requireNonNull(menuItemCreator, "menuItemCreator");
 
-        return new SpreadsheetSuggestBoxComponent<>(
-            parser
-        );
+        return new SpreadsheetSuggestBoxComponent<>();
     }
 
-    private SpreadsheetSuggestBoxComponent(final Function<String, T> parser) {
+    private SpreadsheetSuggestBoxComponent() {
         this.helperText = Optional.empty();
 
         this.value = Optional.empty();
