@@ -87,10 +87,17 @@ public final class SpreadsheetLocaleComponent implements SpreadsheetSuggestBoxCo
                 @Override
                 public void verifyOption(final SpreadsheetLocaleComponentSuggestionsValue value,
                                          final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue> suggestBox) {
-                    final SpreadsheetLocaleComponentSuggestionsValue verified = verifyLocale(
-                        value,
-                        context
-                    ).orElse(null);
+                    SpreadsheetLocaleComponentSuggestionsValue verified = null;
+
+                    if (null != value) {
+                        final Locale locale = value.locale();
+                        final String localeText = context.localeText(locale)
+                            .orElse(null);
+                        verified = SpreadsheetLocaleComponentSuggestionsValue.with(
+                            locale,
+                            localeText
+                        );
+                    }
 
                     if (null != verified) {
                         suggestBox.setVerifiedOption(verified);
@@ -123,26 +130,6 @@ public final class SpreadsheetLocaleComponent implements SpreadsheetSuggestBoxCo
         }
 
         throw new IllegalArgumentException("Unknown locale");
-    }
-
-    /**
-     * Verifies that the given locale is valid, returning null if it is an unknown locale.
-     */
-    static Optional<SpreadsheetLocaleComponentSuggestionsValue> verifyLocale(final SpreadsheetLocaleComponentSuggestionsValue value,
-                                                                             final LocaleContext context) {
-        SpreadsheetLocaleComponentSuggestionsValue verified = null;
-
-        if (null != value) {
-            final Locale locale = value.locale();
-            final String localeText = context.localeText(locale)
-                .orElse(null);
-            verified = SpreadsheetLocaleComponentSuggestionsValue.with(
-                locale,
-                localeText
-            );
-        }
-
-        return Optional.ofNullable(verified);
     }
 
     @Override
