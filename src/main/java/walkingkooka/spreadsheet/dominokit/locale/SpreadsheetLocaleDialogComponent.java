@@ -129,7 +129,7 @@ public final class SpreadsheetLocaleDialogComponent implements SpreadsheetDialog
 
     // localeComponent..................................................................................................
 
-    private SpreadsheetLocaleComponent locale() {
+    private SpreadsheetLocaleComponent<Locale> locale() {
         return SpreadsheetLocaleComponent.empty(
                 new SpreadsheetLocaleComponentContext<Locale>() {
 
@@ -203,7 +203,7 @@ public final class SpreadsheetLocaleDialogComponent implements SpreadsheetDialog
             );
     }
 
-    private final SpreadsheetLocaleComponent locale;
+    private final SpreadsheetLocaleComponent<Locale> locale;
 
     // save.............................................................................................................
 
