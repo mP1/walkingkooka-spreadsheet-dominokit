@@ -34,11 +34,6 @@ public interface DateTimeSymbolsDialogComponentContext extends
     ComponentLifecycleMatcher {
 
     /**
-     * A label which is used for the title of the dialog box.
-     */
-    String dialogTitle();
-
-    /**
      * Used by "Copy Default" link as the source value.
      */
     Optional<DateTimeSymbols> copyDateTimeSymbols();

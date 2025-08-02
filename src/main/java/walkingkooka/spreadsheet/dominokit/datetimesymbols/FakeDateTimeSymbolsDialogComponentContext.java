@@ -42,11 +42,6 @@ public class FakeDateTimeSymbolsDialogComponentContext extends FakeSpreadsheetDi
     }
 
     @Override
-    public String dialogTitle() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public Optional<DateTimeSymbols> copyDateTimeSymbols() {
         throw new UnsupportedOperationException();
     }
