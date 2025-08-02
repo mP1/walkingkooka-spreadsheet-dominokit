@@ -576,9 +576,6 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
                     .map(SpreadsheetLocaleComponentSuggestionsValue::fromDateTimeSymbolsHateosResource)
                     .collect(Collectors.toList())
             );
-        context.debug("@" + symbols.stream()
-            .map(SpreadsheetLocaleComponentSuggestionsValue::fromDateTimeSymbolsHateosResource)
-            .collect(Collectors.toList()));
     }
 
     // SpreadsheetDeltaFetcherWatcher...................................................................................
