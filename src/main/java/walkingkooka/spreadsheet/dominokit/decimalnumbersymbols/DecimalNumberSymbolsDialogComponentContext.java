@@ -33,11 +33,6 @@ public interface DecimalNumberSymbolsDialogComponentContext extends
     ComponentLifecycleMatcher {
 
     /**
-     * A label which is used for the title of the dialog box.
-     */
-    String dialogTitle();
-
-    /**
      * An alternative {@link DecimalNumberSymbols} to copy to the dialog being edited.
      */
     Optional<DecimalNumberSymbols> copyDecimalNumberSymbols();
