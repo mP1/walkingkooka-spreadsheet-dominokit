@@ -23,12 +23,15 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.set.SortedSets;
 import walkingkooka.compare.ComparableTesting2;
 import walkingkooka.datetime.DateTimeSymbols;
+import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResource;
+import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResource;
 import walkingkooka.text.HasTextTesting;
 
 import java.text.DateFormatSymbols;
+import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -62,6 +65,43 @@ public final class SpreadsheetLocaleComponentSuggestionsValueTest implements Com
 
         final SpreadsheetLocaleComponentSuggestionsValue<DateTimeSymbols> value = SpreadsheetLocaleComponentSuggestionsValue.fromDateTimeSymbolsHateosResource(
             DateTimeSymbolsHateosResource.fromLocale(locale)
+        );
+        this.checkEquals(
+            locale,
+            value.locale(),
+            "locale"
+        );
+        this.textAndCheck(
+            value,
+            "English (Australia)"
+        );
+        this.checkEquals(
+            symbols,
+            value.value(),
+            "value"
+        );
+    }
+
+    // fromDecimalNumberSymbolsHateosResource...........................................................................
+
+    @Test
+    public void testFromDecimalNumberSymbolsHateosResourceWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetLocaleComponentSuggestionsValue.fromDecimalNumberSymbolsHateosResource(null)
+        );
+    }
+
+    @Test
+    public void testFromDecimalNumberSymbolsHateosResource() {
+        final Locale locale = Locale.forLanguageTag("en-AU");
+        final DecimalNumberSymbols symbols = DecimalNumberSymbols.fromDecimalFormatSymbols(
+            '+',
+            new DecimalFormatSymbols(locale)
+        );
+
+        final SpreadsheetLocaleComponentSuggestionsValue<DecimalNumberSymbols> value = SpreadsheetLocaleComponentSuggestionsValue.fromDecimalNumberSymbolsHateosResource(
+            DecimalNumberSymbolsHateosResource.fromLocale(locale)
         );
         this.checkEquals(
             locale,

@@ -20,7 +20,9 @@ package walkingkooka.spreadsheet.dominokit.locale;
 import walkingkooka.Value;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.locale.LocaleContexts;
+import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResource;
+import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResource;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.HasText;
 import walkingkooka.util.HasLocale;
@@ -34,6 +36,17 @@ public final class SpreadsheetLocaleComponentSuggestionsValue<T> implements HasL
     Comparable<SpreadsheetLocaleComponentSuggestionsValue<T>> {
 
     public static SpreadsheetLocaleComponentSuggestionsValue<DateTimeSymbols> fromDateTimeSymbolsHateosResource(final DateTimeSymbolsHateosResource resource) {
+        Objects.requireNonNull(resource, "resource");
+        return with(
+            Locale.forLanguageTag(
+                resource.hateosLinkId()
+            ),
+            resource.text(),
+            resource.value()
+        );
+    }
+
+    public static SpreadsheetLocaleComponentSuggestionsValue<DecimalNumberSymbols> fromDecimalNumberSymbolsHateosResource(final DecimalNumberSymbolsHateosResource resource) {
         Objects.requireNonNull(resource, "resource");
         return with(
             Locale.forLanguageTag(
