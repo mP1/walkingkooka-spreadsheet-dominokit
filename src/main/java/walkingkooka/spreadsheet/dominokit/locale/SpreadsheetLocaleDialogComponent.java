@@ -148,7 +148,7 @@ public final class SpreadsheetLocaleDialogComponent implements SpreadsheetDialog
                     public void filter(final String startsWith,
                                        final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<Locale>> suggestBox) {
                         suggestBox.setOptions(
-                            LocaleHateosResourceSet.filter(startsWith, context)
+                            LocaleHateosResourceSet.filter(startsWith, SpreadsheetLocaleDialogComponent.this.context)
                                 .stream()
                                 .map(
                                     (LocaleHateosResource lhr) ->
@@ -169,7 +169,7 @@ public final class SpreadsheetLocaleDialogComponent implements SpreadsheetDialog
 
                         if (null != value) {
                             final Locale locale = value.locale();
-                            final String localeText = context.localeText(locale)
+                            final String localeText = SpreadsheetLocaleDialogComponent.this.context.localeText(locale)
                                 .orElse(null);
                             verified = SpreadsheetLocaleComponentSuggestionsValue.with(
                                 locale,
@@ -185,11 +185,11 @@ public final class SpreadsheetLocaleDialogComponent implements SpreadsheetDialog
 
                     @Override
                     public MenuItem<SpreadsheetLocaleComponentSuggestionsValue<Locale>> createMenuItem(final SpreadsheetLocaleComponentSuggestionsValue<Locale> value) {
-                        return context.menuItem(
+                        return SpreadsheetLocaleDialogComponent.this.context.menuItem(
                             ID + "-option-" + value.locale().toLanguageTag(), // id
                             value.text(),
                             Optional.of(
-                                context.historyToken()
+                                SpreadsheetLocaleDialogComponent.this.context.historyToken()
                                     .setSaveValue(
                                         Optional.of(value.locale())
                                     )
