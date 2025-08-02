@@ -30,4 +30,10 @@ public interface SpreadsheetLocaleComponentContext extends SpreadsheetSuggestBox
     MenuItem<SpreadsheetLocaleComponentSuggestionsValue> createMenuItem(final SpreadsheetLocaleComponentSuggestionsValue value);
 
     Optional<SpreadsheetLocaleComponentSuggestionsValue> toValue(final Locale locale);
+
+    @Override
+    default String menuItemKey(final SpreadsheetLocaleComponentSuggestionsValue value) {
+        return value.locale()
+            .toLanguageTag();
+    }
 }
