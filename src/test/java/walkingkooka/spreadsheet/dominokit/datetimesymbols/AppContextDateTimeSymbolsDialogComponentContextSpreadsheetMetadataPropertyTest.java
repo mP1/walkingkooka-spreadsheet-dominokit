@@ -28,13 +28,11 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
-public final class AppContextSpreadsheetMetadataPropertyDateTimeSymbolsDialogComponentContextTest implements DateTimeSymbolsDialogComponentContextTesting<AppContextSpreadsheetMetadataPropertyDateTimeSymbolsDialogComponentContext>,
-    SpreadsheetMetadataTesting {
+public final class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataPropertyTest extends AppContextDateTimeSymbolsDialogComponentContextTestCase<AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataProperty> {
 
     @Test
     public void testIsMatchWhenSpreadsheetCellDateTimeSymbolsSaveHistoryToken() {
@@ -116,7 +114,7 @@ public final class AppContextSpreadsheetMetadataPropertyDateTimeSymbolsDialogCom
         };
 
         this.copyDateTimeSymbolsAndCheck(
-            AppContextSpreadsheetMetadataPropertyDateTimeSymbolsDialogComponentContext.with(appContext),
+            AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataProperty.with(appContext),
             Optional.empty()
         );
     }
@@ -179,14 +177,14 @@ public final class AppContextSpreadsheetMetadataPropertyDateTimeSymbolsDialogCom
             );
 
         this.loadDateTimeSymbolsAndCheck(
-            AppContextSpreadsheetMetadataPropertyDateTimeSymbolsDialogComponentContext.with(appContext),
+            AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataProperty.with(appContext),
             dateTimeSymbols
         );
     }
 
     @Override
-    public AppContextSpreadsheetMetadataPropertyDateTimeSymbolsDialogComponentContext createContext() {
-        return AppContextSpreadsheetMetadataPropertyDateTimeSymbolsDialogComponentContext.with(
+    public AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataProperty createContext() {
+        return AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataProperty.with(
             new FakeAppContext() {
 
             }
@@ -196,7 +194,7 @@ public final class AppContextSpreadsheetMetadataPropertyDateTimeSymbolsDialogCom
     // class............................................................................................................
 
     @Override
-    public Class<AppContextSpreadsheetMetadataPropertyDateTimeSymbolsDialogComponentContext> type() {
-        return AppContextSpreadsheetMetadataPropertyDateTimeSymbolsDialogComponentContext.class;
+    public Class<AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataProperty> type() {
+        return AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataProperty.class;
     }
 }

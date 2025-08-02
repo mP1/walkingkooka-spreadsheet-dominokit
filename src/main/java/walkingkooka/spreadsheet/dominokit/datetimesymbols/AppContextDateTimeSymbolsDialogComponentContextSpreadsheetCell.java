@@ -20,34 +20,25 @@ package walkingkooka.spreadsheet.dominokit.datetimesymbols;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellDateTimeSymbolsHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellDateTimeSymbolsSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellDateTimeSymbolsSelectHistoryToken;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Objects;
 import java.util.Optional;
 
-final class AppContextSpreadsheetCellDateTimeSymbolsDialogComponentContext implements DateTimeSymbolsDialogComponentContext,
-    HistoryContextDelegator,
-    LoggingContextDelegator {
+final class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCell extends AppContextDateTimeSymbolsDialogComponentContext {
 
-    static AppContextSpreadsheetCellDateTimeSymbolsDialogComponentContext with(final AppContext context) {
-        return new AppContextSpreadsheetCellDateTimeSymbolsDialogComponentContext(
+    static AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCell with(final AppContext context) {
+        return new AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCell(
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private AppContextSpreadsheetCellDateTimeSymbolsDialogComponentContext(final AppContext context) {
-        super();
-        this.context = context;
+    private AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCell(final AppContext context) {
+        super(context);
     }
 
     @Override
@@ -89,16 +80,6 @@ final class AppContextSpreadsheetCellDateTimeSymbolsDialogComponentContext imple
     }
 
     @Override
-    public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
-        return this.context.addSpreadsheetDeltaFetcherWatcher(watcher);
-    }
-
-    @Override
-    public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
-        return this.context.addSpreadsheetMetadataFetcherWatcher(watcher);
-    }
-
-    @Override
     public boolean shouldIgnore(final HistoryToken token) {
         return token instanceof SpreadsheetCellDateTimeSymbolsSaveHistoryToken;
     }
@@ -106,22 +87,5 @@ final class AppContextSpreadsheetCellDateTimeSymbolsDialogComponentContext imple
     @Override
     public boolean isMatch(final HistoryToken token) {
         return token instanceof SpreadsheetCellDateTimeSymbolsSelectHistoryToken;
-    }
-
-    @Override
-    public HistoryContext historyContext() {
-        return this.context;
-    }
-
-    @Override
-    public LoggingContext loggingContext() {
-        return this.context;
-    }
-
-    private final AppContext context;
-
-    @Override
-    public String toString() {
-        return this.context.toString();
     }
 }
