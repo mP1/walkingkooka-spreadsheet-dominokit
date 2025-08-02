@@ -181,12 +181,6 @@ public final class SpreadsheetLocaleDialogComponent implements SpreadsheetDialog
                     }
 
                     @Override
-                    public String menuItemKey(final SpreadsheetLocaleComponentSuggestionsValue value) {
-                        return value.locale()
-                            .toLanguageTag();
-                    }
-
-                    @Override
                     public MenuItem<SpreadsheetLocaleComponentSuggestionsValue> createMenuItem(final SpreadsheetLocaleComponentSuggestionsValue value) {
                         return context.menuItem(
                             ID + "-option-" + value.locale().toLanguageTag(), // id
