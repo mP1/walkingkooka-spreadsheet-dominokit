@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.decimalnumbersymbols;
 
+import org.dominokit.domino.ui.menu.MenuItem;
 import walkingkooka.Cast;
 import walkingkooka.EmptyTextException;
 import walkingkooka.NeverError;
@@ -33,6 +34,7 @@ import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComp
 import walkingkooka.spreadsheet.dominokit.character.CharacterComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.fetcher.DecimalNumberSymbolsFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
@@ -41,15 +43,24 @@ import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleComponent;
+import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleComponentContext;
+import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleComponentSuggestionsValue;
+import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.validator.SpreadsheetValidators;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResource;
+import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResourceSet;
+import walkingkooka.spreadsheet.server.locale.LocaleTag;
 import walkingkooka.text.CaseKind;
 
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * A model dialog that includes numerous form fields supporting the editing on individual {@link DecimalNumberSymbols}
@@ -77,6 +88,7 @@ import java.util.Set;
 public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDialogComponentLifecycle,
     LoadedSpreadsheetMetadataRequired,
     ComponentLifecycleMatcherDelegator,
+    DecimalNumberSymbolsFetcherWatcher,
     SpreadsheetDeltaFetcherWatcher,
     SpreadsheetMetadataFetcherWatcher,
     NopFetcherWatcher,
@@ -110,6 +122,8 @@ public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDia
 
         this.decimalNumberSymbols = this.decimalNumberSymbols();
 
+        this.localeLoad = this.localeLoad(context);
+
         this.save = this.<DecimalNumberSymbols>saveValueAnchor(context)
             .autoDisableWhenMissingValue();
 
@@ -122,6 +136,7 @@ public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDia
         this.dialog = this.dialogCreate();
 
         context.addHistoryTokenWatcher(this);
+        context.addDecimalNumberSymbolsFetcherWatcher(this);
         context.addSpreadsheetDeltaFetcherWatcher(this);
         context.addSpreadsheetMetadataFetcherWatcher(this);
     }
@@ -150,6 +165,8 @@ public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDia
                 .appendChild(this.percentSymbol)
                 .appendChild(this.permillSymbol)
                 .appendChild(this.decimalNumberSymbols)
+        ).appendChild(
+            this.localeLoad
         ).appendChild(
             SpreadsheetLinkListComponent.empty()
                 .appendChild(this.save)
@@ -578,6 +595,59 @@ public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDia
 
     private final DecimalNumberSymbolsComponent decimalNumberSymbols;
 
+    // localeLoad.......................................................................................................
+
+    // loadLocale.......................................................................................................
+
+    /**
+     * A locale drop down that when selected loads the symbols for the selected Locale.
+     */
+    private SpreadsheetLocaleComponent<DecimalNumberSymbols> localeLoad(final DecimalNumberSymbolsDialogComponentContext context) {
+        return SpreadsheetLocaleComponent.empty(
+                new SpreadsheetLocaleComponentContext<DecimalNumberSymbols>() {
+
+                    @Override
+                    public void filter(final String startsWith,
+                                       final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<DecimalNumberSymbols>> suggestBox) {
+                        context.findDecimalNumberSymbolsWithLocaleStartsWith(startsWith);
+                    }
+
+                    @Override
+                    public MenuItem<SpreadsheetLocaleComponentSuggestionsValue<DecimalNumberSymbols>> createMenuItem(final SpreadsheetLocaleComponentSuggestionsValue<DecimalNumberSymbols> value) {
+                        return context.menuItem(
+                            ID + "-option-" + value.locale().toLanguageTag(), // id
+                            value.text(),
+                            Optional.of(
+                                context.historyToken()
+                                    .setSaveValue(
+                                        Optional.of(value.value())
+                                    )
+                            )
+                        );
+                    }
+
+                    @Override
+                    public Optional<SpreadsheetLocaleComponentSuggestionsValue<DecimalNumberSymbols>> toValue(final Locale locale) {
+                        throw new UnsupportedOperationException();
+                    }
+
+                    @Override
+                    public void verifyOption(final SpreadsheetLocaleComponentSuggestionsValue<DecimalNumberSymbols> value,
+                                             final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<DecimalNumberSymbols>> suggestBox) {
+                        throw new UnsupportedOperationException();
+                    }
+                }
+            ).setLabel("Load from Locale")
+            .optional();
+    }
+
+    /**
+     * This {@link SpreadsheetLocaleComponent} is only intended to support search for a Locale, and to allow the user
+     * to click any of the suggestions. Operations such as {@link SpreadsheetLocaleComponent#setValue(Optional)} are
+     * not supported.
+     */
+    private final SpreadsheetLocaleComponent<DecimalNumberSymbols> localeLoad;
+
     // save.............................................................................................................
 
     private final HistoryTokenSaveValueAnchorComponent<DecimalNumberSymbols> save;
@@ -673,6 +743,27 @@ public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDia
         this.refreshClear();
         this.refreshUndo();
         this.refreshClose();
+    }
+
+    // DecimalNumberSymbolsFetcherWatcher...............................................................................
+
+    @Override
+    public void onDecimalNumberSymbolsHateosResource(final LocaleTag id,
+                                                     final DecimalNumberSymbolsHateosResource locale,
+                                                     final AppContext context) {
+        // NOP
+    }
+
+    @Override
+    public void onDecimalNumberSymbolsHateosResourceSet(final String localeStartsWith,
+                                                        final DecimalNumberSymbolsHateosResourceSet symbols,
+                                                        final AppContext context) {
+        this.localeLoad.spreadsheetSuggestBoxComponent()
+            .setOptions(
+                symbols.stream()
+                    .map(SpreadsheetLocaleComponentSuggestionsValue::fromDecimalNumberSymbolsHateosResource)
+                    .collect(Collectors.toList())
+            );
     }
 
     // SpreadsheetDeltaFetcherWatcher...................................................................................

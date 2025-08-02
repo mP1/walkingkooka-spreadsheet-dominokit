@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.decimalnumbersymbols;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.fetcher.DecimalNumberSymbolsFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
@@ -33,6 +34,17 @@ abstract class AppContextDecimalNumberSymbolsDialogComponentContext implements D
         this.context = context;
     }
 
+    @Override
+    public final void findDecimalNumberSymbolsWithLocaleStartsWith(final String startsWith) {
+        this.context.decimalNumberSymbolsFetcher()
+            .getDecimalNumberSymbolsLocaleStartsWith(startsWith);
+    }
+
+    @Override
+    public final Runnable addDecimalNumberSymbolsFetcherWatcher(final DecimalNumberSymbolsFetcherWatcher watcher) {
+        return this.context.addDecimalNumberSymbolsFetcherWatcher(watcher);
+    }
+    
     @Override
     public final Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
         return this.context.addSpreadsheetDeltaFetcherWatcher(watcher);
