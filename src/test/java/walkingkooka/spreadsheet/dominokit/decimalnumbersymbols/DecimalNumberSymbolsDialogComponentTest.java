@@ -23,6 +23,7 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.fetcher.DecimalNumberSymbolsFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -137,6 +138,9 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
                 "                Date Time Symbols []\n" +
                 "                Errors\n" +
                 "                  Expected 12 tokens but got 0\n" +
+                "      SpreadsheetLocaleComponent\n" +
+                "        SpreadsheetSuggestBoxComponent\n" +
+                "          Load from Locale []\n" +
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
@@ -219,6 +223,9 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Date Time Symbols [-,+,0,$,.,e,\",\",∞,.,NaN,%,‰]\n" +
+                "      SpreadsheetLocaleComponent\n" +
+                "        SpreadsheetSuggestBoxComponent\n" +
+                "          Load from Locale []\n" +
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
@@ -327,6 +334,9 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
                 "                Date Time Symbols []\n" +
                 "                Errors\n" +
                 "                  Expected 12 tokens but got 0\n" +
+                "      SpreadsheetLocaleComponent\n" +
+                "        SpreadsheetSuggestBoxComponent\n" +
+                "          Load from Locale []\n" +
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
@@ -353,6 +363,11 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
     private AppContext appContext(final HistoryToken historyToken,
                                   final DecimalNumberSymbols decimalNumberSymbols) {
         return new FakeAppContext() {
+
+            @Override
+            public Runnable addDecimalNumberSymbolsFetcherWatcher(final DecimalNumberSymbolsFetcherWatcher watcher) {
+                return null;
+            }
 
             @Override
             public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {

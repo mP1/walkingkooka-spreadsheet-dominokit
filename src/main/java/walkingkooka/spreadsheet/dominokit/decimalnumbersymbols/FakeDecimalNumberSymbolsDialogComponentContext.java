@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.decimalnumbersymbols;
 
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.spreadsheet.dominokit.dialog.FakeSpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.fetcher.DecimalNumberSymbolsFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -47,12 +48,22 @@ public class FakeDecimalNumberSymbolsDialogComponentContext extends FakeSpreadsh
     }
 
     @Override
+    public void findDecimalNumberSymbolsWithLocaleStartsWith(final String startsWith) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public Optional<DecimalNumberSymbols> loadDecimalNumberSymbols() {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public void save(final Optional<DecimalNumberSymbols> symbols) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addDecimalNumberSymbolsFetcherWatcher(final DecimalNumberSymbolsFetcherWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 
