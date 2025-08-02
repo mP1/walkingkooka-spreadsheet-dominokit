@@ -23,17 +23,17 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 public final class DateTimeSymbolsDialogComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see AppContextSpreadsheetCellDateTimeSymbolsDialogComponentContext}
+     * {@see AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCell}
      */
     public static DateTimeSymbolsDialogComponentContext cell(final AppContext context) {
-        return AppContextSpreadsheetCellDateTimeSymbolsDialogComponentContext.with(context);
+        return AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCell.with(context);
     }
 
     /**
-     * {@see AppContextSpreadsheetMetadataPropertyDateTimeSymbolsDialogComponentContext}
+     * {@see AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataProperty}
      */
     public static DateTimeSymbolsDialogComponentContext metadata(final AppContext context) {
-        return AppContextSpreadsheetMetadataPropertyDateTimeSymbolsDialogComponentContext.with(context);
+        return AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataProperty.with(context);
     }
 
     /**
