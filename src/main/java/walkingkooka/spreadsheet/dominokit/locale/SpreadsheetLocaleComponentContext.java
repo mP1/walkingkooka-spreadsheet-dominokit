@@ -19,6 +19,8 @@ package walkingkooka.spreadsheet.dominokit.locale;
 
 import org.dominokit.domino.ui.menu.MenuItem;
 import walkingkooka.Context;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponentSuggestionsProvider;
 
 import java.util.Locale;
@@ -28,6 +30,27 @@ public interface SpreadsheetLocaleComponentContext<T> extends SpreadsheetSuggest
     Context {
 
     MenuItem<SpreadsheetLocaleComponentSuggestionsValue<T>> createMenuItem(final SpreadsheetLocaleComponentSuggestionsValue<T> value);
+
+    /**
+     * Creates a {@link MenuItem} with a save {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken} with the
+     * provided value.
+     */
+    default MenuItem<SpreadsheetLocaleComponentSuggestionsValue<T>> historyTokenMenuItem(final String id,
+                                                                                         final SpreadsheetLocaleComponentSuggestionsValue<T> value,
+                                                                                         final HistoryContext historyContext) {
+        return historyContext.menuItem(
+            id + "-suggestion-" + value.locale().toLanguageTag() + SpreadsheetElementIds.OPTION, // id
+            value.text(),
+            Optional.of(
+                historyContext.historyToken()
+                    .setSaveValue(
+                        Optional.of(
+                            value.value()
+                        )
+                    )
+            )
+        );
+    }
 
     Optional<SpreadsheetLocaleComponentSuggestionsValue<T>> toValue(final Locale locale);
 

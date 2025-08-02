@@ -461,15 +461,10 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
 
                 @Override
                 public MenuItem<SpreadsheetLocaleComponentSuggestionsValue<DateTimeSymbols>> createMenuItem(final SpreadsheetLocaleComponentSuggestionsValue<DateTimeSymbols> value) {
-                    return context.menuItem(
-                        ID + "-option-" + value.locale().toLanguageTag(), // id
-                        value.text(),
-                        Optional.of(
-                            context.historyToken()
-                                .setSaveValue(
-                                    Optional.of(value.value())
-                                )
-                        )
+                    return this.historyTokenMenuItem(
+                        ID,
+                        value,
+                        DateTimeSymbolsDialogComponent.this.context
                     );
                 }
 

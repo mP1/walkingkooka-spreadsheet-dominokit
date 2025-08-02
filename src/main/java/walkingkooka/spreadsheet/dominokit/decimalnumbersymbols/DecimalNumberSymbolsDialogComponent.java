@@ -614,15 +614,10 @@ public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDia
 
                     @Override
                     public MenuItem<SpreadsheetLocaleComponentSuggestionsValue<DecimalNumberSymbols>> createMenuItem(final SpreadsheetLocaleComponentSuggestionsValue<DecimalNumberSymbols> value) {
-                        return context.menuItem(
-                            ID + "-option-" + value.locale().toLanguageTag(), // id
-                            value.text(),
-                            Optional.of(
-                                context.historyToken()
-                                    .setSaveValue(
-                                        Optional.of(value.value())
-                                    )
-                            )
+                        return this.historyTokenMenuItem(
+                            ID,
+                            value,
+                            DecimalNumberSymbolsDialogComponent.this.context
                         );
                     }
 
