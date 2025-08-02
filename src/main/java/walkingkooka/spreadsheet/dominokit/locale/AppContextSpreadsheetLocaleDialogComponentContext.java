@@ -25,13 +25,15 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentConte
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextDelegator;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContexts;
 
+import java.util.Objects;
+
 abstract class AppContextSpreadsheetLocaleDialogComponentContext implements SpreadsheetLocaleDialogComponentContext,
     SpreadsheetDialogComponentContextDelegator,
     LocaleContextDelegator,
     ComponentLifecycleMatcher {
 
     AppContextSpreadsheetLocaleDialogComponentContext(final AppContext context) {
-        this.context = context;
+        this.context = Objects.requireNonNull(context, "context");
     }
 
     // SpreadsheetDialogComponentContext................................................................................

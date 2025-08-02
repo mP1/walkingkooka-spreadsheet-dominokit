@@ -28,13 +28,11 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
-public final class AppContextSpreadsheetMetadataPropertyDecimalNumberSymbolsDialogComponentContextTest implements DecimalNumberSymbolsDialogComponentContextTesting<AppContextSpreadsheetMetadataPropertyDecimalNumberSymbolsDialogComponentContext>,
-    SpreadsheetMetadataTesting {
+public final class AppContextDecimalNumberSymbolsDialogComponentContextSpreadsheetMetadataPropertyTest extends AppContextDecimalNumberSymbolsDialogComponentContextTestCase {
 
     @Test
     public void testIsMatchWhenSpreadsheetCellDecimalNumberSymbolsSaveHistoryToken() {
@@ -160,14 +158,14 @@ public final class AppContextSpreadsheetMetadataPropertyDecimalNumberSymbolsDial
             );
 
         this.loadDecimalNumberSymbolsAndCheck(
-            AppContextSpreadsheetMetadataPropertyDecimalNumberSymbolsDialogComponentContext.with(appContext),
+            AppContextDecimalNumberSymbolsDialogComponentContextSpreadsheetMetadataProperty.with(appContext),
             decimalNumberSymbols
         );
     }
 
     @Override
-    public AppContextSpreadsheetMetadataPropertyDecimalNumberSymbolsDialogComponentContext createContext() {
-        return AppContextSpreadsheetMetadataPropertyDecimalNumberSymbolsDialogComponentContext.with(
+    public AppContextDecimalNumberSymbolsDialogComponentContextSpreadsheetMetadataProperty createContext() {
+        return AppContextDecimalNumberSymbolsDialogComponentContextSpreadsheetMetadataProperty.with(
             new FakeAppContext() {
 
             }
@@ -177,7 +175,7 @@ public final class AppContextSpreadsheetMetadataPropertyDecimalNumberSymbolsDial
     // class............................................................................................................
 
     @Override
-    public Class<AppContextSpreadsheetMetadataPropertyDecimalNumberSymbolsDialogComponentContext> type() {
-        return AppContextSpreadsheetMetadataPropertyDecimalNumberSymbolsDialogComponentContext.class;
+    public Class<AppContextDecimalNumberSymbolsDialogComponentContextSpreadsheetMetadataProperty> type() {
+        return AppContextDecimalNumberSymbolsDialogComponentContextSpreadsheetMetadataProperty.class;
     }
 }

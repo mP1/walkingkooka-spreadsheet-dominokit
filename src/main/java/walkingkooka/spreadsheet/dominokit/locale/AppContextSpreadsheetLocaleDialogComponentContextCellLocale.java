@@ -29,16 +29,13 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleUnselectH
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Locale;
-import java.util.Objects;
 import java.util.Optional;
 
 final class AppContextSpreadsheetLocaleDialogComponentContextCellLocale extends AppContextSpreadsheetLocaleDialogComponentContext
     implements HasSpreadsheetDeltaFetcherWatchersDelegator {
 
     static AppContextSpreadsheetLocaleDialogComponentContextCellLocale with(final AppContext context) {
-        return new AppContextSpreadsheetLocaleDialogComponentContextCellLocale(
-            Objects.requireNonNull(context, "context")
-        );
+        return new AppContextSpreadsheetLocaleDialogComponentContextCellLocale(context);
     }
 
     private AppContextSpreadsheetLocaleDialogComponentContextCellLocale(final AppContext context) {

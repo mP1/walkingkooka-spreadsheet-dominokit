@@ -23,17 +23,17 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 public final class DecimalNumberSymbolsDialogComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see AppContextSpreadsheetCellDecimalNumberSymbolsDialogComponentContext}
+     * {@see AppContextDecimalNumberSymbolsDialogComponentContextCell}
      */
     public static DecimalNumberSymbolsDialogComponentContext cell(final AppContext context) {
-        return AppContextSpreadsheetCellDecimalNumberSymbolsDialogComponentContext.with(context);
+        return AppContextDecimalNumberSymbolsDialogComponentContextCell.with(context);
     }
 
     /**
-     * {@see AppContextSpreadsheetMetadataPropertyDecimalNumberSymbolsDialogComponentContext}
+     * {@see AppContextDecimalNumberSymbolsDialogComponentContextSpreadsheetMetadataProperty}
      */
     public static DecimalNumberSymbolsDialogComponentContext metadata(final AppContext context) {
-        return AppContextSpreadsheetMetadataPropertyDecimalNumberSymbolsDialogComponentContext.with(context);
+        return AppContextDecimalNumberSymbolsDialogComponentContextSpreadsheetMetadataProperty.with(context);
     }
 
     /**
