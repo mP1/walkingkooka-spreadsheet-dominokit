@@ -22,9 +22,13 @@ import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.set.SortedSets;
 import walkingkooka.compare.ComparableTesting2;
+import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResource;
+import walkingkooka.text.HasTextTesting;
 
+import java.text.DateFormatSymbols;
 import java.util.Locale;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -32,12 +36,49 @@ import java.util.stream.Collectors;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetLocaleComponentSuggestionsValueTest implements ComparableTesting2<SpreadsheetLocaleComponentSuggestionsValue<Integer>>,
-    ClassTesting<SpreadsheetLocaleComponentSuggestionsValue<Integer>> {
+    ClassTesting<SpreadsheetLocaleComponentSuggestionsValue<Integer>>,
+    HasTextTesting {
 
     private final static Locale LOCALE = Locale.ENGLISH;
     private final static String TEXT = "English";
     private final static Integer VALUE = 123;
-    
+
+    // fromDateTimeSymbolsHateosResource................................................................................
+
+    @Test
+    public void testFromDateTimeSymbolsHateosResourceWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetLocaleComponentSuggestionsValue.fromDateTimeSymbolsHateosResource(null)
+        );
+    }
+
+    @Test
+    public void testFromDateTimeSymbolsHateosResource() {
+        final Locale locale = Locale.forLanguageTag("en-AU");
+        final DateTimeSymbols symbols = DateTimeSymbols.fromDateFormatSymbols(
+            new DateFormatSymbols(locale)
+        );
+
+        final SpreadsheetLocaleComponentSuggestionsValue<DateTimeSymbols> value = SpreadsheetLocaleComponentSuggestionsValue.fromDateTimeSymbolsHateosResource(
+            DateTimeSymbolsHateosResource.fromLocale(locale)
+        );
+        this.checkEquals(
+            locale,
+            value.locale(),
+            "locale"
+        );
+        this.textAndCheck(
+            value,
+            "English (Australia)"
+        );
+        this.checkEquals(
+            symbols,
+            value.value(),
+            "value"
+        );
+    }
+
     // with.............................................................................................................
 
     @Test
@@ -141,6 +182,6 @@ public final class SpreadsheetLocaleComponentSuggestionsValueTest implements Com
 
     @Override
     public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
+        return JavaVisibility.PUBLIC;
     }
 }

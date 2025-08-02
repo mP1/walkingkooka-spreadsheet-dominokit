@@ -23,6 +23,7 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.fetcher.DateTimeSymbolsFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -103,6 +104,9 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
                 "                Date Time Symbols []\n" +
                 "                Errors\n" +
                 "                  Expected 5 tokens but got 0\n" +
+                "      SpreadsheetLocaleComponent\n" +
+                "        SpreadsheetSuggestBoxComponent\n" +
+                "          Load from Locale []\n" +
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
@@ -165,6 +169,9 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Date Time Symbols [\"am,pm\",\"January,February,March,April,May,June,July,August,September,October,November,December\",\"Jan.,Feb.,Mar.,Apr.,May,Jun.,Jul.,Aug.,Sep.,Oct.,Nov.,Dec.\",\"Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday\",\"Sun.,Mon.,Tue.,Wed.,Thu.,Fri.,Sat.\"]\n" +
+                "      SpreadsheetLocaleComponent\n" +
+                "        SpreadsheetSuggestBoxComponent\n" +
+                "          Load from Locale []\n" +
                 "      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
@@ -239,7 +246,9 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
                 "                Date Time Symbols []\n" +
                 "                Errors\n" +
                 "                  Expected 5 tokens but got 0\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      SpreadsheetLocaleComponent\n" +
+                "        SpreadsheetSuggestBoxComponent\n" +
+                "          Load from Locale []\n" +"      SpreadsheetLinkListComponent\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=dateTimeSymbols-save-Link\n" +
@@ -265,6 +274,11 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
     private AppContext appContext(final HistoryToken historyToken,
                                   final DateTimeSymbols dateTimeSymbols) {
         return new FakeAppContext() {
+
+            @Override
+            public Runnable addDateTimeSymbolsFetcherWatcher(final DateTimeSymbolsFetcherWatcher watcher) {
+                return null;
+            }
 
             @Override
             public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
