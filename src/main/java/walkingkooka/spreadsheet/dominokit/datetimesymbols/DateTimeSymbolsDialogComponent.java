@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.datetimesymbols;
 
+import org.dominokit.domino.ui.menu.MenuItem;
 import walkingkooka.NeverError;
 import walkingkooka.collect.list.CsvStringList;
 import walkingkooka.datetime.DateTimeSymbols;
@@ -31,6 +32,7 @@ import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComp
 import walkingkooka.spreadsheet.dominokit.csv.CsvStringListComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.fetcher.DateTimeSymbolsFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
@@ -39,13 +41,22 @@ import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleComponent;
+import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleComponentContext;
+import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleComponentSuggestionsValue;
+import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResource;
+import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResourceSet;
+import walkingkooka.spreadsheet.server.locale.LocaleTag;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * A model dialog that includes numerous form fields supporting the editing on individual {@link walkingkooka.datetime.DateTimeSymbols}
@@ -67,6 +78,7 @@ import java.util.Set;
 public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogComponentLifecycle,
     LoadedSpreadsheetMetadataRequired,
     ComponentLifecycleMatcherDelegator,
+    DateTimeSymbolsFetcherWatcher,
     SpreadsheetDeltaFetcherWatcher,
     SpreadsheetMetadataFetcherWatcher,
     NopFetcherWatcher,
@@ -94,6 +106,8 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
 
         this.dateTimeSymbols = this.dateTimeSymbols();
 
+        this.localeLoad = this.localeLoad(context);
+
         this.save = this.<DateTimeSymbols>saveValueAnchor(context)
             .autoDisableWhenMissingValue();
 
@@ -106,6 +120,7 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
         this.dialog = this.dialogCreate();
 
         context.addHistoryTokenWatcher(this);
+        context.addDateTimeSymbolsFetcherWatcher(this);
         context.addSpreadsheetDeltaFetcherWatcher(this);
         context.addSpreadsheetMetadataFetcherWatcher(this);
     }
@@ -127,6 +142,8 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
                 .appendChild(this.weekDayNames)
                 .appendChild(this.weekDayNameAbbreviations)
                 .appendChild(this.dateTimeSymbols)
+        ).appendChild(
+            this.localeLoad
         ).appendChild(
             SpreadsheetLinkListComponent.empty()
                 .appendChild(this.save)
@@ -427,6 +444,57 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
 
     private final HistoryTokenSaveValueAnchorComponent<DateTimeSymbols> clear;
 
+    // loadLocale.......................................................................................................
+
+    /**
+     * A locale drop down that when selected loads the symbols for the selected Locale.
+     */
+    private SpreadsheetLocaleComponent<DateTimeSymbols> localeLoad(final DateTimeSymbolsDialogComponentContext context) {
+        return SpreadsheetLocaleComponent.empty(
+            new SpreadsheetLocaleComponentContext<DateTimeSymbols>() {
+
+                @Override
+                public void filter(final String startsWith,
+                                   final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<DateTimeSymbols>> suggestBox) {
+                    context.findDateTimeSymbolsWithLocaleStartsWith(startsWith);
+                }
+
+                @Override
+                public MenuItem<SpreadsheetLocaleComponentSuggestionsValue<DateTimeSymbols>> createMenuItem(final SpreadsheetLocaleComponentSuggestionsValue<DateTimeSymbols> value) {
+                    return context.menuItem(
+                        ID + "-option-" + value.locale().toLanguageTag(), // id
+                        value.text(),
+                        Optional.of(
+                            context.historyToken()
+                                .setSaveValue(
+                                    Optional.of(value.value())
+                                )
+                        )
+                    );
+                }
+
+                @Override
+                public Optional<SpreadsheetLocaleComponentSuggestionsValue<DateTimeSymbols>> toValue(final Locale locale) {
+                    throw new UnsupportedOperationException();
+                }
+
+                @Override
+                public void verifyOption(final SpreadsheetLocaleComponentSuggestionsValue<DateTimeSymbols> value,
+                                         final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<DateTimeSymbols>> suggestBox) {
+                    throw new UnsupportedOperationException();
+                }
+            }
+        ).setLabel("Load from Locale")
+            .optional();
+    }
+
+    /**
+     * This {@link SpreadsheetLocaleComponent} is only intended to support search for a Locale, and to allow the user
+     * to click any of the suggestions. Operations such as {@link SpreadsheetLocaleComponent#setValue(Optional)} are
+     * not supported.
+     */
+    private final SpreadsheetLocaleComponent<DateTimeSymbols> localeLoad;
+
     // undo.............................................................................................................
 
     private void refreshUndo() {
@@ -487,6 +555,30 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
         this.refreshClear();
         this.refreshUndo();
         this.refreshClose();
+    }
+
+    // DateTimeSymbolsFetcherWatcher....................................................................................
+
+    @Override
+    public void onDateTimeSymbolsHateosResource(final LocaleTag id,
+                                                final DateTimeSymbolsHateosResource locale,
+                                                final AppContext context) {
+        // NOP
+    }
+
+    @Override
+    public void onDateTimeSymbolsHateosResourceSet(final String localeStartsWith,
+                                                   final DateTimeSymbolsHateosResourceSet symbols,
+                                                   final AppContext context) {
+        this.localeLoad.spreadsheetSuggestBoxComponent()
+            .setOptions(
+                symbols.stream()
+                    .map(SpreadsheetLocaleComponentSuggestionsValue::fromDateTimeSymbolsHateosResource)
+                    .collect(Collectors.toList())
+            );
+        context.debug("@" + symbols.stream()
+            .map(SpreadsheetLocaleComponentSuggestionsValue::fromDateTimeSymbolsHateosResource)
+            .collect(Collectors.toList()));
     }
 
     // SpreadsheetDeltaFetcherWatcher...................................................................................

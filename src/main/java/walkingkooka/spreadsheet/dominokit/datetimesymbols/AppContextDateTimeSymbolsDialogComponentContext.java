@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.datetimesymbols;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.fetcher.DateTimeSymbolsFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
@@ -31,6 +32,17 @@ abstract class AppContextDateTimeSymbolsDialogComponentContext implements DateTi
 
     AppContextDateTimeSymbolsDialogComponentContext(final AppContext context) {
         this.context = context;
+    }
+
+    @Override
+    public final void findDateTimeSymbolsWithLocaleStartsWith(final String startsWith) {
+        this.context.dateTimeSymbolsFetcher()
+            .getDateTimeSymbolsLocaleStartsWith(startsWith);
+    }
+
+    @Override
+    public final Runnable addDateTimeSymbolsFetcherWatcher(final DateTimeSymbolsFetcherWatcher watcher) {
+        return this.context.addDateTimeSymbolsFetcherWatcher(watcher);
     }
 
     @Override
