@@ -185,15 +185,10 @@ public final class SpreadsheetLocaleDialogComponent implements SpreadsheetDialog
 
                     @Override
                     public MenuItem<SpreadsheetLocaleComponentSuggestionsValue<Locale>> createMenuItem(final SpreadsheetLocaleComponentSuggestionsValue<Locale> value) {
-                        return SpreadsheetLocaleDialogComponent.this.context.menuItem(
-                            ID + "-option-" + value.locale().toLanguageTag(), // id
-                            value.text(),
-                            Optional.of(
-                                SpreadsheetLocaleDialogComponent.this.context.historyToken()
-                                    .setSaveValue(
-                                        Optional.of(value.locale())
-                                    )
-                            )
+                        return this.historyTokenMenuItem(
+                            ID,
+                            value,
+                            SpreadsheetLocaleDialogComponent.this.context
                         );
                     }
                 }
