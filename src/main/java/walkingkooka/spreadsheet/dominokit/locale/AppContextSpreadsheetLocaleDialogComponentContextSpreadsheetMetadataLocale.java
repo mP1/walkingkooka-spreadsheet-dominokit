@@ -27,16 +27,13 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySel
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Locale;
-import java.util.Objects;
 import java.util.Optional;
 
 final class AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocale extends AppContextSpreadsheetLocaleDialogComponentContext
     implements HasSpreadsheetMetadataFetcherWatchersDelegator {
 
     static AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocale with(final AppContext context) {
-        return new AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocale(
-            Objects.requireNonNull(context, "context")
-        );
+        return new AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocale(context);
     }
 
     private AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocale(final AppContext context) {

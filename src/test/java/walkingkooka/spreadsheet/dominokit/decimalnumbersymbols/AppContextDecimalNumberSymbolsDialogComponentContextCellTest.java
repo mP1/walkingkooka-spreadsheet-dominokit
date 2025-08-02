@@ -33,13 +33,11 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
-public final class AppContextSpreadsheetCellDecimalNumberSymbolsDialogComponentContextTest implements DecimalNumberSymbolsDialogComponentContextTesting<AppContextSpreadsheetCellDecimalNumberSymbolsDialogComponentContext>,
-    SpreadsheetMetadataTesting {
+public final class AppContextDecimalNumberSymbolsDialogComponentContextCellTest extends AppContextDecimalNumberSymbolsDialogComponentContextTestCase {
 
     @Test
     public void testIsMatchWhenSpreadsheetCellDecimalNumberSymbolsSaveHistoryToken() {
@@ -173,7 +171,7 @@ public final class AppContextSpreadsheetCellDecimalNumberSymbolsDialogComponentC
             );
 
         this.loadDecimalNumberSymbolsAndCheck(
-            AppContextSpreadsheetCellDecimalNumberSymbolsDialogComponentContext.with(
+            AppContextDecimalNumberSymbolsDialogComponentContextCell.with(
                 appContext
             ),
             decimalNumberSymbols
@@ -181,8 +179,8 @@ public final class AppContextSpreadsheetCellDecimalNumberSymbolsDialogComponentC
     }
 
     @Override
-    public AppContextSpreadsheetCellDecimalNumberSymbolsDialogComponentContext createContext() {
-        return AppContextSpreadsheetCellDecimalNumberSymbolsDialogComponentContext.with(
+    public AppContextDecimalNumberSymbolsDialogComponentContextCell createContext() {
+        return AppContextDecimalNumberSymbolsDialogComponentContextCell.with(
             new FakeAppContext() {
 
             }
@@ -192,7 +190,7 @@ public final class AppContextSpreadsheetCellDecimalNumberSymbolsDialogComponentC
     // class............................................................................................................
 
     @Override
-    public Class<AppContextSpreadsheetCellDecimalNumberSymbolsDialogComponentContext> type() {
-        return AppContextSpreadsheetCellDecimalNumberSymbolsDialogComponentContext.class;
+    public Class<AppContextDecimalNumberSymbolsDialogComponentContextCell> type() {
+        return AppContextDecimalNumberSymbolsDialogComponentContextCell.class;
     }
 }

@@ -20,34 +20,25 @@ package walkingkooka.spreadsheet.dominokit.decimalnumbersymbols;
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellDecimalNumberSymbolsHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellDecimalNumberSymbolsSelectHistoryToken;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Objects;
 import java.util.Optional;
 
-final class AppContextSpreadsheetCellDecimalNumberSymbolsDialogComponentContext implements DecimalNumberSymbolsDialogComponentContext,
-    HistoryContextDelegator,
-    LoggingContextDelegator {
+final class AppContextDecimalNumberSymbolsDialogComponentContextCell extends AppContextDecimalNumberSymbolsDialogComponentContext {
 
-    static AppContextSpreadsheetCellDecimalNumberSymbolsDialogComponentContext with(final AppContext context) {
-        return new AppContextSpreadsheetCellDecimalNumberSymbolsDialogComponentContext(
+    static AppContextDecimalNumberSymbolsDialogComponentContextCell with(final AppContext context) {
+        return new AppContextDecimalNumberSymbolsDialogComponentContextCell(
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private AppContextSpreadsheetCellDecimalNumberSymbolsDialogComponentContext(final AppContext context) {
-        super();
-        this.context = context;
+    private AppContextDecimalNumberSymbolsDialogComponentContextCell(final AppContext context) {
+        super(context);
     }
 
     @Override
@@ -89,16 +80,6 @@ final class AppContextSpreadsheetCellDecimalNumberSymbolsDialogComponentContext 
     }
 
     @Override
-    public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
-        return this.context.addSpreadsheetDeltaFetcherWatcher(watcher);
-    }
-
-    @Override
-    public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
-        return this.context.addSpreadsheetMetadataFetcherWatcher(watcher);
-    }
-
-    @Override
     public boolean shouldIgnore(final HistoryToken token) {
         return token instanceof SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken;
     }
@@ -106,22 +87,5 @@ final class AppContextSpreadsheetCellDecimalNumberSymbolsDialogComponentContext 
     @Override
     public boolean isMatch(final HistoryToken token) {
         return token instanceof SpreadsheetCellDecimalNumberSymbolsSelectHistoryToken;
-    }
-
-    @Override
-    public HistoryContext historyContext() {
-        return this.context;
-    }
-
-    @Override
-    public LoggingContext loggingContext() {
-        return this.context;
-    }
-
-    private final AppContext context;
-
-    @Override
-    public String toString() {
-        return this.context.toString();
     }
 }
