@@ -23,20 +23,20 @@ import walkingkooka.spreadsheet.dominokit.suggestbox.FakeSpreadsheetSuggestBoxCo
 import java.util.Locale;
 import java.util.Optional;
 
-public class FakeSpreadsheetLocaleComponentContext extends FakeSpreadsheetSuggestBoxComponentSuggestionsProvider<SpreadsheetLocaleComponentSuggestionsValue>
-    implements SpreadsheetLocaleComponentContext {
+public class FakeSpreadsheetLocaleComponentContext<T> extends FakeSpreadsheetSuggestBoxComponentSuggestionsProvider<SpreadsheetLocaleComponentSuggestionsValue<T>>
+    implements SpreadsheetLocaleComponentContext<T> {
 
     public FakeSpreadsheetLocaleComponentContext() {
         super();
     }
 
     @Override
-    public MenuItem<SpreadsheetLocaleComponentSuggestionsValue> createMenuItem(final SpreadsheetLocaleComponentSuggestionsValue value) {
+    public MenuItem<SpreadsheetLocaleComponentSuggestionsValue<T>> createMenuItem(final SpreadsheetLocaleComponentSuggestionsValue<T> value) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public Optional<SpreadsheetLocaleComponentSuggestionsValue> toValue(final Locale locale) {
+    public Optional<SpreadsheetLocaleComponentSuggestionsValue<T>> toValue(final Locale locale) {
         throw new UnsupportedOperationException();
     }
 }

@@ -18,20 +18,25 @@
 package walkingkooka.spreadsheet.dominokit.locale;
 
 import elemental2.dom.HTMLFieldSetElement;
+import org.dominokit.domino.ui.menu.MenuItem;
 import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.locale.FakeLocaleContext;
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.locale.LocaleContexts;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.suggestbox.FakeSpreadsheetSuggestBoxComponentSuggestionsProvider;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent;
+import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponentSuggestionsProvider;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 
 import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
+import java.util.function.Function;
 
-public final class SpreadsheetLocaleComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, Locale, SpreadsheetLocaleComponent> {
+public final class SpreadsheetLocaleComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, Locale, SpreadsheetLocaleComponent<Locale>> {
 
     private final static Locale ENAU = Locale.forLanguageTag("en-AU");
     private final static Locale ENNZ = Locale.forLanguageTag("en-NZ");
@@ -40,6 +45,12 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
     private final static String ENGLISH_AUSTRALIA_TEXT = "English (Australia)";
     private final static String ENGLISH_NEW_ZEALAND_TEXT = "English (New Zealand)";
     private final static String FRENCH_TEXT = "French 123";
+
+    private final static SpreadsheetSuggestBoxComponentSuggestionsProvider<SpreadsheetLocaleComponentSuggestionsValue<Locale>> SUGGESTIONS_PROVIDER = new FakeSpreadsheetSuggestBoxComponentSuggestionsProvider<>();
+
+    private final static Function<SpreadsheetLocaleComponentSuggestionsValue<Locale>, MenuItem<SpreadsheetLocaleComponentSuggestionsValue<Locale>>> OPTION_MENU_ITEM_CREATOR = (v) -> {
+        throw new UnsupportedOperationException(); // never actually called within a test
+    };
 
     private final static LocaleContext CONTEXT = new FakeLocaleContext() {
         @Override
@@ -110,22 +121,23 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
     // ValueComponent...................................................................................................
 
     @Override
-    public SpreadsheetLocaleComponent createComponent() {
+    public SpreadsheetLocaleComponent<Locale> createComponent() {
         return SpreadsheetLocaleComponent.empty(
-            new FakeSpreadsheetLocaleComponentContext() {
+            new FakeSpreadsheetLocaleComponentContext<>() {
 
                 @Override
-                public Optional<SpreadsheetLocaleComponentSuggestionsValue> toValue(final Locale locale) {
+                public Optional<SpreadsheetLocaleComponentSuggestionsValue<Locale>> toValue(final Locale locale) {
                     return CONTEXT.localeText(locale)
                         .map(t -> SpreadsheetLocaleComponentSuggestionsValue.with(
                             locale,
-                            t
+                            t,
+                            locale
                         ));
                 }
 
                 @Override
-                public void verifyOption(final SpreadsheetLocaleComponentSuggestionsValue value,
-                                         final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue> suggestBox) {
+                public void verifyOption(final SpreadsheetLocaleComponentSuggestionsValue<Locale> value,
+                                         final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<Locale>> suggestBox) {
                     suggestBox.setVerifiedOption(value);
                 }
             }
@@ -135,8 +147,8 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetLocaleComponent> type() {
-        return SpreadsheetLocaleComponent.class;
+    public Class<SpreadsheetLocaleComponent<Locale>> type() {
+        return Cast.to(SpreadsheetLocaleComponent.class);
     }
 
     @Override
