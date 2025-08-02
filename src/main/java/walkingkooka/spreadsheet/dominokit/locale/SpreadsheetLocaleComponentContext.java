@@ -24,15 +24,15 @@ import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxCompon
 import java.util.Locale;
 import java.util.Optional;
 
-public interface SpreadsheetLocaleComponentContext extends SpreadsheetSuggestBoxComponentSuggestionsProvider<SpreadsheetLocaleComponentSuggestionsValue>,
+public interface SpreadsheetLocaleComponentContext<T> extends SpreadsheetSuggestBoxComponentSuggestionsProvider<SpreadsheetLocaleComponentSuggestionsValue<T>>,
     Context {
 
-    MenuItem<SpreadsheetLocaleComponentSuggestionsValue> createMenuItem(final SpreadsheetLocaleComponentSuggestionsValue value);
+    MenuItem<SpreadsheetLocaleComponentSuggestionsValue<T>> createMenuItem(final SpreadsheetLocaleComponentSuggestionsValue<T> value);
 
-    Optional<SpreadsheetLocaleComponentSuggestionsValue> toValue(final Locale locale);
+    Optional<SpreadsheetLocaleComponentSuggestionsValue<T>> toValue(final Locale locale);
 
     @Override
-    default String menuItemKey(final SpreadsheetLocaleComponentSuggestionsValue value) {
+    default String menuItemKey(final SpreadsheetLocaleComponentSuggestionsValue<T> value) {
         return value.locale()
             .toLanguageTag();
     }

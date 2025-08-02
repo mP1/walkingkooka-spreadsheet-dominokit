@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.locale;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.set.SortedSets;
 import walkingkooka.compare.ComparableTesting2;
@@ -30,9 +31,13 @@ import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetLocaleComponentSuggestionsValueTest implements ComparableTesting2<SpreadsheetLocaleComponentSuggestionsValue>,
-    ClassTesting<SpreadsheetLocaleComponentSuggestionsValue> {
+public final class SpreadsheetLocaleComponentSuggestionsValueTest implements ComparableTesting2<SpreadsheetLocaleComponentSuggestionsValue<Integer>>,
+    ClassTesting<SpreadsheetLocaleComponentSuggestionsValue<Integer>> {
 
+    private final static Locale LOCALE = Locale.ENGLISH;
+    private final static String TEXT = "English";
+    private final static Integer VALUE = 123;
+    
     // with.............................................................................................................
 
     @Test
@@ -41,7 +46,8 @@ public final class SpreadsheetLocaleComponentSuggestionsValueTest implements Com
             NullPointerException.class,
             () -> SpreadsheetLocaleComponentSuggestionsValue.with(
                 null,
-                "Text"
+                TEXT,
+                VALUE
             )
         );
     }
@@ -51,8 +57,9 @@ public final class SpreadsheetLocaleComponentSuggestionsValueTest implements Com
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetLocaleComponentSuggestionsValue.with(
-                Locale.ENGLISH,
-                null
+                LOCALE,
+                null,
+                VALUE
             )
         );
     }
@@ -62,28 +69,43 @@ public final class SpreadsheetLocaleComponentSuggestionsValueTest implements Com
         assertThrows(
             IllegalArgumentException.class,
             () -> SpreadsheetLocaleComponentSuggestionsValue.with(
-                Locale.ENGLISH,
-                ""
+                LOCALE,
+                "",
+                VALUE
             )
         );
     }
 
+    @Test
+    public void testWithNullValueFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetLocaleComponentSuggestionsValue.with(
+                LOCALE,
+                TEXT,
+                null
+            )
+        );
+    }
+    
     // Comparable.......................................................................................................
 
     @Test
     public void testComparableSort() {
-        final Set<SpreadsheetLocaleComponentSuggestionsValue> values = SortedSets.tree();
+        final Set<SpreadsheetLocaleComponentSuggestionsValue<Integer>> values = SortedSets.tree();
 
-        final SpreadsheetLocaleComponentSuggestionsValue english = this.createComparable();
+        final SpreadsheetLocaleComponentSuggestionsValue<Integer> english = this.createComparable();
 
-        final SpreadsheetLocaleComponentSuggestionsValue au = SpreadsheetLocaleComponentSuggestionsValue.with(
-            Locale.ENGLISH,
-            "English australia"
+        final SpreadsheetLocaleComponentSuggestionsValue<Integer> au = SpreadsheetLocaleComponentSuggestionsValue.with(
+            LOCALE,
+            "English australia",
+            VALUE
         );
 
-        final SpreadsheetLocaleComponentSuggestionsValue nz = SpreadsheetLocaleComponentSuggestionsValue.with(
+        final SpreadsheetLocaleComponentSuggestionsValue<Integer> nz = SpreadsheetLocaleComponentSuggestionsValue.with(
             Locale.forLanguageTag("en-NZ"),
-            "English NEW ZEALAND"
+            "English NEW ZEALAND",
+            VALUE
         );
 
         values.add(english);
@@ -102,18 +124,19 @@ public final class SpreadsheetLocaleComponentSuggestionsValueTest implements Com
     }
 
     @Override
-    public SpreadsheetLocaleComponentSuggestionsValue createComparable() {
+    public SpreadsheetLocaleComponentSuggestionsValue<Integer> createComparable() {
         return SpreadsheetLocaleComponentSuggestionsValue.with(
-            Locale.ENGLISH,
-            "English"
+            LOCALE,
+            TEXT,
+            VALUE
         );
     }
 
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetLocaleComponentSuggestionsValue> type() {
-        return SpreadsheetLocaleComponentSuggestionsValue.class;
+    public Class<SpreadsheetLocaleComponentSuggestionsValue<Integer>> type() {
+        return Cast.to(SpreadsheetLocaleComponentSuggestionsValue.class);
     }
 
     @Override

@@ -131,21 +131,22 @@ public final class SpreadsheetLocaleDialogComponent implements SpreadsheetDialog
 
     private SpreadsheetLocaleComponent locale() {
         return SpreadsheetLocaleComponent.empty(
-                new SpreadsheetLocaleComponentContext() {
+                new SpreadsheetLocaleComponentContext<Locale>() {
 
                     @Override
-                    public Optional<SpreadsheetLocaleComponentSuggestionsValue> toValue(final Locale locale) {
+                    public Optional<SpreadsheetLocaleComponentSuggestionsValue<Locale>> toValue(final Locale locale) {
                         return context.localeText(locale)
                             .map(t -> SpreadsheetLocaleComponentSuggestionsValue.with(
                                     locale,
-                                    t
+                                    t,
+                                    locale
                                 )
                             );
                     }
 
                     @Override
                     public void filter(final String startsWith,
-                                       final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue> suggestBox) {
+                                       final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<Locale>> suggestBox) {
                         suggestBox.setOptions(
                             LocaleHateosResourceSet.filter(startsWith, context)
                                 .stream()
@@ -153,7 +154,8 @@ public final class SpreadsheetLocaleDialogComponent implements SpreadsheetDialog
                                     (LocaleHateosResource lhr) ->
                                         SpreadsheetLocaleComponentSuggestionsValue.with(
                                             lhr.locale(),
-                                            lhr.text()
+                                            lhr.text(),
+                                            lhr.locale()
                                         )
                                 ).sorted()
                                 .collect(Collectors.toList())
@@ -161,9 +163,9 @@ public final class SpreadsheetLocaleDialogComponent implements SpreadsheetDialog
                     }
 
                     @Override
-                    public void verifyOption(final SpreadsheetLocaleComponentSuggestionsValue value,
-                                             final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue> suggestBox) {
-                        SpreadsheetLocaleComponentSuggestionsValue verified = null;
+                    public void verifyOption(final SpreadsheetLocaleComponentSuggestionsValue<Locale> value,
+                                             final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<Locale>> suggestBox) {
+                        SpreadsheetLocaleComponentSuggestionsValue<Locale> verified = null;
 
                         if (null != value) {
                             final Locale locale = value.locale();
@@ -171,7 +173,8 @@ public final class SpreadsheetLocaleDialogComponent implements SpreadsheetDialog
                                 .orElse(null);
                             verified = SpreadsheetLocaleComponentSuggestionsValue.with(
                                 locale,
-                                localeText
+                                localeText,
+                                locale
                             );
                         }
 
@@ -181,7 +184,7 @@ public final class SpreadsheetLocaleDialogComponent implements SpreadsheetDialog
                     }
 
                     @Override
-                    public MenuItem<SpreadsheetLocaleComponentSuggestionsValue> createMenuItem(final SpreadsheetLocaleComponentSuggestionsValue value) {
+                    public MenuItem<SpreadsheetLocaleComponentSuggestionsValue<Locale>> createMenuItem(final SpreadsheetLocaleComponentSuggestionsValue<Locale> value) {
                         return context.menuItem(
                             ID + "-option-" + value.locale().toLanguageTag(), // id
                             value.text(),
