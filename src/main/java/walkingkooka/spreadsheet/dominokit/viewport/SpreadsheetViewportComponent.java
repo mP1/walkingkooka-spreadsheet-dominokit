@@ -52,7 +52,7 @@ import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuTargets;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
-import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetDivComponent;
+import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetElementComponent;
 import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopSpreadsheetFormatterInfoSetFetcherWatcher;
@@ -240,7 +240,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         // rather than
         // link1 badge1  link2 badge2 link3
         root.appendChild(
-            SpreadsheetDivComponent.empty()
+            SpreadsheetElementComponent.div()
                 .setCssText("position: relative;")
                 .appendChild(this.formula)
                 .appendChild(this.formulaCellLinks.setCssText("position:absolute; bottom: 0px; right: 15px; height: fit-content; display:flex;"))
