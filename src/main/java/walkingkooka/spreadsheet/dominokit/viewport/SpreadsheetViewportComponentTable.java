@@ -18,19 +18,20 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.HTMLTableElement;
-import org.dominokit.domino.ui.IsElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.SortedSets;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetElementComponent;
 import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetTBodyComponent;
 import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetTHeadComponent;
 import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetTableComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
 import java.util.Map;
@@ -41,7 +42,7 @@ import java.util.function.Predicate;
 /**
  * A TABLE which holds all the ROWs that are displayed. It also contains and caches rows.
  */
-final class SpreadsheetViewportComponentTable implements IsElement<HTMLTableElement> {
+final class SpreadsheetViewportComponentTable implements HtmlElementComponent<HTMLTableElement, SpreadsheetViewportComponentTable> {
 
     static SpreadsheetViewportComponentTable empty(final SpreadsheetViewportComponentTableContext context) {
         return new SpreadsheetViewportComponentTable(context);
@@ -176,11 +177,39 @@ final class SpreadsheetViewportComponentTable implements IsElement<HTMLTableElem
 
     private Map<SpreadsheetRowReference, SpreadsheetViewportComponentTableRowCells> rowsToTableRowCells;
 
+    @Override
+    public boolean isEditing() {
+        return false;
+    }
+
+    @Override
+    public SpreadsheetViewportComponentTable setCssText(final String css) {
+        this.table.setCssText(css);
+        return this;
+    }
+
+    @Override
+    public SpreadsheetViewportComponentTable setCssProperty(final String name,
+                                                            final String value) {
+        this.table.setCssProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override
     public HTMLTableElement element() {
         return this.table.element();
+    }
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        this.table.printTree(printer);
     }
 
     private final SpreadsheetTableComponent table;
