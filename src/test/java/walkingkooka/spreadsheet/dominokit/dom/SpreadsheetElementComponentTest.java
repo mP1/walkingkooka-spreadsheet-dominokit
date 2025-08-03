@@ -42,7 +42,7 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
                 .setCssText("color: black;")
             ,
             "TABLE\n" +
-                "  id=tableId123 style=color: black\n"
+                "  id=\"tableId123\" style=\"color: black;\"\n"
         );
     }
 
@@ -60,7 +60,7 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
                 )
             ,
             "DIV\n" +
-                "  id=divId123 class=\"dui-flex-col dui-align-middle\"\n"
+                "  id=\"divId123\" class=\"dui-flex-col dui-align-middle\"\n"
         );
     }
 
@@ -173,10 +173,10 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
                         )
                 ),
             "TABLE\n" +
-                "  id=tableId123\n" +
+                "  id=\"tableId123\"\n" +
                 "    THEAD\n" +
                 "      TH\n" +
-                "        id=th111 style=background-color: yellow; color: black\n" +
+                "        id=\"th111\" style=\"background-color: yellow; color: black;\"\n" +
                 "          SpreadsheetTextComponent\n" +
                 "            \"A\"\n" +
                 "      TH\n" +
