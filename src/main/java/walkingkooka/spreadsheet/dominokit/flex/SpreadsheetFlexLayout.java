@@ -19,11 +19,14 @@ package walkingkooka.spreadsheet.dominokit.flex;
 
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
-import org.dominokit.domino.ui.elements.DivElement;
 import org.dominokit.domino.ui.style.CssClass;
 import org.dominokit.domino.ui.style.SpacingCss;
-import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.dominokit.ComponentWithChildren;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetDivComponent;
+import walkingkooka.text.CharSequences;
+import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
 import java.util.Objects;
@@ -31,13 +34,14 @@ import java.util.Objects;
 /**
  * A very basic attempt at re-creating the old DominoUI 1.x FlexLayout.
  */
-public class SpreadsheetFlexLayout extends SpreadsheetFlexLayoutLike {
+public class SpreadsheetFlexLayout implements HtmlElementComponent<HTMLDivElement, SpreadsheetFlexLayout>,
+    ComponentWithChildren<SpreadsheetFlexLayout, HTMLDivElement> {
 
     private final static CssClass GAP = SpacingCss.dui_gap_1;
 
     public static SpreadsheetFlexLayout column() {
         final SpreadsheetFlexLayout flex = new SpreadsheetFlexLayout(true);
-        flex.div.addCss(
+        flex.div.addCssClasses(
             SpacingCss.dui_flex_col,
             //SpacingCss.dui_v_full,
             SpacingCss.dui_items_start,
@@ -48,9 +52,8 @@ public class SpreadsheetFlexLayout extends SpreadsheetFlexLayoutLike {
 
     public static SpreadsheetFlexLayout row() {
         final SpreadsheetFlexLayout flex = new SpreadsheetFlexLayout(false);
-        flex.div.style()
-            .cssText("display:flex; flex-wrap: wrap;");
-        flex.div.addCss(
+        flex.div.setCssText("display:flex; flex-wrap: wrap;");
+        flex.div.addCssClasses(
             SpacingCss.dui_flex_row,
             SpacingCss.dui_h_full,
             SpacingCss.dui_items_start,
@@ -65,7 +68,6 @@ public class SpreadsheetFlexLayout extends SpreadsheetFlexLayoutLike {
         this.column = column;
     }
 
-    @Override
     public boolean isColumn() {
         return this.column;
     }
@@ -74,35 +76,27 @@ public class SpreadsheetFlexLayout extends SpreadsheetFlexLayoutLike {
 
     // displayBlock.....................................................................................................
 
-    @Override
     public SpreadsheetFlexLayout displayBlock() {
-        this.element()
-            .style
-            .display = "block";
+        this.div.setDisplay("block");
         return this;
     }
 
     // id...............................................................................................................
 
-    @Override
     public SpreadsheetFlexLayout setId(final String id) {
         this.div.setId(id);
         return this;
     }
 
-    @Override
     public String id() {
-        return this.div.getId();
+        return this.div.id();
     }
 
     // children.........................................................................................................
 
     @Override
     public SpreadsheetFlexLayout appendChild(final IsElement<?> child) {
-        this.div.element()
-            .appendChild(
-                child.element()
-            );
+        this.div.appendChild(child);
         this.children.add(child);
         return this;
     }
@@ -113,8 +107,7 @@ public class SpreadsheetFlexLayout extends SpreadsheetFlexLayoutLike {
     @Override
     public SpreadsheetFlexLayout removeChild(final int index) {
         final IsElement<?> child = this.children.remove(index);
-        this.div.element()
-            .removeChild(child.element());
+        this.div.removeChild(child);
         return this;
     }
 
@@ -139,7 +132,7 @@ public class SpreadsheetFlexLayout extends SpreadsheetFlexLayoutLike {
     public SpreadsheetFlexLayout setCssText(final String css) {
         Objects.requireNonNull(css, "css");
 
-        this.div.cssText(css);
+        this.div.setCssText(css);
         return this;
     }
 
@@ -169,5 +162,43 @@ public class SpreadsheetFlexLayout extends SpreadsheetFlexLayoutLike {
         return this.div.element();
     }
 
-    private final DivElement div = ElementsFactory.elements.div();
+    // CanBeEmpty.......................................................................................................
+
+    @Override
+    public final boolean isEmpty() {
+        return this.isEmptyIfChildrenAreEmpty();
+    }
+
+    // TreePrintable....................................................................................................
+
+    // SpreadsheetFlexLayout
+    //  ROW
+    //    id=Id123
+    //      SpreadsheetTextBox
+    //        [Value111]
+    //      SpreadsheetTextBox
+    //        [Value222]
+    @Override
+    public final void printTree(final IndentingPrinter printer) {
+        printer.println(this.getClass().getSimpleName());
+        printer.indent();
+        {
+            printer.println(this.isColumn() ? "COLUMN" : "ROW");
+            {
+                final String id = this.id();
+                if (false == CharSequences.isNullOrEmpty(id)) {
+                    printer.indent();
+                    printer.println("id=" + id);
+                }
+                printer.indent();
+                {
+                    this.div.printTreeChildren(printer);
+                }
+                printer.outdent();
+            }
+        }
+        printer.outdent();
+    }
+
+    private final SpreadsheetDivComponent div = SpreadsheetDivComponent.div();
 }
