@@ -17,9 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.dom;
 
-import elemental2.dom.HTMLTableRowElement;
+import elemental2.dom.HTMLTableCellElement;
 
-public final class SpreadsheetTdComponent extends SpreadsheetElementComponent<HTMLTableRowElement, SpreadsheetTdComponent> {
+public final class SpreadsheetTdComponent extends SpreadsheetElementComponent<HTMLTableCellElement, SpreadsheetTdComponent> {
 
     SpreadsheetTdComponent() {
         super("TD");
