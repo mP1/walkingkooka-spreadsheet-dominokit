@@ -117,6 +117,10 @@ abstract class SpreadsheetElementComponentLike<E extends HTMLElement, C extends 
 
     public abstract C appendChild(final IsElement<?> child);
 
+    public abstract C removeChild(final Node child);
+
+    public abstract C removeChild(final IsElement<?> child);
+
     public final C addBlurListener(final EventListener listener) {
         return this.addEventListener(
             EventType.blur.getName(),
