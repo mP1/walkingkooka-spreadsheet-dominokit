@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.dom;
 import org.dominokit.domino.ui.style.SpacingCss;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
+import walkingkooka.color.Color;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextComponent;
@@ -33,6 +34,31 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
     // TreePrintable....................................................................................................
 
     @Test
+    public void testStyleWithRgbColorFunction() {
+        this.checkEquals(
+            "#123456",
+            Color.parse("#123456")
+                .toString()
+        );
+
+        this.treePrintAndCheck(
+            SpreadsheetElementComponent.div()
+                .setId("divId123")
+                .setCssProperty(
+                    "color",
+                    Color.parse("#123456")
+                        .toString()
+                ).setCssProperty(
+                    "text-align",
+                "left"
+                )
+            ,
+            "DIV\n" +
+                "  id=\"divId123\" style=\"color: #123456; text-align: left;\"\n"
+        );
+    }
+
+    @Test
     public void testTableWithCssTextWithTrailingSemiColon() {
         SpreadsheetElementComponent.tr();
 
@@ -42,7 +68,7 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
                 .setCssText("color: black;")
             ,
             "TABLE\n" +
-                "  id=\"tableId123\" style=\"color: black;\"\n"
+                "  id=\"tableId123\" style=\"color: #000000;\"\n"
         );
     }
 
@@ -176,7 +202,7 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
                 "  id=\"tableId123\"\n" +
                 "    THEAD\n" +
                 "      TH\n" +
-                "        id=\"th111\" style=\"background-color: yellow; color: black;\"\n" +
+                "        id=\"th111\" style=\"background-color: #ffff00; color: #000000;\"\n" +
                 "          SpreadsheetTextComponent\n" +
                 "            \"A\"\n" +
                 "      TH\n" +
