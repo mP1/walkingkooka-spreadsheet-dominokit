@@ -23,6 +23,8 @@ import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
 import jsinterop.base.Js;
 import org.dominokit.domino.ui.IsElement;
+import org.dominokit.domino.ui.style.CssClass;
+import org.dominokit.domino.ui.style.Style;
 import org.dominokit.domino.ui.utils.ElementUtil;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -98,6 +100,22 @@ public abstract class SpreadsheetElementComponent<E extends HTMLElement, C exten
     public final C setCssText(final String cssText) {
         this.element.style.cssText = cssText;
         return (C) this;
+    }
+
+    @Override
+    public final C addCssClasses(final CssClass...cssClass) {
+        this.style().addCss(cssClass);
+        return (C) this;
+    }
+
+    @Override
+    public final C removeCssClasses(final CssClass...cssClass) {
+        this.style().removeCss(cssClass);
+        return (C) this;
+    }
+
+    private Style style() {
+        return Style.of(this.element);
     }
 
     @Override

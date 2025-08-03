@@ -22,6 +22,7 @@ import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.events.EventType;
+import org.dominokit.domino.ui.style.CssClass;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextNode;
@@ -101,6 +102,10 @@ abstract class SpreadsheetElementComponentLike<E extends HTMLElement, C extends 
 
     @Override
     public abstract C setCssText(final String cssText);
+
+    public abstract C addCssClasses(final CssClass...cssClass);
+
+    public abstract C removeCssClasses(final CssClass...cssClass);
 
     public abstract C clear();
 

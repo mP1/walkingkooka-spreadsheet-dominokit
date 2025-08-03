@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.dom;
 
+import org.dominokit.domino.ui.style.SpacingCss;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.reflect.ClassTesting;
@@ -42,6 +43,24 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
             ,
             "TABLE\n" +
                 "  id=tableId123 style=color: black\n"
+        );
+    }
+
+
+    @Test
+    public void testCssClasses() {
+        SpreadsheetElementComponent.tr();
+
+        this.treePrintAndCheck(
+            SpreadsheetElementComponent.div()
+                .setId("divId123")
+                .addCssClasses(
+                    SpacingCss.dui_flex_col,
+                    SpacingCss.dui_align_middle
+                )
+            ,
+            "DIV\n" +
+                "  id=divId123 class=\"dui-flex-col dui-align-middle\"\n"
         );
     }
 
