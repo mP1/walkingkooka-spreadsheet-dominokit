@@ -186,44 +186,52 @@ public abstract class SpreadsheetElementComponent<E extends HTMLElement, C exten
         {
             final List<String> attributes = Lists.array();
 
-            final String id = this.id;
-            if(null != id) {
-                attributes.add(
-                    "id=\"" + id + "\""
-                );
+            {
+                final String id = this.id;
+                if (null != id) {
+                    attributes.add(
+                        "id=\"" + id + "\""
+                    );
+                }
             }
 
-            final Integer tabIndex = this.tabIndex;
-            if(null != tabIndex) {
-                attributes.add(
-                    "tabIndex=" + tabIndex
-                );
+            {
+                final Integer tabIndex = this.tabIndex;
+                if (null != tabIndex) {
+                    attributes.add(
+                        "tabIndex=" + tabIndex
+                    );
+                }
             }
 
-            final Set<CssClass> cssClasses = this.classes;
-            if (false == cssClasses.isEmpty()) {
-                attributes.add(
-                    "class=\"" +
-                        cssClasses.stream()
-                            .map(CssClass::getCssClass)
-                            .collect(Collectors.joining(" "))
-                        + "\""
-                );
+            {
+                final Set<CssClass> cssClasses = this.classes;
+                if (false == cssClasses.isEmpty()) {
+                    attributes.add(
+                        "class=\"" +
+                            cssClasses.stream()
+                                .map(CssClass::getCssClass)
+                                .collect(Collectors.joining(" "))
+                            + "\""
+                    );
+                }
             }
 
-            final Map<String, String> style = this.style;
-            if (false == style.isEmpty()) {
-                attributes.add(
-                    "style=\"" +
-                        style.entrySet()
-                            .stream()
-                            .map(entry -> entry.getKey() + ": " + entry.getValue())
-                            .collect(Collectors.joining("; "))
-                        + ";\""
-                );
+            {
+                final Map<String, String> style = this.style;
+                if (false == style.isEmpty()) {
+                    attributes.add(
+                        "style=\"" +
+                            style.entrySet()
+                                .stream()
+                                .map(entry -> entry.getKey() + ": " + entry.getValue())
+                                .collect(Collectors.joining("; "))
+                            + ";\""
+                    );
+                }
             }
 
-            if(false == attributes.isEmpty()) {
+            if (false == attributes.isEmpty()) {
                 printer.println(
                     attributes.stream()
                         .collect(Collectors.joining(" "))
@@ -233,7 +241,7 @@ public abstract class SpreadsheetElementComponent<E extends HTMLElement, C exten
 
             this.printTreeChildren(printer);
 
-            if(false == attributes.isEmpty()) {
+            if (false == attributes.isEmpty()) {
                 printer.outdent();
             }
         }
