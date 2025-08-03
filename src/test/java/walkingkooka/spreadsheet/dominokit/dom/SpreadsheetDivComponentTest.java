@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.div;
+package walkingkooka.spreadsheet.dominokit.dom;
 
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
@@ -24,12 +24,12 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 
-public final class SpreadsheetDivComponentTest implements HtmlElementComponentTesting<SpreadsheetDivComponent, HTMLDivElement> {
+public final class SpreadsheetDivComponentTest implements HtmlElementComponentTesting<walkingkooka.spreadsheet.dominokit.dom.SpreadsheetDivComponent, HTMLDivElement> {
 
     @Test
     public void testEmpty() {
         this.treePrintAndCheck(
-            SpreadsheetDivComponent.empty(),
+            walkingkooka.spreadsheet.dominokit.dom.SpreadsheetDivComponent.empty(),
             "SpreadsheetDivComponent\n"
         );
     }
@@ -37,7 +37,7 @@ public final class SpreadsheetDivComponentTest implements HtmlElementComponentTe
     @Test
     public void testAppendChild() {
         this.treePrintAndCheck(
-            SpreadsheetDivComponent.empty()
+            walkingkooka.spreadsheet.dominokit.dom.SpreadsheetDivComponent.empty()
                 .appendChild(
                     HistoryTokenAnchorComponent.empty()
                         .setHref(Url.parseAbsolute("https://example.com/123"))
@@ -49,7 +49,7 @@ public final class SpreadsheetDivComponentTest implements HtmlElementComponentTe
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetDivComponent> type() {
+    public Class<walkingkooka.spreadsheet.dominokit.dom.SpreadsheetDivComponent> type() {
         return SpreadsheetDivComponent.class;
     }
 

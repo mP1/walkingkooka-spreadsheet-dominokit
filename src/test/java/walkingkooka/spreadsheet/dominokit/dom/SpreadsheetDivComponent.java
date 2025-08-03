@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.div;
+package walkingkooka.spreadsheet.dominokit.dom;
 
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
@@ -26,17 +26,17 @@ import java.util.Objects;
 /**
  * A {@link walkingkooka.spreadsheet.dominokit.Component} that uses surrounds any given child components with a DIV.
  */
-public final class SpreadsheetDivComponent extends SpreadsheetDivComponentLike implements TestHtmlElementComponent<HTMLDivElement, SpreadsheetDivComponent> {
+public final class SpreadsheetDivComponent extends SpreadsheetDivComponentLike implements TestHtmlElementComponent<HTMLDivElement, walkingkooka.spreadsheet.dominokit.dom.SpreadsheetDivComponent> {
 
-    public static SpreadsheetDivComponent empty() {
-        return new SpreadsheetDivComponent();
+    public static walkingkooka.spreadsheet.dominokit.dom.SpreadsheetDivComponent empty() {
+        return new walkingkooka.spreadsheet.dominokit.dom.SpreadsheetDivComponent();
     }
 
     private SpreadsheetDivComponent() {
     }
 
     @Override
-    public SpreadsheetDivComponent appendChild(final HtmlElementComponent<?, ?> child) {
+    public walkingkooka.spreadsheet.dominokit.dom.SpreadsheetDivComponent appendChild(final HtmlElementComponent<?, ?> child) {
         Objects.requireNonNull(child, "child");
 
         this.children.add(child);

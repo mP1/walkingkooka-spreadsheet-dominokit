@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.div;
+package walkingkooka.spreadsheet.dominokit.dom;
 
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.collect.list.Lists;
