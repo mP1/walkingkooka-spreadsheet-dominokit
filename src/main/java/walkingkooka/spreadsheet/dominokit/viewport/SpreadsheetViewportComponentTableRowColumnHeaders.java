@@ -17,13 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
-import elemental2.dom.HTMLTableRowElement;
-import org.dominokit.domino.ui.IsElement;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
-import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetElementComponent;
 import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetTrComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
@@ -36,20 +33,18 @@ import java.util.function.Predicate;
 /**
  * A TR holding the select-all and column headers.
  */
-final class SpreadsheetViewportComponentTableRowColumnHeaders extends SpreadsheetViewportComponentTableRow implements IsElement<HTMLTableRowElement> {
+final class SpreadsheetViewportComponentTableRowColumnHeaders extends SpreadsheetViewportComponentTableRow<SpreadsheetViewportComponentTableRowColumnHeaders> {
 
     static SpreadsheetViewportComponentTableRowColumnHeaders empty(final HistoryContext context) {
         return new SpreadsheetViewportComponentTableRowColumnHeaders(context);
     }
 
     private SpreadsheetViewportComponentTableRowColumnHeaders(final HistoryContext context) {
-        this.element = SpreadsheetElementComponent.tr();
-
         this.selectAll = SpreadsheetViewportComponentTableCellHeaderSelectAll.empty(context);
         this.columns = null;
         this.columnToHeaders = Maps.sorted();
 
-        this.element.appendChild(this.selectAll);
+        this.tr.appendChild(this.selectAll);
     }
 
     @Override
@@ -69,7 +64,7 @@ final class SpreadsheetViewportComponentTableRowColumnHeaders extends Spreadshee
         if (false == columns.equals(this.columns)) {
             this.columns = columns;
 
-            final SpreadsheetTrComponent element = this.element;
+            final SpreadsheetTrComponent element = this.tr;
             element.clear();
 
             element.appendChild(this.selectAll);
@@ -113,13 +108,4 @@ final class SpreadsheetViewportComponentTableRowColumnHeaders extends Spreadshee
     private Set<SpreadsheetColumnReference> columns;
 
     private Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn> columnToHeaders;
-
-    // IsElement........................................................................................................
-
-    @Override
-    public HTMLTableRowElement element() {
-        return this.element.element();
-    }
-
-    private final SpreadsheetTrComponent element;
 }
