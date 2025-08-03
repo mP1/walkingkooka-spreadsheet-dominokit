@@ -84,6 +84,11 @@ public abstract class SpreadsheetElementComponent<E extends HTMLElement, C exten
         return (C) this;
     }
 
+    @Override
+    public final String id() {
+        return this.id;
+    }
+
     private String id;
 
     @Override
