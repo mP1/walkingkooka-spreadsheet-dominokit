@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLTableElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
@@ -195,6 +196,41 @@ final class SpreadsheetViewportComponentTable implements HtmlElementComponent<HT
             name,
             value
         );
+        return this;
+    }
+
+    SpreadsheetViewportComponentTable addClickListener(final EventListener listener) {
+        this.table.addClickListener(listener);
+        return this;
+    }
+
+    SpreadsheetViewportComponentTable addContextMenuListener(final EventListener listener) {
+        this.table.addContextMenuListener(listener);
+        return this;
+    }
+
+    SpreadsheetViewportComponentTable addFocusInListener(final EventListener listener) {
+        this.table.addFocusInListener(listener);
+        return this;
+    }
+
+    SpreadsheetViewportComponentTable addFocusOutListener(final EventListener listener) {
+        this.table.addFocusOutListener(listener);
+        return this;
+    }
+
+    SpreadsheetViewportComponentTable addKeyDownListener(final EventListener listener) {
+        this.table.addKeyDownListener(listener);
+        return this;
+    }
+
+    SpreadsheetViewportComponentTable addKeyPressListener(final EventListener listener) {
+        this.table.addKeyPressListener(listener);
+        return this;
+    }
+
+    SpreadsheetViewportComponentTable addKeyUpListener(final EventListener listener) {
+        this.table.addKeyUpListener(listener);
         return this;
     }
 

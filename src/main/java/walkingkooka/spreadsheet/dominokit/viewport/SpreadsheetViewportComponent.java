@@ -23,13 +23,11 @@ import elemental2.dom.Event;
 import elemental2.dom.EventTarget;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLElement;
-import elemental2.dom.HTMLTableElement;
 import elemental2.dom.Headers;
 import elemental2.dom.KeyboardEvent;
 import elemental2.dom.MouseEvent;
 import jsinterop.base.Js;
 import org.dominokit.domino.ui.button.Button;
-import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.MdiIcon;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
@@ -415,41 +413,24 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     // table............................................................................................................
 
     private SpreadsheetViewportComponentTable table() {
-        final SpreadsheetViewportComponentTable table = SpreadsheetViewportComponentTable.empty(
-            SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext.with(
-                this
-            )
-        );
-
-        final HTMLTableElement element = table.element();
-
-        element.addEventListener(
-            "focusin",
-            (event) -> this.focused = true
-        );
-        element.addEventListener(
-            "focusout",
-            (event) -> this.focused = false
-        );
-
-        element.addEventListener(
-            EventType.click.getName(),
-            (event) -> onTableClickEvent(
-                Js.cast(event)
-            )
-        );
-        element.addEventListener(
-            EventType.keydown.getName(),
-            (event) -> onTableKeyDownEvent(
-                Js.cast(event)
-            )
-        );
-        element.addEventListener(
-            EventType.contextmenu.getName(),
-            this::onTableContextMenu
-        );
-
-        return table;
+        return SpreadsheetViewportComponentTable.empty(
+                SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext.with(
+                    this
+                )
+            ).addClickListener(
+                (event) -> onTableClickEvent(
+                    Js.cast(event)
+                )
+            ).addContextMenuListener(this::onTableContextMenu)
+            .addKeyDownListener(
+                (event) -> onTableKeyDownEvent(
+                    Js.cast(event)
+                )
+            ).addFocusInListener(
+                (event) -> this.focused = true
+            ).addFocusOutListener(
+                (event) -> this.focused = false
+            );
     }
 
     // focus ...........................................................................................................
