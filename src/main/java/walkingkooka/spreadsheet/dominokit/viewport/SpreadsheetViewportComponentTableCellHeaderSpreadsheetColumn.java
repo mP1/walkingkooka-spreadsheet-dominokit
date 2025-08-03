@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 /**
  * A TH holding a single COLUMN header. Note new instances are created when a new spreadsheet is created/loaded.
  */
-final class SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn extends SpreadsheetViewportComponentTableCellHeader<SpreadsheetColumnReference> {
+final class SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn extends SpreadsheetViewportComponentTableCellHeader<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn> {
 
     static SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn empty(final SpreadsheetColumnReference column,
                                                                               final SpreadsheetViewportComponentTableContext context) {

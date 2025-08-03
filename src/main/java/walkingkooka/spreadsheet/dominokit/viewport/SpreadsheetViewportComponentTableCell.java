@@ -17,12 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import elemental2.dom.HTMLElement;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
+import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetElementComponentDelegator;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.BorderStyle;
 import walkingkooka.tree.text.FontSize;
 import walkingkooka.tree.text.FontStyle;
@@ -41,7 +45,8 @@ import java.util.function.Predicate;
 /**
  * Base class for all TABLE CELL (TD) components within a {@link SpreadsheetViewportComponentTable}
  */
-abstract class SpreadsheetViewportComponentTableCell {
+abstract class SpreadsheetViewportComponentTableCell<E extends HTMLElement, C extends SpreadsheetViewportComponentTableCell<E, C>> implements HtmlElementComponent<E, C>,
+    SpreadsheetElementComponentDelegator<E, C> {
 
     SpreadsheetViewportComponentTableCell() {
         super();
@@ -123,4 +128,22 @@ abstract class SpreadsheetViewportComponentTableCell {
 
     abstract void refresh(final Predicate<SpreadsheetSelection> selected,
                           final SpreadsheetViewportComponentTableContext context);
+
+    @Override
+    public final boolean isEditing() {
+        return false;
+    }
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public final void printTree(final IndentingPrinter printer) {
+        printer.println(this.getClass().getSimpleName());
+        printer.indent();
+        {
+            this.spreadsheetElementComponent()
+                .printTree(printer);
+        }
+        printer.outdent();
+    }
 }

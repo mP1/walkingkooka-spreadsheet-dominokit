@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.HTMLTableCellElement;
-import org.dominokit.domino.ui.IsElement;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
@@ -36,12 +35,11 @@ import java.util.function.Predicate;
 /**
  * Base class for any of the header UI components belonging to the {@link SpreadsheetViewportComponent} TABLE.
  */
-abstract class SpreadsheetViewportComponentTableCellHeader<T extends SpreadsheetSelection> extends SpreadsheetViewportComponentTableCell
-    implements IsElement<HTMLTableCellElement> {
+abstract class SpreadsheetViewportComponentTableCellHeader<S extends SpreadsheetSelection, C extends SpreadsheetViewportComponentTableCellHeader<S, C>> extends SpreadsheetViewportComponentTableCell<HTMLTableCellElement, C> {
 
     SpreadsheetViewportComponentTableCellHeader(final String id,
                                                 final String css,
-                                                final T selection,
+                                                final S selection,
                                                 final String text,
                                                 final HistoryContext context) {
         super();
@@ -55,12 +53,10 @@ abstract class SpreadsheetViewportComponentTableCellHeader<T extends Spreadsheet
             .setTextContent(text);
         this.anchor = anchor;
 
-        this.element = SpreadsheetElementComponent.th()
+        this.th = SpreadsheetElementComponent.th()
             .setId(id)
             .setCssText(css)
-            .appendChild(
-                anchor.element()
-            );
+            .appendChild(anchor);
 
         this.selection = selection;
         this.extended = null;
@@ -98,7 +94,7 @@ abstract class SpreadsheetViewportComponentTableCellHeader<T extends Spreadsheet
     @Override //
     final void refresh(final Predicate<SpreadsheetSelection> selected,
                        final SpreadsheetViewportComponentTableContext context) {
-        this.element.setBackgroundColor(
+        this.th.setBackgroundColor(
             selected.test(this.selection) ?
                 SpreadsheetDominoKitColor.VIEWPORT_HEADER_SELECTED_BACKGROUND_COLOR.toString() :
                 SpreadsheetDominoKitColor.VIEWPORT_HEADER_UNSELECTED_BACKGROUND_COLOR.toString()
@@ -128,22 +124,28 @@ abstract class SpreadsheetViewportComponentTableCellHeader<T extends Spreadsheet
     /**
      * The {@link SpreadsheetSelection} for this TD.s
      */
-    final T selection;
+    final S selection;
 
     /**
      * When true indicates that the extend link is shown.
      */
     Boolean extended;
 
+    // SpreadsheetElementComponentDelegator.............................................................................
+
+    @Override
+    public SpreadsheetElementComponent<HTMLTableCellElement, ?> spreadsheetElementComponent() {
+        return this.th;
+    }
+
     // IsElement........................................................................................................
 
     @Override
     public final HTMLTableCellElement element() {
-        return this.element.element();
+        return this.th.element();
     }
 
-    private final SpreadsheetThComponent element;
-
+    private final SpreadsheetThComponent th;
 
     // Object...........................................................................................................
 
