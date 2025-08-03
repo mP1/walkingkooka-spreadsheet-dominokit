@@ -157,6 +157,11 @@ public final class SpreadsheetTextComponent implements FormValueComponent<HTMLDi
     }
 
     @Override
+    public SpreadsheetTextComponent addContextMenuListener(final EventListener listener) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public SpreadsheetTextComponent addFocusListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }

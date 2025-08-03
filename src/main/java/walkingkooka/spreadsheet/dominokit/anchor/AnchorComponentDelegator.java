@@ -174,6 +174,13 @@ public interface AnchorComponentDelegator<A extends AnchorComponent<A, T>, T> ex
     }
 
     @Override
+    default A addContextMenuListener(final EventListener listener) {
+        this.anchorComponent()
+            .addContextMenuListener(listener);
+        return (A) this;
+    }
+
+    @Override
     default A addKeydownListener(final EventListener listener) {
         this.anchorComponent()
             .addKeydownListener(listener);

@@ -75,6 +75,14 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     }
 
     @Override
+    public SpreadsheetTextBox addContextMenuListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.contextmenu,
+            listener
+        );
+    }
+
+    @Override
     public SpreadsheetTextBox addFocusListener(final EventListener listener) {
         return this.addEventListener(
             EventType.focus,

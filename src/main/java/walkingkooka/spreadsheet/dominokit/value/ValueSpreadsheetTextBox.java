@@ -237,6 +237,12 @@ public final class ValueSpreadsheetTextBox<T> implements FormValueComponent<HTML
     }
 
     @Override
+    public ValueSpreadsheetTextBox<T> addContextMenuListener(final EventListener listener) {
+        this.textBox.addContextMenuListener(listener);
+        return this;
+    }
+
+    @Override
     public ValueSpreadsheetTextBox<T> addFocusListener(final EventListener listener) {
         this.textBox.addFocusListener(listener);
         return this;

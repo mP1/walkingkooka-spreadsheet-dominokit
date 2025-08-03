@@ -177,6 +177,14 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
     }
 
     @Override
+    public SpreadsheetValueTypeComponent addContextMenuListener(final EventListener listener) {
+        this.select.addContextMenuListener(
+            listener
+        );
+        return this;
+    }
+
+    @Override
     public SpreadsheetValueTypeComponent addClickListener(final EventListener listener) {
         this.select.addClickListener(
             listener

@@ -82,6 +82,13 @@ public interface ValueComponentDelegator<E extends HTMLElement, V, C extends Val
     }
 
     @Override
+    default C addContextMenuListener(final EventListener listener) {
+        this.valueComponent()
+            .addContextMenuListener(listener);
+        return (C) this;
+    }
+
+    @Override
     default C addFocusListener(final EventListener listener) {
         this.valueComponent()
             .addFocusListener(listener);

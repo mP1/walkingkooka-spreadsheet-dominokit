@@ -190,6 +190,11 @@ public final class SpreadsheetDateComponent implements FormValueComponent<HTMLFi
     }
 
     @Override
+    public SpreadsheetDateComponent addContextMenuListener(final EventListener listener) {
+        return this;
+    }
+
+    @Override
     public SpreadsheetDateComponent addFocusListener(final EventListener listener) {
         return this;
     }

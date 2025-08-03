@@ -242,6 +242,11 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
     }
 
     @Override
+    public HistoryTokenAnchorComponent addContextMenuListener(final EventListener listener) {
+        return this;
+    }
+
+    @Override
     public HistoryTokenAnchorComponent addFocusListener(final EventListener listener) {
         return this;
     }

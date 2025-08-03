@@ -162,6 +162,13 @@ public interface SpreadsheetSuggestBoxComponentDelegator<E extends HTMLElement, 
     }
 
     @Override
+    default C addContextMenuListener(final EventListener listener) {
+        this.spreadsheetSuggestBoxComponent()
+            .addContextMenuListener(listener);
+        return (C) this;
+    }
+
+    @Override
     default C addFocusListener(final EventListener listener) {
         this.spreadsheetSuggestBoxComponent()
             .addFocusListener(listener);

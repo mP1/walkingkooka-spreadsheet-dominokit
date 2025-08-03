@@ -328,6 +328,13 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetC
         return this;
     }
 
+
+    @Override
+    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addContextMenuListener(final EventListener listener) {
+        this.names.addContextMenuListener(listener);
+        return this;
+    }
+
     @Override
     public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addFocusListener(final EventListener listener) {
         this.names.addFocusListener(listener);

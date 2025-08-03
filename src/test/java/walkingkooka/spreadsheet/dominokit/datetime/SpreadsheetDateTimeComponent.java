@@ -190,6 +190,11 @@ public final class SpreadsheetDateTimeComponent implements FormValueComponent<HT
     }
 
     @Override
+    public SpreadsheetDateTimeComponent addContextMenuListener(final EventListener listener) {
+        return this;
+    }
+
+    @Override
     public SpreadsheetDateTimeComponent addFocusListener(final EventListener listener) {
         return this;
     }

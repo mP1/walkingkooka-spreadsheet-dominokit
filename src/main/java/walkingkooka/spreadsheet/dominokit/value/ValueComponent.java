@@ -72,6 +72,8 @@ public interface ValueComponent<E extends HTMLElement, V, C extends ValueCompone
 
     C addChangeListener(final ChangeListener<Optional<V>> listener);
 
+    C addContextMenuListener(final EventListener listener);
+
     C addFocusListener(final EventListener listener);
 
     C addKeydownListener(final EventListener listener);
