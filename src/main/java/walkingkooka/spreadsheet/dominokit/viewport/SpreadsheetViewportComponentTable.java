@@ -19,16 +19,16 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.HTMLTableElement;
 import org.dominokit.domino.ui.IsElement;
-import org.dominokit.domino.ui.elements.TBodyElement;
-import org.dominokit.domino.ui.elements.THeadElement;
-import org.dominokit.domino.ui.elements.TableElement;
-import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.SortedSets;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
+import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetElementComponent;
+import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetTBodyComponent;
+import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetTHeadComponent;
+import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetTableComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -50,16 +50,16 @@ final class SpreadsheetViewportComponentTable implements IsElement<HTMLTableElem
     private SpreadsheetViewportComponentTable(final SpreadsheetViewportComponentTableContext context) {
         this.context = context;
 
-        final TableElement table = ElementsFactory.elements.table()
-            .id(SpreadsheetViewportComponent.ID)
-            .setOverFlow("hidden");
+        final SpreadsheetTableComponent table = SpreadsheetElementComponent.table()
+            .setId(SpreadsheetViewportComponent.ID)
+            .setOverflow("hidden");
         this.columnHeaders = SpreadsheetViewportComponentTableRowColumnHeaders.empty(context);
 
-        final THeadElement thead = ElementsFactory.elements.thead();
+        final SpreadsheetTHeadComponent thead = SpreadsheetElementComponent.thead();
         thead.appendChild(this.columnHeaders);
         table.appendChild(thead);
 
-        final TBodyElement tbody = ElementsFactory.elements.tbody();
+        final SpreadsheetTBodyComponent tbody = SpreadsheetElementComponent.tbody();
         table.appendChild(tbody);
 
         this.table = table;
@@ -106,8 +106,8 @@ final class SpreadsheetViewportComponentTable implements IsElement<HTMLTableElem
             this.rows = rows;
 
             // rows changed, create new rows
-            final TBodyElement tbody = this.tbody;
-            tbody.clearElement();
+            final SpreadsheetTBodyComponent tbody = this.tbody;
+            tbody.clear();
 
             this.columnHeaders.refresh(
                 windows,
@@ -183,9 +183,9 @@ final class SpreadsheetViewportComponentTable implements IsElement<HTMLTableElem
         return this.table.element();
     }
 
-    private final TableElement table;
+    private final SpreadsheetTableComponent table;
 
-    private final TBodyElement tbody;
+    private final SpreadsheetTBodyComponent tbody;
 
     private final SpreadsheetViewportComponentTableContext context;
 }

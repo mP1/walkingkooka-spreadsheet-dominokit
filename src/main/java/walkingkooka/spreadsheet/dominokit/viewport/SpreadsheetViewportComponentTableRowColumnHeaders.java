@@ -19,12 +19,12 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.HTMLTableRowElement;
 import org.dominokit.domino.ui.IsElement;
-import org.dominokit.domino.ui.elements.TableRowElement;
-import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
+import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetElementComponent;
+import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetTrComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -43,7 +43,7 @@ final class SpreadsheetViewportComponentTableRowColumnHeaders extends Spreadshee
     }
 
     private SpreadsheetViewportComponentTableRowColumnHeaders(final HistoryContext context) {
-        this.element = ElementsFactory.elements.tr();
+        this.element = SpreadsheetElementComponent.tr();
 
         this.selectAll = SpreadsheetViewportComponentTableCellHeaderSelectAll.empty(context);
         this.columns = null;
@@ -69,8 +69,8 @@ final class SpreadsheetViewportComponentTableRowColumnHeaders extends Spreadshee
         if (false == columns.equals(this.columns)) {
             this.columns = columns;
 
-            final TableRowElement element = this.element;
-            element.clearElement();
+            final SpreadsheetTrComponent element = this.element;
+            element.clear();
 
             element.appendChild(this.selectAll);
 
@@ -121,5 +121,5 @@ final class SpreadsheetViewportComponentTableRowColumnHeaders extends Spreadshee
         return this.element.element();
     }
 
-    private final TableRowElement element;
+    private final SpreadsheetTrComponent element;
 }

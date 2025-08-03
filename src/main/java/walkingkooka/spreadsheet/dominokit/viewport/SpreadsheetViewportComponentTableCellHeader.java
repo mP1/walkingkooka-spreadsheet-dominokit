@@ -19,11 +19,11 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.HTMLTableCellElement;
 import org.dominokit.domino.ui.IsElement;
-import org.dominokit.domino.ui.elements.THElement;
-import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
+import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetElementComponent;
+import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetThComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -55,14 +55,12 @@ abstract class SpreadsheetViewportComponentTableCellHeader<T extends Spreadsheet
             .setTextContent(text);
         this.anchor = anchor;
 
-        final THElement element = ElementsFactory.elements.th()
-            .id(id)
-            .style(css);
-
-        element.appendChild(
-            anchor.element()
-        );
-        this.element = element;
+        this.element = SpreadsheetElementComponent.th()
+            .setId(id)
+            .setCssText(css)
+            .appendChild(
+                anchor.element()
+            );
 
         this.selection = selection;
         this.extended = null;
@@ -144,7 +142,7 @@ abstract class SpreadsheetViewportComponentTableCellHeader<T extends Spreadsheet
         return this.element.element();
     }
 
-    private final THElement element;
+    private final SpreadsheetThComponent element;
 
 
     // Object...........................................................................................................
