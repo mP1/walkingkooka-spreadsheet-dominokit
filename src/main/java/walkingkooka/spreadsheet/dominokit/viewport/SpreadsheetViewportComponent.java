@@ -331,15 +331,8 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
      * Factory that creates the {@link SpreadsheetViewportFormulaComponent}
      */
     private SpreadsheetViewportFormulaComponent createFormula() {
-        SpreadsheetViewportFormulaComponent component = SpreadsheetViewportFormulaComponent.with(this.context);
-
-        component.element()
-            .addEventListener(
-                EventType.contextmenu.getName(),
-                this::onFormulaContextMenu
-            );
-
-        return component;
+        return SpreadsheetViewportFormulaComponent.with(this.context)
+            .addContextMenu(this::onFormulaContextMenu);
     }
 
     /**
