@@ -189,7 +189,7 @@ public abstract class SpreadsheetElementComponent<E extends HTMLElement, C exten
             final String id = this.id;
             if(null != id) {
                 attributes.add(
-                    "id=" + id
+                    "id=\"" + id + "\""
                 );
             }
 
@@ -212,12 +212,14 @@ public abstract class SpreadsheetElementComponent<E extends HTMLElement, C exten
             }
 
             final Map<String, String> style = this.style;
-            if(false == style.isEmpty()) {
+            if (false == style.isEmpty()) {
                 attributes.add(
-                    "style=" + style.entrySet()
-                        .stream()
-                        .map(entry -> entry.getKey() + ": " + entry.getValue())
-                        .collect(Collectors.joining("; "))
+                    "style=\"" +
+                        style.entrySet()
+                            .stream()
+                            .map(entry -> entry.getKey() + ": " + entry.getValue())
+                            .collect(Collectors.joining("; "))
+                        + ";\""
                 );
             }
 
