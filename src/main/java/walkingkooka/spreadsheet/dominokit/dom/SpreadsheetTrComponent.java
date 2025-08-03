@@ -17,15 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.dom;
 
-import elemental2.dom.HTMLDivElement;
+import elemental2.dom.HTMLTableRowElement;
 
-/**
- * A {@link walkingkooka.spreadsheet.dominokit.Component} that uses surrounds any given child components with a DIV.
- */
-public final class SpreadsheetDivComponent extends SpreadsheetElementComponent<HTMLDivElement, SpreadsheetDivComponent> {
+public final class SpreadsheetTrComponent extends SpreadsheetElementComponent<HTMLTableRowElement, SpreadsheetTrComponent> {
 
-    SpreadsheetDivComponent() {
-        super("DIV");
+    SpreadsheetTrComponent() {
+        super("TR");
     }
 
     @Override

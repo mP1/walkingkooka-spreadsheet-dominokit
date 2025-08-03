@@ -1,0 +1,205 @@
+/*
+ * Copyright 2023 Miroslav Pokorny (github.com/mP1)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+package walkingkooka.spreadsheet.dominokit.dom;
+
+import elemental2.dom.EventListener;
+import elemental2.dom.HTMLElement;
+import elemental2.dom.Node;
+import org.dominokit.domino.ui.IsElement;
+import walkingkooka.collect.list.Lists;
+import walkingkooka.collect.map.Maps;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
+import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.text.printer.TreePrintable;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.stream.Collectors;
+
+/**
+ * Base class for an element {@link HtmlElementComponent}
+ */
+public abstract class SpreadsheetElementComponent<E extends HTMLElement, C extends SpreadsheetElementComponent<E, C>> extends SpreadsheetElementComponentLike<E, C>
+    implements TestHtmlElementComponent<E, C> {
+
+    public static SpreadsheetDivComponent div() {
+        return new SpreadsheetDivComponent();
+    }
+
+    public static SpreadsheetTableComponent table() {
+        return new SpreadsheetTableComponent();
+    }
+
+    public static SpreadsheetTBodyComponent tbody() {
+        return new SpreadsheetTBodyComponent();
+    }
+
+    public static SpreadsheetTdComponent td() {
+        return new SpreadsheetTdComponent();
+    }
+
+    public static SpreadsheetThComponent th() {
+        return new SpreadsheetThComponent();
+    }
+
+    public static SpreadsheetTHeadComponent thead() {
+        return new SpreadsheetTHeadComponent();
+    }
+
+    public static SpreadsheetTrComponent tr() {
+        return new SpreadsheetTrComponent();
+    }
+
+    SpreadsheetElementComponent(final String tag) {
+        this.tag = tag;
+        this.children = Lists.array();
+        this.style = Maps.sorted();
+    }
+
+    @Override
+    public final C setId(final String id) {
+        this.id = id;
+        return (C) this;
+    }
+
+    private String id;
+
+    @Override
+    public final C setTabIndex(final int tabIndex) {
+        this.tabIndex = tabIndex;
+        return (C) this;
+    }
+
+    private Integer tabIndex;
+
+    @Override
+    public final C setCssProperty(final String name,
+                                  final String value) {
+        this.style.put(
+            name,
+            value
+        );
+        return (C) this;
+    }
+
+    @Override
+    public final C setCssText(final String cssText) {
+        Objects.requireNonNull(cssText, "cssText");
+
+        for(final String nameAndValue : cssText.split(";")) {
+            final int separatorIndex = nameAndValue.lastIndexOf(':');
+            final String name = nameAndValue.substring(0, separatorIndex)
+                .trim();
+            final String value = nameAndValue.substring(separatorIndex + 1)
+                .trim();
+
+            this.style.put(
+                name,
+                value
+            );
+        }
+        return (C) this;
+    }
+
+    private Map<String, String> style;
+
+    @Override
+    public final C clear() {
+        this.children.clear();
+        return (C) this;
+    }
+
+    @Override
+    public final C appendChild(final Node child) {
+        this.children.add(child);
+        return (C) this;
+    }
+
+    @Override
+    public final C appendChild(final IsElement<?> child) {
+        this.children.add(child);
+        return (C) this;
+    }
+
+    @Override
+    public C addEventListener(final String type,
+                              final EventListener listener) {
+        return (C) this;
+    }
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        printer.println(this.tag);
+        printer.indent();
+        {
+            final List<String> attributes = Lists.array();
+
+            final String id = this.id;
+            if(null != id) {
+                attributes.add(
+                    "id=" + id
+                );
+            }
+
+            final Integer tabIndex = this.tabIndex;
+            if(null != tabIndex) {
+                attributes.add(
+                    "tabIndex=" + tabIndex
+                );
+            }
+
+            final Map<String, String> css = this.style;
+            if(false == css.isEmpty()) {
+                attributes.add(
+                    "style=" + css.entrySet()
+                        .stream()
+                        .map(entry -> entry.getKey() + ": " + entry.getValue())
+                        .collect(Collectors.joining("; "))
+                );
+            }
+
+            if(false == attributes.isEmpty()) {
+                printer.println(
+                    attributes.stream()
+                        .collect(Collectors.joining(" "))
+                );
+                printer.indent();
+            }
+
+            for(final Object child : this.children) {
+                TreePrintable.printTreeOrToString(
+                    child,
+                    printer
+                );
+            }
+
+            if(false == attributes.isEmpty()) {
+                printer.outdent();
+            }
+        }
+        printer.outdent();
+    }
+
+    private final String tag;
+
+    private final List<Object> children;
+}
