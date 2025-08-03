@@ -127,6 +127,13 @@ abstract class SpreadsheetElementComponentLike<E extends HTMLElement, C extends 
         );
     }
 
+    public final C addContextMenuListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.contextmenu.getName(),
+            listener
+        );
+    }
+
     public final C addDoubleClickListener(final EventListener listener) {
         return this.addEventListener(
             EventType.dblclick.getName(),
@@ -137,6 +144,20 @@ abstract class SpreadsheetElementComponentLike<E extends HTMLElement, C extends 
     public final C addFocusListener(final EventListener listener) {
         return this.addEventListener(
             EventType.focus.getName(),
+            listener
+        );
+    }
+
+    public final C addFocusInListener(final EventListener listener) {
+        return this.addEventListener(
+            "focusin",
+            listener
+        );
+    }
+
+    public final C addFocusOutListener(final EventListener listener) {
+        return this.addEventListener(
+            "focusout",
             listener
         );
     }
