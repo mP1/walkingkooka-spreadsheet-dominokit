@@ -84,6 +84,11 @@ public abstract class SpreadsheetElementComponent<E extends HTMLElement, C exten
     }
 
     @Override
+    public final String id() {
+        return this.element.id;
+    }
+
+    @Override
     public final C setTabIndex(final int tabIndex) {
         this.element.tabIndex = tabIndex;
         return (C) this;
