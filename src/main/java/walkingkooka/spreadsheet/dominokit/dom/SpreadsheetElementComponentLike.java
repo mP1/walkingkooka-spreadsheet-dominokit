@@ -38,6 +38,8 @@ abstract class SpreadsheetElementComponentLike<E extends HTMLElement, C extends 
 
     public abstract C setId(final String id);
 
+    public abstract String id();
+
     public abstract C setTabIndex(final int tabIndex);
 
     public final C setBackgroundColor(final String color) {
