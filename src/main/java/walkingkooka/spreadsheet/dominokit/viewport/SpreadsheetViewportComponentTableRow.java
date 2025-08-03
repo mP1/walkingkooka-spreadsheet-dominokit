@@ -17,19 +17,27 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import elemental2.dom.HTMLTableRowElement;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetElementComponent;
+import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetElementComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetTrComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.function.Predicate;
 
 /**
  * Represents a single TR row within the TABLE which contains all rendered column & row headers and cells.
  */
-abstract class SpreadsheetViewportComponentTableRow {
+abstract class SpreadsheetViewportComponentTableRow<T extends SpreadsheetViewportComponentTableRow<T>> implements HtmlElementComponent<HTMLTableRowElement, T>,
+    SpreadsheetElementComponentDelegator<HTMLTableRowElement, T> {
 
     SpreadsheetViewportComponentTableRow() {
+        this.tr = SpreadsheetElementComponent.tr();
     }
 
     abstract void setIdAndName(final SpreadsheetId id,
@@ -38,4 +46,37 @@ abstract class SpreadsheetViewportComponentTableRow {
     abstract void refresh(final SpreadsheetViewportWindows windows,
                           final Predicate<SpreadsheetSelection> selected,
                           final SpreadsheetViewportComponentTableContext context);
+
+    @Override
+    public final boolean isEditing() {
+        return false;
+    }
+
+    // SpreadsheetElementComponentDelegator.............................................................................
+
+    @Override
+    public final SpreadsheetElementComponent<HTMLTableRowElement, ?> spreadsheetElementComponent() {
+        return this.tr;
+    }
+
+    // IsElement........................................................................................................
+
+    @Override
+    public final HTMLTableRowElement element() {
+        return this.tr.element();
+    }
+
+    final SpreadsheetTrComponent tr;
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public final void printTree(final IndentingPrinter printer) {
+        printer.println(this.getClass().getSimpleName());
+        printer.indent();
+        {
+            this.tr.printTree(printer);
+        }
+        printer.outdent();
+    }
 }

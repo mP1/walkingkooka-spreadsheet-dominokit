@@ -17,13 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
-import elemental2.dom.HTMLTableRowElement;
-import org.dominokit.domino.ui.IsElement;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
-import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetElementComponent;
 import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetTrComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
@@ -36,7 +33,7 @@ import java.util.function.Predicate;
 /**
  * A single TR with the first column holding the ROW and the remaining TD's the individual cells.
  */
-final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewportComponentTableRow implements IsElement<HTMLTableRowElement> {
+final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewportComponentTableRow<SpreadsheetViewportComponentTableRowCells> {
 
     static SpreadsheetViewportComponentTableRowCells empty(final SpreadsheetRowReference row,
                                                            final SpreadsheetViewportComponentTableContext context) {
@@ -48,7 +45,6 @@ final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewpor
 
     private SpreadsheetViewportComponentTableRowCells(final SpreadsheetRowReference row,
                                                       final SpreadsheetViewportComponentTableContext context) {
-        this.element = SpreadsheetElementComponent.tr();
         this.rowHeader = SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow.empty(
             row,
             context
@@ -76,7 +72,7 @@ final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewpor
             final Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellSpreadsheetCell> oldColumnToCells = this.columnToCells;
             final Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellSpreadsheetCell> newColumnToCells = Maps.sorted();
 
-            final SpreadsheetTrComponent element = this.element;
+            final SpreadsheetTrComponent element = this.tr;
             element.clear();
 
             element.appendChild(this.rowHeader);
@@ -118,13 +114,4 @@ final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewpor
     private final SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow rowHeader;
 
     private Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellSpreadsheetCell> columnToCells;
-
-    // IsElement........................................................................................................
-
-    @Override
-    public HTMLTableRowElement element() {
-        return this.element.element();
-    }
-
-    private final SpreadsheetTrComponent element;
 }
