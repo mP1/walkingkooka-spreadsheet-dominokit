@@ -23,6 +23,7 @@ import elemental2.dom.Node;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.events.EventType;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.tree.text.TextNode;
 
 /**
  * Base class for an element {@link HtmlElementComponent}
@@ -101,6 +102,8 @@ abstract class SpreadsheetElementComponentLike<E extends HTMLElement, C extends 
     public abstract C setCssText(final String cssText);
 
     public abstract C clear();
+
+    public abstract C appendChild(final TextNode textNode);
 
     public abstract C appendChild(final Node child);
 

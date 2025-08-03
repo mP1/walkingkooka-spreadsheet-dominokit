@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
+import walkingkooka.tree.text.TextNode;
 
 import java.util.List;
 import java.util.Map;
@@ -123,6 +124,14 @@ public abstract class SpreadsheetElementComponent<E extends HTMLElement, C exten
     @Override
     public final C clear() {
         this.children.clear();
+        return (C) this;
+    }
+
+    @Override
+    public final C appendChild(final TextNode textNode) {
+        Objects.requireNonNull(textNode, "textNode");
+
+        this.children.add(textNode);
         return (C) this;
     }
 

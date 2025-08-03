@@ -26,6 +26,7 @@ import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.utils.ElementUtil;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.tree.text.TextNode;
 
 /**
  * Base class for an element {@link HtmlElementComponent}
@@ -102,6 +103,14 @@ public abstract class SpreadsheetElementComponent<E extends HTMLElement, C exten
     @Override
     public final C clear() {
         ElementUtil.clear(this.element);
+        return (C) this;
+    }
+
+    @Override
+    public C appendChild(final TextNode textNode) {
+        this.element.appendChild(
+            Doms.node(textNode)
+        );
         return (C) this;
     }
 

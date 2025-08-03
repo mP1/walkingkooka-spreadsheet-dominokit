@@ -27,7 +27,6 @@ import walkingkooka.spreadsheet.SpreadsheetError;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
-import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetElementComponent;
 import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetTdComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
@@ -141,7 +140,7 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
                     final Optional<TextNode> maybeFormatted = cell.formattedValue();
                     if (maybeFormatted.isPresent()) {
                         td.appendChild(
-                            Doms.node(maybeFormatted.get())
+                            maybeFormatted.get()
                         );
                     }
                 }
