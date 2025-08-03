@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 /**
  * A TH that contains a ROW header. Note new instances are created when a new spreadsheet is created/loaded.
  */
-final class SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow extends SpreadsheetViewportComponentTableCellHeader<SpreadsheetRowReference> {
+final class SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow extends SpreadsheetViewportComponentTableCellHeader<SpreadsheetRowReference, SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow> {
 
     static SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow empty(final SpreadsheetRowReference row,
                                                                            final SpreadsheetViewportComponentTableContext context) {

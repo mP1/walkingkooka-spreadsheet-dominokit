@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.HTMLTableCellElement;
-import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.popover.Tooltip;
 import walkingkooka.collect.map.Maps;
@@ -47,8 +46,7 @@ import java.util.function.Predicate;
 /**
  * A TD which includes a single {@link SpreadsheetCell}.
  */
-final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends SpreadsheetViewportComponentTableCell
-    implements IsElement<HTMLTableCellElement> {
+final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends SpreadsheetViewportComponentTableCell<HTMLTableCellElement, SpreadsheetViewportComponentTableCellSpreadsheetCell> {
 
     static SpreadsheetViewportComponentTableCellSpreadsheetCell empty(final SpreadsheetCellReference cellReference,
                                                                       final SpreadsheetViewportComponentTableContext context) {
@@ -64,7 +62,7 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
 
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
-        this.element = SpreadsheetElementComponent.td()
+        this.td = SpreadsheetElementComponent.td()
             .setId(
                 SpreadsheetViewportComponent.id(cellReference)
             ).setTabIndex(0)
@@ -130,7 +128,7 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
             this.selected = isSelected;
             this.hideZeroValues = hideZeroValues;
 
-            final SpreadsheetTdComponent td = this.element;
+            final SpreadsheetTdComponent td = this.td;
             td.clear();
 
             TextStyle style = context.defaultCellStyle();
@@ -221,7 +219,7 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
 
             if (false == newTooltipMessage.isEmpty()) {
                 this.tooltip = Tooltip.create(
-                    this.element,
+                    this.td,
                     newTooltipMessage
                 ).setPosition(DropDirection.BOTTOM_MIDDLE);
             }
@@ -234,12 +232,19 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
 
     private Tooltip tooltip;
 
+    // SpreadsheetElementComponentDelegator.............................................................................
+
+    @Override
+    public SpreadsheetElementComponent<HTMLTableCellElement, ?> spreadsheetElementComponent() {
+        return this.td;
+    }
+
     // IsElement........................................................................................................
 
     @Override
     public HTMLTableCellElement element() {
-        return this.element.element();
+        return this.td.element();
     }
 
-    private final SpreadsheetTdComponent element;
+    private final SpreadsheetTdComponent td;
 }
