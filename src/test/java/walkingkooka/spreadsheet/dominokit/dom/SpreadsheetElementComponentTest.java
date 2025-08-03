@@ -17,6 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.dom;
 
+import elemental2.dom.Node;
+import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.style.SpacingCss;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
@@ -25,11 +27,176 @@ import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextComponent;
 import walkingkooka.text.printer.TreePrintableTesting;
+import walkingkooka.tree.text.TextNode;
 
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public final class SpreadsheetElementComponentTest implements ClassTesting<SpreadsheetElementComponent<?, ?>>,
     TreePrintableTesting {
+
+    // setId............................................................................................................
+
+    @Test
+    public void testSetIdWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetElementComponent.div()
+                .setId(null)
+        );
+    }
+
+    @Test
+    public void testSetIdWithEmptyFails() {
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> SpreadsheetElementComponent.div()
+                .setId("")
+        );
+    }
+
+    @Test
+    public void testSetId() {
+        final String id = "id123";
+
+        this.checkEquals(
+            id,
+            SpreadsheetElementComponent.div()
+                .setId(id)
+                .id()
+        );
+    }
+
+    // setCssProperty............................................................................................................
+
+    @Test
+    public void testSetCssPropertyWithNullNameFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetElementComponent.div()
+                .setCssProperty(
+                    null,
+                    "123"
+                )
+        );
+    }
+
+    @Test
+    public void testSetCssPropertyWithEmptyNameFails() {
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> SpreadsheetElementComponent.div()
+                .setCssProperty(
+                    "",
+                    "123"
+                )
+        );
+    }
+
+    @Test
+    public void testSetCssPropertyWithNullValueFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetElementComponent.div()
+                .setCssProperty(
+                    "color",
+                    null
+                )
+        );
+    }
+
+    // setCssText.......................................................................................................
+
+    @Test
+    public void testSetCssTextWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetElementComponent.div()
+                .setCssText(null)
+        );
+    }
+
+    // appendCssClasses.................................................................................................
+
+    @Test
+    public void testAppendCssClassesWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetElementComponent.div()
+                .addCssClasses(null)
+        );
+    }
+
+    // removeCssClasses.................................................................................................
+
+    @Test
+    public void testRemoveCssClassesWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetElementComponent.div()
+                .addCssClasses(null)
+        );
+    }
+
+    // appendNode.......................................................................................................
+
+    @Test
+    public void testAppendChildTextNodeWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetElementComponent.div()
+                .appendChild(
+                    (TextNode)null
+                )
+        );
+    }
+
+    @Test
+    public void testAppendChildNodeWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetElementComponent.div()
+                .appendChild(
+                    (Node)null
+                )
+        );
+    }
+
+    @Test
+    public void testAppendChildNodeWithIsElementFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetElementComponent.div()
+                .appendChild(
+                    (IsElement<?>) null
+                )
+        );
+    }
+
+    // removeNode.......................................................................................................
+
+    @Test
+    public void testRemoveChildNodeWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetElementComponent.div()
+                .removeChild(
+                    (Node)null
+                )
+        );
+    }
+
+    @Test
+    public void testRemoveChildNodeWithIsElementFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetElementComponent.div()
+                .removeChild(
+                    (IsElement<?>) null
+                )
+        );
+    }
 
     // TreePrintable....................................................................................................
 

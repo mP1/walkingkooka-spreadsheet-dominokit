@@ -28,6 +28,7 @@ import walkingkooka.collect.set.Sets;
 import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
+import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.tree.text.TextNode;
@@ -80,6 +81,8 @@ public abstract class SpreadsheetElementComponent<E extends HTMLElement, C exten
 
     @Override
     public final C setId(final String id) {
+        CharSequences.failIfNullOrEmpty(id, "id");
+
         this.id = id;
         return (C) this;
     }
@@ -102,6 +105,9 @@ public abstract class SpreadsheetElementComponent<E extends HTMLElement, C exten
     @Override
     public final C setCssProperty(final String name,
                                   final String value) {
+        CharSequences.failIfNullOrEmpty(name, "name");
+        Objects.requireNonNull(value, "value");
+
         this.style.put(
             name,
             value
@@ -135,6 +141,8 @@ public abstract class SpreadsheetElementComponent<E extends HTMLElement, C exten
 
     @Override
     public final C addCssClasses(final CssClass...cssClass) {
+        Objects.requireNonNull(cssClass, "cssClass");
+
         this.classes.addAll(
             Lists.of(cssClass)
         );
@@ -143,6 +151,8 @@ public abstract class SpreadsheetElementComponent<E extends HTMLElement, C exten
 
     @Override
     public final C removeCssClasses(final CssClass...cssClass) {
+        Objects.requireNonNull(cssClass, "cssClass");
+
         this.classes.removeAll(
             Lists.of(cssClass)
         );
@@ -167,24 +177,32 @@ public abstract class SpreadsheetElementComponent<E extends HTMLElement, C exten
 
     @Override
     public final C appendChild(final Node child) {
+        Objects.requireNonNull(child, "child");
+
         this.children.add(child);
         return (C) this;
     }
 
     @Override
     public final C appendChild(final IsElement<?> child) {
+        Objects.requireNonNull(child, "child");
+
         this.children.add(child);
         return (C) this;
     }
 
     @Override
     public final C removeChild(final Node child) {
+        Objects.requireNonNull(child, "child");
+
         this.children.remove(child);
         return (C) this;
     }
 
     @Override
     public final C removeChild(final IsElement<?> child) {
+        Objects.requireNonNull(child, "child");
+
         this.children.remove(child);
         return (C) this;
     }
