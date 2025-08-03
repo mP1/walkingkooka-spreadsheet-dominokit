@@ -21,8 +21,10 @@ import elemental2.dom.EventListener;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.IsElement;
+import org.dominokit.domino.ui.style.CssClass;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
+import walkingkooka.collect.set.Sets;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -32,6 +34,7 @@ import walkingkooka.tree.text.TextNode;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -125,6 +128,24 @@ public abstract class SpreadsheetElementComponent<E extends HTMLElement, C exten
     private Map<String, String> style;
 
     @Override
+    public final C addCssClasses(final CssClass...cssClass) {
+        this.classes.addAll(
+            Lists.of(cssClass)
+        );
+        return (C) this;
+    }
+
+    @Override
+    public final C removeCssClasses(final CssClass...cssClass) {
+        this.classes.removeAll(
+            Lists.of(cssClass)
+        );
+        return (C) this;
+    }
+
+    private final Set<CssClass> classes = Sets.ordered();
+
+    @Override
     public final C clear() {
         this.children.clear();
         return (C) this;
@@ -179,10 +200,21 @@ public abstract class SpreadsheetElementComponent<E extends HTMLElement, C exten
                 );
             }
 
-            final Map<String, String> css = this.style;
-            if(false == css.isEmpty()) {
+            final Set<CssClass> cssClasses = this.classes;
+            if (false == cssClasses.isEmpty()) {
                 attributes.add(
-                    "style=" + css.entrySet()
+                    "class=\"" +
+                        cssClasses.stream()
+                            .map(CssClass::getCssClass)
+                            .collect(Collectors.joining(" "))
+                        + "\""
+                );
+            }
+
+            final Map<String, String> style = this.style;
+            if(false == style.isEmpty()) {
+                attributes.add(
+                    "style=" + style.entrySet()
                         .stream()
                         .map(entry -> entry.getKey() + ": " + entry.getValue())
                         .collect(Collectors.joining("; "))
