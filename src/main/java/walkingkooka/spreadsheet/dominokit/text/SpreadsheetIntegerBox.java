@@ -91,6 +91,14 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     }
 
     @Override
+    public SpreadsheetIntegerBox addContextMenuListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.contextmenu,
+            listener
+        );
+    }
+
+    @Override
     public SpreadsheetIntegerBox addFocusListener(final EventListener listener) {
         return this.addEventListener(
             EventType.focus,

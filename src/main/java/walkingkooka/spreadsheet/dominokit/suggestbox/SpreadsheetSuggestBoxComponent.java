@@ -375,6 +375,14 @@ public final class SpreadsheetSuggestBoxComponent<T> implements SpreadsheetSugge
     }
 
     @Override
+    public SpreadsheetSuggestBoxComponent<T> addContextMenuListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.contextmenu,
+            listener
+        );
+    }
+
+    @Override
     public SpreadsheetSuggestBoxComponent<T> addFocusListener(final EventListener listener) {
         return this.addEventListener(
             EventType.focus,

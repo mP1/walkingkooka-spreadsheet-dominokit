@@ -196,6 +196,11 @@ abstract class SpreadsheetPickerComponent<V, C extends SpreadsheetPickerComponen
     }
 
     @Override
+    public final C addContextMenuListener(final EventListener listener) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public final C addFocusListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }

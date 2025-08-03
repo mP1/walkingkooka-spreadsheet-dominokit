@@ -186,6 +186,11 @@ public final class SpreadsheetTimeComponent implements FormValueComponent<HTMLFi
     }
 
     @Override
+    public SpreadsheetTimeComponent addContextMenuListener(final EventListener listener) {
+        return this;
+    }
+
+    @Override
     public SpreadsheetTimeComponent addFocusListener(final EventListener listener) {
         return this;
     }

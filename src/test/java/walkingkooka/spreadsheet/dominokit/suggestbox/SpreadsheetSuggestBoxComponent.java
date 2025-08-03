@@ -258,6 +258,13 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     }
 
     @Override
+    public SpreadsheetSuggestBoxComponent<T> addContextMenuListener(final EventListener listener) {
+        Objects.requireNonNull(listener, "listener");
+
+        return this;
+    }
+
+    @Override
     public SpreadsheetSuggestBoxComponent<T> addFocusListener(final EventListener listener) {
 
         return this;

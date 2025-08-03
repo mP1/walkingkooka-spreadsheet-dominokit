@@ -110,6 +110,11 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
     private boolean disabled = false;
 
     @Override
+    public SpreadsheetUploadFileComponent addContextMenuListener(final EventListener listener) {
+        return this;
+    }
+
+    @Override
     public SpreadsheetUploadFileComponent addChangeListener(final ChangeListener<Optional<BrowserFile>> listener) {
         return this;
     }

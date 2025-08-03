@@ -184,6 +184,17 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
         return this;
     }
 
+    @Override
+    public SpreadsheetUploadFileComponent addContextMenuListener(final EventListener listener) {
+        Objects.requireNonNull(listener, "listener");
+
+        this.fileUpload.addEventListener(
+            EventType.contextmenu,
+            listener
+        );
+        return this;
+    }
+
     private void onFileItem(final FileItem fileItem) {
         final File file = fileItem.getFile();
 

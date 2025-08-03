@@ -164,6 +164,12 @@ public final class SpreadsheetCellRangeReferencePathComponent implements FormVal
     }
 
     @Override
+    public SpreadsheetCellRangeReferencePathComponent addContextMenuListener(final EventListener listener) {
+        this.select.addContextMenuListener(listener);
+        return this;
+    }
+
+    @Override
     public SpreadsheetCellRangeReferencePathComponent addFocusListener(final EventListener listener) {
         this.select.addFocusListener(listener);
         return this;

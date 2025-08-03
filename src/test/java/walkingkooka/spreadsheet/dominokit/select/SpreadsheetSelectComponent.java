@@ -169,6 +169,12 @@ public final class SpreadsheetSelectComponent<T> implements FormValueComponent<H
     }
 
     @Override
+    public SpreadsheetSelectComponent<T> addContextMenuListener(final EventListener listener) {
+        Objects.requireNonNull(listener, "listener");
+        return this;
+    }
+
+    @Override
     public SpreadsheetSelectComponent<T> addFocusListener(final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
         return this;

@@ -146,6 +146,13 @@ public interface ValueSpreadsheetTextBoxWrapper<C extends ValueSpreadsheetTextBo
     }
 
     @Override
+    default C addContextMenuListener(final EventListener listener) {
+        this.valueSpreadsheetTextBox()
+            .addContextMenuListener(listener);
+        return (C) this;
+    }
+
+    @Override
     default C addFocusListener(final EventListener listener) {
         this.valueSpreadsheetTextBox()
             .addFocusListener(listener);
