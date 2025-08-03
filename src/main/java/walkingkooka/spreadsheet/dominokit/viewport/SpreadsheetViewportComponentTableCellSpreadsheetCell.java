@@ -19,10 +19,8 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.HTMLTableCellElement;
 import org.dominokit.domino.ui.IsElement;
-import org.dominokit.domino.ui.elements.TDElement;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.popover.Tooltip;
-import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.SpreadsheetCell;
@@ -31,6 +29,8 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
+import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetElementComponent;
+import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetTdComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.expression.ExpressionNumber;
@@ -64,11 +64,11 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
 
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
-        this.element = ElementsFactory.elements.td()
-            .id(
+        this.element = SpreadsheetElementComponent.td()
+            .setId(
                 SpreadsheetViewportComponent.id(cellReference)
             ).setTabIndex(0)
-            .style(
+            .setCssText(
                 css(
                     CELL_STYLE,
                     cache.columnWidth(cellReference.column()),
@@ -130,8 +130,8 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
             this.selected = isSelected;
             this.hideZeroValues = hideZeroValues;
 
-            final TDElement td = this.element;
-            td.clearElement();
+            final SpreadsheetTdComponent td = this.element;
+            td.clear();
 
             TextStyle style = context.defaultCellStyle();
             Optional<SpreadsheetError> maybeError = Optional.empty();
@@ -183,7 +183,7 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
                 )
             );
 
-            td.style(
+            td.setCssText(
                 style.text() + "box-sizing: border-box;"
             );
 
@@ -241,5 +241,5 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
         return this.element.element();
     }
 
-    private final TDElement element;
+    private final SpreadsheetTdComponent element;
 }

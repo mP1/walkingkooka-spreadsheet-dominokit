@@ -19,12 +19,12 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.HTMLTableRowElement;
 import org.dominokit.domino.ui.IsElement;
-import org.dominokit.domino.ui.elements.TableRowElement;
-import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
+import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetElementComponent;
+import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetTrComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -48,7 +48,7 @@ final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewpor
 
     private SpreadsheetViewportComponentTableRowCells(final SpreadsheetRowReference row,
                                                       final SpreadsheetViewportComponentTableContext context) {
-        this.element = ElementsFactory.elements.tr();
+        this.element = SpreadsheetElementComponent.tr();
         this.rowHeader = SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow.empty(
             row,
             context
@@ -76,8 +76,8 @@ final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewpor
             final Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellSpreadsheetCell> oldColumnToCells = this.columnToCells;
             final Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellSpreadsheetCell> newColumnToCells = Maps.sorted();
 
-            final TableRowElement element = this.element;
-            element.clearElement();
+            final SpreadsheetTrComponent element = this.element;
+            element.clear();
 
             element.appendChild(this.rowHeader);
 
@@ -126,5 +126,5 @@ final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewpor
         return this.element.element();
     }
 
-    private final TableRowElement element;
+    private final SpreadsheetTrComponent element;
 }
