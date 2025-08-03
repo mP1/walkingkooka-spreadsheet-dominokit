@@ -173,6 +173,18 @@ public abstract class SpreadsheetElementComponent<E extends HTMLElement, C exten
     }
 
     @Override
+    public final C removeChild(final Node child) {
+        this.children.remove(child);
+        return (C) this;
+    }
+
+    @Override
+    public final C removeChild(final IsElement<?> child) {
+        this.children.remove(child);
+        return (C) this;
+    }
+
+    @Override
     public C addEventListener(final String type,
                               final EventListener listener) {
         return (C) this;
