@@ -197,18 +197,23 @@ public abstract class SpreadsheetElementComponent<E extends HTMLElement, C exten
                 printer.indent();
             }
 
-            for(final Object child : this.children) {
-                TreePrintable.printTreeOrToString(
-                    child,
-                    printer
-                );
-            }
+            this.printTreeChildren(printer);
 
             if(false == attributes.isEmpty()) {
                 printer.outdent();
             }
         }
         printer.outdent();
+    }
+
+    @Override
+    public final void printTreeChildren(final IndentingPrinter printer) {
+        for(final Object child : this.children) {
+            TreePrintable.printTreeOrToString(
+                child,
+                printer
+            );
+        }
     }
 
     private final String tag;

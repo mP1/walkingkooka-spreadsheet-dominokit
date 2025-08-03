@@ -23,6 +23,7 @@ import elemental2.dom.Node;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.events.EventType;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextNode;
 
 /**
@@ -230,4 +231,8 @@ abstract class SpreadsheetElementComponentLike<E extends HTMLElement, C extends 
 
     public abstract C addEventListener(final String type,
                                        final EventListener listener);
+
+    // TreePrintable....................................................................................................
+
+    public abstract void printTreeChildren(final IndentingPrinter printer);
 }

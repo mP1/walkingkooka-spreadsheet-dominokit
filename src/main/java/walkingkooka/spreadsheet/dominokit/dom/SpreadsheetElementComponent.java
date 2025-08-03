@@ -149,8 +149,13 @@ public abstract class SpreadsheetElementComponent<E extends HTMLElement, C exten
         printer.println(this.getClass().getSimpleName());
         printer.indent();
         {
-            printer.println(this.element.outerHTML);
+            this.printTreeChildren(printer);
         }
         printer.outdent();
+    }
+
+    @Override
+    public void printTreeChildren(final IndentingPrinter printer) {
+        printer.println(this.element.outerHTML);
     }
 }
