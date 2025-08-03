@@ -32,6 +32,20 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
     // TreePrintable....................................................................................................
 
     @Test
+    public void testTableWithCssTextWithTrailingSemiColon() {
+        SpreadsheetElementComponent.tr();
+
+        this.treePrintAndCheck(
+            SpreadsheetElementComponent.table()
+                .setId("tableId123")
+                .setCssText("color: black;")
+            ,
+            "TABLE\n" +
+                "  id=tableId123 style=color: black\n"
+        );
+    }
+
+    @Test
     public void testTable() {
         SpreadsheetElementComponent.tr();
 

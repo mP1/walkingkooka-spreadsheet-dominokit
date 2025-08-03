@@ -105,6 +105,9 @@ public abstract class SpreadsheetElementComponent<E extends HTMLElement, C exten
         Objects.requireNonNull(cssText, "cssText");
 
         for(final String nameAndValue : cssText.split(";")) {
+            if(nameAndValue.trim().isEmpty()) {
+                continue;
+            }
             final int separatorIndex = nameAndValue.lastIndexOf(':');
             final String name = nameAndValue.substring(0, separatorIndex)
                 .trim();
