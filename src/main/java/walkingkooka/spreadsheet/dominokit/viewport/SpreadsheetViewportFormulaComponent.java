@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.Event;
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import elemental2.dom.KeyboardEvent;
 import jsinterop.base.Js;
@@ -128,6 +129,11 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
     }
 
     private Optional<String> undoText;
+
+    public SpreadsheetViewportFormulaComponent addContextMenu(final EventListener listener) {
+        this.formula.addContextMenuListener(listener);
+        return this;
+    }
 
     // setCssText.......................................................................................................
 
