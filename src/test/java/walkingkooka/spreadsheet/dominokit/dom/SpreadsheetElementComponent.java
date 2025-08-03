@@ -25,6 +25,7 @@ import org.dominokit.domino.ui.style.CssClass;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.Sets;
+import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -224,7 +225,7 @@ public abstract class SpreadsheetElementComponent<E extends HTMLElement, C exten
                         "style=\"" +
                             style.entrySet()
                                 .stream()
-                                .map(entry -> entry.getKey() + ": " + entry.getValue())
+                                .map(entry -> entry.getKey() + ": " + tryRgbFunctionToHash(entry.getValue()))
                                 .collect(Collectors.joining("; "))
                             + ";\""
                     );
@@ -246,6 +247,20 @@ public abstract class SpreadsheetElementComponent<E extends HTMLElement, C exten
             }
         }
         printer.outdent();
+    }
+
+    // converts rgb(111,222,333) -> #112233
+    private static String tryRgbFunctionToHash(final String value) {
+        String out;
+
+        try {
+            out = Color.parseRgb(value)
+                .toHexString();
+        } catch (final IllegalArgumentException iae) {
+            out = value;
+        }
+
+        return out;
     }
 
     @Override
