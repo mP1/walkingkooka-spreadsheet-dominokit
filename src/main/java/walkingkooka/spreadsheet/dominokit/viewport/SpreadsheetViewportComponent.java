@@ -711,9 +711,9 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     private final SpreadsheetDivComponent verticalScrollbar;
 
     private SpreadsheetDivComponent scrollbar(final String idSuffix,
-                                 final String cssText,
-                                 final SpreadsheetDivComponent thumb,
-                                 final Consumer<MouseEvent> click) {
+                                              final String cssText,
+                                              final SpreadsheetDivComponent thumb,
+                                              final Consumer<MouseEvent> click) {
         final SpreadsheetDivComponent scrollbar = SpreadsheetElementComponent.div();
 
         scrollbar.setId(ID_PREFIX + idSuffix);
@@ -786,8 +786,8 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     private final SpreadsheetDivComponent verticalScrollbarThumb;
 
     private SpreadsheetDivComponent scrollbarThumb(final String idSuffix,
-                                      final String width,
-                                      final String height) {
+                                                   final String width,
+                                                   final String height) {
         final SpreadsheetDivComponent thumb = SpreadsheetElementComponent.div();
         thumb.setId(ID_PREFIX + idSuffix);
         thumb.setCssText("position: absolute; width:" + width + "; height: " + height + "; box-sizing: border-box; border-color: black; border-style: solid; border-width: 1px; background-color: #fff; border-radius: " + (SCROLLBAR_LENGTH / 3) + "px");
