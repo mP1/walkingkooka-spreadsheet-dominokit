@@ -68,7 +68,7 @@ public final class SpreadsheetComparatorNameListDialogComponentTest implements S
                 "          SpreadsheetTextBox\n" +
                 "            [day-of-month] id=spreadsheetComparatorNameList-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/day-of-month] id=spreadsheetComparatorNameList-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/] id=spreadsheetComparatorNameList-clear-Link\n" +

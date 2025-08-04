@@ -23,7 +23,7 @@ import org.dominokit.domino.ui.datepicker.CalendarDay;
 import org.dominokit.domino.ui.timepicker.TimePicker;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
-import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
+import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -56,7 +56,7 @@ public final class SpreadsheetDateTimeComponent extends SpreadsheetPickerCompone
         final TimePicker timePicker = TimePicker.create();
         this.timePicker = timePicker;
 
-        this.layout = SpreadsheetFlexLayout.row()
+        this.layout = FlexLayoutComponent.row()
             .appendChild(calendar)
             .appendChild(timePicker);
 
@@ -201,7 +201,7 @@ public final class SpreadsheetDateTimeComponent extends SpreadsheetPickerCompone
             this.timePicker.isExpanded();
     }
 
-    private final SpreadsheetFlexLayout layout;
+    private final FlexLayoutComponent layout;
 
     private final Calendar calendar;
 

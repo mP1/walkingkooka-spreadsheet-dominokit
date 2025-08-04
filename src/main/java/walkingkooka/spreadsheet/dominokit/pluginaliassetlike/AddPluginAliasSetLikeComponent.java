@@ -28,7 +28,7 @@ import walkingkooka.plugin.PluginInfoSetLike;
 import walkingkooka.plugin.PluginSelectorLike;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
-import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
+import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
@@ -68,7 +68,7 @@ public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>
     private AddPluginAliasSetLikeComponent(final String id) {
         this.id = id;
 
-        this.flex = SpreadsheetFlexLayout.row();
+        this.flex = FlexLayoutComponent.row();
         this.root = CardComponent.empty()
             .setTitle("Add")
             .appendChild(this.flex);
@@ -92,7 +92,7 @@ public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>
     public void refresh(final AS aliases, // value from SpreadsheetMetadata
                         final AS providerAliases, // list of available aliases from provider
                         final AddPluginAliasSetLikeComponentContext context) {
-        final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
+        final FlexLayoutComponent flex = this.flex.removeAllChildren();
         int i = 0;
 
         final Predicate<CharSequence> filter = this.filter;
@@ -190,7 +190,7 @@ public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>
     /**
      * The parent holding LINKS
      */
-    private final SpreadsheetFlexLayout flex;
+    private final FlexLayoutComponent flex;
 
     // setCssText.......................................................................................................
 

@@ -21,7 +21,7 @@ import elemental2.dom.HTMLDivElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
-import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
+import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.text.CharSequences;
@@ -52,7 +52,7 @@ public final class CardLinkListComponent implements HtmlComponent<HTMLDivElement
                                   final Function<String, String> labelMaker) {
         this.id = id;
 
-        this.flex = SpreadsheetFlexLayout.row();
+        this.flex = FlexLayoutComponent.row();
         this.root = CardComponent.empty()
             .setTitle(title)
             .appendChild(this.flex);
@@ -77,7 +77,7 @@ public final class CardLinkListComponent implements HtmlComponent<HTMLDivElement
                   final SpreadsheetCardLinkListComponentContext context) {
         this.root.hide();
 
-        final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
+        final FlexLayoutComponent flex = this.flex.removeAllChildren();
 
         int i = 0;
         for (final String text : texts) {
@@ -126,7 +126,7 @@ public final class CardLinkListComponent implements HtmlComponent<HTMLDivElement
     /**
      * The parent holding the links.
      */
-    private final SpreadsheetFlexLayout flex;
+    private final FlexLayoutComponent flex;
 
     // setCssText.......................................................................................................
 

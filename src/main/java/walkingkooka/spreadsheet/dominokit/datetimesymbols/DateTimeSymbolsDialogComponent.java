@@ -37,7 +37,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
+import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
@@ -135,7 +135,7 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
             SpreadsheetDialogComponent.INCLUDE_CLOSE,
             context
         ).appendChild(
-            SpreadsheetFlexLayout.row()
+            FlexLayoutComponent.row()
                 .appendChild(this.ampms)
                 .appendChild(this.monthNames)
                 .appendChild(this.monthNameAbbreviations)

@@ -66,7 +66,7 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
                 "  SpreadsheetDialogComponent\n" +
                 "    A1: Date Time Symbols\n" +
                 "    id=dateTimeSymbols-Dialog includeClose=true\n" +
-                "      SpreadsheetFlexLayout\n" +
+                "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          CsvStringListComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
@@ -108,7 +108,7 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
                 "        SpreadsheetSuggestBoxComponent\n" +
                 "          Load from Locale []\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=dateTimeSymbols-save-Link\n" +
                 "            \"Clear\" [#/1/SpreadsheetName1/cell/A1/dateTimeSymbols/save/] id=dateTimeSymbols-clear-Link\n" +
@@ -143,7 +143,7 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
                 "  SpreadsheetDialogComponent\n" +
                 "    Spreadsheet: Date Time Symbols (dateTimeSymbols)\n" +
                 "    id=dateTimeSymbols-Dialog includeClose=true\n" +
-                "      SpreadsheetFlexLayout\n" +
+                "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          CsvStringListComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
@@ -173,7 +173,7 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
                 "        SpreadsheetSuggestBoxComponent\n" +
                 "          Load from Locale []\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/SpreadsheetName1/spreadsheet/dateTimeSymbols/save/%22am,pm%22,%22January,February,March,April,May,June,July,August,September,October,November,December%22,%22Jan.,Feb.,Mar.,Apr.,May,Jun.,Jul.,Aug.,Sep.,Oct.,Nov.,Dec.%22,%22Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday%22,%22Sun.,Mon.,Tue.,Wed.,Thu.,Fri.,Sat.%22] id=dateTimeSymbols-save-Link\n" +
                 "            \"Clear\" [#/1/SpreadsheetName1/spreadsheet/dateTimeSymbols/save/] id=dateTimeSymbols-clear-Link\n" +
@@ -208,7 +208,7 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
                 "  SpreadsheetDialogComponent\n" +
                 "    Spreadsheet: Date Time Symbols (dateTimeSymbols)\n" +
                 "    id=dateTimeSymbols-Dialog includeClose=true\n" +
-                "      SpreadsheetFlexLayout\n" +
+                "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          CsvStringListComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
@@ -249,7 +249,7 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
                 "      SpreadsheetLocaleComponent\n" +
                 "        SpreadsheetSuggestBoxComponent\n" +
                 "          Load from Locale []\n" +"      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=dateTimeSymbols-save-Link\n" +
                 "            \"Clear\" [#/1/SpreadsheetName1/spreadsheet/dateTimeSymbols/save/] id=dateTimeSymbols-clear-Link\n" +

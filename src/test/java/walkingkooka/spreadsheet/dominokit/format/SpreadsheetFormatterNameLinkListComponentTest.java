@@ -44,7 +44,7 @@ public class SpreadsheetFormatterNameLinkListComponentTest implements HtmlCompon
                 "  CardLinkListComponent\n" +
                 "    CardComponent\n" +
                 "      Card\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Automatic\" [#/1/SpreadsheetName123/cell/A1/formatter/save/automatic] id=ID123-0-Link\n" +
                 "            \"Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/collection] id=ID123-1-Link\n" +
@@ -70,7 +70,7 @@ public class SpreadsheetFormatterNameLinkListComponentTest implements HtmlCompon
                 "  CardLinkListComponent\n" +
                 "    CardComponent\n" +
                 "      Card\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Automatic\" [#/1/SpreadsheetName123/cell/A1/formatter/save/automatic] id=ID123-0-Link\n" +
                 "            \"Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/collection] id=ID123-1-Link\n" +

@@ -27,7 +27,7 @@ import walkingkooka.plugin.PluginInfoSetLike;
 import walkingkooka.plugin.PluginSelectorLike;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
-import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
+import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
@@ -66,7 +66,7 @@ public final class RemovePluginAliasSetLikeComponent<N extends Name & Comparable
     private RemovePluginAliasSetLikeComponent(final String id) {
         this.id = id;
 
-        this.flex = SpreadsheetFlexLayout.row();
+        this.flex = FlexLayoutComponent.row();
         this.root = CardComponent.empty()
             .setTitle("Remove")
             .appendChild(this.flex);
@@ -90,7 +90,7 @@ public final class RemovePluginAliasSetLikeComponent<N extends Name & Comparable
     public void refresh(final AS aliases, // value from SpreadsheetMetadata
                         final AS providerAliases, // list of available aliases from provider
                         final RemovePluginAliasSetLikeComponentContext context) {
-        final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
+        final FlexLayoutComponent flex = this.flex.removeAllChildren();
 
         int i = 0;
 
@@ -176,7 +176,7 @@ public final class RemovePluginAliasSetLikeComponent<N extends Name & Comparable
     /**
      * The parent holding LINKS
      */
-    private final SpreadsheetFlexLayout flex;
+    private final FlexLayoutComponent flex;
 
     // isEditing........................................................................................................
 

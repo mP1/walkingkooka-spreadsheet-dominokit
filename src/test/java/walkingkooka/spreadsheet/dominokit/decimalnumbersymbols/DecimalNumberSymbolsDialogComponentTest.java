@@ -66,7 +66,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
                 "  SpreadsheetDialogComponent\n" +
                 "    A1: Decimal Number Symbols\n" +
                 "    id=decimalNumberSymbols-Dialog includeClose=true\n" +
-                "      SpreadsheetFlexLayout\n" +
+                "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
@@ -142,7 +142,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
                 "        SpreadsheetSuggestBoxComponent\n" +
                 "          Load from Locale []\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=decimalNumberSymbols-save-Link\n" +
                 "            \"Clear\" [#/1/SpreadsheetName1/cell/A1/decimalNumberSymbols/save/] id=decimalNumberSymbols-clear-Link\n" +
@@ -177,7 +177,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
                 "  SpreadsheetDialogComponent\n" +
                 "    Spreadsheet: Decimal Number Symbols (decimalNumberSymbols)\n" +
                 "    id=decimalNumberSymbols-Dialog includeClose=true\n" +
-                "      SpreadsheetFlexLayout\n" +
+                "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
@@ -227,7 +227,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
                 "        SpreadsheetSuggestBoxComponent\n" +
                 "          Load from Locale []\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/SpreadsheetName1/spreadsheet/decimalNumberSymbols/save/-,+,0,$,.,e,%22,%22,%E2%88%9E,.,NaN,%25,%E2%80%B0] id=decimalNumberSymbols-save-Link\n" +
                 "            \"Clear\" [#/1/SpreadsheetName1/spreadsheet/decimalNumberSymbols/save/] id=decimalNumberSymbols-clear-Link\n" +
@@ -262,7 +262,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
                 "  SpreadsheetDialogComponent\n" +
                 "    Spreadsheet: Decimal Number Symbols (decimalNumberSymbols)\n" +
                 "    id=decimalNumberSymbols-Dialog includeClose=true\n" +
-                "      SpreadsheetFlexLayout\n" +
+                "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
@@ -338,7 +338,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
                 "        SpreadsheetSuggestBoxComponent\n" +
                 "          Load from Locale []\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=decimalNumberSymbols-save-Link\n" +
                 "            \"Clear\" [#/1/SpreadsheetName1/spreadsheet/decimalNumberSymbols/save/] id=decimalNumberSymbols-clear-Link\n" +

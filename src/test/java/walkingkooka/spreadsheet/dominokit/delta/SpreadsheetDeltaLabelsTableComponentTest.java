@@ -98,7 +98,7 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
                 "          Formatted\n" +
                 "          Links\n" +
                 "        CHILDREN\n" +
-                "          SpreadsheetFlexLayout\n" +
+                "          FlexLayoutComponent\n" +
                 "            ROW\n" +
                 "              mdi-arrow-left \"previous\" DISABLED id=ID123-previous-Link\n" +
                 "              \"next\" DISABLED mdi-arrow-right id=ID123-next-Link\n" +
@@ -132,12 +132,12 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
                 "            TextNodeComponent\n" +
                 "            SpreadsheetLabelLinksComponent\n" +
                 "              SpreadsheetLinkListComponent\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    \"References\" [#/1/Spreadsheet222/cell/LabelXYZ/references] (2) id=ID123-labels-LabelXYZ-references-Link\n" +
                 "                    \"Delete\" [#/1/Spreadsheet222/label/LabelXYZ/delete] id=ID123-labels-LabelXYZ-delete-Link\n" +
                 "        CHILDREN\n" +
-                "          SpreadsheetFlexLayout\n" +
+                "          FlexLayoutComponent\n" +
                 "            ROW\n" +
                 "              mdi-arrow-left \"previous\" DISABLED id=ID123-previous-Link\n" +
                 "              \"next\" DISABLED mdi-arrow-right id=ID123-next-Link\n" +
@@ -183,12 +183,12 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
                 "            TextNodeComponent\n" +
                 "            SpreadsheetLabelLinksComponent\n" +
                 "              SpreadsheetLinkListComponent\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    \"References\" [#/1/Spreadsheet222/cell/LabelXYZ/references] (2) id=ID123-labels-LabelXYZ-references-Link\n" +
                 "                    \"Delete\" [#/1/Spreadsheet222/label/LabelXYZ/delete] id=ID123-labels-LabelXYZ-delete-Link\n" +
                 "        CHILDREN\n" +
-                "          SpreadsheetFlexLayout\n" +
+                "          FlexLayoutComponent\n" +
                 "            ROW\n" +
                 "              mdi-arrow-left \"previous\" DISABLED id=ID123-previous-Link\n" +
                 "              \"next\" DISABLED mdi-arrow-right id=ID123-next-Link\n" +
@@ -238,7 +238,7 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
                 "            TextNodeComponent\n" +
                 "            SpreadsheetLabelLinksComponent\n" +
                 "              SpreadsheetLinkListComponent\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    \"References\" [#/1/Spreadsheet222/cell/LABEL2/references] (2) id=ID123-labels-LABEL2-references-Link\n" +
                 "                    \"Delete\" [#/1/Spreadsheet222/label/LABEL2/delete] id=ID123-labels-LABEL2-delete-Link\n" +
@@ -248,12 +248,12 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
                 "            TextNodeComponent\n" +
                 "            SpreadsheetLabelLinksComponent\n" +
                 "              SpreadsheetLinkListComponent\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    \"References\" [#/1/Spreadsheet222/cell/LabelXYZ/references] (2) id=ID123-labels-LabelXYZ-references-Link\n" +
                 "                    \"Delete\" [#/1/Spreadsheet222/label/LabelXYZ/delete] id=ID123-labels-LabelXYZ-delete-Link\n" +
                 "        CHILDREN\n" +
-                "          SpreadsheetFlexLayout\n" +
+                "          FlexLayoutComponent\n" +
                 "            ROW\n" +
                 "              mdi-arrow-left \"previous\" DISABLED id=ID123-previous-Link\n" +
                 "              \"next\" DISABLED mdi-arrow-right id=ID123-next-Link\n" +

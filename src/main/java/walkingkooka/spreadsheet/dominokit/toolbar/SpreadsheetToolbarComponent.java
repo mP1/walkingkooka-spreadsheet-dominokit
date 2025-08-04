@@ -27,7 +27,7 @@ import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
+import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponentLifecycle;
@@ -91,13 +91,13 @@ public final class SpreadsheetToolbarComponent implements HtmlComponent<HTMLDivE
         return this.flexLayout.element();
     }
 
-    private final SpreadsheetFlexLayout flexLayout;
+    private final FlexLayoutComponent flexLayout;
 
     /**
-     * Creates a {@link SpreadsheetFlexLayout} and populates it with the toolbar icons etc.
+     * Creates a {@link FlexLayoutComponent} and populates it with the toolbar icons etc.
      */
-    private SpreadsheetFlexLayout createFlexLayout(final SpreadsheetToolbarComponentContext context) {
-        return SpreadsheetFlexLayout.row()
+    private FlexLayoutComponent createFlexLayout(final SpreadsheetToolbarComponentContext context) {
+        return FlexLayoutComponent.row()
             .displayBlock() // without this the toolbar rows have a undesirable line "height" instead of meeting.
             .appendChildren(
                 components(context)

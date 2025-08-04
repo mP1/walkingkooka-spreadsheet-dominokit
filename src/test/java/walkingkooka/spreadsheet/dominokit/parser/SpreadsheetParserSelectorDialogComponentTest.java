@@ -90,7 +90,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"Date Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time-parse-pattern] id=spreadsheetParserSelector-parserNames-1-Link\n" +
@@ -141,7 +141,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=spreadsheetParserSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=spreadsheetParserSelector-clear-Link\n" +
@@ -170,7 +170,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"Date Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time-parse-pattern] id=spreadsheetParserSelector-parserNames-1-Link\n" +
@@ -216,7 +216,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"d\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20dd/mm/yyyyd] id=spreadsheetParserSelector-appender-append-0-Link\n" +
                 "                  \"dd\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20dd/mm/yyyydd] id=spreadsheetParserSelector-appender-append-1-Link\n" +
@@ -231,7 +231,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"dd\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20/mm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
                 "                      \"d\" [/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20d/mm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
@@ -251,7 +251,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "          SpreadsheetTextBox\n" +
                 "            [date-parse-pattern dd/mm/yyyy] id=spreadsheetParserSelector-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20dd/mm/yyyy] id=spreadsheetParserSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=spreadsheetParserSelector-clear-Link\n" +
@@ -282,7 +282,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"Date Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern] id=spreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-1-Link\n" +
@@ -328,7 +328,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \".\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss.] id=spreadsheetParserSelector-appender-append-0-Link\n" +
                 "                  \"0\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss0] id=spreadsheetParserSelector-appender-append-1-Link\n" +
@@ -353,7 +353,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"dd\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time-parse-pattern%20/mm/yyyy%20hh:mm:ss] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
                 "                      \"d\" [/1/Spreadsheet1/cell/A1/parser/save/date-time-parse-pattern%20d/mm/yyyy%20hh:mm:ss] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
@@ -382,7 +382,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "          SpreadsheetTextBox\n" +
                 "            [date-time-parse-pattern dd/mm/yyyy hh:mm:ss] id=spreadsheetParserSelector-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss] id=spreadsheetParserSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=spreadsheetParserSelector-clear-Link\n" +
@@ -413,7 +413,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"Date Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern] id=spreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time-parse-pattern] id=spreadsheetParserSelector-parserNames-1-Link\n" +
@@ -507,7 +507,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"#\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20$%230.00%23] id=spreadsheetParserSelector-appender-append-0-Link\n" +
                 "                  \"$\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20$%230.00$] id=spreadsheetParserSelector-appender-append-1-Link\n" +
@@ -521,7 +521,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"$\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20%230.00] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
                 "                  \"#\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20$0.00] id=spreadsheetParserSelector-removeOrReplace-remove-1-Link\n" +
@@ -534,7 +534,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "          SpreadsheetTextBox\n" +
                 "            [number-parse-pattern $#0.00] id=spreadsheetParserSelector-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20$%230.00] id=spreadsheetParserSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=spreadsheetParserSelector-clear-Link\n" +
@@ -565,7 +565,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"Date Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern] id=spreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time-parse-pattern] id=spreadsheetParserSelector-parserNames-1-Link\n" +
@@ -599,7 +599,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \".\" [#/1/Spreadsheet1/cell/A1/parser/save/time-parse-pattern%20hh:mm.] id=spreadsheetParserSelector-appender-append-0-Link\n" +
                 "                  \"0\" [#/1/Spreadsheet1/cell/A1/parser/save/time-parse-pattern%20hh:mm0] id=spreadsheetParserSelector-appender-append-1-Link\n" +
@@ -615,7 +615,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"hh\" [#/1/Spreadsheet1/cell/A1/parser/save/time-parse-pattern%20:mm] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
                 "                      \"h\" [/1/Spreadsheet1/cell/A1/parser/save/time-parse-pattern%20h:mm] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
@@ -627,7 +627,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "          SpreadsheetTextBox\n" +
                 "            [time-parse-pattern hh:mm] id=spreadsheetParserSelector-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet1/cell/A1/parser/save/time-parse-pattern%20hh:mm] id=spreadsheetParserSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=spreadsheetParserSelector-clear-Link\n" +
@@ -668,7 +668,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"Date Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-time-parse-pattern] id=spreadsheetParserSelector-parserNames-1-Link\n" +
@@ -714,7 +714,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"d\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20dd/mm/yyyyd] id=spreadsheetParserSelector-appender-append-0-Link\n" +
                 "                  \"dd\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20dd/mm/yyyydd] id=spreadsheetParserSelector-appender-append-1-Link\n" +
@@ -729,7 +729,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"dd\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20/mm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
                 "                      \"d\" [/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20d/mm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
@@ -749,7 +749,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "          SpreadsheetTextBox\n" +
                 "            [date-parse-pattern dd/mm/yyyy] id=spreadsheetParserSelector-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20dd/mm/yyyy] id=spreadsheetParserSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/] id=spreadsheetParserSelector-clear-Link\n" +
@@ -790,7 +790,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"Date Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-parse-pattern] id=spreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-1-Link\n" +
@@ -836,7 +836,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \".\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss.] id=spreadsheetParserSelector-appender-append-0-Link\n" +
                 "                  \"0\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss0] id=spreadsheetParserSelector-appender-append-1-Link\n" +
@@ -861,7 +861,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"dd\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time-parse-pattern%20/mm/yyyy%20hh:mm:ss] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
                 "                      \"d\" [/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time-parse-pattern%20d/mm/yyyy%20hh:mm:ss] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
@@ -890,7 +890,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "          SpreadsheetTextBox\n" +
                 "            [date-time-parse-pattern dd/mm/yyyy hh:mm:ss] id=spreadsheetParserSelector-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss] id=spreadsheetParserSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/] id=spreadsheetParserSelector-clear-Link\n" +
@@ -931,7 +931,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"Date Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/date-parse-pattern] id=spreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/date-time-parse-pattern] id=spreadsheetParserSelector-parserNames-1-Link\n" +
@@ -1025,7 +1025,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"#\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20$%230.00%23] id=spreadsheetParserSelector-appender-append-0-Link\n" +
                 "                  \"$\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20$%230.00$] id=spreadsheetParserSelector-appender-append-1-Link\n" +
@@ -1039,7 +1039,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"$\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20%230.00] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
                 "                  \"#\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20$0.00] id=spreadsheetParserSelector-removeOrReplace-remove-1-Link\n" +
@@ -1052,7 +1052,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "          SpreadsheetTextBox\n" +
                 "            [number-parse-pattern $#0.00] id=spreadsheetParserSelector-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20$%230.00] id=spreadsheetParserSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/] id=spreadsheetParserSelector-clear-Link\n" +
@@ -1093,7 +1093,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"Date Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/date-parse-pattern] id=spreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/date-time-parse-pattern] id=spreadsheetParserSelector-parserNames-1-Link\n" +
@@ -1127,7 +1127,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \".\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/time-parse-pattern%20hh:mm.] id=spreadsheetParserSelector-appender-append-0-Link\n" +
                 "                  \"0\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/time-parse-pattern%20hh:mm0] id=spreadsheetParserSelector-appender-append-1-Link\n" +
@@ -1143,7 +1143,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"hh\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/time-parse-pattern%20:mm] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
                 "                      \"h\" [/1/Spreadsheet1/spreadsheet/timeParser/save/time-parse-pattern%20h:mm] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
@@ -1155,7 +1155,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "          SpreadsheetTextBox\n" +
                 "            [time-parse-pattern hh:mm] id=spreadsheetParserSelector-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/time-parse-pattern%20hh:mm] id=spreadsheetParserSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/] id=spreadsheetParserSelector-clear-Link\n" +

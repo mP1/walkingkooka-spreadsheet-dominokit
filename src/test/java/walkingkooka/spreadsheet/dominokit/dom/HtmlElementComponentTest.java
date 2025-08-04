@@ -25,7 +25,7 @@ import walkingkooka.Cast;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
+import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextComponent;
 import walkingkooka.text.Indentation;
@@ -475,7 +475,7 @@ public final class HtmlElementComponentTest implements ClassTesting<HtmlElementC
             HistoryTokenAnchorComponent.empty()
                 .setTextContent("Hello222")
         ).appendChild(
-            SpreadsheetFlexLayout.row()
+            FlexLayoutComponent.row()
         );
 
         final StringBuilder b = new StringBuilder();

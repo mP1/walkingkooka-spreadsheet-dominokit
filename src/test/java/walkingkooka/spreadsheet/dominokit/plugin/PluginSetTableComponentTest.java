@@ -58,7 +58,7 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
                 "          Timestamp\n" +
                 "          Links\n" +
                 "        CHILDREN\n" +
-                "          SpreadsheetFlexLayout\n" +
+                "          FlexLayoutComponent\n" +
                 "            ROW\n" +
                 "              mdi-arrow-left \"previous\" DISABLED id=Table123-previous-Link\n" +
                 "              \"next\" DISABLED mdi-arrow-right id=Table123-next-Link\n" +
@@ -112,7 +112,7 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
                 "              \"user111@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"31/12/99, 12:58 pm\"\n" +
-                "            SpreadsheetFlexLayout\n" +
+                "            FlexLayoutComponent\n" +
                 "              ROW\n" +
                 "                \"Delete\" [#/plugin/TestPlugin111/delete] id=Table123-delete-Link\n" +
                 "                \"Download\" [/api/plugin/TestPlugin111/download] id=Table123-download-Link\n" +
@@ -126,13 +126,13 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
                 "              \"user222@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"1/1/00, 12:58 pm\"\n" +
-                "            SpreadsheetFlexLayout\n" +
+                "            FlexLayoutComponent\n" +
                 "              ROW\n" +
                 "                \"Delete\" [#/plugin/TestPlugin222/delete] id=Table123-delete-Link\n" +
                 "                \"Download\" [/api/plugin/TestPlugin222/download] id=Table123-download-Link\n" +
                 "                \"View\" [#/plugin/TestPlugin222] id=Table123-view-Link\n" +
                 "        CHILDREN\n" +
-                "          SpreadsheetFlexLayout\n" +
+                "          FlexLayoutComponent\n" +
                 "            ROW\n" +
                 "              mdi-arrow-left \"previous\" DISABLED id=Table123-previous-Link\n" +
                 "              \"next\" DISABLED mdi-arrow-right id=Table123-next-Link\n" +
@@ -205,7 +205,7 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
                 "              \"user111@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"1/1/00, 12:58 pm\"\n" +
-                "            SpreadsheetFlexLayout\n" +
+                "            FlexLayoutComponent\n" +
                 "              ROW\n" +
                 "                \"Delete\" [#/plugin/TestPlugin111/delete] id=Table123-delete-Link\n" +
                 "                \"Download\" [/api/plugin/TestPlugin111/download] id=Table123-download-Link\n" +
@@ -219,7 +219,7 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
                 "              \"user222@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"2/1/00, 12:58 pm\"\n" +
-                "            SpreadsheetFlexLayout\n" +
+                "            FlexLayoutComponent\n" +
                 "              ROW\n" +
                 "                \"Delete\" [#/plugin/TestPlugin222/delete] id=Table123-delete-Link\n" +
                 "                \"Download\" [/api/plugin/TestPlugin222/download] id=Table123-download-Link\n" +
@@ -233,7 +233,7 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
                 "              \"user333@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"3/3/00, 12:58 pm\"\n" +
-                "            SpreadsheetFlexLayout\n" +
+                "            FlexLayoutComponent\n" +
                 "              ROW\n" +
                 "                \"Delete\" [#/plugin/TestPlugin333/delete] id=Table123-delete-Link\n" +
                 "                \"Download\" [/api/plugin/TestPlugin333/download] id=Table123-download-Link\n" +
@@ -247,13 +247,13 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
                 "              \"user444@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"4/4/00, 12:58 pm\"\n" +
-                "            SpreadsheetFlexLayout\n" +
+                "            FlexLayoutComponent\n" +
                 "              ROW\n" +
                 "                \"Delete\" [#/plugin/TestPlugin444/delete] id=Table123-delete-Link\n" +
                 "                \"Download\" [/api/plugin/TestPlugin444/download] id=Table123-download-Link\n" +
                 "                \"View\" [#/plugin/TestPlugin444] id=Table123-view-Link\n" +
                 "        CHILDREN\n" +
-                "          SpreadsheetFlexLayout\n" +
+                "          FlexLayoutComponent\n" +
                 "            ROW\n" +
                 "              mdi-arrow-left \"previous\" [#/plugin/*/offset/7/count/4] id=Table123-previous-Link\n" +
                 "              \"next\" [#/plugin/*/offset/13/count/4] mdi-arrow-right id=Table123-next-Link\n" +

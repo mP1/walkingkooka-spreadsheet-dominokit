@@ -22,7 +22,7 @@ import walkingkooka.plugin.store.Plugin;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponentCellRenderer;
-import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
+import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextComponent;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 import walkingkooka.text.CharSequences;
@@ -115,7 +115,7 @@ final class PluginSetTableComponentSpreadsheetDataTableComponentCellRenderer imp
     }
 
     // download, view, delete
-    private SpreadsheetFlexLayout links(final Plugin plugin) {
+    private FlexLayoutComponent links(final Plugin plugin) {
         final PluginName pluginName = plugin.name();
 
         final PluginDeleteAnchorComponent delete = PluginDeleteAnchorComponent.empty(this.id + "delete" + SpreadsheetElementIds.LINK)
@@ -142,7 +142,7 @@ final class PluginSetTableComponentSpreadsheetDataTableComponentCellRenderer imp
                 Optional.of(pluginName)
             );
 
-        return SpreadsheetFlexLayout.row()
+        return FlexLayoutComponent.row()
             .appendChild(delete)
             .appendChild(download)
             .appendChild(view);

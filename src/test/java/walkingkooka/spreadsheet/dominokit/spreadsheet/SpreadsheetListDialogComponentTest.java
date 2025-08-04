@@ -60,14 +60,14 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                 "                Last modified\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=spreadsheetList-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=spreadsheetList-next-Link\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Create\" [#/create] id=spreadsheetList-create-Link\n" +
                 "            \"Reload\" [#/*/reload] mdi-reload id=spreadsheetList-reload-Link\n" +
@@ -105,14 +105,14 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                 "                Last modified\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" [#/*/offset/0/count/3] id=spreadsheetList-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=spreadsheetList-next-Link\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Create\" [#/create] id=spreadsheetList-create-Link\n" +
                 "            \"Reload\" [#/*/offset/1/count/3/reload] mdi-reload id=spreadsheetList-reload-Link\n" +
@@ -161,7 +161,7 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                 "                    \"modifier@example.com\"\n" +
                 "                  SpreadsheetTextComponent\n" +
                 "                    \"31/1/00, 12:58 pm\"\n" +
-                "                  SpreadsheetFlexLayout\n" +
+                "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
                 "                      \"Rename\" [#/rename/1] id=spreadsheetList-1-rename-Link\n" +
                 "                      \"Delete\" [#/delete/1] id=spreadsheetList-1-delete-Link\n" +
@@ -175,7 +175,7 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                 "                    \"modifier@example.com\"\n" +
                 "                  SpreadsheetTextComponent\n" +
                 "                    \"31/1/00, 12:58 pm\"\n" +
-                "                  SpreadsheetFlexLayout\n" +
+                "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
                 "                      \"Rename\" [#/rename/2] id=spreadsheetList-2-rename-Link\n" +
                 "                      \"Delete\" [#/delete/2] id=spreadsheetList-2-delete-Link\n" +
@@ -189,19 +189,19 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                 "                    \"modifier@example.com\"\n" +
                 "                  SpreadsheetTextComponent\n" +
                 "                    \"31/1/00, 12:58 pm\"\n" +
-                "                  SpreadsheetFlexLayout\n" +
+                "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
                 "                      \"Rename\" [#/rename/3] id=spreadsheetList-3-rename-Link\n" +
                 "                      \"Delete\" [#/delete/3] id=spreadsheetList-3-delete-Link\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" [#/*/offset/0/count/3] id=spreadsheetList-previous-Link\n" +
                 "                    \"next\" [#/*/offset/3/count/3] mdi-arrow-right id=spreadsheetList-next-Link\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Create\" [#/create] id=spreadsheetList-create-Link\n" +
                 "            \"Reload\" [#/*/offset/1/count/3/reload] mdi-reload id=spreadsheetList-reload-Link\n" +

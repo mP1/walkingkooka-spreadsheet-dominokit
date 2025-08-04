@@ -63,7 +63,7 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "          Last modified\n" +
                 "          Links\n" +
                 "        CHILDREN\n" +
-                "          SpreadsheetFlexLayout\n" +
+                "          FlexLayoutComponent\n" +
                 "            ROW\n" +
                 "              mdi-arrow-left \"previous\" DISABLED id=Table123-previous-Link\n" +
                 "              \"next\" DISABLED mdi-arrow-right id=Table123-next-Link\n" +
@@ -111,7 +111,7 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "              \"modifier@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"31/1/00, 12:58 pm\"\n" +
-                "            SpreadsheetFlexLayout\n" +
+                "            FlexLayoutComponent\n" +
                 "              ROW\n" +
                 "                \"Rename\" [#/rename/1] id=Table123-1-rename-Link\n" +
                 "                \"Delete\" [#/delete/1] id=Table123-1-delete-Link\n" +
@@ -125,7 +125,7 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "              \"modifier@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"31/1/00, 12:58 pm\"\n" +
-                "            SpreadsheetFlexLayout\n" +
+                "            FlexLayoutComponent\n" +
                 "              ROW\n" +
                 "                \"Rename\" [#/rename/2] id=Table123-2-rename-Link\n" +
                 "                \"Delete\" [#/delete/2] id=Table123-2-delete-Link\n" +
@@ -139,12 +139,12 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "              \"modifier@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"31/1/00, 12:58 pm\"\n" +
-                "            SpreadsheetFlexLayout\n" +
+                "            FlexLayoutComponent\n" +
                 "              ROW\n" +
                 "                \"Rename\" [#/rename/3] id=Table123-3-rename-Link\n" +
                 "                \"Delete\" [#/delete/3] id=Table123-3-delete-Link\n" +
                 "        CHILDREN\n" +
-                "          SpreadsheetFlexLayout\n" +
+                "          FlexLayoutComponent\n" +
                 "            ROW\n" +
                 "              mdi-arrow-left \"previous\" DISABLED id=Table123-previous-Link\n" +
                 "              \"next\" DISABLED mdi-arrow-right id=Table123-next-Link\n" +
@@ -192,7 +192,7 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "              \"modifier@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"31/1/00, 12:58 pm\"\n" +
-                "            SpreadsheetFlexLayout\n" +
+                "            FlexLayoutComponent\n" +
                 "              ROW\n" +
                 "                \"Rename\" [#/rename/1] id=Table123-1-rename-Link\n" +
                 "                \"Delete\" [#/delete/1] id=Table123-1-delete-Link\n" +
@@ -206,7 +206,7 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "              \"modifier@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"31/1/00, 12:58 pm\"\n" +
-                "            SpreadsheetFlexLayout\n" +
+                "            FlexLayoutComponent\n" +
                 "              ROW\n" +
                 "                \"Rename\" [#/rename/2] id=Table123-2-rename-Link\n" +
                 "                \"Delete\" [#/delete/2] id=Table123-2-delete-Link\n" +
@@ -220,12 +220,12 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "              \"modifier@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"31/1/00, 12:58 pm\"\n" +
-                "            SpreadsheetFlexLayout\n" +
+                "            FlexLayoutComponent\n" +
                 "              ROW\n" +
                 "                \"Rename\" [#/rename/3] id=Table123-3-rename-Link\n" +
                 "                \"Delete\" [#/delete/3] id=Table123-3-delete-Link\n" +
                 "        CHILDREN\n" +
-                "          SpreadsheetFlexLayout\n" +
+                "          FlexLayoutComponent\n" +
                 "            ROW\n" +
                 "              mdi-arrow-left \"previous\" [#/*/offset/0/count/2] id=Table123-previous-Link\n" +
                 "              \"next\" [#/*/offset/2/count/2] mdi-arrow-right id=Table123-next-Link\n" +
@@ -273,7 +273,7 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "              \"modifier@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"31/1/00, 12:58 pm\"\n" +
-                "            SpreadsheetFlexLayout\n" +
+                "            FlexLayoutComponent\n" +
                 "              ROW\n" +
                 "                \"Rename\" [#/rename/1] id=Table123-1-rename-Link\n" +
                 "                \"Delete\" [#/delete/1] id=Table123-1-delete-Link\n" +
@@ -287,7 +287,7 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "              \"modifier@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"31/1/00, 12:58 pm\"\n" +
-                "            SpreadsheetFlexLayout\n" +
+                "            FlexLayoutComponent\n" +
                 "              ROW\n" +
                 "                \"Rename\" [#/rename/2] id=Table123-2-rename-Link\n" +
                 "                \"Delete\" [#/delete/2] id=Table123-2-delete-Link\n" +
@@ -301,12 +301,12 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "              \"modifier@example.com\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"31/1/00, 12:58 pm\"\n" +
-                "            SpreadsheetFlexLayout\n" +
+                "            FlexLayoutComponent\n" +
                 "              ROW\n" +
                 "                \"Rename\" [#/rename/3] id=Table123-3-rename-Link\n" +
                 "                \"Delete\" [#/delete/3] id=Table123-3-delete-Link\n" +
                 "        CHILDREN\n" +
-                "          SpreadsheetFlexLayout\n" +
+                "          FlexLayoutComponent\n" +
                 "            ROW\n" +
                 "              mdi-arrow-left \"previous\" DISABLED id=Table123-previous-Link\n" +
                 "              \"next\" [#/*/offset/1/count/2] mdi-arrow-right id=Table123-next-Link\n" +

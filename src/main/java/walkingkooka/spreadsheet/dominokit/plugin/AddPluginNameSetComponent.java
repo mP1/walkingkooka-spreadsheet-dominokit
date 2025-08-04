@@ -24,7 +24,7 @@ import walkingkooka.plugin.PluginName;
 import walkingkooka.plugin.PluginNameSet;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
-import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
+import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
@@ -52,7 +52,7 @@ public final class AddPluginNameSetComponent implements HtmlComponent<HTMLDivEle
     private AddPluginNameSetComponent(final String id) {
         this.id = id;
 
-        this.flex = SpreadsheetFlexLayout.row();
+        this.flex = FlexLayoutComponent.row();
         this.root = CardComponent.empty()
             .setTitle("Add")
             .appendChild(this.flex);
@@ -80,7 +80,7 @@ public final class AddPluginNameSetComponent implements HtmlComponent<HTMLDivEle
     public void refresh(final PluginNameSet selectedPluginNames, // value from SpreadsheetMetadata
                         final PluginNameSet availablePluginNames, // list of available plugin names from provider
                         final AddPluginNameSetComponentContext context) {
-        final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
+        final FlexLayoutComponent flex = this.flex.removeAllChildren();
         int i = 0;
 
         final Predicate<CharSequence> filter = this.filter;
@@ -172,7 +172,7 @@ public final class AddPluginNameSetComponent implements HtmlComponent<HTMLDivEle
     /**
      * The parent holding LINKS
      */
-    private final SpreadsheetFlexLayout flex;
+    private final FlexLayoutComponent flex;
 
     // setCssText.......................................................................................................
 

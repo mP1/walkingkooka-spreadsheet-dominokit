@@ -28,7 +28,7 @@ import org.dominokit.domino.ui.datatable.store.LocalListDataStore;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
+import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
@@ -241,7 +241,7 @@ public final class SpreadsheetDataTableComponent<T> extends SpreadsheetDataTable
         );
 
         this.appendChild(
-            SpreadsheetFlexLayout.row()
+            FlexLayoutComponent.row()
                 .appendChild(this.previous)
                 .appendChild(this.next)
         );

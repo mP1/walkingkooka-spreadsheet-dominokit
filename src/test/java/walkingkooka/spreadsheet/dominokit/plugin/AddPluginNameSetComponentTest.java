@@ -58,7 +58,7 @@ public final class AddPluginNameSetComponentTest implements HtmlComponentTesting
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Add\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/plugin1,%20plugin2,%20plugin3] id=base-id-123-add-0-Link\n"
         );
@@ -80,7 +80,7 @@ public final class AddPluginNameSetComponentTest implements HtmlComponentTesting
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Add\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/plugin1,%20plugin2,%20plugin3,%20plugin4] id=base-id-123-add-0-Link\n" +
                 "            \"Plugin3\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/plugin1,%20plugin2,%20plugin3] id=base-id-123-add-1-Link\n" +
@@ -104,7 +104,7 @@ public final class AddPluginNameSetComponentTest implements HtmlComponentTesting
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Add\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/plugin1] id=base-id-123-add-0-Link\n" +
                 "            \"Plugin1\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/plugin1] id=base-id-123-add-1-Link\n"
@@ -127,7 +127,7 @@ public final class AddPluginNameSetComponentTest implements HtmlComponentTesting
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Add\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/plugin1,%20plugin2,%20plugin3] id=base-id-123-add-0-Link\n" +
                 "            \"Plugin1\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/plugin1] id=base-id-123-add-1-Link\n" +
@@ -153,7 +153,7 @@ public final class AddPluginNameSetComponentTest implements HtmlComponentTesting
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Add\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/plugin1,%20plugin2] id=base-id-123-add-0-Link\n" +
                 "            \"Plugin1\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/plugin1] id=base-id-123-add-1-Link\n" +
@@ -178,7 +178,7 @@ public final class AddPluginNameSetComponentTest implements HtmlComponentTesting
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Add\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/plugin1,%20plugin2] id=base-id-123-add-0-Link\n" +
                 "            \"Plugin2\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/plugin1,%20plugin2] id=base-id-123-add-1-Link\n"

@@ -63,7 +63,7 @@ public final class SpreadsheetLinkListComponentTest implements HtmlComponentTest
                         )
                 ),
             "SpreadsheetLinkListComponent\n" +
-                "  SpreadsheetFlexLayout\n" +
+                "  FlexLayoutComponent\n" +
                 "    ROW\n" +
                 "      \"Edit spreadsheet name\" [#/1/SpreadsheetName222]\n"
         );

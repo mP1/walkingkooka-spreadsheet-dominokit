@@ -129,9 +129,9 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSprea
         this.refreshAndCheck(
             "",
             "SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                "  SpreadsheetFlexLayout\n" +
+                "  FlexLayoutComponent\n" +
                 "    COLUMN\n" +
-                "      SpreadsheetFlexLayout\n" +
+                "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
@@ -149,9 +149,9 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSprea
         this.refreshAndCheck(
             "A",
             "SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                "  SpreadsheetFlexLayout\n" +
+                "  FlexLayoutComponent\n" +
                 "    COLUMN\n" +
-                "      SpreadsheetFlexLayout\n" +
+                "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
@@ -165,7 +165,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSprea
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Append comparator(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"comparator-1\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1] id=cellSort-comparator-1-append-0-Link\n" +
                 "                  \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-2] id=cellSort-comparator-1-append-1-Link\n" +
@@ -178,9 +178,9 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSprea
         this.refreshAndCheck(
             "A=",
             "SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                "  SpreadsheetFlexLayout\n" +
+                "  FlexLayoutComponent\n" +
                 "    COLUMN\n" +
-                "      SpreadsheetFlexLayout\n" +
+                "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
@@ -194,7 +194,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSprea
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Append comparator(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"comparator-1\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1] id=cellSort-comparator-1-append-0-Link\n" +
                 "                  \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-2] id=cellSort-comparator-1-append-1-Link\n" +
@@ -207,9 +207,9 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSprea
         this.refreshAndCheck(
             "12=",
             "SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                "  SpreadsheetFlexLayout\n" +
+                "  FlexLayoutComponent\n" +
                 "    COLUMN\n" +
-                "      SpreadsheetFlexLayout\n" +
+                "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
@@ -223,7 +223,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSprea
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Append comparator(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"comparator-1\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/12=comparator-1] id=cellSort-comparator-1-append-0-Link\n" +
                 "                  \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/12=comparator-2] id=cellSort-comparator-1-append-1-Link\n" +
@@ -236,9 +236,9 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSprea
         this.refreshAndCheck(
             "A=comparator-1",
             "SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                "  SpreadsheetFlexLayout\n" +
+                "  FlexLayoutComponent\n" +
                 "    COLUMN\n" +
-                "      SpreadsheetFlexLayout\n" +
+                "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
@@ -250,7 +250,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSprea
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Append comparator(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1,comparator-2] id=cellSort-comparator-1-append-0-Link\n" +
                 "                  \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1,comparator-3] id=cellSort-comparator-1-append-1-Link\n" +
@@ -267,9 +267,9 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSprea
         this.refreshAndCheck(
             "A=comparator-1,comparator-2",
             "SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                "  SpreadsheetFlexLayout\n" +
+                "  FlexLayoutComponent\n" +
                 "    COLUMN\n" +
-                "      SpreadsheetFlexLayout\n" +
+                "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
@@ -281,7 +281,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSprea
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Append comparator(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1,comparator-2,comparator-3] id=cellSort-comparator-1-append-0-Link\n" +
                 "      SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
@@ -298,9 +298,9 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSprea
         this.refreshAndCheck(
             "A=comparator-1,comparator-2,comparator-3",
             "SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                "  SpreadsheetFlexLayout\n" +
+                "  FlexLayoutComponent\n" +
                 "    COLUMN\n" +
-                "      SpreadsheetFlexLayout\n" +
+                "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
@@ -344,9 +344,9 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSprea
                     )
             ), // setter
             "SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                "  SpreadsheetFlexLayout\n" +
+                "  FlexLayoutComponent\n" +
                 "    COLUMN\n" +
-                "      SpreadsheetFlexLayout\n" +
+                "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
@@ -358,7 +358,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSprea
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Append comparator(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1,comparator-2;B=comparator-2;C=comparator-3] id=cellSort-comparator-1-append-0-Link\n" +
                 "                  \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1,comparator-3;B=comparator-2;C=comparator-3] id=cellSort-comparator-1-append-1-Link\n" +
@@ -406,9 +406,9 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSprea
                     )
             ), // setter
             "SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                "  SpreadsheetFlexLayout\n" +
+                "  FlexLayoutComponent\n" +
                 "    COLUMN\n" +
-                "      SpreadsheetFlexLayout\n" +
+                "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
@@ -420,7 +420,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSprea
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Append comparator(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"comparator-1\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1;B=comparator-2,comparator-1;C=comparator-3] id=cellSort-comparator-1-append-0-Link\n" +
                 "                  \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1;B=comparator-2,comparator-3;C=comparator-3] id=cellSort-comparator-1-append-1-Link\n" +
@@ -458,9 +458,9 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSprea
                     )
             ), // setter
             "SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                "  SpreadsheetFlexLayout\n" +
+                "  FlexLayoutComponent\n" +
                 "    COLUMN\n" +
-                "      SpreadsheetFlexLayout\n" +
+                "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
@@ -472,7 +472,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSprea
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Append comparator(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"comparator-1\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1;B=comparator-2;C=comparator-3,comparator-1] id=cellSort-comparator-1-append-0-Link\n" +
                 "                  \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1;B=comparator-2;C=comparator-3,comparator-2] id=cellSort-comparator-1-append-1-Link\n" +

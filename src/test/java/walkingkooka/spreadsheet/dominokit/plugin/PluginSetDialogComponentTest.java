@@ -112,14 +112,14 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
                 "                Timestamp\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=pluginList-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=pluginList-next-Link\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"No plugins available\"\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Upload\" [#/plugin-upload] id=pluginList-upload-Link\n" +
                 "            \"Close\" [#/] id=pluginList-close-Link\n"
@@ -154,14 +154,14 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
                 "                Timestamp\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=pluginList-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=pluginList-next-Link\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"No plugins available\"\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Upload\" [#/plugin-upload] id=pluginList-upload-Link\n" +
                 "            \"Close\" [#/] id=pluginList-close-Link\n"
@@ -200,7 +200,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
                 "                    \"user@example.com\"\n" +
                 "                  SpreadsheetTextComponent\n" +
                 "                    \"31/12/99, 12:58 pm\"\n" +
-                "                  SpreadsheetFlexLayout\n" +
+                "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
                 "                      \"Delete\" [#/plugin/TestPluginName1/delete] id=pluginList-delete-Link\n" +
                 "                      \"Download\" [/api/plugin/TestPluginName1/download] id=pluginList-download-Link\n" +
@@ -214,7 +214,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
                 "                    \"user@example.com\"\n" +
                 "                  SpreadsheetTextComponent\n" +
                 "                    \"31/12/99, 12:58 pm\"\n" +
-                "                  SpreadsheetFlexLayout\n" +
+                "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
                 "                      \"Delete\" [#/plugin/TestPluginName2/delete] id=pluginList-delete-Link\n" +
                 "                      \"Download\" [/api/plugin/TestPluginName2/download] id=pluginList-download-Link\n" +
@@ -228,20 +228,20 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
                 "                    \"user@example.com\"\n" +
                 "                  SpreadsheetTextComponent\n" +
                 "                    \"31/12/99, 12:58 pm\"\n" +
-                "                  SpreadsheetFlexLayout\n" +
+                "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
                 "                      \"Delete\" [#/plugin/TestPluginName3/delete] id=pluginList-delete-Link\n" +
                 "                      \"Download\" [/api/plugin/TestPluginName3/download] id=pluginList-download-Link\n" +
                 "                      \"View\" [#/plugin/TestPluginName3] id=pluginList-view-Link\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=pluginList-previous-Link\n" +
                 "                    \"next\" [#/plugin/*/offset/2/count/3] mdi-arrow-right id=pluginList-next-Link\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"No plugins available\"\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Upload\" [#/plugin-upload] id=pluginList-upload-Link\n" +
                 "            \"Close\" [#/] id=pluginList-close-Link\n"
@@ -281,14 +281,14 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
                 "                Timestamp\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" [#/plugin/*/offset/0/count/3] id=pluginList-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=pluginList-next-Link\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"No plugins available\"\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Upload\" [#/plugin-upload] id=pluginList-upload-Link\n" +
                 "            \"Close\" [#/] id=pluginList-close-Link\n"

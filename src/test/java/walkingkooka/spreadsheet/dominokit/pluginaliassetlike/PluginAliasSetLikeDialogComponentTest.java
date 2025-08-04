@@ -86,7 +86,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Add\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"*\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=pluginAliasSet-add-0-Link\n" +
                 "                  \"Name1\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1] id=pluginAliasSet-add-1-Link\n" +
@@ -98,7 +98,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
                 "          SpreadsheetTextBox\n" +
                 "            [] id=pluginAliasSet-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/] id=pluginAliasSet-save-Link\n" +
                 "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=pluginAliasSet-undo-Link\n" +
@@ -136,7 +136,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Add\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"*\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=pluginAliasSet-add-0-Link\n" +
                 "                  \"Name2\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2] id=pluginAliasSet-add-1-Link\n" +
@@ -145,7 +145,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"*\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1] id=pluginAliasSet-remove-0-Link\n" +
                 "                  \"Name1\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/] id=pluginAliasSet-remove-1-Link\n" +
@@ -154,7 +154,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
                 "          SpreadsheetTextBox\n" +
                 "            [name1] id=pluginAliasSet-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1] id=pluginAliasSet-save-Link\n" +
                 "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=pluginAliasSet-undo-Link\n" +

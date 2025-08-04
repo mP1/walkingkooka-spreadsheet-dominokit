@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
-import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
+import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.text.CharSequences;
@@ -54,7 +54,7 @@ public final class RemoveOrReplacePluginSelectorTokenComponent<T extends PluginS
     private RemoveOrReplacePluginSelectorTokenComponent(final String id) {
         this.id = id;
 
-        this.flex = SpreadsheetFlexLayout.row();
+        this.flex = FlexLayoutComponent.row();
         this.root = CardComponent.empty()
             .setTitle("Remove / Replace component(s)")
             .appendChild(this.flex);
@@ -73,7 +73,7 @@ public final class RemoveOrReplacePluginSelectorTokenComponent<T extends PluginS
     void refresh0(final ImmutableList<T> tokens,
                   final RemoveOrReplacePluginSelectorTokenComponentContext context) {
         this.root.hide();
-        final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
+        final FlexLayoutComponent flex = this.flex.removeAllChildren();
 
         final ImmutableList<String> tokenText = Lists.immutable(
             tokens.stream()
@@ -183,7 +183,7 @@ public final class RemoveOrReplacePluginSelectorTokenComponent<T extends PluginS
     /**
      * The parent holding remove/replace LINKS
      */
-    private final SpreadsheetFlexLayout flex;
+    private final FlexLayoutComponent flex;
 
     // isEditing........................................................................................................
 

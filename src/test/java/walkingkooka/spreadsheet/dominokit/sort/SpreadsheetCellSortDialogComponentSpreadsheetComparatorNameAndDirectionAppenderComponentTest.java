@@ -66,7 +66,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAn
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Append comparator(s)\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"comparator-1\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/B=text,A=comparator-1] id=sort-comparator-0-append-0-Link\n" +
                 "            \"comparator-2\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/B=text,A=comparator-2] id=sort-comparator-0-append-1-Link\n" +
@@ -87,7 +87,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAn
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Append comparator(s)\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"comparator-1\" [#/1/spreadsheetName23/column/B:C/right/sort/edit/C=comparator-3,comparator-1] id=sort-comparator-1-append-0-Link\n" +
                 "            \"comparator-2\" [#/1/spreadsheetName23/column/B:C/right/sort/edit/C=comparator-3,comparator-2] id=sort-comparator-1-append-1-Link\n"
@@ -107,7 +107,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAn
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Append comparator(s)\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"comparator-1\" [#/1/spreadsheetName23/row/2:3/bottom/sort/edit/3=comparator-3,comparator-1] id=sort-comparator-1-append-0-Link\n" +
                 "            \"comparator-2\" [#/1/spreadsheetName23/row/2:3/bottom/sort/edit/3=comparator-3,comparator-2] id=sort-comparator-1-append-1-Link\n"

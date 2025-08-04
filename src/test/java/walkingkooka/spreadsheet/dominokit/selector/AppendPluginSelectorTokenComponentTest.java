@@ -86,7 +86,7 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Append component(s)\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"d\" [#/1/Untitled/cell/A1/formatter/save/date-format-pattern%20d] id=id123-append-0-Link\n" +
                 "            \"m\" [#/1/Untitled/cell/A1/formatter/save/date-format-pattern%20m] id=id123-append-1-Link\n" // expected
@@ -129,7 +129,7 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Append component(s)\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"d\" [#/1/Untitled/cell/A1/formatter/save/date-format-pattern%20dmyyd] id=id123-append-0-Link\n" +
                 "            \"m\" [#/1/Untitled/cell/A1/formatter/save/date-format-pattern%20dmyym] id=id123-append-1-Link\n" // expected
@@ -172,7 +172,7 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Append component(s)\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"d\" [#/1/Untitled/cell/A1/formatter/save/date-time-format-pattern%20dmyyd] id=id123-append-0-Link\n" +
                 "            \"m\" [#/1/Untitled/cell/A1/formatter/save/date-time-format-pattern%20dmyym] id=id123-append-1-Link\n" // expected
@@ -205,7 +205,7 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Append component(s)\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"0\" [#/1/Untitled/cell/A1/formatter/save/number-format-pattern%20$0] id=id123-append-0-Link\n" +
                 "            \"#\" [#/1/Untitled/cell/A1/formatter/save/number-format-pattern%20$%23] id=id123-append-1-Link\n" // expected
@@ -238,7 +238,7 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Append component(s)\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"@\" [#/1/Untitled/cell/A1/formatter/save/text-format-pattern%20@@] id=id123-append-0-Link\n" +
                 "            \"_ \" [#/1/Untitled/cell/A1/formatter/save/text-format-pattern%20@_%20] id=id123-append-1-Link\n" // expected
@@ -267,7 +267,7 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Append component(s)\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"m\" [#/1/Untitled/cell/A1/formatter/save/time-format-pattern%20hm] id=id123-append-0-Link\n" // expected
         );
