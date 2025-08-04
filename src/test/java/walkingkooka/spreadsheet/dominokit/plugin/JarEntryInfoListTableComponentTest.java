@@ -98,17 +98,17 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
                 "          Links\n" +
                 "        ROW(S)\n" +
                 "          ROW 0\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"/META/MANIFEST.MF\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"100 (50)\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"1\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"12345678\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"31/12/99, 12:58 pm\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"2/1/00, 12:58 pm\"\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
@@ -155,17 +155,17 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
                 "          Links\n" +
                 "        ROW(S)\n" +
                 "          ROW 0\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"/dir1/file2.txt\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"\"\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
@@ -221,34 +221,34 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
                 "          Links\n" +
                 "        ROW(S)\n" +
                 "          ROW 0\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"/META/MANIFEST.MF\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"100 (50)\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"1\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"12345678\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"31/12/99, 12:58 pm\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"2/1/00, 12:58 pm\"\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
                 "                \"Download\" [/api/plugin/TestPlugin123/download/META/MANIFEST.MF] id=Table123-download-Link\n" +
                 "                \"View\" [#/plugin/TestPlugin123/file/META/MANIFEST.MF] id=Table123-view-Link\n" +
                 "          ROW 1\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"/dir1/file2.txt\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"\"\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +

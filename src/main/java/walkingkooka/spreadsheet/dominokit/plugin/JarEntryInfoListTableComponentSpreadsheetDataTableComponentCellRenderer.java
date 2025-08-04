@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponen
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextComponent;
+import walkingkooka.spreadsheet.dominokit.text.TextComponent;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfo;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 import walkingkooka.text.CharSequences;
@@ -90,7 +90,7 @@ final class JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRende
         return component;
     }
 
-    private SpreadsheetTextComponent name(final JarEntryInfo info) {
+    private TextComponent name(final JarEntryInfo info) {
         return this.text(
             info.name()
                 .value()
@@ -98,7 +98,7 @@ final class JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRende
     }
 
     // 123 (4560
-    private SpreadsheetTextComponent sizeAndCompressed(final JarEntryInfo info) {
+    private TextComponent sizeAndCompressed(final JarEntryInfo info) {
         final StringBuilder b = new StringBuilder();
 
         {
@@ -128,7 +128,7 @@ final class JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRende
         );
     }
 
-    private SpreadsheetTextComponent method(final JarEntryInfo info) {
+    private TextComponent method(final JarEntryInfo info) {
         final OptionalInt method = info.method();
 
         return this.text(
@@ -141,7 +141,7 @@ final class JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRende
     }
 
     // 0x12345678
-    private SpreadsheetTextComponent crc(final JarEntryInfo info) {
+    private TextComponent crc(final JarEntryInfo info) {
         final OptionalLong crc = info.crc();
 
         return this.text(
@@ -154,7 +154,7 @@ final class JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRende
     }
 
 
-    private SpreadsheetTextComponent dateTime(final Optional<LocalDateTime> dateTime) {
+    private TextComponent dateTime(final Optional<LocalDateTime> dateTime) {
         return text(
             dateTime.map(
                 this.context::formatDateTime
@@ -162,7 +162,7 @@ final class JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRende
         );
     }
 
-    private SpreadsheetTextComponent text(final String text) {
+    private TextComponent text(final String text) {
         return this.text(
             Optional.of(text)
         );
@@ -199,8 +199,8 @@ final class JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRende
             .appendChild(view);
     }
 
-    private SpreadsheetTextComponent text(final Optional<String> text) {
-        return SpreadsheetTextComponent.with(text);
+    private TextComponent text(final Optional<String> text) {
+        return TextComponent.with(text);
     }
 
     private final String id;

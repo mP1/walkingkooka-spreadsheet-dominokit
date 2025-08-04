@@ -141,7 +141,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 "          ROW 0\n" +
                 "            \"A1\" [#/1/Spreadsheet222/cell/A1] id=ID123-cells-A1-Link\n" +
                 "            \"A1=1+2+3000\" [#/1/Spreadsheet222/cell/A1/formula] id=ID123-cells-A1-formula-Link\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"\"\n" +
                 "            TextNodeComponent\n" +
                 "              Hello\n" +
@@ -207,7 +207,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 "          ROW 0\n" +
                 "            \"A1\" [#/1/Spreadsheet222/cell/A1] id=ID123-cells-A1-Link\n" +
                 "            \"A1=1+2+3000\" [#/1/Spreadsheet222/cell/A1/formula] id=ID123-cells-A1-formula-Link\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"\"\n" +
                 "            TextNodeComponent\n" +
                 "              Hello\n" +
@@ -223,7 +223,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 "          ROW 1\n" +
                 "            \"A2\" [#/1/Spreadsheet222/cell/A2] id=ID123-cells-A2-Link\n" +
                 "            \"A2\" [#/1/Spreadsheet222/cell/A2/formula] id=ID123-cells-A2-formula-Link\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"\"\n" +
                 "            TextNodeComponent\n" +
                 "              2222\n" +

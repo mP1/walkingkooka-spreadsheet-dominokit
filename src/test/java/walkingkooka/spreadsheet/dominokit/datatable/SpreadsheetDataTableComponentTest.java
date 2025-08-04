@@ -27,8 +27,8 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
-import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextComponent;
 import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
+import walkingkooka.spreadsheet.dominokit.text.TextComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.TreePrintableTesting;
 
@@ -50,7 +50,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                     ColumnConfig.create("column-2B-name", "column-2B-title"),
                     ColumnConfig.create("column-3C-name", "column-3C-title")
                 ),
-                (column, data) -> SpreadsheetTextComponent.with(
+                (column, data) -> TextComponent.with(
                     Optional.of(
                         CharSequences.repeating(
                             data.charAt(column),
@@ -78,7 +78,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                     ColumnConfig.create("column-2B-name", "column-2B-title"),
                     ColumnConfig.create("column-3C-name", "column-3C-title")
                 ),
-                (column, data) -> SpreadsheetTextComponent.with(
+                (column, data) -> TextComponent.with(
                     Optional.of(
                         CharSequences.repeating(
                             data.charAt(column),
@@ -106,7 +106,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                     ColumnConfig.create("column-2B-name", "column-2B-title"),
                     ColumnConfig.create("column-3C-name", "column-3C-title")
                 ),
-                (column, data) -> SpreadsheetTextComponent.with(
+                (column, data) -> TextComponent.with(
                     Optional.of(
                         CharSequences.repeating(
                             data.charAt(column),
@@ -115,11 +115,11 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                     )
                 )
             ).appendChild(
-                SpreadsheetTextComponent.with(
+                TextComponent.with(
                     Optional.of("child-1A")
                 )
             ).appendChild(
-                SpreadsheetTextComponent.with(
+                TextComponent.with(
                     Optional.of("child-2B")
                 )
             ),
@@ -130,9 +130,9 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                 "    column-2B-title\n" +
                 "    column-3C-title\n" +
                 "  CHILDREN\n" +
-                "    SpreadsheetTextComponent\n" +
+                "    TextComponent\n" +
                 "      \"child-1A\"\n" +
-                "    SpreadsheetTextComponent\n" +
+                "    TextComponent\n" +
                 "      \"child-2B\"\n"
         );
     }
@@ -147,7 +147,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                     ColumnConfig.create("column-2B-name", "column-2B-title"),
                     ColumnConfig.create("column-3C-name", "column-3C-title")
                 ),
-                (column, data) -> SpreadsheetTextComponent.with(
+                (column, data) -> TextComponent.with(
                     Optional.of(
                         CharSequences.repeating(
                             data.charAt(column),
@@ -172,25 +172,25 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                 "    column-3C-title\n" +
                 "  ROW(S)\n" +
                 "    ROW 0\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"AAA\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"BBB\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"CCC\"\n" +
                 "    ROW 1\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"DDD\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"EEE\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"FFF\"\n" +
                 "    ROW 2\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"GGG\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"HHH\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"III\"\n"
         );
     }
@@ -208,7 +208,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                 (column, data) -> {
                     switch (column) {
                         case 0:
-                            return SpreadsheetTextComponent.with(
+                            return TextComponent.with(
                                 Optional.of(
                                     data
                                 )
@@ -243,19 +243,19 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                 "    column-3C-title\n" +
                 "  ROW(S)\n" +
                 "    ROW 0\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"ABC\"\n" +
                 "      [#/1/SpreadsheetName123/cell/A1]\n" +
                 "      TextBoxComponent\n" +
                 "        []\n" +
                 "    ROW 1\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"DEF\"\n" +
                 "      [#/1/SpreadsheetName123/cell/A1]\n" +
                 "      TextBoxComponent\n" +
                 "        []\n" +
                 "    ROW 2\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"GHI\"\n" +
                 "      [#/1/SpreadsheetName123/cell/A1]\n" +
                 "      TextBoxComponent\n" +
@@ -273,7 +273,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                     ColumnConfig.create("column-2B-name", "column-2B-title"),
                     ColumnConfig.create("column-3C-name", "column-3C-title")
                 ),
-                (column, data) -> SpreadsheetTextComponent.with(
+                (column, data) -> TextComponent.with(
                     Optional.of(
                         CharSequences.repeating(
                             data.charAt(column),
@@ -303,7 +303,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                     ColumnConfig.create("column-2B-name", "column-2B-title"),
                     ColumnConfig.create("column-3C-name", "column-3C-title")
                 ),
-                (column, data) -> SpreadsheetTextComponent.with(
+                (column, data) -> TextComponent.with(
                     Optional.of(
                         CharSequences.repeating(
                             data.charAt(column),
@@ -336,7 +336,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                     ColumnConfig.create("column-2B-name", "column-2B-title"),
                     ColumnConfig.create("column-3C-name", "column-3C-title")
                 ),
-                (column, data) -> SpreadsheetTextComponent.with(
+                (column, data) -> TextComponent.with(
                     Optional.of(
                         CharSequences.repeating(
                             data.charAt(column),
@@ -360,7 +360,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                     ColumnConfig.create("column-2B-name", "column-2B-title"),
                     ColumnConfig.create("column-3C-name", "column-3C-title")
                 ),
-                (column, data) -> SpreadsheetTextComponent.with(
+                (column, data) -> TextComponent.with(
                     Optional.of(
                         CharSequences.repeating(
                             data.charAt(column),
@@ -381,25 +381,25 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                 "  id=tableId123-Table\n" +
                 "  ROW(S)\n" +
                 "    ROW 0\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"AAA\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"BBB\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"CCC\"\n" +
                 "    ROW 1\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"DDD\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"EEE\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"FFF\"\n" +
                 "    ROW 2\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"GGG\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"HHH\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"III\"\n"
         );
     }
@@ -414,7 +414,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                         ColumnConfig.create("column-2B-name", "column-2B-title"),
                         ColumnConfig.create("column-3C-name", "column-3C-title")
                     ),
-                    (column, data) -> SpreadsheetTextComponent.with(
+                    (column, data) -> TextComponent.with(
                         Optional.of(
                             CharSequences.repeating(
                                 data.charAt(column),
@@ -448,25 +448,25 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                 "    column-3C-title\n" +
                 "  ROW(S)\n" +
                 "    ROW 0\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"AAA\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"BBB\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"CCC\"\n" +
                 "    ROW 1\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"DDD\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"EEE\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"FFF\"\n" +
                 "    ROW 2\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"GGG\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"HHH\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"III\"\n" +
                 "  CHILDREN\n" +
                 "    FlexLayoutComponent\n" +
@@ -486,7 +486,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                         ColumnConfig.create("column-2B-name", "column-2B-title"),
                         ColumnConfig.create("column-3C-name", "column-3C-title")
                     ),
-                    (column, data) -> SpreadsheetTextComponent.with(
+                    (column, data) -> TextComponent.with(
                         Optional.of(
                             CharSequences.repeating(
                                 data.charAt(column),
@@ -522,39 +522,39 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                 "    column-3C-title\n" +
                 "  ROW(S)\n" +
                 "    ROW 0\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"AAA\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"BBB\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"CCC\"\n" +
                 "    ROW 1\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"DDD\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"EEE\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"FFF\"\n" +
                 "    ROW 2\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"GGG\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"HHH\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"III\"\n" +
                 "    ROW 3\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"JJJ\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"KKK\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"LLL\"\n" +
                 "    ROW 4\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"MMM\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"NNN\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"OOO\"\n" +
                 "  CHILDREN\n" +
                 "    FlexLayoutComponent\n" +
@@ -574,7 +574,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                         ColumnConfig.create("column-2B-name", "column-2B-title"),
                         ColumnConfig.create("column-3C-name", "column-3C-title")
                     ),
-                    (column, data) -> SpreadsheetTextComponent.with(
+                    (column, data) -> TextComponent.with(
                         Optional.of(
                             CharSequences.repeating(
                                 data.charAt(column),
@@ -608,25 +608,25 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                 "    column-3C-title\n" +
                 "  ROW(S)\n" +
                 "    ROW 0\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"AAA\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"BBB\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"CCC\"\n" +
                 "    ROW 1\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"DDD\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"EEE\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"FFF\"\n" +
                 "    ROW 2\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"GGG\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"HHH\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"III\"\n" +
                 "  CHILDREN\n" +
                 "    FlexLayoutComponent\n" +
@@ -646,7 +646,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                         ColumnConfig.create("column-2B-name", "column-2B-title"),
                         ColumnConfig.create("column-3C-name", "column-3C-title")
                     ),
-                    (column, data) -> SpreadsheetTextComponent.with(
+                    (column, data) -> TextComponent.with(
                         Optional.of(
                             CharSequences.repeating(
                                 data.charAt(column),
@@ -682,39 +682,39 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                 "    column-3C-title\n" +
                 "  ROW(S)\n" +
                 "    ROW 0\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"AAA\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"BBB\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"CCC\"\n" +
                 "    ROW 1\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"DDD\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"EEE\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"FFF\"\n" +
                 "    ROW 2\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"GGG\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"HHH\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"III\"\n" +
                 "    ROW 3\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"JJJ\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"KKK\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"LLL\"\n" +
                 "    ROW 4\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"MMM\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"NNN\"\n" +
-                "      SpreadsheetTextComponent\n" +
+                "      TextComponent\n" +
                 "        \"OOO\"\n" +
                 "  CHILDREN\n" +
                 "    FlexLayoutComponent\n" +

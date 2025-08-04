@@ -153,13 +153,13 @@ public final class SpreadsheetListDialogComponentTest implements DialogComponent
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
                 "                  \"SpreadsheetName111\" [#/1] id=spreadsheetList-1-Link\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"creator@example.com\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"31/12/99, 12:01 pm\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"modifier@example.com\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"31/1/00, 12:58 pm\"\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
@@ -167,13 +167,13 @@ public final class SpreadsheetListDialogComponentTest implements DialogComponent
                 "                      \"Delete\" [#/delete/1] id=spreadsheetList-1-delete-Link\n" +
                 "                ROW 1\n" +
                 "                  \"SpreadsheetName222\" [#/2] id=spreadsheetList-2-Link\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"creator@example.com\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"31/12/99, 12:01 pm\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"modifier@example.com\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"31/1/00, 12:58 pm\"\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
@@ -181,13 +181,13 @@ public final class SpreadsheetListDialogComponentTest implements DialogComponent
                 "                      \"Delete\" [#/delete/2] id=spreadsheetList-2-delete-Link\n" +
                 "                ROW 2\n" +
                 "                  \"SpreadsheetName333\" [#/3] id=spreadsheetList-3-Link\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"creator@example.com\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"31/12/99, 12:01 pm\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"modifier@example.com\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"31/1/00, 12:58 pm\"\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +

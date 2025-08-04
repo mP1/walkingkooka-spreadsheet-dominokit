@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponen
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextComponent;
+import walkingkooka.spreadsheet.dominokit.text.TextComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
@@ -94,16 +94,16 @@ final class SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRender
         return component;
     }
 
-    private SpreadsheetTextComponent auditInfoUser(final SpreadsheetMetadata metadata,
-                                                   final Function<AuditInfo, EmailAddress> userEmailGetter) {
+    private TextComponent auditInfoUser(final SpreadsheetMetadata metadata,
+                                        final Function<AuditInfo, EmailAddress> userEmailGetter) {
         return this.text(
             metadata.get(SpreadsheetMetadataPropertyName.AUDIT_INFO)
                 .map(a -> userEmailGetter.apply(a).value())
         );
     }
 
-    private SpreadsheetTextComponent auditInfoTimestamp(final SpreadsheetMetadata metadata,
-                                                        final Function<AuditInfo, LocalDateTime> dateTimeGetter) {
+    private TextComponent auditInfoTimestamp(final SpreadsheetMetadata metadata,
+                                             final Function<AuditInfo, LocalDateTime> dateTimeGetter) {
         return this.text(
             metadata.get(SpreadsheetMetadataPropertyName.AUDIT_INFO)
                 .map(a -> this.context.formatDateTime(
@@ -127,8 +127,8 @@ final class SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRender
             );
     }
 
-    private SpreadsheetTextComponent text(final Optional<String> text) {
-        return SpreadsheetTextComponent.with(text);
+    private TextComponent text(final Optional<String> text) {
+        return TextComponent.with(text);
     }
 
     private FlexLayoutComponent links(final SpreadsheetMetadata metadata) {

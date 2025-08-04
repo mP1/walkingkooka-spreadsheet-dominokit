@@ -34,18 +34,18 @@ import java.util.Optional;
 /**
  * A {@link FormValueComponent} that holds text within a text node. This will need to be special cased by SpreadsheetDataTable.
  */
-public final class SpreadsheetTextComponent implements FormValueComponent<HTMLDivElement, String, SpreadsheetTextComponent> {
+public final class TextComponent implements FormValueComponent<HTMLDivElement, String, TextComponent> {
 
-    public static SpreadsheetTextComponent with(final Optional<String> value) {
-        return new SpreadsheetTextComponent(value);
+    public static TextComponent with(final Optional<String> value) {
+        return new TextComponent(value);
     }
 
-    private SpreadsheetTextComponent(final Optional<String> value) {
+    private TextComponent(final Optional<String> value) {
         this.setValue(value);
     }
 
     @Override
-    public SpreadsheetTextComponent setId(final String id) {
+    public TextComponent setId(final String id) {
         throw new UnsupportedOperationException();
     }
 
@@ -55,7 +55,7 @@ public final class SpreadsheetTextComponent implements FormValueComponent<HTMLDi
     }
 
     @Override
-    public SpreadsheetTextComponent setLabel(String label) {
+    public TextComponent setLabel(String label) {
         throw new UnsupportedOperationException();
     }
 
@@ -70,12 +70,12 @@ public final class SpreadsheetTextComponent implements FormValueComponent<HTMLDi
     }
 
     @Override
-    public SpreadsheetTextComponent setDisabled(final boolean disabled) {
+    public TextComponent setDisabled(final boolean disabled) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public SpreadsheetTextComponent alwaysShowHelperText() {
+    public TextComponent alwaysShowHelperText() {
         throw new UnsupportedOperationException();
     }
 
@@ -85,7 +85,7 @@ public final class SpreadsheetTextComponent implements FormValueComponent<HTMLDi
     }
 
     @Override
-    public SpreadsheetTextComponent setHelperText(final Optional<String> text) {
+    public TextComponent setHelperText(final Optional<String> text) {
         throw new UnsupportedOperationException();
     }
 
@@ -97,24 +97,24 @@ public final class SpreadsheetTextComponent implements FormValueComponent<HTMLDi
     private Optional<String> value;
 
     @Override
-    public SpreadsheetTextComponent setValue(final Optional<String> value) {
+    public TextComponent setValue(final Optional<String> value) {
         Objects.requireNonNull(value, "value");
         this.value = value;
         return this;
     }
 
     @Override
-    public SpreadsheetTextComponent validate() {
+    public TextComponent validate() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public SpreadsheetTextComponent optional() {
+    public TextComponent optional() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public SpreadsheetTextComponent required() {
+    public TextComponent required() {
         throw new UnsupportedOperationException();
     }
 
@@ -129,65 +129,65 @@ public final class SpreadsheetTextComponent implements FormValueComponent<HTMLDi
     }
 
     @Override
-    public SpreadsheetTextComponent setErrors(final List<String> errors) {
+    public TextComponent setErrors(final List<String> errors) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public SpreadsheetTextComponent setCssText(String css) {
+    public TextComponent setCssText(String css) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public SpreadsheetTextComponent setCssProperty(final String name,
-                                                   final String value) {
+    public TextComponent setCssProperty(final String name,
+                                        final String value) {
         throw new UnsupportedOperationException();
     }
 
     // events...........................................................................................................
 
     @Override
-    public SpreadsheetTextComponent addChangeListener(final ChangeListener<Optional<String>> listener) {
+    public TextComponent addChangeListener(final ChangeListener<Optional<String>> listener) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public SpreadsheetTextComponent addClickListener(final EventListener listener) {
+    public TextComponent addClickListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public SpreadsheetTextComponent addContextMenuListener(final EventListener listener) {
+    public TextComponent addContextMenuListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public SpreadsheetTextComponent addFocusListener(final EventListener listener) {
+    public TextComponent addFocusListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public SpreadsheetTextComponent addKeydownListener(final EventListener listener) {
+    public TextComponent addKeydownListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public SpreadsheetTextComponent addKeyupListener(final EventListener listener) {
+    public TextComponent addKeyupListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public SpreadsheetTextComponent hideMarginBottom() {
+    public TextComponent hideMarginBottom() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public SpreadsheetTextComponent removeBorders() {
+    public TextComponent removeBorders() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public SpreadsheetTextComponent focus() {
+    public TextComponent focus() {
         throw new UnsupportedOperationException();
     }
 

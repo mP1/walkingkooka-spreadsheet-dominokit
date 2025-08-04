@@ -272,17 +272,17 @@ public final class JarEntryInfoListDialogComponentTest implements DialogComponen
                 "                Links\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"/META-INF/MANIFEST.MF\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"111 (22)\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"1\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"12345678\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"31/12/99, 12:58 pm\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"2/1/00, 12:58 pm\"\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
@@ -385,17 +385,17 @@ public final class JarEntryInfoListDialogComponentTest implements DialogComponen
                 "                Links\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"/META-INF/MANIFEST.MF\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"111 (11)\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"1\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"1111\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"1/1/99, 1:01 am\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"1/1/00, 1:01 am\"\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
@@ -461,17 +461,17 @@ public final class JarEntryInfoListDialogComponentTest implements DialogComponen
                 "                Links\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"/META-INF/MANIFEST.MF\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"222 (222)\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"2\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"222222\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"2/2/99, 2:02 am\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"2/2/00, 2:02 am\"\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
