@@ -70,71 +70,71 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "        ROW\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                Negative sign [] id=decimalNumberSymbolsnegativeSign-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Negative sign\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                Positive sign [] id=decimalNumberSymbolspositiveSign-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Positive sign\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                Zero digit [] id=decimalNumberSymbolszeroDigit-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Zero digit\"\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Currency [] id=decimalNumberSymbolsCurrencySymbol-TextBox\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                Decimal separator [] id=decimalNumberSymbolsdecimalSeparator-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Decimal separator\"\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Exponent [] id=decimalNumberSymbolsExponentSymbol-TextBox\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                Group separator [] id=decimalNumberSymbolsgroupSeparator-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Group separator\"\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Infinity [] id=decimalNumberSymbolsInfinitySymbol-TextBox\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                Monetary decimal separator [] id=decimalNumberSymbolsmonetaryDecimalSeparator-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Monetary decimal separator\"\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Nan [] id=decimalNumberSymbolsNanSymbol-TextBox\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                Percent symbol [] id=decimalNumberSymbolspercentSymbol-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Percent symbol\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                Permill symbol [] id=decimalNumberSymbolspermillSymbol-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Permill symbol\"\n" +
                 "          DecimalNumberSymbolsComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                Date Time Symbols []\n" +
                 "                Errors\n" +
                 "                  Expected 12 tokens but got 0\n" +
@@ -181,47 +181,47 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "        ROW\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                Negative sign [-] id=decimalNumberSymbolsnegativeSign-TextBox\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                Positive sign [+] id=decimalNumberSymbolspositiveSign-TextBox\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                Zero digit [0] id=decimalNumberSymbolszeroDigit-TextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Currency [$] id=decimalNumberSymbolsCurrencySymbol-TextBox\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                Decimal separator [.] id=decimalNumberSymbolsdecimalSeparator-TextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Exponent [e] id=decimalNumberSymbolsExponentSymbol-TextBox\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                Group separator [,] id=decimalNumberSymbolsgroupSeparator-TextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Infinity [∞] id=decimalNumberSymbolsInfinitySymbol-TextBox\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                Monetary decimal separator [.] id=decimalNumberSymbolsmonetaryDecimalSeparator-TextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Nan [NaN] id=decimalNumberSymbolsNanSymbol-TextBox\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                Percent symbol [%] id=decimalNumberSymbolspercentSymbol-TextBox\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                Permill symbol [‰] id=decimalNumberSymbolspermillSymbol-TextBox\n" +
                 "          DecimalNumberSymbolsComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                Date Time Symbols [-,+,0,$,.,e,\",\",∞,.,NaN,%,‰]\n" +
                 "      SpreadsheetLocaleComponent\n" +
                 "        SuggestBoxComponent\n" +
@@ -266,71 +266,71 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "        ROW\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                Negative sign [] id=decimalNumberSymbolsnegativeSign-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Negative sign\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                Positive sign [] id=decimalNumberSymbolspositiveSign-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Positive sign\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                Zero digit [] id=decimalNumberSymbolszeroDigit-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Zero digit\"\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Currency [] id=decimalNumberSymbolsCurrencySymbol-TextBox\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                Decimal separator [] id=decimalNumberSymbolsdecimalSeparator-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Decimal separator\"\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Exponent [] id=decimalNumberSymbolsExponentSymbol-TextBox\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                Group separator [] id=decimalNumberSymbolsgroupSeparator-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Group separator\"\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Infinity [] id=decimalNumberSymbolsInfinitySymbol-TextBox\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                Monetary decimal separator [] id=decimalNumberSymbolsmonetaryDecimalSeparator-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Monetary decimal separator\"\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Nan [] id=decimalNumberSymbolsNanSymbol-TextBox\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                Percent symbol [] id=decimalNumberSymbolspercentSymbol-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Percent symbol\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                Permill symbol [] id=decimalNumberSymbolspermillSymbol-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Permill symbol\"\n" +
                 "          DecimalNumberSymbolsComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                Date Time Symbols []\n" +
                 "                Errors\n" +
                 "                  Expected 12 tokens but got 0\n" +

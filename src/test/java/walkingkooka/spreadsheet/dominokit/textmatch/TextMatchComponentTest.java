@@ -33,7 +33,7 @@ public final class TextMatchComponentTest implements FormValueComponentTesting<H
             TextMatchComponent.empty(),
             "TextMatchComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      []\n"
         );
     }
@@ -47,7 +47,7 @@ public final class TextMatchComponentTest implements FormValueComponentTesting<H
                 ),
             "TextMatchComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [   ]\n"
         );
     }
@@ -65,7 +65,7 @@ public final class TextMatchComponentTest implements FormValueComponentTesting<H
                 ),
             "TextMatchComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [starts* ends* *contains*]\n"
         );
     }

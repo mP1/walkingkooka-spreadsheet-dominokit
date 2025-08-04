@@ -143,7 +143,7 @@ public final class PluginNameSetDialogComponentTest implements DialogComponentLi
                 "      RemovePluginNameSetComponent\n" +
                 "      PluginNameSetComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [] id=pluginNameSet-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -190,7 +190,7 @@ public final class PluginNameSetDialogComponentTest implements DialogComponentLi
                 "                  \"Plugin111\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=pluginNameSet-remove-1-Link\n" +
                 "      PluginNameSetComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [plugin111] id=pluginNameSet-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -238,7 +238,7 @@ public final class PluginNameSetDialogComponentTest implements DialogComponentLi
                 "                  \"Plugin111\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=pluginNameSet-remove-1-Link\n" +
                 "      PluginNameSetComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [plugin111] id=pluginNameSet-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +

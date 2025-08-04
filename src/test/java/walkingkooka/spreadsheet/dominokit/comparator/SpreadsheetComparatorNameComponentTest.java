@@ -36,7 +36,7 @@ public final class SpreadsheetComparatorNameComponentTest implements FormValueCo
                 ),
             "SpreadsheetComparatorNameComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [hello-comparator]\n"
         );
     }
@@ -50,7 +50,7 @@ public final class SpreadsheetComparatorNameComponentTest implements FormValueCo
                 ),
             "SpreadsheetComparatorNameComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [!@#]\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 0\n"

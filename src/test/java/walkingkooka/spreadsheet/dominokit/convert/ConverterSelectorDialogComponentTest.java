@@ -67,7 +67,7 @@ public final class ConverterSelectorDialogComponentTest implements DialogCompone
                 "    id=selector-Dialog includeClose=true CLOSED\n" +
                 "      ConverterSelectorComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [hello-converter] id=selector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +

@@ -38,7 +38,7 @@ public final class SpreadsheetNameComponentTest implements FormValueComponentTes
                 ),
             "SpreadsheetNameComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [Spreadsheet123]\n"
         );
     }
@@ -50,7 +50,7 @@ public final class SpreadsheetNameComponentTest implements FormValueComponentTes
                 .clearValue(),
             "SpreadsheetNameComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      []\n" +
                 "      Errors\n" +
                 "        Empty \"name\"\n"

@@ -34,7 +34,7 @@ public final class CharacterComponentTest implements FormValueComponentTesting<H
                 .clearValue(),
             "CharacterComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      []\n" +
                 "      Errors\n" +
                 "        Empty \"Letter\"\n"
@@ -50,7 +50,7 @@ public final class CharacterComponentTest implements FormValueComponentTesting<H
                 ),
             "CharacterComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      []\n" +
                 "      Errors\n" +
                 "        Empty \"Letter\"\n"
@@ -66,7 +66,7 @@ public final class CharacterComponentTest implements FormValueComponentTesting<H
                 ),
             "CharacterComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [1]\n" +
                 "      Errors\n" +
                 "        Not a letter\n"
@@ -82,7 +82,7 @@ public final class CharacterComponentTest implements FormValueComponentTesting<H
                 ),
             "CharacterComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [A]\n"
         );
     }

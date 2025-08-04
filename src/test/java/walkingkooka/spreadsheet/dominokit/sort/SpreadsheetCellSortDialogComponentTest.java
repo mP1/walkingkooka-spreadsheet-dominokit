@@ -60,7 +60,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [] id=cellSort-columnOrRowComparatorNamesList-TextBox\n" +
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
@@ -73,7 +73,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [] id=cellSort-comparatorNames-0-TextBox\n" +
                 "                          Errors\n" +
                 "                            Empty \"text\"\n" +
@@ -101,7 +101,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [Z=text] id=cellSort-columnOrRowComparatorNamesList-TextBox\n" +
                 "            Errors\n" +
                 "              Invalid column(s) Z are not within B2:C3\n" +
@@ -114,7 +114,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [Z=text] id=cellSort-comparatorNames-0-TextBox\n" +
                 "                          Errors\n" +
                 "                            Invalid Column Z is not within B2:C3\n" +
@@ -152,7 +152,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [] id=cellSort-comparatorNames-1-TextBox\n" +
                 "                          Errors\n" +
                 "                            Empty \"text\"\n" +
@@ -180,7 +180,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [99=text] id=cellSort-columnOrRowComparatorNamesList-TextBox\n" +
                 "            Errors\n" +
                 "              Invalid row(s) 99 are not within B2:C3\n" +
@@ -193,7 +193,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [99=text] id=cellSort-comparatorNames-0-TextBox\n" +
                 "                          Errors\n" +
                 "                            Invalid Row 99 is not within B2:C3\n" +
@@ -231,7 +231,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [] id=cellSort-comparatorNames-1-TextBox\n" +
                 "                          Errors\n" +
                 "                            Empty \"text\"\n" +
@@ -260,7 +260,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [B] id=cellSort-columnOrRowComparatorNamesList-TextBox\n" +
                 "            Errors\n" +
                 "              Missing '='\n" +
@@ -273,7 +273,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [B] id=cellSort-comparatorNames-0-TextBox\n" +
                 "                          Errors\n" +
                 "                            Missing '='\n" +
@@ -307,7 +307,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [] id=cellSort-comparatorNames-1-TextBox\n" +
                 "                          Errors\n" +
                 "                            Empty \"text\"\n" +
@@ -334,7 +334,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [B=] id=cellSort-columnOrRowComparatorNamesList-TextBox\n" +
                 "            Errors\n" +
                 "              Missing comparator name\n" +
@@ -347,7 +347,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [B=] id=cellSort-comparatorNames-0-TextBox\n" +
                 "                          Errors\n" +
                 "                            Missing comparator name\n" +
@@ -381,7 +381,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [] id=cellSort-comparatorNames-1-TextBox\n" +
                 "                          Errors\n" +
                 "                            Empty \"text\"\n" +
@@ -410,7 +410,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [B=text] id=cellSort-columnOrRowComparatorNamesList-TextBox\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
@@ -421,7 +421,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [B=text] id=cellSort-comparatorNames-0-TextBox\n" +
                 "                    \"Move Up\" DISABLED id=cellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=cellSort-comparatorNames-0-moveDown-Link\n" +
@@ -457,7 +457,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [] id=cellSort-comparatorNames-1-TextBox\n" +
                 "                          Errors\n" +
                 "                            Empty \"text\"\n" +
@@ -484,7 +484,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [B=text,text2] id=cellSort-columnOrRowComparatorNamesList-TextBox\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
@@ -495,7 +495,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [B=text,text2] id=cellSort-comparatorNames-0-TextBox\n" +
                 "                    \"Move Up\" DISABLED id=cellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=cellSort-comparatorNames-0-moveDown-Link\n" +
@@ -532,7 +532,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [] id=cellSort-comparatorNames-1-TextBox\n" +
                 "                          Errors\n" +
                 "                            Empty \"text\"\n" +
@@ -559,7 +559,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [B=text;C=text2] id=cellSort-columnOrRowComparatorNamesList-TextBox\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
@@ -570,7 +570,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [B=text] id=cellSort-comparatorNames-0-TextBox\n" +
                 "                    \"Move Up\" DISABLED id=cellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C=text2;B=text] id=cellSort-comparatorNames-0-moveDown-Link\n" +
@@ -606,7 +606,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [C=text2] id=cellSort-comparatorNames-1-TextBox\n" +
                 "                    \"Move Up\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C=text2;B=text] id=cellSort-comparatorNames-1-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=cellSort-comparatorNames-1-moveDown-Link\n" +
@@ -659,7 +659,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [B=text;B=text2] id=cellSort-columnOrRowComparatorNamesList-TextBox\n" +
                 "            Errors\n" +
                 "              Duplicate column B\n" +
@@ -672,7 +672,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [B=text] id=cellSort-comparatorNames-0-TextBox\n" +
                 "                    \"Move Up\" DISABLED id=cellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B=text2;B=text] id=cellSort-comparatorNames-0-moveDown-Link\n" +
@@ -708,7 +708,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [B=text2] id=cellSort-comparatorNames-1-TextBox\n" +
                 "                          Errors\n" +
                 "                            Duplicate Column B\n" +
@@ -762,7 +762,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [B=text;C=text2] id=cellSort-columnOrRowComparatorNamesList-TextBox\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
@@ -773,7 +773,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [B=text] id=cellSort-comparatorNames-0-TextBox\n" +
                 "                    \"Move Up\" DISABLED id=cellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C=text2;B=text] id=cellSort-comparatorNames-0-moveDown-Link\n" +
@@ -809,7 +809,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [C=text2] id=cellSort-comparatorNames-1-TextBox\n" +
                 "                    \"Move Up\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C=text2;B=text] id=cellSort-comparatorNames-1-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=cellSort-comparatorNames-1-moveDown-Link\n" +
@@ -846,7 +846,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [] id=cellSort-comparatorNames-2-TextBox\n" +
                 "                          Errors\n" +
                 "                            Empty \"text\"\n" +
@@ -878,7 +878,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [B=text] id=cellSort-columnOrRowComparatorNamesList-TextBox\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
@@ -889,7 +889,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [B=text] id=cellSort-comparatorNames-0-TextBox\n" +
                 "                    \"Move Up\" DISABLED id=cellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=cellSort-comparatorNames-0-moveDown-Link\n" +
@@ -925,7 +925,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [] id=cellSort-comparatorNames-1-TextBox\n" +
                 "                          Errors\n" +
                 "                            Empty \"text\"\n" +
@@ -958,7 +958,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [B=text;B=text-case-insensitive] id=cellSort-columnOrRowComparatorNamesList-TextBox\n" +
                 "            Errors\n" +
                 "              Duplicate column B\n" +
@@ -971,7 +971,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [B=text] id=cellSort-comparatorNames-0-TextBox\n" +
                 "                    \"Move Up\" DISABLED id=cellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B=text-case-insensitive;B=text] id=cellSort-comparatorNames-0-moveDown-Link\n" +
@@ -1007,7 +1007,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [B=text-case-insensitive] id=cellSort-comparatorNames-1-TextBox\n" +
                 "                          Errors\n" +
                 "                            Duplicate Column B\n" +
@@ -1064,7 +1064,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [B=text;2=text-case-insensitive] id=cellSort-columnOrRowComparatorNamesList-TextBox\n" +
                 "            Errors\n" +
                 "              Got Row 2 expected Column\n" +
@@ -1077,7 +1077,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [B=text] id=cellSort-comparatorNames-0-TextBox\n" +
                 "                    \"Move Up\" DISABLED id=cellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/2=text-case-insensitive;B=text] id=cellSort-comparatorNames-0-moveDown-Link\n" +
@@ -1113,7 +1113,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [2=text-case-insensitive] id=cellSort-comparatorNames-1-TextBox\n" +
                 "                          Errors\n" +
                 "                            Got Row 2 expected Column\n" +
@@ -1170,7 +1170,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [3=text] id=cellSort-columnOrRowComparatorNamesList-TextBox\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
@@ -1181,7 +1181,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [3=text] id=cellSort-comparatorNames-0-TextBox\n" +
                 "                    \"Move Up\" DISABLED id=cellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=cellSort-comparatorNames-0-moveDown-Link\n" +
@@ -1217,7 +1217,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [] id=cellSort-comparatorNames-1-TextBox\n" +
                 "                          Errors\n" +
                 "                            Empty \"text\"\n" +
@@ -1250,7 +1250,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [3=text;4=text;3=text-case-insensitive] id=cellSort-columnOrRowComparatorNamesList-TextBox\n" +
                 "            Errors\n" +
                 "              Duplicate row 3\n" +
@@ -1263,7 +1263,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [3=text] id=cellSort-comparatorNames-0-TextBox\n" +
                 "                    \"Move Up\" DISABLED id=cellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4=text;3=text;3=text-case-insensitive] id=cellSort-comparatorNames-0-moveDown-Link\n" +
@@ -1299,7 +1299,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [4=text] id=cellSort-comparatorNames-1-TextBox\n" +
                 "                    \"Move Up\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4=text;3=text;3=text-case-insensitive] id=cellSort-comparatorNames-1-moveUp-Link\n" +
                 "                    \"Move Down\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3=text;3=text-case-insensitive;4=text] id=cellSort-comparatorNames-1-moveDown-Link\n" +
@@ -1335,7 +1335,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [3=text-case-insensitive] id=cellSort-comparatorNames-2-TextBox\n" +
                 "                          Errors\n" +
                 "                            Duplicate Row 3\n" +
@@ -1392,7 +1392,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [3=text;A=text] id=cellSort-columnOrRowComparatorNamesList-TextBox\n" +
                 "            Errors\n" +
                 "              Got Column A expected Row\n" +
@@ -1405,7 +1405,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [3=text] id=cellSort-comparatorNames-0-TextBox\n" +
                 "                    \"Move Up\" DISABLED id=cellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/A=text;3=text] id=cellSort-comparatorNames-0-moveDown-Link\n" +
@@ -1441,7 +1441,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                  ROW\n" +
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueSpreadsheetTextBox\n" +
-                "                        SpreadsheetTextBox\n" +
+                "                        TextBoxComponent\n" +
                 "                          [A=text] id=cellSort-comparatorNames-1-TextBox\n" +
                 "                          Errors\n" +
                 "                            Got Column A expected Row\n" +

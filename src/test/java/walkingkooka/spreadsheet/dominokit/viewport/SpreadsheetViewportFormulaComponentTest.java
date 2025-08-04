@@ -170,7 +170,7 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
             "SpreadsheetViewportFormulaComponent\n" +
                 "  SpreadsheetFormulaComponent\n" +
                 "    ValueSpreadsheetTextBox\n" +
-                "      SpreadsheetTextBox\n" +
+                "      TextBoxComponent\n" +
                 "        [=1+2]\n"
         );
     }

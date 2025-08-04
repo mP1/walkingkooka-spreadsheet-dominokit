@@ -36,7 +36,7 @@ public final class ConverterSelectorComponentTest implements FormValueComponentT
                 ),
             "ConverterSelectorComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [hello]\n"
         );
     }
@@ -50,7 +50,7 @@ public final class ConverterSelectorComponentTest implements FormValueComponentT
                 ),
             "ConverterSelectorComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [!@#]\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 0\n"
@@ -66,7 +66,7 @@ public final class ConverterSelectorComponentTest implements FormValueComponentT
                 ),
             "ConverterSelectorComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [Hello!]\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 5\n"

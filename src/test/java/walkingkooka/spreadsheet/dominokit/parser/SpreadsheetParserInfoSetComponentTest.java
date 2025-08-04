@@ -51,7 +51,7 @@ public final class SpreadsheetParserInfoSetComponentTest implements FormValueCom
                 ),
             "SpreadsheetParserInfoSetComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/date-parse-pattern date-parse-pattern,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/date-time-parse-pattern date-time-parse-pattern,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/number-parse-pattern number-parse-pattern,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/time-parse-pattern time-parse-pattern]\n"
         );
     }
@@ -67,7 +67,7 @@ public final class SpreadsheetParserInfoSetComponentTest implements FormValueCom
                 ),
             "SpreadsheetParserInfoSetComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [https://www.example.com/Hello !]\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 30\n"
@@ -85,7 +85,7 @@ public final class SpreadsheetParserInfoSetComponentTest implements FormValueCom
                 ),
             "SpreadsheetParserInfoSetComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [https://www.example.com/Hello Hello, bad://example.com/2]\n" +
                 "      Errors\n" +
                 "        unknown protocol: bad\n"
@@ -103,7 +103,7 @@ public final class SpreadsheetParserInfoSetComponentTest implements FormValueCom
                 ),
             "SpreadsheetParserInfoSetComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [https://www.example.com/1 Good, https://example.com/2 Bad!]\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 57\n"

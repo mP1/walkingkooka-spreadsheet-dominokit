@@ -54,7 +54,7 @@ public final class DateTimeSymbolsComponentTest implements FormValueComponentTes
                 ),
             "DateTimeSymbolsComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [\"AM,PM\",\"January,February,March,April,May,June,July,August,September,October,November,December\",\"Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec\",\"Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday\",\"Sun,Mon,Tue,Wed,Thu,Fri,Sat\"]\n"
         );
     }
@@ -70,7 +70,7 @@ public final class DateTimeSymbolsComponentTest implements FormValueComponentTes
                 ),
             "DateTimeSymbolsComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [hello, !]\n" +
                 "      Errors\n" +
                 "        Expected 5 tokens but got 2\n"

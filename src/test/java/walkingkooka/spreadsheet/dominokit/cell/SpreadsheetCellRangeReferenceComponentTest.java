@@ -52,7 +52,7 @@ public final class SpreadsheetCellRangeReferenceComponentTest implements FormVal
             ).clearValue(),
             "SpreadsheetCellRangeReferenceComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [] id=cell-range-id\n" +
                 "      Errors\n" +
                 "        Empty \"text\"\n"
@@ -70,7 +70,7 @@ public final class SpreadsheetCellRangeReferenceComponentTest implements FormVal
                 ),
             "SpreadsheetCellRangeReferenceComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [A1:B2] id=cell-range-id\n"
         );
     }
@@ -88,7 +88,7 @@ public final class SpreadsheetCellRangeReferenceComponentTest implements FormVal
                 ),
             "SpreadsheetCellRangeReferenceComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [!invalid] id=cell-range-id\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 0\n"
@@ -106,7 +106,7 @@ public final class SpreadsheetCellRangeReferenceComponentTest implements FormVal
                 ),
             "SpreadsheetCellRangeReferenceComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [C3:D4] id=cell-range-id\n"
         );
     }

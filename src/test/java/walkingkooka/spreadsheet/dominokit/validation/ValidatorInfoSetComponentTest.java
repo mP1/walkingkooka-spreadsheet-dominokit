@@ -52,7 +52,7 @@ public final class ValidatorInfoSetComponentTest implements FormValueComponentTe
                 ),
             "ValidatorInfoSetComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [https://github.com/mP1/walkingkooka-validation/Validator/collection collection,https://github.com/mP1/walkingkooka-validation/Validator/expression expression,https://github.com/mP1/walkingkooka-validation/Validator/non-null non-null,https://github.com/mP1/walkingkooka-validation/Validator/text-length text-length]\n"
         );
     }
@@ -68,7 +68,7 @@ public final class ValidatorInfoSetComponentTest implements FormValueComponentTe
                 ),
             "ValidatorInfoSetComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [https://www.example.com/Hello !]\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 30\n"
@@ -86,7 +86,7 @@ public final class ValidatorInfoSetComponentTest implements FormValueComponentTe
                 ),
             "ValidatorInfoSetComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [https://www.example.com/Hello Hello, bad://example.com]\n" +
                 "      Errors\n" +
                 "        unknown protocol: bad\n"
@@ -104,7 +104,7 @@ public final class ValidatorInfoSetComponentTest implements FormValueComponentTe
                 ),
             "ValidatorInfoSetComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [https://www.example.com/1 Good, https://example.com/2 Bad!]\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 57\n"

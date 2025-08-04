@@ -21,7 +21,7 @@ import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
-import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
 
 import java.util.Optional;
 
@@ -40,14 +40,14 @@ public final class CardComponentTest implements HtmlComponentTesting<CardCompone
         this.treePrintAndCheck(
             CardComponent.empty()
                 .appendChild(
-                    SpreadsheetTextBox.empty()
+                    TextBoxComponent.empty()
                         .setValue(
                             Optional.of("Value123")
                         )
                 ),
             "CardComponent\n" +
                 "  Card\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [Value123]\n"
         );
     }
@@ -58,7 +58,7 @@ public final class CardComponentTest implements HtmlComponentTesting<CardCompone
             CardComponent.empty()
                 .setTitle("CardTitle123")
                 .appendChild(
-                    SpreadsheetTextBox.empty()
+                    TextBoxComponent.empty()
                         .setValue(
                             Optional.of("Value123")
                         )
@@ -66,7 +66,7 @@ public final class CardComponentTest implements HtmlComponentTesting<CardCompone
             "CardComponent\n" +
                 "  Card\n" +
                 "    CardTitle123\n" +
-                "      SpreadsheetTextBox\n" +
+                "      TextBoxComponent\n" +
                 "        [Value123]\n"
         );
     }

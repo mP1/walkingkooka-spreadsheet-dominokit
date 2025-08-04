@@ -38,7 +38,7 @@ public final class TextStyleComponentTest implements FormValueComponentTesting<H
                 ),
             "TextStyleComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [color: rgb(17, 17, 17); text-align: left;]\n"
         );
     }
@@ -54,7 +54,7 @@ public final class TextStyleComponentTest implements FormValueComponentTesting<H
                 ),
             "TextStyleComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [color: #111; text-align: left;]\n"
         );
     }
@@ -70,7 +70,7 @@ public final class TextStyleComponentTest implements FormValueComponentTesting<H
                 ),
             "TextStyleComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [color: #111; text-align: XYZ;]\n" +
                 "      Errors\n" +
                 "        Unknown value \"XYZ\"\n"
@@ -84,7 +84,7 @@ public final class TextStyleComponentTest implements FormValueComponentTesting<H
                 .clearValue(),
             "TextStyleComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      []\n"
         );
     }

@@ -135,7 +135,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSprea
                 "        ROW\n" +
                 "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                [] id=cellSort-comparator-1-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"text\"\n" +
@@ -155,7 +155,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSprea
                 "        ROW\n" +
                 "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                [A] id=cellSort-comparator-1-TextBox\n" +
                 "                Errors\n" +
                 "                  Missing '='\n" +
@@ -184,7 +184,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSprea
                 "        ROW\n" +
                 "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                [A=] id=cellSort-comparator-1-TextBox\n" +
                 "                Errors\n" +
                 "                  Missing comparator name\n" +
@@ -213,7 +213,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSprea
                 "        ROW\n" +
                 "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                [12=] id=cellSort-comparator-1-TextBox\n" +
                 "                Errors\n" +
                 "                  Missing comparator name\n" +
@@ -242,7 +242,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSprea
                 "        ROW\n" +
                 "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                [A=comparator-1] id=cellSort-comparator-1-TextBox\n" +
                 "          \"Move Up\" DISABLED id=cellSort-comparator-1-moveUp-Link\n" +
                 "          \"Move Down\" DISABLED id=cellSort-comparator-1-moveDown-Link\n" +
@@ -273,7 +273,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSprea
                 "        ROW\n" +
                 "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                [A=comparator-1,comparator-2] id=cellSort-comparator-1-TextBox\n" +
                 "          \"Move Up\" DISABLED id=cellSort-comparator-1-moveUp-Link\n" +
                 "          \"Move Down\" DISABLED id=cellSort-comparator-1-moveDown-Link\n" +
@@ -304,7 +304,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSprea
                 "        ROW\n" +
                 "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                [A=comparator-1,comparator-2,comparator-3] id=cellSort-comparator-1-TextBox\n" +
                 "          \"Move Up\" DISABLED id=cellSort-comparator-1-moveUp-Link\n" +
                 "          \"Move Down\" DISABLED id=cellSort-comparator-1-moveDown-Link\n" +
@@ -350,7 +350,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSprea
                 "        ROW\n" +
                 "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                [A=comparator-1] id=cellSort-comparator-1-TextBox\n" +
                 "          \"Move Up\" DISABLED id=cellSort-comparator-1-moveUp-Link\n" +
                 "          \"Move Down\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/B=comparator-2;A=comparator-1;C=comparator-3] id=cellSort-comparator-1-moveDown-Link\n" +
@@ -412,7 +412,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSprea
                 "        ROW\n" +
                 "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                [B=comparator-2] id=cellSort-comparator-1-TextBox\n" +
                 "          \"Move Up\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/B=comparator-2;A=comparator-1;C=comparator-3] id=cellSort-comparator-1-moveUp-Link\n" +
                 "          \"Move Down\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1;C=comparator-3;B=comparator-2] id=cellSort-comparator-1-moveDown-Link\n" +
@@ -464,7 +464,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSprea
                 "        ROW\n" +
                 "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
-                "              SpreadsheetTextBox\n" +
+                "              TextBoxComponent\n" +
                 "                [C=comparator-3] id=cellSort-comparator-1-TextBox\n" +
                 "          \"Move Up\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1;C=comparator-3;B=comparator-2] id=cellSort-comparator-1-moveUp-Link\n" +
                 "          \"Move Down\" DISABLED id=cellSort-comparator-1-moveDown-Link\n" +

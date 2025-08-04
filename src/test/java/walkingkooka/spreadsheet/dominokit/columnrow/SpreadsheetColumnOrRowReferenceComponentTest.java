@@ -38,7 +38,7 @@ public final class SpreadsheetColumnOrRowReferenceComponentTest implements FormV
                 ),
             "SpreadsheetColumnOrRowReferenceComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [AB]\n"
         );
     }
@@ -54,7 +54,7 @@ public final class SpreadsheetColumnOrRowReferenceComponentTest implements FormV
                 ),
             "SpreadsheetColumnOrRowReferenceComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [A1!]\n" +
                 "      Errors\n" +
                 "        Invalid character '1' at 1\n"
@@ -72,7 +72,7 @@ public final class SpreadsheetColumnOrRowReferenceComponentTest implements FormV
                 ),
             "SpreadsheetColumnOrRowReferenceComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [C:D]\n" +
                 "      Errors\n" +
                 "        Invalid character ':' at 1\n"
@@ -90,7 +90,7 @@ public final class SpreadsheetColumnOrRowReferenceComponentTest implements FormV
                 ),
             "SpreadsheetColumnOrRowReferenceComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [1]\n"
         );
     }
@@ -106,7 +106,7 @@ public final class SpreadsheetColumnOrRowReferenceComponentTest implements FormV
                 ),
             "SpreadsheetColumnOrRowReferenceComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [1:2]\n" +
                 "      Errors\n" +
                 "        Invalid character ':' at 1\n"
@@ -124,7 +124,7 @@ public final class SpreadsheetColumnOrRowReferenceComponentTest implements FormV
                 ),
             "SpreadsheetColumnOrRowReferenceComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [Z9]\n" +
                 "      Errors\n" +
                 "        Invalid character '9' at 1\n"

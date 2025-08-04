@@ -54,7 +54,7 @@ public final class SpreadsheetComparatorInfoSetComponentTest implements FormValu
                 ),
             "SpreadsheetComparatorInfoSetComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/date date,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/date-time date-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/day-of-month day-of-month,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/day-of-week day-of-week,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/hour-of-am-pm hour-of-am-pm,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/hour-of-day hour-of-day,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/minute-of-hour minute-of-hour,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/month-of-year month-of-year,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/nano-of-second nano-of-second,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/number number,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/seconds-of-minute seconds-of-minute,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/text text,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/text-case-insensitive text-case-insensitive,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/time time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/year year]\n"
         );
     }
@@ -70,7 +70,7 @@ public final class SpreadsheetComparatorInfoSetComponentTest implements FormValu
                 ),
             "SpreadsheetComparatorInfoSetComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [https://example.com hello more more]\n" +
                 "      Errors\n" +
                 "        Invalid character 'm' at 26\n"
@@ -88,7 +88,7 @@ public final class SpreadsheetComparatorInfoSetComponentTest implements FormValu
                 ),
             "SpreadsheetComparatorInfoSetComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [https://example.com/1 good,bad://example.com/2 bad]\n" +
                 "      Errors\n" +
                 "        unknown protocol: bad\n"
@@ -106,7 +106,7 @@ public final class SpreadsheetComparatorInfoSetComponentTest implements FormValu
                 ),
             "SpreadsheetComparatorInfoSetComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [https://example.com/1 good,https://example.com/2 bad!]\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 52\n"

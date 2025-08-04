@@ -27,8 +27,8 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
-import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextComponent;
+import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.TreePrintableTesting;
 
@@ -221,7 +221,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                                     )
                                 );
                         case 2:
-                            return SpreadsheetTextBox.empty();
+                            return TextBoxComponent.empty();
                         default:
                             throw new IllegalArgumentException("Invalid column " + column);
                     }
@@ -246,19 +246,19 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                 "      SpreadsheetTextComponent\n" +
                 "        \"ABC\"\n" +
                 "      [#/1/SpreadsheetName123/cell/A1]\n" +
-                "      SpreadsheetTextBox\n" +
+                "      TextBoxComponent\n" +
                 "        []\n" +
                 "    ROW 1\n" +
                 "      SpreadsheetTextComponent\n" +
                 "        \"DEF\"\n" +
                 "      [#/1/SpreadsheetName123/cell/A1]\n" +
-                "      SpreadsheetTextBox\n" +
+                "      TextBoxComponent\n" +
                 "        []\n" +
                 "    ROW 2\n" +
                 "      SpreadsheetTextComponent\n" +
                 "        \"GHI\"\n" +
                 "      [#/1/SpreadsheetName123/cell/A1]\n" +
-                "      SpreadsheetTextBox\n" +
+                "      TextBoxComponent\n" +
                 "        []\n"
         );
     }

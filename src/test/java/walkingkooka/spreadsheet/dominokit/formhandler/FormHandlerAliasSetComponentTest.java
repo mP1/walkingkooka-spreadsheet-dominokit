@@ -46,7 +46,7 @@ public final class FormHandlerAliasSetComponentTest implements FormValueComponen
                 ),
             "FormHandlerAliasSetComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [alias1 name1, alias2, name2]\n"
         );
     }
@@ -60,7 +60,7 @@ public final class FormHandlerAliasSetComponentTest implements FormValueComponen
                 ),
             "FormHandlerAliasSetComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [alias1 name1, alias2 !]\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 21\n"

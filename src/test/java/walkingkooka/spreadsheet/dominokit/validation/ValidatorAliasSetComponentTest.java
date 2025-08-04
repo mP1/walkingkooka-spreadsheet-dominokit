@@ -48,7 +48,7 @@ public final class ValidatorAliasSetComponentTest implements FormValueComponentT
                 ),
             "ValidatorAliasSetComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [alias1 validator1, validator2]\n"
         );
     }
@@ -64,7 +64,7 @@ public final class ValidatorAliasSetComponentTest implements FormValueComponentT
                 ),
             "ValidatorAliasSetComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [alias1 validator1, 9]\n" +
                 "      Errors\n" +
                 "        Invalid character '9' at 19\n"

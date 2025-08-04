@@ -207,7 +207,7 @@ public final class SpreadsheetTextComponent implements FormValueComponent<HTMLDi
 
     @Override
     public Node node() {
-        // would be better to do create the TextNode in setValue but that would cause failures in test/SpreadsheetTextBox.setValue
+        // would be better to do create the TextNode in setValue but that would cause failures in test/TextBoxComponent.setValue
         if (null == this.node) {
             this.node = Doms.textNode(
                 this.value.orElse("")

@@ -25,7 +25,7 @@ import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.ComponentWithChildren;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
-import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -103,7 +103,7 @@ public final class CardComponent implements HtmlComponent<HTMLDivElement, CardCo
         Objects.requireNonNull(changeListener, "changeListener");
 
         if (null == this.filter) {
-            this.filter = SpreadsheetTextBox.empty()
+            this.filter = TextBoxComponent.empty()
                 .clearIcon();
             this.card.withHeader(
                 (card, header) -> header.appendChild(
@@ -129,7 +129,7 @@ public final class CardComponent implements HtmlComponent<HTMLDivElement, CardCo
         return this;
     }
 
-    private SpreadsheetTextBox filter;
+    private TextBoxComponent filter;
 
     // ComponentWithChildren............................................................................................
 

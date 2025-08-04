@@ -136,7 +136,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [date-parse-pattern] id=spreadsheetParserSelector-TextBox\n" +
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
@@ -248,7 +248,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                      \"yy\" [/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20dd/mm/yy] id=spreadsheetParserSelector-removeOrReplace-remove-4-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [date-parse-pattern dd/mm/yyyy] id=spreadsheetParserSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -379,7 +379,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                      \"s\" [/1/Spreadsheet1/cell/A1/parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:s] id=spreadsheetParserSelector-removeOrReplace-remove-10-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [date-time-parse-pattern dd/mm/yyyy hh:mm:ss] id=spreadsheetParserSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -531,7 +531,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                  \"0\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20$%230.0] id=spreadsheetParserSelector-removeOrReplace-remove-5-Link\n" +
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [number-parse-pattern $#0.00] id=spreadsheetParserSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -624,7 +624,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                      \"m\" [/1/Spreadsheet1/cell/A1/parser/save/time-parse-pattern%20hh:m] id=spreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [time-parse-pattern hh:mm] id=spreadsheetParserSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -746,7 +746,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                      \"yy\" [/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20dd/mm/yy] id=spreadsheetParserSelector-removeOrReplace-remove-4-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [date-parse-pattern dd/mm/yyyy] id=spreadsheetParserSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -887,7 +887,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                      \"s\" [/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:s] id=spreadsheetParserSelector-removeOrReplace-remove-10-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [date-time-parse-pattern dd/mm/yyyy hh:mm:ss] id=spreadsheetParserSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -1049,7 +1049,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                  \"0\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20$%230.0] id=spreadsheetParserSelector-removeOrReplace-remove-5-Link\n" +
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [number-parse-pattern $#0.00] id=spreadsheetParserSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -1152,7 +1152,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                      \"m\" [/1/Spreadsheet1/spreadsheet/timeParser/save/time-parse-pattern%20hh:m] id=spreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [time-parse-pattern hh:mm] id=spreadsheetParserSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +

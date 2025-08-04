@@ -95,7 +95,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements DialogCompon
                 "      RemovePluginAliasSetLikeComponent\n" +
                 "      ExpressionFunctionAliasSetComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [] id=pluginAliasSet-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -151,7 +151,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements DialogCompon
                 "                  \"Name1\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/] id=pluginAliasSet-remove-1-Link\n" +
                 "      ExpressionFunctionAliasSetComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [name1] id=pluginAliasSet-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +

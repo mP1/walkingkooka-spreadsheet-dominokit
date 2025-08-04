@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTestingTest.TestDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
 import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Optional;
@@ -65,9 +65,9 @@ public final class DialogComponentLifecycleTestingTest implements DialogComponen
             "TestDialogComponentLifecycle\n" +
                 "  DialogComponent\n" +
                 "    id=id123 includeClose=true CLOSED\n" +
-                "      SpreadsheetTextBox\n" +
+                "      TextBoxComponent\n" +
                 "        [NOT onGiveFocus]\n" +
-                "      SpreadsheetTextBox\n" +
+                "      TextBoxComponent\n" +
                 "        [NOT refreshed]\n"
         );
 
@@ -93,9 +93,9 @@ public final class DialogComponentLifecycleTestingTest implements DialogComponen
                 "  DialogComponent\n" +
                 "    Title456\n" +
                 "    id=id123 includeClose=true\n" +
-                "      SpreadsheetTextBox\n" +
+                "      TextBoxComponent\n" +
                 "        [onGiveFocus]\n" +
-                "      SpreadsheetTextBox\n" +
+                "      TextBoxComponent\n" +
                 "        [refreshed]\n"
         );
 
@@ -122,9 +122,9 @@ public final class DialogComponentLifecycleTestingTest implements DialogComponen
                 "  DialogComponent\n" +
                 "    Title456\n" +
                 "    id=id123 includeClose=true\n" +
-                "      SpreadsheetTextBox\n" +
+                "      TextBoxComponent\n" +
                 "        [onGiveFocus]\n" +
-                "      SpreadsheetTextBox\n" +
+                "      TextBoxComponent\n" +
                 "        [refreshed]\n"
         );
 
@@ -145,9 +145,9 @@ public final class DialogComponentLifecycleTestingTest implements DialogComponen
             "TestDialogComponentLifecycle\n" +
                 "  DialogComponent\n" +
                 "    id=id123 includeClose=true CLOSED\n" +
-                "      SpreadsheetTextBox\n" +
+                "      TextBoxComponent\n" +
                 "        [onGiveFocus]\n" +
-                "      SpreadsheetTextBox\n" +
+                "      TextBoxComponent\n" +
                 "        [refreshed]\n"
         );
 
@@ -167,11 +167,11 @@ public final class DialogComponentLifecycleTestingTest implements DialogComponen
         TreePrintable {
 
         TestDialogComponentLifecycle() {
-            this.onGiveFocus = SpreadsheetTextBox.empty()
+            this.onGiveFocus = TextBoxComponent.empty()
                 .setValue(
                     Optional.of("NOT onGiveFocus")
                 );
-            this.refreshed = SpreadsheetTextBox.empty()
+            this.refreshed = TextBoxComponent.empty()
                 .setValue(
                     Optional.of("NOT refreshed")
                 );
@@ -200,7 +200,7 @@ public final class DialogComponentLifecycleTestingTest implements DialogComponen
             );
         }
 
-        private final SpreadsheetTextBox onGiveFocus;
+        private final TextBoxComponent onGiveFocus;
 
         @Override
         public boolean shouldIgnore(final HistoryToken token) {
@@ -220,7 +220,7 @@ public final class DialogComponentLifecycleTestingTest implements DialogComponen
             );
         }
 
-        private final SpreadsheetTextBox refreshed;
+        private final TextBoxComponent refreshed;
 
         @Override
         public DialogComponent dialog() {
