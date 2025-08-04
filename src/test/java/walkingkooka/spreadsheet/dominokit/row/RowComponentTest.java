@@ -23,20 +23,20 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
 
-public class SpreadsheetRowComponentTest implements HtmlComponentTesting<SpreadsheetRowComponent, HTMLDivElement> {
+public class RowComponentTest implements HtmlComponentTesting<RowComponent, HTMLDivElement> {
 
     @Test
     public void testTreePrintWhenEmpty() {
         this.treePrintAndCheck(
-            SpreadsheetRowComponent.columnSpan4(),
-            "SpreadsheetRowComponent\n"
+            RowComponent.columnSpan4(),
+            "RowComponent\n"
         );
     }
 
     @Test
     public void testTreePrint() {
         this.treePrintAndCheck(
-            SpreadsheetRowComponent.columnSpan4()
+            RowComponent.columnSpan4()
                 .appendChild(
                     SpreadsheetTextBox.empty()
                         .setLabel("Hello1")
@@ -44,7 +44,7 @@ public class SpreadsheetRowComponentTest implements HtmlComponentTesting<Spreads
                     SpreadsheetTextBox.empty()
                         .setLabel("Hello2")
                 ),
-            "SpreadsheetRowComponent\n" +
+            "RowComponent\n" +
                 "  SpreadsheetTextBox\n" +
                 "    Hello1 []\n" +
                 "  SpreadsheetTextBox\n" +
@@ -55,8 +55,8 @@ public class SpreadsheetRowComponentTest implements HtmlComponentTesting<Spreads
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SpreadsheetRowComponent> type() {
-        return SpreadsheetRowComponent.class;
+    public Class<RowComponent> type() {
+        return RowComponent.class;
     }
 
     @Override

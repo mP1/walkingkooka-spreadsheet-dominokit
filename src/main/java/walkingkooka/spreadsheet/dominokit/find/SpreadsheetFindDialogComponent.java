@@ -33,7 +33,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToken;
 import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.row.SpreadsheetRowComponent;
+import walkingkooka.spreadsheet.dominokit.row.RowComponent;
 import walkingkooka.spreadsheet.dominokit.textmatch.TextMatchComponent;
 import walkingkooka.spreadsheet.dominokit.valuetype.SpreadsheetValueTypeComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
@@ -116,19 +116,19 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                 SpreadsheetDialogComponent.INCLUDE_CLOSE,
                 context
             ).appendChild(
-                SpreadsheetRowComponent.columnSpan3()
+                RowComponent.columnSpan3()
                     .appendChild(this.cellRange)
                     .appendChild(this.path)
                     .appendChild(this.valueType)
                     .appendChild(this.formula)
             ).appendChild(
-                SpreadsheetRowComponent.columnSpan3()
+                RowComponent.columnSpan3()
                     .appendChild(this.dateTimeSymbols)
                     .appendChild(this.decimalNumberSymbols)
                     .appendChild(this.formatter)
                     .appendChild(this.parser)
             ).appendChild(
-                SpreadsheetRowComponent.columnSpan3()
+                RowComponent.columnSpan3()
                     .appendChild(this.style)
                     .appendChild(this.value)
                     .appendChild(this.validator)
