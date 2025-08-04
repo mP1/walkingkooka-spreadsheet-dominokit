@@ -38,7 +38,7 @@ import java.util.function.Supplier;
 
 /**
  * A mock of main/TextBoxComponent with the same public interface and a helpful {@link TreePrintable}. This will be useful for unit tests to verify the rough apperance of a component that includes
- * {@linkSpreadsheetDateTimeComponent}.
+ * {@link DateTimeComponent}.
  */
 public final class DateTimeComponent implements FormValueComponent<HTMLFieldSetElement, LocalDateTime, DateTimeComponent>,
     FormValueComponentTreePrintable<DateTimeComponent, LocalDateTime>,
