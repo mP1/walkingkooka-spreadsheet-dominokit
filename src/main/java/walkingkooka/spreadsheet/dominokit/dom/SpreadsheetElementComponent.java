@@ -150,6 +150,13 @@ public abstract class SpreadsheetElementComponent<E extends HTMLElement, C exten
     }
 
     @Override
+    public C appendText(final String text) {
+        return this.appendChild(
+            Doms.textNode(text)
+        );
+    }
+
+    @Override
     public C removeChild(final Node child) {
         this.element.removeChild(child);
         return (C) this;

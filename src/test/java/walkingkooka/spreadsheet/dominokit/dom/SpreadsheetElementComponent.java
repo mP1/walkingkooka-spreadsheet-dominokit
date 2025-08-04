@@ -193,6 +193,14 @@ public abstract class SpreadsheetElementComponent<E extends HTMLElement, C exten
     }
 
     @Override
+    public C appendText(final String text) {
+        Objects.requireNonNull(text, "text");
+
+        this.children.add(text);
+        return (C) this;
+    }
+
+    @Override
     public final C removeChild(final Node child) {
         Objects.requireNonNull(child, "child");
 

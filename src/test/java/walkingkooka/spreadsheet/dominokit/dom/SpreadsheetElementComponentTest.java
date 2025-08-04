@@ -181,6 +181,17 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
         );
     }
 
+    // appendText.......................................................................................................
+
+    @Test
+    public void testAppendTextWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetElementComponent.div()
+                .appendText(null)
+        );
+    }
+
     // removeNode.......................................................................................................
 
     @Test
@@ -261,6 +272,17 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
             ,
             "DIV\n" +
                 "  id=\"divId123\" class=\"dui-flex-col dui-align-middle\"\n"
+        );
+    }
+
+    @Test
+    public void testTreePrintAfterAppendText() {
+        this.treePrintAndCheck(
+            SpreadsheetElementComponent.div()
+                .appendText("Hello")
+            ,
+            "DIV\n" +
+                "  \"Hello\"\n"
         );
     }
 
