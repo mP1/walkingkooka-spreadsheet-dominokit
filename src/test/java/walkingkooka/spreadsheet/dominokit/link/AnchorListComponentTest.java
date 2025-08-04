@@ -30,7 +30,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetLinkListComponentTest implements HtmlComponentTesting<SpreadsheetLinkListComponent, HTMLDivElement> {
+public final class AnchorListComponentTest implements HtmlComponentTesting<AnchorListComponent, HTMLDivElement> {
 
     private final static String ID = "LinkList123-";
 
@@ -41,7 +41,7 @@ public final class SpreadsheetLinkListComponentTest implements HtmlComponentTest
     public void testAppendChildWithNullFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetLinkListComponent.empty()
+            () -> AnchorListComponent.empty()
                 .appendChild(null)
         );
     }
@@ -49,7 +49,7 @@ public final class SpreadsheetLinkListComponentTest implements HtmlComponentTest
     @Test
     public void testAppendChild() {
         this.treePrintAndCheck(
-            SpreadsheetLinkListComponent.empty()
+            AnchorListComponent.empty()
                 .appendChild(
                     HistoryTokenAnchorComponent.empty()
                         .setTextContent("Edit spreadsheet name")
@@ -62,7 +62,7 @@ public final class SpreadsheetLinkListComponentTest implements HtmlComponentTest
                             )
                         )
                 ),
-            "SpreadsheetLinkListComponent\n" +
+            "AnchorListComponent\n" +
                 "  FlexLayoutComponent\n" +
                 "    ROW\n" +
                 "      \"Edit spreadsheet name\" [#/1/SpreadsheetName222]\n"
@@ -72,8 +72,8 @@ public final class SpreadsheetLinkListComponentTest implements HtmlComponentTest
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetLinkListComponent> type() {
-        return SpreadsheetLinkListComponent.class;
+    public Class<AnchorListComponent> type() {
+        return AnchorListComponent.class;
     }
 
     @Override

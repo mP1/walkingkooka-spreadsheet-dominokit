@@ -22,7 +22,7 @@ import walkingkooka.Cast;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.text.printer.IndentingPrinter;
 
@@ -54,7 +54,7 @@ public final class SpreadsheetLabelLinksComponent implements HtmlComponent<HTMLD
             context
         );
 
-        this.root = SpreadsheetLinkListComponent.empty()
+        this.root = AnchorListComponent.empty()
             .appendChild(this.references)
             .appendChild(this.delete);
 
@@ -119,7 +119,7 @@ public final class SpreadsheetLabelLinksComponent implements HtmlComponent<HTMLD
         return this.root.element();
     }
 
-    private final SpreadsheetLinkListComponent root;
+    private final AnchorListComponent root;
 
     // TreePrintable....................................................................................................
 

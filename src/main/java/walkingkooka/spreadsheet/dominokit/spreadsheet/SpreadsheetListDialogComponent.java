@@ -30,7 +30,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListDeleteHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListHistoryToken;
-import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.util.ArrayList;
@@ -129,7 +129,7 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
                 context
             ).appendChild(this.table)
             .appendChild(
-                SpreadsheetLinkListComponent.empty()
+                AnchorListComponent.empty()
                     .appendChild(
                         HistoryToken.spreadsheetCreate()
                             .link(ID_PREFIX + "create")

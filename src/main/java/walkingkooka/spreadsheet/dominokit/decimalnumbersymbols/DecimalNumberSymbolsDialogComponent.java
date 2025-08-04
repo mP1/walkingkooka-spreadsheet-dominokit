@@ -42,7 +42,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
-import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleComponent;
 import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleComponentContext;
 import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleComponentSuggestionsValue;
@@ -168,7 +168,7 @@ public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDia
         ).appendChild(
             this.localeLoad
         ).appendChild(
-            SpreadsheetLinkListComponent.empty()
+            AnchorListComponent.empty()
                 .appendChild(this.save)
                 .appendChild(this.clear)
                 .appendChild(this.undo)

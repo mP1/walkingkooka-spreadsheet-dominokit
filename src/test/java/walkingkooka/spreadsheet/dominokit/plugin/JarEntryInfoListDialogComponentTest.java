@@ -97,7 +97,7 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
                 "                Links\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Delete\" DISABLED id=plugin-delete-Link\n" +
@@ -137,7 +137,7 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
                 "                Links\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Delete\" DISABLED id=plugin-delete-Link\n" +
@@ -176,7 +176,7 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
                 "                Links\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Delete\" [#/plugin/TestPluginName111/delete] id=plugin-delete-Link\n" +
@@ -217,7 +217,7 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
                 "                Links\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Delete\" DISABLED id=plugin-delete-Link\n" +
@@ -290,7 +290,7 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
                 "                      \"View\" [#/plugin/TestPluginName111/file/META-INF/MANIFEST.MF] id=plugin-view-Link\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Delete\" [#/plugin/TestPluginName111/delete] id=plugin-delete-Link\n" +
@@ -330,7 +330,7 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
                 "                Links\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Delete\" DISABLED id=plugin-delete-Link\n" +
@@ -403,7 +403,7 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
                 "                      \"View\" [#/plugin/TestPluginName111/file/META-INF/MANIFEST.MF] id=plugin-view-Link\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Delete\" [#/plugin/TestPluginName111/delete] id=plugin-delete-Link\n" +
@@ -479,7 +479,7 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
                 "                      \"View\" [#/plugin/TestPluginName111/file/META-INF/MANIFEST.MF] id=plugin-view-Link\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Delete\" [#/plugin/differentPlugin222/delete] id=plugin-delete-Link\n" +

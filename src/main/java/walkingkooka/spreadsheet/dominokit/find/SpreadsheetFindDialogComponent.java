@@ -32,7 +32,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToken;
-import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.row.SpreadsheetRowComponent;
 import walkingkooka.spreadsheet.dominokit.textmatch.TextMatchComponent;
 import walkingkooka.spreadsheet.dominokit.valuetype.SpreadsheetValueTypeComponent;
@@ -135,7 +135,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                     .appendChild(this.formattedValue)
             ).appendChild(this.query)
             .appendChild(
-                SpreadsheetLinkListComponent.empty()
+                AnchorListComponent.empty()
                     .setCssProperty("margin-top", "5px")
                     .setCssProperty("margin-left", "-5px")
                     .appendChild(this.find)

@@ -38,7 +38,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingCreateH
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingSelectHistoryToken;
-import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.spreadsheetexpressionreference.SpreadsheetExpressionReferenceComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
@@ -105,7 +105,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
             ).appendChild(this.labelName)
             .appendChild(this.labelMappingReference)
             .appendChild(
-                SpreadsheetLinkListComponent.empty()
+                AnchorListComponent.empty()
                     .appendChild(this.save)
                     .appendChild(this.undo)
                     .appendChild(this.delete)

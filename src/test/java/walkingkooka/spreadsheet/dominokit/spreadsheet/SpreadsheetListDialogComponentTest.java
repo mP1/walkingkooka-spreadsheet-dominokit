@@ -66,7 +66,7 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                 "                    \"next\" DISABLED mdi-arrow-right id=spreadsheetList-next-Link\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Create\" [#/create] id=spreadsheetList-create-Link\n" +
@@ -111,7 +111,7 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                 "                    \"next\" DISABLED mdi-arrow-right id=spreadsheetList-next-Link\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Create\" [#/create] id=spreadsheetList-create-Link\n" +
@@ -200,7 +200,7 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                 "                    \"next\" [#/*/offset/3/count/3] mdi-arrow-right id=spreadsheetList-next-Link\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Create\" [#/create] id=spreadsheetList-create-Link\n" +

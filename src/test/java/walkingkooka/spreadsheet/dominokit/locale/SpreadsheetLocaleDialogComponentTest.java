@@ -106,7 +106,7 @@ public final class SpreadsheetLocaleDialogComponentTest implements SpreadsheetDi
                 "          SpreadsheetLocaleComponent\n" +
                 "            SpreadsheetSuggestBoxComponent\n" +
                 "              []\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/SpreadsheetName1/cell/A1/locale/save/] id=locale-save-Link\n" +
@@ -169,7 +169,7 @@ public final class SpreadsheetLocaleDialogComponentTest implements SpreadsheetDi
                 "          SpreadsheetLocaleComponent\n" +
                 "            SpreadsheetSuggestBoxComponent\n" +
                 "              [English (Australian)]\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/SpreadsheetName1/cell/A1/locale/save/en-AU] id=locale-save-Link\n" +

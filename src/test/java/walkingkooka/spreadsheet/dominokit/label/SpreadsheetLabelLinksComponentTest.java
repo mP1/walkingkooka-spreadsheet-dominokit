@@ -51,7 +51,7 @@ public final class SpreadsheetLabelLinksComponentTest implements HtmlComponentTe
                 }
             ),
             "SpreadsheetLabelLinksComponent\n" +
-                "  SpreadsheetLinkListComponent\n" +
+                "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
                 "        \"References\" DISABLED id=labels-references-Link\n" +
@@ -89,7 +89,7 @@ public final class SpreadsheetLabelLinksComponentTest implements HtmlComponentTe
                 )
             ),
             "SpreadsheetLabelLinksComponent\n" +
-                "  SpreadsheetLinkListComponent\n" +
+                "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
                 "        \"References\" [#/1/SpreadsheetName222/cell/LABELZZZ/references] (2) id=labels-references-Link\n" +

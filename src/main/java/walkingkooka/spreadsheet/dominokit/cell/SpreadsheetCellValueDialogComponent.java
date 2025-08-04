@@ -37,7 +37,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValueSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValueSelectHistoryToken;
-import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
@@ -141,7 +141,7 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
     private SpreadsheetDialogComponent dialogCreate() {
         final SpreadsheetCellValueDialogComponentContext<T> context = this.context;
 
-        SpreadsheetLinkListComponent links = SpreadsheetLinkListComponent.empty()
+        AnchorListComponent links = AnchorListComponent.empty()
             .setCssProperty("margin-top", "5px")
             .setCssProperty("margin-left", "-5px")
             .appendChild(this.save)

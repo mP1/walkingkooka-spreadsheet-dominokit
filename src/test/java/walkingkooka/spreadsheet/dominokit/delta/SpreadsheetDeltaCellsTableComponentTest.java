@@ -146,7 +146,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 "            TextNodeComponent\n" +
                 "              Hello\n" +
                 "            SpreadsheetCellLinksComponent\n" +
-                "              SpreadsheetLinkListComponent\n" +
+                "              AnchorListComponent\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    \"Value\" [#/1/Spreadsheet222/cell/A1/value/text] id=ID123-cells-A1-value-Link\n" +
@@ -212,7 +212,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 "            TextNodeComponent\n" +
                 "              Hello\n" +
                 "            SpreadsheetCellLinksComponent\n" +
-                "              SpreadsheetLinkListComponent\n" +
+                "              AnchorListComponent\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    \"Value\" [#/1/Spreadsheet222/cell/A1/value/text] id=ID123-cells-A1-value-Link\n" +
@@ -228,7 +228,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 "            TextNodeComponent\n" +
                 "              2222\n" +
                 "            SpreadsheetCellLinksComponent\n" +
-                "              SpreadsheetLinkListComponent\n" +
+                "              AnchorListComponent\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    \"Value\" DISABLED id=ID123-cells-A2-value-Link\n" + // cell missing valueType so should be disabled

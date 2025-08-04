@@ -62,7 +62,7 @@ public final class SpreadsheetNameDialogComponentTest implements SpreadsheetDial
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [SpreadsheetName1] id=spreadsheetName-TextBox\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/SpreadsheetName1/rename/save/SpreadsheetName1] id=spreadsheetName-save-Link\n" +

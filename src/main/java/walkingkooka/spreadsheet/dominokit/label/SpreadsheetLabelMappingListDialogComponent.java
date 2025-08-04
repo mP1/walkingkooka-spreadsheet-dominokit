@@ -29,7 +29,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
-import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -84,7 +84,7 @@ public final class SpreadsheetLabelMappingListDialogComponent implements Spreads
                 context
             ).appendChild(this.table)
             .appendChild(
-                SpreadsheetLinkListComponent.empty()
+                AnchorListComponent.empty()
                     .setCssProperty("margin-top", "5px")
                     .setCssProperty("margin-left", "-5px")
                     .appendChild(this.create)

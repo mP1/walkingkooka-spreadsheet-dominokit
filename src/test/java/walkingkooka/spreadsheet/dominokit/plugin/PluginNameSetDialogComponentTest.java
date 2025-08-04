@@ -145,7 +145,7 @@ public final class PluginNameSetDialogComponentTest implements SpreadsheetDialog
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [] id=pluginNameSet-TextBox\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=pluginNameSet-save-Link\n" +
@@ -192,7 +192,7 @@ public final class PluginNameSetDialogComponentTest implements SpreadsheetDialog
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [plugin111] id=pluginNameSet-TextBox\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-save-Link\n" +
@@ -240,7 +240,7 @@ public final class PluginNameSetDialogComponentTest implements SpreadsheetDialog
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [plugin111] id=pluginNameSet-TextBox\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-save-Link\n" +

@@ -55,7 +55,7 @@ public final class SpreadsheetCellLinksComponentTest implements HtmlComponentTes
                 }
             ),
             "SpreadsheetCellLinksComponent\n" +
-                "  SpreadsheetLinkListComponent\n" +
+                "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
                 "        \"Value\" DISABLED id=cells-value-Link\n" +
@@ -114,7 +114,7 @@ public final class SpreadsheetCellLinksComponentTest implements HtmlComponentTes
                 )
             ),
             "SpreadsheetCellLinksComponent\n" +
-                "  SpreadsheetLinkListComponent\n" +
+                "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
                 "        \"Value\" [#/1/SpreadsheetName222/cell/A1/value/text] id=cells-value-Link\n" +
