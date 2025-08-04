@@ -35,21 +35,21 @@ import java.util.function.Function;
  * A card that holds links, each with a save history token link.
  * The initial use-case for this component is to display available spreadsheet formatter names when the user is editing a format.
  */
-public final class SpreadsheetCardLinkListComponent implements HtmlComponent<HTMLDivElement, SpreadsheetCardLinkListComponent> {
+public final class CardLinkListComponent implements HtmlComponent<HTMLDivElement, CardLinkListComponent> {
 
-    public static SpreadsheetCardLinkListComponent with(final String id,
-                                                        final String title,
-                                                        final Function<String, String> labelMaker) {
-        return new SpreadsheetCardLinkListComponent(
+    public static CardLinkListComponent with(final String id,
+                                             final String title,
+                                             final Function<String, String> labelMaker) {
+        return new CardLinkListComponent(
             CharSequences.failIfNullOrEmpty(id, "id"),
             Objects.requireNonNull(title, "title"),
             Objects.requireNonNull(labelMaker, "labelMaker")
         );
     }
 
-    private SpreadsheetCardLinkListComponent(final String id,
-                                             final String title,
-                                             final Function<String, String> labelMaker) {
+    private CardLinkListComponent(final String id,
+                                  final String title,
+                                  final Function<String, String> labelMaker) {
         this.id = id;
 
         this.flex = SpreadsheetFlexLayout.row();
@@ -131,7 +131,7 @@ public final class SpreadsheetCardLinkListComponent implements HtmlComponent<HTM
     // setCssText.......................................................................................................
 
     @Override
-    public SpreadsheetCardLinkListComponent setCssText(final String css) {
+    public CardLinkListComponent setCssText(final String css) {
         Objects.requireNonNull(css, "css");
 
         this.root.setCssText(css);
@@ -141,8 +141,8 @@ public final class SpreadsheetCardLinkListComponent implements HtmlComponent<HTM
     // setCssProperty...................................................................................................
 
     @Override
-    public SpreadsheetCardLinkListComponent setCssProperty(final String name,
-                                                           final String value) {
+    public CardLinkListComponent setCssProperty(final String name,
+                                                final String value) {
         this.root.setCssProperty(
             name,
             value
