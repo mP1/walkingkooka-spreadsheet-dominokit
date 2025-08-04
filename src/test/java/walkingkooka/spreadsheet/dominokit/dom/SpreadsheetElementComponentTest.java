@@ -25,6 +25,7 @@ import walkingkooka.Cast;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextComponent;
 import walkingkooka.text.Indentation;
@@ -428,6 +429,37 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
         ).appendChild(
             HistoryTokenAnchorComponent.empty()
                 .setTextContent("Hello222")
+        );
+
+        final StringBuilder b = new StringBuilder();
+        final IndentingPrinter printer = IndentingPrinters.printer(
+            Printers.stringBuilder(b, LineEnding.NL),
+            Indentation.SPACES2
+        );
+
+        component.printTreeChildren(printer);
+
+        printer.println("Last");
+
+        this.checkEquals(
+            "\"Hello111\" DISABLED\n" +
+                "\"Hello222\" DISABLED\n" +
+                "Last\n",
+            b.toString()
+        );
+    }
+
+    @Test
+    public void testPrintTreeChildrenSkipEmpty() {
+        final SpreadsheetDivComponent component = SpreadsheetElementComponent.div();
+        component.appendChild(
+            HistoryTokenAnchorComponent.empty()
+                .setTextContent("Hello111")
+        ).appendChild(
+            HistoryTokenAnchorComponent.empty()
+                .setTextContent("Hello222")
+        ).appendChild(
+            SpreadsheetFlexLayout.row()
         );
 
         final StringBuilder b = new StringBuilder();
