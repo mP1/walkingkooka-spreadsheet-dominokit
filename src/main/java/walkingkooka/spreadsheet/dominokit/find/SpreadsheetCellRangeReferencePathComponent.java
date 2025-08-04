@@ -176,8 +176,8 @@ public final class SpreadsheetCellRangeReferencePathComponent implements FormVal
     }
 
     @Override
-    public SpreadsheetCellRangeReferencePathComponent addKeydownListener(final EventListener listener) {
-        this.select.addKeydownListener(listener);
+    public SpreadsheetCellRangeReferencePathComponent addKeyDownListener(final EventListener listener) {
+        this.select.addKeyDownListener(listener);
         return this;
     }
 

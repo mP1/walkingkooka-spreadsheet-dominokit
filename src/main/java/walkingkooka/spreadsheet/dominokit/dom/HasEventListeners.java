@@ -32,7 +32,7 @@ public interface HasEventListeners<V, C extends HasEventListeners<V, C>> {
 
     C addFocusListener(final EventListener listener);
 
-    C addKeydownListener(final EventListener listener);
+    C addKeyDownListener(final EventListener listener);
 
     C addKeyUpListener(final EventListener listener);
 }

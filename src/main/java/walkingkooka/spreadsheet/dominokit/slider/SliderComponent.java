@@ -228,7 +228,7 @@ public final class SliderComponent extends SliderComponentLike {
     }
 
     @Override
-    public SliderComponent addKeydownListener(final EventListener listener) {
+    public SliderComponent addKeyDownListener(final EventListener listener) {
         return this.addEventListener(
             EventType.keydown,
             listener

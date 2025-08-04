@@ -342,8 +342,8 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetC
     }
 
     @Override
-    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addKeydownListener(final EventListener listener) {
-        this.names.addKeydownListener(listener);
+    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addKeyDownListener(final EventListener listener) {
+        this.names.addKeyDownListener(listener);
         return this;
     }
 

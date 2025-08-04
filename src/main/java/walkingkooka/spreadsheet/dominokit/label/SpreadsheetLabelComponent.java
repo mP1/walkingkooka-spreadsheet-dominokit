@@ -141,8 +141,8 @@ public final class SpreadsheetLabelComponent implements SuggestBoxComponentDeleg
     }
 
     @Override
-    public SpreadsheetLabelComponent addKeydownListener(final EventListener listener) {
-        this.suggestBox.addKeydownListener(listener);
+    public SpreadsheetLabelComponent addKeyDownListener(final EventListener listener) {
+        this.suggestBox.addKeyDownListener(listener);
         return this;
     }
 

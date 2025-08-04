@@ -95,8 +95,8 @@ public final class SpreadsheetLocaleComponent<T> implements SuggestBoxComponentD
     }
 
     @Override
-    public SpreadsheetLocaleComponent<T> addKeydownListener(final EventListener listener) {
-        this.suggestBox.addKeydownListener(listener);
+    public SpreadsheetLocaleComponent<T> addKeyDownListener(final EventListener listener) {
+        this.suggestBox.addKeyDownListener(listener);
         return this;
     }
 

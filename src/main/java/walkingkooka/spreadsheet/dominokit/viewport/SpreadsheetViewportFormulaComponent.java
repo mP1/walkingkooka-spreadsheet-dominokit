@@ -72,7 +72,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlComponent<
             .hideMarginBottom()
             .removeBorders()
             .addFocusListener(this::onFocus)
-            .addKeydownListener(
+            .addKeyDownListener(
                 (event) -> onKeyDownEvent(
                     Js.cast(event)
                 )

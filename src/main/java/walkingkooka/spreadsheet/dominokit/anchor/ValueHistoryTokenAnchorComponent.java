@@ -102,8 +102,8 @@ public final class ValueHistoryTokenAnchorComponent<T> implements AnchorComponen
     }
 
     @Override
-    public ValueHistoryTokenAnchorComponent<T> addKeydownListener(final EventListener listener) {
-        this.anchor.addKeydownListener(listener);
+    public ValueHistoryTokenAnchorComponent<T> addKeyDownListener(final EventListener listener) {
+        this.anchor.addKeyDownListener(listener);
         return this;
     }
 

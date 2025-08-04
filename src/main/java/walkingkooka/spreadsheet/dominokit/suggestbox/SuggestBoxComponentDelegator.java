@@ -176,9 +176,9 @@ public interface SuggestBoxComponentDelegator<E extends HTMLElement, V, C extend
     }
 
     @Override
-    default C addKeydownListener(final EventListener listener) {
+    default C addKeyDownListener(final EventListener listener) {
         this.suggestBoxComponent()
-            .addKeydownListener(listener);
+            .addKeyDownListener(listener);
         return (C) this;
     }
 

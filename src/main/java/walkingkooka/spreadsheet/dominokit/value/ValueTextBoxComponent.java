@@ -249,8 +249,8 @@ public final class ValueTextBoxComponent<T> implements FormValueComponent<HTMLFi
     }
 
     @Override
-    public ValueTextBoxComponent<T> addKeydownListener(final EventListener listener) {
-        this.textBox.addKeydownListener(listener);
+    public ValueTextBoxComponent<T> addKeyDownListener(final EventListener listener) {
+        this.textBox.addKeyDownListener(listener);
         return this;
     }
 
