@@ -28,13 +28,13 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class AppContextSpreadsheetLocaleDialogComponentContextCellLocaleTest extends AppContextSpreadsheetLocaleDialogComponentContextTestCase<AppContextSpreadsheetLocaleDialogComponentContextCellLocale> {
+public final class AppContextSpreadsheetLocaleDialogComponentContextCellLocaleTest extends AppContextSpreadsheetLocaleDialogComponentContextTestCase<AppContextLocaleDialogComponentContextCellLocale> {
 
     @Test
     public void testWithNullAppContextFails() {
         assertThrows(
             NullPointerException.class,
-            () -> AppContextSpreadsheetLocaleDialogComponentContextCellLocale.with(null)
+            () -> AppContextLocaleDialogComponentContextCellLocale.with(null)
         );
     }
 
@@ -105,8 +105,8 @@ public final class AppContextSpreadsheetLocaleDialogComponentContextCellLocaleTe
     }
 
     @Override
-    public AppContextSpreadsheetLocaleDialogComponentContextCellLocale createContext() {
-        return AppContextSpreadsheetLocaleDialogComponentContextCellLocale.with(
+    public AppContextLocaleDialogComponentContextCellLocale createContext() {
+        return AppContextLocaleDialogComponentContextCellLocale.with(
             new FakeAppContext() {
                 @Override
                 public HistoryToken historyToken() {
@@ -121,7 +121,7 @@ public final class AppContextSpreadsheetLocaleDialogComponentContextCellLocaleTe
     }
 
     @Override
-    public Class<AppContextSpreadsheetLocaleDialogComponentContextCellLocale> type() {
-        return AppContextSpreadsheetLocaleDialogComponentContextCellLocale.class;
+    public Class<AppContextLocaleDialogComponentContextCellLocale> type() {
+        return AppContextLocaleDialogComponentContextCellLocale.class;
     }
 }

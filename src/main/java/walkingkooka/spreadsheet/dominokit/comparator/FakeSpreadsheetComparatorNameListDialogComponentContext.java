@@ -18,13 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.comparator;
 
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameList;
-import walkingkooka.spreadsheet.dominokit.dialog.FakeSpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.FakeDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 
 import java.util.Optional;
 
-public class FakeSpreadsheetComparatorNameListDialogComponentContext extends FakeSpreadsheetDialogComponentContext implements SpreadsheetComparatorNameListDialogComponentContext {
+public class FakeSpreadsheetComparatorNameListDialogComponentContext extends FakeDialogComponentContext implements SpreadsheetComparatorNameListDialogComponentContext {
     @Override
     public boolean shouldIgnore(final HistoryToken token) {
         throw new UnsupportedOperationException();

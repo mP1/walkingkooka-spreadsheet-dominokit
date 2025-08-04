@@ -22,7 +22,7 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameList;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
@@ -30,7 +30,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetComparatorNameListDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetComparatorNameListDialogComponent>,
+public final class SpreadsheetComparatorNameListDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetComparatorNameListDialogComponent>,
     SpreadsheetMetadataTesting {
 
     @Test
@@ -60,7 +60,7 @@ public final class SpreadsheetComparatorNameListDialogComponentTest implements S
         this.treePrintAndCheck(
             dialog,
             "SpreadsheetComparatorNameListDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Sort Comparators Title123\n" +
                 "    id=spreadsheetComparatorNameList-Dialog includeClose=true CLOSED\n" +
                 "      SpreadsheetComparatorNameListComponent\n" +

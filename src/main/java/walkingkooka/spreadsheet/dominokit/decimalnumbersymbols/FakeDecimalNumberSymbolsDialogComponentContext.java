@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.decimalnumbersymbols;
 
 import walkingkooka.math.DecimalNumberSymbols;
-import walkingkooka.spreadsheet.dominokit.dialog.FakeSpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.FakeDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.DecimalNumberSymbolsFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 
 import java.util.Optional;
 
-public class FakeDecimalNumberSymbolsDialogComponentContext extends FakeSpreadsheetDialogComponentContext implements DecimalNumberSymbolsDialogComponentContext {
+public class FakeDecimalNumberSymbolsDialogComponentContext extends FakeDialogComponentContext implements DecimalNumberSymbolsDialogComponentContext {
 
     public FakeDecimalNumberSymbolsDialogComponentContext() {
         super();

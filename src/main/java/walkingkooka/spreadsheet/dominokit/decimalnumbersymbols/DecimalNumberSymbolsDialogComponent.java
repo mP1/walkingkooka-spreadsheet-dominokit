@@ -32,8 +32,8 @@ import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.character.CharacterComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.DecimalNumberSymbolsFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
@@ -85,7 +85,7 @@ import java.util.stream.Collectors;
  * - close link
  * </pre>
  */
-public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDialogComponentLifecycle,
+public final class DecimalNumberSymbolsDialogComponent implements DialogComponentLifecycle,
     LoadedSpreadsheetMetadataRequired,
     ComponentLifecycleMatcherDelegator,
     DecimalNumberSymbolsFetcherWatcher,
@@ -143,12 +143,12 @@ public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDia
 
     // dialog...........................................................................................................
 
-    private SpreadsheetDialogComponent dialogCreate() {
+    private DialogComponent dialogCreate() {
         final DecimalNumberSymbolsDialogComponentContext context = this.context;
 
-        return SpreadsheetDialogComponent.smallerPrompt(
+        return DialogComponent.smallerPrompt(
             ID + SpreadsheetElementIds.DIALOG,
-            SpreadsheetDialogComponent.INCLUDE_CLOSE,
+            DialogComponent.INCLUDE_CLOSE,
             context
         ).appendChild(
             FlexLayoutComponent.row()
@@ -177,12 +177,12 @@ public final class DecimalNumberSymbolsDialogComponent implements SpreadsheetDia
         );
     }
 
-    private final SpreadsheetDialogComponent dialog;
+    private final DialogComponent dialog;
 
     private final DecimalNumberSymbolsDialogComponentContext context;
 
     @Override
-    public SpreadsheetDialogComponent dialog() {
+    public DialogComponent dialog() {
         return this.dialog;
     }
 

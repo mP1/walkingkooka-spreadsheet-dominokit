@@ -22,7 +22,7 @@ import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.DateTimeSymbolsFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -35,7 +35,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
-public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<DateTimeSymbolsDialogComponent>,
+public final class DateTimeSymbolsDialogComponentTest implements DialogComponentLifecycleTesting<DateTimeSymbolsDialogComponent>,
     HistoryTokenTesting,
     SpreadsheetMetadataTesting {
 
@@ -63,7 +63,7 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
             ),
             context,
             "DateTimeSymbolsDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    A1: Date Time Symbols\n" +
                 "    id=dateTimeSymbols-Dialog includeClose=true\n" +
                 "      FlexLayoutComponent\n" +
@@ -140,7 +140,7 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
             ),
             context,
             "DateTimeSymbolsDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Spreadsheet: Date Time Symbols (dateTimeSymbols)\n" +
                 "    id=dateTimeSymbols-Dialog includeClose=true\n" +
                 "      FlexLayoutComponent\n" +
@@ -205,7 +205,7 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
             ),
             context,
             "DateTimeSymbolsDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Spreadsheet: Date Time Symbols (dateTimeSymbols)\n" +
                 "    id=dateTimeSymbols-Dialog includeClose=true\n" +
                 "      FlexLayoutComponent\n" +

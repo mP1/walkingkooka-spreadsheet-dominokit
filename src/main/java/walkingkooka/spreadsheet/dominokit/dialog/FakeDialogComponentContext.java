@@ -19,8 +19,8 @@ package walkingkooka.spreadsheet.dominokit.dialog;
 
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 
-public class FakeSpreadsheetDialogComponentContext extends FakeHistoryContext
-    implements SpreadsheetDialogComponentContext {
+public class FakeDialogComponentContext extends FakeHistoryContext
+    implements DialogComponentContext {
 
     @Override
     public String dialogTitle() {

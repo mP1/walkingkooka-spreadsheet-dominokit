@@ -23,7 +23,7 @@ import org.dominokit.domino.ui.elements.SectionElement;
 import org.dominokit.domino.ui.icons.lib.Icons;
 import org.dominokit.domino.ui.layout.AppLayout;
 import org.dominokit.domino.ui.layout.RightDrawerSize;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
@@ -142,7 +142,7 @@ final class SpreadsheetAppLayout extends AppLayout implements
     private void appLayoutRightPanelClosed(final AppLayout layout,
                                            final SectionElement section) {
         // HACK only hide metadata panel if NOT displaying a metadata editor dialog
-        if (false == SpreadsheetDialogComponent.isAnyOpen()) {
+        if (false == DialogComponent.isAnyOpen()) {
             final AppContext context = this.context;
 
             context.pushHistoryToken(

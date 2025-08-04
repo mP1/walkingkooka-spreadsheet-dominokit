@@ -17,8 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextTesting;
 
-public interface SpreadsheetCellReferencesDialogComponentContextTesting<C extends SpreadsheetCellReferencesDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C>,
+public interface SpreadsheetCellReferencesDialogComponentContextTesting<C extends SpreadsheetCellReferencesDialogComponentContext> extends DialogComponentContextTesting<C>,
     SpreadsheetCellLabelsAnchorComponentContextTesting<C> {
 }

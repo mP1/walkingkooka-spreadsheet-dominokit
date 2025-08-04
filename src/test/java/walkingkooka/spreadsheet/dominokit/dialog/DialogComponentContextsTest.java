@@ -17,24 +17,25 @@
 
 package walkingkooka.spreadsheet.dominokit.dialog;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
+import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicStaticHelperTesting;
 
-public interface SpreadsheetDialogComponentContextDelegator extends SpreadsheetDialogComponentContext,
-    HistoryContextDelegator,
-    LoggingContextDelegator {
+import java.lang.reflect.Method;
+
+public final class DialogComponentContextsTest implements PublicStaticHelperTesting<DialogComponentContexts> {
 
     @Override
-    default HistoryContext historyContext() {
-        return this.spreadsheetDialogComponentContext();
+    public Class<DialogComponentContexts> type() {
+        return DialogComponentContexts.class;
     }
 
     @Override
-    default LoggingContext loggingContext() {
-        return this.spreadsheetDialogComponentContext();
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PUBLIC;
     }
 
-    SpreadsheetDialogComponentContext spreadsheetDialogComponentContext();
+    @Override
+    public boolean canHavePublicTypes(final Method method) {
+        return false;
+    }
 }

@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.comparator;
 
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameList;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 
 import java.util.Optional;
@@ -28,7 +28,7 @@ import java.util.Optional;
  * A {@link walkingkooka.Context} tht accompanies a {@link SpreadsheetComparatorNameListDialogComponent} provided various inputs.
  */
 public interface SpreadsheetComparatorNameListDialogComponentContext extends ComponentLifecycleMatcher,
-    SpreadsheetDialogComponentContext {
+    DialogComponentContext {
 
     /**
      * Provides the UNDO text.

@@ -18,8 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.comparator;
 
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextTesting;
 
-public interface SpreadsheetComparatorNameListDialogComponentContextTesting<C extends SpreadsheetComparatorNameListDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C>,
+public interface SpreadsheetComparatorNameListDialogComponentContextTesting<C extends SpreadsheetComparatorNameListDialogComponentContext> extends DialogComponentContextTesting<C>,
     ComponentLifecycleMatcherTesting {
 }

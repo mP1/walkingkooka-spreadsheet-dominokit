@@ -24,9 +24,9 @@ import walkingkooka.plugin.PluginInfoLike;
 import walkingkooka.plugin.PluginInfoSetLike;
 import walkingkooka.plugin.PluginSelectorLike;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextDelegator;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextDelegator;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
@@ -44,7 +44,7 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContext<N extends Name
     S extends PluginSelectorLike<N>,
     A extends PluginAliasLike<N, S, A>,
     AS extends PluginAliasSetLike<N, I, IS, S, A, AS>> implements PluginAliasSetLikeDialogComponentContext<N, I, IS, S, A, AS>,
-    SpreadsheetDialogComponentContextDelegator {
+    DialogComponentContextDelegator {
 
     AppContextPluginAliasSetLikeDialogComponentContext(final AppContext context) {
         this.context = Objects.requireNonNull(context, "context");
@@ -99,11 +99,11 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContext<N extends Name
         this.context.giveFocus(focus);
     }
 
-    // SpreadsheetDialogComponentContext................................................................................
+    // DialogComponentContext...........................................................................................
 
     @Override
-    public final SpreadsheetDialogComponentContext spreadsheetDialogComponentContext() {
-        return SpreadsheetDialogComponentContexts.basic(
+    public final DialogComponentContext dialogComponentContext() {
+        return DialogComponentContexts.basic(
             this.context,
             this.context
         );

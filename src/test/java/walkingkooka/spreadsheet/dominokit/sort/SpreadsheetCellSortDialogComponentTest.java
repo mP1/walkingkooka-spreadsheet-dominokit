@@ -28,7 +28,7 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorSelector;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -39,7 +39,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.List;
 
-public final class SpreadsheetCellSortDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetCellSortDialogComponent>,
+public final class SpreadsheetCellSortDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetCellSortDialogComponent>,
     SpreadsheetMetadataTesting {
 
     private final static SpreadsheetId ID = SpreadsheetId.with(1);
@@ -55,7 +55,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements Spreadsheet
                 ""
             ),
             "SpreadsheetCellSortDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Sort\n" +
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
@@ -96,7 +96,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements Spreadsheet
                 "Z=text"
             ),
             "SpreadsheetCellSortDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Sort\n" +
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
@@ -175,7 +175,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements Spreadsheet
                 "99=text"
             ),
             "SpreadsheetCellSortDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Sort\n" +
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
@@ -255,7 +255,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements Spreadsheet
                 "B"
             ),
             "SpreadsheetCellSortDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Sort\n" +
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
@@ -329,7 +329,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements Spreadsheet
                 "B="
             ),
             "SpreadsheetCellSortDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Sort\n" +
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
@@ -405,7 +405,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements Spreadsheet
                 "B=text"
             ),
             "SpreadsheetCellSortDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Sort\n" +
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
@@ -479,7 +479,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements Spreadsheet
                 "B=text,text2"
             ),
             "SpreadsheetCellSortDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Sort\n" +
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
@@ -554,7 +554,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements Spreadsheet
                 "B=text;C=text2"
             ),
             "SpreadsheetCellSortDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Sort\n" +
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
@@ -654,7 +654,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements Spreadsheet
                 "B=text;B=text2"
             ),
             "SpreadsheetCellSortDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Sort\n" +
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
@@ -757,7 +757,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements Spreadsheet
                 "B=text;C=text2"
             ),
             "SpreadsheetCellSortDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Sort\n" +
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
@@ -873,7 +873,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements Spreadsheet
                 )
             ),
             "SpreadsheetCellSortDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Sort\n" +
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
@@ -953,7 +953,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements Spreadsheet
                 )
             ),
             "SpreadsheetCellSortDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Sort\n" +
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
@@ -1059,7 +1059,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements Spreadsheet
                 )
             ),
             "SpreadsheetCellSortDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Sort\n" +
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
@@ -1165,7 +1165,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements Spreadsheet
                 )
             ),
             "SpreadsheetCellSortDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Sort\n" +
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
@@ -1245,7 +1245,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements Spreadsheet
                 )
             ),
             "SpreadsheetCellSortDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Sort\n" +
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
@@ -1387,7 +1387,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements Spreadsheet
                 )
             ),
             "SpreadsheetCellSortDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Sort\n" +
                 "    id=cellSort-Dialog includeClose=true\n" +
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +

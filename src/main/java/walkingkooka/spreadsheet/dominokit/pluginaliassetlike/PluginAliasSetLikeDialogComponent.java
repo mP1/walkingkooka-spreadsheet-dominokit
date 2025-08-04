@@ -29,8 +29,8 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -68,7 +68,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
     IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
     S extends PluginSelectorLike<N>,
     A extends PluginAliasLike<N, S, A>,
-    AS extends PluginAliasSetLike<N, I, IS, S, A, AS>> implements SpreadsheetDialogComponentLifecycle,
+    AS extends PluginAliasSetLike<N, I, IS, S, A, AS>> implements DialogComponentLifecycle,
     LoadedSpreadsheetMetadataRequired,
     NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher,
@@ -136,12 +136,12 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
     /**
      * Creates the modal dialog, loaded with the {@link PluginInfoSetLike} textbox and some links.
      */
-    private SpreadsheetDialogComponent dialogCreate() {
+    private DialogComponent dialogCreate() {
         final PluginAliasSetLikeDialogComponentContext<N, I, IS, S, A, AS> context = this.context;
 
-        return SpreadsheetDialogComponent.largeEdit(
+        return DialogComponent.largeEdit(
                 ID + SpreadsheetElementIds.DIALOG,
-                SpreadsheetDialogComponent.INCLUDE_CLOSE,
+                DialogComponent.INCLUDE_CLOSE,
                 context
             ).setTitle(
                 context.dialogTitle()
@@ -157,11 +157,11 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
     }
 
     @Override
-    public SpreadsheetDialogComponent dialog() {
+    public DialogComponent dialog() {
         return this.dialog;
     }
 
-    private final SpreadsheetDialogComponent dialog;
+    private final DialogComponent dialog;
 
     // add..............................................................................................................
 

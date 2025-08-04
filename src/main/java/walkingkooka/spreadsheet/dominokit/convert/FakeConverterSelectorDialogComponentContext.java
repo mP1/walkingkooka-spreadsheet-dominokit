@@ -19,14 +19,14 @@ package walkingkooka.spreadsheet.dominokit.convert;
 
 import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.net.UrlPath;
-import walkingkooka.spreadsheet.dominokit.dialog.FakeSpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.FakeDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 
 import java.util.Optional;
 
-public class FakeConverterSelectorDialogComponentContext extends FakeSpreadsheetDialogComponentContext implements ConverterSelectorDialogComponentContext {
+public class FakeConverterSelectorDialogComponentContext extends FakeDialogComponentContext implements ConverterSelectorDialogComponentContext {
 
     public FakeConverterSelectorDialogComponentContext() {
         super();

@@ -24,8 +24,8 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellRangeReferenceComponent;
 import walkingkooka.spreadsheet.dominokit.condition.ConditionRightSpreadsheetFormulaParserTokenComponent;
 import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaCellsTableComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.formula.SpreadsheetFormulaComponent;
 import walkingkooka.spreadsheet.dominokit.formula.SpreadsheetFormulaComponentFunctions;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -56,7 +56,7 @@ import java.util.function.Function;
 /**
  * A modal dialog that provides form elements to perform a find with a table showing the matching cells.
  */
-public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogComponentLifecycle,
+public final class SpreadsheetFindDialogComponent implements DialogComponentLifecycle,
     LoadedSpreadsheetMetadataRequired {
 
     /**
@@ -108,12 +108,12 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
      * Creates the modal dialog, which holds first the form including the query field, links and then the table showing
      * the matching cells.
      */
-    private SpreadsheetDialogComponent dialogCreate() {
+    private DialogComponent dialogCreate() {
         final SpreadsheetFindDialogComponentContext context = this.context;
 
-        return SpreadsheetDialogComponent.largeList(
+        return DialogComponent.largeList(
                 ID + SpreadsheetElementIds.DIALOG,
-                SpreadsheetDialogComponent.INCLUDE_CLOSE,
+                DialogComponent.INCLUDE_CLOSE,
                 context
             ).appendChild(
                 RowComponent.columnSpan3()
@@ -146,7 +146,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
             ).appendChild(this.table);
     }
 
-    private final SpreadsheetDialogComponent dialog;
+    private final DialogComponent dialog;
 
     private final SpreadsheetFindDialogComponentContext context;
 
@@ -550,10 +550,10 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     private final HistoryTokenAnchorComponent close;
 
-    // SpreadsheetDialogComponentLifecycle..............................................................................
+    // DialogComponentLifecycle..............................................................................
 
     @Override
-    public SpreadsheetDialogComponent dialog() {
+    public DialogComponent dialog() {
         return this.dialog;
     }
 

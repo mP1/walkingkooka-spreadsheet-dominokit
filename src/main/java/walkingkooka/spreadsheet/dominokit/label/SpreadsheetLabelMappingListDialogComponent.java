@@ -22,8 +22,8 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaLabelsTableComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
@@ -37,7 +37,7 @@ import java.util.Optional;
 /**
  * A modal dialog that displays a list of {@link walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping}.
  */
-public final class SpreadsheetLabelMappingListDialogComponent implements SpreadsheetDialogComponentLifecycle,
+public final class SpreadsheetLabelMappingListDialogComponent implements DialogComponentLifecycle,
     LoadedSpreadsheetMetadataRequired,
     ComponentLifecycleMatcherDelegator {
 
@@ -75,12 +75,12 @@ public final class SpreadsheetLabelMappingListDialogComponent implements Spreads
     /**
      * Creates the modal dialog, with a table showing the label mappings and the links such as CLOSE.
      */
-    private SpreadsheetDialogComponent dialogCreate() {
+    private DialogComponent dialogCreate() {
         final SpreadsheetLabelMappingListDialogComponentContext context = this.context;
 
-        return SpreadsheetDialogComponent.largeList(
+        return DialogComponent.largeList(
                 ID + SpreadsheetElementIds.DIALOG,
-                SpreadsheetDialogComponent.INCLUDE_CLOSE,
+                DialogComponent.INCLUDE_CLOSE,
                 context
             ).appendChild(this.table)
             .appendChild(
@@ -92,7 +92,7 @@ public final class SpreadsheetLabelMappingListDialogComponent implements Spreads
             );
     }
 
-    private final SpreadsheetDialogComponent dialog;
+    private final DialogComponent dialog;
 
     private final SpreadsheetLabelMappingListDialogComponentContext context;
 
@@ -124,10 +124,10 @@ public final class SpreadsheetLabelMappingListDialogComponent implements Spreads
 
     private final HistoryTokenAnchorComponent close;
 
-    // SpreadsheetDialogComponentLifecycle..............................................................................
+    // DialogComponentLifecycle..............................................................................
 
     @Override
-    public SpreadsheetDialogComponent dialog() {
+    public DialogComponent dialog() {
         return this.dialog;
     }
 

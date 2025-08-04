@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.datetime.SpreadsheetDateComponent;
 import walkingkooka.spreadsheet.dominokit.datetime.SpreadsheetDateTimeComponent;
 import walkingkooka.spreadsheet.dominokit.datetime.SpreadsheetTimeComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -55,7 +55,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Supplier;
 
-public final class SpreadsheetCellValueDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetCellValueDialogComponent<LocalDate>>,
+public final class SpreadsheetCellValueDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetCellValueDialogComponent<LocalDate>>,
     SpreadsheetMetadataTesting {
 
     private static final String DATE_COMPONENT_ID = "Test123date-Date";
@@ -142,7 +142,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
             dialog,
             context,
             "SpreadsheetCellValueDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    HelloDialogTitle\n" +
                 "    id=Test123-Dialog includeClose=true\n" +
                 "      SpreadsheetDateComponent\n" +
@@ -187,7 +187,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
             dialog,
             context,
             "SpreadsheetCellValueDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    HelloDialogTitle\n" +
                 "    id=Test123-Dialog includeClose=true\n" +
                 "      SpreadsheetDateComponent\n" +
@@ -242,7 +242,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
             dialog,
             context,
             "SpreadsheetCellValueDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    HelloDialogTitle\n" +
                 "    id=Test123-Dialog includeClose=true\n" +
                 "      SpreadsheetDateTimeComponent\n" +
@@ -279,7 +279,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
             dialog,
             context,
             "SpreadsheetCellValueDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    HelloDialogTitle\n" +
                 "    id=Test123-Dialog includeClose=true\n" +
                 "      SpreadsheetTextBox\n" +
@@ -314,7 +314,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
             dialog,
             context,
             "SpreadsheetCellValueDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    HelloDialogTitle\n" +
                 "    id=Test123-Dialog includeClose=true\n" +
                 "      SpreadsheetTextBox\n" +
@@ -358,7 +358,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
             dialog,
             context,
             "SpreadsheetCellValueDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    HelloDialogTitle\n" +
                 "    id=Test123-Dialog includeClose=true\n" +
                 "      SpreadsheetTimeComponent\n" +

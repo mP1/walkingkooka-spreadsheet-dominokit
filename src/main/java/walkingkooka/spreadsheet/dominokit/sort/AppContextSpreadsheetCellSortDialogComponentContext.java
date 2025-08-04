@@ -62,7 +62,7 @@ final class AppContextSpreadsheetCellSortDialogComponentContext implements Sprea
         return this.context;
     }
 
-    // SpreadsheetDialogComponentContextDelegator.......................................................................
+    // DialogComponentContextDelegator.......................................................................
 
     @Override
     public HistoryContext historyContext() {

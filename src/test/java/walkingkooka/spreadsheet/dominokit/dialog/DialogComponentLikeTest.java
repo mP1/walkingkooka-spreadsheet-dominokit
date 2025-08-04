@@ -17,25 +17,25 @@
 
 package walkingkooka.spreadsheet.dominokit.dialog;
 
+import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.reflect.PublicStaticHelperTesting;
 
-import java.lang.reflect.Method;
-
-public final class SpreadsheetDialogComponentContextsTest implements PublicStaticHelperTesting<SpreadsheetDialogComponentContexts> {
+public final class DialogComponentLikeTest implements ClassTesting<DialogComponentLike> {
 
     @Override
-    public Class<SpreadsheetDialogComponentContexts> type() {
-        return SpreadsheetDialogComponentContexts.class;
+    public void testAllMethodsVisibility() {
+        throw new UnsupportedOperationException();
+    }
+
+    // class............................................................................................................
+
+    @Override
+    public Class<DialogComponentLike> type() {
+        return DialogComponentLike.class;
     }
 
     @Override
     public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
-    }
-
-    @Override
-    public boolean canHavePublicTypes(final Method method) {
-        return false;
+        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

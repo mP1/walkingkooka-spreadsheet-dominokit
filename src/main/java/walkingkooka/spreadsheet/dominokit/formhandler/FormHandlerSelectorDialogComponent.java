@@ -23,8 +23,8 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -42,7 +42,7 @@ import java.util.Set;
 /**
  * A modal dialog that supports editing a {@link FormHandlerSelector}.
  */
-public final class FormHandlerSelectorDialogComponent implements SpreadsheetDialogComponentLifecycle,
+public final class FormHandlerSelectorDialogComponent implements DialogComponentLifecycle,
     LoadedSpreadsheetMetadataRequired,
     NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher,
@@ -88,12 +88,12 @@ public final class FormHandlerSelectorDialogComponent implements SpreadsheetDial
     /**
      * Creates the modal dialog, loaded with the {@link FormHandlerSelector} textbox and some links.
      */
-    private SpreadsheetDialogComponent dialogCreate() {
+    private DialogComponent dialogCreate() {
         final FormHandlerSelectorDialogComponentContext context = this.context;
 
-        SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.largeEdit(
+        DialogComponent dialog = DialogComponent.largeEdit(
             ID + SpreadsheetElementIds.DIALOG,
-            SpreadsheetDialogComponent.INCLUDE_CLOSE,
+            DialogComponent.INCLUDE_CLOSE,
             context
         );
 
@@ -108,11 +108,11 @@ public final class FormHandlerSelectorDialogComponent implements SpreadsheetDial
     }
 
     @Override
-    public SpreadsheetDialogComponent dialog() {
+    public DialogComponent dialog() {
         return this.dialog;
     }
 
-    private final SpreadsheetDialogComponent dialog;
+    private final DialogComponent dialog;
 
     private final FormHandlerSelectorDialogComponentContext context;
 

@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.decimalnumbersymbols;
 
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.DecimalNumberSymbolsFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -30,7 +30,7 @@ import java.util.Optional;
  * The {@link walkingkooka.Context} accompanying a {@link DecimalNumberSymbolsDialogComponent}.
  */
 public interface DecimalNumberSymbolsDialogComponentContext extends
-    SpreadsheetDialogComponentContext,
+    DialogComponentContext,
     ComponentLifecycleMatcher {
 
     /**

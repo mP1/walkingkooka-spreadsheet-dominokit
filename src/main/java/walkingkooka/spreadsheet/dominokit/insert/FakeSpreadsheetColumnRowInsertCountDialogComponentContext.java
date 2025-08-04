@@ -17,10 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.insert;
 
-import walkingkooka.spreadsheet.dominokit.dialog.FakeSpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.FakeDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 
-public class FakeSpreadsheetColumnRowInsertCountDialogComponentContext extends FakeSpreadsheetDialogComponentContext implements SpreadsheetColumnRowInsertCountDialogComponentContext {
+public class FakeSpreadsheetColumnRowInsertCountDialogComponentContext extends FakeDialogComponentContext implements SpreadsheetColumnRowInsertCountDialogComponentContext {
     @Override
     public boolean shouldIgnore(final HistoryToken token) {
         throw new UnsupportedOperationException();

@@ -21,12 +21,12 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 
-public final class SpreadsheetNameDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetNameDialogComponent>,
+public final class SpreadsheetNameDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetNameDialogComponent>,
     SpreadsheetMetadataTesting {
 
     @Test
@@ -55,7 +55,7 @@ public final class SpreadsheetNameDialogComponentTest implements SpreadsheetDial
             dialog,
             context,
             "SpreadsheetNameDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Spreadsheet: Name\n" +
                 "    id=spreadsheetName-Dialog includeClose=true\n" +
                 "      SpreadsheetNameComponent\n" +

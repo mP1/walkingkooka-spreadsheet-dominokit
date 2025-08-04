@@ -17,25 +17,24 @@
 
 package walkingkooka.spreadsheet.dominokit.dialog;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 
-public final class SpreadsheetDialogComponentLikeTest implements ClassTesting<SpreadsheetDialogComponentLike> {
-
-    @Override
-    public void testAllMethodsVisibility() {
-        throw new UnsupportedOperationException();
-    }
-
-    // class............................................................................................................
+public interface DialogComponentContextDelegator extends DialogComponentContext,
+    HistoryContextDelegator,
+    LoggingContextDelegator {
 
     @Override
-    public Class<SpreadsheetDialogComponentLike> type() {
-        return SpreadsheetDialogComponentLike.class;
+    default HistoryContext historyContext() {
+        return this.dialogComponentContext();
     }
 
     @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
+    default LoggingContext loggingContext() {
+        return this.dialogComponentContext();
     }
+
+    DialogComponentContext dialogComponentContext();
 }

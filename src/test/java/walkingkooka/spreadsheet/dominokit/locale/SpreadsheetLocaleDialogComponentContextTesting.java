@@ -19,12 +19,12 @@ package walkingkooka.spreadsheet.dominokit.locale;
 
 import walkingkooka.locale.LocaleContextTesting;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextTesting;
 
 import java.util.Locale;
 import java.util.Optional;
 
-public interface SpreadsheetLocaleDialogComponentContextTesting<C extends SpreadsheetLocaleDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C>,
+public interface SpreadsheetLocaleDialogComponentContextTesting<C extends SpreadsheetLocaleDialogComponentContext> extends DialogComponentContextTesting<C>,
     LocaleContextTesting,
     ComponentLifecycleMatcherTesting {
 

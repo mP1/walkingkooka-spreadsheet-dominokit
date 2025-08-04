@@ -22,7 +22,7 @@ import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -32,7 +32,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 
 import java.util.Optional;
 
-public final class ConverterSelectorDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<ConverterSelectorDialogComponent>,
+public final class ConverterSelectorDialogComponentTest implements DialogComponentLifecycleTesting<ConverterSelectorDialogComponent>,
     SpreadsheetMetadataTesting {
 
     @Test
@@ -62,7 +62,7 @@ public final class ConverterSelectorDialogComponentTest implements SpreadsheetDi
         this.treePrintAndCheck(
             dialog,
             "ConverterSelectorDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Converter Title123\n" +
                 "    id=selector-Dialog includeClose=true CLOSED\n" +
                 "      ConverterSelectorComponent\n" +

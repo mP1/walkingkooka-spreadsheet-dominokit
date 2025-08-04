@@ -30,15 +30,15 @@ import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
 /**
- * A specialized {@link HistoryTokenAwareComponentLifecycle} that adds some basic support for {@link SpreadsheetDialogComponent}.
+ * A specialized {@link HistoryTokenAwareComponentLifecycle} that adds some basic support for {@link DialogComponent}.
  */
-public interface SpreadsheetDialogComponentLifecycle extends HistoryTokenAwareComponentLifecycle,
+public interface DialogComponentLifecycle extends HistoryTokenAwareComponentLifecycle,
     TreePrintable {
 
     /**
-     * Getter that returns the {@link SpreadsheetDialogComponent}. This is required by the other default methods.
+     * Getter that returns the {@link DialogComponent}. This is required by the other default methods.
      */
-    SpreadsheetDialogComponent dialog();
+    DialogComponent dialog();
 
     /**
      * Base id that should be used for all components within this dialog.

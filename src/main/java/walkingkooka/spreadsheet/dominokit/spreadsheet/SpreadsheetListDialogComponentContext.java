@@ -18,11 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
 import walkingkooka.spreadsheet.dominokit.UiFormattingContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
 
 public interface SpreadsheetListDialogComponentContext extends HasSpreadsheetMetadataFetcherWatchers,
-    SpreadsheetDialogComponentContext,
+    DialogComponentContext,
     UiFormattingContext {
 
     @Override

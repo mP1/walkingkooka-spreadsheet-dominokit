@@ -17,14 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.formhandler;
 
-import walkingkooka.spreadsheet.dominokit.dialog.FakeSpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.FakeDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.validation.form.provider.FormHandlerSelector;
 
 import java.util.Optional;
 
-public class FakeFormHandlerSelectorDialogComponentContext extends FakeSpreadsheetDialogComponentContext implements FormHandlerSelectorDialogComponentContext {
+public class FakeFormHandlerSelectorDialogComponentContext extends FakeDialogComponentContext implements FormHandlerSelectorDialogComponentContext {
 
     public FakeFormHandlerSelectorDialogComponentContext() {
         super();

@@ -37,7 +37,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetDialogComponentContextTest implements ClassTesting<SpreadsheetDialogComponentContext> {
+public final class DialogComponentContextTest implements ClassTesting<DialogComponentContext> {
 
     private final static SpreadsheetId ID = SpreadsheetId.with(1);
 
@@ -70,7 +70,7 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
                                            final String expected) {
         this.checkEquals(
             expected,
-            new FakeSpreadsheetDialogComponentContext() {
+            new FakeDialogComponentContext() {
 
                 @Override
                 public HistoryToken historyToken() {
@@ -117,7 +117,7 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
                                               final String expected) {
         this.checkEquals(
             expected,
-            new FakeSpreadsheetDialogComponentContext() {
+            new FakeDialogComponentContext() {
 
                 @Override
                 public HistoryToken historyToken() {
@@ -175,7 +175,7 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
                                                            final String expected) {
         this.checkEquals(
             expected,
-            new FakeSpreadsheetDialogComponentContext() {
+            new FakeDialogComponentContext() {
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.cellStyle(
@@ -260,7 +260,7 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
                                         final String expected) {
         this.checkEquals(
             expected,
-            new FakeSpreadsheetDialogComponentContext() {
+            new FakeDialogComponentContext() {
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.selection(
@@ -328,7 +328,7 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
                                                                     final String expected) {
         this.checkEquals(
             expected,
-            new FakeSpreadsheetDialogComponentContext().spreadsheetMetadataPropertyNameDialogTitle(propertyName)
+            new FakeDialogComponentContext().spreadsheetMetadataPropertyNameDialogTitle(propertyName)
         );
     }
 
@@ -338,7 +338,7 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
     public void testSpreadsheetDialogTitleWithNullFails() {
         assertThrows(
             NullPointerException.class,
-            () -> new FakeSpreadsheetDialogComponentContext()
+            () -> new FakeDialogComponentContext()
                 .spreadsheetDialogTitle(null)
         );
     }
@@ -347,7 +347,7 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
     public void testSpreadsheetDialogTitleWithEmptyFails() {
         assertThrows(
             IllegalArgumentException.class,
-            () -> new FakeSpreadsheetDialogComponentContext()
+            () -> new FakeDialogComponentContext()
                 .spreadsheetDialogTitle("")
         );
     }
@@ -364,7 +364,7 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
                                                 final String expected) {
         this.checkEquals(
             expected,
-            new FakeSpreadsheetDialogComponentContext()
+            new FakeDialogComponentContext()
                 .spreadsheetDialogTitle(title)
         );
     }
@@ -372,8 +372,8 @@ public final class SpreadsheetDialogComponentContextTest implements ClassTesting
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetDialogComponentContext> type() {
-        return SpreadsheetDialogComponentContext.class;
+    public Class<DialogComponentContext> type() {
+        return DialogComponentContext.class;
     }
 
     @Override

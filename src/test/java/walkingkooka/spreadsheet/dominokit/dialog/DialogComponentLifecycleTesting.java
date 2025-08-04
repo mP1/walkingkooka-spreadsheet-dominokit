@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
-public interface SpreadsheetDialogComponentLifecycleTesting<T extends SpreadsheetDialogComponentLifecycle> extends HistoryTokenAwareComponentLifecycleTesting<T> {
+public interface DialogComponentLifecycleTesting<T extends DialogComponentLifecycle> extends HistoryTokenAwareComponentLifecycleTesting<T> {
 
     @Test
     default void testShouldIgnoreWithSpreadsheetCellSelectHistoryToken() {

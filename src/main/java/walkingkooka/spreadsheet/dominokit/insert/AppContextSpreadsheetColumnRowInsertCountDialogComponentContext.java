@@ -18,9 +18,9 @@
 package walkingkooka.spreadsheet.dominokit.insert;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextDelegator;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextDelegator;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnInsertHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowInsertHistoryToken;
@@ -32,7 +32,7 @@ import java.util.Optional;
 import java.util.OptionalInt;
 
 final class AppContextSpreadsheetColumnRowInsertCountDialogComponentContext implements SpreadsheetColumnRowInsertCountDialogComponentContext,
-    SpreadsheetDialogComponentContextDelegator {
+    DialogComponentContextDelegator {
 
     static AppContextSpreadsheetColumnRowInsertCountDialogComponentContext with(final AppContext context) {
         return new AppContextSpreadsheetColumnRowInsertCountDialogComponentContext(
@@ -93,11 +93,11 @@ final class AppContextSpreadsheetColumnRowInsertCountDialogComponentContext impl
         );
     }
 
-    // SpreadsheetDialogComponentContext................................................................................
+    // DialogComponentContext...........................................................................................
 
     @Override
-    public SpreadsheetDialogComponentContext spreadsheetDialogComponentContext() {
-        return SpreadsheetDialogComponentContexts.basic(
+    public DialogComponentContext dialogComponentContext() {
+        return DialogComponentContexts.basic(
             this.context,
             this.context
         );

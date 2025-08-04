@@ -21,8 +21,8 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
@@ -35,7 +35,7 @@ import java.util.OptionalInt;
 /**
  * A model dialog with a text field which accepts a count value, and when entered trigger the inserting of columns and rows.
  */
-public final class SpreadsheetColumnRowInsertCountDialogComponent implements SpreadsheetDialogComponentLifecycle,
+public final class SpreadsheetColumnRowInsertCountDialogComponent implements DialogComponentLifecycle,
     LoadedSpreadsheetMetadataRequired,
     ComponentLifecycleMatcherDelegator {
 
@@ -65,12 +65,12 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
     /**
      * Creates the modal dialog, which includes a few text boxes to edit the count.
      */
-    private SpreadsheetDialogComponent dialogCreate() {
+    private DialogComponent dialogCreate() {
         final SpreadsheetColumnRowInsertCountDialogComponentContext context = this.context;
 
-        return SpreadsheetDialogComponent.smallerPrompt(
+        return DialogComponent.smallerPrompt(
                 ID + SpreadsheetElementIds.DIALOG,
-                SpreadsheetDialogComponent.INCLUDE_CLOSE,
+                DialogComponent.INCLUDE_CLOSE,
                 context
             ).appendChild(this.count)
             .appendChild(
@@ -80,12 +80,12 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
             );
     }
 
-    private final SpreadsheetDialogComponent dialog;
+    private final DialogComponent dialog;
 
     private final SpreadsheetColumnRowInsertCountDialogComponentContext context;
 
     @Override
-    public SpreadsheetDialogComponent dialog() {
+    public DialogComponent dialog() {
         return this.dialog;
     }
 

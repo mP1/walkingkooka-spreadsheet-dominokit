@@ -23,8 +23,8 @@ import walkingkooka.plugin.store.PluginSet;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
@@ -43,7 +43,7 @@ import java.util.Optional;
 /**
  * A dialog that displays a file from a plugin archive.
  */
-public final class PluginFileViewDialogComponent implements SpreadsheetDialogComponentLifecycle,
+public final class PluginFileViewDialogComponent implements DialogComponentLifecycle,
     PluginFetcherWatcher,
     NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher {
@@ -145,12 +145,12 @@ public final class PluginFileViewDialogComponent implements SpreadsheetDialogCom
 
     private final PluginDownloadAnchorComponent download;
 
-    // SpreadsheetDialogComponentLifecycle..............................................................................
+    // DialogComponentLifecycle..............................................................................
 
-    private SpreadsheetDialogComponent dialogCreate(final PluginFileViewDialogComponentContext context) {
-        return SpreadsheetDialogComponent.largeEdit(
+    private DialogComponent dialogCreate(final PluginFileViewDialogComponentContext context) {
+        return DialogComponent.largeEdit(
                 ID + SpreadsheetElementIds.DIALOG, // id
-                SpreadsheetDialogComponent.INCLUDE_CLOSE,
+                DialogComponent.INCLUDE_CLOSE,
                 context
             ).appendChild(this.textView)
             .appendChild(
@@ -172,11 +172,11 @@ public final class PluginFileViewDialogComponent implements SpreadsheetDialogCom
     }
 
     @Override
-    public SpreadsheetDialogComponent dialog() {
+    public DialogComponent dialog() {
         return this.dialog;
     }
 
-    private final SpreadsheetDialogComponent dialog;
+    private final DialogComponent dialog;
 
     private final PluginFileViewDialogComponentContext context;
 
@@ -223,7 +223,7 @@ public final class PluginFileViewDialogComponent implements SpreadsheetDialogCom
         // ignore
     }
 
-    // SpreadsheetDialogComponentLifecycle..............................................................................
+    // DialogComponentLifecycle..............................................................................
 
     @Override
     public boolean shouldIgnore(final HistoryToken token) {

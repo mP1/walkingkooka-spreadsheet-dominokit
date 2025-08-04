@@ -18,9 +18,9 @@
 package walkingkooka.spreadsheet.dominokit.formhandler;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextDelegator;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextDelegator;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
@@ -32,7 +32,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 final class FormHandlerSelectorDialogComponentContextDefaultFormHandler implements FormHandlerSelectorDialogComponentContext,
-    SpreadsheetDialogComponentContextDelegator {
+    DialogComponentContextDelegator {
 
     static FormHandlerSelectorDialogComponentContextDefaultFormHandler with(final AppContext context) {
         return new FormHandlerSelectorDialogComponentContextDefaultFormHandler(
@@ -75,11 +75,11 @@ final class FormHandlerSelectorDialogComponentContextDefaultFormHandler implemen
         return this.context.addSpreadsheetMetadataFetcherWatcher(watcher);
     }
 
-    // SpreadsheetDialogComponentContext................................................................................
+    // DialogComponentContext...........................................................................................
 
     @Override
-    public SpreadsheetDialogComponentContext spreadsheetDialogComponentContext() {
-        return SpreadsheetDialogComponentContexts.basic(
+    public DialogComponentContext dialogComponentContext() {
+        return DialogComponentContexts.basic(
             this.context,
             this.context
         );

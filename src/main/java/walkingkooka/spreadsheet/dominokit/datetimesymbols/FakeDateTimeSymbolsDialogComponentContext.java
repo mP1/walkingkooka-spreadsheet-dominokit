@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.datetimesymbols;
 
 import walkingkooka.datetime.DateTimeSymbols;
-import walkingkooka.spreadsheet.dominokit.dialog.FakeSpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.FakeDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.DateTimeSymbolsFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 
 import java.util.Optional;
 
-public class FakeDateTimeSymbolsDialogComponentContext extends FakeSpreadsheetDialogComponentContext implements DateTimeSymbolsDialogComponentContext {
+public class FakeDateTimeSymbolsDialogComponentContext extends FakeDialogComponentContext implements DateTimeSymbolsDialogComponentContext {
 
     public FakeDateTimeSymbolsDialogComponentContext() {
         super();

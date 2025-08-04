@@ -23,8 +23,8 @@ import walkingkooka.plugin.store.PluginSet;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
@@ -42,7 +42,7 @@ import java.util.Optional;
 /**
  * A dialog that includes a table showing all the entries for a JAR file, along with delete, download and close links.
  */
-public final class JarEntryInfoListDialogComponent implements SpreadsheetDialogComponentLifecycle,
+public final class JarEntryInfoListDialogComponent implements DialogComponentLifecycle,
     PluginFetcherWatcher,
     NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher {
@@ -123,13 +123,13 @@ public final class JarEntryInfoListDialogComponent implements SpreadsheetDialogC
 
     private final PluginDownloadAnchorComponent download;
 
-    // SpreadsheetDialogComponentLifecycle..............................................................................
+    // DialogComponentLifecycle..............................................................................
 
     // TODO add RENAME links
-    private SpreadsheetDialogComponent dialogCreate(final JarEntryInfoListDialogComponentContext context) {
-        return SpreadsheetDialogComponent.largeList(
+    private DialogComponent dialogCreate(final JarEntryInfoListDialogComponentContext context) {
+        return DialogComponent.largeList(
                 ID + SpreadsheetElementIds.DIALOG, // id
-                SpreadsheetDialogComponent.INCLUDE_CLOSE,
+                DialogComponent.INCLUDE_CLOSE,
                 context
             ).appendChild(this.table)
             .appendChild(
@@ -141,11 +141,11 @@ public final class JarEntryInfoListDialogComponent implements SpreadsheetDialogC
     }
 
     @Override
-    public SpreadsheetDialogComponent dialog() {
+    public DialogComponent dialog() {
         return this.dialog;
     }
 
-    private final SpreadsheetDialogComponent dialog;
+    private final DialogComponent dialog;
 
     private final JarEntryInfoListDialogComponentContext context;
 
@@ -193,7 +193,7 @@ public final class JarEntryInfoListDialogComponent implements SpreadsheetDialogC
         // ignore
     }
 
-    // SpreadsheetDialogComponentLifecycle..............................................................................
+    // DialogComponentLifecycle..............................................................................
 
     @Override
     public boolean shouldIgnore(final HistoryToken token) {

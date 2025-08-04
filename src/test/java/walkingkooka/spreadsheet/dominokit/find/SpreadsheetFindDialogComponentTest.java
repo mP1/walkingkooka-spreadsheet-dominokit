@@ -28,7 +28,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -55,7 +55,7 @@ import java.util.Arrays;
 import java.util.Optional;
 import java.util.Set;
 
-public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetFindDialogComponent>,
+public final class SpreadsheetFindDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetFindDialogComponent>,
     SpreadsheetMetadataTesting {
 
     // isMatch..........................................................................................................
@@ -103,7 +103,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             dialog,
             appContext,
             "SpreadsheetFindDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
@@ -224,7 +224,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             dialog,
             appContext,
             "SpreadsheetFindDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
@@ -345,7 +345,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             dialog,
             appContext,
             "SpreadsheetFindDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
@@ -464,7 +464,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             dialog,
             appContext,
             "SpreadsheetFindDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
@@ -619,7 +619,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             dialog,
             appContext,
             "SpreadsheetFindDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
@@ -769,7 +769,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             dialog,
             appContext,
             "SpreadsheetFindDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
@@ -888,7 +888,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             dialog,
             appContext,
             "SpreadsheetFindDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
@@ -1007,7 +1007,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             dialog,
             appContext,
             "SpreadsheetFindDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
@@ -1126,7 +1126,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             dialog,
             appContext,
             "SpreadsheetFindDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
@@ -1245,7 +1245,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             dialog,
             appContext,
             "SpreadsheetFindDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
@@ -1364,7 +1364,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             dialog,
             appContext,
             "SpreadsheetFindDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
@@ -1483,7 +1483,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             dialog,
             appContext,
             "SpreadsheetFindDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
@@ -1602,7 +1602,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             dialog,
             appContext,
             "SpreadsheetFindDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
@@ -1721,7 +1721,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             dialog,
             appContext,
             "SpreadsheetFindDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
@@ -1840,7 +1840,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             dialog,
             appContext,
             "SpreadsheetFindDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
@@ -1959,7 +1959,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             dialog,
             appContext,
             "SpreadsheetFindDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
@@ -2078,7 +2078,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             dialog,
             appContext,
             "SpreadsheetFindDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
@@ -2197,7 +2197,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             dialog,
             appContext,
             "SpreadsheetFindDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +

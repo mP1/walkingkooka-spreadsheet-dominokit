@@ -28,9 +28,9 @@ import walkingkooka.tree.text.TextStylePropertyName;
 import java.util.Objects;
 
 /**
- * Base class for all {@link walkingkooka.Context} that accompanies a {@link SpreadsheetDialogComponent}
+ * Base class for all {@link walkingkooka.Context} that accompanies a {@link DialogComponent}
  */
-public interface SpreadsheetDialogComponentContext extends HistoryContext,
+public interface DialogComponentContext extends HistoryContext,
     LoggingContext {
 
     /**
@@ -122,7 +122,7 @@ public interface SpreadsheetDialogComponentContext extends HistoryContext,
     /**
      * Helper that refreshes the dialog title.
      */
-    default void refreshDialogTitle(final SpreadsheetDialogComponentLifecycle dialog) {
+    default void refreshDialogTitle(final DialogComponentLifecycle dialog) {
         dialog.dialog()
             .setTitle(this.dialogTitle());
     }

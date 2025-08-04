@@ -17,10 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.plugin;
 
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
 
-public interface PluginSetDialogComponentContext extends SpreadsheetDialogComponentContext,
+public interface PluginSetDialogComponentContext extends DialogComponentContext,
     HasPluginFetcherWatchers,
     PluginSetTableComponentContext {
 

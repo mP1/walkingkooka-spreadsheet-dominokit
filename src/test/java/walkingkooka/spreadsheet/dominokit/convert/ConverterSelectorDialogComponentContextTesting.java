@@ -18,8 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.convert;
 
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextTesting;
 
-public interface ConverterSelectorDialogComponentContextTesting<C extends ConverterSelectorDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C>,
+public interface ConverterSelectorDialogComponentContextTesting<C extends ConverterSelectorDialogComponentContext> extends DialogComponentContextTesting<C>,
     ComponentLifecycleMatcherTesting {
 }

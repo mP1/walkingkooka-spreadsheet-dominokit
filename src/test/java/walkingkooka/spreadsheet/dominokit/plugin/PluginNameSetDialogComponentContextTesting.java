@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.plugin;
 
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextTesting;
 
-public interface PluginNameSetDialogComponentContextTesting<C extends PluginNameSetDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C> {
+public interface PluginNameSetDialogComponentContextTesting<C extends PluginNameSetDialogComponentContext> extends DialogComponentContextTesting<C> {
 }

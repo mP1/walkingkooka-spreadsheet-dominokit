@@ -26,8 +26,8 @@ import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetCompara
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -59,7 +59,7 @@ import java.util.stream.Collectors;
  * A dialog which includes various components allowing the user to enter the sort columns/rows and comparators as
  * text or by clicking on links to build the sort text.
  */
-public final class SpreadsheetCellSortDialogComponent implements SpreadsheetDialogComponentLifecycle {
+public final class SpreadsheetCellSortDialogComponent implements DialogComponentLifecycle {
 
     public static SpreadsheetCellSortDialogComponent with(final SpreadsheetCellSortDialogComponentContext context) {
         Objects.requireNonNull(context, "context");
@@ -87,10 +87,10 @@ public final class SpreadsheetCellSortDialogComponent implements SpreadsheetDial
 
     // dialog..........................................................................................................
 
-    private SpreadsheetDialogComponent dialogCreate() {
-        return SpreadsheetDialogComponent.largeEdit(
+    private DialogComponent dialogCreate() {
+        return DialogComponent.largeEdit(
                 ID + SpreadsheetElementIds.DIALOG,
-                SpreadsheetDialogComponent.INCLUDE_CLOSE,
+                DialogComponent.INCLUDE_CLOSE,
                 this.context
             ).appendChild(this.columnOrRowComparatorNamesList)
             .appendChild(this.columnOrRowComparatorNamesParent)
@@ -102,11 +102,11 @@ public final class SpreadsheetCellSortDialogComponent implements SpreadsheetDial
     }
 
     @Override
-    public SpreadsheetDialogComponent dialog() {
+    public DialogComponent dialog() {
         return this.dialog;
     }
 
-    private final SpreadsheetDialogComponent dialog;
+    private final DialogComponent dialog;
 
     // lifecycle........................................................................................................
 
@@ -619,7 +619,7 @@ public final class SpreadsheetCellSortDialogComponent implements SpreadsheetDial
      */
     private final SpreadsheetCellSortDialogComponentContext context;
 
-    // SpreadsheetDialogComponentLifecycle..............................................................................
+    // DialogComponentLifecycle..............................................................................
 
     @Override
     public boolean shouldIgnore(final HistoryToken token) {

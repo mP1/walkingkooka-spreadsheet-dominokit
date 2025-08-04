@@ -27,7 +27,7 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -53,7 +53,7 @@ import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.Set;
 
-public final class SpreadsheetLabelMappingListDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetLabelMappingListDialogComponent>,
+public final class SpreadsheetLabelMappingListDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetLabelMappingListDialogComponent>,
     SpreadsheetMetadataTesting {
 
     private final static SpreadsheetLabelName A1LABEL = SpreadsheetSelection.labelName("A1LABEL");
@@ -92,7 +92,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
             dialog,
             context,
             "SpreadsheetLabelMappingListDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Labels\n" +
                 "    id=labels-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaLabelsTableComponent\n" +
@@ -143,7 +143,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
             dialog,
             context,
             "SpreadsheetLabelMappingListDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Labels\n" +
                 "    id=labels-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaLabelsTableComponent\n" +
@@ -196,7 +196,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
         this.treePrintAndCheck(
             dialog,
             "SpreadsheetLabelMappingListDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Labels\n" +
                 "    id=labels-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaLabelsTableComponent\n" +
@@ -268,7 +268,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
             dialog,
             context,
             "SpreadsheetLabelMappingListDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Labels\n" +
                 "    id=labels-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaLabelsTableComponent\n" +
@@ -323,7 +323,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
         this.treePrintAndCheck(
             dialog,
             "SpreadsheetLabelMappingListDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Labels\n" +
                 "    id=labels-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaLabelsTableComponent\n" +
@@ -396,7 +396,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
             dialog,
             context,
             "SpreadsheetLabelMappingListDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Labels\n" +
                 "    id=labels-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaLabelsTableComponent\n" +
@@ -451,7 +451,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
         this.treePrintAndCheck(
             dialog,
             "SpreadsheetLabelMappingListDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Labels\n" +
                 "    id=labels-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaLabelsTableComponent\n" +

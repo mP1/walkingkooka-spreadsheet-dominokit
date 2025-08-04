@@ -35,6 +35,7 @@ import walkingkooka.spreadsheet.dominokit.datetimesymbols.DateTimeSymbolsDialogC
 import walkingkooka.spreadsheet.dominokit.datetimesymbols.DateTimeSymbolsDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.decimalnumbersymbols.DecimalNumberSymbolsDialogComponent;
 import walkingkooka.spreadsheet.dominokit.decimalnumbersymbols.DecimalNumberSymbolsDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.find.SpreadsheetFindDialogComponent;
 import walkingkooka.spreadsheet.dominokit.find.SpreadsheetFindDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterSelectorDialogComponent;
@@ -77,7 +78,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 /**
- * Responsible for creating and the registry of all {@link walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent}.
+ * Responsible for creating and the registry of all {@link DialogComponent}.
  */
 final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
 

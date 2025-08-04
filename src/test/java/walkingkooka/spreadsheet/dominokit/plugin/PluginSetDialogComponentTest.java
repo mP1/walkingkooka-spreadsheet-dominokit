@@ -28,7 +28,7 @@ import walkingkooka.plugin.store.PluginStore;
 import walkingkooka.plugin.store.PluginStores;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -41,7 +41,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import java.util.Locale;
 import java.util.TreeSet;
 
-public final class PluginSetDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<PluginSetDialogComponent>,
+public final class PluginSetDialogComponentTest implements DialogComponentLifecycleTesting<PluginSetDialogComponent>,
     SpreadsheetMetadataTesting {
 
     // isMatch..........................................................................................................
@@ -97,7 +97,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
             dialog,
             appContext,
             "PluginSetDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Plugin\n" +
                 "    id=pluginList-Dialog includeClose=true\n" +
                 "      PluginSetTableComponent\n" +
@@ -139,7 +139,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
             dialog,
             appContext,
             "PluginSetDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Plugin\n" +
                 "    id=pluginList-Dialog includeClose=true\n" +
                 "      PluginSetTableComponent\n" +
@@ -176,7 +176,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
             dialog,
             appContext,
             "PluginSetDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Plugin\n" +
                 "    id=pluginList-Dialog includeClose=true\n" +
                 "      PluginSetTableComponent\n" +
@@ -266,7 +266,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
             dialog,
             appContext,
             "PluginSetDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Plugin\n" +
                 "    id=pluginList-Dialog includeClose=true\n" +
                 "      PluginSetTableComponent\n" +

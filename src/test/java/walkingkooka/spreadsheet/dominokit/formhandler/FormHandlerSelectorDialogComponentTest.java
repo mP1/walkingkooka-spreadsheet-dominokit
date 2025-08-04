@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
@@ -30,7 +30,7 @@ import walkingkooka.validation.form.provider.FormHandlerSelector;
 
 import java.util.Optional;
 
-public final class FormHandlerSelectorDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<FormHandlerSelectorDialogComponent>,
+public final class FormHandlerSelectorDialogComponentTest implements DialogComponentLifecycleTesting<FormHandlerSelectorDialogComponent>,
     SpreadsheetMetadataTesting {
 
     @Test
@@ -60,7 +60,7 @@ public final class FormHandlerSelectorDialogComponentTest implements Spreadsheet
         this.treePrintAndCheck(
             dialog,
             "FormHandlerSelectorDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    FormHandler Title123\n" +
                 "    id=selector-Dialog includeClose=true CLOSED\n" +
                 "      FormHandlerSelectorComponent\n" +

@@ -18,8 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.formhandler;
 
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextTesting;
 
-public interface FormHandlerSelectorDialogComponentContextTesting<C extends FormHandlerSelectorDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C>,
+public interface FormHandlerSelectorDialogComponentContextTesting<C extends FormHandlerSelectorDialogComponentContext> extends DialogComponentContextTesting<C>,
     ComponentLifecycleMatcherTesting {
 }

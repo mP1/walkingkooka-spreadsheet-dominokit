@@ -18,9 +18,9 @@
 package walkingkooka.spreadsheet.dominokit.label;
 
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextTesting;
 
-public interface SpreadsheetLabelMappingListDialogComponentContextTesting<C extends SpreadsheetLabelMappingListDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C>,
+public interface SpreadsheetLabelMappingListDialogComponentContextTesting<C extends SpreadsheetLabelMappingListDialogComponentContext> extends DialogComponentContextTesting<C>,
     ComponentLifecycleMatcherTesting {
 
     @Override

@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
@@ -37,14 +37,14 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import java.time.LocalDateTime;
 import java.util.Locale;
 
-public final class SpreadsheetListDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetListDialogComponent> {
+public final class SpreadsheetListDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetListDialogComponent> {
 
     @Test
     public void testEmpty() {
         this.onHistoryTokenChangeAndCheck(
             "/",
             "SpreadsheetListDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Spreadsheet List\n" +
                 "    id=spreadsheetList-Dialog includeClose=false\n" +
                 "      SpreadsheetListTableComponent\n" +
@@ -89,7 +89,7 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
             dialog,
             context,
             "SpreadsheetListDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Spreadsheet List\n" +
                 "    id=spreadsheetList-Dialog includeClose=false\n" +
                 "      SpreadsheetListTableComponent\n" +
@@ -135,7 +135,7 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
             dialog,
             context,
             "SpreadsheetListDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Spreadsheet List\n" +
                 "    id=spreadsheetList-Dialog includeClose=false\n" +
                 "      SpreadsheetListTableComponent\n" +

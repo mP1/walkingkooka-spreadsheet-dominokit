@@ -23,19 +23,19 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 public final class SpreadsheetLocaleDialogComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see AppContextSpreadsheetLocaleDialogComponentContextCellLocale}
+     * {@see AppContextLocaleDialogComponentContextCellLocale}
      */
     public static SpreadsheetLocaleDialogComponentContext appContextCellLocale(final AppContext context) {
-        return AppContextSpreadsheetLocaleDialogComponentContextCellLocale.with(
+        return AppContextLocaleDialogComponentContextCellLocale.with(
             context
         );
     }
 
     /**
-     * {@see AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocale}
+     * {@see AppContextSpreadsheetLocaleDialogComponentContextMetadataLocale}
      */
     public static SpreadsheetLocaleDialogComponentContext appContextSpreadsheetMetadataLocale(final AppContext context) {
-        return AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocale.with(
+        return AppContextSpreadsheetLocaleDialogComponentContextMetadataLocale.with(
             context
         );
     }
