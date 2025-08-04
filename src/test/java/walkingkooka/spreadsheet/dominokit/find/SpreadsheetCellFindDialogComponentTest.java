@@ -55,7 +55,7 @@ import java.util.Arrays;
 import java.util.Optional;
 import java.util.Set;
 
-public final class SpreadsheetFindDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetFindDialogComponent>,
+public final class SpreadsheetCellFindDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetCellFindDialogComponent>,
     SpreadsheetMetadataTesting {
 
     // isMatch..........................................................................................................
@@ -70,8 +70,8 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
         );
 
         this.isMatchAndCheck(
-            SpreadsheetFindDialogComponent.with(
-                new TestSpreadsheetFindDialogComponentContext(
+            SpreadsheetCellFindDialogComponent.with(
+                new TestSpreadsheetCellFindDialogComponentContext(
                     this.appContext(
                         Optional.empty(), // no highlighting query
                         historyToken
@@ -96,13 +96,13 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
             historyToken
         );
 
-        final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-            new TestSpreadsheetFindDialogComponentContext(appContext)
+        final SpreadsheetCellFindDialogComponent dialog = SpreadsheetCellFindDialogComponent.with(
+            new TestSpreadsheetCellFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetFindDialogComponent\n" +
+            "SpreadsheetCellFindDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
@@ -217,13 +217,13 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
             historyToken
         );
 
-        final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-            new TestSpreadsheetFindDialogComponentContext(appContext)
+        final SpreadsheetCellFindDialogComponent dialog = SpreadsheetCellFindDialogComponent.with(
+            new TestSpreadsheetCellFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetFindDialogComponent\n" +
+            "SpreadsheetCellFindDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
@@ -338,13 +338,13 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
             historyToken
         );
 
-        final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-            new TestSpreadsheetFindDialogComponentContext(appContext)
+        final SpreadsheetCellFindDialogComponent dialog = SpreadsheetCellFindDialogComponent.with(
+            new TestSpreadsheetCellFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetFindDialogComponent\n" +
+            "SpreadsheetCellFindDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
@@ -457,13 +457,13 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
             historyToken
         );
 
-        final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-            new TestSpreadsheetFindDialogComponentContext(appContext)
+        final SpreadsheetCellFindDialogComponent dialog = SpreadsheetCellFindDialogComponent.with(
+            new TestSpreadsheetCellFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetFindDialogComponent\n" +
+            "SpreadsheetCellFindDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
@@ -618,7 +618,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetFindDialogComponent\n" +
+            "SpreadsheetCellFindDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
@@ -762,13 +762,13 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
             historyToken
         );
 
-        final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-            new TestSpreadsheetFindDialogComponentContext(appContext)
+        final SpreadsheetCellFindDialogComponent dialog = SpreadsheetCellFindDialogComponent.with(
+            new TestSpreadsheetCellFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetFindDialogComponent\n" +
+            "SpreadsheetCellFindDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
@@ -881,13 +881,13 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
             historyToken
         );
 
-        final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-            new TestSpreadsheetFindDialogComponentContext(appContext)
+        final SpreadsheetCellFindDialogComponent dialog = SpreadsheetCellFindDialogComponent.with(
+            new TestSpreadsheetCellFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetFindDialogComponent\n" +
+            "SpreadsheetCellFindDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
@@ -1000,13 +1000,13 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
             historyToken
         );
 
-        final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-            new TestSpreadsheetFindDialogComponentContext(appContext)
+        final SpreadsheetCellFindDialogComponent dialog = SpreadsheetCellFindDialogComponent.with(
+            new TestSpreadsheetCellFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetFindDialogComponent\n" +
+            "SpreadsheetCellFindDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
@@ -1119,13 +1119,13 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
             historyToken
         );
 
-        final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-            new TestSpreadsheetFindDialogComponentContext(appContext)
+        final SpreadsheetCellFindDialogComponent dialog = SpreadsheetCellFindDialogComponent.with(
+            new TestSpreadsheetCellFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetFindDialogComponent\n" +
+            "SpreadsheetCellFindDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
@@ -1238,13 +1238,13 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
             historyToken
         );
 
-        final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-            new TestSpreadsheetFindDialogComponentContext(appContext)
+        final SpreadsheetCellFindDialogComponent dialog = SpreadsheetCellFindDialogComponent.with(
+            new TestSpreadsheetCellFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetFindDialogComponent\n" +
+            "SpreadsheetCellFindDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
@@ -1357,13 +1357,13 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
             historyToken
         );
 
-        final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-            new TestSpreadsheetFindDialogComponentContext(appContext)
+        final SpreadsheetCellFindDialogComponent dialog = SpreadsheetCellFindDialogComponent.with(
+            new TestSpreadsheetCellFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetFindDialogComponent\n" +
+            "SpreadsheetCellFindDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
@@ -1476,13 +1476,13 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
             historyToken
         );
 
-        final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-            new TestSpreadsheetFindDialogComponentContext(appContext)
+        final SpreadsheetCellFindDialogComponent dialog = SpreadsheetCellFindDialogComponent.with(
+            new TestSpreadsheetCellFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetFindDialogComponent\n" +
+            "SpreadsheetCellFindDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
@@ -1595,13 +1595,13 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
             historyToken
         );
 
-        final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-            new TestSpreadsheetFindDialogComponentContext(appContext)
+        final SpreadsheetCellFindDialogComponent dialog = SpreadsheetCellFindDialogComponent.with(
+            new TestSpreadsheetCellFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetFindDialogComponent\n" +
+            "SpreadsheetCellFindDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
@@ -1714,13 +1714,13 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
             historyToken
         );
 
-        final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-            new TestSpreadsheetFindDialogComponentContext(appContext)
+        final SpreadsheetCellFindDialogComponent dialog = SpreadsheetCellFindDialogComponent.with(
+            new TestSpreadsheetCellFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetFindDialogComponent\n" +
+            "SpreadsheetCellFindDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
@@ -1833,13 +1833,13 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
             historyToken
         );
 
-        final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-            new TestSpreadsheetFindDialogComponentContext(appContext)
+        final SpreadsheetCellFindDialogComponent dialog = SpreadsheetCellFindDialogComponent.with(
+            new TestSpreadsheetCellFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetFindDialogComponent\n" +
+            "SpreadsheetCellFindDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
@@ -1952,13 +1952,13 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
             historyToken
         );
 
-        final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-            new TestSpreadsheetFindDialogComponentContext(appContext)
+        final SpreadsheetCellFindDialogComponent dialog = SpreadsheetCellFindDialogComponent.with(
+            new TestSpreadsheetCellFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetFindDialogComponent\n" +
+            "SpreadsheetCellFindDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
@@ -2071,13 +2071,13 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
             historyToken
         );
 
-        final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-            new TestSpreadsheetFindDialogComponentContext(appContext)
+        final SpreadsheetCellFindDialogComponent dialog = SpreadsheetCellFindDialogComponent.with(
+            new TestSpreadsheetCellFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetFindDialogComponent\n" +
+            "SpreadsheetCellFindDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
@@ -2190,13 +2190,13 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
             historyToken
         );
 
-        final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-            new TestSpreadsheetFindDialogComponentContext(appContext)
+        final SpreadsheetCellFindDialogComponent dialog = SpreadsheetCellFindDialogComponent.with(
+            new TestSpreadsheetCellFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetFindDialogComponent\n" +
+            "SpreadsheetCellFindDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
@@ -2369,9 +2369,9 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
         }
     }
 
-    static class TestSpreadsheetFindDialogComponentContext extends FakeSpreadsheetFindDialogComponentContext {
+    static class TestSpreadsheetCellFindDialogComponentContext extends FakeSpreadsheetCellFindDialogComponentContext {
 
-        TestSpreadsheetFindDialogComponentContext(final AppContext context) {
+        TestSpreadsheetCellFindDialogComponentContext(final AppContext context) {
             this.context = context;
         }
 
@@ -2439,9 +2439,9 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
     }
 
     @Override
-    public SpreadsheetFindDialogComponent createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
-        return SpreadsheetFindDialogComponent.with(
-            new TestSpreadsheetFindDialogComponentContext(
+    public SpreadsheetCellFindDialogComponent createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
+        return SpreadsheetCellFindDialogComponent.with(
+            new TestSpreadsheetCellFindDialogComponentContext(
                 new TestAppContext(
                     Optional.empty(),
                     historyToken
@@ -2453,8 +2453,8 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SpreadsheetFindDialogComponent> type() {
-        return SpreadsheetFindDialogComponent.class;
+    public Class<SpreadsheetCellFindDialogComponent> type() {
+        return SpreadsheetCellFindDialogComponent.class;
     }
 
     @Override

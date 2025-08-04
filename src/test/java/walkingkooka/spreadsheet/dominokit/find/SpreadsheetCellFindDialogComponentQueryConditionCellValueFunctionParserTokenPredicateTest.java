@@ -22,15 +22,14 @@ import walkingkooka.ToStringTesting;
 import walkingkooka.predicate.PredicateTesting2;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.expression.function.SpreadsheetExpressionFunctions;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParsers;
 import walkingkooka.spreadsheet.formula.parser.SpreadsheetFormulaParserToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.text.cursor.parser.ParserToken;
 
-public final class SpreadsheetFindDialogComponentQueryOrTextMatchFunctionParserTokenPredicateTest implements PredicateTesting2<SpreadsheetFindDialogComponentQueryOrTextMatchFunctionParserTokenPredicate, ParserToken>,
-    ToStringTesting<SpreadsheetFindDialogComponentQueryOrTextMatchFunctionParserTokenPredicate>,
-    ClassTesting<SpreadsheetFindDialogComponentQueryOrTextMatchFunctionParserTokenPredicate>,
+public final class SpreadsheetCellFindDialogComponentQueryConditionCellValueFunctionParserTokenPredicateTest implements PredicateTesting2<SpreadsheetCellFindDialogComponentQueryConditionCellValueFunctionParserTokenPredicate, ParserToken>,
+    ToStringTesting<SpreadsheetCellFindDialogComponentQueryConditionCellValueFunctionParserTokenPredicate>,
+    ClassTesting<SpreadsheetCellFindDialogComponentQueryConditionCellValueFunctionParserTokenPredicate>,
     SpreadsheetMetadataTesting {
 
     @Test
@@ -56,36 +55,72 @@ public final class SpreadsheetFindDialogComponentQueryOrTextMatchFunctionParserT
 
     @Test
     public void testTestFunctionNameCellValueWithLessThanConditionRight() {
-        this.testFalse(
+        this.testTrue(
             token("cellValue() < 1")
         );
     }
 
     @Test
-    public void testTestOrTextMatchLeft() {
+    public void testTestFunctionNameCellValueWithLessThanEqualsConditionRight() {
         this.testTrue(
-            token("or(textMatch(\"*\",cellFormula()),1)")
+            token("cellValue() <= 1")
         );
     }
 
     @Test
-    public void testTestOrTextMatchLeft2() {
+    public void testTestFunctionNameCellValueWithGreaterThanConditionRight() {
         this.testTrue(
-            token("OR(TEXTMATCH(\"*\",CELLFORMULA()),1)")
+            token("cellValue() > 1")
         );
     }
 
     @Test
-    public void testTestOrTextMatchLeftWrongFunction() {
-        this.testFalse(
-            token("OR(textMatch(\"*\",cellWrong()),hello())")
+    public void testTestFunctionNameCellValueWithGreaterThanEqualsConditionRight() {
+        this.testTrue(
+            token("cellValue() >= 1")
         );
     }
 
     @Test
-    public void testTestOrTextMatchRight() {
+    public void testTestFunctionNameCellValueWithEqualsConditionRight() {
+        this.testTrue(
+            token("cellValue() = 1")
+        );
+    }
+
+    @Test
+    public void testTestFunctionNameCellValueWithNotEqualsConditionRight() {
+        this.testTrue(
+            token("cellValue() <> 1")
+        );
+    }
+
+    @Test
+    public void testTestFunctionNameCellValueWithExpressionRight() {
+        this.testTrue(
+            token("cellValue() < 1+2+dummy()")
+        );
+    }
+
+    @Test
+    public void testTestFunctionNameCellValueWithConditionRightDifferentCase() {
+        this.testTrue(
+            token("CELLVALUE() < 1")
+        );
+    }
+
+    @Test
+    public void testTestFunctionNameCellValueExtraParameter() {
         this.testFalse(
-            token("OR(0,textMatch(\"*\",cellFormula()))")
+            token("cellValue(1) < 2")
+        );
+    }
+
+    // cellValue on the right not supported.
+    @Test
+    public void testTestFunctionNameCellValueWithNotEqualsConditionLeft() {
+        this.testFalse(
+            token("1 <> cellValue()")
         );
     }
 
@@ -99,42 +134,25 @@ public final class SpreadsheetFindDialogComponentQueryOrTextMatchFunctionParserT
 
 
     @Override
-    public SpreadsheetFindDialogComponentQueryOrTextMatchFunctionParserTokenPredicate createPredicate() {
-        return SpreadsheetFindDialogComponentQueryOrTextMatchFunctionParserTokenPredicate.with(
-            0,
-            SpreadsheetExpressionFunctions.CELL_FORMULA
-        );
+    public SpreadsheetCellFindDialogComponentQueryConditionCellValueFunctionParserTokenPredicate createPredicate() {
+        return SpreadsheetCellFindDialogComponentQueryConditionCellValueFunctionParserTokenPredicate.INSTANCE;
     }
 
     // toString.........................................................................................................
 
     @Test
-    public void testToStringWithParameterIndex0() {
+    public void testToString() {
         this.toStringAndCheck(
-            SpreadsheetFindDialogComponentQueryOrTextMatchFunctionParserTokenPredicate.with(
-                0,
-                SpreadsheetExpressionFunctions.CELL_FORMULA
-            ),
-            "or(textMatch(\"*\",cellXXX()),1)"
-        );
-    }
-
-    @Test
-    public void testToStringWithParameterIndex1() {
-        this.toStringAndCheck(
-            SpreadsheetFindDialogComponentQueryOrTextMatchFunctionParserTokenPredicate.with(
-                1,
-                SpreadsheetExpressionFunctions.CELL_FORMATTER
-            ),
-            "or(0,textMatch(\"*\",cellXXX()))"
+            SpreadsheetCellFindDialogComponentQueryConditionCellValueFunctionParserTokenPredicate.INSTANCE,
+            "cellValue()"
         );
     }
 
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetFindDialogComponentQueryOrTextMatchFunctionParserTokenPredicate> type() {
-        return SpreadsheetFindDialogComponentQueryOrTextMatchFunctionParserTokenPredicate.class;
+    public Class<SpreadsheetCellFindDialogComponentQueryConditionCellValueFunctionParserTokenPredicate> type() {
+        return SpreadsheetCellFindDialogComponentQueryConditionCellValueFunctionParserTokenPredicate.class;
     }
 
     @Override

@@ -41,10 +41,10 @@ import java.util.Optional;
  * AND (TODO)
  * Update wizard fields from the query
  */
-final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
+final class SpreadsheetCellFindDialogComponentQuery implements PublicStaticHelper {
 
     /**
-     * Refreshes the {@link SpreadsheetFindDialogComponent#query} from other wizard component fields.
+     * Refreshes the {@link SpreadsheetCellFindDialogComponent#query} from other wizard component fields.
      */
 
     static Optional<SpreadsheetFormula> query(final Optional<SpreadsheetCellQuery> query,
@@ -180,7 +180,7 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
             if (null != textMatch) {
                 // EXACT replace try replace any previous textMatch(component.value, cellXXX())
                 token = old.replaceIf(
-                    SpreadsheetFindDialogComponentQueryTextMatchFunctionParserTokenPredicate.with(cellPropertyGetter), // predicate
+                    SpreadsheetCellFindDialogComponentQueryTextMatchFunctionParserTokenPredicate.with(cellPropertyGetter), // predicate
                     (e) -> textMatch(
                         textMatch,
                         cellPropertyGetter
@@ -190,7 +190,7 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
                 // three replaceIfs
                 // first - find OR ( cellPropertyGetter, OTHER) -> OTHER
                 token = old.replaceIf(
-                    SpreadsheetFindDialogComponentQueryOrTextMatchFunctionParserTokenPredicate.with(
+                    SpreadsheetCellFindDialogComponentQueryOrTextMatchFunctionParserTokenPredicate.with(
                         0,
                         cellPropertyGetter
                     ), // predicate
@@ -203,7 +203,7 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
                 if (old.equals(token)) {
                     // second -> find OR ( OTHER, cellPropertyGetter) -> OTHER
                     token = old.replaceIf(
-                        SpreadsheetFindDialogComponentQueryOrTextMatchFunctionParserTokenPredicate.with(
+                        SpreadsheetCellFindDialogComponentQueryOrTextMatchFunctionParserTokenPredicate.with(
                             1,
                             cellPropertyGetter
                         ), // predicate
@@ -216,7 +216,7 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
                     if (old.equals(token)) {
                         // third -> remove cellPropertyGetter
                         token = old.removeIf(
-                            SpreadsheetFindDialogComponentQueryTextMatchFunctionParserTokenPredicate.with(cellPropertyGetter)
+                            SpreadsheetCellFindDialogComponentQueryTextMatchFunctionParserTokenPredicate.with(cellPropertyGetter)
                         ).orElse(null);
                     }
                 }
@@ -323,7 +323,7 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
         } else {
             // try replace any previous cellXXX() conditionRight
             token = old.replaceIf(
-                SpreadsheetFindDialogComponentQueryConditionCellValueFunctionParserTokenPredicate.INSTANCE, // predicate
+                SpreadsheetCellFindDialogComponentQueryConditionCellValueFunctionParserTokenPredicate.INSTANCE, // predicate
                 (e) -> cellValue(
                     conditionRight
                 ) // mapper
@@ -452,7 +452,7 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
     /**
      * Stop creation
      */
-    private SpreadsheetFindDialogComponentQuery() {
+    private SpreadsheetCellFindDialogComponentQuery() {
         throw new UnsupportedOperationException();
     }
 }

@@ -41,15 +41,15 @@ import java.util.Optional;
  * A {@link SpreadsheetFormulaParserTokenVisitor} that visits a token and attempts to find functions composed of a textMatch
  * with a cellXXX getter and string literal and a cellValue() within a comparison.
  */
-final class SpreadsheetFindDialogComponentSpreadsheetFormulaParserTokenVisitor extends SpreadsheetFormulaParserTokenVisitor {
+final class SpreadsheetCellFindDialogComponentSpreadsheetFormulaParserTokenVisitor extends SpreadsheetFormulaParserTokenVisitor {
 
     static void refresh(final SpreadsheetFormulaParserToken query,
-                        final SpreadsheetFindDialogComponent wizard) {
-        new SpreadsheetFindDialogComponentSpreadsheetFormulaParserTokenVisitor(wizard)
+                        final SpreadsheetCellFindDialogComponent wizard) {
+        new SpreadsheetCellFindDialogComponentSpreadsheetFormulaParserTokenVisitor(wizard)
             .accept(query);
     }
 
-    SpreadsheetFindDialogComponentSpreadsheetFormulaParserTokenVisitor(final SpreadsheetFindDialogComponent wizard) {
+    SpreadsheetCellFindDialogComponentSpreadsheetFormulaParserTokenVisitor(final SpreadsheetCellFindDialogComponent wizard) {
         super();
         this.wizard = wizard;
     }
@@ -93,7 +93,7 @@ final class SpreadsheetFindDialogComponentSpreadsheetFormulaParserTokenVisitor e
     private void textMatchFunctionParameters(final SpreadsheetFormulaParserToken left,
                                              final SpreadsheetFormulaParserToken right) {
         for (; ; ) {
-            final SpreadsheetFindDialogComponent wizard = this.wizard;
+            final SpreadsheetCellFindDialogComponent wizard = this.wizard;
 
             if (this.isCellGetterAndTextMatch(left, right, SpreadsheetExpressionFunctions.CELL_FORMULA, wizard.formula)) {
                 break;
@@ -242,5 +242,5 @@ final class SpreadsheetFindDialogComponentSpreadsheetFormulaParserTokenVisitor e
         return test;
     }
 
-    private final SpreadsheetFindDialogComponent wizard;
+    private final SpreadsheetCellFindDialogComponent wizard;
 }

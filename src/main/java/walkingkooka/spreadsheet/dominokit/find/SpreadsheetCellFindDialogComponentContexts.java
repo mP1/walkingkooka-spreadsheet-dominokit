@@ -20,20 +20,20 @@ package walkingkooka.spreadsheet.dominokit.find;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
-public final class SpreadsheetFindDialogComponentContexts implements PublicStaticHelper {
+public final class SpreadsheetCellFindDialogComponentContexts implements PublicStaticHelper {
 
-    public static SpreadsheetFindDialogComponentContext appContext(final AppContext context) {
-        return AppContextSpreadsheetFindDialogComponentContext.with(context);
+    public static SpreadsheetCellFindDialogComponentContext appContext(final AppContext context) {
+        return AppContextSpreadsheetCellFindDialogComponentContext.with(context);
     }
 
     /**
-     * {@see FakeSpreadsheetFindDialogComponentContext}
+     * {@see FakeSpreadsheetCellFindDialogComponentContext}
      */
-    public static SpreadsheetFindDialogComponentContext fake() {
-        return new FakeSpreadsheetFindDialogComponentContext();
+    public static SpreadsheetCellFindDialogComponentContext fake() {
+        return new FakeSpreadsheetCellFindDialogComponentContext();
     }
 
-    private SpreadsheetFindDialogComponentContexts() {
+    private SpreadsheetCellFindDialogComponentContexts() {
         throw new UnsupportedOperationException();
     }
 }

@@ -41,19 +41,19 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
-final class AppContextSpreadsheetFindDialogComponentContext implements SpreadsheetFindDialogComponentContext,
+final class AppContextSpreadsheetCellFindDialogComponentContext implements SpreadsheetCellFindDialogComponentContext,
     HasSpreadsheetDeltaFetcherWatchersDelegator,
     DialogComponentContextDelegator,
     SpreadsheetParserProviderDelegator,
     ProviderContextDelegator {
 
-    static AppContextSpreadsheetFindDialogComponentContext with(final AppContext context) {
-        return new AppContextSpreadsheetFindDialogComponentContext(
+    static AppContextSpreadsheetCellFindDialogComponentContext with(final AppContext context) {
+        return new AppContextSpreadsheetCellFindDialogComponentContext(
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private AppContextSpreadsheetFindDialogComponentContext(final AppContext context) {
+    private AppContextSpreadsheetCellFindDialogComponentContext(final AppContext context) {
         this.context = context;
     }
 
