@@ -45,16 +45,16 @@ import java.util.OptionalInt;
 /**
  * A {@link FormValueComponent} wrapper around a {@link DataTable}.
  */
-abstract class SpreadsheetDataTableComponentLike<T> implements TableComponent<HTMLDivElement, List<T>, SpreadsheetDataTableComponent<T>>,
-    ComponentWithChildren<SpreadsheetDataTableComponent<T>, HTMLDivElement> {
+abstract class DataTableComponentLike<T> implements TableComponent<HTMLDivElement, List<T>, DataTableComponent<T>>,
+    ComponentWithChildren<DataTableComponent<T>, HTMLDivElement> {
 
-    SpreadsheetDataTableComponentLike() {
+    DataTableComponentLike() {
         super();
     }
 
     @Override
-    public final SpreadsheetDataTableComponent<T> focus() {
-        return (SpreadsheetDataTableComponent<T>) this;
+    public final DataTableComponent<T> focus() {
+        return (DataTableComponent<T>) this;
     }
 
     @Override
@@ -64,7 +64,7 @@ abstract class SpreadsheetDataTableComponentLike<T> implements TableComponent<HT
 
     // prev/next links..................................................................................................
 
-    public abstract SpreadsheetDataTableComponent<T> previousNextLinks(final String idPrefix);
+    public abstract DataTableComponent<T> previousNextLinks(final String idPrefix);
 
     final HistoryTokenAnchorComponent previous(final String idPrefix) {
         return HistoryTokenAnchorComponent.empty()
@@ -88,16 +88,16 @@ abstract class SpreadsheetDataTableComponentLike<T> implements TableComponent<HT
             );
     }
 
-    public abstract SpreadsheetDataTableComponent<T> setPrevious(final Optional<HistoryToken> historyToken);
+    public abstract DataTableComponent<T> setPrevious(final Optional<HistoryToken> historyToken);
 
-    public abstract SpreadsheetDataTableComponent<T> setNext(final Optional<HistoryToken> historyToken);
+    public abstract DataTableComponent<T> setNext(final Optional<HistoryToken> historyToken);
 
     /**
      * Updates the previous and next links using the history token to fetch the offset and count.
      * Note the next link will include the last row of the current view, and the previous link will include the first row of the current view.
      */
-    public final SpreadsheetDataTableComponent<T> refreshPreviousNextLinks(final HistoryToken historyToken,
-                                                                           final int defaultCount) {
+    public final DataTableComponent<T> refreshPreviousNextLinks(final HistoryToken historyToken,
+                                                                final int defaultCount) {
         final HistoryTokenOffsetAndCount offsetAndCount = historyToken.offsetAndCount();
         final int offset = offsetAndCount.offset()
             .orElse(0);
@@ -135,22 +135,22 @@ abstract class SpreadsheetDataTableComponentLike<T> implements TableComponent<HT
             )
         );
 
-        return (SpreadsheetDataTableComponent<T>) this;
+        return (DataTableComponent<T>) this;
     }
 
     // header...........................................................................................................
 
-    public abstract SpreadsheetDataTableComponent<T> hideHeaders();
+    public abstract DataTableComponent<T> hideHeaders();
 
     // plugins..........................................................................................................
 
     /**
      * Registers the {@link org.dominokit.domino.ui.datatable.plugins.pagination.BodyScrollPlugin}
      */
-    public abstract SpreadsheetDataTableComponent<T> bodyScrollPlugin();
+    public abstract DataTableComponent<T> bodyScrollPlugin();
 
     /**
-     * Prepares text for the {@link BodyScrollPlugin} which will be printed by {@link #printTreeTable(List, boolean, SpreadsheetDataTableComponentCellRenderer, List, IndentingPrinter)}.
+     * Prepares text for the {@link BodyScrollPlugin} which will be printed by {@link #printTreeTable(List, boolean, DataTableComponentCellRenderer, List, IndentingPrinter)}.
      */
     static String bodyScrollPluginText() {
         return "BodyScrollPlugin";
@@ -159,11 +159,11 @@ abstract class SpreadsheetDataTableComponentLike<T> implements TableComponent<HT
     /**
      * Registers a plugin which will display an ICON and the given TITLE when the table is empty.
      */
-    public abstract SpreadsheetDataTableComponent<T> emptyStatePlugin(final Icon<?> icon,
-                                                                      final String title);
+    public abstract DataTableComponent<T> emptyStatePlugin(final Icon<?> icon,
+                                                           final String title);
 
     /**
-     * Prepares text for the {@link EmptyStatePlugin} which will be printed by {@link #printTreeTable(List, boolean, SpreadsheetDataTableComponentCellRenderer, List, IndentingPrinter)}.
+     * Prepares text for the {@link EmptyStatePlugin} which will be printed by {@link #printTreeTable(List, boolean, DataTableComponentCellRenderer, List, IndentingPrinter)}.
      */
     static String emptyStatePluginText(final Icon<?> icon,
                                        final String title) {
@@ -187,7 +187,7 @@ abstract class SpreadsheetDataTableComponentLike<T> implements TableComponent<HT
 
     final void printTreeTable(final List<ColumnConfig<T>> columnConfigs,
                               final boolean headersHidden,
-                              final SpreadsheetDataTableComponentCellRenderer<T> cellRenderer,
+                              final DataTableComponentCellRenderer<T> cellRenderer,
                               final List<String> plugins,
                               final IndentingPrinter printer) {
         printer.println(this.getClass().getSimpleName());

@@ -49,7 +49,7 @@ public final class SpreadsheetFormatterTableComponentTest implements TableCompon
             "SpreadsheetFormatterTableComponent\n" +
                 "  CardComponent\n" +
                 "    Card\n" +
-                "      SpreadsheetDataTableComponent\n" +
+                "      DataTableComponent\n" +
                 "        id=id123-Table\n" +
                 "        ROW(S)\n" +
                 "          ROW 0\n" +
@@ -81,7 +81,7 @@ public final class SpreadsheetFormatterTableComponentTest implements TableCompon
             "SpreadsheetFormatterTableComponent\n" +
                 "  CardComponent\n" +
                 "    Card\n" +
-                "      SpreadsheetDataTableComponent\n" +
+                "      DataTableComponent\n" +
                 "        id=id123-Table\n" +
                 "        ROW(S)\n" +
                 "          ROW 0\n" +

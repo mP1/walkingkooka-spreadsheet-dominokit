@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.plugin;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.spreadsheet.dominokit.Component;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponentCellRenderer;
+import walkingkooka.spreadsheet.dominokit.datatable.DataTableComponentCellRenderer;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -35,18 +35,18 @@ import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.OptionalLong;
 
-final class JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRenderer implements SpreadsheetDataTableComponentCellRenderer<JarEntryInfo> {
+final class JarEntryInfoListTableComponentDataTableComponentCellRenderer implements DataTableComponentCellRenderer<JarEntryInfo> {
 
-    static JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRenderer with(final String id,
-                                                                                        final JarEntryInfoListTableComponentContext context) {
-        return new JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRenderer(
+    static JarEntryInfoListTableComponentDataTableComponentCellRenderer with(final String id,
+                                                                             final JarEntryInfoListTableComponentContext context) {
+        return new JarEntryInfoListTableComponentDataTableComponentCellRenderer(
             CharSequences.failIfNullOrEmpty(id, "id"),
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRenderer(final String id,
-                                                                                    final JarEntryInfoListTableComponentContext context) {
+    private JarEntryInfoListTableComponentDataTableComponentCellRenderer(final String id,
+                                                                         final JarEntryInfoListTableComponentContext context) {
         this.id = id;
         this.context = context;
     }

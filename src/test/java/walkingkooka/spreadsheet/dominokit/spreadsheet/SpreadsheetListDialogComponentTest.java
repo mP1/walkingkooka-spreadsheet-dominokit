@@ -50,7 +50,7 @@ public final class SpreadsheetListDialogComponentTest implements DialogComponent
                 "      SpreadsheetListTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=spreadsheetList-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Name\n" +
@@ -95,7 +95,7 @@ public final class SpreadsheetListDialogComponentTest implements DialogComponent
                 "      SpreadsheetListTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=spreadsheetList-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Name\n" +
@@ -141,7 +141,7 @@ public final class SpreadsheetListDialogComponentTest implements DialogComponent
                 "      SpreadsheetListTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=spreadsheetList-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Name\n" +

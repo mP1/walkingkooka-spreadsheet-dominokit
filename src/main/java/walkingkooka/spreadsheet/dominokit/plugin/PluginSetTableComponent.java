@@ -25,7 +25,7 @@ import walkingkooka.plugin.store.Plugin;
 import walkingkooka.plugin.store.PluginSet;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
-import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent;
+import walkingkooka.spreadsheet.dominokit.datatable.DataTableComponent;
 import walkingkooka.spreadsheet.dominokit.history.PluginListHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.TableComponent;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -57,10 +57,10 @@ final class PluginSetTableComponent implements TableComponent<HTMLDivElement, Pl
                                     final PluginSetTableComponentContext context) {
         this.card = CardComponent.empty();
 
-        this.dataTable = SpreadsheetDataTableComponent.with(
+        this.dataTable = DataTableComponent.with(
             id,
             columnConfigs(),
-            PluginSetTableComponentSpreadsheetDataTableComponentCellRenderer.with(
+            PluginSetTableComponentDataTableComponentCellRenderer.with(
                 id,
                 context
             )
@@ -117,7 +117,7 @@ final class PluginSetTableComponent implements TableComponent<HTMLDivElement, Pl
             );
     }
 
-    private final SpreadsheetDataTableComponent<Plugin> dataTable;
+    private final DataTableComponent<Plugin> dataTable;
 
     @Override
     public PluginSetTableComponent focus() {

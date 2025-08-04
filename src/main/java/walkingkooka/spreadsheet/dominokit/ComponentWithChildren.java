@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit;
 import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.IsElement;
 import walkingkooka.CanBeEmpty;
-import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent;
+import walkingkooka.spreadsheet.dominokit.datatable.DataTableComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
@@ -88,7 +88,7 @@ public interface ComponentWithChildren<C extends HtmlComponent<E, C>, E extends 
         boolean hide = true;
 
         for (final IsElement<?> child : this.children()) {
-            if (false == child instanceof SpreadsheetDataTableComponent && child instanceof CanBeEmpty) {
+            if (false == child instanceof DataTableComponent && child instanceof CanBeEmpty) {
                 final CanBeEmpty canBeEmpty = (CanBeEmpty) child;
                 if (canBeEmpty.isEmpty()) {
                     continue;

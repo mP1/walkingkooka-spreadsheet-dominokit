@@ -186,7 +186,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
@@ -307,7 +307,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
@@ -428,7 +428,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
@@ -547,7 +547,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
@@ -702,7 +702,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
@@ -852,7 +852,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
@@ -971,7 +971,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
@@ -1090,7 +1090,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
@@ -1209,7 +1209,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
@@ -1328,7 +1328,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
@@ -1447,7 +1447,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
@@ -1566,7 +1566,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
@@ -1685,7 +1685,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
@@ -1804,7 +1804,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
@@ -1923,7 +1923,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
@@ -2042,7 +2042,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
@@ -2161,7 +2161,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
@@ -2280,7 +2280,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +

@@ -24,7 +24,7 @@ import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
-import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent;
+import walkingkooka.spreadsheet.dominokit.datatable.DataTableComponent;
 import walkingkooka.spreadsheet.dominokit.value.TableComponent;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfo;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
@@ -57,10 +57,10 @@ final class JarEntryInfoListTableComponent implements TableComponent<HTMLDivElem
                                            final JarEntryInfoListTableComponentContext context) {
         this.card = CardComponent.empty();
 
-        this.table = SpreadsheetDataTableComponent.with(
+        this.table = DataTableComponent.with(
             id,
             columnConfigs(),
-            JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRenderer.with(
+            JarEntryInfoListTableComponentDataTableComponentCellRenderer.with(
                 id,
                 context
             )
@@ -147,7 +147,7 @@ final class JarEntryInfoListTableComponent implements TableComponent<HTMLDivElem
         return this;
     }
 
-    private final SpreadsheetDataTableComponent<JarEntryInfo> table;
+    private final DataTableComponent<JarEntryInfo> table;
 
     // setCssText.......................................................................................................
 

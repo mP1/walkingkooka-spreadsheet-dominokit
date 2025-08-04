@@ -85,7 +85,7 @@ public final class JarEntryInfoListDialogComponentTest implements DialogComponen
                 "      JarEntryInfoListTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=plugin-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Name\n" +
@@ -125,7 +125,7 @@ public final class JarEntryInfoListDialogComponentTest implements DialogComponen
                 "      JarEntryInfoListTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=plugin-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Name\n" +
@@ -164,7 +164,7 @@ public final class JarEntryInfoListDialogComponentTest implements DialogComponen
                 "      JarEntryInfoListTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=plugin-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Name\n" +
@@ -205,7 +205,7 @@ public final class JarEntryInfoListDialogComponentTest implements DialogComponen
                 "      JarEntryInfoListTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=plugin-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Name\n" +
@@ -260,7 +260,7 @@ public final class JarEntryInfoListDialogComponentTest implements DialogComponen
                 "      JarEntryInfoListTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=plugin-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Name\n" +
@@ -318,7 +318,7 @@ public final class JarEntryInfoListDialogComponentTest implements DialogComponen
                 "      JarEntryInfoListTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=plugin-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Name\n" +
@@ -373,7 +373,7 @@ public final class JarEntryInfoListDialogComponentTest implements DialogComponen
                 "      JarEntryInfoListTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=plugin-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Name\n" +
@@ -449,7 +449,7 @@ public final class JarEntryInfoListDialogComponentTest implements DialogComponen
                 "      JarEntryInfoListTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=plugin-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Name\n" +

@@ -47,7 +47,7 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
             "JarEntryInfoListTableComponent\n" +
                 "  CardComponent\n" +
                 "    Card\n" +
-                "      SpreadsheetDataTableComponent\n" +
+                "      DataTableComponent\n" +
                 "        id=Table123-Table\n" +
                 "        COLUMN(S)\n" +
                 "          Name\n" +
@@ -86,7 +86,7 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
             "JarEntryInfoListTableComponent\n" +
                 "  CardComponent\n" +
                 "    Card\n" +
-                "      SpreadsheetDataTableComponent\n" +
+                "      DataTableComponent\n" +
                 "        id=Table123-Table\n" +
                 "        COLUMN(S)\n" +
                 "          Name\n" +
@@ -143,7 +143,7 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
             "JarEntryInfoListTableComponent\n" +
                 "  CardComponent\n" +
                 "    Card\n" +
-                "      SpreadsheetDataTableComponent\n" +
+                "      DataTableComponent\n" +
                 "        id=Table123-Table\n" +
                 "        COLUMN(S)\n" +
                 "          Name\n" +
@@ -209,7 +209,7 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
             "JarEntryInfoListTableComponent\n" +
                 "  CardComponent\n" +
                 "    Card\n" +
-                "      SpreadsheetDataTableComponent\n" +
+                "      DataTableComponent\n" +
                 "        id=Table123-Table\n" +
                 "        COLUMN(S)\n" +
                 "          Name\n" +

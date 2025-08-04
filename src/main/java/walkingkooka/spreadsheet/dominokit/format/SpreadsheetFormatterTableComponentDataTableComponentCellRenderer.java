@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.format;
 
 import walkingkooka.spreadsheet.dominokit.Component;
-import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponentCellRenderer;
+import walkingkooka.spreadsheet.dominokit.datatable.DataTableComponentCellRenderer;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.text.TextNodeComponent;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSample;
@@ -27,13 +27,13 @@ import walkingkooka.tree.text.TextNode;
 
 import java.util.Optional;
 
-final class SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellRenderer implements SpreadsheetDataTableComponentCellRenderer<SpreadsheetFormatterSample> {
+final class SpreadsheetFormatterTableComponentDataTableComponentCellRenderer implements DataTableComponentCellRenderer<SpreadsheetFormatterSample> {
 
-    static SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellRenderer with(final String id) {
-        return new SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellRenderer(id);
+    static SpreadsheetFormatterTableComponentDataTableComponentCellRenderer with(final String id) {
+        return new SpreadsheetFormatterTableComponentDataTableComponentCellRenderer(id);
     }
 
-    private SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellRenderer(final String id) {
+    private SpreadsheetFormatterTableComponentDataTableComponentCellRenderer(final String id) {
         this.id = id;
     }
 

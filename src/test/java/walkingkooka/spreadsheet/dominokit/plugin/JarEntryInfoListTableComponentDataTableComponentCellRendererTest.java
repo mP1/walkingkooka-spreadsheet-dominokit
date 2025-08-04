@@ -15,16 +15,16 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.format;
+package walkingkooka.spreadsheet.dominokit.plugin;
 
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellRendererTest implements ClassTesting<SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellRenderer> {
+public final class JarEntryInfoListTableComponentDataTableComponentCellRendererTest implements ClassTesting<JarEntryInfoListTableComponentDataTableComponentCellRenderer> {
 
     @Override
-    public Class<SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellRenderer> type() {
-        return SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellRenderer.class;
+    public Class<JarEntryInfoListTableComponentDataTableComponentCellRenderer> type() {
+        return JarEntryInfoListTableComponentDataTableComponentCellRenderer.class;
     }
 
     @Override

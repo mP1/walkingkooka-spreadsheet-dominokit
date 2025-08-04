@@ -103,7 +103,7 @@ public final class PluginSetDialogComponentTest implements DialogComponentLifecy
                 "      PluginSetTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=pluginList-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Name\n" +
@@ -145,7 +145,7 @@ public final class PluginSetDialogComponentTest implements DialogComponentLifecy
                 "      PluginSetTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=pluginList-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Name\n" +
@@ -182,7 +182,7 @@ public final class PluginSetDialogComponentTest implements DialogComponentLifecy
                 "      PluginSetTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=pluginList-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Name\n" +
@@ -272,7 +272,7 @@ public final class PluginSetDialogComponentTest implements DialogComponentLifecy
                 "      PluginSetTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=pluginList-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Name\n" +

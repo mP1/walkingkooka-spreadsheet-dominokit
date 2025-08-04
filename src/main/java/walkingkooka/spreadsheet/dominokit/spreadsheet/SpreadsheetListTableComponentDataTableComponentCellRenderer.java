@@ -22,7 +22,7 @@ import walkingkooka.net.email.EmailAddress;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.Component;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
-import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponentCellRenderer;
+import walkingkooka.spreadsheet.dominokit.datatable.DataTableComponentCellRenderer;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -34,18 +34,18 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.function.Function;
 
-final class SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer implements SpreadsheetDataTableComponentCellRenderer<SpreadsheetMetadata> {
+final class SpreadsheetListTableComponentDataTableComponentCellRenderer implements DataTableComponentCellRenderer<SpreadsheetMetadata> {
 
-    static SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer with(final String id,
-                                                                                       final SpreadsheetListDialogComponentContext context) {
-        return new SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer(
+    static SpreadsheetListTableComponentDataTableComponentCellRenderer with(final String id,
+                                                                            final SpreadsheetListDialogComponentContext context) {
+        return new SpreadsheetListTableComponentDataTableComponentCellRenderer(
             id,
             context
         );
     }
 
-    private SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer(final String id,
-                                                                                   final SpreadsheetListDialogComponentContext context) {
+    private SpreadsheetListTableComponentDataTableComponentCellRenderer(final String id,
+                                                                        final SpreadsheetListDialogComponentContext context) {
         this.id = id;
         this.context = context;
     }

@@ -49,7 +49,7 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
             "PluginSetTableComponent\n" +
                 "  CardComponent\n" +
                 "    Card\n" +
-                "      SpreadsheetDataTableComponent\n" +
+                "      DataTableComponent\n" +
                 "        id=Table123-Table\n" +
                 "        COLUMN(S)\n" +
                 "          Name\n" +
@@ -94,7 +94,7 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
             "PluginSetTableComponent\n" +
                 "  CardComponent\n" +
                 "    Card\n" +
-                "      SpreadsheetDataTableComponent\n" +
+                "      DataTableComponent\n" +
                 "        id=Table123-Table\n" +
                 "        COLUMN(S)\n" +
                 "          Name\n" +
@@ -187,7 +187,7 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
             "PluginSetTableComponent\n" +
                 "  CardComponent\n" +
                 "    Card\n" +
-                "      SpreadsheetDataTableComponent\n" +
+                "      DataTableComponent\n" +
                 "        id=Table123-Table\n" +
                 "        COLUMN(S)\n" +
                 "          Name\n" +

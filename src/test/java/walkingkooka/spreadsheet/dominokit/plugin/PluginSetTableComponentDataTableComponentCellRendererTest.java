@@ -15,17 +15,16 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.datatable;
+package walkingkooka.spreadsheet.dominokit.plugin;
 
-import walkingkooka.Cast;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class SpreadsheetDataTableComponentDataTableCellRendererTest implements ClassTesting<SpreadsheetDataTableComponentDataTableCellRenderer<String>> {
+public final class PluginSetTableComponentDataTableComponentCellRendererTest implements ClassTesting<PluginSetTableComponentDataTableComponentCellRenderer> {
 
     @Override
-    public Class<SpreadsheetDataTableComponentDataTableCellRenderer<String>> type() {
-        return Cast.to(SpreadsheetDataTableComponentDataTableCellRenderer.class);
+    public Class<PluginSetTableComponentDataTableComponentCellRenderer> type() {
+        return PluginSetTableComponentDataTableComponentCellRenderer.class;
     }
 
     @Override

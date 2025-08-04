@@ -25,7 +25,7 @@ import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
-import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent;
+import walkingkooka.spreadsheet.dominokit.datatable.DataTableComponent;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
@@ -64,10 +64,10 @@ public final class SpreadsheetDeltaLabelsTableComponent implements TableComponen
 
         this.card = CardComponent.empty();
 
-        this.dataTable = SpreadsheetDataTableComponent.with(
+        this.dataTable = DataTableComponent.with(
             idPrefix, // id-prefix
             columnConfigs(), // column configs
-            SpreadsheetDeltaLabelsTableComponentSpreadsheetDataTableComponentCellRenderer.with(
+            SpreadsheetDeltaLabelsTableComponentDataTableComponentCellRenderer.with(
                 idPrefix,
                 context
             )
@@ -170,7 +170,7 @@ public final class SpreadsheetDeltaLabelsTableComponent implements TableComponen
     // SpreadsheetDeltaFetcherWatcher...................................................................................
 
     /**
-     * Replaces the cells in the {@link SpreadsheetDataTableComponent#setValue(Optional)}.
+     * Replaces the cells in the {@link DataTableComponent#setValue(Optional)}.
      */
     @Override
     public void onSpreadsheetDelta(final HttpMethod method,
@@ -225,5 +225,5 @@ public final class SpreadsheetDeltaLabelsTableComponent implements TableComponen
         printer.outdent();
     }
 
-    private final SpreadsheetDataTableComponent<SpreadsheetDeltaLabelsTableComponentRow> dataTable;
+    private final DataTableComponent<SpreadsheetDeltaLabelsTableComponentRow> dataTable;
 }

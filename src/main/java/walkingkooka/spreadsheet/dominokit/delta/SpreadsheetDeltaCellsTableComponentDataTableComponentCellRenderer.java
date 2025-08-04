@@ -21,7 +21,7 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.Component;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellLinksComponent;
-import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponentCellRenderer;
+import walkingkooka.spreadsheet.dominokit.datatable.DataTableComponentCellRenderer;
 import walkingkooka.spreadsheet.dominokit.formula.SpreadsheetFormulaSelectAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.spreadsheetexpressionreference.SpreadsheetExpressionReferenceSelectAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.text.TextComponent;
@@ -30,18 +30,18 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 
 import java.util.Optional;
 
-final class SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCellRenderer implements SpreadsheetDataTableComponentCellRenderer<SpreadsheetCell> {
+final class SpreadsheetDeltaCellsTableComponentDataTableComponentCellRenderer implements DataTableComponentCellRenderer<SpreadsheetCell> {
 
-    static SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCellRenderer with(final String idPrefix,
-                                                                                             final SpreadsheetDeltaCellsTableComponentContext context) {
-        return new SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCellRenderer(
+    static SpreadsheetDeltaCellsTableComponentDataTableComponentCellRenderer with(final String idPrefix,
+                                                                                  final SpreadsheetDeltaCellsTableComponentContext context) {
+        return new SpreadsheetDeltaCellsTableComponentDataTableComponentCellRenderer(
             idPrefix,
             context
         );
     }
 
-    private SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCellRenderer(final String idPrefix,
-                                                                                         final SpreadsheetDeltaCellsTableComponentContext context) {
+    private SpreadsheetDeltaCellsTableComponentDataTableComponentCellRenderer(final String idPrefix,
+                                                                              final SpreadsheetDeltaCellsTableComponentContext context) {
         this.idPrefix = idPrefix;
         this.context = context;
     }

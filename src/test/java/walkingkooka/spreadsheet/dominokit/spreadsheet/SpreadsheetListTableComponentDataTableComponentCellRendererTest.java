@@ -20,11 +20,11 @@ package walkingkooka.spreadsheet.dominokit.spreadsheet;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRendererTest implements ClassTesting<SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer> {
+public final class SpreadsheetListTableComponentDataTableComponentCellRendererTest implements ClassTesting<SpreadsheetListTableComponentDataTableComponentCellRenderer> {
 
     @Override
-    public Class<SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer> type() {
-        return SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer.class;
+    public Class<SpreadsheetListTableComponentDataTableComponentCellRenderer> type() {
+        return SpreadsheetListTableComponentDataTableComponentCellRenderer.class;
     }
 
     @Override

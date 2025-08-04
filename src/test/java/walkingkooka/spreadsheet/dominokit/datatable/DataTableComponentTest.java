@@ -35,7 +35,7 @@ import walkingkooka.text.printer.TreePrintableTesting;
 import java.util.Optional;
 import java.util.OptionalInt;
 
-public final class SpreadsheetDataTableComponentTest implements ClassTesting<SpreadsheetDataTableComponent<String>>,
+public final class DataTableComponentTest implements ClassTesting<DataTableComponent<String>>,
     TreePrintableTesting {
 
     private final static String ID_PREFIX = "tableId123-";
@@ -43,7 +43,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     @Test
     public void testEmptyValue() {
         this.treePrintAndCheck(
-            walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent.<String>with(
+            DataTableComponent.<String>with(
                 ID_PREFIX, // id-prefix
                 Lists.of(
                     ColumnConfig.create("column-1A-name", "column-1A-title"),
@@ -59,7 +59,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                     )
                 )
             ),
-            "SpreadsheetDataTableComponent\n" +
+            "DataTableComponent\n" +
                 "  id=tableId123-Table\n" +
                 "  COLUMN(S)\n" +
                 "    column-1A-title\n" +
@@ -71,7 +71,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     @Test
     public void testThreeColumnsNotValue() {
         this.treePrintAndCheck(
-            SpreadsheetDataTableComponent.<String>with(
+            DataTableComponent.<String>with(
                 ID_PREFIX, // id-prefix
                 Lists.of(
                     ColumnConfig.create("column-1A-name", "column-1A-title"),
@@ -87,7 +87,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                     )
                 )
             ),
-            "SpreadsheetDataTableComponent\n" +
+            "DataTableComponent\n" +
                 "  id=tableId123-Table\n" +
                 "  COLUMN(S)\n" +
                 "    column-1A-title\n" +
@@ -99,7 +99,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     @Test
     public void testThreeColumnsNotValueWithChildren() {
         this.treePrintAndCheck(
-            SpreadsheetDataTableComponent.<String>with(
+            DataTableComponent.<String>with(
                 ID_PREFIX, // id-prefix
                 Lists.of(
                     ColumnConfig.create("column-1A-name", "column-1A-title"),
@@ -123,7 +123,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                     Optional.of("child-2B")
                 )
             ),
-            "SpreadsheetDataTableComponent\n" +
+            "DataTableComponent\n" +
                 "  id=tableId123-Table\n" +
                 "  COLUMN(S)\n" +
                 "    column-1A-title\n" +
@@ -140,7 +140,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     @Test
     public void testThreeColumnsThreeRows() {
         this.treePrintAndCheck(
-            SpreadsheetDataTableComponent.<String>with(
+            DataTableComponent.<String>with(
                 ID_PREFIX, // id-prefix
                 Lists.of(
                     ColumnConfig.create("column-1A-name", "column-1A-title"),
@@ -164,7 +164,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                     )
                 )
             ),
-            "SpreadsheetDataTableComponent\n" +
+            "DataTableComponent\n" +
                 "  id=tableId123-Table\n" +
                 "  COLUMN(S)\n" +
                 "    column-1A-title\n" +
@@ -198,7 +198,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     @Test
     public void testThreeColumnsMixedComponentTypes() {
         this.treePrintAndCheck(
-            SpreadsheetDataTableComponent.<String>with(
+            DataTableComponent.<String>with(
                 ID_PREFIX, // id-prefix
                 Lists.of(
                     ColumnConfig.create("column-1A-name", "column-1A-title"),
@@ -235,7 +235,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                     )
                 )
             ),
-            "SpreadsheetDataTableComponent\n" +
+            "DataTableComponent\n" +
                 "  id=tableId123-Table\n" +
                 "  COLUMN(S)\n" +
                 "    column-1A-title\n" +
@@ -266,7 +266,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     @Test
     public void testBodyScrollPlugin() {
         this.treePrintAndCheck(
-            SpreadsheetDataTableComponent.<String>with(
+            DataTableComponent.<String>with(
                 ID_PREFIX, // id-prefix
                 Lists.of(
                     ColumnConfig.create("column-1A-name", "column-1A-title"),
@@ -282,7 +282,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                     )
                 )
             ).bodyScrollPlugin(),
-            "SpreadsheetDataTableComponent\n" +
+            "DataTableComponent\n" +
                 "  id=tableId123-Table\n" +
                 "  COLUMN(S)\n" +
                 "    column-1A-title\n" +
@@ -296,7 +296,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     @Test
     public void testEmptyStatePlugin() {
         this.treePrintAndCheck(
-            SpreadsheetDataTableComponent.<String>with(
+            DataTableComponent.<String>with(
                 ID_PREFIX, // id-prefix
                 Lists.of(
                     ColumnConfig.create("column-1A-name", "column-1A-title"),
@@ -315,7 +315,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                 SpreadsheetIcons.alignLeft(),
                 "Empty456"
             ),
-            "SpreadsheetDataTableComponent\n" +
+            "DataTableComponent\n" +
                 "  id=tableId123-Table\n" +
                 "  COLUMN(S)\n" +
                 "    column-1A-title\n" +
@@ -329,7 +329,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     @Test
     public void testThreeColumnsNoValueHeadersHidden() {
         this.treePrintAndCheck(
-            SpreadsheetDataTableComponent.<String>with(
+            DataTableComponent.<String>with(
                 ID_PREFIX, // id-prefix
                 Lists.of(
                     ColumnConfig.create("column-1A-name", "column-1A-title"),
@@ -345,7 +345,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                     )
                 )
             ).hideHeaders(),
-            "SpreadsheetDataTableComponent\n" +
+            "DataTableComponent\n" +
                 "  id=tableId123-Table\n"
         );
     }
@@ -353,7 +353,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     @Test
     public void testThreeColumnsThreeRowsHeadersHidden() {
         this.treePrintAndCheck(
-            SpreadsheetDataTableComponent.<String>with(
+            DataTableComponent.<String>with(
                 ID_PREFIX, // id-prefix
                 Lists.of(
                     ColumnConfig.create("column-1A-name", "column-1A-title"),
@@ -377,7 +377,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                     )
                 )
             ).hideHeaders(),
-            "SpreadsheetDataTableComponent\n" +
+            "DataTableComponent\n" +
                 "  id=tableId123-Table\n" +
                 "  ROW(S)\n" +
                 "    ROW 0\n" +
@@ -407,7 +407,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     @Test
     public void testThreeColumnsIncludesDisabledNextPrev() {
         this.treePrintAndCheck(
-            SpreadsheetDataTableComponent.<String>with(
+            DataTableComponent.<String>with(
                     ID_PREFIX, // id-prefix
                     Lists.of(
                         ColumnConfig.create("column-1A-name", "column-1A-title"),
@@ -440,7 +440,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                         HistoryToken.parseString("/*/offset/22/count/5")
                     )
                 ),
-            "SpreadsheetDataTableComponent\n" +
+            "DataTableComponent\n" +
                 "  id=tableId123-Table\n" +
                 "  COLUMN(S)\n" +
                 "    column-1A-title\n" +
@@ -479,7 +479,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     @Test
     public void testThreeColumnsIncludesRefreshedNextPrevNoPrevious() {
         this.treePrintAndCheck(
-            SpreadsheetDataTableComponent.<String>with(
+            DataTableComponent.<String>with(
                     ID_PREFIX, // id-prefix
                     Lists.of(
                         ColumnConfig.create("column-1A-name", "column-1A-title"),
@@ -514,7 +514,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                     ),
                     100
                 ),
-            "SpreadsheetDataTableComponent\n" +
+            "DataTableComponent\n" +
                 "  id=tableId123-Table\n" +
                 "  COLUMN(S)\n" +
                 "    column-1A-title\n" +
@@ -567,7 +567,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     @Test
     public void testThreeColumnsIncludesRefreshedNextPrevNoNext() {
         this.treePrintAndCheck(
-            SpreadsheetDataTableComponent.<String>with(
+            DataTableComponent.<String>with(
                     ID_PREFIX, // id-prefix
                     Lists.of(
                         ColumnConfig.create("column-1A-name", "column-1A-title"),
@@ -600,7 +600,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                     ),
                     100
                 ),
-            "SpreadsheetDataTableComponent\n" +
+            "DataTableComponent\n" +
                 "  id=tableId123-Table\n" +
                 "  COLUMN(S)\n" +
                 "    column-1A-title\n" +
@@ -639,7 +639,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     @Test
     public void testThreeColumnsIncludesRefreshedNextPrevWithBothPrevAndNext() {
         this.treePrintAndCheck(
-            SpreadsheetDataTableComponent.<String>with(
+            DataTableComponent.<String>with(
                     ID_PREFIX, // id-prefix
                     Lists.of(
                         ColumnConfig.create("column-1A-name", "column-1A-title"),
@@ -674,7 +674,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                     ),
                     100
                 ),
-            "SpreadsheetDataTableComponent\n" +
+            "DataTableComponent\n" +
                 "  id=tableId123-Table\n" +
                 "  COLUMN(S)\n" +
                 "    column-1A-title\n" +
@@ -727,8 +727,8 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetDataTableComponent<String>> type() {
-        return Cast.to(SpreadsheetDataTableComponent.class);
+    public Class<DataTableComponent<String>> type() {
+        return Cast.to(DataTableComponent.class);
     }
 
     @Override
