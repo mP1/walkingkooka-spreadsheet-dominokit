@@ -123,7 +123,7 @@ public final class PluginUploadDialogComponentTest implements SpreadsheetDialogC
                 "        id=pluginUpload-UploadFile\n" +
                 "        label=Drop files here or click to upload.\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Upload\" DISABLED id=pluginUpload-upload-Link\n" +
                 "            \"Close\" [#/plugin] id=pluginUpload-close-Link\n"
@@ -165,7 +165,7 @@ public final class PluginUploadDialogComponentTest implements SpreadsheetDialogC
                 "        id=pluginUpload-UploadFile\n" +
                 "        label=Drop files here or click to upload.\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Upload\" DISABLED id=pluginUpload-upload-Link\n" +
                 "            \"Close\" [#/plugin] id=pluginUpload-close-Link\n"
@@ -198,7 +198,7 @@ public final class PluginUploadDialogComponentTest implements SpreadsheetDialogC
                 "            \"TestPluginName0\"\n" +
                 "              UEsDBBQACAgIAEB/IigAAAAAAAAAAAAAAAAUAA0ATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAkABdjabjhYqGw44+UCAFBLBwishaIUBAAAAAIAAABQSwECFAAUAAgICABAfyIorIWiFAQAAAACAAAAFAAJAAAAAAAAAAAAAAAAAAAATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAUABdjabjhQSwUGAAAAAAEAAQBLAAAAUwAAAAAA\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Upload\" [#/plugin-upload/save/base64/TestPluginName0/UEsDBBQACAgIAEB/IigAAAAAAAAAAAAAAAAUAA0ATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAkABdjabjhYqGw44+UCAFBLBwishaIUBAAAAAIAAABQSwECFAAUAAgICABAfyIorIWiFAQAAAACAAAAFAAJAAAAAAAAAAAAAAAAAAAATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAUABdjabjhQSwUGAAAAAAEAAQBLAAAAUwAAAAAA] id=pluginUpload-upload-Link\n" +
                 "            \"Close\" [#/plugin] id=pluginUpload-close-Link\n"

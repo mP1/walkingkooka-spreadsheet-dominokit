@@ -152,7 +152,7 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
             watchers,
             context,
             "SpreadsheetToolbarComponent\n" +
-                "  SpreadsheetFlexLayout\n" +
+                "  FlexLayoutComponent\n" +
                 "    ROW\n"
         );
     }
@@ -171,7 +171,7 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
             watchers,
             context,
             "SpreadsheetToolbarComponent\n" +
-                "  SpreadsheetFlexLayout\n" +
+                "  FlexLayoutComponent\n" +
                 "    ROW\n" +
                 "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hideZeroValues/save/true] id=toolbar-hide-zero-values-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
@@ -214,7 +214,7 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
             watchers,
             context,
             "SpreadsheetToolbarComponent\n" +
-                "  SpreadsheetFlexLayout\n" +
+                "  FlexLayoutComponent\n" +
                 "    ROW\n" +
                 "      mdi-format-bold \"Bold\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/font-weight/save/bold] id=toolbar-font_weight-BOLD-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
@@ -320,7 +320,7 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
             watchers,
             context,
             "SpreadsheetToolbarComponent\n" +
-                "  SpreadsheetFlexLayout\n" +
+                "  FlexLayoutComponent\n" +
                 "    ROW\n" +
                 "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hideZeroValues/save/true] id=toolbar-hide-zero-values-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
@@ -366,7 +366,7 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
             watchers,
             context,
             "SpreadsheetToolbarComponent\n" +
-                "  SpreadsheetFlexLayout\n" +
+                "  FlexLayoutComponent\n" +
                 "    ROW\n" +
                 "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hideZeroValues/save/true] id=toolbar-hide-zero-values-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +

@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.link;
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
-import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
+import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 
 /**
@@ -35,7 +35,7 @@ public final class SpreadsheetLinkListComponent implements HtmlComponent<HTMLDiv
     }
 
     private SpreadsheetLinkListComponent() {
-        this.root = SpreadsheetFlexLayout.row();
+        this.root = FlexLayoutComponent.row();
     }
 
     public SpreadsheetLinkListComponent appendChild(final AnchorComponent<?, ?> anchor) {
@@ -46,7 +46,7 @@ public final class SpreadsheetLinkListComponent implements HtmlComponent<HTMLDiv
     /**
      * The parent holding the links.
      */
-    private final SpreadsheetFlexLayout root;
+    private final FlexLayoutComponent root;
 
     // setCssText.......................................................................................................
 

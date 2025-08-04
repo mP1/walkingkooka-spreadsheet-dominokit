@@ -106,14 +106,14 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                Formatted\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=labels-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=labels-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Create\" [#/1/SpreadsheetName1/create-label] id=labels-create-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName1] id=labels-close-Link\n"
@@ -157,14 +157,14 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                Formatted\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=labels-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=labels-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Create\" [#/1/SpreadsheetName1/create-label] id=labels-create-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName1] id=labels-close-Link\n"
@@ -216,7 +216,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                  TextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
                 "                    SpreadsheetLinkListComponent\n" +
-                "                      SpreadsheetFlexLayout\n" +
+                "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
                 "                          \"References\" [#/1/SpreadsheetName1/cell/A1LABEL/references] (2) id=labels-labels-A1LABEL-references-Link\n" +
                 "                          \"Delete\" [#/1/SpreadsheetName1/label/A1LABEL/delete] id=labels-labels-A1LABEL-delete-Link\n" +
@@ -226,19 +226,19 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                  TextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
                 "                    SpreadsheetLinkListComponent\n" +
-                "                      SpreadsheetFlexLayout\n" +
+                "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
                 "                          \"References\" [#/1/SpreadsheetName1/cell/B2LABEL/references] (0) id=labels-labels-B2LABEL-references-Link\n" +
                 "                          \"Delete\" [#/1/SpreadsheetName1/label/B2LABEL/delete] id=labels-labels-B2LABEL-delete-Link\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=labels-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=labels-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Create\" [#/1/SpreadsheetName1/create-label] id=labels-create-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName1] id=labels-close-Link\n"
@@ -282,14 +282,14 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                Formatted\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" [#/1/SpreadsheetName1/label/*/offset/0] id=labels-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=labels-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Create\" [#/1/SpreadsheetName1/create-label] id=labels-create-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName1] id=labels-close-Link\n"
@@ -343,7 +343,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                  TextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
                 "                    SpreadsheetLinkListComponent\n" +
-                "                      SpreadsheetFlexLayout\n" +
+                "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
                 "                          \"References\" [#/1/SpreadsheetName1/cell/B2LABEL/references] (0) id=labels-labels-B2LABEL-references-Link\n" +
                 "                          \"Delete\" [#/1/SpreadsheetName1/label/B2LABEL/delete] id=labels-labels-B2LABEL-delete-Link\n" +
@@ -353,19 +353,19 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                  TextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
                 "                    SpreadsheetLinkListComponent\n" +
-                "                      SpreadsheetFlexLayout\n" +
+                "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
                 "                          \"References\" [#/1/SpreadsheetName1/cell/C3LABEL/references] (0) id=labels-labels-C3LABEL-references-Link\n" +
                 "                          \"Delete\" [#/1/SpreadsheetName1/label/C3LABEL/delete] id=labels-labels-C3LABEL-delete-Link\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" [#/1/SpreadsheetName1/label/*/offset/0] id=labels-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=labels-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Create\" [#/1/SpreadsheetName1/create-label] id=labels-create-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName1] id=labels-close-Link\n"
@@ -410,14 +410,14 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                Formatted\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=labels-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=labels-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Create\" [#/1/SpreadsheetName1/create-label] id=labels-create-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName1/cell/A1] id=labels-close-Link\n"
@@ -471,7 +471,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                  TextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
                 "                    SpreadsheetLinkListComponent\n" +
-                "                      SpreadsheetFlexLayout\n" +
+                "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
                 "                          \"References\" [#/1/SpreadsheetName1/cell/B2LABEL/references] (0) id=labels-labels-B2LABEL-references-Link\n" +
                 "                          \"Delete\" [#/1/SpreadsheetName1/label/B2LABEL/delete] id=labels-labels-B2LABEL-delete-Link\n" +
@@ -481,19 +481,19 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                  TextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
                 "                    SpreadsheetLinkListComponent\n" +
-                "                      SpreadsheetFlexLayout\n" +
+                "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
                 "                          \"References\" [#/1/SpreadsheetName1/cell/C3LABEL/references] (0) id=labels-labels-C3LABEL-references-Link\n" +
                 "                          \"Delete\" [#/1/SpreadsheetName1/label/C3LABEL/delete] id=labels-labels-C3LABEL-delete-Link\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=labels-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=labels-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Create\" [#/1/SpreadsheetName1/create-label] id=labels-create-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName1/cell/A1] id=labels-close-Link\n"

@@ -110,7 +110,7 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
                 "              \"31/12/99, 12:58 pm\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"2/1/00, 12:58 pm\"\n" +
-                "            SpreadsheetFlexLayout\n" +
+                "            FlexLayoutComponent\n" +
                 "              ROW\n" +
                 "                \"Download\" [/api/plugin/TestPlugin123/download/META/MANIFEST.MF] id=Table123-download-Link\n" +
                 "                \"View\" [#/plugin/TestPlugin123/file/META/MANIFEST.MF] id=Table123-view-Link\n" +
@@ -167,7 +167,7 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
                 "              \"\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"\"\n" +
-                "            SpreadsheetFlexLayout\n" +
+                "            FlexLayoutComponent\n" +
                 "              ROW\n" +
                 "                \"Download\" [/api/plugin/TestPlugin123/download/dir1/file2.txt] id=Table123-download-Link\n" +
                 "                \"View\" [#/plugin/TestPlugin123/file/dir1/file2.txt] id=Table123-view-Link\n" +
@@ -233,7 +233,7 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
                 "              \"31/12/99, 12:58 pm\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"2/1/00, 12:58 pm\"\n" +
-                "            SpreadsheetFlexLayout\n" +
+                "            FlexLayoutComponent\n" +
                 "              ROW\n" +
                 "                \"Download\" [/api/plugin/TestPlugin123/download/META/MANIFEST.MF] id=Table123-download-Link\n" +
                 "                \"View\" [#/plugin/TestPlugin123/file/META/MANIFEST.MF] id=Table123-view-Link\n" +
@@ -250,7 +250,7 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
                 "              \"\"\n" +
                 "            SpreadsheetTextComponent\n" +
                 "              \"\"\n" +
-                "            SpreadsheetFlexLayout\n" +
+                "            FlexLayoutComponent\n" +
                 "              ROW\n" +
                 "                \"Download\" [/api/plugin/TestPlugin123/download/dir1/file2.txt] id=Table123-download-Link\n" +
                 "                \"View\" [#/plugin/TestPlugin123/file/dir1/file2.txt] id=Table123-view-Link\n" +

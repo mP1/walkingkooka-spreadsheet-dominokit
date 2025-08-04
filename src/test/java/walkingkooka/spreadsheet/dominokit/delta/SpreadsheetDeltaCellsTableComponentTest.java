@@ -97,7 +97,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 "          Formatted\n" +
                 "          Links\n" +
                 "        CHILDREN\n" +
-                "          SpreadsheetFlexLayout\n" +
+                "          FlexLayoutComponent\n" +
                 "            ROW\n" +
                 "              mdi-arrow-left \"previous\" DISABLED id=ID123-previous-Link\n" +
                 "              \"next\" DISABLED mdi-arrow-right id=ID123-next-Link\n" +
@@ -147,7 +147,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 "              Hello\n" +
                 "            SpreadsheetCellLinksComponent\n" +
                 "              SpreadsheetLinkListComponent\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    \"Value\" [#/1/Spreadsheet222/cell/A1/value/text] id=ID123-cells-A1-value-Link\n" +
                 "                    \"Create Label\" [#/1/Spreadsheet222/cell/A1/label] id=ID123-cells-A1-createLabel-Link\n" +
@@ -155,7 +155,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 "                    \"References\" [#/1/Spreadsheet222/cell/A1/references] (2) id=ID123-cells-A1-references-Link\n" +
                 "                    \"Delete\" [#/1/Spreadsheet222/cell/A1/delete] id=ID123-cells-A1-delete-Link\n" +
                 "        CHILDREN\n" +
-                "          SpreadsheetFlexLayout\n" +
+                "          FlexLayoutComponent\n" +
                 "            ROW\n" +
                 "              mdi-arrow-left \"previous\" DISABLED id=ID123-previous-Link\n" +
                 "              \"next\" DISABLED mdi-arrow-right id=ID123-next-Link\n" +
@@ -213,7 +213,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 "              Hello\n" +
                 "            SpreadsheetCellLinksComponent\n" +
                 "              SpreadsheetLinkListComponent\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    \"Value\" [#/1/Spreadsheet222/cell/A1/value/text] id=ID123-cells-A1-value-Link\n" +
                 "                    \"Create Label\" [#/1/Spreadsheet222/cell/A1/label] id=ID123-cells-A1-createLabel-Link\n" +
@@ -229,7 +229,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 "              2222\n" +
                 "            SpreadsheetCellLinksComponent\n" +
                 "              SpreadsheetLinkListComponent\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    \"Value\" DISABLED id=ID123-cells-A2-value-Link\n" + // cell missing valueType so should be disabled
                 "                    \"Create Label\" [#/1/Spreadsheet222/cell/A2/label] id=ID123-cells-A2-createLabel-Link\n" +
@@ -237,7 +237,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 "                    \"References\" [#/1/Spreadsheet222/cell/A2/references] (2) id=ID123-cells-A2-references-Link\n" +
                 "                    \"Delete\" [#/1/Spreadsheet222/cell/A2/delete] id=ID123-cells-A2-delete-Link\n" +
                 "        CHILDREN\n" +
-                "          SpreadsheetFlexLayout\n" +
+                "          FlexLayoutComponent\n" +
                 "            ROW\n" +
                 "              mdi-arrow-left \"previous\" DISABLED id=ID123-previous-Link\n" +
                 "              \"next\" DISABLED mdi-arrow-right id=ID123-next-Link\n" +

@@ -90,7 +90,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"Automatic\" [#/1/Spreadsheet1/cell/A1/formatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
@@ -148,7 +148,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=spreadsheetFormatterSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
@@ -177,7 +177,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"Automatic\" [#/1/Spreadsheet1/cell/A1/formatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
@@ -230,7 +230,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"d\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-format-pattern%20dd/mm/yyyyd] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
                 "                  \"dd\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-format-pattern%20dd/mm/yyyydd] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
@@ -245,7 +245,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"dd\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-format-pattern%20/mm/yyyy] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
                 "                      \"d\" [/1/Spreadsheet1/cell/A1/formatter/save/date-format-pattern%20d/mm/yyyy] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
@@ -265,7 +265,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "          SpreadsheetTextBox\n" +
                 "            [date-format-pattern dd/mm/yyyy] id=spreadsheetFormatterSelector-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-format-pattern%20dd/mm/yyyy] id=spreadsheetFormatterSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
@@ -296,7 +296,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"Automatic\" [#/1/Spreadsheet1/cell/A1/formatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
@@ -349,7 +349,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \".\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ss.] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
                 "                  \"0\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ss0] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
@@ -374,7 +374,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"dd\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
                 "                      \"d\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20d/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
@@ -403,7 +403,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "          SpreadsheetTextBox\n" +
                 "            [date-time-format-pattern dd/mm/yyyy hh:mm:ss] id=spreadsheetFormatterSelector-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
@@ -434,7 +434,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"Automatic\" [#/1/Spreadsheet1/cell/A1/formatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
@@ -535,7 +535,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"#\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20$%230.00%23] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
                 "                  \"$\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20$%230.00$] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
@@ -549,7 +549,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"$\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20%230.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
                 "                  \"#\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20$0.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
@@ -562,7 +562,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "          SpreadsheetTextBox\n" +
                 "            [number-format-pattern $#0.00] id=spreadsheetFormatterSelector-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20$%230.00] id=spreadsheetFormatterSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
@@ -593,7 +593,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"Automatic\" [#/1/Spreadsheet1/cell/A1/formatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
@@ -628,7 +628,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"* \" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern%20@%20%22Hello%22*%20] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
                 "                  \"@\" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern%20@%20%22Hello%22@] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
@@ -637,7 +637,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"@\" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern%20%20%22Hello%22] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
                 "                  \" \" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern%20@%22Hello%22] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
@@ -647,7 +647,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "          SpreadsheetTextBox\n" +
                 "            [text-format-pattern @ \"Hello\"] id=spreadsheetFormatterSelector-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern%20@%20%22Hello%22] id=spreadsheetFormatterSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
@@ -678,7 +678,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"Automatic\" [#/1/Spreadsheet1/cell/A1/formatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
@@ -719,7 +719,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \".\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20hh:mm.] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
                 "                  \"0\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20hh:mm0] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
@@ -735,7 +735,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"hh\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20:mm] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
                 "                      \"h\" [/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20h:mm] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
@@ -747,7 +747,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "          SpreadsheetTextBox\n" +
                 "            [time-format-pattern hh:mm] id=spreadsheetFormatterSelector-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20hh:mm] id=spreadsheetFormatterSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
@@ -790,7 +790,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"Automatic\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
@@ -843,7 +843,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"d\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date-format-pattern%20dd/mm/yyyyd] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
                 "                  \"dd\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date-format-pattern%20dd/mm/yyyydd] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
@@ -858,7 +858,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"dd\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date-format-pattern%20/mm/yyyy] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
                 "                      \"d\" [/1/Spreadsheet1/spreadsheet/dateFormatter/save/date-format-pattern%20d/mm/yyyy] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
@@ -878,7 +878,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "          SpreadsheetTextBox\n" +
                 "            [date-format-pattern dd/mm/yyyy] id=spreadsheetFormatterSelector-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date-format-pattern%20dd/mm/yyyy] id=spreadsheetFormatterSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
@@ -921,7 +921,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"Automatic\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
@@ -974,7 +974,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \".\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ss.] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
                 "                  \"0\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ss0] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
@@ -999,7 +999,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"dd\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
                 "                      \"d\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20d/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
@@ -1028,7 +1028,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "          SpreadsheetTextBox\n" +
                 "            [date-time-format-pattern dd/mm/yyyy hh:mm:ss] id=spreadsheetFormatterSelector-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
@@ -1071,7 +1071,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"Automatic\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
@@ -1172,7 +1172,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"#\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20$%230.00%23] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
                 "                  \"$\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20$%230.00$] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
@@ -1186,7 +1186,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"$\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20%230.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
                 "                  \"#\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20$0.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
@@ -1199,7 +1199,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "          SpreadsheetTextBox\n" +
                 "            [number-format-pattern $#0.00] id=spreadsheetFormatterSelector-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20$%230.00] id=spreadsheetFormatterSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
@@ -1242,7 +1242,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"Automatic\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
@@ -1277,7 +1277,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"* \" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text-format-pattern%20@%20%22Hello%22*%20] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
                 "                  \"@\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text-format-pattern%20@%20%22Hello%22@] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
@@ -1286,7 +1286,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"@\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text-format-pattern%20%20%22Hello%22] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
                 "                  \" \" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text-format-pattern%20@%22Hello%22] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
@@ -1296,7 +1296,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "          SpreadsheetTextBox\n" +
                 "            [text-format-pattern @ \"Hello\"] id=spreadsheetFormatterSelector-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text-format-pattern%20@%20%22Hello%22] id=spreadsheetFormatterSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
@@ -1339,7 +1339,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"Automatic\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
@@ -1380,7 +1380,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \".\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20hh:mm.] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
                 "                  \"0\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20hh:mm0] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
@@ -1396,7 +1396,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
-                "              SpreadsheetFlexLayout\n" +
+                "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"hh\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20:mm] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
                 "                      \"h\" [/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20h:mm] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
@@ -1408,7 +1408,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "          SpreadsheetTextBox\n" +
                 "            [time-format-pattern hh:mm] id=spreadsheetFormatterSelector-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20hh:mm] id=spreadsheetFormatterSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +

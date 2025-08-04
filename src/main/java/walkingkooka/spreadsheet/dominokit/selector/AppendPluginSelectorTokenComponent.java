@@ -24,7 +24,7 @@ import walkingkooka.plugin.PluginSelectorTokenAlternativeLike;
 import walkingkooka.plugin.PluginSelectorTokenLike;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
-import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
+import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -50,7 +50,7 @@ public final class AppendPluginSelectorTokenComponent<T extends PluginSelectorTo
     private AppendPluginSelectorTokenComponent(final String id) {
         this.id = id;
 
-        this.flex = SpreadsheetFlexLayout.row();
+        this.flex = FlexLayoutComponent.row();
         this.root = CardComponent.empty()
             .setTitle("Append component(s)")
             .appendChild(this.flex);
@@ -74,7 +74,7 @@ public final class AppendPluginSelectorTokenComponent<T extends PluginSelectorTo
                   final ImmutableList<A> alternatives,
                   final AppendPluginSelectorTokenComponentContext context) {
         this.root.hide();
-        final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
+        final FlexLayoutComponent flex = this.flex.removeAllChildren();
 
         final String baseTextComponent = tokens.stream()
             .map(PluginSelectorTokenLike::text)
@@ -122,7 +122,7 @@ public final class AppendPluginSelectorTokenComponent<T extends PluginSelectorTo
     /**
      * The parent holding the links.
      */
-    private final SpreadsheetFlexLayout flex;
+    private final FlexLayoutComponent flex;
 
     // setCssText.......................................................................................................
 

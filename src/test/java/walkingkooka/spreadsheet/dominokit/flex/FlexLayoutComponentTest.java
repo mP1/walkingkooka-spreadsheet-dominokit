@@ -25,12 +25,12 @@ import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
 
 import java.util.Optional;
 
-public final class SpreadsheetFlexLayoutTest implements HtmlComponentTesting<SpreadsheetFlexLayout, HTMLDivElement> {
+public final class FlexLayoutComponentTest implements HtmlComponentTesting<FlexLayoutComponent, HTMLDivElement> {
 
     @Test
     public void testTreePrint() {
         this.treePrintAndCheck(
-            SpreadsheetFlexLayout.row()
+            FlexLayoutComponent.row()
                 .appendChild(
                     SpreadsheetTextBox.empty()
                         .setValue(
@@ -42,7 +42,7 @@ public final class SpreadsheetFlexLayoutTest implements HtmlComponentTesting<Spr
                             Optional.of("Value222")
                         )
                 ),
-            "SpreadsheetFlexLayout\n" +
+            "FlexLayoutComponent\n" +
                 "  ROW\n" +
                 "    SpreadsheetTextBox\n" +
                 "      [Value111]\n" +
@@ -54,7 +54,7 @@ public final class SpreadsheetFlexLayoutTest implements HtmlComponentTesting<Spr
     @Test
     public void testTreePrintIncludesId() {
         this.treePrintAndCheck(
-            SpreadsheetFlexLayout.row()
+            FlexLayoutComponent.row()
                 .setId("Id123")
                 .appendChild(
                     SpreadsheetTextBox.empty()
@@ -67,7 +67,7 @@ public final class SpreadsheetFlexLayoutTest implements HtmlComponentTesting<Spr
                             Optional.of("Value222")
                         )
                 ),
-            "SpreadsheetFlexLayout\n" +
+            "FlexLayoutComponent\n" +
                 "  ROW\n" +
                 "    id=Id123\n" +
                 "      SpreadsheetTextBox\n" +
@@ -80,8 +80,8 @@ public final class SpreadsheetFlexLayoutTest implements HtmlComponentTesting<Spr
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SpreadsheetFlexLayout> type() {
-        return SpreadsheetFlexLayout.class;
+    public Class<FlexLayoutComponent> type() {
+        return FlexLayoutComponent.class;
     }
 
     @Override

@@ -34,13 +34,13 @@ import java.util.Objects;
 /**
  * A very basic attempt at re-creating the old DominoUI 1.x FlexLayout.
  */
-public class SpreadsheetFlexLayout implements HtmlComponent<HTMLDivElement, SpreadsheetFlexLayout>,
-    ComponentWithChildren<SpreadsheetFlexLayout, HTMLDivElement> {
+public class FlexLayoutComponent implements HtmlComponent<HTMLDivElement, FlexLayoutComponent>,
+    ComponentWithChildren<FlexLayoutComponent, HTMLDivElement> {
 
     private final static CssClass GAP = SpacingCss.dui_gap_1;
 
-    public static SpreadsheetFlexLayout column() {
-        final SpreadsheetFlexLayout flex = new SpreadsheetFlexLayout(true);
+    public static FlexLayoutComponent column() {
+        final FlexLayoutComponent flex = new FlexLayoutComponent(true);
         flex.div.addCssClasses(
             SpacingCss.dui_flex_col,
             //SpacingCss.dui_v_full,
@@ -50,8 +50,8 @@ public class SpreadsheetFlexLayout implements HtmlComponent<HTMLDivElement, Spre
         return flex;
     }
 
-    public static SpreadsheetFlexLayout row() {
-        final SpreadsheetFlexLayout flex = new SpreadsheetFlexLayout(false);
+    public static FlexLayoutComponent row() {
+        final FlexLayoutComponent flex = new FlexLayoutComponent(false);
         flex.div.setCssText("display:flex; flex-wrap: wrap;");
         flex.div.addCssClasses(
             SpacingCss.dui_flex_row,
@@ -62,7 +62,7 @@ public class SpreadsheetFlexLayout implements HtmlComponent<HTMLDivElement, Spre
         return flex;
     }
 
-    private SpreadsheetFlexLayout(final boolean column) {
+    private FlexLayoutComponent(final boolean column) {
         super();
         this.children = Lists.array();
         this.column = column;
@@ -76,14 +76,14 @@ public class SpreadsheetFlexLayout implements HtmlComponent<HTMLDivElement, Spre
 
     // displayBlock.....................................................................................................
 
-    public SpreadsheetFlexLayout displayBlock() {
+    public FlexLayoutComponent displayBlock() {
         this.div.setDisplay("block");
         return this;
     }
 
     // id...............................................................................................................
 
-    public SpreadsheetFlexLayout setId(final String id) {
+    public FlexLayoutComponent setId(final String id) {
         this.div.setId(id);
         return this;
     }
@@ -95,7 +95,7 @@ public class SpreadsheetFlexLayout implements HtmlComponent<HTMLDivElement, Spre
     // children.........................................................................................................
 
     @Override
-    public SpreadsheetFlexLayout appendChild(final IsElement<?> child) {
+    public FlexLayoutComponent appendChild(final IsElement<?> child) {
         this.div.appendChild(child);
         this.children.add(child);
         return this;
@@ -105,7 +105,7 @@ public class SpreadsheetFlexLayout implements HtmlComponent<HTMLDivElement, Spre
      * Removes an existing child.
      */
     @Override
-    public SpreadsheetFlexLayout removeChild(final int index) {
+    public FlexLayoutComponent removeChild(final int index) {
         final IsElement<?> child = this.children.remove(index);
         this.div.removeChild(child);
         return this;
@@ -129,7 +129,7 @@ public class SpreadsheetFlexLayout implements HtmlComponent<HTMLDivElement, Spre
     // setCssText.......................................................................................................
 
     @Override
-    public SpreadsheetFlexLayout setCssText(final String css) {
+    public FlexLayoutComponent setCssText(final String css) {
         Objects.requireNonNull(css, "css");
 
         this.div.setCssText(css);
@@ -139,8 +139,8 @@ public class SpreadsheetFlexLayout implements HtmlComponent<HTMLDivElement, Spre
     // setCssProperty...................................................................................................
 
     @Override
-    public SpreadsheetFlexLayout setCssProperty(final String name,
-                                                final String value) {
+    public FlexLayoutComponent setCssProperty(final String name,
+                                              final String value) {
         this.div.setCssProperty(
             name,
             value
@@ -171,7 +171,7 @@ public class SpreadsheetFlexLayout implements HtmlComponent<HTMLDivElement, Spre
 
     // TreePrintable....................................................................................................
 
-    // SpreadsheetFlexLayout
+    // FlexLayoutComponent
     //  ROW
     //    id=Id123
     //      SpreadsheetTextBox

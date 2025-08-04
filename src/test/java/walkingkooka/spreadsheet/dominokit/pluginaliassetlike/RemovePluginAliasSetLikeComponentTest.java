@@ -84,7 +84,7 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlComponen
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/name1,%20name2] id=base-id-123-remove-0-Link\n" +
                 "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/name2] id=base-id-123-remove-1-Link\n" +
@@ -108,7 +108,7 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlComponen
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=base-id-123-remove-0-Link\n" +
                 "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/name2,%20name3] id=base-id-123-remove-1-Link\n" +
@@ -134,7 +134,7 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlComponen
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/missing3,%20name1,%20name2] id=base-id-123-remove-0-Link\n" +
                 "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/missing3,%20name2] id=base-id-123-remove-1-Link\n" +
@@ -158,7 +158,7 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlComponen
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/alias1%20name1] id=base-id-123-remove-0-Link\n" +
                 "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/] id=base-id-123-remove-1-Link\n"
@@ -181,7 +181,7 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlComponen
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/alias1%20name1] id=base-id-123-remove-0-Link\n" +
                 "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/] id=base-id-123-remove-1-Link\n"
@@ -204,7 +204,7 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlComponen
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/alias2%20name2,%20alias3%20name3%20https://example.com/name3%20,%20name1] id=base-id-123-remove-0-Link\n" +
                 "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/alias2%20name2,%20alias3%20name3%20https://example.com/name3] id=base-id-123-remove-1-Link\n" +

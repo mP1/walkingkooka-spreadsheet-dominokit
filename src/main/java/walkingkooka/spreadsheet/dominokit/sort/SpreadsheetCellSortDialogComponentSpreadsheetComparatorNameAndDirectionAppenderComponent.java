@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameAndDirection;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
-import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
+import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReferenceOrRange;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -56,7 +56,7 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirect
 
     private SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent(final String id,
                                                                                                      final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> setter) {
-        this.flex = SpreadsheetFlexLayout.row();
+        this.flex = FlexLayoutComponent.row();
         this.root = CardComponent.empty()
             .setTitle("Append comparator(s)")
             .appendChild(this.flex);
@@ -89,7 +89,7 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirect
     void refresh0(final SpreadsheetColumnOrRowReferenceOrRange columnOrRow,
                   final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
                   final SpreadsheetCellSortDialogComponentContext context) {
-        final SpreadsheetFlexLayout flex = this.flex;
+        final FlexLayoutComponent flex = this.flex;
 
         final HistoryToken historyToken = context.historyToken();
 
@@ -184,7 +184,7 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirect
     /**
      * A flex layout that holds the actual links.
      */
-    private final SpreadsheetFlexLayout flex;
+    private final FlexLayoutComponent flex;
 
     // TreePrintable....................................................................................................
 

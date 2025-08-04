@@ -25,7 +25,7 @@ import walkingkooka.plugin.PluginName;
 import walkingkooka.plugin.PluginNameSet;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
-import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
+import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
@@ -52,7 +52,7 @@ public final class RemovePluginNameSetComponent implements HtmlComponent<HTMLDiv
     private RemovePluginNameSetComponent(final String id) {
         this.id = id;
 
-        this.flex = SpreadsheetFlexLayout.row();
+        this.flex = FlexLayoutComponent.row();
         this.root = CardComponent.empty()
             .setTitle("Remove")
             .appendChild(this.flex);
@@ -76,7 +76,7 @@ public final class RemovePluginNameSetComponent implements HtmlComponent<HTMLDiv
     public void refresh(final PluginNameSet aliases, // value from SpreadsheetMetadata
                         final PluginNameSet providerAliases, // list of available aliases from provider
                         final RemovePluginNameSetComponentContext context) {
-        final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
+        final FlexLayoutComponent flex = this.flex.removeAllChildren();
 
         int i = 0;
 
@@ -160,7 +160,7 @@ public final class RemovePluginNameSetComponent implements HtmlComponent<HTMLDiv
     /**
      * The parent holding LINKS
      */
-    private final SpreadsheetFlexLayout flex;
+    private final FlexLayoutComponent flex;
 
     // isEditing........................................................................................................
 

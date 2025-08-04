@@ -117,7 +117,7 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlComponentTe
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Add\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3,%20name4] id=base-id-123-add-0-Link\n" +
                 "            \"Name3\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=base-id-123-add-1-Link\n" +
@@ -141,7 +141,7 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlComponentTe
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Add\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/name1] id=base-id-123-add-0-Link\n" +
                 "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/name1] id=base-id-123-add-1-Link\n"
@@ -164,7 +164,7 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlComponentTe
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Add\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=base-id-123-add-0-Link\n" +
                 "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/name1] id=base-id-123-add-1-Link\n" +
@@ -190,7 +190,7 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlComponentTe
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Add\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/name1,%20name2] id=base-id-123-add-0-Link\n" +
                 "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/name1] id=base-id-123-add-1-Link\n" +
@@ -214,7 +214,7 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlComponentTe
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Add\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/name1,%20name2] id=base-id-123-add-0-Link\n" +
                 "            \"Name2\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/alias1%20name1,%20name2] id=base-id-123-add-1-Link\n"
@@ -237,7 +237,7 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlComponentTe
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Add\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3,%20name4] id=base-id-123-add-0-Link\n" +
                 "            \"Name4\" [#/1/SpreadsheetName123/spreadsheet/formulaFunctions/save/alias2%20name2,%20alias3%20name3%20https://example.com/name3%20,%20name1,%20name4] id=base-id-123-add-1-Link\n"

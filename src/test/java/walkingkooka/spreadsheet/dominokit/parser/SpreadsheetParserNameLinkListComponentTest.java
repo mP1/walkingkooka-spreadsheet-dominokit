@@ -44,7 +44,7 @@ public class SpreadsheetParserNameLinkListComponentTest implements HtmlComponent
                 "  CardLinkListComponent\n" +
                 "    CardComponent\n" +
                 "      Card\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Date Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/date-parse-pattern] id=ID123-0-Link\n" +
                 "            \"Date Time Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/date-time-parse-pattern] id=ID123-1-Link\n" +
@@ -63,7 +63,7 @@ public class SpreadsheetParserNameLinkListComponentTest implements HtmlComponent
                 "  CardLinkListComponent\n" +
                 "    CardComponent\n" +
                 "      Card\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Date Parse Pattern\" DISABLED id=ID123-0-Link\n" +
                 "            \"Date Time Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/date-time-parse-pattern] id=ID123-1-Link\n" +

@@ -114,7 +114,7 @@ public final class RemoveOrReplacePluginSelectorTokenComponentTest implements Ht
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove / Replace component(s)\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"d\" [#/1/Untitled/cell/A1/formatter/save/date-format-pattern%20myy] id=id123-remove-0-Link\n" +
                 "                \"dd\" [/1/Untitled/cell/A1/formatter/save/date-format-pattern%20ddmyy] id=id123-remove-0-Link-replace-0-MenuItem\n" +
@@ -182,7 +182,7 @@ public final class RemoveOrReplacePluginSelectorTokenComponentTest implements Ht
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove / Replace component(s)\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"m\" [#/1/Untitled/cell/A1/formatter/save/date-time-format-pattern%20yyhm] id=id123-remove-0-Link\n" +
                 "                \"mm\" [/1/Untitled/cell/A1/formatter/save/date-time-format-pattern%20mmyyhm] id=id123-remove-0-Link-replace-0-MenuItem\n" +
@@ -218,7 +218,7 @@ public final class RemoveOrReplacePluginSelectorTokenComponentTest implements Ht
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove / Replace component(s)\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"$\" [#/1/Untitled/cell/A1/formatter/save/number-format-pattern%200] id=id123-remove-0-Link\n" +
                 "            \"0\" [#/1/Untitled/cell/A1/formatter/save/number-format-pattern%20$] id=id123-remove-1-Link\n" // expected
@@ -241,7 +241,7 @@ public final class RemoveOrReplacePluginSelectorTokenComponentTest implements Ht
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove / Replace component(s)\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"@\" [#/1/Untitled/cell/A1/formatter/save/] id=id123-remove-0-Link\n"  // expected
         );
@@ -268,7 +268,7 @@ public final class RemoveOrReplacePluginSelectorTokenComponentTest implements Ht
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove / Replace component(s)\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"@\" [#/1/Untitled/cell/A1/formatter/save/text-format-pattern%20%22Hello%22] id=id123-remove-0-Link\n" +
                 "            \"\"Hello\"\" [#/1/Untitled/cell/A1/formatter/save/text-format-pattern%20@] id=id123-remove-1-Link\n" // expected
@@ -306,7 +306,7 @@ public final class RemoveOrReplacePluginSelectorTokenComponentTest implements Ht
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove / Replace component(s)\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"h\" [#/1/Untitled/cell/A1/formatter/save/time-format-pattern%20m] id=id123-remove-0-Link\n" +
                 "                \"hh\" [/1/Untitled/cell/A1/formatter/save/time-format-pattern%20hhm] id=id123-remove-0-Link-replace-0-MenuItem\n" +

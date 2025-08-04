@@ -150,7 +150,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=labelMapping-save-Link\n" +
                 "            \"Undo\" DISABLED id=labelMapping-undo-Link\n" +
@@ -178,7 +178,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "          SpreadsheetTextBox\n" +
                 "            Cell, cell range or Label [A1] id=labelMapping-reference-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=labelMapping-save-Link\n" +
                 "            \"Undo\" DISABLED id=labelMapping-undo-Link\n" +
@@ -206,7 +206,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "          SpreadsheetTextBox\n" +
                 "            Cell, cell range or Label [B2:C3] id=labelMapping-reference-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=labelMapping-save-Link\n" +
                 "            \"Undo\" DISABLED id=labelMapping-undo-Link\n" +
@@ -234,7 +234,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "          SpreadsheetTextBox\n" +
                 "            Cell, cell range or Label [Label123] id=labelMapping-reference-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=labelMapping-save-Link\n" +
                 "            \"Undo\" DISABLED id=labelMapping-undo-Link\n" +
@@ -271,7 +271,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=labelMapping-save-Link\n" +
                 "            \"Undo\" DISABLED id=labelMapping-undo-Link\n" +
@@ -299,7 +299,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=labelMapping-save-Link\n" +
                 "            \"Undo\" DISABLED id=labelMapping-undo-Link\n" +
@@ -334,7 +334,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=labelMapping-save-Link\n" +
                 "            \"Undo\" DISABLED id=labelMapping-undo-Link\n" +
@@ -372,7 +372,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=labelMapping-save-Link\n" +
                 "            \"Undo\" [#/1/SpreadsheetName111/label/LoadedLabel123/save/C3] id=labelMapping-undo-Link\n" +

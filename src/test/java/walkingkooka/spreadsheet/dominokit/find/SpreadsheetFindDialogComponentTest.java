@@ -176,7 +176,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          SpreadsheetTextBox\n" +
                 "            Query [matchXyz()] id=query-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=cellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=cellFind-reset-Link\n" +
@@ -195,7 +195,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formatted\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
@@ -297,7 +297,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          SpreadsheetTextBox\n" +
                 "            Query [matchXyz()] id=query-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=cellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=cellFind-reset-Link\n" +
@@ -316,7 +316,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formatted\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
@@ -418,7 +418,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          SpreadsheetTextBox\n" +
                 "            Query [] id=query-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find] id=cellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find] id=cellFind-reset-Link\n" +
@@ -437,7 +437,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formatted\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
@@ -537,7 +537,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          SpreadsheetTextBox\n" +
                 "            Query [matchXyz()] id=query-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=cellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=cellFind-reset-Link\n" +
@@ -556,7 +556,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formatted\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
@@ -692,7 +692,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          SpreadsheetTextBox\n" +
                 "            Query [matchXyz()] id=query-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=cellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=cellFind-reset-Link\n" +
@@ -719,7 +719,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                  TextNodeComponent\n" +
                 "                  SpreadsheetCellLinksComponent\n" +
                 "                    SpreadsheetLinkListComponent\n" +
-                "                      SpreadsheetFlexLayout\n" +
+                "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
                 "                          \"Value\" [#/123/SpreadsheetName456/cell/A1/value/text] id=cellFind-cells-A1-value-Link\n" +
                 "                          \"Create Label\" [#/123/SpreadsheetName456/cell/A1/label] id=cellFind-cells-A1-createLabel-Link\n" +
@@ -734,7 +734,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                  TextNodeComponent\n" +
                 "                  SpreadsheetCellLinksComponent\n" +
                 "                    SpreadsheetLinkListComponent\n" +
-                "                      SpreadsheetFlexLayout\n" +
+                "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
                 "                          \"Value\" DISABLED id=cellFind-cells-B2-value-Link\n" +
                 "                          \"Create Label\" [#/123/SpreadsheetName456/cell/B2/label] id=cellFind-cells-B2-createLabel-Link\n" +
@@ -742,7 +742,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                          \"References\" [#/123/SpreadsheetName456/cell/B2/references] (0) id=cellFind-cells-B2-references-Link\n" +
                 "                          \"Delete\" [#/123/SpreadsheetName456/cell/B2/delete] id=cellFind-cells-B2-delete-Link\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
@@ -842,7 +842,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          SpreadsheetTextBox\n" +
                 "            Query [textMatch(cellFormula(),\"*formula*\")] id=query-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormula(),%22*formula*%22)] id=cellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormula(),%22*formula*%22)] id=cellFind-reset-Link\n" +
@@ -861,7 +861,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formatted\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
@@ -961,7 +961,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          SpreadsheetTextBox\n" +
                 "            Query [1+textMatch(cellFormula(),\"*formula*\")] id=query-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/1+textMatch(cellFormula(),%22*formula*%22)] id=cellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/1+textMatch(cellFormula(),%22*formula*%22)] id=cellFind-reset-Link\n" +
@@ -980,7 +980,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formatted\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
@@ -1080,7 +1080,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          SpreadsheetTextBox\n" +
                 "            Query [or(textMatch(cellFormula(),\"*formula*\"),textMatch(cellFormatter(),\"*formatter*\"))] id=query-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellFormula(),%22*formula*%22),textMatch(cellFormatter(),%22*formatter*%22))] id=cellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellFormula(),%22*formula*%22),textMatch(cellFormatter(),%22*formatter*%22))] id=cellFind-reset-Link\n" +
@@ -1099,7 +1099,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formatted\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
@@ -1199,7 +1199,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          SpreadsheetTextBox\n" +
                 "            Query [or(textMatch(cellFormula(),\"*formula*\"),true())] id=query-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellFormula(),%22*formula*%22),true())] id=cellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellFormula(),%22*formula*%22),true())] id=cellFind-reset-Link\n" +
@@ -1218,7 +1218,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formatted\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
@@ -1318,7 +1318,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          SpreadsheetTextBox\n" +
                 "            Query [or(textMatch(cellDateTimeSymbols(),\"*Hello*\"),1)] id=query-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellDateTimeSymbols(),%22*Hello*%22),1)] id=cellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellDateTimeSymbols(),%22*Hello*%22),1)] id=cellFind-reset-Link\n" +
@@ -1337,7 +1337,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formatted\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
@@ -1437,7 +1437,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          SpreadsheetTextBox\n" +
                 "            Query [or(textMatch(cellDecimalNumberSymbols(),\"*Hello*\"),1)] id=query-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellDecimalNumberSymbols(),%22*Hello*%22),1)] id=cellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellDecimalNumberSymbols(),%22*Hello*%22),1)] id=cellFind-reset-Link\n" +
@@ -1456,7 +1456,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formatted\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
@@ -1556,7 +1556,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          SpreadsheetTextBox\n" +
                 "            Query [textMatch(cellFormatter(),\"*formatter*\")] id=query-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormatter(),%22*formatter*%22)] id=cellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormatter(),%22*formatter*%22)] id=cellFind-reset-Link\n" +
@@ -1575,7 +1575,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formatted\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
@@ -1675,7 +1675,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          SpreadsheetTextBox\n" +
                 "            Query [textMatch(cellParser(),\"*parser*\")] id=query-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellParser(),%22*parser*%22)] id=cellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellParser(),%22*parser*%22)] id=cellFind-reset-Link\n" +
@@ -1694,7 +1694,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formatted\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
@@ -1794,7 +1794,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          SpreadsheetTextBox\n" +
                 "            Query [textMatch(cellStyle(),\"*style*\")] id=query-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellStyle(),%22*style*%22)] id=cellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellStyle(),%22*style*%22)] id=cellFind-reset-Link\n" +
@@ -1813,7 +1813,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formatted\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
@@ -1913,7 +1913,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          SpreadsheetTextBox\n" +
                 "            Query [cellValue()<999] id=query-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/cellValue()%3C999] id=cellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/cellValue()%3C999] id=cellFind-reset-Link\n" +
@@ -1932,7 +1932,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formatted\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
@@ -2032,7 +2032,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          SpreadsheetTextBox\n" +
                 "            Query [textMatch(cellValidator(),\"*validator123*\")] id=query-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellValidator(),%22*validator123*%22)] id=cellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellValidator(),%22*validator123*%22)] id=cellFind-reset-Link\n" +
@@ -2051,7 +2051,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formatted\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
@@ -2151,7 +2151,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          SpreadsheetTextBox\n" +
                 "            Query [textMatch(cellFormattedValue(),\"*formatted-value*\")] id=query-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormattedValue(),%22*formatted-value*%22)] id=cellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormattedValue(),%22*formatted-value*%22)] id=cellFind-reset-Link\n" +
@@ -2170,7 +2170,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formatted\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
@@ -2270,7 +2270,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          SpreadsheetTextBox\n" +
                 "            Query [OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),OR(textMatch(\"*formatted*\",cellFormatter()),OR(textMatch(\"*parser*\",cellParser()),OR(textMatch(\"*style*\",cellStyle()),OR(cellValue()<10, OR(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue()))))))))] id=query-TextBox\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*formattedValue*%22,cellFormattedValue()))))))))] id=cellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*formattedValue*%22,cellFormattedValue()))))))))] id=cellFind-reset-Link\n" +
@@ -2289,7 +2289,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formatted\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +

@@ -110,14 +110,14 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
                 "                Formatted\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=cellReferences-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=cellReferences-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=cellReferences-close-Link\n"
         );
@@ -153,14 +153,14 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
                 "                Formatted\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=cellReferences-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=cellReferences-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=cellReferences-close-Link\n"
         );
@@ -220,7 +220,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
                 "                  TextNodeComponent\n" +
                 "                  SpreadsheetCellLinksComponent\n" +
                 "                    SpreadsheetLinkListComponent\n" +
-                "                      SpreadsheetFlexLayout\n" +
+                "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
                 "                          \"Value\" [#/1/SpreadsheetName456/cell/A1/value/text] id=cellReferences-cells-A1-value-Link\n" +
                 "                          \"Create Label\" [#/1/SpreadsheetName456/cell/A1/label] id=cellReferences-cells-A1-createLabel-Link\n" +
@@ -228,14 +228,14 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
                 "                          \"References\" [#/1/SpreadsheetName456/cell/A1/references] (2) id=cellReferences-cells-A1-references-Link\n" +
                 "                          \"Delete\" [#/1/SpreadsheetName456/cell/A1/delete] id=cellReferences-cells-A1-delete-Link\n" +
                 "              CHILDREN\n" +
-                "                SpreadsheetFlexLayout\n" +
+                "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=cellReferences-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=cellReferences-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=cellReferences-close-Link\n"
         );

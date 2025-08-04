@@ -27,7 +27,7 @@ import walkingkooka.spreadsheet.dominokit.Component;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent;
-import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
+import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -126,9 +126,9 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetC
         // APPENDER
         // REMOVER
         //
-        this.root = SpreadsheetFlexLayout.column()
+        this.root = FlexLayoutComponent.column()
             .appendChild(
-                SpreadsheetFlexLayout.row()
+                FlexLayoutComponent.row()
                     .appendChild(names)
                     .appendChild(moveUpLink)
                     .appendChild(moveDownLink)
@@ -380,7 +380,7 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetC
         return this.root.element();
     }
 
-    private final SpreadsheetFlexLayout root;
+    private final FlexLayoutComponent root;
 
     // TreePrintable....................................................................................................
 

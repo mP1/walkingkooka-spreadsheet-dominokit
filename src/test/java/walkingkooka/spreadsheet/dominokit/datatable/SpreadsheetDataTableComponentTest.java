@@ -469,7 +469,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                 "      SpreadsheetTextComponent\n" +
                 "        \"III\"\n" +
                 "  CHILDREN\n" +
-                "    SpreadsheetFlexLayout\n" +
+                "    FlexLayoutComponent\n" +
                 "      ROW\n" +
                 "        mdi-arrow-left \"previous\" [#/*/offset/11/count/5] id=tableId123-previous-Link\n" +
                 "        \"next\" [#/*/offset/22/count/5] mdi-arrow-right id=tableId123-next-Link\n"
@@ -557,7 +557,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                 "      SpreadsheetTextComponent\n" +
                 "        \"OOO\"\n" +
                 "  CHILDREN\n" +
-                "    SpreadsheetFlexLayout\n" +
+                "    FlexLayoutComponent\n" +
                 "      ROW\n" +
                 "        mdi-arrow-left \"previous\" DISABLED id=tableId123-previous-Link\n" +
                 "        \"next\" [#/*/offset/4/count/5] mdi-arrow-right id=tableId123-next-Link\n"
@@ -629,7 +629,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                 "      SpreadsheetTextComponent\n" +
                 "        \"III\"\n" +
                 "  CHILDREN\n" +
-                "    SpreadsheetFlexLayout\n" +
+                "    FlexLayoutComponent\n" +
                 "      ROW\n" +
                 "        mdi-arrow-left \"previous\" [#/*/offset/12/count/5] id=tableId123-previous-Link\n" +
                 "        \"next\" DISABLED mdi-arrow-right id=tableId123-next-Link\n"
@@ -717,7 +717,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                 "      SpreadsheetTextComponent\n" +
                 "        \"OOO\"\n" +
                 "  CHILDREN\n" +
-                "    SpreadsheetFlexLayout\n" +
+                "    FlexLayoutComponent\n" +
                 "      ROW\n" +
                 "        mdi-arrow-left \"previous\" [#/*/offset/12/count/5] id=tableId123-previous-Link\n" +
                 "        \"next\" [#/*/offset/20/count/5] mdi-arrow-right id=tableId123-next-Link\n"

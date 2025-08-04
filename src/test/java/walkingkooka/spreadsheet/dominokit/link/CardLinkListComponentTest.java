@@ -118,7 +118,7 @@ public final class CardLinkListComponentTest implements HtmlComponentTesting<Car
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Title123\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Label-apple1\" [#/1/Spreadsheet123/cell/A1/formatter/save/save%20apple1] id=LinkList123-0-Link\n" +
                 "            \"Label-banana2\" DISABLED id=LinkList123-1-Link\n" +
@@ -139,7 +139,7 @@ public final class CardLinkListComponentTest implements HtmlComponentTesting<Car
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Title123\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Label-apple1\" [#/1/Spreadsheet123/cell/A1/formatter/save/save%20apple1] id=LinkList123-0-Link\n" +
                 "            \"Label-banana2\" [#/1/Spreadsheet123/cell/A1/formatter/save/save%20banana2] id=LinkList123-1-Link\n" +

@@ -55,7 +55,7 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
                 "      SpreadsheetTextViewComponent\n" +
                 "        \"\"\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Download\" [/api/plugin/TestPluginName111/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
                 "            \"Close\" [#/plugin/TestPluginName111] id=pluginFileView-close-Link\n"
@@ -82,7 +82,7 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
                 "      SpreadsheetTextViewComponent\n" +
                 "        \"\"\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Download\" [/api/plugin/TestPluginName111/download/empty-file.txt] id=plugin-download-Link\n" +
                 "            \"Close\" [#/plugin/TestPluginName111] id=pluginFileView-close-Link\n"
@@ -107,7 +107,7 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
                 "      SpreadsheetTextViewComponent\n" +
                 "        \"Line1\\nLine2\\n\"\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Download\" [/api/plugin/TestPluginName111/download/non-empty-file.txt] id=plugin-download-Link\n" +
                 "            \"Close\" [#/plugin/TestPluginName111] id=pluginFileView-close-Link\n"
@@ -134,7 +134,7 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
                 "      SpreadsheetTextViewComponent\n" +
                 "        \"\"\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Download\" [/api/plugin/TestPluginName111/download/empty-file.txt] id=plugin-download-Link\n" +
                 "            \"Close\" [#/plugin/TestPluginName111] id=pluginFileView-close-Link\n"
@@ -157,7 +157,7 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
                 "      SpreadsheetTextViewComponent\n" +
                 "        \"Line1\\nLine2\\n\"\n" +
                 "      SpreadsheetLinkListComponent\n" +
-                "        SpreadsheetFlexLayout\n" +
+                "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Download\" [/api/plugin/TestPluginName111/download/non-empty-file.txt] id=plugin-download-Link\n" +
                 "            \"Close\" [#/plugin/TestPluginName111] id=pluginFileView-close-Link\n"

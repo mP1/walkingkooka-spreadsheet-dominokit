@@ -21,7 +21,7 @@ import walkingkooka.plugin.PluginName;
 import walkingkooka.spreadsheet.dominokit.Component;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponentCellRenderer;
-import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
+import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextComponent;
@@ -170,7 +170,7 @@ final class JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRende
 
     // download, view
     // TODO need to include row number in id to make it really unique
-    private SpreadsheetFlexLayout links(final JarEntryInfo info) {
+    private FlexLayoutComponent links(final JarEntryInfo info) {
         final JarEntryInfoListTableComponentContext context = this.context;
 
         final PluginName pluginName = context.pluginName();
@@ -194,7 +194,7 @@ final class JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRende
             ).link(this.id + "view")
             .setTextContent("View");
 
-        return SpreadsheetFlexLayout.row()
+        return FlexLayoutComponent.row()
             .appendChild(download)
             .appendChild(view);
     }

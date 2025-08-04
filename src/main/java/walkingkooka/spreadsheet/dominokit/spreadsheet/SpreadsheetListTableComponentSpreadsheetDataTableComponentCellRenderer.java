@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.Component;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponentCellRenderer;
-import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
+import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextComponent;
@@ -131,7 +131,7 @@ final class SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRender
         return SpreadsheetTextComponent.with(text);
     }
 
-    private SpreadsheetFlexLayout links(final SpreadsheetMetadata metadata) {
+    private FlexLayoutComponent links(final SpreadsheetMetadata metadata) {
         final String id = this.id;
         final SpreadsheetId spreadsheetId = metadata.id()
             .orElse(null);
@@ -146,7 +146,7 @@ final class SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRender
             ).link(id + spreadsheetId + "-delete")
             .setTextContent("Delete");
 
-        return SpreadsheetFlexLayout.row()
+        return FlexLayoutComponent.row()
             .appendChild(rename)
             .appendChild(delete);
     }

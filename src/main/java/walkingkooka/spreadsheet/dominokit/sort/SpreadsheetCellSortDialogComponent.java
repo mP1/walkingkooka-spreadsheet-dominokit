@@ -28,7 +28,7 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
-import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
+import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
@@ -76,7 +76,7 @@ public final class SpreadsheetCellSortDialogComponent implements SpreadsheetDial
 
         this.columnOrRowComparatorNamesList = this.columnOrRowComparatorNamesList();
 
-        this.columnOrRowComparatorNamesParent = SpreadsheetFlexLayout.row();
+        this.columnOrRowComparatorNamesParent = FlexLayoutComponent.row();
 
         this.sort = this.anchor("Sort")
             .setDisabled(true);
@@ -247,7 +247,7 @@ public final class SpreadsheetCellSortDialogComponent implements SpreadsheetDial
         }
 
         // remove extra names
-        final SpreadsheetFlexLayout parent = this.columnOrRowComparatorNamesParent;
+        final FlexLayoutComponent parent = this.columnOrRowComparatorNamesParent;
         while (names.size() < parent.children().size()) {
             parent.removeChild(names.size());
         }
@@ -338,7 +338,7 @@ public final class SpreadsheetCellSortDialogComponent implements SpreadsheetDial
                                                                 final String text,
                                                                 final Set<SpreadsheetSelection> previousColumnOrRows) {
         final SpreadsheetCellSortDialogComponentContext context = this.context;
-        final SpreadsheetFlexLayout parent = this.columnOrRowComparatorNamesParent;
+        final FlexLayoutComponent parent = this.columnOrRowComparatorNamesParent;
         final List<IsElement<?>> children = parent.children();
 
         final SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent names;
@@ -554,7 +554,7 @@ public final class SpreadsheetCellSortDialogComponent implements SpreadsheetDial
     /**
      * Holds all the many {@link SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent}.
      */
-    private final SpreadsheetFlexLayout columnOrRowComparatorNamesParent;
+    private final FlexLayoutComponent columnOrRowComparatorNamesParent;
 
     // sort.............................................................................................................
 
