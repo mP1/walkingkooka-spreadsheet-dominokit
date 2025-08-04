@@ -22,7 +22,7 @@ import org.dominokit.domino.ui.datatable.CellTextAlign;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
-import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent;
+import walkingkooka.spreadsheet.dominokit.datatable.DataTableComponent;
 import walkingkooka.spreadsheet.dominokit.value.TableComponent;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSample;
 import walkingkooka.text.CharSequences;
@@ -48,8 +48,8 @@ public final class SpreadsheetFormatterTableComponent implements TableComponent<
     }
 
     private SpreadsheetFormatterTableComponent(final String id) {
-        this.cellRenderer = SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellRenderer.with(id);
-        this.dataTable = SpreadsheetDataTableComponent.with(
+        this.cellRenderer = SpreadsheetFormatterTableComponentDataTableComponentCellRenderer.with(id);
+        this.dataTable = DataTableComponent.with(
             id, // id
             columnConfigs(), // configs
             this.cellRenderer
@@ -121,7 +121,7 @@ public final class SpreadsheetFormatterTableComponent implements TableComponent<
         this.cellRenderer.context = Objects.requireNonNull(context, "context");
         this.dataTable.setValue(this.samples);
 
-        // manually show/hide depending on samples. Card will never be empty because SpreadsheetDataTableComponent is never empty
+        // manually show/hide depending on samples. Card will never be empty because DataTableComponent is never empty
         if (this.samples.isEmpty()) {
             this.card.hide();
         } else {
@@ -129,9 +129,9 @@ public final class SpreadsheetFormatterTableComponent implements TableComponent<
         }
     }
 
-    private final SpreadsheetDataTableComponent<SpreadsheetFormatterSample> dataTable;
+    private final DataTableComponent<SpreadsheetFormatterSample> dataTable;
 
-    private final SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellRenderer cellRenderer;
+    private final SpreadsheetFormatterTableComponentDataTableComponentCellRenderer cellRenderer;
 
     // IsElement........................................................................................................
 

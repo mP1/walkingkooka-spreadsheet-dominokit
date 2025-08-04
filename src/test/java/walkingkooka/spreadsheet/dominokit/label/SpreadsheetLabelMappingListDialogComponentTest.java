@@ -98,7 +98,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                 "      SpreadsheetDeltaLabelsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=labels-labels-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Label\n" +
@@ -149,7 +149,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                 "      SpreadsheetDeltaLabelsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=labels-labels-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Label\n" +
@@ -202,7 +202,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                 "      SpreadsheetDeltaLabelsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=labels-labels-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Label\n" +
@@ -274,7 +274,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                 "      SpreadsheetDeltaLabelsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=labels-labels-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Label\n" +
@@ -329,7 +329,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                 "      SpreadsheetDeltaLabelsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=labels-labels-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Label\n" +
@@ -402,7 +402,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                 "      SpreadsheetDeltaLabelsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=labels-labels-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Label\n" +
@@ -457,7 +457,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                 "      SpreadsheetDeltaLabelsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=labels-labels-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Label\n" +

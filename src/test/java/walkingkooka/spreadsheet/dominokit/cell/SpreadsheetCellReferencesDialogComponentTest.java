@@ -101,7 +101,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Dialo
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=cellReferences-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
@@ -144,7 +144,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Dialo
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=cellReferences-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
@@ -203,7 +203,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Dialo
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=cellReferences-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +

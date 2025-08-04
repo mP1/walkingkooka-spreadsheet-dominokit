@@ -90,7 +90,7 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
             "SpreadsheetDeltaLabelsTableComponent\n" +
                 "  CardComponent\n" +
                 "    Card\n" +
-                "      SpreadsheetDataTableComponent\n" +
+                "      DataTableComponent\n" +
                 "        id=ID123-labels-Table\n" +
                 "        COLUMN(S)\n" +
                 "          Label\n" +
@@ -118,7 +118,7 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
             "SpreadsheetDeltaLabelsTableComponent\n" +
                 "  CardComponent\n" +
                 "    Card\n" +
-                "      SpreadsheetDataTableComponent\n" +
+                "      DataTableComponent\n" +
                 "        id=ID123-labels-Table\n" +
                 "        COLUMN(S)\n" +
                 "          Label\n" +
@@ -169,7 +169,7 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
             "SpreadsheetDeltaLabelsTableComponent\n" +
                 "  CardComponent\n" +
                 "    Card\n" +
-                "      SpreadsheetDataTableComponent\n" +
+                "      DataTableComponent\n" +
                 "        id=ID123-labels-Table\n" +
                 "        COLUMN(S)\n" +
                 "          Label\n" +
@@ -224,7 +224,7 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
             "SpreadsheetDeltaLabelsTableComponent\n" +
                 "  CardComponent\n" +
                 "    Card\n" +
-                "      SpreadsheetDataTableComponent\n" +
+                "      DataTableComponent\n" +
                 "        id=ID123-labels-Table\n" +
                 "        COLUMN(S)\n" +
                 "          Label\n" +

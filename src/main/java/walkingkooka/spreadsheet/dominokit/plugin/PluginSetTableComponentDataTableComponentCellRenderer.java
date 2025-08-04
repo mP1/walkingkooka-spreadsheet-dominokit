@@ -21,7 +21,7 @@ import walkingkooka.plugin.PluginName;
 import walkingkooka.plugin.store.Plugin;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponentCellRenderer;
+import walkingkooka.spreadsheet.dominokit.datatable.DataTableComponentCellRenderer;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.text.TextComponent;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
@@ -33,18 +33,18 @@ import java.util.Optional;
 /**
  * Displays a table with columns from the {@link Plugin}.
  */
-final class PluginSetTableComponentSpreadsheetDataTableComponentCellRenderer implements SpreadsheetDataTableComponentCellRenderer<Plugin> {
+final class PluginSetTableComponentDataTableComponentCellRenderer implements DataTableComponentCellRenderer<Plugin> {
 
-    static PluginSetTableComponentSpreadsheetDataTableComponentCellRenderer with(final String id,
-                                                                                 final PluginSetTableComponentContext context) {
-        return new PluginSetTableComponentSpreadsheetDataTableComponentCellRenderer(
+    static PluginSetTableComponentDataTableComponentCellRenderer with(final String id,
+                                                                      final PluginSetTableComponentContext context) {
+        return new PluginSetTableComponentDataTableComponentCellRenderer(
             CharSequences.failIfNullOrEmpty(id, "id"),
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private PluginSetTableComponentSpreadsheetDataTableComponentCellRenderer(final String id,
-                                                                             final PluginSetTableComponentContext context) {
+    private PluginSetTableComponentDataTableComponentCellRenderer(final String id,
+                                                                  final PluginSetTableComponentContext context) {
         this.id = id;
         this.context = context;
     }

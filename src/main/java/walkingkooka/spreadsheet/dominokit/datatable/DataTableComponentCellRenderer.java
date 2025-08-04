@@ -20,9 +20,9 @@ package walkingkooka.spreadsheet.dominokit.datatable;
 import walkingkooka.spreadsheet.dominokit.Component;
 
 /**
- * Renders a single column for the given row for a {@link SpreadsheetDataTableComponent}.
+ * Renders a single column for the given row for a {@link DataTableComponent}.
  */
-public interface SpreadsheetDataTableComponentCellRenderer<T> {
+public interface DataTableComponentCellRenderer<T> {
 
     Component render(final int column,
                      final T row);

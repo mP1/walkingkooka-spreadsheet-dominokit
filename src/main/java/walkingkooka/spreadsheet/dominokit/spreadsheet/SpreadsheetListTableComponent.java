@@ -23,7 +23,7 @@ import org.dominokit.domino.ui.datatable.ColumnConfig;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
-import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent;
+import walkingkooka.spreadsheet.dominokit.datatable.DataTableComponent;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.TableComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -56,10 +56,10 @@ final class SpreadsheetListTableComponent implements TableComponent<HTMLDivEleme
                                           final SpreadsheetListDialogComponentContext context) {
         this.card = CardComponent.empty();
 
-        this.dataTable = SpreadsheetDataTableComponent.with(
+        this.dataTable = DataTableComponent.with(
             id,
             columnConfigs(),
-            SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer.with(
+            SpreadsheetListTableComponentDataTableComponentCellRenderer.with(
                 id,
                 context
             )
@@ -121,7 +121,7 @@ final class SpreadsheetListTableComponent implements TableComponent<HTMLDivEleme
             );
     }
 
-    private final SpreadsheetDataTableComponent<SpreadsheetMetadata> dataTable;
+    private final DataTableComponent<SpreadsheetMetadata> dataTable;
 
     @Override
     public SpreadsheetListTableComponent focus() {

@@ -88,7 +88,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
             "SpreadsheetDeltaCellsTableComponent\n" +
                 "  CardComponent\n" +
                 "    Card\n" +
-                "      SpreadsheetDataTableComponent\n" +
+                "      DataTableComponent\n" +
                 "        id=ID123-cells-Table\n" +
                 "        COLUMN(S)\n" +
                 "          Cell\n" +
@@ -129,7 +129,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
             "SpreadsheetDeltaCellsTableComponent\n" +
                 "  CardComponent\n" +
                 "    Card\n" +
-                "      SpreadsheetDataTableComponent\n" +
+                "      DataTableComponent\n" +
                 "        id=ID123-cells-Table\n" +
                 "        COLUMN(S)\n" +
                 "          Cell\n" +
@@ -195,7 +195,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
             "SpreadsheetDeltaCellsTableComponent\n" +
                 "  CardComponent\n" +
                 "    Card\n" +
-                "      SpreadsheetDataTableComponent\n" +
+                "      DataTableComponent\n" +
                 "        id=ID123-cells-Table\n" +
                 "        COLUMN(S)\n" +
                 "          Cell\n" +

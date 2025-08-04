@@ -99,7 +99,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=spreadsheetParserSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
@@ -179,7 +179,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=spreadsheetParserSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
@@ -291,7 +291,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=spreadsheetParserSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
@@ -422,7 +422,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=spreadsheetParserSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
@@ -574,7 +574,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=spreadsheetParserSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
@@ -677,7 +677,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=spreadsheetParserSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
@@ -799,7 +799,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=spreadsheetParserSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
@@ -940,7 +940,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=spreadsheetParserSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
@@ -1102,7 +1102,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=spreadsheetParserSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +

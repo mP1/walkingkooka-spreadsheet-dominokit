@@ -42,21 +42,21 @@ import java.util.Optional;
 /**
  * A {@link FormValueComponent} wrapper around a {@link DataTable}.
  */
-public final class SpreadsheetDataTableComponent<T> extends SpreadsheetDataTableComponentLike<T> {
+public final class DataTableComponent<T> extends DataTableComponentLike<T> {
 
-    public static <T> SpreadsheetDataTableComponent<T> with(final String id,
-                                                            final List<ColumnConfig<T>> columnConfigs,
-                                                            final SpreadsheetDataTableComponentCellRenderer<T> cellRenderer) {
-        return new SpreadsheetDataTableComponent<>(
+    public static <T> DataTableComponent<T> with(final String id,
+                                                 final List<ColumnConfig<T>> columnConfigs,
+                                                 final DataTableComponentCellRenderer<T> cellRenderer) {
+        return new DataTableComponent<>(
             id,
             columnConfigs,
             cellRenderer
         );
     }
 
-    private SpreadsheetDataTableComponent(final String id,
-                                          final List<ColumnConfig<T>> columnConfigs,
-                                          final SpreadsheetDataTableComponentCellRenderer<T> cellRenderer) {
+    private DataTableComponent(final String id,
+                               final List<ColumnConfig<T>> columnConfigs,
+                               final DataTableComponentCellRenderer<T> cellRenderer) {
         CharSequences.failIfNullOrEmpty(id, "id");
 
         this.id = id;
@@ -91,7 +91,7 @@ public final class SpreadsheetDataTableComponent<T> extends SpreadsheetDataTable
     }
 
     private TableConfig<T> tableConfig(final List<ColumnConfig<T>> columnConfigs,
-                                       final SpreadsheetDataTableComponentCellRenderer<T> cellRenderer) {
+                                       final DataTableComponentCellRenderer<T> cellRenderer) {
         final TableConfig<T> tableConfig = new TableConfig<>();
 
         int i = 0;
@@ -100,7 +100,7 @@ public final class SpreadsheetDataTableComponent<T> extends SpreadsheetDataTable
             tableConfig.addColumn(
                 // overwrite the original cellrenderer
                 columnConfig.setCellRenderer(
-                    SpreadsheetDataTableComponentDataTableCellRenderer.with(
+                    DataTableComponentDataTableCellRenderer.with(
                         i,
                         cellRenderer
                     )
@@ -123,7 +123,7 @@ public final class SpreadsheetDataTableComponent<T> extends SpreadsheetDataTable
     private final String id;
 
     @Override
-    public SpreadsheetDataTableComponent<T> setId(final String id) {
+    public DataTableComponent<T> setId(final String id) {
         throw new UnsupportedOperationException();
     }
 
@@ -135,7 +135,7 @@ public final class SpreadsheetDataTableComponent<T> extends SpreadsheetDataTable
     }
 
     @Override
-    public SpreadsheetDataTableComponent<T> setDisabled(final boolean disabled) {
+    public DataTableComponent<T> setDisabled(final boolean disabled) {
         this.table.setDisabled(disabled);
         return this;
     }
@@ -152,7 +152,7 @@ public final class SpreadsheetDataTableComponent<T> extends SpreadsheetDataTable
     }
 
     @Override
-    public SpreadsheetDataTableComponent<T> setValue(final Optional<List<T>> value) {
+    public DataTableComponent<T> setValue(final Optional<List<T>> value) {
         Objects.requireNonNull(value, "value");
 
         this.dataStore.setData(
@@ -169,7 +169,7 @@ public final class SpreadsheetDataTableComponent<T> extends SpreadsheetDataTable
     // setCssText.......................................................................................................
 
     @Override
-    public SpreadsheetDataTableComponent<T> setCssText(final String css) {
+    public DataTableComponent<T> setCssText(final String css) {
         this.table.cssText(css);
         return this;
     }
@@ -177,8 +177,8 @@ public final class SpreadsheetDataTableComponent<T> extends SpreadsheetDataTable
     // setCssProperty...................................................................................................
 
     @Override
-    public SpreadsheetDataTableComponent<T> setCssProperty(final String name,
-                                                           final String value) {
+    public DataTableComponent<T> setCssProperty(final String name,
+                                                final String value) {
         this.table.setCssProperty(
             name,
             value
@@ -189,14 +189,14 @@ public final class SpreadsheetDataTableComponent<T> extends SpreadsheetDataTable
     // ComponentWithChildren............................................................................................
 
     @Override
-    public SpreadsheetDataTableComponent<T> appendChild(final IsElement<?> child) {
+    public DataTableComponent<T> appendChild(final IsElement<?> child) {
         this.table.element()
             .appendChild(child.element());
         return this;
     }
 
     @Override
-    public SpreadsheetDataTableComponent<T> removeChild(final int index) {
+    public DataTableComponent<T> removeChild(final int index) {
         final IsElement<?> child = this.children.remove(index);
         this.table.element()
             .removeChild(child.element());
@@ -225,7 +225,7 @@ public final class SpreadsheetDataTableComponent<T> extends SpreadsheetDataTable
      * Creates and adds previous and next links. It is assumed the {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken}
      */
     @Override
-    public SpreadsheetDataTableComponent<T> previousNextLinks(final String idPrefix) {
+    public DataTableComponent<T> previousNextLinks(final String idPrefix) {
         Objects.requireNonNull(idPrefix, "idPrefix");
 
         this.previous = this.previous(idPrefix);
@@ -252,7 +252,7 @@ public final class SpreadsheetDataTableComponent<T> extends SpreadsheetDataTable
     // previous.........................................................................................................
 
     @Override
-    public SpreadsheetDataTableComponent<T> setPrevious(final Optional<HistoryToken> historyToken) {
+    public DataTableComponent<T> setPrevious(final Optional<HistoryToken> historyToken) {
         this.previous.setHistoryToken(historyToken);
         return this;
     }
@@ -262,7 +262,7 @@ public final class SpreadsheetDataTableComponent<T> extends SpreadsheetDataTable
     // next.............................................................................................................
 
     @Override
-    public SpreadsheetDataTableComponent<T> setNext(final Optional<HistoryToken> historyToken) {
+    public DataTableComponent<T> setNext(final Optional<HistoryToken> historyToken) {
         this.next.setHistoryToken(historyToken);
         return this;
     }
@@ -272,7 +272,7 @@ public final class SpreadsheetDataTableComponent<T> extends SpreadsheetDataTable
     // header...........................................................................................................
 
     @Override
-    public SpreadsheetDataTableComponent<T> hideHeaders() {
+    public DataTableComponent<T> hideHeaders() {
         this.table.headerElement()
             .hide();
         this.headersHidden = true;
@@ -284,9 +284,9 @@ public final class SpreadsheetDataTableComponent<T> extends SpreadsheetDataTable
     // plugins..........................................................................................................
 
     @Override
-    public SpreadsheetDataTableComponent<T> bodyScrollPlugin() {
+    public DataTableComponent<T> bodyScrollPlugin() {
         this.plugins.add(
-            SpreadsheetDataTableComponentLike.bodyScrollPluginText()
+            DataTableComponentLike.bodyScrollPluginText()
         );
         this.table.getTableConfig()
             .addPlugin(
@@ -296,10 +296,10 @@ public final class SpreadsheetDataTableComponent<T> extends SpreadsheetDataTable
     }
 
     @Override
-    public SpreadsheetDataTableComponent<T> emptyStatePlugin(final Icon<?> icon,
-                                                             final String title) {
+    public DataTableComponent<T> emptyStatePlugin(final Icon<?> icon,
+                                                  final String title) {
         this.plugins.add(
-            SpreadsheetDataTableComponentLike.emptyStatePluginText(
+            DataTableComponentLike.emptyStatePluginText(
                 icon,
                 title
             )
@@ -330,5 +330,5 @@ public final class SpreadsheetDataTableComponent<T> extends SpreadsheetDataTable
         );
     }
 
-    private final SpreadsheetDataTableComponentCellRenderer<T> cellRenderer;
+    private final DataTableComponentCellRenderer<T> cellRenderer;
 }

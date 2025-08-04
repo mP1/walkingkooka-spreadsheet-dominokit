@@ -53,7 +53,7 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
             "SpreadsheetListTableComponent\n" +
                 "  CardComponent\n" +
                 "    Card\n" +
-                "      SpreadsheetDataTableComponent\n" +
+                "      DataTableComponent\n" +
                 "        id=Table123-Table\n" +
                 "        COLUMN(S)\n" +
                 "          Name\n" +
@@ -91,7 +91,7 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
             "SpreadsheetListTableComponent\n" +
                 "  CardComponent\n" +
                 "    Card\n" +
-                "      SpreadsheetDataTableComponent\n" +
+                "      DataTableComponent\n" +
                 "        id=Table123-Table\n" +
                 "        COLUMN(S)\n" +
                 "          Name\n" +
@@ -172,7 +172,7 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
             "SpreadsheetListTableComponent\n" +
                 "  CardComponent\n" +
                 "    Card\n" +
-                "      SpreadsheetDataTableComponent\n" +
+                "      DataTableComponent\n" +
                 "        id=Table123-Table\n" +
                 "        COLUMN(S)\n" +
                 "          Name\n" +
@@ -253,7 +253,7 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
             "SpreadsheetListTableComponent\n" +
                 "  CardComponent\n" +
                 "    Card\n" +
-                "      SpreadsheetDataTableComponent\n" +
+                "      DataTableComponent\n" +
                 "        id=Table123-Table\n" +
                 "        COLUMN(S)\n" +
                 "          Name\n" +

@@ -106,7 +106,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=spreadsheetFormatterSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
@@ -193,7 +193,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=spreadsheetFormatterSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
@@ -312,7 +312,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=spreadsheetFormatterSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
@@ -450,7 +450,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=spreadsheetFormatterSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
@@ -609,7 +609,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=spreadsheetFormatterSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
@@ -694,7 +694,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=spreadsheetFormatterSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
@@ -806,7 +806,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=spreadsheetFormatterSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
@@ -937,7 +937,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=spreadsheetFormatterSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
@@ -1087,7 +1087,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=spreadsheetFormatterSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
@@ -1258,7 +1258,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=spreadsheetFormatterSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
@@ -1355,7 +1355,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
-                "            SpreadsheetDataTableComponent\n" +
+                "            DataTableComponent\n" +
                 "              id=spreadsheetFormatterSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +

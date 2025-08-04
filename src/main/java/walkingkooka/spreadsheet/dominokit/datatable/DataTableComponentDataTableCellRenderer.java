@@ -24,18 +24,18 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 /**
  * A {@link CellRenderer} that acts as a bridge to a function which returns a {@link HtmlComponent}.
  */
-final class SpreadsheetDataTableComponentDataTableCellRenderer<T> implements CellRenderer<T> {
+final class DataTableComponentDataTableCellRenderer<T> implements CellRenderer<T> {
 
-    static <T> SpreadsheetDataTableComponentDataTableCellRenderer<T> with(final int columnNumber,
-                                                                          final SpreadsheetDataTableComponentCellRenderer<T> cellRenderer) {
-        return new SpreadsheetDataTableComponentDataTableCellRenderer<>(
+    static <T> DataTableComponentDataTableCellRenderer<T> with(final int columnNumber,
+                                                               final DataTableComponentCellRenderer<T> cellRenderer) {
+        return new DataTableComponentDataTableCellRenderer<>(
             columnNumber,
             cellRenderer
         );
     }
 
-    private SpreadsheetDataTableComponentDataTableCellRenderer(final int columnNumber,
-                                                               final SpreadsheetDataTableComponentCellRenderer<T> cellRenderer) {
+    private DataTableComponentDataTableCellRenderer(final int columnNumber,
+                                                    final DataTableComponentCellRenderer<T> cellRenderer) {
         this.columnNumber = columnNumber;
         this.cellRenderer = cellRenderer;
     }
@@ -53,7 +53,7 @@ final class SpreadsheetDataTableComponentDataTableCellRenderer<T> implements Cel
     /**
      * Provides the source {@link HtmlComponent} which will appear in the requested column.
      */
-    private final SpreadsheetDataTableComponentCellRenderer<T> cellRenderer;
+    private final DataTableComponentCellRenderer<T> cellRenderer;
 
     // Object...........................................................................................................
 
