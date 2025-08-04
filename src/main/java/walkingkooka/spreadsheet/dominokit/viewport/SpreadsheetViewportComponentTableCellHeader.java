@@ -21,8 +21,8 @@ import elemental2.dom.HTMLTableCellElement;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
-import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetElementComponent;
-import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetThComponent;
+import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.dom.ThComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -53,7 +53,7 @@ abstract class SpreadsheetViewportComponentTableCellHeader<S extends Spreadsheet
             .setTextContent(text);
         this.anchor = anchor;
 
-        this.th = SpreadsheetElementComponent.th()
+        this.th = HtmlElementComponent.th()
             .setId(id)
             .setCssText(css)
             .appendChild(anchor);
@@ -131,10 +131,10 @@ abstract class SpreadsheetViewportComponentTableCellHeader<S extends Spreadsheet
      */
     Boolean extended;
 
-    // SpreadsheetElementComponentDelegator.............................................................................
+    // HtmlElementComponentDelegator.............................................................................
 
     @Override
-    public SpreadsheetElementComponent<HTMLTableCellElement, ?> spreadsheetElementComponent() {
+    public HtmlElementComponent<HTMLTableCellElement, ?> htmlElementComponent() {
         return this.th;
     }
 
@@ -145,7 +145,7 @@ abstract class SpreadsheetViewportComponentTableCellHeader<S extends Spreadsheet
         return this.th.element();
     }
 
-    private final SpreadsheetThComponent th;
+    private final ThComponent th;
 
     // Object...........................................................................................................
 

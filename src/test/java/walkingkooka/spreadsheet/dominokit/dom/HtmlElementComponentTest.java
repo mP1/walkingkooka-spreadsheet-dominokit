@@ -40,7 +40,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetElementComponentTest implements ClassTesting<SpreadsheetElementComponent<?, ?>>,
+public final class HtmlElementComponentTest implements ClassTesting<HtmlElementComponent<?, ?>>,
     TreePrintableTesting {
 
     // setId............................................................................................................
@@ -49,7 +49,7 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
     public void testSetIdWithNullFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetElementComponent.div()
+            () -> HtmlElementComponent.div()
                 .setId(null)
         );
     }
@@ -58,7 +58,7 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
     public void testSetIdWithEmptyFails() {
         assertThrows(
             IllegalArgumentException.class,
-            () -> SpreadsheetElementComponent.div()
+            () -> HtmlElementComponent.div()
                 .setId("")
         );
     }
@@ -69,7 +69,7 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
 
         this.checkEquals(
             id,
-            SpreadsheetElementComponent.div()
+            HtmlElementComponent.div()
                 .setId(id)
                 .id()
         );
@@ -81,7 +81,7 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
     public void testSetCssPropertyWithNullNameFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetElementComponent.div()
+            () -> HtmlElementComponent.div()
                 .setCssProperty(
                     null,
                     "123"
@@ -93,7 +93,7 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
     public void testSetCssPropertyWithEmptyNameFails() {
         assertThrows(
             IllegalArgumentException.class,
-            () -> SpreadsheetElementComponent.div()
+            () -> HtmlElementComponent.div()
                 .setCssProperty(
                     "",
                     "123"
@@ -105,7 +105,7 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
     public void testSetCssPropertyWithNullValueFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetElementComponent.div()
+            () -> HtmlElementComponent.div()
                 .setCssProperty(
                     "color",
                     null
@@ -119,7 +119,7 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
     public void testSetCssTextWithNullFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetElementComponent.div()
+            () -> HtmlElementComponent.div()
                 .setCssText(null)
         );
     }
@@ -130,7 +130,7 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
     public void testAppendCssClassesWithNullFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetElementComponent.div()
+            () -> HtmlElementComponent.div()
                 .addCssClasses(null)
         );
     }
@@ -141,7 +141,7 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
     public void testRemoveCssClassesWithNullFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetElementComponent.div()
+            () -> HtmlElementComponent.div()
                 .addCssClasses(null)
         );
     }
@@ -152,7 +152,7 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
     public void testAppendChildTextNodeWithNullFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetElementComponent.div()
+            () -> HtmlElementComponent.div()
                 .appendChild(
                     (TextNode)null
                 )
@@ -163,7 +163,7 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
     public void testAppendChildNodeWithNullFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetElementComponent.div()
+            () -> HtmlElementComponent.div()
                 .appendChild(
                     (Node)null
                 )
@@ -174,7 +174,7 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
     public void testAppendChildNodeWithIsElementFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetElementComponent.div()
+            () -> HtmlElementComponent.div()
                 .appendChild(
                     (IsElement<?>) null
                 )
@@ -187,7 +187,7 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
     public void testAppendTextWithNullFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetElementComponent.div()
+            () -> HtmlElementComponent.div()
                 .appendText(null)
         );
     }
@@ -198,7 +198,7 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
     public void testRemoveChildNodeWithNullFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetElementComponent.div()
+            () -> HtmlElementComponent.div()
                 .removeChild(
                     (Node)null
                 )
@@ -209,7 +209,7 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
     public void testRemoveChildNodeWithIsElementFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetElementComponent.div()
+            () -> HtmlElementComponent.div()
                 .removeChild(
                     (IsElement<?>) null
                 )
@@ -227,7 +227,7 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
         );
 
         this.treePrintAndCheck(
-            SpreadsheetElementComponent.div()
+            HtmlElementComponent.div()
                 .setId("divId123")
                 .setCssProperty(
                     "color",
@@ -246,7 +246,7 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
     @Test
     public void testTableWithCssTextWithTrailingSemiColon() {
         this.treePrintAndCheck(
-            SpreadsheetElementComponent.table()
+            HtmlElementComponent.table()
                 .setId("tableId123")
                 .setCssText("color: black;")
             ,
@@ -259,7 +259,7 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
     @Test
     public void testCssClasses() {
         this.treePrintAndCheck(
-            SpreadsheetElementComponent.div()
+            HtmlElementComponent.div()
                 .setId("divId123")
                 .addCssClasses(
                     SpacingCss.dui_flex_col,
@@ -274,7 +274,7 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
     @Test
     public void testTreePrintAfterAppendText() {
         this.treePrintAndCheck(
-            SpreadsheetElementComponent.div()
+            HtmlElementComponent.div()
                 .appendText("Hello")
             ,
             "DIV\n" +
@@ -285,12 +285,12 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
     @Test
     public void testTable() {
         this.treePrintAndCheck(
-            SpreadsheetElementComponent.table()
+            HtmlElementComponent.table()
                 .setId("tableId123")
                 .appendChild(
-                    SpreadsheetElementComponent.thead()
+                    HtmlElementComponent.thead()
                         .appendChild(
-                            SpreadsheetElementComponent.th()
+                            HtmlElementComponent.th()
                                 .setId("th111")
                                 .setColor("green")
                                 .setCssText("background-color: white; color: black")
@@ -301,14 +301,14 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
                                     )
                                 )
                         ).appendChild(
-                            SpreadsheetElementComponent.th()
+                            HtmlElementComponent.th()
                                 .appendChild(
                                     SpreadsheetTextComponent.with(
                                         Optional.of("B")
                                     )
                                 )
                         ).appendChild(
-                            SpreadsheetElementComponent.th()
+                            HtmlElementComponent.th()
                                 .appendChild(
                                     SpreadsheetTextComponent.with(
                                         Optional.of("C")
@@ -316,23 +316,23 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
                                 )
                         )
                 ).appendChild(
-                    SpreadsheetElementComponent.tr()
+                    HtmlElementComponent.tr()
                         .appendChild(
-                            SpreadsheetElementComponent.td()
+                            HtmlElementComponent.td()
                                 .appendChild(
                                     SpreadsheetTextComponent.with(
                                         Optional.of("A1")
                                     )
                                 )
                         ).appendChild(
-                            SpreadsheetElementComponent.td()
+                            HtmlElementComponent.td()
                                 .appendChild(
                                     SpreadsheetTextComponent.with(
                                         Optional.of("B1")
                                     )
                                 )
                         ).appendChild(
-                            SpreadsheetElementComponent.td()
+                            HtmlElementComponent.td()
                                 .appendChild(
                                     SpreadsheetTextComponent.with(
                                         Optional.of("C1")
@@ -340,23 +340,23 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
                                 )
                         )
                 ).appendChild(
-                    SpreadsheetElementComponent.tr()
+                    HtmlElementComponent.tr()
                         .appendChild(
-                            SpreadsheetElementComponent.td()
+                            HtmlElementComponent.td()
                                 .appendChild(
                                     SpreadsheetTextComponent.with(
                                         Optional.of("A2")
                                     )
                                 )
                         ).appendChild(
-                            SpreadsheetElementComponent.td()
+                            HtmlElementComponent.td()
                                 .appendChild(
                                     SpreadsheetTextComponent.with(
                                         Optional.of("B2")
                                     )
                                 )
                         ).appendChild(
-                            SpreadsheetElementComponent.td()
+                            HtmlElementComponent.td()
                                 .appendChild(
                                     SpreadsheetTextComponent.with(
                                         Optional.of("C2")
@@ -364,23 +364,23 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
                                 )
                         )
                 ).appendChild(
-                    SpreadsheetElementComponent.tbody()
+                    HtmlElementComponent.tbody()
                         .appendChild(
-                            SpreadsheetElementComponent.td()
+                            HtmlElementComponent.td()
                                 .appendChild(
                                     SpreadsheetTextComponent.with(
                                         Optional.of("Footer A")
                                     )
                                 )
                         ).appendChild(
-                            SpreadsheetElementComponent.td()
+                            HtmlElementComponent.td()
                                 .appendChild(
                                     SpreadsheetTextComponent.with(
                                         Optional.of("Footer B")
                                     )
                                 )
                         ).appendChild(
-                            SpreadsheetElementComponent.td()
+                            HtmlElementComponent.td()
                                 .appendChild(
                                     SpreadsheetTextComponent.with(
                                         Optional.of("Footer C")
@@ -438,7 +438,7 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
 
     @Test
     public void testPrintTreeChildren() {
-        final SpreadsheetDivComponent component = SpreadsheetElementComponent.div();
+        final DivComponent component = HtmlElementComponent.div();
         component.appendChild(
             HistoryTokenAnchorComponent.empty()
                 .setTextContent("Hello111")
@@ -467,7 +467,7 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
 
     @Test
     public void testPrintTreeChildrenSkipEmpty() {
-        final SpreadsheetDivComponent component = SpreadsheetElementComponent.div();
+        final DivComponent component = HtmlElementComponent.div();
         component.appendChild(
             HistoryTokenAnchorComponent.empty()
                 .setTextContent("Hello111")
@@ -499,8 +499,8 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetElementComponent<?, ?>> type() {
-        return Cast.to(SpreadsheetElementComponent.class);
+    public Class<HtmlElementComponent<?, ?>> type() {
+        return Cast.to(HtmlElementComponent.class);
     }
 
     @Override

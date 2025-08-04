@@ -26,10 +26,10 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
-import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetElementComponent;
-import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetTBodyComponent;
-import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetTHeadComponent;
-import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetTableComponent;
+import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.dom.TBodyComponent;
+import walkingkooka.spreadsheet.dominokit.dom.THeadComponent;
+import walkingkooka.spreadsheet.dominokit.dom.TableComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -52,16 +52,16 @@ final class SpreadsheetViewportComponentTable implements HtmlComponent<HTMLTable
     private SpreadsheetViewportComponentTable(final SpreadsheetViewportComponentTableContext context) {
         this.context = context;
 
-        final SpreadsheetTableComponent table = SpreadsheetElementComponent.table()
+        final TableComponent table = HtmlElementComponent.table()
             .setId(SpreadsheetViewportComponent.ID)
             .setOverflow("hidden");
         this.columnHeaders = SpreadsheetViewportComponentTableRowColumnHeaders.empty(context);
 
-        final SpreadsheetTHeadComponent thead = SpreadsheetElementComponent.thead();
+        final THeadComponent thead = HtmlElementComponent.thead();
         thead.appendChild(this.columnHeaders);
         table.appendChild(thead);
 
-        final SpreadsheetTBodyComponent tbody = SpreadsheetElementComponent.tbody();
+        final TBodyComponent tbody = HtmlElementComponent.tbody();
         table.appendChild(tbody);
 
         this.table = table;
@@ -108,7 +108,7 @@ final class SpreadsheetViewportComponentTable implements HtmlComponent<HTMLTable
             this.rows = rows;
 
             // rows changed, create new rows
-            final SpreadsheetTBodyComponent tbody = this.tbody;
+            final TBodyComponent tbody = this.tbody;
             tbody.clear();
 
             this.columnHeaders.refresh(
@@ -248,9 +248,9 @@ final class SpreadsheetViewportComponentTable implements HtmlComponent<HTMLTable
         this.table.printTree(printer);
     }
 
-    private final SpreadsheetTableComponent table;
+    private final TableComponent table;
 
-    private final SpreadsheetTBodyComponent tbody;
+    private final TBodyComponent tbody;
 
     private final SpreadsheetViewportComponentTableContext context;
 }

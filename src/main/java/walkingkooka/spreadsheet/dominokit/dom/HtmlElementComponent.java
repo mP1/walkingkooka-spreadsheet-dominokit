@@ -33,37 +33,37 @@ import walkingkooka.tree.text.TextNode;
 /**
  * Base class for an element {@link HtmlComponent}
  */
-public abstract class SpreadsheetElementComponent<E extends HTMLElement, C extends SpreadsheetElementComponent<E, C>> extends SpreadsheetElementComponentLike<E, C> {
+public abstract class HtmlElementComponent<E extends HTMLElement, C extends HtmlElementComponent<E, C>> extends HtmlElementComponentLike<E, C> {
 
-    public static SpreadsheetDivComponent div() {
-        return new SpreadsheetDivComponent();
+    public static DivComponent div() {
+        return new DivComponent();
     }
 
-    public static SpreadsheetTableComponent table() {
-        return new SpreadsheetTableComponent();
+    public static TableComponent table() {
+        return new TableComponent();
     }
 
-    public static SpreadsheetTBodyComponent tbody() {
-        return new SpreadsheetTBodyComponent();
+    public static TBodyComponent tbody() {
+        return new TBodyComponent();
     }
 
-    public static SpreadsheetTdComponent td() {
-        return new SpreadsheetTdComponent();
+    public static TdComponent td() {
+        return new TdComponent();
     }
 
-    public static SpreadsheetThComponent th() {
-        return new SpreadsheetThComponent();
+    public static ThComponent th() {
+        return new ThComponent();
     }
 
-    public static SpreadsheetTHeadComponent thead() {
-        return new SpreadsheetTHeadComponent();
+    public static THeadComponent thead() {
+        return new THeadComponent();
     }
 
-    public static SpreadsheetTrComponent tr() {
-        return new SpreadsheetTrComponent();
+    public static TrComponent tr() {
+        return new TrComponent();
     }
 
-    SpreadsheetElementComponent(final String tag) {
+    HtmlElementComponent(final String tag) {
         this(
             Js.<E>cast(
                 DomGlobal.document.createElement(tag)
@@ -71,7 +71,7 @@ public abstract class SpreadsheetElementComponent<E extends HTMLElement, C exten
         );
     }
 
-    SpreadsheetElementComponent(final E element) {
+    HtmlElementComponent(final E element) {
         super();
 
         this.element = element;

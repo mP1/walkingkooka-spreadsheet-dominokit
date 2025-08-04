@@ -24,7 +24,7 @@ import org.dominokit.domino.ui.style.SpacingCss;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.ComponentWithChildren;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
-import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetDivComponent;
+import walkingkooka.spreadsheet.dominokit.dom.DivComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 
@@ -200,5 +200,5 @@ public class SpreadsheetFlexLayout implements HtmlComponent<HTMLDivElement, Spre
         printer.outdent();
     }
 
-    private final SpreadsheetDivComponent div = SpreadsheetDivComponent.div();
+    private final DivComponent div = DivComponent.div();
 }

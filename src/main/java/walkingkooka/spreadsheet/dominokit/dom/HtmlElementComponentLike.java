@@ -30,9 +30,9 @@ import walkingkooka.tree.text.TextNode;
 /**
  * Base class for an element {@link HtmlComponent}
  */
-abstract class SpreadsheetElementComponentLike<E extends HTMLElement, C extends SpreadsheetElementComponentLike<E, C>> implements HtmlComponent<E, C> {
+abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlElementComponentLike<E, C>> implements HtmlComponent<E, C> {
 
-    SpreadsheetElementComponentLike() {
+    HtmlElementComponentLike() {
         super();
     }
 
