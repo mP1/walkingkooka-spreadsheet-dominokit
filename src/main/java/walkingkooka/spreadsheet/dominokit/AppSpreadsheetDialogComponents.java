@@ -30,7 +30,7 @@ import walkingkooka.spreadsheet.dominokit.convert.ConverterSelectorDialogCompone
 import walkingkooka.spreadsheet.dominokit.convert.ConverterSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.datetime.DateComponent;
 import walkingkooka.spreadsheet.dominokit.datetime.DateTimeComponent;
-import walkingkooka.spreadsheet.dominokit.datetime.SpreadsheetTimeComponent;
+import walkingkooka.spreadsheet.dominokit.datetime.TimeComponent;
 import walkingkooka.spreadsheet.dominokit.datetimesymbols.DateTimeSymbolsDialogComponent;
 import walkingkooka.spreadsheet.dominokit.datetimesymbols.DateTimeSymbolsDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.decimalnumbersymbols.DecimalNumberSymbolsDialogComponent;
@@ -178,7 +178,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
             );
 
             SpreadsheetCellValueDialogComponent.with(
-                SpreadsheetTimeComponent.empty(
+                TimeComponent.empty(
                     timeContext.id(),
                     context.now()::toLocalTime // HasNow
                 ),

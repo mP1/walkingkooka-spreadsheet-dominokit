@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.datetime.DateComponent;
 import walkingkooka.spreadsheet.dominokit.datetime.DateTimeComponent;
-import walkingkooka.spreadsheet.dominokit.datetime.SpreadsheetTimeComponent;
+import walkingkooka.spreadsheet.dominokit.datetime.TimeComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatchers;
@@ -338,7 +338,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
         final AppContext context = this.appContext(historyToken);
 
         final SpreadsheetCellValueDialogComponent<LocalTime> dialog = SpreadsheetCellValueDialogComponent.with(
-            SpreadsheetTimeComponent.empty(
+            TimeComponent.empty(
                 "TestTime123",
                 () -> LocalTime.MIN
             ),
@@ -361,7 +361,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "  DialogComponent\n" +
                 "    HelloDialogTitle\n" +
                 "    id=Test123-Dialog includeClose=true\n" +
-                "      SpreadsheetTimeComponent\n" +
+                "      TimeComponent\n" +
                 "        [12:58:59] id=TestTime123\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +

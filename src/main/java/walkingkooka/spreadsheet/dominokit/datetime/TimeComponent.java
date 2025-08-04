@@ -31,18 +31,18 @@ import java.util.function.Supplier;
  * A time picker that displays a timePicker that supports picking {@link LocalTime}.
  * A {@link Supplier} is required to supply a NOW time when an {@link Optional#empty()} is given to {@link #setValue(Optional)}.
  */
-public final class SpreadsheetTimeComponent extends SpreadsheetPickerComponent<LocalTime, SpreadsheetTimeComponent> {
+public final class TimeComponent extends SpreadsheetPickerComponent<LocalTime, TimeComponent> {
 
-    public static SpreadsheetTimeComponent empty(final String id,
-                                                 final Supplier<LocalTime> clearValue) {
-        return new SpreadsheetTimeComponent(
+    public static TimeComponent empty(final String id,
+                                      final Supplier<LocalTime> clearValue) {
+        return new TimeComponent(
             id,
             clearValue
         );
     }
 
-    private SpreadsheetTimeComponent(final String id,
-                                     final Supplier<LocalTime> clearValue) {
+    private TimeComponent(final String id,
+                          final Supplier<LocalTime> clearValue) {
         super(clearValue);
         this.timePicker = TimePicker.create(); // TODO Add support allowing user to pick locale/DateTimeSymbols/DecimalNumberSymbols ?
         this.bodyElement.insertFirst(this.timePicker.element());
@@ -57,7 +57,7 @@ public final class SpreadsheetTimeComponent extends SpreadsheetPickerComponent<L
     }
 
     @Override
-    public SpreadsheetTimeComponent setValue(final Optional<LocalTime> value) {
+    public TimeComponent setValue(final Optional<LocalTime> value) {
         Objects.requireNonNull(value, "value");
 
         this.timePicker.setDate(
@@ -72,14 +72,14 @@ public final class SpreadsheetTimeComponent extends SpreadsheetPickerComponent<L
     }
 
     @Override
-    public SpreadsheetTimeComponent setCssText(final String css) {
+    public TimeComponent setCssText(final String css) {
         this.timePicker.cssText(css);
         return this;
     }
 
     @Override
-    public SpreadsheetTimeComponent setCssProperty(final String name,
-                                                   final String value) {
+    public TimeComponent setCssProperty(final String name,
+                                        final String value) {
         this.timePicker.setCssProperty(
             name,
             value
@@ -90,7 +90,7 @@ public final class SpreadsheetTimeComponent extends SpreadsheetPickerComponent<L
     // events...........................................................................................................
 
     @Override
-    public SpreadsheetTimeComponent addChangeListener(final ChangeListener<Optional<LocalTime>> listener) {
+    public TimeComponent addChangeListener(final ChangeListener<Optional<LocalTime>> listener) {
         Objects.requireNonNull(listener, "listener");
 
         this.timePicker.addTimeSelectionListener(
@@ -105,13 +105,13 @@ public final class SpreadsheetTimeComponent extends SpreadsheetPickerComponent<L
     }
 
     @Override
-    public SpreadsheetTimeComponent addClickListener(final EventListener listener) {
+    public TimeComponent addClickListener(final EventListener listener) {
         this.timePicker.addClickListener(listener);
         return this;
     }
 
     @Override
-    public SpreadsheetTimeComponent focus() {
+    public TimeComponent focus() {
         // NOP
         return this;
     }
