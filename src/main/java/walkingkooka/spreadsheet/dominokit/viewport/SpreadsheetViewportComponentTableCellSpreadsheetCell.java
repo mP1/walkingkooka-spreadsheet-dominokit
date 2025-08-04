@@ -27,8 +27,8 @@ import walkingkooka.spreadsheet.SpreadsheetError;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
-import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetElementComponent;
-import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetTdComponent;
+import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.dom.TdComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.expression.ExpressionNumber;
@@ -61,7 +61,7 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
 
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
-        this.td = SpreadsheetElementComponent.td()
+        this.td = HtmlElementComponent.td()
             .setId(
                 SpreadsheetViewportComponent.id(cellReference)
             ).setTabIndex(0)
@@ -127,7 +127,7 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
             this.selected = isSelected;
             this.hideZeroValues = hideZeroValues;
 
-            final SpreadsheetTdComponent td = this.td;
+            final TdComponent td = this.td;
             td.clear();
 
             TextStyle style = context.defaultCellStyle();
@@ -231,10 +231,10 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
 
     private Tooltip tooltip;
 
-    // SpreadsheetElementComponentDelegator.............................................................................
+    // HtmlElementComponentDelegator.............................................................................
 
     @Override
-    public SpreadsheetElementComponent<HTMLTableCellElement, ?> spreadsheetElementComponent() {
+    public HtmlElementComponent<HTMLTableCellElement, ?> htmlElementComponent() {
         return this.td;
     }
 
@@ -245,5 +245,5 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
         return this.td.element();
     }
 
-    private final SpreadsheetTdComponent td;
+    private final TdComponent td;
 }

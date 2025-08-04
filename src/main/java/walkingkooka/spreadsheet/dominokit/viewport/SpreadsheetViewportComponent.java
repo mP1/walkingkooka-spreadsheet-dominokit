@@ -46,10 +46,10 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellLinksComponent;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuTargets;
+import walkingkooka.spreadsheet.dominokit.dom.DivComponent;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
+import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
-import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetDivComponent;
-import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetElementComponent;
 import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopSpreadsheetFormatterInfoSetFetcherWatcher;
@@ -225,8 +225,8 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
 
     // root.............................................................................................................
 
-    private SpreadsheetDivComponent root() {
-        final SpreadsheetDivComponent root = SpreadsheetDivComponent.div();
+    private DivComponent root() {
+        final DivComponent root = DivComponent.div();
 
         // overflow:hidden required to prevent scrollbars...
         root.setCssText("width:100%; border: none; margin: 0px; padding: none; overflow: hidden");
@@ -237,7 +237,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
         // rather than
         // link1 badge1  link2 badge2 link3
         root.appendChild(
-            SpreadsheetElementComponent.div()
+            HtmlElementComponent.div()
                 .setCssText("position: relative;")
                 .appendChild(this.formula)
                 .appendChild(this.formulaCellLinks.setCssText("position:absolute; bottom: 0px; right: 15px; height: fit-content; display:flex;"))
@@ -268,7 +268,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
     /**
      * The root or container that holds the {@link SpreadsheetViewportFormulaComponent} and {@link #table}.
      */
-    private final SpreadsheetDivComponent root;
+    private final DivComponent root;
 
     private void onMouseEvent(final MouseEvent event) {
         this.setShiftKeyDown(event.shiftKey);
@@ -392,8 +392,8 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
 
     // table container..................................................................................................
 
-    private SpreadsheetDivComponent tableContainer() {
-        final SpreadsheetDivComponent container = SpreadsheetElementComponent.div();
+    private DivComponent tableContainer() {
+        final DivComponent container = HtmlElementComponent.div();
         container.setCssText("position: relative; top: 0; left 0px; border: none; margin: 0px; padding: none; width:100%;");
         container.appendChild(this.table);
 
@@ -408,7 +408,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
         return container;
     }
 
-    private final SpreadsheetDivComponent tableContainer;
+    private final DivComponent tableContainer;
 
     // table............................................................................................................
 
@@ -688,7 +688,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
 
     // horizontal-scrollbar..............................................................................................
 
-    private SpreadsheetDivComponent horizontalScrollbar() {
+    private DivComponent horizontalScrollbar() {
         return this.scrollbar(
             "h-scrollbar",
             "left: 0px; bottom: 0px; width: calc(100% - " + (SCROLLBAR_LENGTH + BUTTON_LENGTH * 2 - 5) + "px);height:" + SCROLLBAR_LENGTH + "px; flex-flow: row; border-radius: 0 10px 10px 0;",
@@ -697,9 +697,9 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
         );
     }
 
-    private final SpreadsheetDivComponent horizontalScrollbar;
+    private final DivComponent horizontalScrollbar;
 
-    private SpreadsheetDivComponent verticalScrollbar() {
+    private DivComponent verticalScrollbar() {
         return this.scrollbar(
             "v-scrollbar",
             "top: 0px; right: 0px; height: calc(100% - " + (SCROLLBAR_LENGTH + BUTTON_LENGTH * 2 - 5) + "px); width: " + SCROLLBAR_LENGTH + "px; flex-flow: column; border-radius: 0 0 10px 10px;",
@@ -708,13 +708,13 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
         );
     }
 
-    private final SpreadsheetDivComponent verticalScrollbar;
+    private final DivComponent verticalScrollbar;
 
-    private SpreadsheetDivComponent scrollbar(final String idSuffix,
-                                              final String cssText,
-                                              final SpreadsheetDivComponent thumb,
-                                              final Consumer<MouseEvent> click) {
-        final SpreadsheetDivComponent scrollbar = SpreadsheetElementComponent.div();
+    private DivComponent scrollbar(final String idSuffix,
+                                   final String cssText,
+                                   final DivComponent thumb,
+                                   final Consumer<MouseEvent> click) {
+        final DivComponent scrollbar = HtmlElementComponent.div();
 
         scrollbar.setId(ID_PREFIX + idSuffix);
         scrollbar.setCssText("position: absolute; display: flex;" + cssText + "border-width: 2px;border-color: black;border-style: solid;padding: 2px;background-color: #aaa;");
@@ -765,7 +765,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
         );
     }
 
-    private SpreadsheetDivComponent horizontalScrollbarThumb() {
+    private DivComponent horizontalScrollbarThumb() {
         return scrollbarThumb(
             "h-scrollbar-thumb",
             "0%",
@@ -773,9 +773,9 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
         );
     }
 
-    private final SpreadsheetDivComponent horizontalScrollbarThumb;
+    private final DivComponent horizontalScrollbarThumb;
 
-    private SpreadsheetDivComponent verticalScrollbarThumb() {
+    private DivComponent verticalScrollbarThumb() {
         return scrollbarThumb(
             "v-scrollbar-thumb",
             "90%",
@@ -783,12 +783,12 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
         );
     }
 
-    private final SpreadsheetDivComponent verticalScrollbarThumb;
+    private final DivComponent verticalScrollbarThumb;
 
-    private SpreadsheetDivComponent scrollbarThumb(final String idSuffix,
-                                                   final String width,
-                                                   final String height) {
-        final SpreadsheetDivComponent thumb = SpreadsheetElementComponent.div();
+    private DivComponent scrollbarThumb(final String idSuffix,
+                                        final String width,
+                                        final String height) {
+        final DivComponent thumb = HtmlElementComponent.div();
         thumb.setId(ID_PREFIX + idSuffix);
         thumb.setCssText("position: absolute; width:" + width + "; height: " + height + "; box-sizing: border-box; border-color: black; border-style: solid; border-width: 1px; background-color: #fff; border-radius: " + (SCROLLBAR_LENGTH / 3) + "px");
         return thumb;
@@ -864,8 +864,8 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
         final OptionalInt maybeColumnCount = cache.columnCount();
         final OptionalInt maybeRowCount = cache.rowCount();
 
-        final SpreadsheetDivComponent horizontalScrollbarThumb = this.horizontalScrollbarThumb;
-        final SpreadsheetDivComponent verticalScrollbarThumb = this.verticalScrollbarThumb;
+        final DivComponent horizontalScrollbarThumb = this.horizontalScrollbarThumb;
+        final DivComponent verticalScrollbarThumb = this.verticalScrollbarThumb;
 
         if (maybeLast.isPresent() && maybeColumnCount.isPresent() && maybeRowCount.isPresent()) {
             final SpreadsheetCellRangeReference last = maybeLast.get();

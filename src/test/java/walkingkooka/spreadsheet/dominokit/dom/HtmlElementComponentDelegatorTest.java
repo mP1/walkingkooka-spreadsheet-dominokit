@@ -21,13 +21,13 @@ import elemental2.dom.HTMLTableElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
-import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetElementComponentDelegatorTest.TestSpreadsheetElementComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponentDelegatorTest.TestSpreadsheetElementComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Optional;
 
-public class SpreadsheetElementComponentDelegatorTest implements HtmlComponentTesting<TestSpreadsheetElementComponentDelegator, HTMLTableElement> {
+public class HtmlElementComponentDelegatorTest implements HtmlComponentTesting<TestSpreadsheetElementComponentDelegator, HTMLTableElement> {
 
     @Override
     public void testTestNaming() {
@@ -37,8 +37,8 @@ public class SpreadsheetElementComponentDelegatorTest implements HtmlComponentTe
     @Test
     public void testClassName() {
         this.checkEquals(
-            SpreadsheetElementComponent.class.getSimpleName() + "Delegator",
-            SpreadsheetElementComponentDelegator.class.getSimpleName()
+            HtmlElementComponent.class.getSimpleName() + "Delegator",
+            HtmlElementComponentDelegator.class.getSimpleName()
         );
     }
 
@@ -46,16 +46,16 @@ public class SpreadsheetElementComponentDelegatorTest implements HtmlComponentTe
     public void testTreePrint() {
         final TestSpreadsheetElementComponentDelegator component = new TestSpreadsheetElementComponentDelegator();
         component.table.appendChild(
-            SpreadsheetElementComponent.thead()
+            HtmlElementComponent.thead()
                 .appendChild(
-                    SpreadsheetElementComponent.th()
+                    HtmlElementComponent.th()
                         .appendChild(
                             SpreadsheetTextComponent.with(
                                 Optional.of("A")
                             )
                         )
                 ).appendChild(
-                    SpreadsheetElementComponent.th()
+                    HtmlElementComponent.th()
                         .appendChild(
                             SpreadsheetTextComponent.with(
                                 Optional.of("B")
@@ -63,16 +63,16 @@ public class SpreadsheetElementComponentDelegatorTest implements HtmlComponentTe
                         )
                 )
         ).appendChild(
-            SpreadsheetElementComponent.tr()
+            HtmlElementComponent.tr()
                 .appendChild(
-                    SpreadsheetElementComponent.td()
+                    HtmlElementComponent.td()
                         .appendChild(
                             SpreadsheetTextComponent.with(
                                 Optional.of("A1=1+2")
                             )
                         )
                 ).appendChild(
-                    SpreadsheetElementComponent.td()
+                    HtmlElementComponent.td()
                         .appendChild(
                             SpreadsheetTextComponent.with(
                                 Optional.of("B1=333")
@@ -102,14 +102,14 @@ public class SpreadsheetElementComponentDelegatorTest implements HtmlComponentTe
         );
     }
 
-    final static class TestSpreadsheetElementComponentDelegator implements SpreadsheetElementComponentDelegator<HTMLTableElement, TestSpreadsheetElementComponentDelegator> {
+    final static class TestSpreadsheetElementComponentDelegator implements HtmlElementComponentDelegator<HTMLTableElement, TestSpreadsheetElementComponentDelegator> {
 
         @Override
-        public SpreadsheetTableComponent spreadsheetElementComponent() {
+        public TableComponent htmlElementComponent() {
             return this.table;
         }
 
-        private final SpreadsheetTableComponent table = SpreadsheetElementComponent.table();
+        private final TableComponent table = HtmlElementComponent.table();
 
         @Override
         public boolean isEditing() {

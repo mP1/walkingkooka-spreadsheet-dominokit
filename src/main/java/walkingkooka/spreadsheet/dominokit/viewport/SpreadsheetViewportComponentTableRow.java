@@ -22,9 +22,9 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
-import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetElementComponent;
-import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetElementComponentDelegator;
-import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetTrComponent;
+import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.dom.TrComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.printer.IndentingPrinter;
 
@@ -34,10 +34,10 @@ import java.util.function.Predicate;
  * Represents a single TR row within the TABLE which contains all rendered column & row headers and cells.
  */
 abstract class SpreadsheetViewportComponentTableRow<T extends SpreadsheetViewportComponentTableRow<T>> implements HtmlComponent<HTMLTableRowElement, T>,
-    SpreadsheetElementComponentDelegator<HTMLTableRowElement, T> {
+    HtmlElementComponentDelegator<HTMLTableRowElement, T> {
 
     SpreadsheetViewportComponentTableRow() {
-        this.tr = SpreadsheetElementComponent.tr();
+        this.tr = HtmlElementComponent.tr();
     }
 
     abstract void setIdAndName(final SpreadsheetId id,
@@ -52,10 +52,10 @@ abstract class SpreadsheetViewportComponentTableRow<T extends SpreadsheetViewpor
         return false;
     }
 
-    // SpreadsheetElementComponentDelegator.............................................................................
+    // HtmlElementComponentDelegator.............................................................................
 
     @Override
-    public final SpreadsheetElementComponent<HTMLTableRowElement, ?> spreadsheetElementComponent() {
+    public final HtmlElementComponent<HTMLTableRowElement, ?> htmlElementComponent() {
         return this.tr;
     }
 
@@ -66,7 +66,7 @@ abstract class SpreadsheetViewportComponentTableRow<T extends SpreadsheetViewpor
         return this.tr.element();
     }
 
-    final SpreadsheetTrComponent tr;
+    final TrComponent tr;
 
     // TreePrintable....................................................................................................
 

@@ -21,13 +21,13 @@ import elemental2.dom.HTMLElement;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 
 /**
- * A delegator that delegates a few {@link HtmlComponent} to a {@link SpreadsheetElementComponent}.
+ * A delegator that delegates a few {@link HtmlComponent} to a {@link HtmlElementComponent}.
  */
-public interface SpreadsheetElementComponentDelegator<E extends HTMLElement, C extends HtmlComponent<E, C>> extends HtmlComponent<E, C> {
+public interface HtmlElementComponentDelegator<E extends HTMLElement, C extends HtmlComponent<E, C>> extends HtmlComponent<E, C> {
 
     @Override
     default C setCssText(final String css) {
-        this.spreadsheetElementComponent()
+        this.htmlElementComponent()
             .setCssText(css);
         return (C) this;
     }
@@ -35,7 +35,7 @@ public interface SpreadsheetElementComponentDelegator<E extends HTMLElement, C e
     @Override
     default C setCssProperty(final String name,
                              final String value) {
-        this.spreadsheetElementComponent()
+        this.htmlElementComponent()
             .setCssProperty(
                 name,
                 value
@@ -45,9 +45,9 @@ public interface SpreadsheetElementComponentDelegator<E extends HTMLElement, C e
 
     @Override
     default E element() {
-        return this.spreadsheetElementComponent()
+        return this.htmlElementComponent()
             .element();
     }
 
-    SpreadsheetElementComponent<E, ?> spreadsheetElementComponent();
+    HtmlElementComponent<E, ?> htmlElementComponent();
 }

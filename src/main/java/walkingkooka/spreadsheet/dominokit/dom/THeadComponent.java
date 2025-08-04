@@ -17,12 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.dom;
 
-import elemental2.dom.HTMLTableCellElement;
+import elemental2.dom.HTMLTableSectionElement;
 
-public final class SpreadsheetTdComponent extends SpreadsheetElementComponent<HTMLTableCellElement, SpreadsheetTdComponent> {
+public final class THeadComponent extends HtmlElementComponent<HTMLTableSectionElement, THeadComponent> {
 
-    SpreadsheetTdComponent() {
-        super("TD");
+    THeadComponent() {
+        super("THEAD");
     }
 
     @Override

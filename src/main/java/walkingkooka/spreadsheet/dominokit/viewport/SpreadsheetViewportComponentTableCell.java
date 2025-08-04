@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
-import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetElementComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponentDelegator;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.BorderStyle;
@@ -46,7 +46,7 @@ import java.util.function.Predicate;
  * Base class for all TABLE CELL (TD) components within a {@link SpreadsheetViewportComponentTable}
  */
 abstract class SpreadsheetViewportComponentTableCell<E extends HTMLElement, C extends SpreadsheetViewportComponentTableCell<E, C>> implements HtmlComponent<E, C>,
-    SpreadsheetElementComponentDelegator<E, C> {
+    HtmlElementComponentDelegator<E, C> {
 
     SpreadsheetViewportComponentTableCell() {
         super();
@@ -141,7 +141,7 @@ abstract class SpreadsheetViewportComponentTableCell<E extends HTMLElement, C ex
         printer.println(this.getClass().getSimpleName());
         printer.indent();
         {
-            this.spreadsheetElementComponent()
+            this.htmlElementComponent()
                 .printTree(printer);
         }
         printer.outdent();
