@@ -19,5 +19,31 @@ package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.HTMLElement;
 
-public interface HtmlElementComponentTesting<C extends HtmlElementComponent<E, C>, E extends HTMLElement> extends ComponentTesting<C> {
+public interface HtmlComponentDelegator<E extends HTMLElement, C extends HtmlComponent<E, C>> extends HtmlComponent<E, C> {
+
+    @Override
+    default C setCssText(final String css) {
+        this.htmlComponent()
+            .setCssText(css);
+        return (C) this;
+    }
+
+    @Override
+    default C setCssProperty(final String name,
+                             final String value) {
+        this.htmlComponent()
+            .setCssProperty(
+                name,
+                value
+            );
+        return (C) this;
+    }
+
+    @Override
+    default E element() {
+        return this.htmlComponent()
+            .element();
+    }
+
+    HtmlComponent<E, ?> htmlComponent();
 }

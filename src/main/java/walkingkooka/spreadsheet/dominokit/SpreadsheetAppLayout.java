@@ -39,7 +39,7 @@ import java.util.Objects;
 
 final class SpreadsheetAppLayout extends AppLayout implements
     HistoryTokenAwareComponentLifecycle,
-    HtmlElementComponent<HTMLDivElement, SpreadsheetAppLayout> {
+    HtmlComponent<HTMLDivElement, SpreadsheetAppLayout> {
 
 
     // header = metadata toggle | clickable(editable) spreadsheet name

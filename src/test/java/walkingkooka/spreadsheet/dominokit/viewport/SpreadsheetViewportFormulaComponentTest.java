@@ -27,7 +27,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -46,7 +46,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
 import java.util.Arrays;
 
-public final class SpreadsheetViewportFormulaComponentTest implements HtmlElementComponentTesting<SpreadsheetViewportFormulaComponent, HTMLFieldSetElement>,
+public final class SpreadsheetViewportFormulaComponentTest implements HtmlComponentTesting<SpreadsheetViewportFormulaComponent, HTMLFieldSetElement>,
     ComponentLifecycleMatcherTesting,
     SpreadsheetMetadataTesting {
 

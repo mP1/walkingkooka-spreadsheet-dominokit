@@ -23,7 +23,7 @@ import walkingkooka.collect.set.Sets;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -31,7 +31,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import java.util.Optional;
 import java.util.Set;
 
-public final class SpreadsheetLabelLinksComponentTest implements HtmlElementComponentTesting<SpreadsheetLabelLinksComponent, HTMLDivElement> {
+public final class SpreadsheetLabelLinksComponentTest implements HtmlComponentTesting<SpreadsheetLabelLinksComponent, HTMLDivElement> {
 
     @Test
     public void testClearValue() {

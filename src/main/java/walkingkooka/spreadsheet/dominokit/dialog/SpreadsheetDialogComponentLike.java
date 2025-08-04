@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.dialog;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.dialogs.DialogSize;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 
@@ -28,7 +28,7 @@ import walkingkooka.text.printer.IndentingPrinter;
  * Interface that defines all the PUBLIC methods of {@link SpreadsheetDialogComponent}.
  * This is used to keep the two SpreadsheetDialogComponent.java (main/test) in sync.
  */
-abstract class SpreadsheetDialogComponentLike implements HtmlElementComponent<HTMLDivElement, SpreadsheetDialogComponent> {
+abstract class SpreadsheetDialogComponentLike implements HtmlComponent<HTMLDivElement, SpreadsheetDialogComponent> {
 
     public final static boolean INCLUDE_CLOSE = true;
 

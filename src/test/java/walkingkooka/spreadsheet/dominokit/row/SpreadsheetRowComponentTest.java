@@ -20,10 +20,10 @@ package walkingkooka.spreadsheet.dominokit.row;
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
 
-public class SpreadsheetRowComponentTest implements HtmlElementComponentTesting<SpreadsheetRowComponent, HTMLDivElement> {
+public class SpreadsheetRowComponentTest implements HtmlComponentTesting<SpreadsheetRowComponent, HTMLDivElement> {
 
     @Test
     public void testTreePrintWhenEmpty() {

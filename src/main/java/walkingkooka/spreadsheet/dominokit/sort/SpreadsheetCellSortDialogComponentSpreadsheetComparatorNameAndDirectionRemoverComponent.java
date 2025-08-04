@@ -21,7 +21,7 @@ import elemental2.dom.HTMLDivElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameAndDirection;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReferenceOrRange;
@@ -34,7 +34,7 @@ import java.util.function.Function;
 /**
  * A container that presents LINKS each missing a component from the parent {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}.
  */
-final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent> {
+final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent implements HtmlComponent<HTMLDivElement, SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent> {
 
     /**
      * Creates an empty {@link SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent}.
@@ -146,10 +146,10 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirect
 
     @Override
     public boolean isEditing() {
-        return HtmlElementComponent.hasFocus(this.element());
+        return HtmlComponent.hasFocus(this.element());
     }
 
-    // HtmlElementComponent.............................................................................................
+    // HtmlComponent.............................................................................................
 
     @Override
     public HTMLDivElement element() {

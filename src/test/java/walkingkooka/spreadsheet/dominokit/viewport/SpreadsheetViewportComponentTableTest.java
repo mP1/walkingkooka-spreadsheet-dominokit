@@ -29,7 +29,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -47,7 +47,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 import java.util.Arrays;
 import java.util.Optional;
 
-public final class SpreadsheetViewportComponentTableTest implements HtmlElementComponentTesting<SpreadsheetViewportComponentTable, HTMLTableElement> {
+public final class SpreadsheetViewportComponentTableTest implements HtmlComponentTesting<SpreadsheetViewportComponentTable, HTMLTableElement> {
 
     @Test
     public void testTreePrint() {

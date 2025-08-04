@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.link;
 
 import elemental2.dom.HTMLDivElement;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -28,7 +28,7 @@ import walkingkooka.text.printer.IndentingPrinter;
  * the anchors must be done externally.
  * This is useful for inserting links with commands such as SAVE, CLOSE at the bottom of a {@link walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent}.
  */
-public final class SpreadsheetLinkListComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetLinkListComponent> {
+public final class SpreadsheetLinkListComponent implements HtmlComponent<HTMLDivElement, SpreadsheetLinkListComponent> {
 
     public static SpreadsheetLinkListComponent empty() {
         return new SpreadsheetLinkListComponent();

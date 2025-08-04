@@ -23,14 +23,14 @@ import elemental2.dom.Node;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.style.CssClass;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextNode;
 
 /**
- * Base class for an element {@link HtmlElementComponent}
+ * Base class for an element {@link HtmlComponent}
  */
-abstract class SpreadsheetElementComponentLike<E extends HTMLElement, C extends SpreadsheetElementComponentLike<E, C>> implements HtmlElementComponent<E, C> {
+abstract class SpreadsheetElementComponentLike<E extends HTMLElement, C extends SpreadsheetElementComponentLike<E, C>> implements HtmlComponent<E, C> {
 
     SpreadsheetElementComponentLike() {
         super();

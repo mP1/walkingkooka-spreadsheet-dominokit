@@ -23,7 +23,7 @@ import walkingkooka.Cast;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.expression.SpreadsheetExpressionFunctions;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -34,7 +34,7 @@ import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfo;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionSelector;
 
-public final class RemovePluginAliasSetLikeComponentTest implements HtmlElementComponentTesting<RemovePluginAliasSetLikeComponent<ExpressionFunctionName,
+public final class RemovePluginAliasSetLikeComponentTest implements HtmlComponentTesting<RemovePluginAliasSetLikeComponent<ExpressionFunctionName,
     ExpressionFunctionInfo,
     ExpressionFunctionInfoSet,
     ExpressionFunctionSelector,

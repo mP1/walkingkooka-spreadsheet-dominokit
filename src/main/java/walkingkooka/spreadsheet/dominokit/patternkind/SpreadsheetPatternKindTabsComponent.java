@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.patternkind;
 
 import elemental2.dom.HTMLDivElement;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.tab.SpreadsheetTabsComponent;
@@ -31,7 +31,7 @@ import java.util.Optional;
 /**
  * A tab component that displays tabs for each of the given {@link SpreadsheetPatternKind}.
  */
-public final class SpreadsheetPatternKindTabsComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetPatternKindTabsComponent> {
+public final class SpreadsheetPatternKindTabsComponent implements HtmlComponent<HTMLDivElement, SpreadsheetPatternKindTabsComponent> {
 
     /**
      * Creates an empty {@link SpreadsheetPatternKindTabsComponent}.
@@ -161,7 +161,7 @@ public final class SpreadsheetPatternKindTabsComponent implements HtmlElementCom
 
     @Override
     public boolean isEditing() {
-        return HtmlElementComponent.hasFocus(this.element());
+        return HtmlComponent.hasFocus(this.element());
     }
 
     // TreePrinter......................................................................................................

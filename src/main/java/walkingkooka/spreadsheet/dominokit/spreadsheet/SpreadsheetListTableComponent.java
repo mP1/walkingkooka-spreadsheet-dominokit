@@ -170,7 +170,7 @@ final class SpreadsheetListTableComponent implements TableComponent<HTMLDivEleme
         return this;
     }
 
-    // HtmlElementComponent.............................................................................................
+    // HtmlComponent.............................................................................................
 
     @Override
     public HTMLDivElement element() {

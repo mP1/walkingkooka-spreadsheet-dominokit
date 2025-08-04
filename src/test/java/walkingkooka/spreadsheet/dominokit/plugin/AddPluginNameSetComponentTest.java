@@ -24,11 +24,11 @@ import walkingkooka.plugin.PluginNameSet;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
-public final class AddPluginNameSetComponentTest implements HtmlElementComponentTesting<AddPluginNameSetComponent,
+public final class AddPluginNameSetComponentTest implements HtmlComponentTesting<AddPluginNameSetComponent,
     HTMLDivElement> {
 
     private final static AddPluginNameSetComponentContext CONTEXT = new FakeAddPluginNameSetComponentContext() {

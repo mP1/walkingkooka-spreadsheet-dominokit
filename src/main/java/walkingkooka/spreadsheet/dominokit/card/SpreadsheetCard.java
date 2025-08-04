@@ -24,7 +24,7 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.ComponentWithChildren;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -37,7 +37,7 @@ import java.util.Optional;
 /**
  * A {@link Card} that auto hides when empty.
  */
-public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElement, SpreadsheetCard>,
+public final class SpreadsheetCard implements HtmlComponent<HTMLDivElement, SpreadsheetCard>,
     ComponentWithChildren<SpreadsheetCard, HTMLDivElement> {
 
     public static SpreadsheetCard empty() {

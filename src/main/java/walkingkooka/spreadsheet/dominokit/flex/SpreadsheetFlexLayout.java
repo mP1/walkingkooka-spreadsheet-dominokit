@@ -23,7 +23,7 @@ import org.dominokit.domino.ui.style.CssClass;
 import org.dominokit.domino.ui.style.SpacingCss;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.ComponentWithChildren;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetDivComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -34,7 +34,7 @@ import java.util.Objects;
 /**
  * A very basic attempt at re-creating the old DominoUI 1.x FlexLayout.
  */
-public class SpreadsheetFlexLayout implements HtmlElementComponent<HTMLDivElement, SpreadsheetFlexLayout>,
+public class SpreadsheetFlexLayout implements HtmlComponent<HTMLDivElement, SpreadsheetFlexLayout>,
     ComponentWithChildren<SpreadsheetFlexLayout, HTMLDivElement> {
 
     private final static CssClass GAP = SpacingCss.dui_gap_1;

@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.format;
 
 import elemental2.dom.HTMLDivElement;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetCardLinkListComponent;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
@@ -30,7 +30,7 @@ import java.util.stream.Collectors;
 /**
  * A component that list all available {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterName} by querying {@link SpreadsheetFormatterProvider#spreadsheetFormatterInfos()}.
  */
-public final class SpreadsheetFormatterNameLinkListComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetFormatterNameLinkListComponent> {
+public final class SpreadsheetFormatterNameLinkListComponent implements HtmlComponent<HTMLDivElement, SpreadsheetFormatterNameLinkListComponent> {
 
     static SpreadsheetFormatterNameLinkListComponent empty(final String id) {
         return new SpreadsheetFormatterNameLinkListComponent(id);
@@ -83,7 +83,7 @@ public final class SpreadsheetFormatterNameLinkListComponent implements HtmlElem
 
     @Override
     public boolean isEditing() {
-        return HtmlElementComponent.hasFocus(this.element()) ||
+        return HtmlComponent.hasFocus(this.element()) ||
             this.list.isEditing();
     }
 

@@ -20,10 +20,10 @@ package walkingkooka.spreadsheet.dominokit.patternkind;
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
-public final class SpreadsheetPatternKindTabsComponentTest implements HtmlElementComponentTesting<SpreadsheetPatternKindTabsComponent, HTMLDivElement> {
+public final class SpreadsheetPatternKindTabsComponentTest implements HtmlComponentTesting<SpreadsheetPatternKindTabsComponent, HTMLDivElement> {
 
     private final static String ID = "id123-";
 

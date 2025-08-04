@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.label;
 
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.Cast;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
@@ -32,7 +32,7 @@ import java.util.Optional;
 /**
  * A container that holds a few links DELETE and CELL REFERENCES for a {@link SpreadsheetLabelName}.
  */
-public final class SpreadsheetLabelLinksComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetLabelLinksComponent> {
+public final class SpreadsheetLabelLinksComponent implements HtmlComponent<HTMLDivElement, SpreadsheetLabelLinksComponent> {
 
     public static SpreadsheetLabelLinksComponent empty(final String id,
                                                        final SpreadsheetLabelLinksComponentContext context) {

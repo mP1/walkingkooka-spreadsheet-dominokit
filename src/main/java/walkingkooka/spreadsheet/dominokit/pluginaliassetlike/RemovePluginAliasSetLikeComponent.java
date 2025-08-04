@@ -25,7 +25,7 @@ import walkingkooka.plugin.PluginAliasSetLike;
 import walkingkooka.plugin.PluginInfoLike;
 import walkingkooka.plugin.PluginInfoSetLike;
 import walkingkooka.plugin.PluginSelectorLike;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -46,7 +46,7 @@ public final class RemovePluginAliasSetLikeComponent<N extends Name & Comparable
     S extends PluginSelectorLike<N>,
     A extends PluginAliasLike<N, S, A>,
     AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
-    implements HtmlElementComponent<HTMLDivElement, RemovePluginAliasSetLikeComponent<N, I, IS, S, A, AS>> {
+    implements HtmlComponent<HTMLDivElement, RemovePluginAliasSetLikeComponent<N, I, IS, S, A, AS>> {
 
     /**
      * Creates an empty {@link RemovePluginAliasSetLikeComponent}.

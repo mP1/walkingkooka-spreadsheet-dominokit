@@ -20,12 +20,12 @@ package walkingkooka.spreadsheet.dominokit.dialog;
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
 
 import java.util.Optional;
 
-public final class SpreadsheetDialogComponentTest implements HtmlElementComponentTesting<SpreadsheetDialogComponent, HTMLDivElement> {
+public final class SpreadsheetDialogComponentTest implements HtmlComponentTesting<SpreadsheetDialogComponent, HTMLDivElement> {
 
     @Test
     public void testOpenTitleCloseableChildren() {

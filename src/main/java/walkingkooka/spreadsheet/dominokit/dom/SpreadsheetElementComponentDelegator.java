@@ -18,12 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.dom;
 
 import elemental2.dom.HTMLElement;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 
 /**
- * A delegator that delegates a few {@link HtmlElementComponent} to a {@link SpreadsheetElementComponent}.
+ * A delegator that delegates a few {@link HtmlComponent} to a {@link SpreadsheetElementComponent}.
  */
-public interface SpreadsheetElementComponentDelegator<E extends HTMLElement, C extends HtmlElementComponent<E, C>> extends HtmlElementComponent<E, C> {
+public interface SpreadsheetElementComponentDelegator<E extends HTMLElement, C extends HtmlComponent<E, C>> extends HtmlComponent<E, C> {
 
     @Override
     default C setCssText(final String css) {

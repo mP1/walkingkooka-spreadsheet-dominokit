@@ -22,15 +22,15 @@ import elemental2.dom.HTMLAnchorElement;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.net.Url;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Objects;
 import java.util.Optional;
 
 public interface AnchorComponentDelegator<A extends AnchorComponent<A, T>, T> extends AnchorComponent<A, T>,
-    HtmlElementComponentDelegator<HTMLAnchorElement, A> {
+    HtmlComponentDelegator<HTMLAnchorElement, A> {
 
     @Override
     default boolean isDisabled() {
@@ -228,10 +228,10 @@ public interface AnchorComponentDelegator<A extends AnchorComponent<A, T>, T> ex
      */
     AnchorComponent<?, ?> anchorComponent();
 
-    // HtmlElementComponent.............................................................................................
+    // HtmlComponent.............................................................................................
 
     @Override
-    default HtmlElementComponent<HTMLAnchorElement, ?> htmlElementComponent() {
+    default HtmlComponent<HTMLAnchorElement, ?> htmlComponent() {
         return this.anchorComponent();
     }
 }

@@ -25,7 +25,7 @@ import walkingkooka.net.Url;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuItem;
@@ -37,7 +37,7 @@ import java.util.OptionalInt;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class HistoryTokenAnchorComponentTest implements HtmlElementComponentTesting<HistoryTokenAnchorComponent, HTMLAnchorElement> {
+public final class HistoryTokenAnchorComponentTest implements HtmlComponentTesting<HistoryTokenAnchorComponent, HTMLAnchorElement> {
 
     // setCount.........................................................................................................
 

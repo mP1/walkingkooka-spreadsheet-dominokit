@@ -20,9 +20,9 @@ package walkingkooka.spreadsheet.dominokit;
 import elemental2.dom.HTMLElement;
 
 /**
- * Interface to be implemented by test {@link HtmlElementComponent}.
+ * Interface to be implemented by test {@link HtmlComponent}.
  */
-public interface TestHtmlElementComponent<E extends HTMLElement, C extends HtmlElementComponent<E, C>> extends HtmlElementComponent<E, C> {
+public interface TestHtmlElementComponent<E extends HTMLElement, C extends HtmlComponent<E, C>> extends HtmlComponent<E, C> {
 
     // isEditing........................................................................................................
 

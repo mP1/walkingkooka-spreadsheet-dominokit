@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.row;
 
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 
@@ -40,21 +40,21 @@ public class SpreadsheetRowComponent implements TestHtmlElementComponent<HTMLDiv
         this.children = Lists.array();
     }
 
-    public SpreadsheetRowComponent appendChild(final HtmlElementComponent<?, ?> child) {
+    public SpreadsheetRowComponent appendChild(final HtmlComponent<?, ?> child) {
         Objects.requireNonNull(child, "child");
 
         this.children.add(child);
         return this;
     }
 
-    private final List<HtmlElementComponent<?, ?>> children;
+    private final List<HtmlComponent<?, ?>> children;
 
     @Override
     public void printTree(final IndentingPrinter printer) {
         printer.println(this.getClass().getSimpleName());
         printer.indent();
         {
-            for (final HtmlElementComponent<?, ?> child : this.children) {
+            for (final HtmlComponent<?, ?> child : this.children) {
                 child.printTree(printer);
             }
         }

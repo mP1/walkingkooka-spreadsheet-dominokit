@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.parser;
 
 import elemental2.dom.HTMLDivElement;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetCardLinkListComponent;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
@@ -31,7 +31,7 @@ import java.util.stream.Collectors;
 /**
  * A component that list all available {@link SpreadsheetParserName} by querying {@link SpreadsheetParserProvider#spreadsheetParserInfos()}.
  */
-public final class SpreadsheetParserNameLinkListComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetParserNameLinkListComponent> {
+public final class SpreadsheetParserNameLinkListComponent implements HtmlComponent<HTMLDivElement, SpreadsheetParserNameLinkListComponent> {
 
     static SpreadsheetParserNameLinkListComponent empty(final String id) {
         return new SpreadsheetParserNameLinkListComponent(id);

@@ -22,7 +22,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
@@ -43,7 +43,7 @@ import java.util.Optional;
 /**
  * A toolbar that contains icons that trigger an action.
  */
-public final class SpreadsheetToolbarComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetToolbarComponent>,
+public final class SpreadsheetToolbarComponent implements HtmlComponent<HTMLDivElement, SpreadsheetToolbarComponent>,
     SpreadsheetViewportComponentLifecycle,
     LoadedSpreadsheetMetadataRequired,
     NopFetcherWatcher,

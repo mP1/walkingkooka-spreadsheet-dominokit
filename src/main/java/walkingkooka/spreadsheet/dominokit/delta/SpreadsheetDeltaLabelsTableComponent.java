@@ -204,7 +204,7 @@ public final class SpreadsheetDeltaLabelsTableComponent implements TableComponen
         return this;
     }
 
-    // HtmlElementComponent.............................................................................................
+    // HtmlComponent.............................................................................................
 
     @Override
     public HTMLDivElement element() {

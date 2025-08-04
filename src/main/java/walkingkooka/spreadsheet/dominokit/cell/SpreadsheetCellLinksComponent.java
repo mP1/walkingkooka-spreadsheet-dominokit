@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.cell;
 
 import elemental2.dom.HTMLDivElement;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
@@ -30,7 +30,7 @@ import java.util.Optional;
 /**
  * A container that holds a few links CREATE LABELS, LABELS, REFERENCES and DELETE for a {@link SpreadsheetExpressionReference}.
  */
-public final class SpreadsheetCellLinksComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetCellLinksComponent> {
+public final class SpreadsheetCellLinksComponent implements HtmlComponent<HTMLDivElement, SpreadsheetCellLinksComponent> {
 
     public static SpreadsheetCellLinksComponent empty(final String id,
                                                       final SpreadsheetCellLinksComponentContext context) {
@@ -116,7 +116,7 @@ public final class SpreadsheetCellLinksComponent implements HtmlElementComponent
 
     @Override
     public boolean isEditing() {
-        return HtmlElementComponent.hasFocus(this.element());
+        return HtmlComponent.hasFocus(this.element());
     }
 
     // setCssText.......................................................................................................

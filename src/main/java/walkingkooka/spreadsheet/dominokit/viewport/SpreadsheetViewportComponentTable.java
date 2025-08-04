@@ -25,7 +25,7 @@ import walkingkooka.collect.set.SortedSets;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetElementComponent;
 import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetTBodyComponent;
 import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetTHeadComponent;
@@ -43,7 +43,7 @@ import java.util.function.Predicate;
 /**
  * A TABLE which holds all the ROWs that are displayed. It also contains and caches rows.
  */
-final class SpreadsheetViewportComponentTable implements HtmlElementComponent<HTMLTableElement, SpreadsheetViewportComponentTable> {
+final class SpreadsheetViewportComponentTable implements HtmlComponent<HTMLTableElement, SpreadsheetViewportComponentTable> {
 
     static SpreadsheetViewportComponentTable empty(final SpreadsheetViewportComponentTableContext context) {
         return new SpreadsheetViewportComponentTable(context);

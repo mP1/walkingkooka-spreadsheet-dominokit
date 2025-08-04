@@ -15,20 +15,9 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.viewport;
+package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.HTMLElement;
-import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 
-public abstract class SpreadsheetViewportComponentTableCellTestCase<E extends HTMLElement, C extends SpreadsheetViewportComponentTableCell<E, C>> implements HtmlComponentTesting<C, E> {
-
-    SpreadsheetViewportComponentTableCellTestCase() {
-        super();
-    }
-
-    @Override
-    public final JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
-    }
+public interface HtmlComponentTesting<C extends HtmlComponent<E, C>, E extends HTMLElement> extends ComponentTesting<C> {
 }
