@@ -31,7 +31,7 @@ import java.util.function.Supplier;
  * A time picker that displays a timePicker that supports picking {@link LocalTime}.
  * A {@link Supplier} is required to supply a NOW time when an {@link Optional#empty()} is given to {@link #setValue(Optional)}.
  */
-public final class TimeComponent extends SpreadsheetPickerComponent<LocalTime, TimeComponent> {
+public final class TimeComponent extends DominoKitPickerComponent<LocalTime, TimeComponent> {
 
     public static TimeComponent empty(final String id,
                                       final Supplier<LocalTime> clearValue) {

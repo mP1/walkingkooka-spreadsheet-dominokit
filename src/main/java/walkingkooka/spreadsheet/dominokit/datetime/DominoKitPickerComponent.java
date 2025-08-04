@@ -42,7 +42,7 @@ import static org.dominokit.domino.ui.utils.Domino.span;
 /**
  * Abstract base class for date/datetime/time pickers.
  */
-abstract class SpreadsheetPickerComponent<V, C extends SpreadsheetPickerComponent<V, C>> implements FormValueComponent<HTMLDivElement, V, C> {
+abstract class DominoKitPickerComponent<V, C extends DominoKitPickerComponent<V, C>> implements FormValueComponent<HTMLDivElement, V, C> {
 
     /**
      * Parent of the picker and messages.
@@ -54,7 +54,7 @@ abstract class SpreadsheetPickerComponent<V, C extends SpreadsheetPickerComponen
 
     protected final List<String> errors = new ArrayList<>();
 
-    SpreadsheetPickerComponent(final Supplier<V> clearValue) {
+    DominoKitPickerComponent(final Supplier<V> clearValue) {
         this.clearValue = Objects.requireNonNull(clearValue, "clearValue");
 
         // AbstractFormElement
