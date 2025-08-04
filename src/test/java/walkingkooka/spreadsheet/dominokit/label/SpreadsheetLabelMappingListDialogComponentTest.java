@@ -213,7 +213,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                ROW 0\n" +
                 "                  \"A1LABEL\" [#/1/SpreadsheetName1/label/A1LABEL] id=labels-labels-A1LABEL-Link\n" +
                 "                  \"=1+2\" [#/1/SpreadsheetName1/cell/A1LABEL/formula] id=labels-labels-A1LABEL-formula-Link\n" +
-                "                  SpreadsheetTextNodeComponent\n" +
+                "                  TextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
                 "                    SpreadsheetLinkListComponent\n" +
                 "                      SpreadsheetFlexLayout\n" +
@@ -223,7 +223,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                ROW 1\n" +
                 "                  \"B2LABEL\" [#/1/SpreadsheetName1/label/B2LABEL] id=labels-labels-B2LABEL-Link\n" +
                 "                  \"B2\" [#/1/SpreadsheetName1/cell/B2LABEL/formula] id=labels-labels-B2LABEL-formula-Link\n" +
-                "                  SpreadsheetTextNodeComponent\n" +
+                "                  TextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
                 "                    SpreadsheetLinkListComponent\n" +
                 "                      SpreadsheetFlexLayout\n" +
@@ -340,7 +340,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                ROW 0\n" +
                 "                  \"B2LABEL\" [#/1/SpreadsheetName1/label/B2LABEL] id=labels-labels-B2LABEL-Link\n" +
                 "                  \"B2\" [#/1/SpreadsheetName1/cell/B2LABEL/formula] id=labels-labels-B2LABEL-formula-Link\n" +
-                "                  SpreadsheetTextNodeComponent\n" +
+                "                  TextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
                 "                    SpreadsheetLinkListComponent\n" +
                 "                      SpreadsheetFlexLayout\n" +
@@ -350,7 +350,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                ROW 1\n" +
                 "                  \"C3LABEL\" [#/1/SpreadsheetName1/label/C3LABEL] id=labels-labels-C3LABEL-Link\n" +
                 "                  \"C3\" [#/1/SpreadsheetName1/cell/C3LABEL/formula] id=labels-labels-C3LABEL-formula-Link\n" +
-                "                  SpreadsheetTextNodeComponent\n" +
+                "                  TextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
                 "                    SpreadsheetLinkListComponent\n" +
                 "                      SpreadsheetFlexLayout\n" +
@@ -468,7 +468,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                ROW 0\n" +
                 "                  \"B2LABEL\" [#/1/SpreadsheetName1/label/B2LABEL] id=labels-labels-B2LABEL-Link\n" +
                 "                  \"B2\" [#/1/SpreadsheetName1/cell/B2LABEL/formula] id=labels-labels-B2LABEL-formula-Link\n" +
-                "                  SpreadsheetTextNodeComponent\n" +
+                "                  TextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
                 "                    SpreadsheetLinkListComponent\n" +
                 "                      SpreadsheetFlexLayout\n" +
@@ -478,7 +478,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                ROW 1\n" +
                 "                  \"C3LABEL\" [#/1/SpreadsheetName1/label/C3LABEL] id=labels-labels-C3LABEL-Link\n" +
                 "                  \"C3\" [#/1/SpreadsheetName1/cell/C3LABEL/formula] id=labels-labels-C3LABEL-formula-Link\n" +
-                "                  SpreadsheetTextNodeComponent\n" +
+                "                  TextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
                 "                    SpreadsheetLinkListComponent\n" +
                 "                      SpreadsheetFlexLayout\n" +

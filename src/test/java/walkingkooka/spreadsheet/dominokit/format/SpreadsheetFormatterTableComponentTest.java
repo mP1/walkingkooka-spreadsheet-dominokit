@@ -53,10 +53,10 @@ public final class SpreadsheetFormatterTableComponentTest implements TableCompon
                 "        id=id123-Table\n" +
                 "        ROW(S)\n" +
                 "          ROW 0\n" +
-                "            SpreadsheetTextNodeComponent\n" +
+                "            TextNodeComponent\n" +
                 "              Label123\n" +
                 "            \"yyyy/mm/dd\" [#/2/Untitled/cell/D1/formatter/save/date-format-pattern%20yyyy/mm/dd@] id=id123-Label123-Link\n" +
-                "            SpreadsheetTextNodeComponent\n" +
+                "            TextNodeComponent\n" +
                 "              1999/12/31\n"
         );
     }
@@ -85,16 +85,16 @@ public final class SpreadsheetFormatterTableComponentTest implements TableCompon
                 "        id=id123-Table\n" +
                 "        ROW(S)\n" +
                 "          ROW 0\n" +
-                "            SpreadsheetTextNodeComponent\n" +
+                "            TextNodeComponent\n" +
                 "              Short\n" +
                 "            \"yyyy/mm/dd\" [#/2/Untitled/cell/D1/formatter/save/date-format-pattern%20yyyy/mm/dd@] id=id123-Short-Link\n" +
-                "            SpreadsheetTextNodeComponent\n" +
+                "            TextNodeComponent\n" +
                 "              1999/12/31\n" +
                 "          ROW 1\n" +
-                "            SpreadsheetTextNodeComponent\n" +
+                "            TextNodeComponent\n" +
                 "              Medium\n" +
                 "            \"ddd/mm/yyyy\" [#/2/Untitled/cell/D1/formatter/save/date-format-pattern%20ddd/mm/yyyy@] id=id123-Medium-Link\n" +
-                "            SpreadsheetTextNodeComponent\n" +
+                "            TextNodeComponent\n" +
                 "              Monday 31/12/1999\n"
         );
     }

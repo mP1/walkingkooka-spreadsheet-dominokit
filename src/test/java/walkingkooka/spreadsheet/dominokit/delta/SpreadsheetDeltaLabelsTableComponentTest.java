@@ -129,7 +129,7 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
                 "          ROW 0\n" +
                 "            \"LabelXYZ\" [#/1/Spreadsheet222/label/LabelXYZ] id=ID123-labels-LabelXYZ-Link\n" +
                 "            \"A1\" [#/1/Spreadsheet222/cell/LabelXYZ/formula] id=ID123-labels-LabelXYZ-formula-Link\n" +
-                "            SpreadsheetTextNodeComponent\n" +
+                "            TextNodeComponent\n" +
                 "            SpreadsheetLabelLinksComponent\n" +
                 "              SpreadsheetLinkListComponent\n" +
                 "                SpreadsheetFlexLayout\n" +
@@ -180,7 +180,7 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
                 "          ROW 0\n" +
                 "            \"LabelXYZ\" [#/1/Spreadsheet222/label/LabelXYZ] id=ID123-labels-LabelXYZ-Link\n" +
                 "            \"A1\" [#/1/Spreadsheet222/cell/LabelXYZ/formula] id=ID123-labels-LabelXYZ-formula-Link\n" +
-                "            SpreadsheetTextNodeComponent\n" +
+                "            TextNodeComponent\n" +
                 "            SpreadsheetLabelLinksComponent\n" +
                 "              SpreadsheetLinkListComponent\n" +
                 "                SpreadsheetFlexLayout\n" +
@@ -235,7 +235,7 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
                 "          ROW 0\n" +
                 "            \"LABEL2\" [#/1/Spreadsheet222/label/LABEL2] id=ID123-labels-LABEL2-Link\n" +
                 "            \"LABEL2\" [#/1/Spreadsheet222/cell/LABEL2/formula] id=ID123-labels-LABEL2-formula-Link\n" +
-                "            SpreadsheetTextNodeComponent\n" +
+                "            TextNodeComponent\n" +
                 "            SpreadsheetLabelLinksComponent\n" +
                 "              SpreadsheetLinkListComponent\n" +
                 "                SpreadsheetFlexLayout\n" +
@@ -245,7 +245,7 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
                 "          ROW 1\n" +
                 "            \"LabelXYZ\" [#/1/Spreadsheet222/label/LabelXYZ] id=ID123-labels-LabelXYZ-Link\n" +
                 "            \"A1\" [#/1/Spreadsheet222/cell/LabelXYZ/formula] id=ID123-labels-LabelXYZ-formula-Link\n" +
-                "            SpreadsheetTextNodeComponent\n" +
+                "            TextNodeComponent\n" +
                 "            SpreadsheetLabelLinksComponent\n" +
                 "              SpreadsheetLinkListComponent\n" +
                 "                SpreadsheetFlexLayout\n" +

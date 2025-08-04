@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.text;
 
 import elemental2.dom.Node;
+import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.tree.text.TextNode;
 
@@ -27,13 +28,13 @@ import java.util.Optional;
 /**
  * A {@link FormValueComponent} that holds text within a {@link TextNode}
  */
-public final class SpreadsheetTextNodeComponent implements SpreadsheetTextNodeComponentLike {
+public final class TextNodeComponent implements TextNodeComponentLike {
 
-    public static walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextNodeComponent with(final Optional<TextNode> value) {
-        return new walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextNodeComponent(value);
+    public static TextNodeComponent with(final Optional<TextNode> value) {
+        return new TextNodeComponent(value);
     }
 
-    private SpreadsheetTextNodeComponent(final Optional<TextNode> value) {
+    private TextNodeComponent(final Optional<TextNode> value) {
         this.setValue(value);
     }
 
@@ -47,7 +48,7 @@ public final class SpreadsheetTextNodeComponent implements SpreadsheetTextNodeCo
     private Optional<TextNode> value;
 
     @Override
-    public SpreadsheetTextNodeComponent setValue(final Optional<TextNode> value) {
+    public TextNodeComponent setValue(final Optional<TextNode> value) {
         Objects.requireNonNull(value, "value");
         this.value = value;
         return this;
@@ -55,10 +56,16 @@ public final class SpreadsheetTextNodeComponent implements SpreadsheetTextNodeCo
 
     // node.............................................................................................................
 
-    @Override
-    public Node node() {
-        throw new UnsupportedOperationException();
+    @Override public Node node() {
+        if (null == this.node) {
+            this.node = Doms.node(
+                this.value.orElse(TextNode.EMPTY_TEXT)
+            );
+        }
+        return this.node;
     }
+
+    private Node node;
 
     // Object...........................................................................................................
 

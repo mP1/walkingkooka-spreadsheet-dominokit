@@ -716,7 +716,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                  \"A1\" [#/123/SpreadsheetName456/cell/A1/formula] id=cellFind-cells-A1-formula-Link\n" +
                 "                  SpreadsheetTextComponent\n" +
                 "                    \"\"\n" +
-                "                  SpreadsheetTextNodeComponent\n" +
+                "                  TextNodeComponent\n" +
                 "                  SpreadsheetCellLinksComponent\n" +
                 "                    SpreadsheetLinkListComponent\n" +
                 "                      SpreadsheetFlexLayout\n" +
@@ -731,7 +731,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                  \"=2\" [#/123/SpreadsheetName456/cell/B2/formula] id=cellFind-cells-B2-formula-Link\n" +
                 "                  SpreadsheetTextComponent\n" +
                 "                    \"\"\n" +
-                "                  SpreadsheetTextNodeComponent\n" +
+                "                  TextNodeComponent\n" +
                 "                  SpreadsheetCellLinksComponent\n" +
                 "                    SpreadsheetLinkListComponent\n" +
                 "                      SpreadsheetFlexLayout\n" +

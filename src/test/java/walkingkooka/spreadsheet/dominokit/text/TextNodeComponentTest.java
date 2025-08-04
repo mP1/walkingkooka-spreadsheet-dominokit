@@ -18,22 +18,25 @@
 package walkingkooka.spreadsheet.dominokit.text;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.reflect.ClassTesting;
+import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.text.printer.TreePrintableTesting;
 import walkingkooka.tree.text.TextNode;
 
 import java.util.Optional;
 
-public final class SpreadsheetTextNodeComponentTest implements TreePrintableTesting {
+public final class TextNodeComponentTest implements ClassTesting<TextNodeComponent>,
+    TreePrintableTesting {
 
     @Test
     public void testTreePrint() {
         this.treePrintAndCheck(
-            SpreadsheetTextNodeComponent.with(
+            TextNodeComponent.with(
                 Optional.of(
                     TextNode.text("Hello123")
                 )
             ),
-            "SpreadsheetTextNodeComponent\n" +
+            "TextNodeComponent\n" +
                 "  Hello123\n"
         );
     }
@@ -41,14 +44,26 @@ public final class SpreadsheetTextNodeComponentTest implements TreePrintableTest
     @Test
     public void testTreePrint2() {
         this.treePrintAndCheck(
-            SpreadsheetTextNodeComponent.with(
+            TextNodeComponent.with(
                 Optional.of(
                     TextNode.text("Hello123\nZebra567")
                 )
             ),
-            "SpreadsheetTextNodeComponent\n" +
+            "TextNodeComponent\n" +
                 "  Hello123\n" +
                 "  Zebra567\n"
         );
+    }
+
+    // class............................................................................................................
+
+    @Override
+    public Class<TextNodeComponent> type() {
+        return TextNodeComponent.class;
+    }
+
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PUBLIC;
     }
 }
