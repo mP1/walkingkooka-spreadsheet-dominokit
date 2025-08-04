@@ -33,7 +33,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.PluginFileViewHistoryToken;
 import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextViewComponent;
+import walkingkooka.spreadsheet.dominokit.text.TextViewComponent;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 
@@ -75,8 +75,8 @@ public final class PluginFileViewDialogComponent implements DialogComponentLifec
     /**
      * Initially empty, and will be populated by the text response for the selected {@link PluginName} and {@link JarEntryInfoName}.
      */
-    private SpreadsheetTextViewComponent textView() {
-        return SpreadsheetTextViewComponent.empty()
+    private TextViewComponent textView() {
+        return TextViewComponent.empty()
             .setId(ID_PREFIX + "Text");
     }
 
@@ -105,7 +105,7 @@ public final class PluginFileViewDialogComponent implements DialogComponentLifec
         this.filename = null;
     }
 
-    private final SpreadsheetTextViewComponent textView;
+    private final TextViewComponent textView;
 
     private PluginName pluginName;
 

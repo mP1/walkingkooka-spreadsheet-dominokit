@@ -25,19 +25,19 @@ import java.util.Optional;
 /**
  * A barebones component that may be used to display text. Many methods such as support for listeners etc all throw {@link UnsupportedOperationException}.
  */
-public final class SpreadsheetTextViewComponent extends SpreadsheetTextViewComponentLike {
+public final class TextViewComponent extends TextViewComponentLike {
 
-    public static SpreadsheetTextViewComponent empty() {
-        return new SpreadsheetTextViewComponent();
+    public static TextViewComponent empty() {
+        return new TextViewComponent();
     }
 
-    private SpreadsheetTextViewComponent() {
+    private TextViewComponent() {
         super();
         this.clearValue();
     }
 
     @Override
-    public SpreadsheetTextViewComponent setId(final String id) {
+    public TextViewComponent setId(final String id) {
         this.id = id;
         return this;
     }
@@ -50,7 +50,7 @@ public final class SpreadsheetTextViewComponent extends SpreadsheetTextViewCompo
     private String id;
 
     @Override
-    public SpreadsheetTextViewComponent setValue(final Optional<String> value) {
+    public TextViewComponent setValue(final Optional<String> value) {
         this.value = Objects.requireNonNull(value, "value");
         return this;
     }
@@ -63,13 +63,13 @@ public final class SpreadsheetTextViewComponent extends SpreadsheetTextViewCompo
     private Optional<String> value;
 
     @Override
-    public SpreadsheetTextViewComponent setCssText(final String css) {
+    public TextViewComponent setCssText(final String css) {
         return this;
     }
 
     @Override
-    public SpreadsheetTextViewComponent setCssProperty(final String name,
-                                                       final String value) {
+    public TextViewComponent setCssProperty(final String name,
+                                            final String value) {
         return this;
     }
 
