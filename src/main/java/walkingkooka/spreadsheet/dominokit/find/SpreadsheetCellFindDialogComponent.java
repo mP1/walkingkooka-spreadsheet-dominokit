@@ -56,19 +56,19 @@ import java.util.function.Function;
 /**
  * A modal dialog that provides form elements to perform a find with a table showing the matching cells.
  */
-public final class SpreadsheetFindDialogComponent implements DialogComponentLifecycle,
+public final class SpreadsheetCellFindDialogComponent implements DialogComponentLifecycle,
     LoadedSpreadsheetMetadataRequired {
 
     /**
-     * Creates a new {@link SpreadsheetFindDialogComponent}.
+     * Creates a new {@link SpreadsheetCellFindDialogComponent}.
      */
-    public static SpreadsheetFindDialogComponent with(final SpreadsheetFindDialogComponentContext context) {
+    public static SpreadsheetCellFindDialogComponent with(final SpreadsheetCellFindDialogComponentContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetFindDialogComponent(context);
+        return new SpreadsheetCellFindDialogComponent(context);
     }
 
-    private SpreadsheetFindDialogComponent(final SpreadsheetFindDialogComponentContext context) {
+    private SpreadsheetCellFindDialogComponent(final SpreadsheetCellFindDialogComponentContext context) {
         this.context = context;
 
         this.cellRange = this.cellRange();
@@ -109,7 +109,7 @@ public final class SpreadsheetFindDialogComponent implements DialogComponentLife
      * the matching cells.
      */
     private DialogComponent dialogCreate() {
-        final SpreadsheetFindDialogComponentContext context = this.context;
+        final SpreadsheetCellFindDialogComponentContext context = this.context;
 
         return DialogComponent.largeList(
                 ID + SpreadsheetElementIds.DIALOG,
@@ -148,7 +148,7 @@ public final class SpreadsheetFindDialogComponent implements DialogComponentLife
 
     private final DialogComponent dialog;
 
-    private final SpreadsheetFindDialogComponentContext context;
+    private final SpreadsheetCellFindDialogComponentContext context;
 
     // table............................................................................................................
 
@@ -243,7 +243,7 @@ public final class SpreadsheetFindDialogComponent implements DialogComponentLife
      */
     private void refreshQueryAndFindFromWizardFieldsAndServerFind(final Optional<?> old,
                                                                   final Optional<?> newAlsoIgnored) {
-        final Optional<SpreadsheetFormula> formula = SpreadsheetFindDialogComponentQuery.query(
+        final Optional<SpreadsheetFormula> formula = SpreadsheetCellFindDialogComponentQuery.query(
             this.context.historyToken()
                 .cast(SpreadsheetCellFindHistoryToken.class)
                 .query()
@@ -309,7 +309,7 @@ public final class SpreadsheetFindDialogComponent implements DialogComponentLife
     private final SpreadsheetValueTypeComponent valueType;
 
     private SpreadsheetParserContext spreadsheetParserContext() {
-        final SpreadsheetFindDialogComponentContext context = this.context;
+        final SpreadsheetCellFindDialogComponentContext context = this.context;
         final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
 
         return metadata.spreadsheetParserContext(
@@ -324,7 +324,7 @@ public final class SpreadsheetFindDialogComponent implements DialogComponentLife
      * and refresh of the UI.
      */
     private void setAndRefresh(final Function<SpreadsheetCellFindHistoryToken, HistoryToken> historyTokenSetter) {
-        final SpreadsheetFindDialogComponentContext context = this.context;
+        final SpreadsheetCellFindDialogComponentContext context = this.context;
 
         // if setter failed ignore, validation will eventually show an error for the field.
         HistoryToken token;
@@ -621,7 +621,7 @@ public final class SpreadsheetFindDialogComponent implements DialogComponentLife
         );
         final SpreadsheetCellQuery query = maybeQuery.orElse(null);
         if (null != query) {
-            SpreadsheetFindDialogComponentSpreadsheetFormulaParserTokenVisitor.refresh(
+            SpreadsheetCellFindDialogComponentSpreadsheetFormulaParserTokenVisitor.refresh(
                 query.parserToken(),
                 this
             );
@@ -641,7 +641,7 @@ public final class SpreadsheetFindDialogComponent implements DialogComponentLife
      * and performs a {@link walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher#getFindCells(SpreadsheetId, SpreadsheetCellRangeReference, SpreadsheetCellFindQuery)}.
      */
     private void findCells(final SpreadsheetCellFindQuery query) {
-        final SpreadsheetFindDialogComponentContext context = this.context;
+        final SpreadsheetCellFindDialogComponentContext context = this.context;
 
         final SpreadsheetCellFindHistoryToken historyToken = context.historyToken()
             .cast(SpreadsheetCellFindHistoryToken.class);

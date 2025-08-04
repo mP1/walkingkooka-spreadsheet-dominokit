@@ -44,7 +44,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-public class FakeSpreadsheetFindDialogComponentContext extends FakeDialogComponentContext implements SpreadsheetFindDialogComponentContext {
+public class FakeSpreadsheetCellFindDialogComponentContext extends FakeDialogComponentContext implements SpreadsheetCellFindDialogComponentContext {
     @Override
     public LocalDateTime now() {
         throw new UnsupportedOperationException();

@@ -21,7 +21,7 @@ import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellLabelsAnchorCompon
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesAnchorComponentContextTesting;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextTesting;
 
-public interface SpreadsheetFindDialogComponentContextTesting<C extends SpreadsheetFindDialogComponentContext> extends DialogComponentContextTesting<C>,
+public interface SpreadsheetCellFindDialogComponentContextTesting<C extends SpreadsheetCellFindDialogComponentContext> extends DialogComponentContextTesting<C>,
     SpreadsheetCellLabelsAnchorComponentContextTesting<C>,
     SpreadsheetCellReferencesAnchorComponentContextTesting<C> {
 }

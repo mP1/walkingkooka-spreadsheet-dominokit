@@ -41,14 +41,14 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class AppContextSpreadsheetFindDialogComponentContextTest implements SpreadsheetFindDialogComponentContextTesting<AppContextSpreadsheetFindDialogComponentContext>,
+public final class AppContextSpreadsheetCellFindDialogComponentContextTest implements SpreadsheetCellFindDialogComponentContextTesting<AppContextSpreadsheetCellFindDialogComponentContext>,
     SpreadsheetMetadataTesting {
 
     @Test
     public void testWithNullAppContextFails() {
         assertThrows(
             NullPointerException.class,
-            () -> AppContextSpreadsheetFindDialogComponentContext.with(null)
+            () -> AppContextSpreadsheetCellFindDialogComponentContext.with(null)
         );
     }
 
@@ -61,7 +61,7 @@ public final class AppContextSpreadsheetFindDialogComponentContextTest implement
         final SpreadsheetExpressionReference spreadsheetExpressionReference = SpreadsheetSelection.A1;
 
         this.cellLabelsAndCheck(
-            AppContextSpreadsheetFindDialogComponentContext.with(
+            AppContextSpreadsheetCellFindDialogComponentContext.with(
                 new TestAppContext() {
 
                     @Override
@@ -107,7 +107,7 @@ public final class AppContextSpreadsheetFindDialogComponentContextTest implement
         final SpreadsheetCellReference label2Target = SpreadsheetSelection.A1;
 
         this.cellLabelsAndCheck(
-            AppContextSpreadsheetFindDialogComponentContext.with(
+            AppContextSpreadsheetCellFindDialogComponentContext.with(
                 new TestAppContext() {
 
                     @Override
@@ -158,7 +158,7 @@ public final class AppContextSpreadsheetFindDialogComponentContextTest implement
         final SpreadsheetLabelName label1 = SpreadsheetSelection.labelName("Label111");
 
         this.cellLabelsAndCheck(
-            AppContextSpreadsheetFindDialogComponentContext.with(
+            AppContextSpreadsheetCellFindDialogComponentContext.with(
                 new TestAppContext() {
 
                     @Override
@@ -197,8 +197,8 @@ public final class AppContextSpreadsheetFindDialogComponentContextTest implement
     // context..........................................................................................................
 
     @Override
-    public AppContextSpreadsheetFindDialogComponentContext createContext() {
-        return AppContextSpreadsheetFindDialogComponentContext.with(AppContexts.fake());
+    public AppContextSpreadsheetCellFindDialogComponentContext createContext() {
+        return AppContextSpreadsheetCellFindDialogComponentContext.with(AppContexts.fake());
     }
 
     abstract static class TestAppContext extends FakeAppContext {
@@ -230,13 +230,13 @@ public final class AppContextSpreadsheetFindDialogComponentContextTest implement
 
     @Override
     public String typeNameSuffix() {
-        return SpreadsheetFindDialogComponentContext.class.getSimpleName();
+        return SpreadsheetCellFindDialogComponentContext.class.getSimpleName();
     }
 
     // class............................................................................................................
 
     @Override
-    public Class<AppContextSpreadsheetFindDialogComponentContext> type() {
-        return AppContextSpreadsheetFindDialogComponentContext.class;
+    public Class<AppContextSpreadsheetCellFindDialogComponentContext> type() {
+        return AppContextSpreadsheetCellFindDialogComponentContext.class;
     }
 }
