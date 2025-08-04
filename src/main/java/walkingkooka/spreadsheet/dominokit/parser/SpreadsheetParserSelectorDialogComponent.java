@@ -198,7 +198,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
     private SpreadsheetParserSelectorComponent textBox() {
         return SpreadsheetParserSelectorComponent.empty()
             .setId(ID + SpreadsheetElementIds.TEXT_BOX)
-            .addKeyupListener(
+            .addKeyUpListener(
                 (event) -> this.refreshSaveLink(
                     this.textBox.value()
                 )

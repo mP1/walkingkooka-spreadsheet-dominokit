@@ -124,7 +124,7 @@ public final class FormHandlerSelectorDialogComponent implements DialogComponent
     private FormHandlerSelectorComponent selector() {
         return FormHandlerSelectorComponent.empty()
             .setId(ID + SpreadsheetElementIds.TEXT_BOX)
-            .addKeyupListener(
+            .addKeyUpListener(
                 (event) -> this.refreshSaveLink(
                     this.selector.value()
                 )

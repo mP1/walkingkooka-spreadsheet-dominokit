@@ -416,7 +416,7 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
     }
 
     @Override
-    public HistoryTokenAnchorComponent addKeyupListener(final EventListener listener) {
+    public HistoryTokenAnchorComponent addKeyUpListener(final EventListener listener) {
         return this.addEventListener(
             EventType.keyup,
             listener

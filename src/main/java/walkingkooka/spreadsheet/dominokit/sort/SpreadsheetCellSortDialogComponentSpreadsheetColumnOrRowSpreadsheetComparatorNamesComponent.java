@@ -348,8 +348,8 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetC
     }
 
     @Override
-    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addKeyupListener(final EventListener listener) {
-        this.names.addKeyupListener(listener);
+    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addKeyUpListener(final EventListener listener) {
+        this.names.addKeyUpListener(listener);
         return this;
     }
 

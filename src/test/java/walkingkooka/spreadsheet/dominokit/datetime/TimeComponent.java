@@ -201,7 +201,7 @@ public final class TimeComponent implements FormValueComponent<HTMLFieldSetEleme
     }
 
     @Override
-    public TimeComponent addKeyupListener(final EventListener listener) {
+    public TimeComponent addKeyUpListener(final EventListener listener) {
         return this;
     }
 

@@ -178,7 +178,7 @@ public final class FormValueComponentTreePrintableTest implements TreePrintableT
             }
 
             @Override
-            public TestValueComponent addKeyupListener(final EventListener listener) {
+            public TestValueComponent addKeyUpListener(final EventListener listener) {
                 throw new UnsupportedOperationException();
             }
 

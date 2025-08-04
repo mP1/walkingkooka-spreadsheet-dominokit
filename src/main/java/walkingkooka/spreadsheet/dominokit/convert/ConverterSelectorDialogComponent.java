@@ -139,7 +139,7 @@ public final class ConverterSelectorDialogComponent implements DialogComponentLi
     private ConverterSelectorComponent selector() {
         return ConverterSelectorComponent.empty()
             .setId(ID + SpreadsheetElementIds.TEXT_BOX)
-            .addKeyupListener(
+            .addKeyUpListener(
                 (event) -> this.refreshSaveLink(
                     this.selector.value()
                 )

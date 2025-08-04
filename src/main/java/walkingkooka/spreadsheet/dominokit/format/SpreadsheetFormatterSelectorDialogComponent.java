@@ -202,7 +202,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
     private SpreadsheetFormatterSelectorComponent textBox() {
         return SpreadsheetFormatterSelectorComponent.empty()
             .setId(ID + SpreadsheetElementIds.TEXT_BOX)
-            .addKeyupListener(
+            .addKeyUpListener(
                 (event) -> this.refreshSaveLink(
                     this.textBox.value()
                 )

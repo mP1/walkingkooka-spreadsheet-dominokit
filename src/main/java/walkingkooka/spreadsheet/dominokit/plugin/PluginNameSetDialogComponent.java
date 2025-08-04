@@ -82,7 +82,7 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
 
         this.textBox = PluginNameSetComponent.empty()
             .setId(ID + SpreadsheetElementIds.TEXT_BOX)
-            .addKeyupListener(
+            .addKeyUpListener(
                 (e) -> this.onTextBox(this.text())
             ).addChangeListener(
                 (oldValue, newValue) -> this.onTextBox(this.text())

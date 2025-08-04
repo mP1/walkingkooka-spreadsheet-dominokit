@@ -172,7 +172,7 @@ public final class TextComponent implements FormValueComponent<HTMLDivElement, S
     }
 
     @Override
-    public TextComponent addKeyupListener(final EventListener listener) {
+    public TextComponent addKeyUpListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }
 

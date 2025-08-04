@@ -278,7 +278,7 @@ public final class SuggestBoxComponent<T extends HasText> implements SuggestBoxC
     }
 
     @Override
-    public SuggestBoxComponent<T> addKeyupListener(final EventListener listener) {
+    public SuggestBoxComponent<T> addKeyUpListener(final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
 
         return this;
