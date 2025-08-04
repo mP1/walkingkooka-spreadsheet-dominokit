@@ -23,7 +23,7 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.dominokit.datetime.SpreadsheetDateComponent;
+import walkingkooka.spreadsheet.dominokit.datetime.DateComponent;
 import walkingkooka.spreadsheet.dominokit.datetime.SpreadsheetDateTimeComponent;
 import walkingkooka.spreadsheet.dominokit.datetime.SpreadsheetTimeComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
@@ -129,7 +129,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
         final AppContext context = this.appContext(historyToken);
 
         final SpreadsheetCellValueDialogComponent<LocalDate> dialog = SpreadsheetCellValueDialogComponent.with(
-            SpreadsheetDateComponent.empty(
+            DateComponent.empty(
                 DATE_COMPONENT_ID,
                 CLEAR_VALUE
             ),
@@ -145,7 +145,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "  DialogComponent\n" +
                 "    HelloDialogTitle\n" +
                 "    id=Test123-Dialog includeClose=true\n" +
-                "      SpreadsheetDateComponent\n" +
+                "      DateComponent\n" +
                 "        [1999-12-31] id=Test123date-Date\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -167,7 +167,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
         final AppContext context = this.appContext(historyToken);
 
         final SpreadsheetCellValueDialogComponent<LocalDate> dialog = SpreadsheetCellValueDialogComponent.with(
-            SpreadsheetDateComponent.empty(
+            DateComponent.empty(
                 DATE_COMPONENT_ID,
                 CLEAR_VALUE
             ),
@@ -190,7 +190,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "  DialogComponent\n" +
                 "    HelloDialogTitle\n" +
                 "    id=Test123-Dialog includeClose=true\n" +
-                "      SpreadsheetDateComponent\n" +
+                "      DateComponent\n" +
                 "        [2025-06-06] id=Test123date-Date\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -528,7 +528,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
     @Override
     public SpreadsheetCellValueDialogComponent<LocalDate> createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
         return SpreadsheetCellValueDialogComponent.with(
-            SpreadsheetDateComponent.empty(
+            DateComponent.empty(
                 DATE_COMPONENT_ID,
                 CLEAR_VALUE
             ),
