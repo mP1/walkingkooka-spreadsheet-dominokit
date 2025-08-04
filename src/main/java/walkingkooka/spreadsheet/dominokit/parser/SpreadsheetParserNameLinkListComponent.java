@@ -52,7 +52,7 @@ public final class SpreadsheetParserNameLinkListComponent implements HtmlCompone
                 .stream()
                 .map(SpreadsheetParserNameLinkListComponent::linkText)
                 .collect(Collectors.toList()),
-            SpreadsheetParserNameLinkListComponentSpreadsheetCardLinkListComponentContext.with(
+            SpreadsheetParserNameLinkListComponentCardLinkListComponentContext.with(
                 context.parserName(),
                 context
             ) // context

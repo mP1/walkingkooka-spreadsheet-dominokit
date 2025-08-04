@@ -158,7 +158,7 @@ public final class CardLinkListComponentTest implements HtmlComponentTesting<Car
 
         list.refresh(
             texts,
-            new FakeSpreadsheetCardLinkListComponentContext() {
+            new FakeCardLinkListComponentContext() {
 
                 @Override
                 public boolean isDisabled(final String text) {
