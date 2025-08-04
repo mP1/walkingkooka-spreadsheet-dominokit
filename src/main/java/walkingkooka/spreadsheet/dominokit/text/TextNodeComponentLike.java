@@ -25,14 +25,14 @@ import walkingkooka.tree.text.TextNode;
 import java.util.Optional;
 
 /**
- * Defines the public interface for a {@link SpreadsheetTextNodeComponent}.
+ * Defines the public interface for a {@link TextNodeComponent}.
  */
-public interface SpreadsheetTextNodeComponentLike extends Component,
+public interface TextNodeComponentLike extends Component,
     TreePrintable {
 
     Optional<TextNode> value();
 
-    SpreadsheetTextNodeComponent setValue(final Optional<TextNode> value);
+    TextNodeComponent setValue(final Optional<TextNode> value);
 
     // TreePrintable....................................................................................................
 

@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.format;
 import walkingkooka.spreadsheet.dominokit.Component;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponentCellRenderer;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextNodeComponent;
+import walkingkooka.spreadsheet.dominokit.text.TextNodeComponent;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSample;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.tree.text.TextNode;
@@ -65,7 +65,7 @@ final class SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellR
     }
 
     private Component label(final String label) {
-        return SpreadsheetTextNodeComponent.with(
+        return TextNodeComponent.with(
             Optional.of(
                 TextNode.text(label)
             )
@@ -84,7 +84,7 @@ final class SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellR
     }
 
     private Component formatted(final TextNode formatted) {
-        return SpreadsheetTextNodeComponent.with(
+        return TextNodeComponent.with(
             Optional.of(
                 formatted
             )
