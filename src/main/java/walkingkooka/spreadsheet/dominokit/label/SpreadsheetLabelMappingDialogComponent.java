@@ -189,7 +189,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements DialogCompo
                 (oldValue, newValue) -> {
                     this.onLabelMappingReferenceNewValue(newValue);
                 }
-            ).addKeyupListener(
+            ).addKeyUpListener(
                 (e) -> {
                     this.onLabelMappingReferenceNewValue(
                         this.labelMappingReference.value()

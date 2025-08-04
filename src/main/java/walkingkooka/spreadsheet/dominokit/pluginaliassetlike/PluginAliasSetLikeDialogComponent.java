@@ -102,7 +102,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
 
         this.textBox = context.textBox()
             .setId(ID + SpreadsheetElementIds.TEXT_BOX)
-            .addKeyupListener(
+            .addKeyUpListener(
                 (e) -> this.onTextBox(this.text())
             ).addChangeListener(
                 (oldValue, newValue) -> this.onTextBox(this.text())

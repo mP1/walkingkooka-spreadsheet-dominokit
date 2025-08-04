@@ -205,7 +205,7 @@ public final class DateTimeComponent implements FormValueComponent<HTMLFieldSetE
     }
 
     @Override
-    public DateTimeComponent addKeyupListener(final EventListener listener) {
+    public DateTimeComponent addKeyUpListener(final EventListener listener) {
         return this;
     }
 

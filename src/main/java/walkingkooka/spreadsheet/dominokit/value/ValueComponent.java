@@ -78,7 +78,7 @@ public interface ValueComponent<E extends HTMLElement, V, C extends ValueCompone
 
     C addKeydownListener(final EventListener listener);
 
-    C addKeyupListener(final EventListener listener);
+    C addKeyUpListener(final EventListener listener);
 
     C hideMarginBottom();
 

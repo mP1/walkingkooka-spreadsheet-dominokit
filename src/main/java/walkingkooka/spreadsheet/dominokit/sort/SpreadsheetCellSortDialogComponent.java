@@ -197,7 +197,7 @@ public final class SpreadsheetCellSortDialogComponent implements DialogComponent
     private SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent columnOrRowComparatorNamesList() {
         return SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent.empty()
             .setId(ID_PREFIX + "columnOrRowComparatorNamesList" + SpreadsheetElementIds.TEXT_BOX)
-            .addKeyupListener(
+            .addKeyUpListener(
                 (e) -> this.refreshColumnOrRowComparatorNamesList()
             ).addChangeListener(
                 (oldValue, newValue) -> this.refreshColumnOrRowComparatorNamesList()
@@ -353,7 +353,7 @@ public final class SpreadsheetCellSortDialogComponent implements DialogComponent
                 context
             );
 
-            names.addKeyupListener((e) -> this.onSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(names))
+            names.addKeyUpListener((e) -> this.onSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(names))
                 .addChangeListener((o, n) -> this.onSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(names));
             parent.appendChild(names);
         }

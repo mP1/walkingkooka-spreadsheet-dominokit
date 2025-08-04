@@ -399,7 +399,7 @@ public final class SuggestBoxComponent<T> implements SuggestBoxComponentLike<T> 
     }
 
     @Override
-    public SuggestBoxComponent<T> addKeyupListener(final EventListener listener) {
+    public SuggestBoxComponent<T> addKeyUpListener(final EventListener listener) {
         return this.addEventListener(
             EventType.keyup,
             listener

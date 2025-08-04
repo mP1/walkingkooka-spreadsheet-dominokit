@@ -60,9 +60,9 @@ public interface HasEventListenersDelegator<V, C extends HasEventListeners<V, C>
     }
 
     @Override
-    default C addKeyupListener(final EventListener listener) {
+    default C addKeyUpListener(final EventListener listener) {
         this.hasEventListeners()
-            .addKeyupListener(listener);
+            .addKeyUpListener(listener);
         return (C) this;
     }
 

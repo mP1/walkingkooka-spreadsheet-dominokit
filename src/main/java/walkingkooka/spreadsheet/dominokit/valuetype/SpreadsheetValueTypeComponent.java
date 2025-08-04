@@ -207,8 +207,8 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
     }
 
     @Override
-    public SpreadsheetValueTypeComponent addKeyupListener(final EventListener listener) {
-        this.select.addKeyupListener(listener);
+    public SpreadsheetValueTypeComponent addKeyUpListener(final EventListener listener) {
+        this.select.addKeyUpListener(listener);
         return this;
     }
 

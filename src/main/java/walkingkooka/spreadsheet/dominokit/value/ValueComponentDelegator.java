@@ -103,9 +103,9 @@ public interface ValueComponentDelegator<E extends HTMLElement, V, C extends Val
     }
 
     @Override
-    default C addKeyupListener(final EventListener listener) {
+    default C addKeyUpListener(final EventListener listener) {
         this.valueComponent()
-            .addKeyupListener(listener);
+            .addKeyUpListener(listener);
         return (C) this;
     }
 
