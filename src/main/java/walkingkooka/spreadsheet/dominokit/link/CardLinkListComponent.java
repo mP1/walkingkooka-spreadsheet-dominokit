@@ -132,8 +132,6 @@ public final class CardLinkListComponent implements HtmlComponent<HTMLDivElement
 
     @Override
     public CardLinkListComponent setCssText(final String css) {
-        Objects.requireNonNull(css, "css");
-
         this.root.setCssText(css);
         return this;
     }
