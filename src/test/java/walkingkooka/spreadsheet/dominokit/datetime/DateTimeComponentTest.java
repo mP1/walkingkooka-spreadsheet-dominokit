@@ -27,7 +27,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetDateTimeComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, LocalDateTime, SpreadsheetDateTimeComponent> {
+public final class DateTimeComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, LocalDateTime, DateTimeComponent> {
 
     // setId............................................................................................................
 
@@ -62,7 +62,7 @@ public final class SpreadsheetDateTimeComponentTest implements FormValueComponen
 
     @Test
     public void testClearValue() {
-        final SpreadsheetDateTimeComponent component = this.createComponent()
+        final DateTimeComponent component = this.createComponent()
             .setValue(
                 Optional.empty()
             );
@@ -75,8 +75,8 @@ public final class SpreadsheetDateTimeComponentTest implements FormValueComponen
     // ValueComponent...................................................................................................
 
     @Override
-    public SpreadsheetDateTimeComponent createComponent() {
-        return SpreadsheetDateTimeComponent.empty(
+    public DateTimeComponent createComponent() {
+        return DateTimeComponent.empty(
             "id",
             () -> CLEAR_VALUE
         );
@@ -94,8 +94,8 @@ public final class SpreadsheetDateTimeComponentTest implements FormValueComponen
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SpreadsheetDateTimeComponent> type() {
-        return SpreadsheetDateTimeComponent.class;
+    public Class<DateTimeComponent> type() {
+        return DateTimeComponent.class;
     }
 
     @Override

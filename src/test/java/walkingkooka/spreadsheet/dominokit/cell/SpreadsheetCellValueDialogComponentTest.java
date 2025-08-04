@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.datetime.DateComponent;
-import walkingkooka.spreadsheet.dominokit.datetime.SpreadsheetDateTimeComponent;
+import walkingkooka.spreadsheet.dominokit.datetime.DateTimeComponent;
 import walkingkooka.spreadsheet.dominokit.datetime.SpreadsheetTimeComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
@@ -212,7 +212,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
         final AppContext context = this.appContext(historyToken);
 
         final SpreadsheetCellValueDialogComponent<LocalDateTime> dialog = SpreadsheetCellValueDialogComponent.with(
-            SpreadsheetDateTimeComponent.empty(
+            DateTimeComponent.empty(
                 DATE_COMPONENT_ID,
                 () -> LocalDateTime.of(
                     CLEAR_VALUE.get(),
@@ -245,7 +245,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "  DialogComponent\n" +
                 "    HelloDialogTitle\n" +
                 "    id=Test123-Dialog includeClose=true\n" +
-                "      SpreadsheetDateTimeComponent\n" +
+                "      DateTimeComponent\n" +
                 "        [2025-06-06T12:58:59] id=Test123date-Date\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
