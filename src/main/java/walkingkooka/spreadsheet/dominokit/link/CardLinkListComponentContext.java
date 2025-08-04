@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 /**
  * Context for {@link CardLinkListComponent}.
  */
-public interface SpreadsheetCardLinkListComponentContext extends HistoryContext {
+public interface CardLinkListComponentContext extends HistoryContext {
 
     /**
      * Called during a render to test if a text item is disabled.

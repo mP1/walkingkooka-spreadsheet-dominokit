@@ -19,24 +19,24 @@ package walkingkooka.spreadsheet.dominokit.format;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
-import walkingkooka.spreadsheet.dominokit.link.SpreadsheetCardLinkListComponentContext;
+import walkingkooka.spreadsheet.dominokit.link.CardLinkListComponentContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 
 import java.util.Optional;
 
-final class SpreadsheetFormatterNameLinkListComponentSpreadsheetCardLinkListComponentContext implements SpreadsheetCardLinkListComponentContext,
+final class SpreadsheetFormatterNameLinkListComponentCardLinkListComponentContext implements CardLinkListComponentContext,
     HistoryContextDelegator {
 
-    static SpreadsheetFormatterNameLinkListComponentSpreadsheetCardLinkListComponentContext with(final Optional<SpreadsheetFormatterName> name,
-                                                                                                 final HistoryContext context) {
-        return new SpreadsheetFormatterNameLinkListComponentSpreadsheetCardLinkListComponentContext(
+    static SpreadsheetFormatterNameLinkListComponentCardLinkListComponentContext with(final Optional<SpreadsheetFormatterName> name,
+                                                                                      final HistoryContext context) {
+        return new SpreadsheetFormatterNameLinkListComponentCardLinkListComponentContext(
             name,
             context
         );
     }
 
-    private SpreadsheetFormatterNameLinkListComponentSpreadsheetCardLinkListComponentContext(final Optional<SpreadsheetFormatterName> name,
-                                                                                             final HistoryContext context) {
+    private SpreadsheetFormatterNameLinkListComponentCardLinkListComponentContext(final Optional<SpreadsheetFormatterName> name,
+                                                                                  final HistoryContext context) {
         this.name = name;
         this.context = context;
     }

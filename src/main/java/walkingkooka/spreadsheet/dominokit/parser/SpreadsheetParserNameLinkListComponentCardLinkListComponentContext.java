@@ -19,24 +19,24 @@ package walkingkooka.spreadsheet.dominokit.parser;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
-import walkingkooka.spreadsheet.dominokit.link.SpreadsheetCardLinkListComponentContext;
+import walkingkooka.spreadsheet.dominokit.link.CardLinkListComponentContext;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 
 import java.util.Optional;
 
-final class SpreadsheetParserNameLinkListComponentSpreadsheetCardLinkListComponentContext implements SpreadsheetCardLinkListComponentContext,
+final class SpreadsheetParserNameLinkListComponentCardLinkListComponentContext implements CardLinkListComponentContext,
     HistoryContextDelegator {
 
-    static SpreadsheetParserNameLinkListComponentSpreadsheetCardLinkListComponentContext with(final Optional<SpreadsheetParserName> name,
-                                                                                              final HistoryContext context) {
-        return new SpreadsheetParserNameLinkListComponentSpreadsheetCardLinkListComponentContext(
+    static SpreadsheetParserNameLinkListComponentCardLinkListComponentContext with(final Optional<SpreadsheetParserName> name,
+                                                                                   final HistoryContext context) {
+        return new SpreadsheetParserNameLinkListComponentCardLinkListComponentContext(
             name,
             context
         );
     }
 
-    private SpreadsheetParserNameLinkListComponentSpreadsheetCardLinkListComponentContext(final Optional<SpreadsheetParserName> name,
-                                                                                          final HistoryContext context) {
+    private SpreadsheetParserNameLinkListComponentCardLinkListComponentContext(final Optional<SpreadsheetParserName> name,
+                                                                               final HistoryContext context) {
         this.name = name;
         this.context = context;
     }

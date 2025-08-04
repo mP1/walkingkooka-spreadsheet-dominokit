@@ -51,7 +51,7 @@ public final class SpreadsheetFormatterNameLinkListComponent implements HtmlComp
                 .stream()
                 .map(SpreadsheetFormatterNameLinkListComponent::linkText)
                 .collect(Collectors.toList()),
-            SpreadsheetFormatterNameLinkListComponentSpreadsheetCardLinkListComponentContext.with(
+            SpreadsheetFormatterNameLinkListComponentCardLinkListComponentContext.with(
                 context.formatterName(),
                 context
             ) // context

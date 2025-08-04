@@ -64,7 +64,7 @@ public final class CardLinkListComponent implements HtmlComponent<HTMLDivElement
      * Replaces all links and creates links for each of the given text items.
      */
     public void refresh(final List<String> texts,
-                        final SpreadsheetCardLinkListComponentContext context) {
+                        final CardLinkListComponentContext context) {
         this.refresh0(
             Lists.immutable(
                 Objects.requireNonNull(texts, "texts")
@@ -74,7 +74,7 @@ public final class CardLinkListComponent implements HtmlComponent<HTMLDivElement
     }
 
     void refresh0(final List<String> texts,
-                  final SpreadsheetCardLinkListComponentContext context) {
+                  final CardLinkListComponentContext context) {
         this.root.hide();
 
         final FlexLayoutComponent flex = this.flex.removeAllChildren();
@@ -101,7 +101,7 @@ public final class CardLinkListComponent implements HtmlComponent<HTMLDivElement
      */
     private HistoryTokenAnchorComponent anchor(final String text,
                                                final int index,
-                                               final SpreadsheetCardLinkListComponentContext context) {
+                                               final CardLinkListComponentContext context) {
         final HistoryToken historyToken = context.historyToken();
 
         return historyToken.saveLink(
