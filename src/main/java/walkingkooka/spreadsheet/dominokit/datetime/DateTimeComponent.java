@@ -36,7 +36,7 @@ import java.util.function.Supplier;
 /**
  * A date picker that displays a calendar and time picker {@link LocalDateTime}.
  */
-public final class DateTimeComponent extends SpreadsheetPickerComponent<LocalDateTime, DateTimeComponent> {
+public final class DateTimeComponent extends DominoKitPickerComponent<LocalDateTime, DateTimeComponent> {
 
     public static DateTimeComponent empty(final String id,
                                           final Supplier<LocalDateTime> clearValue) {

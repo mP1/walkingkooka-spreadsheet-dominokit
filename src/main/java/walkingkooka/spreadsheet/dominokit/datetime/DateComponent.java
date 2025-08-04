@@ -30,7 +30,7 @@ import java.util.function.Supplier;
 /**
  * A date picker that displays a calendar that supports picking {@link LocalDate}.
  */
-public final class DateComponent extends SpreadsheetPickerComponent<LocalDate, DateComponent> {
+public final class DateComponent extends DominoKitPickerComponent<LocalDate, DateComponent> {
 
     public static DateComponent empty(final String id,
                                       final Supplier<LocalDate> clearValue) {

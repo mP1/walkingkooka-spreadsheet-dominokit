@@ -20,11 +20,11 @@ package walkingkooka.spreadsheet.dominokit.datetime;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class SpreadsheetPickerComponentTest implements ClassTesting<SpreadsheetPickerComponent> {
+public final class DominoKitPickerComponentTest implements ClassTesting<DominoKitPickerComponent> {
 
     @Override
-    public Class<SpreadsheetPickerComponent> type() {
-        return SpreadsheetPickerComponent.class;
+    public Class<DominoKitPickerComponent> type() {
+        return DominoKitPickerComponent.class;
     }
 
     @Override
