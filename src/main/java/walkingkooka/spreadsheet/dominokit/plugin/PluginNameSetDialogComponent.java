@@ -38,7 +38,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
-import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
@@ -123,7 +123,7 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
             .appendChild(this.remove.setFilterValueChangeListener(this::removeFilterOnValueChange))
             .appendChild(this.textBox)
             .appendChild(
-                SpreadsheetLinkListComponent.empty()
+                AnchorListComponent.empty()
                     .appendChild(this.save)
                     .appendChild(this.undo)
                     .appendChild(this.close)

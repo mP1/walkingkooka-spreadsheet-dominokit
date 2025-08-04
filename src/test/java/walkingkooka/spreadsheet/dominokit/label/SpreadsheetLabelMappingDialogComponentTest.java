@@ -149,7 +149,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "            Cell, cell range or Label [] id=labelMapping-reference-TextBox\n" +
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=labelMapping-save-Link\n" +
@@ -177,7 +177,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            Cell, cell range or Label [A1] id=labelMapping-reference-TextBox\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=labelMapping-save-Link\n" +
@@ -205,7 +205,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            Cell, cell range or Label [B2:C3] id=labelMapping-reference-TextBox\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=labelMapping-save-Link\n" +
@@ -233,7 +233,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            Cell, cell range or Label [Label123] id=labelMapping-reference-TextBox\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=labelMapping-save-Link\n" +
@@ -270,7 +270,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "            Cell, cell range or Label [] id=labelMapping-reference-TextBox\n" +
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=labelMapping-save-Link\n" +
@@ -298,7 +298,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "            Cell, cell range or Label [] id=labelMapping-reference-TextBox\n" +
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=labelMapping-save-Link\n" +
@@ -333,7 +333,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "            Cell, cell range or Label [] id=labelMapping-reference-TextBox\n" +
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=labelMapping-save-Link\n" +
@@ -371,7 +371,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "            Cell, cell range or Label [] id=labelMapping-reference-TextBox\n" +
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=labelMapping-save-Link\n" +

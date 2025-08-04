@@ -97,7 +97,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [] id=pluginAliasSet-TextBox\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/] id=pluginAliasSet-save-Link\n" +
@@ -153,7 +153,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [name1] id=pluginAliasSet-TextBox\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1] id=pluginAliasSet-save-Link\n" +

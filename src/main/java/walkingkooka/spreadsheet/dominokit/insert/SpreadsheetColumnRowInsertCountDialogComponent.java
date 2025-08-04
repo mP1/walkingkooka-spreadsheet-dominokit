@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
-import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetIntegerBox;
 
 import java.util.Objects;
@@ -74,7 +74,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
                 context
             ).appendChild(this.count)
             .appendChild(
-                SpreadsheetLinkListComponent.empty()
+                AnchorListComponent.empty()
                     .appendChild(this.insert)
                     .appendChild(this.close)
             );

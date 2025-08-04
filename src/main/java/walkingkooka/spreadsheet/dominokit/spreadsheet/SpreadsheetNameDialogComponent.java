@@ -30,7 +30,7 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifec
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.util.Objects;
@@ -82,7 +82,7 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
                 this.context
             ).appendChild(this.name)
             .appendChild(
-                SpreadsheetLinkListComponent.empty()
+                AnchorListComponent.empty()
                     .appendChild(this.save)
                     .appendChild(this.undo)
                     .appendChild(this.close)

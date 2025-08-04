@@ -32,7 +32,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.PluginSelectHistoryToken;
-import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 
@@ -133,7 +133,7 @@ public final class JarEntryInfoListDialogComponent implements SpreadsheetDialogC
                 context
             ).appendChild(this.table)
             .appendChild(
-                SpreadsheetLinkListComponent.empty()
+                AnchorListComponent.empty()
                     .appendChild(this.delete)
                     .appendChild(this.download)
                     .appendChild(this.close)

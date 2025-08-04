@@ -118,7 +118,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
                 "                    \"next\" DISABLED mdi-arrow-right id=pluginList-next-Link\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"No plugins available\"\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Upload\" [#/plugin-upload] id=pluginList-upload-Link\n" +
@@ -160,7 +160,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
                 "                    \"next\" DISABLED mdi-arrow-right id=pluginList-next-Link\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"No plugins available\"\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Upload\" [#/plugin-upload] id=pluginList-upload-Link\n" +
@@ -240,7 +240,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
                 "                    \"next\" [#/plugin/*/offset/2/count/3] mdi-arrow-right id=pluginList-next-Link\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"No plugins available\"\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Upload\" [#/plugin-upload] id=pluginList-upload-Link\n" +
@@ -287,7 +287,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
                 "                    \"next\" DISABLED mdi-arrow-right id=pluginList-next-Link\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"No plugins available\"\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Upload\" [#/plugin-upload] id=pluginList-upload-Link\n" +

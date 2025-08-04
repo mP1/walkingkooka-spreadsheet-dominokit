@@ -112,7 +112,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                    \"next\" DISABLED mdi-arrow-right id=labels-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Create\" [#/1/SpreadsheetName1/create-label] id=labels-create-Link\n" +
@@ -163,7 +163,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                    \"next\" DISABLED mdi-arrow-right id=labels-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Create\" [#/1/SpreadsheetName1/create-label] id=labels-create-Link\n" +
@@ -215,7 +215,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                  \"=1+2\" [#/1/SpreadsheetName1/cell/A1LABEL/formula] id=labels-labels-A1LABEL-formula-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
-                "                    SpreadsheetLinkListComponent\n" +
+                "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
                 "                          \"References\" [#/1/SpreadsheetName1/cell/A1LABEL/references] (2) id=labels-labels-A1LABEL-references-Link\n" +
@@ -225,7 +225,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                  \"B2\" [#/1/SpreadsheetName1/cell/B2LABEL/formula] id=labels-labels-B2LABEL-formula-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
-                "                    SpreadsheetLinkListComponent\n" +
+                "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
                 "                          \"References\" [#/1/SpreadsheetName1/cell/B2LABEL/references] (0) id=labels-labels-B2LABEL-references-Link\n" +
@@ -237,7 +237,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                    \"next\" DISABLED mdi-arrow-right id=labels-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Create\" [#/1/SpreadsheetName1/create-label] id=labels-create-Link\n" +
@@ -288,7 +288,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                    \"next\" DISABLED mdi-arrow-right id=labels-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Create\" [#/1/SpreadsheetName1/create-label] id=labels-create-Link\n" +
@@ -342,7 +342,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                  \"B2\" [#/1/SpreadsheetName1/cell/B2LABEL/formula] id=labels-labels-B2LABEL-formula-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
-                "                    SpreadsheetLinkListComponent\n" +
+                "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
                 "                          \"References\" [#/1/SpreadsheetName1/cell/B2LABEL/references] (0) id=labels-labels-B2LABEL-references-Link\n" +
@@ -352,7 +352,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                  \"C3\" [#/1/SpreadsheetName1/cell/C3LABEL/formula] id=labels-labels-C3LABEL-formula-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
-                "                    SpreadsheetLinkListComponent\n" +
+                "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
                 "                          \"References\" [#/1/SpreadsheetName1/cell/C3LABEL/references] (0) id=labels-labels-C3LABEL-references-Link\n" +
@@ -364,7 +364,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                    \"next\" DISABLED mdi-arrow-right id=labels-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Create\" [#/1/SpreadsheetName1/create-label] id=labels-create-Link\n" +
@@ -416,7 +416,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                    \"next\" DISABLED mdi-arrow-right id=labels-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Create\" [#/1/SpreadsheetName1/create-label] id=labels-create-Link\n" +
@@ -470,7 +470,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                  \"B2\" [#/1/SpreadsheetName1/cell/B2LABEL/formula] id=labels-labels-B2LABEL-formula-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
-                "                    SpreadsheetLinkListComponent\n" +
+                "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
                 "                          \"References\" [#/1/SpreadsheetName1/cell/B2LABEL/references] (0) id=labels-labels-B2LABEL-references-Link\n" +
@@ -480,7 +480,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                  \"C3\" [#/1/SpreadsheetName1/cell/C3LABEL/formula] id=labels-labels-C3LABEL-formula-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
-                "                    SpreadsheetLinkListComponent\n" +
+                "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
                 "                          \"References\" [#/1/SpreadsheetName1/cell/C3LABEL/references] (0) id=labels-labels-C3LABEL-references-Link\n" +
@@ -492,7 +492,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "                    \"next\" DISABLED mdi-arrow-right id=labels-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Create\" [#/1/SpreadsheetName1/create-label] id=labels-create-Link\n" +

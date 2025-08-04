@@ -69,7 +69,7 @@ public final class ConverterSelectorDialogComponentTest implements SpreadsheetDi
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [hello-converter] id=selector-TextBox\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet123/spreadsheet/findConverter/save/hello-converter] id=selector-save-Link\n" +

@@ -122,7 +122,7 @@ public final class PluginUploadDialogComponentTest implements SpreadsheetDialogC
                 "      SpreadsheetUploadFileComponent\n" +
                 "        id=pluginUpload-UploadFile\n" +
                 "        label=Drop files here or click to upload.\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Upload\" DISABLED id=pluginUpload-upload-Link\n" +
@@ -164,7 +164,7 @@ public final class PluginUploadDialogComponentTest implements SpreadsheetDialogC
                 "      SpreadsheetUploadFileComponent\n" +
                 "        id=pluginUpload-UploadFile\n" +
                 "        label=Drop files here or click to upload.\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Upload\" DISABLED id=pluginUpload-upload-Link\n" +
@@ -197,7 +197,7 @@ public final class PluginUploadDialogComponentTest implements SpreadsheetDialogC
                 "          BrowserFileBase64\n" +
                 "            \"TestPluginName0\"\n" +
                 "              UEsDBBQACAgIAEB/IigAAAAAAAAAAAAAAAAUAA0ATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAkABdjabjhYqGw44+UCAFBLBwishaIUBAAAAAIAAABQSwECFAAUAAgICABAfyIorIWiFAQAAAACAAAAFAAJAAAAAAAAAAAAAAAAAAAATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAUABdjabjhQSwUGAAAAAAEAAQBLAAAAUwAAAAAA\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Upload\" [#/plugin-upload/save/base64/TestPluginName0/UEsDBBQACAgIAEB/IigAAAAAAAAAAAAAAAAUAA0ATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAkABdjabjhYqGw44+UCAFBLBwishaIUBAAAAAIAAABQSwECFAAUAAgICABAfyIorIWiFAQAAAACAAAAFAAJAAAAAAAAAAAAAAAAAAAATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAUABdjabjhQSwUGAAAAAAEAAQBLAAAAUwAAAAAA] id=pluginUpload-upload-Link\n" +

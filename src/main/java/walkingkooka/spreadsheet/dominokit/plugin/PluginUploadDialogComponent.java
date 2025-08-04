@@ -33,7 +33,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.PluginUploadSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.PluginUploadSelectHistoryToken;
-import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.upload.SpreadsheetUploadFileComponent;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
@@ -122,7 +122,7 @@ public final class PluginUploadDialogComponent implements SpreadsheetDialogCompo
         ).appendChild(
             this.uploadFile
         ).appendChild(
-            SpreadsheetLinkListComponent.empty()
+            AnchorListComponent.empty()
                 .appendChild(this.uploadLink)
                 .appendChild(this.close)
         );

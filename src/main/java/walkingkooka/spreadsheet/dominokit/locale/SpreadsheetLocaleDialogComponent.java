@@ -35,7 +35,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
-import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -99,7 +99,7 @@ public final class SpreadsheetLocaleDialogComponent implements SpreadsheetDialog
             FlexLayoutComponent.row()
                 .appendChild(this.locale)
         ).appendChild(
-            SpreadsheetLinkListComponent.empty()
+            AnchorListComponent.empty()
                 .appendChild(this.save)
                 .appendChild(this.clear)
                 .appendChild(this.undo)

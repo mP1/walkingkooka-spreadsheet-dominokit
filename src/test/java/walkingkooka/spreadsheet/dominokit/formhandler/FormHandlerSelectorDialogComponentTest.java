@@ -67,7 +67,7 @@ public final class FormHandlerSelectorDialogComponentTest implements Spreadsheet
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [hello-form-handler] id=selector-TextBox\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet123/spreadsheet/defaultFormHandler/save/hello-form-handler] id=selector-save-Link\n" +

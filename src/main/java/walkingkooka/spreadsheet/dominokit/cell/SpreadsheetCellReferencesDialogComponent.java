@@ -28,7 +28,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellReferenceListHistoryToken;
-import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 
 import java.util.Objects;
@@ -78,7 +78,7 @@ public final class SpreadsheetCellReferencesDialogComponent implements Spreadshe
                 context
             ).appendChild(this.table)
             .appendChild(
-                SpreadsheetLinkListComponent.empty()
+                AnchorListComponent.empty()
                     .setCssProperty("margin-top", "5px")
                     .setCssProperty("margin-left", "-5px")
                     .appendChild(this.close)

@@ -107,7 +107,7 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
                 "      SpreadsheetLocaleComponent\n" +
                 "        SpreadsheetSuggestBoxComponent\n" +
                 "          Load from Locale []\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=dateTimeSymbols-save-Link\n" +
@@ -172,7 +172,7 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
                 "      SpreadsheetLocaleComponent\n" +
                 "        SpreadsheetSuggestBoxComponent\n" +
                 "          Load from Locale []\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/SpreadsheetName1/spreadsheet/dateTimeSymbols/save/%22am,pm%22,%22January,February,March,April,May,June,July,August,September,October,November,December%22,%22Jan.,Feb.,Mar.,Apr.,May,Jun.,Jul.,Aug.,Sep.,Oct.,Nov.,Dec.%22,%22Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday%22,%22Sun.,Mon.,Tue.,Wed.,Thu.,Fri.,Sat.%22] id=dateTimeSymbols-save-Link\n" +
@@ -248,7 +248,7 @@ public final class DateTimeSymbolsDialogComponentTest implements SpreadsheetDial
                 "                  Expected 5 tokens but got 0\n" +
                 "      SpreadsheetLocaleComponent\n" +
                 "        SpreadsheetSuggestBoxComponent\n" +
-                "          Load from Locale []\n" +"      SpreadsheetLinkListComponent\n" +
+                "          Load from Locale []\n" +"      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=dateTimeSymbols-save-Link\n" +

@@ -147,7 +147,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
                 "    id=Test123-Dialog includeClose=true\n" +
                 "      SpreadsheetDateComponent\n" +
                 "        [1999-12-31] id=Test123date-Date\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=Test123-save-Link\n" +
@@ -192,7 +192,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
                 "    id=Test123-Dialog includeClose=true\n" +
                 "      SpreadsheetDateComponent\n" +
                 "        [2025-06-06] id=Test123date-Date\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/SpreadsheetName456/cell/A1/value/date/save/%222025-06-06%22] id=Test123-save-Link\n" +
@@ -247,7 +247,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
                 "    id=Test123-Dialog includeClose=true\n" +
                 "      SpreadsheetDateTimeComponent\n" +
                 "        [2025-06-06T12:58:59] id=Test123date-Date\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/SpreadsheetName456/cell/A1/value/dateTime/save/%222025-06-06T12:58:59%22] id=Test123-save-Link\n" +
@@ -284,7 +284,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
                 "    id=Test123-Dialog includeClose=true\n" +
                 "      SpreadsheetTextBox\n" +
                 "        [HelloTextValue] id=TextBox-Text\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/SpreadsheetName456/cell/A1/value/text/save/%22HelloTextValue%22] id=Test123-save-Link\n" +
@@ -319,7 +319,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
                 "    id=Test123-Dialog includeClose=true\n" +
                 "      SpreadsheetTextBox\n" +
                 "        [] id=TextBox-Text\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=Test123-save-Link\n" +
@@ -363,7 +363,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements Spreadshee
                 "    id=Test123-Dialog includeClose=true\n" +
                 "      SpreadsheetTimeComponent\n" +
                 "        [12:58:59] id=TestTime123\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" [#/1/SpreadsheetName456/cell/A1/value/time/save/%2212:58:59%22] id=Test123-save-Link\n" +

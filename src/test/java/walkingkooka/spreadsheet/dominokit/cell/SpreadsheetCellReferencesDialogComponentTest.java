@@ -116,7 +116,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
                 "                    \"next\" DISABLED mdi-arrow-right id=cellReferences-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=cellReferences-close-Link\n"
@@ -159,7 +159,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
                 "                    \"next\" DISABLED mdi-arrow-right id=cellReferences-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=cellReferences-close-Link\n"
@@ -219,7 +219,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
                 "                    \"\"\n" +
                 "                  TextNodeComponent\n" +
                 "                  SpreadsheetCellLinksComponent\n" +
-                "                    SpreadsheetLinkListComponent\n" +
+                "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
                 "                          \"Value\" [#/1/SpreadsheetName456/cell/A1/value/text] id=cellReferences-cells-A1-value-Link\n" +
@@ -234,7 +234,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
                 "                    \"next\" DISABLED mdi-arrow-right id=cellReferences-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
-                "      SpreadsheetLinkListComponent\n" +
+                "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=cellReferences-close-Link\n"

@@ -28,17 +28,17 @@ import walkingkooka.text.printer.IndentingPrinter;
  * the anchors must be done externally.
  * This is useful for inserting links with commands such as SAVE, CLOSE at the bottom of a {@link walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent}.
  */
-public final class SpreadsheetLinkListComponent implements HtmlComponent<HTMLDivElement, SpreadsheetLinkListComponent> {
+public final class AnchorListComponent implements HtmlComponent<HTMLDivElement, AnchorListComponent> {
 
-    public static SpreadsheetLinkListComponent empty() {
-        return new SpreadsheetLinkListComponent();
+    public static AnchorListComponent empty() {
+        return new AnchorListComponent();
     }
 
-    private SpreadsheetLinkListComponent() {
+    private AnchorListComponent() {
         this.root = FlexLayoutComponent.row();
     }
 
-    public SpreadsheetLinkListComponent appendChild(final AnchorComponent<?, ?> anchor) {
+    public AnchorListComponent appendChild(final AnchorComponent<?, ?> anchor) {
         this.root.appendChild(anchor);
         return this;
     }
@@ -51,7 +51,7 @@ public final class SpreadsheetLinkListComponent implements HtmlComponent<HTMLDiv
     // setCssText.......................................................................................................
 
     @Override
-    public SpreadsheetLinkListComponent setCssText(final String css) {
+    public AnchorListComponent setCssText(final String css) {
         this.root.setCssText(css);
         return this;
     }
@@ -59,8 +59,8 @@ public final class SpreadsheetLinkListComponent implements HtmlComponent<HTMLDiv
     // setCssProperty...................................................................................................
 
     @Override
-    public SpreadsheetLinkListComponent setCssProperty(final String name,
-                                                       final String value) {
+    public AnchorListComponent setCssProperty(final String name,
+                                              final String value) {
         this.root.setCssProperty(
             name,
             value
