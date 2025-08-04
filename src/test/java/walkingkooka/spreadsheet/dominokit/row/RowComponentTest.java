@@ -21,7 +21,7 @@ import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
-import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
 
 public class RowComponentTest implements HtmlComponentTesting<RowComponent, HTMLDivElement> {
 
@@ -38,16 +38,16 @@ public class RowComponentTest implements HtmlComponentTesting<RowComponent, HTML
         this.treePrintAndCheck(
             RowComponent.columnSpan4()
                 .appendChild(
-                    SpreadsheetTextBox.empty()
+                    TextBoxComponent.empty()
                         .setLabel("Hello1")
                 ).appendChild(
-                    SpreadsheetTextBox.empty()
+                    TextBoxComponent.empty()
                         .setLabel("Hello2")
                 ),
             "RowComponent\n" +
-                "  SpreadsheetTextBox\n" +
+                "  TextBoxComponent\n" +
                 "    Hello1 []\n" +
-                "  SpreadsheetTextBox\n" +
+                "  TextBoxComponent\n" +
                 "    Hello2 []\n"
         );
     }

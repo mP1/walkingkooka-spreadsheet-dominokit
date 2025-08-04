@@ -21,7 +21,7 @@ import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
-import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
 
 import java.util.Optional;
 
@@ -37,7 +37,7 @@ public final class DialogComponentTest implements HtmlComponentTesting<DialogCom
             DialogComponentContexts.fake()
         );
         dialog.appendChild(
-            SpreadsheetTextBox.empty()
+            TextBoxComponent.empty()
                 .setId("TextBoxId111")
                 .setValue(
                     Optional.of(
@@ -46,7 +46,7 @@ public final class DialogComponentTest implements HtmlComponentTesting<DialogCom
                 )
         );
         dialog.appendChild(
-            SpreadsheetTextBox.empty()
+            TextBoxComponent.empty()
                 .setId("TextBoxId222")
                 .setValue(
                     Optional.of(
@@ -61,9 +61,9 @@ public final class DialogComponentTest implements HtmlComponentTesting<DialogCom
             dialog,
             "DialogComponent\n" +
                 "  id=id123 includeClose=true\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [Value111] id=TextBoxId111\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [Value222] id=TextBoxId222\n"
         );
     }
@@ -77,7 +77,7 @@ public final class DialogComponentTest implements HtmlComponentTesting<DialogCom
             DialogComponent.INCLUDE_CLOSE,
             DialogComponentContexts.fake()
         ).appendChild(
-            SpreadsheetTextBox.empty()
+            TextBoxComponent.empty()
                 .setId("TextBoxId111")
                 .setValue(
                     Optional.of(
@@ -90,7 +90,7 @@ public final class DialogComponentTest implements HtmlComponentTesting<DialogCom
             dialog,
             "DialogComponent\n" +
                 "  id=id123 includeClose=true CLOSED\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [Value111] id=TextBoxId111\n"
         );
     }

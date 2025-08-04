@@ -60,7 +60,7 @@ public final class SpreadsheetNameDialogComponentTest implements DialogComponent
                 "    id=spreadsheetName-Dialog includeClose=true\n" +
                 "      SpreadsheetNameComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            [SpreadsheetName1] id=spreadsheetName-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +

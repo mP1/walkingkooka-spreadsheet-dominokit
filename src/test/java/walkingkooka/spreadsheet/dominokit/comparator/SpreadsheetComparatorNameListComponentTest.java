@@ -48,7 +48,7 @@ public final class SpreadsheetComparatorNameListComponentTest implements FormVal
                 ),
             "SpreadsheetComparatorNameListComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [day-of-month, month-of-year]\n"
         );
     }
@@ -62,7 +62,7 @@ public final class SpreadsheetComparatorNameListComponentTest implements FormVal
                 ),
             "SpreadsheetComparatorNameListComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [day-of-month, !@#]\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 14\n"

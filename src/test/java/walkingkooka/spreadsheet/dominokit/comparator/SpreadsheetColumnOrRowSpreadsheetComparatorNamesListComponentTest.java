@@ -36,7 +36,7 @@ public class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponentTest i
                 ),
             "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [A]\n" +
                 "      Errors\n" +
                 "        Missing '='\n"
@@ -52,7 +52,7 @@ public class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponentTest i
                 ),
             "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [A=]\n" +
                 "      Errors\n" +
                 "        Missing comparator name\n"
@@ -70,7 +70,7 @@ public class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponentTest i
                 ),
             "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [A=text;B=text-case-insensitive]\n"
         );
     }
@@ -84,7 +84,7 @@ public class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponentTest i
                 ),
             "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [A=GOOD;!B=BAD]\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 7\n"
@@ -100,7 +100,7 @@ public class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponentTest i
                 ),
             "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [A=GOOD;B=BAD!]\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 12\n"

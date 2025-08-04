@@ -21,7 +21,7 @@ import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
-import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
 
 import java.util.Optional;
 
@@ -32,21 +32,21 @@ public final class FlexLayoutComponentTest implements HtmlComponentTesting<FlexL
         this.treePrintAndCheck(
             FlexLayoutComponent.row()
                 .appendChild(
-                    SpreadsheetTextBox.empty()
+                    TextBoxComponent.empty()
                         .setValue(
                             Optional.of("Value111")
                         )
                 ).appendChild(
-                    SpreadsheetTextBox.empty()
+                    TextBoxComponent.empty()
                         .setValue(
                             Optional.of("Value222")
                         )
                 ),
             "FlexLayoutComponent\n" +
                 "  ROW\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [Value111]\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [Value222]\n"
         );
     }
@@ -57,12 +57,12 @@ public final class FlexLayoutComponentTest implements HtmlComponentTesting<FlexL
             FlexLayoutComponent.row()
                 .setId("Id123")
                 .appendChild(
-                    SpreadsheetTextBox.empty()
+                    TextBoxComponent.empty()
                         .setValue(
                             Optional.of("Value111")
                         )
                 ).appendChild(
-                    SpreadsheetTextBox.empty()
+                    TextBoxComponent.empty()
                         .setValue(
                             Optional.of("Value222")
                         )
@@ -70,9 +70,9 @@ public final class FlexLayoutComponentTest implements HtmlComponentTesting<FlexL
             "FlexLayoutComponent\n" +
                 "  ROW\n" +
                 "    id=Id123\n" +
-                "      SpreadsheetTextBox\n" +
+                "      TextBoxComponent\n" +
                 "        [Value111]\n" +
-                "      SpreadsheetTextBox\n" +
+                "      TextBoxComponent\n" +
                 "        [Value222]\n"
         );
     }

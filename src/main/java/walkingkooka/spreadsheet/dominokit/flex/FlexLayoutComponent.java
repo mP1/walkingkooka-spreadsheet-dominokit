@@ -174,9 +174,9 @@ public class FlexLayoutComponent implements HtmlComponent<HTMLDivElement, FlexLa
     // FlexLayoutComponent
     //  ROW
     //    id=Id123
-    //      SpreadsheetTextBox
+    //      TextBoxComponent
     //        [Value111]
-    //      SpreadsheetTextBox
+    //      TextBoxComponent
     //        [Value222]
     @Override
     public final void printTree(final IndentingPrinter printer) {

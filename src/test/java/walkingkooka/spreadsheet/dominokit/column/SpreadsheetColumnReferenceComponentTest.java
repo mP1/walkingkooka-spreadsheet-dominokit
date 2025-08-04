@@ -38,7 +38,7 @@ public final class SpreadsheetColumnReferenceComponentTest implements FormValueC
                 ),
             "SpreadsheetColumnReferenceComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [AB]\n"
         );
     }
@@ -54,7 +54,7 @@ public final class SpreadsheetColumnReferenceComponentTest implements FormValueC
                 ),
             "SpreadsheetColumnReferenceComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [Invalid123!]\n" +
                 "      Errors\n" +
                 "        Invalid column \"Invalid\" not between \"A\" and \"XFE\"\n"

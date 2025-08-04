@@ -35,9 +35,9 @@ public final class FormValueComponentTreePrintableTest implements TreePrintableT
     @Test
     public void testLabel() {
         this.treePrintAndCheck(
-            SpreadsheetTextBox.empty()
+            TextBoxComponent.empty()
                 .setLabel("Label123"),
-            "SpreadsheetTextBox\n" +
+            "TextBoxComponent\n" +
                 "  Label123 []\n"
         );
     }
@@ -45,10 +45,10 @@ public final class FormValueComponentTreePrintableTest implements TreePrintableT
     @Test
     public void testLabelAndValue() {
         this.treePrintAndCheck(
-            SpreadsheetTextBox.empty()
+            TextBoxComponent.empty()
                 .setLabel("Label123")
                 .setValue(Optional.of("Value456")),
-            "SpreadsheetTextBox\n" +
+            "TextBoxComponent\n" +
                 "  Label123 [Value456]\n"
         );
     }
@@ -56,9 +56,9 @@ public final class FormValueComponentTreePrintableTest implements TreePrintableT
     @Test
     public void testValue() {
         this.treePrintAndCheck(
-            SpreadsheetTextBox.empty()
+            TextBoxComponent.empty()
                 .setValue(Optional.of("Value456")),
-            "SpreadsheetTextBox\n" +
+            "TextBoxComponent\n" +
                 "  [Value456]\n"
         );
     }
@@ -66,10 +66,10 @@ public final class FormValueComponentTreePrintableTest implements TreePrintableT
     @Test
     public void testSetCssText() {
         this.treePrintAndCheck(
-            SpreadsheetTextBox.empty()
+            TextBoxComponent.empty()
                 .setValue(Optional.of("Value456"))
                 .setCssText("background-color: lavender;"),
-            "SpreadsheetTextBox\n" +
+            "TextBoxComponent\n" +
                 "  [Value456]\n"
         );
     }
@@ -245,7 +245,7 @@ public final class FormValueComponentTreePrintableTest implements TreePrintableT
     @Test
     public void testLabelValueIdDisabledRequiredHelperText() {
         this.treePrintAndCheck(
-            SpreadsheetTextBox.empty()
+            TextBoxComponent.empty()
                 .setLabel("Label123")
                 .setValue(Optional.of("Value456"))
                 .setId("id987")
@@ -253,7 +253,7 @@ public final class FormValueComponentTreePrintableTest implements TreePrintableT
                 .required()
                 .setHelperText(Optional.of("HelperText789"))
             ,
-            "SpreadsheetTextBox\n" +
+            "TextBoxComponent\n" +
                 "  Label123 [Value456] id=id987 helperText=\"HelperText789\" DISABLED REQUIRED\n"
         );
     }

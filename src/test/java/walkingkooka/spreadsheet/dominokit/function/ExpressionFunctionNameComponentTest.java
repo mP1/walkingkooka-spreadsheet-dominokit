@@ -38,7 +38,7 @@ public final class ExpressionFunctionNameComponentTest implements FormValueCompo
                 ),
             "ExpressionFunctionNameComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [Hello]\n"
         );
     }
@@ -54,7 +54,7 @@ public final class ExpressionFunctionNameComponentTest implements FormValueCompo
                 ),
             "ExpressionFunctionNameComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [Invalid123!]\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 10\n"

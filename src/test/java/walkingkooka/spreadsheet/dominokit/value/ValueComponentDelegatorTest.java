@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentDelegatorTest.TestValueComponentDelegator;
 import walkingkooka.text.printer.IndentingPrinter;
 
@@ -54,7 +54,7 @@ public final class ValueComponentDelegatorTest implements ValueComponentTesting<
             return this.textBox;
         }
 
-        private final SpreadsheetTextBox textBox = SpreadsheetTextBox.empty();
+        private final TextBoxComponent textBox = TextBoxComponent.empty();
 
         @Override
         public void printTree(final IndentingPrinter printer) {

@@ -79,7 +79,7 @@ public final class ValueSpreadsheetTextBoxTest implements FormValueComponentTest
                     )
                 ),
             "ValueSpreadsheetTextBox\n" +
-                "  SpreadsheetTextBox\n" +
+                "  TextBoxComponent\n" +
                 "    [AB!12] id=id123\n" +
                 "    Errors\n" +
                 "      Invalid character '!' at 2\n"
@@ -97,7 +97,7 @@ public final class ValueSpreadsheetTextBoxTest implements FormValueComponentTest
                     )
                 ),
             "ValueSpreadsheetTextBox\n" +
-                "  SpreadsheetTextBox\n" +
+                "  TextBoxComponent\n" +
                 "    [AB12] id=id123\n"
         );
     }

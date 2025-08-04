@@ -34,20 +34,20 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * A mock of main/SpreadsheetTextBox with the same public interface and a helpful {@link TreePrintable}. This will be useful for unit tests to verify the rough apperance of a component that includes
- * {@link SpreadsheetTextBox}.
+ * A mock of main/TextBoxComponent with the same public interface and a helpful {@link TreePrintable}. This will be useful for unit tests to verify the rough apperance of a component that includes
+ * {@link TextBoxComponent}.
  */
-public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSetElement, String, SpreadsheetTextBox>,
-    FormValueComponentTreePrintable<SpreadsheetTextBox, String>,
-    TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetTextBox>,
+public final class TextBoxComponent implements FormValueComponent<HTMLFieldSetElement, String, TextBoxComponent>,
+    FormValueComponentTreePrintable<TextBoxComponent, String>,
+    TestHtmlElementComponent<HTMLFieldSetElement, TextBoxComponent>,
     ValidatorHelper {
 
-    public static SpreadsheetTextBox empty() {
-        return new SpreadsheetTextBox();
+    public static TextBoxComponent empty() {
+        return new TextBoxComponent();
     }
 
     @Override
-    public SpreadsheetTextBox setId(final String id) {
+    public TextBoxComponent setId(final String id) {
         CharSequences.failIfNullOrEmpty(id, "id");
 
         this.id = id;
@@ -62,7 +62,7 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     private String id;
 
     @Override
-    public SpreadsheetTextBox setLabel(final String label) {
+    public TextBoxComponent setLabel(final String label) {
         this.label = label;
         return this;
     }
@@ -75,7 +75,7 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     private String label;
 
     @Override
-    public SpreadsheetTextBox setValue(final Optional<String> value) {
+    public TextBoxComponent setValue(final Optional<String> value) {
         Objects.requireNonNull(value, "value");
         this.value = EMPTY_STRING.equals(value) ?
             Optional.empty() :
@@ -94,18 +94,18 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     private Optional<String> value = Optional.empty();
 
     @Override
-    public SpreadsheetTextBox focus() {
+    public TextBoxComponent focus() {
         return this;
     }
 
     @Override
-    public SpreadsheetTextBox optional() {
+    public TextBoxComponent optional() {
         this.required = false;
         return this;
     }
 
     @Override
-    public SpreadsheetTextBox required() {
+    public TextBoxComponent required() {
         this.required = true;
         return this;
     }
@@ -117,7 +117,7 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
 
     private boolean required;
 
-    public SpreadsheetTextBox setValidator(final Validator<Optional<String>> validator) {
+    public TextBoxComponent setValidator(final Validator<Optional<String>> validator) {
         this.validator = validator;
         return this;
     }
@@ -125,7 +125,7 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     private Validator<Optional<String>> validator;
 
     @Override
-    public SpreadsheetTextBox validate() {
+    public TextBoxComponent validate() {
         this.setErrors(
             this.validateAndGetErrors(
                 value,
@@ -141,7 +141,7 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     }
 
     @Override
-    public SpreadsheetTextBox setErrors(final List<String> errors) {
+    public TextBoxComponent setErrors(final List<String> errors) {
         Objects.requireNonNull(errors, "errors");
         this.errors = Lists.immutable(errors);
         return this;
@@ -155,7 +155,7 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     }
 
     @Override
-    public SpreadsheetTextBox setDisabled(final boolean disabled) {
+    public TextBoxComponent setDisabled(final boolean disabled) {
         this.disabled = disabled;
         return this;
     }
@@ -163,42 +163,42 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     private boolean disabled;
 
     @Override
-    public SpreadsheetTextBox addChangeListener(final ChangeListener<Optional<String>> listener) {
+    public TextBoxComponent addChangeListener(final ChangeListener<Optional<String>> listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetTextBox addClickListener(final EventListener listener) {
+    public TextBoxComponent addClickListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetTextBox addContextMenuListener(final EventListener listener) {
+    public TextBoxComponent addContextMenuListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetTextBox addFocusListener(final EventListener listener) {
+    public TextBoxComponent addFocusListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetTextBox addKeydownListener(final EventListener listener) {
+    public TextBoxComponent addKeydownListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetTextBox addKeyupListener(final EventListener listener) {
+    public TextBoxComponent addKeyupListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetTextBox alwaysShowHelperText() {
+    public TextBoxComponent alwaysShowHelperText() {
         return this;
     }
 
     @Override
-    public SpreadsheetTextBox setHelperText(final Optional<String> text) {
+    public TextBoxComponent setHelperText(final Optional<String> text) {
         Objects.requireNonNull(text, "text");
         this.helperText = text;
         return this;
@@ -211,40 +211,40 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     private Optional<String> helperText = Optional.empty();
 
     @Override
-    public SpreadsheetTextBox hideMarginBottom() {
+    public TextBoxComponent hideMarginBottom() {
         return this;
     }
 
     @Override
-    public SpreadsheetTextBox removeBorders() {
+    public TextBoxComponent removeBorders() {
         return this;
     }
 
-    public SpreadsheetTextBox autocompleteOff() {
+    public TextBoxComponent autocompleteOff() {
         return this;
     }
 
-    public SpreadsheetTextBox clearIcon() {
+    public TextBoxComponent clearIcon() {
         return this;
     }
 
-    public SpreadsheetTextBox disableSpellcheck() {
+    public TextBoxComponent disableSpellcheck() {
         return this;
     }
 
-    public SpreadsheetTextBox enterFiresValueChange() {
+    public TextBoxComponent enterFiresValueChange() {
         return this;
     }
 
-    public SpreadsheetTextBox magnifyingGlassIcon() {
+    public TextBoxComponent magnifyingGlassIcon() {
         return this;
     }
 
     // FIXES
     //
-    // java.lang.NoSuchMethodError: walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.setCssText(Ljava/lang/String;)Lwalkingkooka/spreadsheet/dominokit/ui/textbox/SpreadsheetTextBox;
+    // java.lang.NoSuchMethodError: walkingkooka.spreadsheet.dominokit.value.TextBoxComponent.setCssText(Ljava/lang/String;)Lwalkingkooka/spreadsheet/dominokit/ui/textbox/TextBoxComponent;
     @Override
-    public SpreadsheetTextBox setCssText(final String css) {
+    public TextBoxComponent setCssText(final String css) {
         Objects.requireNonNull(css, "css");
         return this;
     }

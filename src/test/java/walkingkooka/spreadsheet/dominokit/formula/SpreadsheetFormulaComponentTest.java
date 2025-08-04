@@ -40,7 +40,7 @@ public final class SpreadsheetFormulaComponentTest implements FormValueComponent
                 ),
             "SpreadsheetFormulaComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [1+2]\n"
         );
     }
@@ -76,7 +76,7 @@ public final class SpreadsheetFormulaComponentTest implements FormValueComponent
                 ),
             "SpreadsheetFormulaComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [1+!!!]\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at (3,1) expected LAMBDA_FUNCTION | NAMED_FUNCTION | \"true\" | \"false\" | LABEL | CELL_RANGE | CELL | GROUP | NEGATIVE | \"#.#E+#;#.#%;#.#;#%;#\" | TEXT | \"#NULL!\" | \"#DIV/0!\" | \"#VALUE!\" | \"#REF!\" | \"#NAME?\" | \"#NAME?\" | \"#NUM!\" | \"#N/A\" | \"#ERROR\" | \"#SPILL!\" | \"#CALC!\"\n"

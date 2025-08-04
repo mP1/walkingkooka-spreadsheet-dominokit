@@ -36,7 +36,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValueHistoryToken;
-import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -267,7 +267,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
         final AppContext context = this.appContext(historyToken);
 
         final SpreadsheetCellValueDialogComponent<String> dialog = SpreadsheetCellValueDialogComponent.with(
-            SpreadsheetTextBox.empty()
+            TextBoxComponent.empty()
                 .setId("TextBox-Text"),
             new TestSpreadsheetCellValueDialogComponentContext<>(
                 ValidationValueTypeName.TEXT,
@@ -282,7 +282,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "  DialogComponent\n" +
                 "    HelloDialogTitle\n" +
                 "    id=Test123-Dialog includeClose=true\n" +
-                "      SpreadsheetTextBox\n" +
+                "      TextBoxComponent\n" +
                 "        [HelloTextValue] id=TextBox-Text\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -303,7 +303,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
         final AppContext context = this.appContext(historyToken);
 
         final SpreadsheetCellValueDialogComponent<String> dialog = SpreadsheetCellValueDialogComponent.with(
-            SpreadsheetTextBox.empty()
+            TextBoxComponent.empty()
                 .setId("TextBox-Text"),
             new TestSpreadsheetCellValueDialogComponentContext<>(
                 ValidationValueTypeName.TEXT,
@@ -317,7 +317,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "  DialogComponent\n" +
                 "    HelloDialogTitle\n" +
                 "    id=Test123-Dialog includeClose=true\n" +
-                "      SpreadsheetTextBox\n" +
+                "      TextBoxComponent\n" +
                 "        [] id=TextBox-Text\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +

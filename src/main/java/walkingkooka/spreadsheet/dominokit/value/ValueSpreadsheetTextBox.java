@@ -22,7 +22,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.CanBeEmpty;
-import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.validator.SpreadsheetValidators;
 import walkingkooka.text.printer.IndentingPrinter;
 
@@ -50,7 +50,7 @@ public final class ValueSpreadsheetTextBox<T> implements FormValueComponent<HTML
 
     private ValueSpreadsheetTextBox(final Function<String, T> parser,
                                     final Function<T, String> formatter) {
-        this.textBox = SpreadsheetTextBox.empty()
+        this.textBox = TextBoxComponent.empty()
             .autocompleteOff()
             .clearIcon()
             .disableSpellcheck()
@@ -353,7 +353,7 @@ public final class ValueSpreadsheetTextBox<T> implements FormValueComponent<HTML
         return this.textBox.value();
     }
 
-    private final SpreadsheetTextBox textBox;
+    private final TextBoxComponent textBox;
 
     // Object...........................................................................................................
 

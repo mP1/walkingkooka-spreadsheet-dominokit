@@ -70,7 +70,7 @@ import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListDialogCompo
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponent;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponentContexts;
-import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.time.LocalDate;
@@ -161,7 +161,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
             );
 
             SpreadsheetCellValueDialogComponent.with(
-                SpreadsheetTextBox.empty()
+                TextBoxComponent.empty()
                     .setId(
                         textContext.id()
                     ),

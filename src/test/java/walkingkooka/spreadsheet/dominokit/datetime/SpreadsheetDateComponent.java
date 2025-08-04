@@ -37,7 +37,7 @@ import java.util.Optional;
 import java.util.function.Supplier;
 
 /**
- * A mock of main/SpreadsheetTextBox with the same public interface and a helpful {@link TreePrintable}. This will be useful for unit tests to verify the rough apperance of a component that includes
+ * A mock of main/TextBoxComponent with the same public interface and a helpful {@link TreePrintable}. This will be useful for unit tests to verify the rough apperance of a component that includes
  * {@linkSpreadsheetDateComponent}.
  */
 public final class SpreadsheetDateComponent implements FormValueComponent<HTMLFieldSetElement, LocalDate, SpreadsheetDateComponent>,
@@ -259,7 +259,7 @@ public final class SpreadsheetDateComponent implements FormValueComponent<HTMLFi
 
     // FIXES
     //
-    // java.lang.NoSuchMethodError: walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.setCssText(Ljava/lang/String;)Lwalkingkooka/spreadsheet/dominokit/ui/textbox/SpreadsheetTextBox;
+    // java.lang.NoSuchMethodError: walkingkooka.spreadsheet.dominokit.value.TextBoxComponent.setCssText(Ljava/lang/String;)Lwalkingkooka/spreadsheet/dominokit/ui/textbox/TextBoxComponent;
     @Override
     public SpreadsheetDateComponent setCssText(final String css) {
         Objects.requireNonNull(css, "css");

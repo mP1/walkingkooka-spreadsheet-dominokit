@@ -46,20 +46,20 @@ import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
 /**
  * A textbox that adds a few extras that should be common to all text boxes.
  */
-public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSetElement, String, SpreadsheetTextBox>,
-    FormValueComponentTreePrintable<SpreadsheetTextBox, String> {
+public final class TextBoxComponent implements FormValueComponent<HTMLFieldSetElement, String, TextBoxComponent>,
+    FormValueComponentTreePrintable<TextBoxComponent, String> {
 
-    public static SpreadsheetTextBox empty() {
-        return new SpreadsheetTextBox();
+    public static TextBoxComponent empty() {
+        return new TextBoxComponent();
     }
 
-    private SpreadsheetTextBox() {
+    private TextBoxComponent() {
         this.textBox = new TextBox()
             .setEmptyAsNull(true);
     }
 
     @Override
-    public SpreadsheetTextBox addChangeListener(final ChangeListener<Optional<String>> listener) {
+    public TextBoxComponent addChangeListener(final ChangeListener<Optional<String>> listener) {
         this.textBox.addChangeListener(
             SpreadsheetTextBoxChangeListener.with(listener)
         );
@@ -67,7 +67,7 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     }
 
     @Override
-    public SpreadsheetTextBox addClickListener(final EventListener listener) {
+    public TextBoxComponent addClickListener(final EventListener listener) {
         return this.addEventListener(
             EventType.click,
             listener
@@ -75,7 +75,7 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     }
 
     @Override
-    public SpreadsheetTextBox addContextMenuListener(final EventListener listener) {
+    public TextBoxComponent addContextMenuListener(final EventListener listener) {
         return this.addEventListener(
             EventType.contextmenu,
             listener
@@ -83,7 +83,7 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     }
 
     @Override
-    public SpreadsheetTextBox addFocusListener(final EventListener listener) {
+    public TextBoxComponent addFocusListener(final EventListener listener) {
         return this.addEventListener(
             EventType.focus,
             listener
@@ -91,7 +91,7 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     }
 
     @Override
-    public SpreadsheetTextBox addKeydownListener(final EventListener listener) {
+    public TextBoxComponent addKeydownListener(final EventListener listener) {
         return this.addEventListener(
             EventType.keydown,
             listener
@@ -99,15 +99,15 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     }
 
     @Override
-    public SpreadsheetTextBox addKeyupListener(final EventListener listener) {
+    public TextBoxComponent addKeyupListener(final EventListener listener) {
         return this.addEventListener(
             EventType.keyup,
             listener
         );
     }
 
-    private SpreadsheetTextBox addEventListener(final EventType eventType,
-                                                final EventListener listener) {
+    private TextBoxComponent addEventListener(final EventType eventType,
+                                              final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
 
         this.textBox.getInputElement()
@@ -118,14 +118,14 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
         return this;
     }
 
-    public SpreadsheetTextBox autocompleteOff() {
+    public TextBoxComponent autocompleteOff() {
         this.textBox.getInputElement()
             .element()
             .autocomplete = "off";
         return this;
     }
 
-    public SpreadsheetTextBox clearIcon() {
+    public TextBoxComponent clearIcon() {
         this.textBox.apply(
             self -> self.appendChild(
                 PostfixAddOn.of(
@@ -140,7 +140,7 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
         return this;
     }
 
-    public SpreadsheetTextBox disableSpellcheck() {
+    public TextBoxComponent disableSpellcheck() {
         this.textBox.getInputElement()
             .element()
             .spellcheck = false;
@@ -148,12 +148,12 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     }
 
     @Override
-    public SpreadsheetTextBox focus() {
+    public TextBoxComponent focus() {
         this.textBox.focus();
         return this;
     }
 
-    public SpreadsheetTextBox enterFiresValueChange() {
+    public TextBoxComponent enterFiresValueChange() {
         return this.addKeydownListener(
             (final Event event) -> {
                 final KeyboardEvent keyboardEvent = Js.cast(event);
@@ -173,7 +173,7 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
         );
     }
 
-    public SpreadsheetTextBox magnifyingGlassIcon() {
+    public TextBoxComponent magnifyingGlassIcon() {
         this.textBox.apply(
             self -> self.appendChild(
                 PostfixAddOn.of(
@@ -189,7 +189,7 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     }
 
     @Override
-    public SpreadsheetTextBox alwaysShowHelperText() {
+    public TextBoxComponent alwaysShowHelperText() {
         final DominoElement<Element> element = elements.elementOf(
             this.textBox.element()
                 .firstElementChild
@@ -199,7 +199,7 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     }
 
     @Override
-    public SpreadsheetTextBox setHelperText(final Optional<String> text) {
+    public TextBoxComponent setHelperText(final Optional<String> text) {
         Objects.requireNonNull(text, "text");
 
         this.textBox.setHelperText(
@@ -216,13 +216,13 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     }
 
     @Override
-    public SpreadsheetTextBox hideMarginBottom() {
+    public TextBoxComponent hideMarginBottom() {
         this.textBox.setMarginBottom("0");
         return this;
     }
 
     @Override
-    public SpreadsheetTextBox removeBorders() {
+    public TextBoxComponent removeBorders() {
         this.textBox.getInputElement()
             .parent()
             .setBorder("0")
@@ -231,7 +231,7 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     }
 
     @Override
-    public SpreadsheetTextBox setId(final String id) {
+    public TextBoxComponent setId(final String id) {
         CharSequences.failIfNullOrEmpty(id, "id");
 
         this.textBox.getInputElement()
@@ -246,7 +246,7 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     }
 
     @Override
-    public SpreadsheetTextBox setLabel(final String label) {
+    public TextBoxComponent setLabel(final String label) {
         this.textBox.setLabel(label);
         return this;
     }
@@ -256,7 +256,7 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
         return this.textBox.getLabel();
     }
 
-    public SpreadsheetTextBox setValidator(final Validator<Optional<String>> validator) {
+    public TextBoxComponent setValidator(final Validator<Optional<String>> validator) {
         final TextBox textBox = this.textBox;
         textBox.setAutoValidation(true);
         textBox.getValidators().clear();
@@ -276,7 +276,7 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     // Value............................................................................................................
 
     @Override
-    public SpreadsheetTextBox setValue(final Optional<String> value) {
+    public TextBoxComponent setValue(final Optional<String> value) {
         Objects.requireNonNull(value, "value");
 
         this.textBox.withValue(
@@ -305,18 +305,18 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     }
 
     @Override
-    public SpreadsheetTextBox setDisabled(final boolean disabled) {
+    public TextBoxComponent setDisabled(final boolean disabled) {
         this.textBox.setDisabled(disabled);
         return this;
     }
 
     @Override
-    public SpreadsheetTextBox required() {
+    public TextBoxComponent required() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public SpreadsheetTextBox optional() {
+    public TextBoxComponent optional() {
         throw new UnsupportedOperationException();
     }
 
@@ -326,7 +326,7 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     }
 
     @Override
-    public SpreadsheetTextBox validate() {
+    public TextBoxComponent validate() {
         this.textBox.validate();
         return this;
     }
@@ -339,7 +339,7 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     }
 
     @Override
-    public SpreadsheetTextBox setErrors(final List<String> errors) {
+    public TextBoxComponent setErrors(final List<String> errors) {
         Objects.requireNonNull(errors, "errors");
 
         this.textBox.invalidate(
@@ -351,7 +351,7 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     // setCssText.......................................................................................................
 
     @Override
-    public SpreadsheetTextBox setCssText(final String css) {
+    public TextBoxComponent setCssText(final String css) {
         Objects.requireNonNull(css, "css");
 
         this.textBox.cssText(css);
@@ -361,8 +361,8 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     // setCssProperty...................................................................................................
 
     @Override
-    public SpreadsheetTextBox setCssProperty(final String name,
-                                             final String value) {
+    public TextBoxComponent setCssProperty(final String name,
+                                           final String value) {
         Objects.requireNonNull(name, "name");
 
         this.textBox.setCssProperty(

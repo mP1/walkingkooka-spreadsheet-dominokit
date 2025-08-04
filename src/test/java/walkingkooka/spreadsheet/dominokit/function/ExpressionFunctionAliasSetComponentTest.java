@@ -38,7 +38,7 @@ public final class ExpressionFunctionAliasSetComponentTest implements FormValueC
                 ),
             "ExpressionFunctionAliasSetComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [alias1 function1, function2]\n"
         );
     }
@@ -54,7 +54,7 @@ public final class ExpressionFunctionAliasSetComponentTest implements FormValueC
                 ),
             "ExpressionFunctionAliasSetComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [alias1 function1, 9]\n" +
                 "      Errors\n" +
                 "        Invalid character '9' at 18\n"

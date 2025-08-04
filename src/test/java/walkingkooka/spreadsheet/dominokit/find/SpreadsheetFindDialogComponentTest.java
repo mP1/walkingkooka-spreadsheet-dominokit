@@ -109,7 +109,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
@@ -135,45 +135,45 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              Time=time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formula [] id=cellFind-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Query [matchXyz()] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -230,7 +230,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
@@ -256,45 +256,45 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              Time=time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formula [] id=cellFind-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Query [matchXyz()] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -351,7 +351,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
@@ -377,45 +377,45 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              Time=time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formula [] id=cellFind-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Query [] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -470,7 +470,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
@@ -496,45 +496,45 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              Time=time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formula [] id=cellFind-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Query [matchXyz()] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -625,7 +625,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
@@ -651,45 +651,45 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              Time=time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formula [] id=cellFind-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Query [matchXyz()] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -775,7 +775,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
@@ -801,45 +801,45 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              Time=time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formula [*formula*] id=cellFind-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Query [textMatch(cellFormula(),\"*formula*\")] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -894,7 +894,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
@@ -920,45 +920,45 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              Time=time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formula [*formula*] id=cellFind-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Query [1+textMatch(cellFormula(),\"*formula*\")] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -1013,7 +1013,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
@@ -1039,45 +1039,45 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              Time=time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formula [*formula*] id=cellFind-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatter [*formatter*] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Query [or(textMatch(cellFormula(),\"*formula*\"),textMatch(cellFormatter(),\"*formatter*\"))] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -1132,7 +1132,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
@@ -1158,45 +1158,45 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              Time=time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formula [*formula*] id=cellFind-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Query [or(textMatch(cellFormula(),\"*formula*\"),true())] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -1251,7 +1251,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
@@ -1277,45 +1277,45 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              Time=time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formula [] id=cellFind-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              DateTimeSymbols [*Hello*] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Query [or(textMatch(cellDateTimeSymbols(),\"*Hello*\"),1)] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -1370,7 +1370,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
@@ -1396,45 +1396,45 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              Time=time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formula [] id=cellFind-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Query [or(textMatch(cellDecimalNumberSymbols(),\"*Hello*\"),1)] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -1489,7 +1489,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
@@ -1515,45 +1515,45 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              Time=time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formula [] id=cellFind-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatter [*formatter*] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Query [textMatch(cellFormatter(),\"*formatter*\")] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -1608,7 +1608,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
@@ -1634,45 +1634,45 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              Time=time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formula [] id=cellFind-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [*parser*] id=cellFind-parser-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Query [textMatch(cellParser(),\"*parser*\")] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -1727,7 +1727,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
@@ -1753,45 +1753,45 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              Time=time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formula [] id=cellFind-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Style [*style*] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Query [textMatch(cellStyle(),\"*style*\")] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -1846,7 +1846,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
@@ -1872,45 +1872,45 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              Time=time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formula [] id=cellFind-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Value [<999] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Query [cellValue()<999] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -1965,7 +1965,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
@@ -1991,45 +1991,45 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              Time=time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formula [] id=cellFind-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatted [] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Query [textMatch(cellValidator(),\"*validator123*\")] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -2084,7 +2084,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
@@ -2110,45 +2110,45 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              Time=time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formula [] id=cellFind-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatter [] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Style [] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Value [] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatted [*formatted-value*] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Query [textMatch(cellFormattedValue(),\"*formatted-value*\")] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -2203,7 +2203,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
@@ -2229,45 +2229,45 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              Time=time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formula [*formula*] id=cellFind-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              DateTimeSymbols [] id=cellFind-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              decimalNumberSymbols [] id=cellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatter [*formatted*] id=cellFind-formatter-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [*parser*] id=cellFind-parser-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Style [*style*] id=cellFind-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Value [<10] id=cellFind-value-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Validator [] id=cellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
-                "            SpreadsheetTextBox\n" +
+                "            TextBoxComponent\n" +
                 "              Formatted [*formattedValue*] id=cellFind-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
-                "          SpreadsheetTextBox\n" +
+                "          TextBoxComponent\n" +
                 "            Query [OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),OR(textMatch(\"*formatted*\",cellFormatter()),OR(textMatch(\"*parser*\",cellParser()),OR(textMatch(\"*style*\",cellStyle()),OR(cellValue()<10, OR(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue()))))))))] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +

@@ -48,7 +48,7 @@ public final class SpreadsheetParserAliasSetComponentTest implements FormValueCo
                 ),
             "SpreadsheetParserAliasSetComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [alias1 parser1, parser2]\n"
         );
     }
@@ -64,7 +64,7 @@ public final class SpreadsheetParserAliasSetComponentTest implements FormValueCo
                 ),
             "SpreadsheetParserAliasSetComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [alias1 parser1, 9]\n" +
                 "      Errors\n" +
                 "        Invalid character '9' at 16\n"

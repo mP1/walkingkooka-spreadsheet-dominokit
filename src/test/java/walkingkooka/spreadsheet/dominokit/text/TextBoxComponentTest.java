@@ -30,7 +30,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetTextBoxTest implements FormValueComponentTesting<HTMLFieldSetElement, String, SpreadsheetTextBox> {
+public final class TextBoxComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, String, TextBoxComponent> {
 
     // setId............................................................................................................
 
@@ -56,7 +56,7 @@ public final class SpreadsheetTextBoxTest implements FormValueComponentTesting<H
 
     @Test
     public void testSetDisabledFalse() {
-        final SpreadsheetTextBox box = this.createComponent();
+        final TextBoxComponent box = this.createComponent();
         box.setDisabled(false);
         this.isDisabledAndCheck(
             box,
@@ -66,7 +66,7 @@ public final class SpreadsheetTextBoxTest implements FormValueComponentTesting<H
 
     @Test
     public void testSetDisabledTrue() {
-        final SpreadsheetTextBox box = this.createComponent();
+        final TextBoxComponent box = this.createComponent();
         box.setDisabled(true);
         this.isDisabledAndCheck(
             box,
@@ -78,7 +78,7 @@ public final class SpreadsheetTextBoxTest implements FormValueComponentTesting<H
 
     @Test
     public void testClearValue() {
-        final SpreadsheetTextBox box = this.createComponent()
+        final TextBoxComponent box = this.createComponent()
             .setValue(
                 Optional.of("123")
             ).clearValue();
@@ -94,7 +94,7 @@ public final class SpreadsheetTextBoxTest implements FormValueComponentTesting<H
     public void testSetValueWithEmpty() {
         final Optional<String> value = Optional.of("");
 
-        final SpreadsheetTextBox box = this.createComponent()
+        final TextBoxComponent box = this.createComponent()
             .setValue(value);
         this.valueAndCheck(
             box,
@@ -106,7 +106,7 @@ public final class SpreadsheetTextBoxTest implements FormValueComponentTesting<H
     public void testSetValueWithNotEmpty() {
         final Optional<String> value = Optional.of("value123");
 
-        final SpreadsheetTextBox box = this.createComponent()
+        final TextBoxComponent box = this.createComponent()
             .setValue(value);
         this.valueAndCheck(box, value);
     }
@@ -116,14 +116,14 @@ public final class SpreadsheetTextBoxTest implements FormValueComponentTesting<H
     @Test
     public void testOptionalValidationPass() {
         this.treePrintAndCheck(
-            SpreadsheetTextBox.empty()
+            TextBoxComponent.empty()
                 .setLabel("Label123")
                 .setValidator(
                     SpreadsheetValidators.optional(
                         SpreadsheetValidators.fake()
                     )
                 ),
-            "SpreadsheetTextBox\n" +
+            "TextBoxComponent\n" +
                 "  Label123 []\n"
         );
     }
@@ -131,7 +131,7 @@ public final class SpreadsheetTextBoxTest implements FormValueComponentTesting<H
     @Test
     public void testOptionalEmptyValueValidationPass() {
         this.treePrintAndCheck(
-            SpreadsheetTextBox.empty()
+            TextBoxComponent.empty()
                 .setLabel("Label123")
                 .setValue(
                     Optional.of("!")
@@ -141,7 +141,7 @@ public final class SpreadsheetTextBoxTest implements FormValueComponentTesting<H
                         SpreadsheetValidators.fake()
                     )
                 ).setValue(Optional.empty()),
-            "SpreadsheetTextBox\n" +
+            "TextBoxComponent\n" +
                 "  Label123 []\n"
         );
     }
@@ -149,7 +149,7 @@ public final class SpreadsheetTextBoxTest implements FormValueComponentTesting<H
     @Test
     public void testValidationPass() {
         this.treePrintAndCheck(
-            SpreadsheetTextBox.empty()
+            TextBoxComponent.empty()
                 .setLabel("Label123")
                 .setValidator(
                     new Validator<>() {
@@ -159,7 +159,7 @@ public final class SpreadsheetTextBoxTest implements FormValueComponentTesting<H
                         }
                     }
                 ).setValue(Optional.of("Value456")),
-            "SpreadsheetTextBox\n" +
+            "TextBoxComponent\n" +
                 "  Label123 [Value456]\n"
         );
     }
@@ -167,7 +167,7 @@ public final class SpreadsheetTextBoxTest implements FormValueComponentTesting<H
     @Test
     public void testValidationFailureInvalidCharacterException() {
         this.treePrintAndCheck(
-            SpreadsheetTextBox.empty()
+            TextBoxComponent.empty()
                 .setLabel("Label123")
                 .setValidator(
                     SpreadsheetValidators.tryCatch(
@@ -176,7 +176,7 @@ public final class SpreadsheetTextBoxTest implements FormValueComponentTesting<H
                         }
                     )
                 ).setValue(Optional.of("Value456")),
-            "SpreadsheetTextBox\n" +
+            "TextBoxComponent\n" +
                 "  Label123 [Value456]\n" +
                 "  Errors\n" +
                 "    Invalid character 'l' at 2\n"
@@ -186,7 +186,7 @@ public final class SpreadsheetTextBoxTest implements FormValueComponentTesting<H
     @Test
     public void testValidationFailure() {
         this.treePrintAndCheck(
-            SpreadsheetTextBox.empty()
+            TextBoxComponent.empty()
                 .setLabel("Label123")
                 .setValidator(
                     new Validator<>() {
@@ -196,7 +196,7 @@ public final class SpreadsheetTextBoxTest implements FormValueComponentTesting<H
                         }
                     }
                 ).setValue(Optional.of("Value456")),
-            "SpreadsheetTextBox\n" +
+            "TextBoxComponent\n" +
                 "  Label123 [Value456]\n" +
                 "  Errors\n" +
                 "    Error message 123\n"
@@ -206,10 +206,10 @@ public final class SpreadsheetTextBoxTest implements FormValueComponentTesting<H
     @Test
     public void testLabelAndValueWithoutValidator() {
         this.treePrintAndCheck(
-            SpreadsheetTextBox.empty()
+            TextBoxComponent.empty()
                 .setLabel("Label123")
                 .setValue(Optional.of("Value456")),
-            "SpreadsheetTextBox\n" +
+            "TextBoxComponent\n" +
                 "  Label123 [Value456]\n"
         );
     }
@@ -217,9 +217,9 @@ public final class SpreadsheetTextBoxTest implements FormValueComponentTesting<H
     @Test
     public void testMagnifyingGlass() {
         this.treePrintAndCheck(
-            SpreadsheetTextBox.empty()
+            TextBoxComponent.empty()
                 .magnifyingGlassIcon(),
-            "SpreadsheetTextBox\n" +
+            "TextBoxComponent\n" +
                 "  []\n"
         );
     }
@@ -227,15 +227,15 @@ public final class SpreadsheetTextBoxTest implements FormValueComponentTesting<H
     // ValueComponent...................................................................................................
 
     @Override
-    public SpreadsheetTextBox createComponent() {
-        return SpreadsheetTextBox.empty();
+    public TextBoxComponent createComponent() {
+        return TextBoxComponent.empty();
     }
 
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SpreadsheetTextBox> type() {
-        return SpreadsheetTextBox.class;
+    public Class<TextBoxComponent> type() {
+        return TextBoxComponent.class;
     }
 
     @Override

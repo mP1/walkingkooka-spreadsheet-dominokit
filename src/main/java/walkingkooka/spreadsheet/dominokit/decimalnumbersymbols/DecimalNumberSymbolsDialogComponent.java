@@ -47,7 +47,7 @@ import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleComponent;
 import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleComponentContext;
 import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleComponentSuggestionsValue;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;
-import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.validator.SpreadsheetValidators;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -238,7 +238,7 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
 
     // currencySymbol...................................................................................................
 
-    private SpreadsheetTextBox currencySymbol() {
+    private TextBoxComponent currencySymbol() {
         return stringComponent(
             "currencySymbol", // id
             "Currency", // label
@@ -246,7 +246,7 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
         );
     }
 
-    private final SpreadsheetTextBox currencySymbol;
+    private final TextBoxComponent currencySymbol;
 
     // decimalSeparator.................................................................................................
 
@@ -263,7 +263,7 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
 
     // exponentSymbol...................................................................................................
 
-    private SpreadsheetTextBox exponentSymbol() {
+    private TextBoxComponent exponentSymbol() {
         return stringComponent(
             "exponentSymbol", // id
             "Exponent", // label
@@ -271,7 +271,7 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
         );
     }
 
-    private final SpreadsheetTextBox exponentSymbol;
+    private final TextBoxComponent exponentSymbol;
 
     // groupingSeparator................................................................................................
 
@@ -288,7 +288,7 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
 
     // infinitySymbol...................................................................................................
 
-    private SpreadsheetTextBox infinitySymbol() {
+    private TextBoxComponent infinitySymbol() {
         return stringComponent(
             "infinitySymbol", // id
             "Infinity", // label
@@ -296,7 +296,7 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
         );
     }
 
-    private final SpreadsheetTextBox infinitySymbol;
+    private final TextBoxComponent infinitySymbol;
 
     // monetaryDecimalSeparator.........................................................................................
 
@@ -313,7 +313,7 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
 
     // nanSymbol........................................................................................................
 
-    private SpreadsheetTextBox nanSymbol() {
+    private TextBoxComponent nanSymbol() {
         return stringComponent(
             "nanSymbol", // id
             "Nan", // label
@@ -321,7 +321,7 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
         );
     }
 
-    private final SpreadsheetTextBox nanSymbol;
+    private final TextBoxComponent nanSymbol;
 
     // percentSymbol....................................................................................................
 
@@ -368,10 +368,10 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
             );
     }
 
-    private SpreadsheetTextBox stringComponent(final String id,
-                                               final String label,
-                                               final int propertyIndex) {
-        return SpreadsheetTextBox.empty()
+    private TextBoxComponent stringComponent(final String id,
+                                             final String label,
+                                             final int propertyIndex) {
+        return TextBoxComponent.empty()
             .setId(ID + CaseKind.CAMEL.change(id, CaseKind.PASCAL) + SpreadsheetElementIds.TEXT_BOX)
             .setLabel(label)
             .setValidator(SpreadsheetValidators.required())

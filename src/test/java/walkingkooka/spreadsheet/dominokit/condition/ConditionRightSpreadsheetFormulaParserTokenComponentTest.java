@@ -40,7 +40,7 @@ public final class ConditionRightSpreadsheetFormulaParserTokenComponentTest impl
                 ),
             "ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [< 123]\n"
         );
     }
@@ -56,7 +56,7 @@ public final class ConditionRightSpreadsheetFormulaParserTokenComponentTest impl
                 ),
             "ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [1+2]\n" +
                 "      Errors\n" +
                 "        Invalid character '1' at 0 expected (\"=\" | \"<>\" | \">=\" | \">\" | \"<=\" | \"<\"), [WHITESPACE], CONDITION_RIGHT_VALUE_OR_EXPRESSION_REQUIRED, [WHITESPACE]\n"

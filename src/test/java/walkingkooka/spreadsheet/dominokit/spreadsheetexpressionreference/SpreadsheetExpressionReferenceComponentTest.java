@@ -38,7 +38,7 @@ public final class SpreadsheetExpressionReferenceComponentTest implements FormVa
                 ),
             "SpreadsheetExpressionReferenceComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [A1]\n"
         );
     }
@@ -54,7 +54,7 @@ public final class SpreadsheetExpressionReferenceComponentTest implements FormVa
                 ),
             "SpreadsheetExpressionReferenceComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [$A$1]\n"
         );
     }
@@ -70,7 +70,7 @@ public final class SpreadsheetExpressionReferenceComponentTest implements FormVa
                 ),
             "SpreadsheetExpressionReferenceComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [A1:B2]\n"
         );
     }
@@ -86,7 +86,7 @@ public final class SpreadsheetExpressionReferenceComponentTest implements FormVa
                 ),
             "SpreadsheetExpressionReferenceComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [Label123]\n"
         );
     }
@@ -102,7 +102,7 @@ public final class SpreadsheetExpressionReferenceComponentTest implements FormVa
                 ),
             "SpreadsheetExpressionReferenceComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [Invalid123!]\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 10\n"
@@ -120,7 +120,7 @@ public final class SpreadsheetExpressionReferenceComponentTest implements FormVa
                 ),
             "SpreadsheetExpressionReferenceComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [$A]\n" +
                 "      Errors\n" +
                 "        Invalid character '$' at 0\n"
@@ -138,7 +138,7 @@ public final class SpreadsheetExpressionReferenceComponentTest implements FormVa
                 ),
             "SpreadsheetExpressionReferenceComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
-                "    SpreadsheetTextBox\n" +
+                "    TextBoxComponent\n" +
                 "      [123]\n" +
                 "      Errors\n" +
                 "        Invalid character '1' at 0\n"
