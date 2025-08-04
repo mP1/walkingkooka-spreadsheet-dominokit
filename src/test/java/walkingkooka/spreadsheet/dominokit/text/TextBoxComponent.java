@@ -184,7 +184,7 @@ public final class TextBoxComponent implements FormValueComponent<HTMLFieldSetEl
     }
 
     @Override
-    public TextBoxComponent addKeydownListener(final EventListener listener) {
+    public TextBoxComponent addKeyDownListener(final EventListener listener) {
         return this;
     }
 

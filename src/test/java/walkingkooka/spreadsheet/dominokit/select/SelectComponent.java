@@ -181,7 +181,7 @@ public final class SelectComponent<T> implements FormValueComponent<HTMLFieldSet
     }
 
     @Override
-    public SelectComponent<T> addKeydownListener(final EventListener listener) {
+    public SelectComponent<T> addKeyDownListener(final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
 
         return this;

@@ -181,9 +181,9 @@ public interface AnchorComponentDelegator<A extends AnchorComponent<A, T>, T> ex
     }
 
     @Override
-    default A addKeydownListener(final EventListener listener) {
+    default A addKeyDownListener(final EventListener listener) {
         this.anchorComponent()
-            .addKeydownListener(listener);
+            .addKeyDownListener(listener);
         return (A) this;
     }
 

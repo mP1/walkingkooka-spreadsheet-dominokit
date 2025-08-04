@@ -92,7 +92,7 @@ public final class TextBoxComponent implements FormValueComponent<HTMLFieldSetEl
     }
 
     @Override
-    public TextBoxComponent addKeydownListener(final EventListener listener) {
+    public TextBoxComponent addKeyDownListener(final EventListener listener) {
         return this.addEventListener(
             EventType.keydown,
             listener
@@ -155,7 +155,7 @@ public final class TextBoxComponent implements FormValueComponent<HTMLFieldSetEl
     }
 
     public TextBoxComponent enterFiresValueChange() {
-        return this.addKeydownListener(
+        return this.addKeyDownListener(
             (final Event event) -> {
                 final KeyboardEvent keyboardEvent = Js.cast(event);
                 switch (Key.fromEvent(keyboardEvent)) {

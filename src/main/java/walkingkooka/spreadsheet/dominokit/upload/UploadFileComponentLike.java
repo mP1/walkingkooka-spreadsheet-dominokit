@@ -85,7 +85,7 @@ abstract class UploadFileComponentLike implements FormValueComponent<HTMLDivElem
     }
 
     @Override
-    public final UploadFileComponent addKeydownListener(final EventListener listener) {
+    public final UploadFileComponent addKeyDownListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }
 
