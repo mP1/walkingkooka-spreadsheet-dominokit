@@ -52,7 +52,7 @@ public final class PluginFileViewDialogComponentTest implements DialogComponentL
                 "  DialogComponent\n" +
                 "    /META-INF/MANIFEST.MF\n" +
                 "    id=pluginFileView-Dialog includeClose=true\n" +
-                "      SpreadsheetTextViewComponent\n" +
+                "      TextViewComponent\n" +
                 "        \"\"\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -79,7 +79,7 @@ public final class PluginFileViewDialogComponentTest implements DialogComponentL
                 "  DialogComponent\n" +
                 "    /empty-file.txt\n" +
                 "    id=pluginFileView-Dialog includeClose=true\n" +
-                "      SpreadsheetTextViewComponent\n" +
+                "      TextViewComponent\n" +
                 "        \"\"\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -104,7 +104,7 @@ public final class PluginFileViewDialogComponentTest implements DialogComponentL
                 "  DialogComponent\n" +
                 "    /non-empty-file.txt\n" +
                 "    id=pluginFileView-Dialog includeClose=true\n" +
-                "      SpreadsheetTextViewComponent\n" +
+                "      TextViewComponent\n" +
                 "        \"Line1\\nLine2\\n\"\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -131,7 +131,7 @@ public final class PluginFileViewDialogComponentTest implements DialogComponentL
                 "  DialogComponent\n" +
                 "    /empty-file.txt\n" +
                 "    id=pluginFileView-Dialog includeClose=true\n" +
-                "      SpreadsheetTextViewComponent\n" +
+                "      TextViewComponent\n" +
                 "        \"\"\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -154,7 +154,7 @@ public final class PluginFileViewDialogComponentTest implements DialogComponentL
                 "  DialogComponent\n" +
                 "    /non-empty-file.txt\n" +
                 "    id=pluginFileView-Dialog includeClose=true\n" +
-                "      SpreadsheetTextViewComponent\n" +
+                "      TextViewComponent\n" +
                 "        \"Line1\\nLine2\\n\"\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +

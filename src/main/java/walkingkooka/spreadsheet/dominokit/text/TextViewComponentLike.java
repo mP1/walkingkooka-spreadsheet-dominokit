@@ -31,14 +31,14 @@ import java.util.Optional;
 /**
  * A barebones component that may be used to display text. Many methods such as support for listeners etc all throw {@link UnsupportedOperationException}.
  */
-abstract class SpreadsheetTextViewComponentLike implements FormValueComponent<HTMLDivElement, String, SpreadsheetTextViewComponent> {
+abstract class TextViewComponentLike implements FormValueComponent<HTMLDivElement, String, TextViewComponent> {
 
-    SpreadsheetTextViewComponentLike() {
+    TextViewComponentLike() {
         super();
     }
 
     @Override
-    public final SpreadsheetTextViewComponent setLabel(final String label) {
+    public final TextViewComponent setLabel(final String label) {
         throw new UnsupportedOperationException();
     }
 
@@ -53,17 +53,17 @@ abstract class SpreadsheetTextViewComponentLike implements FormValueComponent<HT
     }
 
     @Override
-    public final SpreadsheetTextViewComponent validate() {
-        return (SpreadsheetTextViewComponent) this;
+    public final TextViewComponent validate() {
+        return (TextViewComponent) this;
     }
 
     @Override
-    public final SpreadsheetTextViewComponent optional() {
+    public final TextViewComponent optional() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final SpreadsheetTextViewComponent required() {
+    public final TextViewComponent required() {
         throw new UnsupportedOperationException();
     }
 
@@ -78,64 +78,64 @@ abstract class SpreadsheetTextViewComponentLike implements FormValueComponent<HT
     }
 
     @Override
-    public final SpreadsheetTextViewComponent setDisabled(final boolean disabled) {
+    public final TextViewComponent setDisabled(final boolean disabled) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final SpreadsheetTextViewComponent alwaysShowHelperText() {
+    public final TextViewComponent alwaysShowHelperText() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final SpreadsheetTextViewComponent setHelperText(final Optional<String> text) {
+    public final TextViewComponent setHelperText(final Optional<String> text) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final SpreadsheetTextViewComponent addChangeListener(final ChangeListener<Optional<String>> listener) {
+    public final TextViewComponent addChangeListener(final ChangeListener<Optional<String>> listener) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final SpreadsheetTextViewComponent addClickListener(final EventListener listener) {
+    public final TextViewComponent addClickListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final SpreadsheetTextViewComponent addContextMenuListener(final EventListener listener) {
+    public final TextViewComponent addContextMenuListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final SpreadsheetTextViewComponent addFocusListener(final EventListener listener) {
+    public final TextViewComponent addFocusListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final SpreadsheetTextViewComponent addKeydownListener(final EventListener listener) {
+    public final TextViewComponent addKeydownListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final SpreadsheetTextViewComponent addKeyupListener(final EventListener listener) {
+    public final TextViewComponent addKeyupListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final SpreadsheetTextViewComponent hideMarginBottom() {
-        return (SpreadsheetTextViewComponent) this;
+    public final TextViewComponent hideMarginBottom() {
+        return (TextViewComponent) this;
     }
 
     @Override
-    public final SpreadsheetTextViewComponent removeBorders() {
-        return (SpreadsheetTextViewComponent) this;
+    public final TextViewComponent removeBorders() {
+        return (TextViewComponent) this;
     }
 
     @Override
-    public final SpreadsheetTextViewComponent focus() {
+    public final TextViewComponent focus() {
         // ignored
-        return (SpreadsheetTextViewComponent) this;
+        return (TextViewComponent) this;
     }
 
     @Override
@@ -144,7 +144,7 @@ abstract class SpreadsheetTextViewComponentLike implements FormValueComponent<HT
     }
 
     @Override
-    public final SpreadsheetTextViewComponent setErrors(final List<String> errors) {
+    public final TextViewComponent setErrors(final List<String> errors) {
         throw new UnsupportedOperationException();
     }
 
