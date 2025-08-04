@@ -22,13 +22,13 @@ import org.dominokit.domino.ui.forms.suggest.SuggestBox;
 import org.dominokit.domino.ui.forms.suggest.SuggestOption;
 import org.dominokit.domino.ui.forms.suggest.SuggestionsStore;
 
-final class SpreadsheetSuggestBoxComponentSuggestBox<T> extends SuggestBox<T, SpanElement, SuggestOption<T>> {
+final class SuggestBoxComponentSuggestBox<T> extends SuggestBox<T, SpanElement, SuggestOption<T>> {
 
-    SpreadsheetSuggestBoxComponentSuggestBox(final SuggestionsStore<T, SpanElement, SuggestOption<T>> store) {
+    SuggestBoxComponentSuggestBox(final SuggestionsStore<T, SpanElement, SuggestOption<T>> store) {
         super(store);
     }
 
-    // overridden and made public so SpreadsheetSuggestBoxComponent can force a refresh after #setValue is called
+    // overridden and made public so SuggestBoxComponent can force a refresh after #setValue is called
     @Override
     protected void applyOptionValue(final SuggestOption<T> option) {
         super.applyOptionValue(option);

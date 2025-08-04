@@ -30,18 +30,18 @@ import java.util.Optional;
 /**
  * A text box component that includes support for finding values that match the entered search text.
  */
-public interface SpreadsheetSuggestBoxComponentLike<T> extends FormValueComponent<HTMLFieldSetElement, T, SpreadsheetSuggestBoxComponent<T>>,
-    FormValueComponentTreePrintable<SpreadsheetSuggestBoxComponent<T>, T> {
+public interface SuggestBoxComponentLike<T> extends FormValueComponent<HTMLFieldSetElement, T, SuggestBoxComponent<T>>,
+    FormValueComponentTreePrintable<SuggestBoxComponent<T>, T> {
 
-    SpreadsheetSuggestBoxComponent<T> setStringValue(final Optional<String> value);
+    SuggestBoxComponent<T> setStringValue(final Optional<String> value);
 
     Optional<String> stringValue();
 
     List<T> options();
 
-    SpreadsheetSuggestBoxComponent<T> setOptions(final List<T> options);
+    SuggestBoxComponent<T> setOptions(final List<T> options);
 
-    SpreadsheetSuggestBoxComponent<T> setVerifiedOption(final T option);
+    SuggestBoxComponent<T> setVerifiedOption(final T option);
 
     // FormValueComponentTreePrintable..................................................................................
 

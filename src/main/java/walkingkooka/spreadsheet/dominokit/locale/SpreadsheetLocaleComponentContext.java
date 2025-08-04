@@ -21,12 +21,12 @@ import org.dominokit.domino.ui.menu.MenuItem;
 import walkingkooka.Context;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponentSuggestionsProvider;
+import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponentSuggestionsProvider;
 
 import java.util.Locale;
 import java.util.Optional;
 
-public interface SpreadsheetLocaleComponentContext<T> extends SpreadsheetSuggestBoxComponentSuggestionsProvider<SpreadsheetLocaleComponentSuggestionsValue<T>>,
+public interface SpreadsheetLocaleComponentContext<T> extends SuggestBoxComponentSuggestionsProvider<SpreadsheetLocaleComponentSuggestionsValue<T>>,
     Context {
 
     MenuItem<SpreadsheetLocaleComponentSuggestionsValue<T>> createMenuItem(final SpreadsheetLocaleComponentSuggestionsValue<T> value);

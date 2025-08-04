@@ -26,9 +26,9 @@ import walkingkooka.locale.FakeLocaleContext;
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.locale.LocaleContexts;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.suggestbox.FakeSpreadsheetSuggestBoxComponentSuggestionsProvider;
-import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent;
-import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponentSuggestionsProvider;
+import walkingkooka.spreadsheet.dominokit.suggestbox.FakeSuggestBoxComponentSuggestionsProvider;
+import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;
+import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponentSuggestionsProvider;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 
 import java.util.Locale;
@@ -46,7 +46,7 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
     private final static String ENGLISH_NEW_ZEALAND_TEXT = "English (New Zealand)";
     private final static String FRENCH_TEXT = "French 123";
 
-    private final static SpreadsheetSuggestBoxComponentSuggestionsProvider<SpreadsheetLocaleComponentSuggestionsValue<Locale>> SUGGESTIONS_PROVIDER = new FakeSpreadsheetSuggestBoxComponentSuggestionsProvider<>();
+    private final static SuggestBoxComponentSuggestionsProvider<SpreadsheetLocaleComponentSuggestionsValue<Locale>> SUGGESTIONS_PROVIDER = new FakeSuggestBoxComponentSuggestionsProvider<>();
 
     private final static Function<SpreadsheetLocaleComponentSuggestionsValue<Locale>, MenuItem<SpreadsheetLocaleComponentSuggestionsValue<Locale>>> OPTION_MENU_ITEM_CREATOR = (v) -> {
         throw new UnsupportedOperationException(); // never actually called within a test
@@ -91,7 +91,7 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
         this.treePrintAndCheck(
             this.createComponent(),
             "SpreadsheetLocaleComponent\n" +
-                "  SpreadsheetSuggestBoxComponent\n" +
+                "  SuggestBoxComponent\n" +
                 "    [] REQUIRED\n" +
                 "    Errors\n" +
                 "      Required\n"
@@ -108,7 +108,7 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
                     )
                 ),
             "SpreadsheetLocaleComponent\n" +
-                "  SpreadsheetSuggestBoxComponent\n" +
+                "  SuggestBoxComponent\n" +
                 "    [English (Australia)] REQUIRED\n"
         );
     }
@@ -137,7 +137,7 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
 
                 @Override
                 public void verifyOption(final SpreadsheetLocaleComponentSuggestionsValue<Locale> value,
-                                         final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<Locale>> suggestBox) {
+                                         final SuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<Locale>> suggestBox) {
                     suggestBox.setVerifiedOption(value);
                 }
             }

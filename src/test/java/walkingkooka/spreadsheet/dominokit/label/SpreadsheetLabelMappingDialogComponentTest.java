@@ -139,7 +139,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
                 "    Spreadsheet: Label\n" +
                 "    id=labelMapping-Dialog includeClose=true\n" +
                 "      SpreadsheetLabelComponent\n" +
-                "        SpreadsheetSuggestBoxComponent\n" +
+                "        SuggestBoxComponent\n" +
                 "          Label [] id=labelMapping-label-TextBox REQUIRED\n" +
                 "          Errors\n" +
                 "            Required\n" +
@@ -169,7 +169,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
                 "    Spreadsheet: Label\n" +
                 "    id=labelMapping-Dialog includeClose=true\n" +
                 "      SpreadsheetLabelComponent\n" +
-                "        SpreadsheetSuggestBoxComponent\n" +
+                "        SuggestBoxComponent\n" +
                 "          Label [] id=labelMapping-label-TextBox REQUIRED\n" +
                 "          Errors\n" +
                 "            Required\n" +
@@ -197,7 +197,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
                 "    Spreadsheet: Label\n" +
                 "    id=labelMapping-Dialog includeClose=true\n" +
                 "      SpreadsheetLabelComponent\n" +
-                "        SpreadsheetSuggestBoxComponent\n" +
+                "        SuggestBoxComponent\n" +
                 "          Label [] id=labelMapping-label-TextBox REQUIRED\n" +
                 "          Errors\n" +
                 "            Required\n" +
@@ -225,7 +225,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
                 "    Spreadsheet: Label\n" +
                 "    id=labelMapping-Dialog includeClose=true\n" +
                 "      SpreadsheetLabelComponent\n" +
-                "        SpreadsheetSuggestBoxComponent\n" +
+                "        SuggestBoxComponent\n" +
                 "          Label [] id=labelMapping-label-TextBox REQUIRED\n" +
                 "          Errors\n" +
                 "            Required\n" +
@@ -260,7 +260,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
                 "    Spreadsheet: Label\n" +
                 "    id=labelMapping-Dialog includeClose=true\n" +
                 "      SpreadsheetLabelComponent\n" +
-                "        SpreadsheetSuggestBoxComponent\n" +
+                "        SuggestBoxComponent\n" +
                 "          Label [] id=labelMapping-label-TextBox REQUIRED\n" +
                 "          Errors\n" +
                 "            Required\n" +
@@ -288,7 +288,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
                 "    Spreadsheet: Label\n" +
                 "    id=labelMapping-Dialog includeClose=true\n" +
                 "      SpreadsheetLabelComponent\n" +
-                "        SpreadsheetSuggestBoxComponent\n" +
+                "        SuggestBoxComponent\n" +
                 "          Label [] id=labelMapping-label-TextBox REQUIRED\n" +
                 "          Errors\n" +
                 "            Required\n" +
@@ -325,7 +325,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
                 "    Spreadsheet: Label\n" +
                 "    id=labelMapping-Dialog includeClose=true\n" +
                 "      SpreadsheetLabelComponent\n" +
-                "        SpreadsheetSuggestBoxComponent\n" +
+                "        SuggestBoxComponent\n" +
                 "          Label [Label999] id=labelMapping-label-TextBox REQUIRED\n" +
                 "      SpreadsheetExpressionReferenceComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
@@ -363,7 +363,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
                 "    Spreadsheet: Label\n" +
                 "    id=labelMapping-Dialog includeClose=true\n" +
                 "      SpreadsheetLabelComponent\n" +
-                "        SpreadsheetSuggestBoxComponent\n" +
+                "        SuggestBoxComponent\n" +
                 "          Label [Label999] id=labelMapping-label-TextBox REQUIRED\n" +
                 "      SpreadsheetExpressionReferenceComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +

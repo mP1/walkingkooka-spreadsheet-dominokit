@@ -18,12 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.locale;
 
 import org.dominokit.domino.ui.menu.MenuItem;
-import walkingkooka.spreadsheet.dominokit.suggestbox.FakeSpreadsheetSuggestBoxComponentSuggestionsProvider;
+import walkingkooka.spreadsheet.dominokit.suggestbox.FakeSuggestBoxComponentSuggestionsProvider;
 
 import java.util.Locale;
 import java.util.Optional;
 
-public class FakeSpreadsheetLocaleComponentContext<T> extends FakeSpreadsheetSuggestBoxComponentSuggestionsProvider<SpreadsheetLocaleComponentSuggestionsValue<T>>
+public class FakeSpreadsheetLocaleComponentContext<T> extends FakeSuggestBoxComponentSuggestionsProvider<SpreadsheetLocaleComponentSuggestionsValue<T>>
     implements SpreadsheetLocaleComponentContext<T> {
 
     public FakeSpreadsheetLocaleComponentContext() {

@@ -18,15 +18,15 @@
 package walkingkooka.spreadsheet.dominokit.suggestbox;
 
 /**
- * A provider that eventually updates the options belonging to a {@link SpreadsheetSuggestBoxComponent}.
+ * A provider that eventually updates the options belonging to a {@link SuggestBoxComponent}.
  */
-public interface SpreadsheetSuggestBoxComponentSuggestionsProvider<T> {
+public interface SuggestBoxComponentSuggestionsProvider<T> {
 
     void filter(final String startsWith,
-                final SpreadsheetSuggestBoxComponent<T> suggestBox);
+                final SuggestBoxComponent<T> suggestBox);
 
     void verifyOption(final T value,
-                      final SpreadsheetSuggestBoxComponent<T> suggestBox);
+                      final SuggestBoxComponent<T> suggestBox);
 
     String menuItemKey(final T value);
 }

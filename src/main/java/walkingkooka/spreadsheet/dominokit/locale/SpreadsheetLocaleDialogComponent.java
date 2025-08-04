@@ -36,7 +36,7 @@ import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent;
+import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResource;
@@ -146,7 +146,7 @@ public final class SpreadsheetLocaleDialogComponent implements DialogComponentLi
 
                     @Override
                     public void filter(final String startsWith,
-                                       final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<Locale>> suggestBox) {
+                                       final SuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<Locale>> suggestBox) {
                         suggestBox.setOptions(
                             LocaleHateosResourceSet.filter(startsWith, SpreadsheetLocaleDialogComponent.this.context)
                                 .stream()
@@ -164,7 +164,7 @@ public final class SpreadsheetLocaleDialogComponent implements DialogComponentLi
 
                     @Override
                     public void verifyOption(final SpreadsheetLocaleComponentSuggestionsValue<Locale> value,
-                                             final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<Locale>> suggestBox) {
+                                             final SuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<Locale>> suggestBox) {
                         SpreadsheetLocaleComponentSuggestionsValue<Locale> verified = null;
 
                         if (null != value) {

@@ -26,21 +26,21 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Delegates some but not all {@link SpreadsheetSuggestBoxComponent} methods.
+ * Delegates some but not all {@link SuggestBoxComponent} methods.
  */
-public interface SpreadsheetSuggestBoxComponentDelegator<E extends HTMLElement, V, C extends FormValueComponent<E, V, C>> extends FormValueComponent<E, V, C> {
+public interface SuggestBoxComponentDelegator<E extends HTMLElement, V, C extends FormValueComponent<E, V, C>> extends FormValueComponent<E, V, C> {
 
     // id...............................................................................................................
 
     @Override
     default C setId(final String id) {
-        this.spreadsheetSuggestBoxComponent().setId(id);
+        this.suggestBoxComponent().setId(id);
         return (C)this;
     }
 
     @Override
     default String id() {
-        return this.spreadsheetSuggestBoxComponent()
+        return this.suggestBoxComponent()
             .id();
     }
 
@@ -48,35 +48,35 @@ public interface SpreadsheetSuggestBoxComponentDelegator<E extends HTMLElement, 
 
     @Override
     default C setLabel(final String label) {
-        this.spreadsheetSuggestBoxComponent().
+        this.suggestBoxComponent().
             setLabel(label);
         return (C)this;
     }
 
     @Override
     default String label() {
-        return this.spreadsheetSuggestBoxComponent().label();
+        return this.suggestBoxComponent().label();
     }
 
     // helperText.......................................................................................................
 
     @Override
     default C alwaysShowHelperText() {
-        this.spreadsheetSuggestBoxComponent()
+        this.suggestBoxComponent()
             .alwaysShowHelperText();
         return (C)this;
     }
 
     @Override
     default C setHelperText(final Optional<String> text) {
-        this.spreadsheetSuggestBoxComponent()
+        this.suggestBoxComponent()
             .setHelperText(text);
         return (C)this;
     }
 
     @Override
     default Optional<String> helperText() {
-        return this.spreadsheetSuggestBoxComponent()
+        return this.suggestBoxComponent()
             .helperText();
     }
 
@@ -84,67 +84,67 @@ public interface SpreadsheetSuggestBoxComponentDelegator<E extends HTMLElement, 
 
     @Override
     default List<String> errors() {
-        return this.spreadsheetSuggestBoxComponent()
+        return this.suggestBoxComponent()
             .errors();
     }
 
     @Override
     default C setErrors(final List<String> errors) {
-        this.spreadsheetSuggestBoxComponent()
+        this.suggestBoxComponent()
             .setErrors(errors);
         return (C) this;
     }
 
     @Override
     default C hideMarginBottom() {
-        this.spreadsheetSuggestBoxComponent()
+        this.suggestBoxComponent()
             .hideMarginBottom();
         return (C)this;
     }
 
     @Override
     default C removeBorders() {
-        this.spreadsheetSuggestBoxComponent()
+        this.suggestBoxComponent()
             .removeBorders();
         return (C)this;
     }
 
     @Override
     default boolean isDisabled() {
-        return this.spreadsheetSuggestBoxComponent()
+        return this.suggestBoxComponent()
             .isDisabled();
     }
 
     @Override
     default C setDisabled(final boolean disabled) {
-        this.spreadsheetSuggestBoxComponent()
+        this.suggestBoxComponent()
             .setDisabled(disabled);
         return (C)this;
     }
 
     @Override
     default C required() {
-        this.spreadsheetSuggestBoxComponent()
+        this.suggestBoxComponent()
             .required();
         return (C)this;
     }
 
     @Override
     default boolean isRequired() {
-        return this.spreadsheetSuggestBoxComponent()
+        return this.suggestBoxComponent()
             .isRequired();
     }
 
     @Override
     default C optional() {
-        this.spreadsheetSuggestBoxComponent()
+        this.suggestBoxComponent()
             .optional();
         return (C)this;
     }
 
     @Override
     default C validate() {
-        this.spreadsheetSuggestBoxComponent()
+        this.suggestBoxComponent()
             .validate();
         return (C)this;
     }
@@ -156,35 +156,35 @@ public interface SpreadsheetSuggestBoxComponentDelegator<E extends HTMLElement, 
 
     @Override
     default C addClickListener(final EventListener listener) {
-        this.spreadsheetSuggestBoxComponent()
+        this.suggestBoxComponent()
             .addClickListener(listener);
         return (C) this;
     }
 
     @Override
     default C addContextMenuListener(final EventListener listener) {
-        this.spreadsheetSuggestBoxComponent()
+        this.suggestBoxComponent()
             .addContextMenuListener(listener);
         return (C) this;
     }
 
     @Override
     default C addFocusListener(final EventListener listener) {
-        this.spreadsheetSuggestBoxComponent()
+        this.suggestBoxComponent()
             .addFocusListener(listener);
         return (C) this;
     }
 
     @Override
     default C addKeydownListener(final EventListener listener) {
-        this.spreadsheetSuggestBoxComponent()
+        this.suggestBoxComponent()
             .addKeydownListener(listener);
         return (C) this;
     }
 
     @Override
     default C addKeyupListener(final EventListener listener) {
-        this.spreadsheetSuggestBoxComponent()
+        this.suggestBoxComponent()
             .addKeyupListener(listener);
         return (C) this;
     }
@@ -193,7 +193,7 @@ public interface SpreadsheetSuggestBoxComponentDelegator<E extends HTMLElement, 
 
     @Override
     default C setCssText(final String css) {
-        this.spreadsheetSuggestBoxComponent()
+        this.suggestBoxComponent()
             .setCssText(css);
         return (C) this;
     }
@@ -203,7 +203,7 @@ public interface SpreadsheetSuggestBoxComponentDelegator<E extends HTMLElement, 
     @Override
     default C setCssProperty(final String name,
                              final String value) {
-        this.spreadsheetSuggestBoxComponent()
+        this.suggestBoxComponent()
             .setCssProperty(
                 name, 
                 value
@@ -211,5 +211,5 @@ public interface SpreadsheetSuggestBoxComponentDelegator<E extends HTMLElement, 
         return (C) this;
     }
 
-    SpreadsheetSuggestBoxComponent<?> spreadsheetSuggestBoxComponent();
+    SuggestBoxComponent<?> suggestBoxComponent();
 }
