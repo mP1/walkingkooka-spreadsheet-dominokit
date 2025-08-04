@@ -41,7 +41,7 @@ import java.util.function.Supplier;
  * {@link DateTimeComponent}.
  */
 public final class DateTimeComponent implements FormValueComponent<HTMLFieldSetElement, LocalDateTime, DateTimeComponent>,
-    FormValueComponentTreePrintable<DateTimeComponent, LocalDateTime>,
+    FormValueComponentTreePrintable<HTMLFieldSetElement, DateTimeComponent, LocalDateTime>,
     TestHtmlElementComponent<HTMLFieldSetElement, DateTimeComponent>,
     ValidatorHelper {
 

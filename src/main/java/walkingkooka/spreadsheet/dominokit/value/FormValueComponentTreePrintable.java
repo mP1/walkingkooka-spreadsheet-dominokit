@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value;
 
-import elemental2.dom.HTMLFieldSetElement;
+import elemental2.dom.HTMLElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.select.SelectComponent;
 import walkingkooka.text.CharSequences;
@@ -31,7 +31,7 @@ import java.util.stream.Collectors;
 /**
  * Provides a default {@link TreePrintable#printTree(IndentingPrinter)}.
  */
-public interface FormValueComponentTreePrintable<V extends FormValueComponent<HTMLFieldSetElement, T, V>, T> extends FormValueComponent<HTMLFieldSetElement, T, V> {
+public interface FormValueComponentTreePrintable<E extends HTMLElement, V extends FormValueComponent<E, T, V>, T> extends FormValueComponent<E, T, V> {
 
     // TreePrintable....................................................................................................
 

@@ -38,7 +38,7 @@ import java.util.Optional;
  * {@link IntegerBoxComponent}.
  */
 public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSetElement, Integer, IntegerBoxComponent>,
-    FormValueComponentTreePrintable<IntegerBoxComponent, Integer>,
+    FormValueComponentTreePrintable<HTMLFieldSetElement, IntegerBoxComponent, Integer>,
     TestHtmlElementComponent<HTMLFieldSetElement, IntegerBoxComponent>,
     ValidatorHelper {
 

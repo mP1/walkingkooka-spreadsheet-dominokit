@@ -77,7 +77,7 @@ public final class FormValueComponentTreePrintableTest implements TreePrintableT
     @Test
     public void testTreePrintAlternateValuesAndErrors() {
         class TestValueComponent implements FormValueComponent<HTMLFieldSetElement, String, TestValueComponent>,
-            FormValueComponentTreePrintable<TestValueComponent, String>,
+            FormValueComponentTreePrintable<HTMLFieldSetElement, TestValueComponent, String>,
             TestHtmlElementComponent<HTMLFieldSetElement, TestValueComponent> {
             @Override
             public TestValueComponent setId(String id) {
