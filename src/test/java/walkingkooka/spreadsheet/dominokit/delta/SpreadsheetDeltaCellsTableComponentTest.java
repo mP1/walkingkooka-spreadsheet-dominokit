@@ -86,7 +86,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
         this.renderAndCheck(
             SpreadsheetDelta.EMPTY,
             "SpreadsheetDeltaCellsTableComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      SpreadsheetDataTableComponent\n" +
                 "        id=ID123-cells-Table\n" +
@@ -127,7 +127,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 )
             ),
             "SpreadsheetDeltaCellsTableComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      SpreadsheetDataTableComponent\n" +
                 "        id=ID123-cells-Table\n" +
@@ -193,7 +193,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 )
             ),
             "SpreadsheetDeltaCellsTableComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      SpreadsheetDataTableComponent\n" +
                 "        id=ID123-cells-Table\n" +

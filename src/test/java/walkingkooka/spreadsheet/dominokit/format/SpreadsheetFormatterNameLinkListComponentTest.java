@@ -42,7 +42,7 @@ public class SpreadsheetFormatterNameLinkListComponentTest implements HtmlCompon
             Optional.empty(),
             "SpreadsheetFormatterNameLinkListComponent\n" +
                 "  SpreadsheetCardLinkListComponent\n" +
-                "    SpreadsheetCard\n" +
+                "    CardComponent\n" +
                 "      Card\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
@@ -68,7 +68,7 @@ public class SpreadsheetFormatterNameLinkListComponentTest implements HtmlCompon
             ),
             "SpreadsheetFormatterNameLinkListComponent\n" +
                 "  SpreadsheetCardLinkListComponent\n" +
-                "    SpreadsheetCard\n" +
+                "    CardComponent\n" +
                 "      Card\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +

@@ -25,12 +25,12 @@ import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
 
 import java.util.Optional;
 
-public final class SpreadsheetCardTest implements HtmlComponentTesting<SpreadsheetCard, HTMLDivElement> {
+public final class CardComponentTest implements HtmlComponentTesting<CardComponent, HTMLDivElement> {
 
     @Test
     public void testTreePrintWhenEmpty() {
         this.treePrintAndCheck(
-            SpreadsheetCard.empty(),
+            CardComponent.empty(),
             ""
         );
     }
@@ -38,14 +38,14 @@ public final class SpreadsheetCardTest implements HtmlComponentTesting<Spreadshe
     @Test
     public void testTreePrintWithoutTitle() {
         this.treePrintAndCheck(
-            SpreadsheetCard.empty()
+            CardComponent.empty()
                 .appendChild(
                     SpreadsheetTextBox.empty()
                         .setValue(
                             Optional.of("Value123")
                         )
                 ),
-            "SpreadsheetCard\n" +
+            "CardComponent\n" +
                 "  Card\n" +
                 "    SpreadsheetTextBox\n" +
                 "      [Value123]\n"
@@ -55,7 +55,7 @@ public final class SpreadsheetCardTest implements HtmlComponentTesting<Spreadshe
     @Test
     public void testTreePrintWithTitle() {
         this.treePrintAndCheck(
-            SpreadsheetCard.empty()
+            CardComponent.empty()
                 .setTitle("CardTitle123")
                 .appendChild(
                     SpreadsheetTextBox.empty()
@@ -63,7 +63,7 @@ public final class SpreadsheetCardTest implements HtmlComponentTesting<Spreadshe
                             Optional.of("Value123")
                         )
                 ),
-            "SpreadsheetCard\n" +
+            "CardComponent\n" +
                 "  Card\n" +
                 "    CardTitle123\n" +
                 "      SpreadsheetTextBox\n" +
@@ -74,8 +74,8 @@ public final class SpreadsheetCardTest implements HtmlComponentTesting<Spreadshe
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SpreadsheetCard> type() {
-        return SpreadsheetCard.class;
+    public Class<CardComponent> type() {
+        return CardComponent.class;
     }
 
     @Override

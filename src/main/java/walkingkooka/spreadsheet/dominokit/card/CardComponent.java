@@ -37,19 +37,19 @@ import java.util.Optional;
 /**
  * A {@link Card} that auto hides when empty.
  */
-public final class SpreadsheetCard implements HtmlComponent<HTMLDivElement, SpreadsheetCard>,
-    ComponentWithChildren<SpreadsheetCard, HTMLDivElement> {
+public final class CardComponent implements HtmlComponent<HTMLDivElement, CardComponent>,
+    ComponentWithChildren<CardComponent, HTMLDivElement> {
 
-    public static SpreadsheetCard empty() {
-        return new SpreadsheetCard();
+    public static CardComponent empty() {
+        return new CardComponent();
     }
 
-    private SpreadsheetCard() {
+    private CardComponent() {
         this.card = Card.create();
         this.children = Lists.array();
     }
 
-    public SpreadsheetCard setTitle(final String title) {
+    public CardComponent setTitle(final String title) {
         Objects.requireNonNull(title, "title");
 
         // TODO need to discover how to remove a title because setTitle(null) still shows an empty header
@@ -59,12 +59,12 @@ public final class SpreadsheetCard implements HtmlComponent<HTMLDivElement, Spre
         return this;
     }
 
-    public SpreadsheetCard show() {
+    public CardComponent show() {
         this.card.show();
         return this;
     }
 
-    public SpreadsheetCard hide() {
+    public CardComponent hide() {
         this.card.hide();
         return this;
     }
@@ -72,7 +72,7 @@ public final class SpreadsheetCard implements HtmlComponent<HTMLDivElement, Spre
     // setCssText.......................................................................................................
 
     @Override
-    public SpreadsheetCard setCssText(final String css) {
+    public CardComponent setCssText(final String css) {
         Objects.requireNonNull(css, "css");
 
         this.card.style()
@@ -83,8 +83,8 @@ public final class SpreadsheetCard implements HtmlComponent<HTMLDivElement, Spre
     // setCssProperty...................................................................................................
 
     @Override
-    public SpreadsheetCard setCssProperty(final String name,
-                                          final String value) {
+    public CardComponent setCssProperty(final String name,
+                                        final String value) {
         this.card.style()
             .setCssProperty(
                 name,
@@ -99,7 +99,7 @@ public final class SpreadsheetCard implements HtmlComponent<HTMLDivElement, Spre
      * Adds a {@link ChangeListener}, automatically adding a filter text box lazily. The textbox will occupy the
      * right third of the card header.
      */
-    public SpreadsheetCard setFilterValueChangeListener(final ChangeListener<Optional<String>> changeListener) {
+    public CardComponent setFilterValueChangeListener(final ChangeListener<Optional<String>> changeListener) {
         Objects.requireNonNull(changeListener, "changeListener");
 
         if (null == this.filter) {
@@ -124,7 +124,7 @@ public final class SpreadsheetCard implements HtmlComponent<HTMLDivElement, Spre
         return this.filter.value();
     }
 
-    public SpreadsheetCard setFilterValue(final Optional<String> value) {
+    public CardComponent setFilterValue(final Optional<String> value) {
         this.filter.setValue(value);
         return this;
     }
@@ -134,7 +134,7 @@ public final class SpreadsheetCard implements HtmlComponent<HTMLDivElement, Spre
     // ComponentWithChildren............................................................................................
 
     @Override
-    public SpreadsheetCard appendChild(final IsElement<?> child) {
+    public CardComponent appendChild(final IsElement<?> child) {
         this.card.appendChild(child);
         this.children.add(child);
         return this;
@@ -144,7 +144,7 @@ public final class SpreadsheetCard implements HtmlComponent<HTMLDivElement, Spre
      * Removes an existing child.
      */
     @Override
-    public SpreadsheetCard removeChild(final int index) {
+    public CardComponent removeChild(final int index) {
         final IsElement<?> child = this.children.remove(index);
         this.card.getAppendTarget()
             .removeChild(child.element());
@@ -189,7 +189,7 @@ public final class SpreadsheetCard implements HtmlComponent<HTMLDivElement, Spre
 
     // TreePrintable....................................................................................................
 
-    // SpreadsheetCard
+    // CardComponent
     //   title
     //     this.card
     //       XXX
@@ -200,7 +200,7 @@ public final class SpreadsheetCard implements HtmlComponent<HTMLDivElement, Spre
     @Override
     public void printTree(final IndentingPrinter printer) {
         if (this.isNotEmpty()) {
-            printer.println("SpreadsheetCard");
+            printer.println(this.getClass().getSimpleName());
 
             printer.indent();
             {

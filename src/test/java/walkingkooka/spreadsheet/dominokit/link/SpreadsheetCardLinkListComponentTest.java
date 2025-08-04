@@ -115,7 +115,7 @@ public final class SpreadsheetCardLinkListComponentTest implements HtmlComponent
                 SpreadsheetFormatterName.with("banana2")
             ),
             "SpreadsheetCardLinkListComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Title123\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -136,7 +136,7 @@ public final class SpreadsheetCardLinkListComponentTest implements HtmlComponent
             ),
             Optional.empty(),
             "SpreadsheetCardLinkListComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Title123\n" +
                 "        SpreadsheetFlexLayout\n" +

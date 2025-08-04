@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.link;
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
-import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
+import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -53,7 +53,7 @@ public final class SpreadsheetCardLinkListComponent implements HtmlComponent<HTM
         this.id = id;
 
         this.flex = SpreadsheetFlexLayout.row();
-        this.root = SpreadsheetCard.empty()
+        this.root = CardComponent.empty()
             .setTitle(title)
             .appendChild(this.flex);
 
@@ -121,7 +121,7 @@ public final class SpreadsheetCardLinkListComponent implements HtmlComponent<HTM
     /**
      * The root of parent card of this list of links.
      */
-    private final SpreadsheetCard root;
+    private final CardComponent root;
 
     /**
      * The parent holding the links.

@@ -114,7 +114,7 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlComponentTe
         this.treePrintAndCheck(
             component,
             "AddPluginAliasSetLikeComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Add\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -138,7 +138,7 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlComponentTe
         this.treePrintAndCheck(
             component,
             "AddPluginAliasSetLikeComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Add\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -161,7 +161,7 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlComponentTe
         this.treePrintAndCheck(
             component,
             "AddPluginAliasSetLikeComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Add\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -187,7 +187,7 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlComponentTe
         this.treePrintAndCheck(
             component,
             "AddPluginAliasSetLikeComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Add\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -211,7 +211,7 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlComponentTe
         this.treePrintAndCheck(
             component,
             "AddPluginAliasSetLikeComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Add\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -234,7 +234,7 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlComponentTe
         this.treePrintAndCheck(
             component,
             "AddPluginAliasSetLikeComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Add\n" +
                 "        SpreadsheetFlexLayout\n" +

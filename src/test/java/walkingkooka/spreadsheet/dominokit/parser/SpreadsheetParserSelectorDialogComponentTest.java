@@ -88,7 +88,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
                 "        SpreadsheetCardLinkListComponent\n" +
-                "          SpreadsheetCard\n" +
+                "          CardComponent\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
                 "                ROW\n" +
@@ -97,7 +97,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "                  \"Number Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Time Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=spreadsheetParserSelector-Table\n" +
@@ -168,7 +168,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
                 "        SpreadsheetCardLinkListComponent\n" +
-                "          SpreadsheetCard\n" +
+                "          CardComponent\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
                 "                ROW\n" +
@@ -177,7 +177,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "                  \"Number Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Time Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=spreadsheetParserSelector-Table\n" +
@@ -213,7 +213,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "                  TextNodeComponent\n" +
                 "                    31/12/1999\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -228,7 +228,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "                  \"mmmm\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20dd/mm/yyyymmmm] id=spreadsheetParserSelector-appender-append-7-Link\n" +
                 "                  \"mmmmm\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20dd/mm/yyyymmmmm] id=spreadsheetParserSelector-appender-append-8-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -280,7 +280,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
                 "        SpreadsheetCardLinkListComponent\n" +
-                "          SpreadsheetCard\n" +
+                "          CardComponent\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
                 "                ROW\n" +
@@ -289,7 +289,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "                  \"Number Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Time Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=spreadsheetParserSelector-Table\n" +
@@ -325,7 +325,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "                  TextNodeComponent\n" +
                 "                    31/12/1999 12:58:00\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -350,7 +350,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "                  \"yy\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ssyy] id=spreadsheetParserSelector-appender-append-17-Link\n" +
                 "                  \"yyyy\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ssyyyy] id=spreadsheetParserSelector-appender-append-18-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -411,7 +411,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
                 "        SpreadsheetCardLinkListComponent\n" +
-                "          SpreadsheetCard\n" +
+                "          CardComponent\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
                 "                ROW\n" +
@@ -420,7 +420,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "                  \"Number Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Time Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=spreadsheetParserSelector-Table\n" +
@@ -504,7 +504,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "                  TextNodeComponent\n" +
                 "                    $1234.50\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -518,7 +518,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "                  \"?\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20$%230.00?] id=spreadsheetParserSelector-appender-append-6-Link\n" +
                 "                  \"E\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20$%230.00E] id=spreadsheetParserSelector-appender-append-7-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -563,7 +563,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
                 "        SpreadsheetCardLinkListComponent\n" +
-                "          SpreadsheetCard\n" +
+                "          CardComponent\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
                 "                ROW\n" +
@@ -572,7 +572,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "                  \"Number Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Time Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-3-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=spreadsheetParserSelector-Table\n" +
@@ -596,7 +596,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "                  TextNodeComponent\n" +
                 "                    12:58\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -612,7 +612,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "                  \"s\" [#/1/Spreadsheet1/cell/A1/parser/save/time-parse-pattern%20hh:mms] id=spreadsheetParserSelector-appender-append-8-Link\n" +
                 "                  \"ss\" [#/1/Spreadsheet1/cell/A1/parser/save/time-parse-pattern%20hh:mmss] id=spreadsheetParserSelector-appender-append-9-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -666,7 +666,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeParser] id=spreadsheetParserSelector-Tabs-time-parse\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
                 "        SpreadsheetCardLinkListComponent\n" +
-                "          SpreadsheetCard\n" +
+                "          CardComponent\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
                 "                ROW\n" +
@@ -675,7 +675,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "                  \"Number Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Time Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=spreadsheetParserSelector-Table\n" +
@@ -711,7 +711,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "                  TextNodeComponent\n" +
                 "                    31/12/1999\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -726,7 +726,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "                  \"mmmm\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20dd/mm/yyyymmmm] id=spreadsheetParserSelector-appender-append-7-Link\n" +
                 "                  \"mmmmm\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20dd/mm/yyyymmmmm] id=spreadsheetParserSelector-appender-append-8-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -788,7 +788,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeParser] id=spreadsheetParserSelector-Tabs-time-parse\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
                 "        SpreadsheetCardLinkListComponent\n" +
-                "          SpreadsheetCard\n" +
+                "          CardComponent\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
                 "                ROW\n" +
@@ -797,7 +797,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "                  \"Number Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Time Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=spreadsheetParserSelector-Table\n" +
@@ -833,7 +833,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "                  TextNodeComponent\n" +
                 "                    31/12/1999 12:58:00\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -858,7 +858,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "                  \"yy\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ssyy] id=spreadsheetParserSelector-appender-append-17-Link\n" +
                 "                  \"yyyy\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ssyyyy] id=spreadsheetParserSelector-appender-append-18-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -929,7 +929,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeParser] id=spreadsheetParserSelector-Tabs-time-parse\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
                 "        SpreadsheetCardLinkListComponent\n" +
-                "          SpreadsheetCard\n" +
+                "          CardComponent\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
                 "                ROW\n" +
@@ -938,7 +938,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "                  \"Number Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Time Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=spreadsheetParserSelector-Table\n" +
@@ -1022,7 +1022,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "                  TextNodeComponent\n" +
                 "                    $1234.50\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -1036,7 +1036,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "                  \"?\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20$%230.00?] id=spreadsheetParserSelector-appender-append-6-Link\n" +
                 "                  \"E\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20$%230.00E] id=spreadsheetParserSelector-appender-append-7-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -1091,7 +1091,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "            \"Time\" DISABLED id=spreadsheetParserSelector-Tabs-time-parse\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
                 "        SpreadsheetCardLinkListComponent\n" +
-                "          SpreadsheetCard\n" +
+                "          CardComponent\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
                 "                ROW\n" +
@@ -1100,7 +1100,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "                  \"Number Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Time Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-3-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=spreadsheetParserSelector-Table\n" +
@@ -1124,7 +1124,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "                  TextNodeComponent\n" +
                 "                    12:58\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -1140,7 +1140,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "                  \"s\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/time-parse-pattern%20hh:mms] id=spreadsheetParserSelector-appender-append-8-Link\n" +
                 "                  \"ss\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/time-parse-pattern%20hh:mmss] id=spreadsheetParserSelector-appender-append-9-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +

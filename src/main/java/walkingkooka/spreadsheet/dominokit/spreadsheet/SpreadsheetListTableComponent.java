@@ -22,7 +22,7 @@ import org.dominokit.domino.ui.datatable.CellTextAlign;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
-import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
+import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.TableComponent;
@@ -54,7 +54,7 @@ final class SpreadsheetListTableComponent implements TableComponent<HTMLDivEleme
 
     private SpreadsheetListTableComponent(final String id,
                                           final SpreadsheetListDialogComponentContext context) {
-        this.card = SpreadsheetCard.empty();
+        this.card = CardComponent.empty();
 
         this.dataTable = SpreadsheetDataTableComponent.with(
             id,
@@ -177,7 +177,7 @@ final class SpreadsheetListTableComponent implements TableComponent<HTMLDivEleme
         return this.card.element();
     }
 
-    private final SpreadsheetCard card;
+    private final CardComponent card;
 
     // TreePrintable....................................................................................................
 

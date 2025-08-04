@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.CanBeEmptyTesting;
-import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
+import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
 import walkingkooka.text.printer.TreePrintableTesting;
 
@@ -29,7 +29,7 @@ public final class ComponentWithChildrenTest implements TreePrintableTesting,
     @Test
     public void testCanBeEmptyWithNoChildren() {
         this.isEmptyAndCheck(
-            SpreadsheetCard.empty(),
+            CardComponent.empty(),
             true
         );
     }
@@ -37,11 +37,11 @@ public final class ComponentWithChildrenTest implements TreePrintableTesting,
     @Test
     public void testCanBeEmptyWithOnlyEmptyChildren() {
         this.isEmptyAndCheck(
-            SpreadsheetCard.empty()
+            CardComponent.empty()
                 .appendChild(
-                    SpreadsheetCard.empty()
+                    CardComponent.empty()
                 ).appendChild(
-                    SpreadsheetCard.empty()
+                    CardComponent.empty()
                 ),
             true
         );
@@ -50,11 +50,11 @@ public final class ComponentWithChildrenTest implements TreePrintableTesting,
     @Test
     public void testCanBeEmptyWithMixture() {
         this.isEmptyAndCheck(
-            SpreadsheetCard.empty()
+            CardComponent.empty()
                 .appendChild(
-                    SpreadsheetCard.empty()
+                    CardComponent.empty()
                 ).appendChild(
-                    SpreadsheetCard.empty()
+                    CardComponent.empty()
                 ).appendChild(
                     SpreadsheetTextBox.empty()
                 ),
@@ -65,9 +65,9 @@ public final class ComponentWithChildrenTest implements TreePrintableTesting,
     @Test
     public void testCanBeEmptyWithNonEmpty() {
         this.isEmptyAndCheck(
-            SpreadsheetCard.empty()
+            CardComponent.empty()
                 .appendChild(
-                    SpreadsheetCard.empty()
+                    CardComponent.empty()
                         .appendChild(
                             SpreadsheetTextBox.empty()
                         )
@@ -79,7 +79,7 @@ public final class ComponentWithChildrenTest implements TreePrintableTesting,
     @Test
     public void testCanBeEmptyWithNonEmpty2() {
         this.isEmptyAndCheck(
-            SpreadsheetCard.empty()
+            CardComponent.empty()
                 .appendChild(
                     SpreadsheetTextBox.empty()
                 ).appendChild(

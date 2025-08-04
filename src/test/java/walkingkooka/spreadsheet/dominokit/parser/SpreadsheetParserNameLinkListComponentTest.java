@@ -42,7 +42,7 @@ public class SpreadsheetParserNameLinkListComponentTest implements HtmlComponent
             Optional.empty(),
             "SpreadsheetParserNameLinkListComponent\n" +
                 "  SpreadsheetCardLinkListComponent\n" +
-                "    SpreadsheetCard\n" +
+                "    CardComponent\n" +
                 "      Card\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +
@@ -61,7 +61,7 @@ public class SpreadsheetParserNameLinkListComponentTest implements HtmlComponent
             ),
             "SpreadsheetParserNameLinkListComponent\n" +
                 "  SpreadsheetCardLinkListComponent\n" +
-                "    SpreadsheetCard\n" +
+                "    CardComponent\n" +
                 "      Card\n" +
                 "        SpreadsheetFlexLayout\n" +
                 "          ROW\n" +

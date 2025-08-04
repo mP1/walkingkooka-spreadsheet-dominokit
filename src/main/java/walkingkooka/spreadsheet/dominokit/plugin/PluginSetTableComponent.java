@@ -24,7 +24,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.plugin.store.Plugin;
 import walkingkooka.plugin.store.PluginSet;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
-import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
+import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent;
 import walkingkooka.spreadsheet.dominokit.history.PluginListHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.TableComponent;
@@ -55,7 +55,7 @@ final class PluginSetTableComponent implements TableComponent<HTMLDivElement, Pl
 
     private PluginSetTableComponent(final String id,
                                     final PluginSetTableComponentContext context) {
-        this.card = SpreadsheetCard.empty();
+        this.card = CardComponent.empty();
 
         this.dataTable = SpreadsheetDataTableComponent.with(
             id,
@@ -179,7 +179,7 @@ final class PluginSetTableComponent implements TableComponent<HTMLDivElement, Pl
         return this.card.element();
     }
 
-    private final SpreadsheetCard card;
+    private final CardComponent card;
 
     // TreePrintable....................................................................................................
 

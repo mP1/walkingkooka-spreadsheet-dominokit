@@ -24,7 +24,7 @@ import walkingkooka.plugin.PluginAliasSetLike;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.plugin.PluginNameSet;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
-import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
+import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.text.CaseKind;
@@ -53,7 +53,7 @@ public final class RemovePluginNameSetComponent implements HtmlComponent<HTMLDiv
         this.id = id;
 
         this.flex = SpreadsheetFlexLayout.row();
-        this.root = SpreadsheetCard.empty()
+        this.root = CardComponent.empty()
             .setTitle("Remove")
             .appendChild(this.flex);
     }
@@ -155,7 +155,7 @@ public final class RemovePluginNameSetComponent implements HtmlComponent<HTMLDiv
      */
     private final String id;
 
-    private final SpreadsheetCard root;
+    private final CardComponent root;
 
     /**
      * The parent holding LINKS

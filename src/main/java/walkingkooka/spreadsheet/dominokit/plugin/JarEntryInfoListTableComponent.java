@@ -23,7 +23,7 @@ import org.dominokit.domino.ui.datatable.ColumnConfig;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
-import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
+import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent;
 import walkingkooka.spreadsheet.dominokit.value.TableComponent;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfo;
@@ -55,7 +55,7 @@ final class JarEntryInfoListTableComponent implements TableComponent<HTMLDivElem
 
     private JarEntryInfoListTableComponent(final String id,
                                            final JarEntryInfoListTableComponentContext context) {
-        this.card = SpreadsheetCard.empty();
+        this.card = CardComponent.empty();
 
         this.table = SpreadsheetDataTableComponent.with(
             id,
@@ -178,7 +178,7 @@ final class JarEntryInfoListTableComponent implements TableComponent<HTMLDivElem
         return this.card.element();
     }
 
-    private final SpreadsheetCard card;
+    private final CardComponent card;
 
     // TreePrintable....................................................................................................
 

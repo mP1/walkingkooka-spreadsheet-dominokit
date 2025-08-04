@@ -83,7 +83,7 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
                 )
             ),
             "AppendPluginSelectorTokenComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Append component(s)\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -126,7 +126,7 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
                 )
             ),
             "AppendPluginSelectorTokenComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Append component(s)\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -169,7 +169,7 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
                 )
             ),
             "AppendPluginSelectorTokenComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Append component(s)\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -202,7 +202,7 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
                 )
             ),
             "AppendPluginSelectorTokenComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Append component(s)\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -235,7 +235,7 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
                 )
             ),
             "AppendPluginSelectorTokenComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Append component(s)\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -264,7 +264,7 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
                 )
             ),
             "AppendPluginSelectorTokenComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Append component(s)\n" +
                 "        SpreadsheetFlexLayout\n" +

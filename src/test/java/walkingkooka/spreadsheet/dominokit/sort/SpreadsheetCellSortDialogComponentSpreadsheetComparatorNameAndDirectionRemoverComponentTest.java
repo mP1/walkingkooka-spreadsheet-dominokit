@@ -65,7 +65,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAn
             "comparator-1", // namesList
             "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/", // historyToken
             "SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove comparator(s)\n" +
                 "        \"comparator-1\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit] id=sort-comparator-0-remove-0-Link\n"
@@ -79,7 +79,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAn
             "comparator-1,comparator-2,comparator-3", // namesList
             "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/", // historyToken
             "SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove comparator(s)\n" +
                 "        \"comparator-1\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/A=comparator-2,comparator-3] id=sort-comparator-0-remove-0-Link\n" +
@@ -100,7 +100,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAn
                         .orElse("")
             ),
             "SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove comparator(s)\n" +
                 "        \"comparator-1\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/B=text,A=comparator-2,comparator-3] id=sort-comparator-0-remove-0-Link\n" +
@@ -118,7 +118,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAn
             "comparator-1,comparator-2,comparator-3", // namesList
             "/1/spreadsheetName23/column/B:C/right/sort/edit/", // historyToken
             "SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove comparator(s)\n" +
                 "        \"comparator-1\" [#/1/spreadsheetName23/column/B:C/right/sort/edit/B=comparator-2,comparator-3] id=sort-comparator-0-remove-0-Link\n" +
@@ -136,7 +136,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAn
             "comparator-1,comparator-2,comparator-3", // namesList
             "/1/spreadsheetName23/row/3:4/top/sort/edit/", // historyToken
             "SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove comparator(s)\n" +
                 "        \"comparator-1\" [#/1/spreadsheetName23/row/3:4/top/sort/edit/3=comparator-2,comparator-3] id=sort-comparator-0-remove-0-Link\n" +

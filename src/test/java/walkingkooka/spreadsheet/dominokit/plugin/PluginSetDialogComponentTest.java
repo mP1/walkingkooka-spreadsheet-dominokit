@@ -101,7 +101,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
                 "    Plugin\n" +
                 "    id=pluginList-Dialog includeClose=true\n" +
                 "      PluginSetTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=pluginList-Table\n" +
@@ -143,7 +143,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
                 "    Plugin\n" +
                 "    id=pluginList-Dialog includeClose=true\n" +
                 "      PluginSetTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=pluginList-Table\n" +
@@ -180,7 +180,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
                 "    Plugin\n" +
                 "    id=pluginList-Dialog includeClose=true\n" +
                 "      PluginSetTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=pluginList-Table\n" +
@@ -270,7 +270,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
                 "    Plugin\n" +
                 "    id=pluginList-Dialog includeClose=true\n" +
                 "      PluginSetTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=pluginList-Table\n" +

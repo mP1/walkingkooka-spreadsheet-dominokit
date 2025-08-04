@@ -47,7 +47,7 @@ public final class SpreadsheetFormatterTableComponentTest implements TableCompon
                 )
             ), // SpreadsheetFormatterTableComponentContext#formatterTableHistoryTokenSave -> SpreadsheetFormatterSelector#toString + "@"
             "SpreadsheetFormatterTableComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      SpreadsheetDataTableComponent\n" +
                 "        id=id123-Table\n" +
@@ -79,7 +79,7 @@ public final class SpreadsheetFormatterTableComponentTest implements TableCompon
                 )
             ), // SpreadsheetFormatterTableComponentContext#formatterTableHistoryTokenSave -> SpreadsheetFormatterSelector#toString + "@"
             "SpreadsheetFormatterTableComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      SpreadsheetDataTableComponent\n" +
                 "        id=id123-Table\n" +

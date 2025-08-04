@@ -47,7 +47,7 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
         this.treePrintAndCheck(
             this.createComponent(),
             "PluginSetTableComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      SpreadsheetDataTableComponent\n" +
                 "        id=Table123-Table\n" +
@@ -92,7 +92,7 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
                     )
                 ),
             "PluginSetTableComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      SpreadsheetDataTableComponent\n" +
                 "        id=Table123-Table\n" +
@@ -185,7 +185,7 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
                     )
                 ),
             "PluginSetTableComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      SpreadsheetDataTableComponent\n" +
                 "        id=Table123-Table\n" +

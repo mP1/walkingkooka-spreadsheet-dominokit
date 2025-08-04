@@ -132,7 +132,7 @@ public final class PluginNameSetDialogComponentTest implements SpreadsheetDialog
                 "    PluginsTitle999\n" +
                 "    id=pluginNameSet-Dialog includeClose=true\n" +
                 "      AddPluginNameSetComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Add\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -173,7 +173,7 @@ public final class PluginNameSetDialogComponentTest implements SpreadsheetDialog
                 "    PluginsTitle999\n" +
                 "    id=pluginNameSet-Dialog includeClose=true\n" +
                 "      AddPluginNameSetComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Add\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -181,7 +181,7 @@ public final class PluginNameSetDialogComponentTest implements SpreadsheetDialog
                 "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-add-0-Link\n" +
                 "                  \"Plugin222\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-add-1-Link\n" +
                 "      RemovePluginNameSetComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -220,7 +220,7 @@ public final class PluginNameSetDialogComponentTest implements SpreadsheetDialog
                 "    PluginsTitle999\n" +
                 "    id=pluginNameSet-Dialog includeClose=true\n" +
                 "      AddPluginNameSetComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Add\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -229,7 +229,7 @@ public final class PluginNameSetDialogComponentTest implements SpreadsheetDialog
                 "                  \"Plugin222\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-add-1-Link\n" +
                 "                  \"Plugin333\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin333] id=pluginNameSet-add-2-Link\n" +
                 "      RemovePluginNameSetComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove\n" +
                 "              SpreadsheetFlexLayout\n" +

@@ -51,7 +51,7 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
             ),
             "/",
             "SpreadsheetListTableComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      SpreadsheetDataTableComponent\n" +
                 "        id=Table123-Table\n" +
@@ -89,7 +89,7 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
             ),
             "/",
             "SpreadsheetListTableComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      SpreadsheetDataTableComponent\n" +
                 "        id=Table123-Table\n" +
@@ -170,7 +170,7 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
             ),
             "/*/offset/1/count/2",
             "SpreadsheetListTableComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      SpreadsheetDataTableComponent\n" +
                 "        id=Table123-Table\n" +
@@ -251,7 +251,7 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
             ),
             "/*/count/2",
             "SpreadsheetListTableComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      SpreadsheetDataTableComponent\n" +
                 "        id=Table123-Table\n" +

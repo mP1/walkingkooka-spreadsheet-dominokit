@@ -22,6 +22,7 @@ import org.dominokit.domino.ui.icons.MdiIcon;
 import org.dominokit.domino.ui.icons.UrlIcon;
 import org.dominokit.domino.ui.icons.lib.Icons;
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 
 public final class SpreadsheetIcons implements PublicStaticHelper {
 
@@ -339,7 +340,7 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
     }
 
     /**
-     * A magnifying glass icon that will text too {@link walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard} filter
+     * A magnifying glass icon that will text too {@link CardComponent} filter
      * text boxes.
      */
     public static MdiIcon textBoxMagnifyGlass() {

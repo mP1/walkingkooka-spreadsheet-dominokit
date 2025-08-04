@@ -63,7 +63,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAn
             "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/", // historyToken
             (names) -> HistoryToken.parseString("/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/B=text," + names),
             "SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Append comparator(s)\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -84,7 +84,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAn
             "comparator-3", // namesList
             "/1/spreadsheetName23/column/B:C/right/sort/edit/", // historyToken
             "SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Append comparator(s)\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -104,7 +104,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAn
             "comparator-3", // namesList
             "/1/spreadsheetName23/row/2:3/bottom/sort/edit/", // historyToken
             "SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Append comparator(s)\n" +
                 "        SpreadsheetFlexLayout\n" +
