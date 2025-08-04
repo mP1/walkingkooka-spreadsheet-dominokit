@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextComponent;
 import walkingkooka.text.Indentation;
 import walkingkooka.text.LineEnding;
+import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.IndentingPrinters;
 import walkingkooka.text.printer.Printers;
 import walkingkooka.text.printer.TreePrintableTesting;
@@ -430,16 +431,19 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
         );
 
         final StringBuilder b = new StringBuilder();
-        component.printTreeChildren(
-            IndentingPrinters.printer(
-                Printers.stringBuilder(b, LineEnding.NL),
-                Indentation.SPACES2
-            )
+        final IndentingPrinter printer = IndentingPrinters.printer(
+            Printers.stringBuilder(b, LineEnding.NL),
+            Indentation.SPACES2
         );
+
+        component.printTreeChildren(printer);
+
+        printer.println("Last");
 
         this.checkEquals(
             "\"Hello111\" DISABLED\n" +
-                "\"Hello222\" DISABLED",
+                "\"Hello222\" DISABLED\n" +
+                "Last\n",
             b.toString()
         );
     }
