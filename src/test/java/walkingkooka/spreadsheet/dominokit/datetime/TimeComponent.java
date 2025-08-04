@@ -41,7 +41,7 @@ import java.util.function.Supplier;
  * This will be useful for rendering tests.
  */
 public final class TimeComponent implements FormValueComponent<HTMLFieldSetElement, LocalTime, TimeComponent>,
-    FormValueComponentTreePrintable<TimeComponent, LocalTime>,
+    FormValueComponentTreePrintable<HTMLFieldSetElement, TimeComponent, LocalTime>,
     TestHtmlElementComponent<HTMLFieldSetElement, TimeComponent>,
     ValidatorHelper {
 

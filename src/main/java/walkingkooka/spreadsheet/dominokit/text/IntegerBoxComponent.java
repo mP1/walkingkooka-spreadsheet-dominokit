@@ -48,7 +48,7 @@ import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
  * An IntegerBox that adds a few extras that should be common to all text boxes.
  */
 public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSetElement, Integer, IntegerBoxComponent>,
-    FormValueComponentTreePrintable<IntegerBoxComponent, Integer> {
+    FormValueComponentTreePrintable<HTMLFieldSetElement, IntegerBoxComponent, Integer> {
 
     public static IntegerBoxComponent empty() {
         return new IntegerBoxComponent();

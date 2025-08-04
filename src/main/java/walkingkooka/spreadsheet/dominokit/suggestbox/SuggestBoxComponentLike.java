@@ -31,7 +31,7 @@ import java.util.Optional;
  * A text box component that includes support for finding values that match the entered search text.
  */
 public interface SuggestBoxComponentLike<T> extends FormValueComponent<HTMLFieldSetElement, T, SuggestBoxComponent<T>>,
-    FormValueComponentTreePrintable<SuggestBoxComponent<T>, T> {
+    FormValueComponentTreePrintable<HTMLFieldSetElement, SuggestBoxComponent<T>, T> {
 
     SuggestBoxComponent<T> setStringValue(final Optional<String> value);
 

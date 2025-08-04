@@ -37,7 +37,7 @@ import java.util.Optional;
  * A select component with a few helpers to assist with build and working with values.
  */
 public final class SelectComponent<T> implements FormValueComponent<HTMLFieldSetElement, T, SelectComponent<T>>,
-    FormValueComponentTreePrintable<SelectComponent<T>, T>,
+    FormValueComponentTreePrintable<HTMLFieldSetElement, SelectComponent<T>, T>,
     TestHtmlElementComponent<HTMLFieldSetElement, SelectComponent<T>> {
 
     public static <T> SelectComponent<T> empty() {

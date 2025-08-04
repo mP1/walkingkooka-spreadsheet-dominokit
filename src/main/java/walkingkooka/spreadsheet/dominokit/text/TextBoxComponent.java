@@ -48,7 +48,7 @@ import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
  * A textbox that adds a few extras that should be common to all text boxes.
  */
 public final class TextBoxComponent implements FormValueComponent<HTMLFieldSetElement, String, TextBoxComponent>,
-    FormValueComponentTreePrintable<TextBoxComponent, String> {
+    FormValueComponentTreePrintable<HTMLFieldSetElement, TextBoxComponent, String> {
 
     public static TextBoxComponent empty() {
         return new TextBoxComponent();

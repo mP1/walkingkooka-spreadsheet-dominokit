@@ -39,7 +39,7 @@ import java.util.Optional;
  * {@link TextBoxComponent}.
  */
 public final class TextBoxComponent implements FormValueComponent<HTMLFieldSetElement, String, TextBoxComponent>,
-    FormValueComponentTreePrintable<TextBoxComponent, String>,
+    FormValueComponentTreePrintable<HTMLFieldSetElement, TextBoxComponent, String>,
     TestHtmlElementComponent<HTMLFieldSetElement, TextBoxComponent>,
     ValidatorHelper {
 
