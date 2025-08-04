@@ -245,8 +245,6 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
 
     @Test
     public void testTableWithCssTextWithTrailingSemiColon() {
-        SpreadsheetElementComponent.tr();
-
         this.treePrintAndCheck(
             SpreadsheetElementComponent.table()
                 .setId("tableId123")
@@ -260,8 +258,6 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
 
     @Test
     public void testCssClasses() {
-        SpreadsheetElementComponent.tr();
-
         this.treePrintAndCheck(
             SpreadsheetElementComponent.div()
                 .setId("divId123")
@@ -288,8 +284,6 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
 
     @Test
     public void testTable() {
-        SpreadsheetElementComponent.tr();
-
         this.treePrintAndCheck(
             SpreadsheetElementComponent.table()
                 .setId("tableId123")
