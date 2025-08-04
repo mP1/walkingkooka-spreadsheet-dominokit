@@ -21,16 +21,16 @@ import elemental2.dom.EventListener;
 import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.Value;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 
 import java.util.Optional;
 
 /**
- * A {@link HtmlElementComponent} that supports mostly displaying a value, but without any label or validation functionality
+ * A {@link HtmlComponent} that supports mostly displaying a value, but without any label or validation functionality
  * display.
  */
 public interface ValueComponent<E extends HTMLElement, V, C extends ValueComponent<E, V, C>>
-    extends HtmlElementComponent<E, C>,
+    extends HtmlComponent<E, C>,
     Value<Optional<V>> {
 
     C setId(final String id);

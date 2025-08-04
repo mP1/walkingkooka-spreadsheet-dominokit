@@ -22,7 +22,7 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.set.SortedSets;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.plugin.PluginNameSet;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -38,7 +38,7 @@ import java.util.function.Predicate;
 /**
  * A component that contains a card filled with links of {@link PluginName}, which when clicked add a plugin.
  */
-public final class AddPluginNameSetComponent implements HtmlElementComponent<HTMLDivElement, AddPluginNameSetComponent> {
+public final class AddPluginNameSetComponent implements HtmlComponent<HTMLDivElement, AddPluginNameSetComponent> {
 
     /**
      * Creates an empty {@link AddPluginNameSetComponent}.

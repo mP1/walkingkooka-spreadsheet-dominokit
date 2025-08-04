@@ -23,7 +23,7 @@ import walkingkooka.plugin.PluginAliasLike;
 import walkingkooka.plugin.PluginAliasSetLike;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.plugin.PluginNameSet;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -38,7 +38,7 @@ import java.util.function.Predicate;
 /**
  * A component that contains a panel holding links of for each present {@link PluginAliasLike}, removing each from a {@link PluginAliasSetLike}.
  */
-public final class RemovePluginNameSetComponent implements HtmlElementComponent<HTMLDivElement, RemovePluginNameSetComponent> {
+public final class RemovePluginNameSetComponent implements HtmlComponent<HTMLDivElement, RemovePluginNameSetComponent> {
 
     /**
      * Creates an empty {@link RemovePluginNameSetComponent}.

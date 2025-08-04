@@ -27,7 +27,7 @@ import walkingkooka.spreadsheet.dominokit.dom.Doms;
 /**
  * A {@link Component} that adds a few helpers relating to {@link HTMLElement} and {@link Node}.
  */
-public interface HtmlElementComponent<E extends HTMLElement, C extends HtmlElementComponent<E, C>> extends Component,
+public interface HtmlComponent<E extends HTMLElement, C extends HtmlComponent<E, C>> extends Component,
     IsElement<E> {
 
     /**

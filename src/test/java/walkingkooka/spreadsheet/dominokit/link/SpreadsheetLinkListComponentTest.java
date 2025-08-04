@@ -22,7 +22,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 
@@ -30,7 +30,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetLinkListComponentTest implements HtmlElementComponentTesting<SpreadsheetLinkListComponent, HTMLDivElement> {
+public final class SpreadsheetLinkListComponentTest implements HtmlComponentTesting<SpreadsheetLinkListComponent, HTMLDivElement> {
 
     private final static String ID = "LinkList123-";
 

@@ -22,7 +22,7 @@ import walkingkooka.collect.list.ImmutableList;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.plugin.PluginSelectorTokenAlternativeLike;
 import walkingkooka.plugin.PluginSelectorTokenLike;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -36,7 +36,7 @@ import java.util.stream.Collectors;
 /**
  * A component which displays links which append possible tokens to the current selector text.
  */
-public final class AppendPluginSelectorTokenComponent<T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> implements HtmlElementComponent<HTMLDivElement, AppendPluginSelectorTokenComponent<T, A>> {
+public final class AppendPluginSelectorTokenComponent<T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> implements HtmlComponent<HTMLDivElement, AppendPluginSelectorTokenComponent<T, A>> {
 
     /**
      * Creates an empty {@link AppendPluginSelectorTokenComponent}.

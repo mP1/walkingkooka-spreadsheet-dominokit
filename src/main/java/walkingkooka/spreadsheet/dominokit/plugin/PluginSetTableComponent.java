@@ -172,7 +172,7 @@ final class PluginSetTableComponent implements TableComponent<HTMLDivElement, Pl
         return this;
     }
 
-    // HtmlElementComponent.............................................................................................
+    // HtmlComponent.............................................................................................
 
     @Override
     public HTMLDivElement element() {

@@ -24,7 +24,7 @@ import org.dominokit.domino.ui.forms.suggest.Select;
 import org.dominokit.domino.ui.forms.suggest.SelectOption;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBoxTreePrintable;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -319,7 +319,7 @@ public final class SpreadsheetSelectComponent<T> implements FormValueComponent<H
         final Select<T> select = this.select;
 
         return select.isExpanded() ||
-            HtmlElementComponent.hasFocus(
+            HtmlComponent.hasFocus(
                 select.element()
             );
     }

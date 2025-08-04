@@ -28,7 +28,7 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetError;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycle;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
@@ -52,7 +52,7 @@ import java.util.stream.Collectors;
 /**
  * Provides a text box which supports editing of a formula belonging to a cell.
  */
-public final class SpreadsheetViewportFormulaComponent implements HtmlElementComponent<HTMLFieldSetElement, SpreadsheetViewportFormulaComponent>,
+public final class SpreadsheetViewportFormulaComponent implements HtmlComponent<HTMLFieldSetElement, SpreadsheetViewportFormulaComponent>,
     HistoryTokenAwareComponentLifecycle,
     NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher,

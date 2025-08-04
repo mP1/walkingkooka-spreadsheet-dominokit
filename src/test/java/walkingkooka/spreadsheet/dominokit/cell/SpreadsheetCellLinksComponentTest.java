@@ -24,7 +24,7 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
@@ -35,7 +35,7 @@ import walkingkooka.validation.ValidationValueTypeName;
 import java.util.Optional;
 import java.util.Set;
 
-public final class SpreadsheetCellLinksComponentTest implements HtmlElementComponentTesting<SpreadsheetCellLinksComponent, HTMLDivElement> {
+public final class SpreadsheetCellLinksComponentTest implements HtmlComponentTesting<SpreadsheetCellLinksComponent, HTMLDivElement> {
 
     @Test
     public void testClearValue() {

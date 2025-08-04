@@ -19,10 +19,10 @@ package walkingkooka.spreadsheet.dominokit.datatable;
 
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.datatable.CellRenderer;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 
 /**
- * A {@link CellRenderer} that acts as a bridge to a function which returns a {@link HtmlElementComponent}.
+ * A {@link CellRenderer} that acts as a bridge to a function which returns a {@link HtmlComponent}.
  */
 final class SpreadsheetDataTableComponentDataTableCellRenderer<T> implements CellRenderer<T> {
 
@@ -51,7 +51,7 @@ final class SpreadsheetDataTableComponentDataTableCellRenderer<T> implements Cel
     private final Integer columnNumber;
 
     /**
-     * Provides the source {@link HtmlElementComponent} which will appear in the requested column.
+     * Provides the source {@link HtmlComponent} which will appear in the requested column.
      */
     private final SpreadsheetDataTableComponentCellRenderer<T> cellRenderer;
 

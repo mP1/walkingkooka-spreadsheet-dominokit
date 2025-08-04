@@ -171,7 +171,7 @@ final class JarEntryInfoListTableComponent implements TableComponent<HTMLDivElem
         return this;
     }
 
-    // HtmlElementComponent.............................................................................................
+    // HtmlComponent.............................................................................................
 
     @Override
     public HTMLDivElement element() {

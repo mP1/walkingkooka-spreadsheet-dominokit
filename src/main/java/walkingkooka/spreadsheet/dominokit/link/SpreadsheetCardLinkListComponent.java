@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.link;
 
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -35,7 +35,7 @@ import java.util.function.Function;
  * A card that holds links, each with a save history token link.
  * The initial use-case for this component is to display available spreadsheet formatter names when the user is editing a format.
  */
-public final class SpreadsheetCardLinkListComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetCardLinkListComponent> {
+public final class SpreadsheetCardLinkListComponent implements HtmlComponent<HTMLDivElement, SpreadsheetCardLinkListComponent> {
 
     public static SpreadsheetCardLinkListComponent with(final String id,
                                                         final String title,

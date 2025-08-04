@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.toolbar;
 import elemental2.dom.HTMLElement;
 import walkingkooka.CanBeEmpty;
 import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycle;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
@@ -37,7 +37,7 @@ import java.util.Optional;
 /**
  * A ui such as an icon within a {@link SpreadsheetToolbarComponent}.
  */
-abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarComponentItem<C>> implements HtmlElementComponent<HTMLElement, C>,
+abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarComponentItem<C>> implements HtmlComponent<HTMLElement, C>,
     HistoryTokenAwareComponentLifecycle,
     LoadedSpreadsheetMetadataRequired,
     CanBeEmpty {

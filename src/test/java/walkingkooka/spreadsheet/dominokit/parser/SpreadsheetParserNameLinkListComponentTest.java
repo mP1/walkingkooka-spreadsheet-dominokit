@@ -22,7 +22,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
@@ -31,7 +31,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
-public class SpreadsheetParserNameLinkListComponentTest implements HtmlElementComponentTesting<SpreadsheetParserNameLinkListComponent, HTMLDivElement>,
+public class SpreadsheetParserNameLinkListComponentTest implements HtmlComponentTesting<SpreadsheetParserNameLinkListComponent, HTMLDivElement>,
     SpreadsheetMetadataTesting {
 
     private final static String ID = "ID123-";

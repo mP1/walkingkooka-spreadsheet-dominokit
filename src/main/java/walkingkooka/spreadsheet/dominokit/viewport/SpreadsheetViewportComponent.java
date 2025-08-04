@@ -40,7 +40,7 @@ import walkingkooka.spreadsheet.SpreadsheetViewportRectangle;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycle;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellLinksComponent;
@@ -113,7 +113,7 @@ import java.util.function.Supplier;
 /**
  * A ui that displays a table holding the cells and headers for the columns and rows.
  */
-public final class SpreadsheetViewportComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetViewportComponent>,
+public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDivElement, SpreadsheetViewportComponent>,
     SpreadsheetDeltaFetcherWatcher,
     SpreadsheetFormatterFetcherWatcher,
     NopSpreadsheetFormatterInfoSetFetcherWatcher,

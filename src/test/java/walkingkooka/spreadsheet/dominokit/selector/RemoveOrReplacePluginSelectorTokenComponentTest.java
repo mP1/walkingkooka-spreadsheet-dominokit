@@ -22,7 +22,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorToken;
@@ -32,7 +32,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class RemoveOrReplacePluginSelectorTokenComponentTest implements HtmlElementComponentTesting<RemoveOrReplacePluginSelectorTokenComponent<
+public final class RemoveOrReplacePluginSelectorTokenComponentTest implements HtmlComponentTesting<RemoveOrReplacePluginSelectorTokenComponent<
     SpreadsheetFormatterSelectorToken,
     SpreadsheetFormatterSelectorTokenAlternative>,
     HTMLDivElement> {

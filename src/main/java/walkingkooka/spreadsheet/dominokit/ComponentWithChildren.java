@@ -30,7 +30,7 @@ import java.util.Objects;
 /**
  * Defines methods for a {@link Component} that has children.
  */
-public interface ComponentWithChildren<C extends HtmlElementComponent<E, C>, E extends HTMLElement> extends CanBeEmpty {
+public interface ComponentWithChildren<C extends HtmlComponent<E, C>, E extends HTMLElement> extends CanBeEmpty {
 
     /**
      * Appends a new child.

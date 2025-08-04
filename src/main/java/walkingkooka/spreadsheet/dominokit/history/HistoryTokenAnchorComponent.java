@@ -30,7 +30,7 @@ import org.dominokit.domino.ui.utils.ElementsFactory;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.net.Url;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.tooltip.SpreadsheetTooltipComponent;
@@ -471,7 +471,7 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
 
     @Override
     public boolean isEditing() {
-        return HtmlElementComponent.hasFocus(this.element());
+        return HtmlComponent.hasFocus(this.element());
     }
 
     // isElement........................................................................................................

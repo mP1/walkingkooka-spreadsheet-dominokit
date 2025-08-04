@@ -21,7 +21,7 @@ import walkingkooka.environment.AuditInfo;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.Component;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponentCellRenderer;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -113,7 +113,7 @@ final class SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRender
         );
     }
 
-    private HtmlElementComponent<?, ?> spreadsheetName(final SpreadsheetMetadata metadata) {
+    private HtmlComponent<?, ?> spreadsheetName(final SpreadsheetMetadata metadata) {
         final SpreadsheetId spreadsheetId = metadata.id()
             .orElse(null);
 

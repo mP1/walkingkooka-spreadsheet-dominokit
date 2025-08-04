@@ -22,7 +22,7 @@ import org.dominokit.domino.ui.datepicker.Calendar;
 import org.dominokit.domino.ui.datepicker.CalendarDay;
 import org.dominokit.domino.ui.timepicker.TimePicker;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 
 import java.time.LocalDate;
@@ -196,7 +196,7 @@ public final class SpreadsheetDateTimeComponent extends SpreadsheetPickerCompone
 
     @Override
     public boolean isEditing() {
-        return HtmlElementComponent.hasFocus(this.element()) ||
+        return HtmlComponent.hasFocus(this.element()) ||
             this.calendar.isExpanded() ||
             this.timePicker.isExpanded();
     }

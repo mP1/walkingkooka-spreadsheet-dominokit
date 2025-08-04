@@ -18,14 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLElement;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public interface ValueComponentTesting<E extends HTMLElement, V, C extends ValueComponent<E, V, C>>
-    extends HtmlElementComponentTesting<C, E> {
+    extends HtmlComponentTesting<C, E> {
 
     // value............................................................................................................
 

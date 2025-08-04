@@ -21,7 +21,7 @@ import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.grid.Column;
 import org.dominokit.domino.ui.grid.Row;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
@@ -29,10 +29,10 @@ import java.util.Objects;
 import java.util.function.Supplier;
 
 /**
- * A {@link walkingkooka.spreadsheet.dominokit.Component} that uses Columns to hold {@link HtmlElementComponent} as they
+ * A {@link walkingkooka.spreadsheet.dominokit.Component} that uses Columns to hold {@link HtmlComponent} as they
  * are added.
  */
-public final class SpreadsheetRowComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetRowComponent> {
+public final class SpreadsheetRowComponent implements HtmlComponent<HTMLDivElement, SpreadsheetRowComponent> {
 
     public static SpreadsheetRowComponent columnSpan3() {
         return with(Column::span3);
@@ -53,7 +53,7 @@ public final class SpreadsheetRowComponent implements HtmlElementComponent<HTMLD
         this.column = column;
     }
 
-    public SpreadsheetRowComponent appendChild(final HtmlElementComponent<?, ?> child) {
+    public SpreadsheetRowComponent appendChild(final HtmlComponent<?, ?> child) {
         Objects.requireNonNull(child, "child");
 
         this.row.appendChild(
@@ -66,7 +66,7 @@ public final class SpreadsheetRowComponent implements HtmlElementComponent<HTMLD
 
     private final Supplier<Column> column;
 
-    private final List<HtmlElementComponent<?, ?>> children;
+    private final List<HtmlComponent<?, ?>> children;
 
     @Override
     public SpreadsheetRowComponent setCssText(final String css) {
@@ -103,7 +103,7 @@ public final class SpreadsheetRowComponent implements HtmlElementComponent<HTMLD
         printer.println(this.getClass().getSimpleName());
         printer.indent();
         {
-            for (final HtmlElementComponent<?, ?> child : this.children) {
+            for (final HtmlComponent<?, ?> child : this.children) {
                 child.printTree(printer);
             }
         }

@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetCompara
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameAndDirection;
 import walkingkooka.spreadsheet.dominokit.Component;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
@@ -313,7 +313,7 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetC
 
     @Override
     public boolean isEditing() {
-        return HtmlElementComponent.hasFocus(this.element());
+        return HtmlComponent.hasFocus(this.element());
     }
 
     @Override
@@ -373,7 +373,7 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetC
         return this;
     }
 
-    // HtmlElementComponent.............................................................................................
+    // HtmlComponent.............................................................................................
 
     @Override
     public HTMLDivElement element() {

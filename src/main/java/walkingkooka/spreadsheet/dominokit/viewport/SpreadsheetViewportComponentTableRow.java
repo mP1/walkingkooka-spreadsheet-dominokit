@@ -21,7 +21,7 @@ import elemental2.dom.HTMLTableRowElement;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetElementComponent;
 import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetElementComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetTrComponent;
@@ -33,7 +33,7 @@ import java.util.function.Predicate;
 /**
  * Represents a single TR row within the TABLE which contains all rendered column & row headers and cells.
  */
-abstract class SpreadsheetViewportComponentTableRow<T extends SpreadsheetViewportComponentTableRow<T>> implements HtmlElementComponent<HTMLTableRowElement, T>,
+abstract class SpreadsheetViewportComponentTableRow<T extends SpreadsheetViewportComponentTableRow<T>> implements HtmlComponent<HTMLTableRowElement, T>,
     SpreadsheetElementComponentDelegator<HTMLTableRowElement, T> {
 
     SpreadsheetViewportComponentTableRow() {

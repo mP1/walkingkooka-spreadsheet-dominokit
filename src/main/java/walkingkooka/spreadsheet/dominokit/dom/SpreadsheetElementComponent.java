@@ -26,12 +26,12 @@ import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.style.CssClass;
 import org.dominokit.domino.ui.style.Style;
 import org.dominokit.domino.ui.utils.ElementUtil;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextNode;
 
 /**
- * Base class for an element {@link HtmlElementComponent}
+ * Base class for an element {@link HtmlComponent}
  */
 public abstract class SpreadsheetElementComponent<E extends HTMLElement, C extends SpreadsheetElementComponent<E, C>> extends SpreadsheetElementComponentLike<E, C> {
 

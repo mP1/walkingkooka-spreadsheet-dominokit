@@ -22,7 +22,7 @@ import walkingkooka.collect.map.Maps;
 import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.dom.SpreadsheetElementComponentDelegator;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -45,7 +45,7 @@ import java.util.function.Predicate;
 /**
  * Base class for all TABLE CELL (TD) components within a {@link SpreadsheetViewportComponentTable}
  */
-abstract class SpreadsheetViewportComponentTableCell<E extends HTMLElement, C extends SpreadsheetViewportComponentTableCell<E, C>> implements HtmlElementComponent<E, C>,
+abstract class SpreadsheetViewportComponentTableCell<E extends HTMLElement, C extends SpreadsheetViewportComponentTableCell<E, C>> implements HtmlComponent<E, C>,
     SpreadsheetElementComponentDelegator<E, C> {
 
     SpreadsheetViewportComponentTableCell() {

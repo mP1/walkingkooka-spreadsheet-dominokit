@@ -23,7 +23,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameAndDirection;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReferenceOrRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -34,7 +34,7 @@ import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponentTest implements HtmlElementComponentTesting<SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent, HTMLDivElement> {
+public final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponentTest implements HtmlComponentTesting<SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent, HTMLDivElement> {
 
     // cell.............................................................................................................
 

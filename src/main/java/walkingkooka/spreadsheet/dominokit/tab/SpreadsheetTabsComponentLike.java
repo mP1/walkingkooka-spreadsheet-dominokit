@@ -18,14 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.tab;
 
 import elemental2.dom.HTMLDivElement;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 
 /**
  * Defines the public interface of a {@link SpreadsheetTabsComponent}.
  */
-public interface SpreadsheetTabsComponentLike extends HtmlElementComponent<HTMLDivElement, SpreadsheetTabsComponent> {
+public interface SpreadsheetTabsComponentLike extends HtmlComponent<HTMLDivElement, SpreadsheetTabsComponent> {
 
     /**
      * Appends a new tab. The anchor holding the title will be disabled.

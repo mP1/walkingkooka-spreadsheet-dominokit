@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.HTMLElement;
 import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycle;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetFormComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
@@ -37,7 +37,7 @@ import java.util.Objects;
  * A wrapper component that watches {@link HistoryToken} and fires lifecycle events to a given {@link SpreadsheetFormComponentLifecycle}.
  */
 public final class SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E extends HTMLElement> implements HistoryTokenAwareComponentLifecycle,
-    HtmlElementComponent<E, SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E>> {
+    HtmlComponent<E, SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E>> {
 
     public static <E extends HTMLElement> SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E> with(final SpreadsheetFormComponentLifecycle<E, ?> form,
                                                                                                          final HistoryContext context) {

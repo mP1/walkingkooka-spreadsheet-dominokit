@@ -23,7 +23,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -34,7 +34,7 @@ import java.util.function.Function;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetCardLinkListComponentTest implements HtmlElementComponentTesting<SpreadsheetCardLinkListComponent, HTMLDivElement> {
+public final class SpreadsheetCardLinkListComponentTest implements HtmlComponentTesting<SpreadsheetCardLinkListComponent, HTMLDivElement> {
 
     private final static String ID = "LinkList123-";
 

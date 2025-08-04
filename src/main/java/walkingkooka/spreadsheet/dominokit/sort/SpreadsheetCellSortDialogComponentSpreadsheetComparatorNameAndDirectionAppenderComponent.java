@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparatorDirection;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameAndDirection;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -41,7 +41,7 @@ import java.util.stream.Collectors;
  * A container that shows LINKS for each {@link SpreadsheetComparatorName missing from the index {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}
  * from the parent {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}.
  */
-final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent> {
+final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent implements HtmlComponent<HTMLDivElement, SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent> {
 
     /**
      * Creates an empty {@link SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent}.
@@ -166,10 +166,10 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirect
 
     @Override
     public boolean isEditing() {
-        return HtmlElementComponent.hasFocus(this.element());
+        return HtmlComponent.hasFocus(this.element());
     }
 
-    // HtmlElementComponent.............................................................................................
+    // HtmlComponent.............................................................................................
 
     @Override
     public HTMLDivElement element() {

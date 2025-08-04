@@ -22,7 +22,7 @@ import walkingkooka.collect.list.ImmutableList;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.plugin.PluginSelectorTokenAlternativeLike;
 import walkingkooka.plugin.PluginSelectorTokenLike;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
@@ -40,7 +40,7 @@ import java.util.stream.Collectors;
 /**
  * A component with links for each {@link PluginSelectorTokenLike}, with context menu items which support replacing the item.
  */
-public final class RemoveOrReplacePluginSelectorTokenComponent<T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> implements HtmlElementComponent<HTMLDivElement, RemoveOrReplacePluginSelectorTokenComponent<T, A>> {
+public final class RemoveOrReplacePluginSelectorTokenComponent<T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> implements HtmlComponent<HTMLDivElement, RemoveOrReplacePluginSelectorTokenComponent<T, A>> {
 
     /**
      * Creates an empty {@link RemoveOrReplacePluginSelectorTokenComponent}.

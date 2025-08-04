@@ -31,7 +31,7 @@ import org.dominokit.domino.ui.upload.IsFilePreview;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.DataUrl;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 
 import java.util.List;
@@ -253,7 +253,7 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
 
     @Override
     public boolean isEditing() {
-        return HtmlElementComponent.hasFocus(this.element());
+        return HtmlComponent.hasFocus(this.element());
     }
 
     @Override

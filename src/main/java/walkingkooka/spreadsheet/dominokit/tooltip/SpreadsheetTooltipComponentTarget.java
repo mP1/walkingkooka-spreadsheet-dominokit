@@ -18,14 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.tooltip;
 
 import elemental2.dom.HTMLElement;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 
 /**
  * A target that receives a {@link SpreadsheetTooltipComponent}. It will events as tooltips are attached/detached.
  */
 public interface SpreadsheetTooltipComponentTarget<E extends HTMLElement,
-    C extends HtmlElementComponent<E, C>
-    > extends HtmlElementComponent<E, C> {
+    C extends HtmlComponent<E, C>
+    > extends HtmlComponent<E, C> {
 
     /**
      * Attaches a new {@link SpreadsheetTooltipComponent} to the target.

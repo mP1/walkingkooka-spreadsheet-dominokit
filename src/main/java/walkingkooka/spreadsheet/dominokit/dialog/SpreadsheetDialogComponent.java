@@ -292,7 +292,7 @@ public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponent
         return this;
     }
 
-    // HtmlElementComponent.............................................................................................
+    // HtmlComponent.............................................................................................
 
     @Override
     public HTMLDivElement element() {

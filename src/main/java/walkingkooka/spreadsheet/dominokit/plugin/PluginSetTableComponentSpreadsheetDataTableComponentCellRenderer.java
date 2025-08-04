@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.plugin;
 
 import walkingkooka.plugin.PluginName;
 import walkingkooka.plugin.store.Plugin;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponentCellRenderer;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
@@ -51,9 +51,9 @@ final class PluginSetTableComponentSpreadsheetDataTableComponentCellRenderer imp
 
     // plugin-name | filename | user | timestamp | links
     @Override
-    public HtmlElementComponent<?, ?> render(final int column,
-                                             final Plugin plugin) {
-        final HtmlElementComponent<?, ?> component;
+    public HtmlComponent<?, ?> render(final int column,
+                                      final Plugin plugin) {
+        final HtmlComponent<?, ?> component;
 
         switch (column) {
             case 0: // pluginName
