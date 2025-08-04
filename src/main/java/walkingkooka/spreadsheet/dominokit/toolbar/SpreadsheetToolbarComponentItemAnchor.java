@@ -22,7 +22,7 @@ import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.tooltip.SpreadsheetTooltipComponent;
+import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Objects;
@@ -48,7 +48,7 @@ abstract class SpreadsheetToolbarComponentItemAnchor<C extends SpreadsheetToolba
 
         this.anchor = anchor;
 
-        this.tooltip = SpreadsheetTooltipComponent.attach(
+        this.tooltip = TooltipComponent.attach(
             anchor,
             tooltipText,
             DropDirection.BOTTOM_MIDDLE
@@ -106,7 +106,7 @@ abstract class SpreadsheetToolbarComponentItemAnchor<C extends SpreadsheetToolba
 
     final HistoryTokenAnchorComponent anchor;
 
-    final SpreadsheetTooltipComponent tooltip;
+    final TooltipComponent tooltip;
 
     final SpreadsheetToolbarComponentContext context;
 

@@ -24,7 +24,7 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
-import walkingkooka.spreadsheet.dominokit.tooltip.SpreadsheetTooltipComponent;
+import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponent;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
@@ -292,10 +292,10 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
 
     private SpreadsheetContextMenu menu;
 
-    // SpreadsheetTooltipComponentTarget................................................................................
+    // TooltipComponentTarget................................................................................
 
     @Override
-    public void tooltipAttached(final SpreadsheetTooltipComponent tooltip) {
+    public void tooltipAttached(final TooltipComponent tooltip) {
         Objects.requireNonNull(tooltip, "tooltip");
 
         this.tooltip = Optional.of(tooltip);
@@ -307,9 +307,9 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
     }
 
     @Override
-    public Optional<SpreadsheetTooltipComponent> spreadsheetTooltipComponent() {
+    public Optional<TooltipComponent> spreadsheetTooltipComponent() {
         return this.tooltip;
     }
 
-    private Optional<SpreadsheetTooltipComponent> tooltip;
+    private Optional<TooltipComponent> tooltip;
 }

@@ -29,7 +29,7 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuItem;
-import walkingkooka.spreadsheet.dominokit.tooltip.SpreadsheetTooltipComponent;
+import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
@@ -313,7 +313,7 @@ public final class HistoryTokenAnchorComponentTest implements HtmlComponentTesti
             .setHref(
                 Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
             );
-        final SpreadsheetTooltipComponent tooltip = SpreadsheetTooltipComponent.attach(
+        final TooltipComponent tooltip = TooltipComponent.attach(
             anchor,
             "Tooltip123",
             DropDirection.BOTTOM_MIDDLE
@@ -322,7 +322,7 @@ public final class HistoryTokenAnchorComponentTest implements HtmlComponentTesti
         this.treePrintAndCheck(
             anchor,
             "\"Hello\" [#/1/SpreadsheetName234/cell/A1]\n" +
-                "  SpreadsheetTooltipComponent\n" +
+                "  TooltipComponent\n" +
                 "    \"Tooltip123\"\n"
         );
     }

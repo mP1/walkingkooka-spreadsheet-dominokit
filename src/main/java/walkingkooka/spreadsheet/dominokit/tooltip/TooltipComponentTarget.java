@@ -21,16 +21,16 @@ import elemental2.dom.HTMLElement;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 
 /**
- * A target that receives a {@link SpreadsheetTooltipComponent}. It will events as tooltips are attached/detached.
+ * A target that receives a {@link TooltipComponent}. It will events as tooltips are attached/detached.
  */
-public interface SpreadsheetTooltipComponentTarget<E extends HTMLElement,
+public interface TooltipComponentTarget<E extends HTMLElement,
     C extends HtmlComponent<E, C>
     > extends HtmlComponent<E, C> {
 
     /**
-     * Attaches a new {@link SpreadsheetTooltipComponent} to the target.
+     * Attaches a new {@link TooltipComponent} to the target.
      */
-    void tooltipAttached(final SpreadsheetTooltipComponent tooltip);
+    void tooltipAttached(final TooltipComponent tooltip);
 
     /**
      * Announces that the tooltip has been detached.

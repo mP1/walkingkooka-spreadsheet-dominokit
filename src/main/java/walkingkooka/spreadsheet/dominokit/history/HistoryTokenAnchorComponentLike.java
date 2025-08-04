@@ -26,8 +26,8 @@ import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuTarget;
-import walkingkooka.spreadsheet.dominokit.tooltip.SpreadsheetTooltipComponent;
-import walkingkooka.spreadsheet.dominokit.tooltip.SpreadsheetTooltipComponentTarget;
+import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponent;
+import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponentTarget;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Optional;
@@ -37,7 +37,7 @@ import java.util.Optional;
  */
 abstract class HistoryTokenAnchorComponentLike implements AnchorComponent<HistoryTokenAnchorComponent, HistoryToken>,
     SpreadsheetContextMenuTarget<HTMLAnchorElement>,
-    SpreadsheetTooltipComponentTarget<HTMLAnchorElement, HistoryTokenAnchorComponent> {
+    TooltipComponentTarget<HTMLAnchorElement, HistoryTokenAnchorComponent> {
 
     HistoryTokenAnchorComponentLike() {
         super();
@@ -104,12 +104,12 @@ abstract class HistoryTokenAnchorComponentLike implements AnchorComponent<Histor
         );
     }
 
-    // SpreadsheetTooltipComponentTarget................................................................................
+    // TooltipComponentTarget................................................................................
 
     /**
-     * Retrieves any {@link SpreadsheetTooltipComponent}
+     * Retrieves any {@link TooltipComponent}
      */
-    abstract Optional<SpreadsheetTooltipComponent> spreadsheetTooltipComponent();
+    abstract Optional<TooltipComponent> spreadsheetTooltipComponent();
 
     // TreePrintable....................................................................................................
 
@@ -117,7 +117,7 @@ abstract class HistoryTokenAnchorComponentLike implements AnchorComponent<Histor
     public final void printTree(final IndentingPrinter printer) {
         printer.print(this.toString());
 
-        final Optional<SpreadsheetTooltipComponent> tooltip = this.spreadsheetTooltipComponent();
+        final Optional<TooltipComponent> tooltip = this.spreadsheetTooltipComponent();
         if (tooltip.isPresent()) {
             printer.indent();
             {

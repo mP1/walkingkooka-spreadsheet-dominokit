@@ -22,9 +22,9 @@ import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
 /**
- * Defines a public contract for a {@link SpreadsheetTooltipComponent}.
+ * Defines a public contract for a {@link TooltipComponent}.
  */
-public interface SpreadsheetTooltipComponentLike extends TreePrintable {
+public interface TooltipComponentLike extends TreePrintable {
 
     /**
      * Getter that returns the text content of this tooltip.
@@ -34,7 +34,7 @@ public interface SpreadsheetTooltipComponentLike extends TreePrintable {
     /**
      * Sets or replaces the text content of this tooltip.
      */
-    SpreadsheetTooltipComponentLike setTextContent(final String text);
+    TooltipComponentLike setTextContent(final String text);
 
     /**
      * Removes the tooltip.
