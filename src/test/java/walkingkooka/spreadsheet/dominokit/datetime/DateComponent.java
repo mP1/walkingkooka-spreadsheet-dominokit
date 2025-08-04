@@ -38,29 +38,29 @@ import java.util.function.Supplier;
 
 /**
  * A mock of main/TextBoxComponent with the same public interface and a helpful {@link TreePrintable}. This will be useful for unit tests to verify the rough apperance of a component that includes
- * {@linkSpreadsheetDateComponent}.
+ * {@link DateComponent}.
  */
-public final class SpreadsheetDateComponent implements FormValueComponent<HTMLFieldSetElement, LocalDate, SpreadsheetDateComponent>,
-    FormValueComponentTreePrintable<SpreadsheetDateComponent, LocalDate>,
-    TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetDateComponent>,
+public final class DateComponent implements FormValueComponent<HTMLFieldSetElement, LocalDate, DateComponent>,
+    FormValueComponentTreePrintable<DateComponent, LocalDate>,
+    TestHtmlElementComponent<HTMLFieldSetElement, DateComponent>,
     ValidatorHelper {
 
-    public static SpreadsheetDateComponent empty(final String id,
-                                                 final Supplier<LocalDate> clearValue) {
-        return new SpreadsheetDateComponent(
+    public static DateComponent empty(final String id,
+                                      final Supplier<LocalDate> clearValue) {
+        return new DateComponent(
             id,
             clearValue
         );
     }
 
-    private SpreadsheetDateComponent(final String id,
-                                     final Supplier<LocalDate> clearValue) {
+    private DateComponent(final String id,
+                          final Supplier<LocalDate> clearValue) {
         this.setId(id);
         this.clearValue = clearValue;
     }
 
     @Override
-    public SpreadsheetDateComponent setId(final String id) {
+    public DateComponent setId(final String id) {
         CharSequences.failIfNullOrEmpty(id, "id");
 
         this.id = id;
@@ -75,7 +75,7 @@ public final class SpreadsheetDateComponent implements FormValueComponent<HTMLFi
     private String id;
 
     @Override
-    public SpreadsheetDateComponent setLabel(final String label) {
+    public DateComponent setLabel(final String label) {
         this.label = label;
         return this;
     }
@@ -88,7 +88,7 @@ public final class SpreadsheetDateComponent implements FormValueComponent<HTMLFi
     private String label;
 
     @Override
-    public SpreadsheetDateComponent setValue(final Optional<LocalDate> value) {
+    public DateComponent setValue(final Optional<LocalDate> value) {
         Objects.requireNonNull(value, "value");
         this.value = value.isPresent() ?
             value :
@@ -107,18 +107,18 @@ public final class SpreadsheetDateComponent implements FormValueComponent<HTMLFi
     private Optional<LocalDate> value = Optional.empty();
 
     @Override
-    public SpreadsheetDateComponent focus() {
+    public DateComponent focus() {
         return this;
     }
 
     @Override
-    public SpreadsheetDateComponent optional() {
+    public DateComponent optional() {
         this.required = false;
         return this;
     }
 
     @Override
-    public SpreadsheetDateComponent required() {
+    public DateComponent required() {
         this.required = true;
         return this;
     }
@@ -130,7 +130,7 @@ public final class SpreadsheetDateComponent implements FormValueComponent<HTMLFi
 
     private boolean required;
 
-    public SpreadsheetDateComponent setValidator(final Validator<Optional<LocalDate>> validator) {
+    public DateComponent setValidator(final Validator<Optional<LocalDate>> validator) {
         this.validator = validator;
         return this;
     }
@@ -138,7 +138,7 @@ public final class SpreadsheetDateComponent implements FormValueComponent<HTMLFi
     private Validator<Optional<LocalDate>> validator;
 
     @Override
-    public SpreadsheetDateComponent validate() {
+    public DateComponent validate() {
         this.setErrors(
             this.validateAndGetErrors(
                 this.value,
@@ -154,7 +154,7 @@ public final class SpreadsheetDateComponent implements FormValueComponent<HTMLFi
     }
 
     @Override
-    public SpreadsheetDateComponent setErrors(final List<String> errors) {
+    public DateComponent setErrors(final List<String> errors) {
         Objects.requireNonNull(errors, "errors");
         this.errors = Lists.immutable(errors);
         return this;
@@ -168,54 +168,54 @@ public final class SpreadsheetDateComponent implements FormValueComponent<HTMLFi
     }
 
     @Override
-    public SpreadsheetDateComponent setDisabled(final boolean disabled) {
+    public DateComponent setDisabled(final boolean disabled) {
         this.disabled = disabled;
         return this;
     }
 
     private boolean disabled;
 
-    public SpreadsheetDateComponent resetView() {
+    public DateComponent resetView() {
         return this;
     }
 
     @Override
-    public SpreadsheetDateComponent addChangeListener(final ChangeListener<Optional<LocalDate>> listener) {
+    public DateComponent addChangeListener(final ChangeListener<Optional<LocalDate>> listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetDateComponent addClickListener(final EventListener listener) {
+    public DateComponent addClickListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetDateComponent addContextMenuListener(final EventListener listener) {
+    public DateComponent addContextMenuListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetDateComponent addFocusListener(final EventListener listener) {
+    public DateComponent addFocusListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetDateComponent addKeydownListener(final EventListener listener) {
+    public DateComponent addKeydownListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetDateComponent addKeyupListener(final EventListener listener) {
+    public DateComponent addKeyupListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetDateComponent alwaysShowHelperText() {
+    public DateComponent alwaysShowHelperText() {
         return this;
     }
 
     @Override
-    public SpreadsheetDateComponent setHelperText(final Optional<String> text) {
+    public DateComponent setHelperText(final Optional<String> text) {
         Objects.requireNonNull(text, "text");
         this.helperText = text;
         return this;
@@ -228,32 +228,32 @@ public final class SpreadsheetDateComponent implements FormValueComponent<HTMLFi
     private Optional<String> helperText = Optional.empty();
 
     @Override
-    public SpreadsheetDateComponent hideMarginBottom() {
+    public DateComponent hideMarginBottom() {
         return this;
     }
 
     @Override
-    public SpreadsheetDateComponent removeBorders() {
+    public DateComponent removeBorders() {
         return this;
     }
 
-    public SpreadsheetDateComponent autocompleteOff() {
+    public DateComponent autocompleteOff() {
         return this;
     }
 
-    public SpreadsheetDateComponent clearIcon() {
+    public DateComponent clearIcon() {
         return this;
     }
 
-    public SpreadsheetDateComponent disableSpellcheck() {
+    public DateComponent disableSpellcheck() {
         return this;
     }
 
-    public SpreadsheetDateComponent enterFiresValueChange() {
+    public DateComponent enterFiresValueChange() {
         return this;
     }
 
-    public SpreadsheetDateComponent magnifyingGlassIcon() {
+    public DateComponent magnifyingGlassIcon() {
         return this;
     }
 
@@ -261,7 +261,7 @@ public final class SpreadsheetDateComponent implements FormValueComponent<HTMLFi
     //
     // java.lang.NoSuchMethodError: walkingkooka.spreadsheet.dominokit.value.TextBoxComponent.setCssText(Ljava/lang/String;)Lwalkingkooka/spreadsheet/dominokit/ui/textbox/TextBoxComponent;
     @Override
-    public SpreadsheetDateComponent setCssText(final String css) {
+    public DateComponent setCssText(final String css) {
         Objects.requireNonNull(css, "css");
         return this;
     }
