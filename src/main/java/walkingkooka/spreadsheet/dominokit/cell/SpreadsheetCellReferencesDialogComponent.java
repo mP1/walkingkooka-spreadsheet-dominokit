@@ -21,8 +21,8 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaCellsTableComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
@@ -37,7 +37,7 @@ import java.util.Optional;
 /**
  * A modal dialog that displays the references for the selected cells.
  */
-public final class SpreadsheetCellReferencesDialogComponent implements SpreadsheetDialogComponentLifecycle,
+public final class SpreadsheetCellReferencesDialogComponent implements DialogComponentLifecycle,
     LoadedSpreadsheetMetadataRequired {
 
     /**
@@ -69,12 +69,12 @@ public final class SpreadsheetCellReferencesDialogComponent implements Spreadshe
     /**
      * Creates the modal dialog, with a table showing the references and the links such as CLOSE.
      */
-    private SpreadsheetDialogComponent dialogCreate() {
+    private DialogComponent dialogCreate() {
         final SpreadsheetCellReferencesDialogComponentContext context = this.context;
 
-        return SpreadsheetDialogComponent.largeList(
+        return DialogComponent.largeList(
                 ID + SpreadsheetElementIds.DIALOG,
-                SpreadsheetDialogComponent.INCLUDE_CLOSE,
+                DialogComponent.INCLUDE_CLOSE,
                 context
             ).appendChild(this.table)
             .appendChild(
@@ -85,7 +85,7 @@ public final class SpreadsheetCellReferencesDialogComponent implements Spreadshe
             );
     }
 
-    private final SpreadsheetDialogComponent dialog;
+    private final DialogComponent dialog;
 
     private final SpreadsheetCellReferencesDialogComponentContext context;
 
@@ -108,10 +108,10 @@ public final class SpreadsheetCellReferencesDialogComponent implements Spreadshe
 
     private final HistoryTokenAnchorComponent close;
 
-    // SpreadsheetDialogComponentLifecycle..............................................................................
+    // DialogComponentLifecycle..............................................................................
 
     @Override
-    public SpreadsheetDialogComponent dialog() {
+    public DialogComponent dialog() {
         return this.dialog;
     }
 

@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
-public final class BasicSpreadsheetDialogComponentContextTest implements SpreadsheetDialogComponentContextTesting<BasicSpreadsheetDialogComponentContext> {
+public final class BasicDialogComponentContextTest implements DialogComponentContextTesting<BasicDialogComponentContext> {
 
     private final static HistoryContext HISTORY_CONTEXT = HistoryContexts.fake();
 
@@ -35,7 +35,7 @@ public final class BasicSpreadsheetDialogComponentContextTest implements Spreads
     public void testWithNullHistoryContextFails() {
         assertThrows(
             NullPointerException.class,
-            () -> BasicSpreadsheetDialogComponentContext.with(
+            () -> BasicDialogComponentContext.with(
                 null,
                 LOGGING_CONTEXT
             )
@@ -46,7 +46,7 @@ public final class BasicSpreadsheetDialogComponentContextTest implements Spreads
     public void testWithNullLoggingContextFails() {
         assertThrows(
             NullPointerException.class,
-            () -> BasicSpreadsheetDialogComponentContext.with(
+            () -> BasicDialogComponentContext.with(
                 HISTORY_CONTEXT,
                 null
             )
@@ -69,8 +69,8 @@ public final class BasicSpreadsheetDialogComponentContextTest implements Spreads
     }
 
     @Override
-    public BasicSpreadsheetDialogComponentContext createContext() {
-        return BasicSpreadsheetDialogComponentContext.with(
+    public BasicDialogComponentContext createContext() {
+        return BasicDialogComponentContext.with(
             HISTORY_CONTEXT,
             LOGGING_CONTEXT
         );
@@ -79,7 +79,7 @@ public final class BasicSpreadsheetDialogComponentContextTest implements Spreads
     // class............................................................................................................
 
     @Override
-    public Class<BasicSpreadsheetDialogComponentContext> type() {
-        return BasicSpreadsheetDialogComponentContext.class;
+    public Class<BasicDialogComponentContext> type() {
+        return BasicDialogComponentContext.class;
     }
 }

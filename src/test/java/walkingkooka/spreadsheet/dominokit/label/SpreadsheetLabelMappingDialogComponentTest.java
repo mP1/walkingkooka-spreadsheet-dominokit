@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
@@ -39,7 +39,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Locale;
 
-public final class SpreadsheetLabelMappingDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetLabelMappingDialogComponent> {
+public final class SpreadsheetLabelMappingDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetLabelMappingDialogComponent> {
 
     // isMatch..........................................................................................................
 
@@ -135,7 +135,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
         this.onHistoryTokenChangeAndCheck(
             "/1/SpreadsheetName111/create-label",
             "SpreadsheetLabelMappingDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Spreadsheet: Label\n" +
                 "    id=labelMapping-Dialog includeClose=true\n" +
                 "      SpreadsheetLabelComponent\n" +
@@ -165,7 +165,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
         this.onHistoryTokenChangeAndCheck(
             "/1/SpreadsheetName111/cell/A1/label",
             "SpreadsheetLabelMappingDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Spreadsheet: Label\n" +
                 "    id=labelMapping-Dialog includeClose=true\n" +
                 "      SpreadsheetLabelComponent\n" +
@@ -193,7 +193,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
         this.onHistoryTokenChangeAndCheck(
             "/1/SpreadsheetName111/cell/B2:C3/label",
             "SpreadsheetLabelMappingDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Spreadsheet: Label\n" +
                 "    id=labelMapping-Dialog includeClose=true\n" +
                 "      SpreadsheetLabelComponent\n" +
@@ -221,7 +221,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
         this.onHistoryTokenChangeAndCheck(
             "/1/SpreadsheetName111/cell/Label123/label",
             "SpreadsheetLabelMappingDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Spreadsheet: Label\n" +
                 "    id=labelMapping-Dialog includeClose=true\n" +
                 "      SpreadsheetLabelComponent\n" +
@@ -256,7 +256,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
             dialog,
             context,
             "SpreadsheetLabelMappingDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Spreadsheet: Label\n" +
                 "    id=labelMapping-Dialog includeClose=true\n" +
                 "      SpreadsheetLabelComponent\n" +
@@ -284,7 +284,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
             dialog,
             context,
             "SpreadsheetLabelMappingDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Spreadsheet: Label\n" +
                 "    id=labelMapping-Dialog includeClose=true\n" +
                 "      SpreadsheetLabelComponent\n" +
@@ -321,7 +321,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
             dialog,
             context,
             "SpreadsheetLabelMappingDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Spreadsheet: Label\n" +
                 "    id=labelMapping-Dialog includeClose=true\n" +
                 "      SpreadsheetLabelComponent\n" +
@@ -359,7 +359,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
             dialog,
             context,
             "SpreadsheetLabelMappingDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Spreadsheet: Label\n" +
                 "    id=labelMapping-Dialog includeClose=true\n" +
                 "      SpreadsheetLabelComponent\n" +

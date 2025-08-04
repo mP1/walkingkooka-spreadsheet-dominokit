@@ -25,23 +25,23 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import java.util.Objects;
 
 /**
- * An incomplete {@link SpreadsheetDialogComponentContext} intended to be target of a {@link SpreadsheetDialogComponentContextDelegator}.
+ * An incomplete {@link DialogComponentContext} intended to be target of a {@link DialogComponentContextDelegator}.
  * Note the {@link #dialogTitle()} throws {@link UnsupportedOperationException}.
  */
-final class BasicSpreadsheetDialogComponentContext implements SpreadsheetDialogComponentContext,
+final class BasicDialogComponentContext implements DialogComponentContext,
     HistoryContextDelegator,
     LoggingContextDelegator {
 
-    static BasicSpreadsheetDialogComponentContext with(final HistoryContext historyContext,
-                                                       final LoggingContext loggingContext) {
-        return new BasicSpreadsheetDialogComponentContext(
+    static BasicDialogComponentContext with(final HistoryContext historyContext,
+                                            final LoggingContext loggingContext) {
+        return new BasicDialogComponentContext(
             Objects.requireNonNull(historyContext, "historyContext"),
             Objects.requireNonNull(loggingContext, "loggingContext")
         );
     }
 
-    private BasicSpreadsheetDialogComponentContext(final HistoryContext historyContext,
-                                                   final LoggingContext loggingContext) {
+    private BasicDialogComponentContext(final HistoryContext historyContext,
+                                        final LoggingContext loggingContext) {
         this.historyContext = historyContext;
         this.loggingContext = loggingContext;
     }

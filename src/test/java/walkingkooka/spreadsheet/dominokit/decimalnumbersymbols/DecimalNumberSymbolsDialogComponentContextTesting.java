@@ -19,11 +19,11 @@ package walkingkooka.spreadsheet.dominokit.decimalnumbersymbols;
 
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextTesting;
 
 import java.util.Optional;
 
-public interface DecimalNumberSymbolsDialogComponentContextTesting<C extends DecimalNumberSymbolsDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C>,
+public interface DecimalNumberSymbolsDialogComponentContextTesting<C extends DecimalNumberSymbolsDialogComponentContext> extends DialogComponentContextTesting<C>,
     ComponentLifecycleMatcherTesting {
 
     default void loadDecimalNumberSymbolsAndCheck(final C context,

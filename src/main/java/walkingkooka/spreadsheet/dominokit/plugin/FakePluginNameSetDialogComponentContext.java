@@ -18,14 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.plugin;
 
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.dominokit.dialog.FakeSpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.FakeDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.util.OptionalInt;
 
-public class FakePluginNameSetDialogComponentContext extends FakeSpreadsheetDialogComponentContext
+public class FakePluginNameSetDialogComponentContext extends FakeDialogComponentContext
     implements PluginNameSetDialogComponentContext {
 
     public FakePluginNameSetDialogComponentContext() {

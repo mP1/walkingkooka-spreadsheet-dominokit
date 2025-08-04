@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.parser;
 
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetParserFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -37,7 +37,7 @@ import java.util.Optional;
 public interface SpreadsheetParserSelectorDialogComponentContext extends CanGiveFocus,
     ComponentLifecycleMatcher,
     HasSpreadsheetParserFetcherWatchers,
-    SpreadsheetDialogComponentContext,
+    DialogComponentContext,
     SpreadsheetParserProvider,
     SpreadsheetPatternKindTabsComponentContext,
     SpreadsheetParserSelectorEditContext {

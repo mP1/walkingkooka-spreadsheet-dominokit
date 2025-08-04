@@ -18,12 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.plugin;
 
 import walkingkooka.plugin.PluginName;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 
-public interface PluginFileViewDialogComponentContext extends SpreadsheetDialogComponentContext,
+public interface PluginFileViewDialogComponentContext extends DialogComponentContext,
     HasPluginFetcherWatchers,
     HistoryContext {
 

@@ -33,8 +33,8 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.Fetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
@@ -55,7 +55,7 @@ import java.util.Set;
 /**
  * A modal dialog that supports editing a {@link ConverterSelector}.
  */
-public final class ConverterSelectorDialogComponent implements SpreadsheetDialogComponentLifecycle,
+public final class ConverterSelectorDialogComponent implements DialogComponentLifecycle,
     LoadedSpreadsheetMetadataRequired,
     NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher,
@@ -103,12 +103,12 @@ public final class ConverterSelectorDialogComponent implements SpreadsheetDialog
     /**
      * Creates the modal dialog, loaded with the {@link ConverterSelector} textbox and some links.
      */
-    private SpreadsheetDialogComponent dialogCreate() {
+    private DialogComponent dialogCreate() {
         final ConverterSelectorDialogComponentContext context = this.context;
 
-        SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.largeEdit(
+        DialogComponent dialog = DialogComponent.largeEdit(
             ID + SpreadsheetElementIds.DIALOG,
-            SpreadsheetDialogComponent.INCLUDE_CLOSE,
+            DialogComponent.INCLUDE_CLOSE,
             context
         );
 
@@ -123,11 +123,11 @@ public final class ConverterSelectorDialogComponent implements SpreadsheetDialog
     }
 
     @Override
-    public SpreadsheetDialogComponent dialog() {
+    public DialogComponent dialog() {
         return this.dialog;
     }
 
-    private final SpreadsheetDialogComponent dialog;
+    private final DialogComponent dialog;
 
     private final ConverterSelectorDialogComponentContext context;
 

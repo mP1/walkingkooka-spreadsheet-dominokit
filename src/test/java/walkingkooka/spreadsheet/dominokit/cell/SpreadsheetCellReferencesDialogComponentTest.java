@@ -27,7 +27,7 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -53,7 +53,7 @@ import java.util.Arrays;
 import java.util.Optional;
 import java.util.Set;
 
-public final class SpreadsheetCellReferencesDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetCellReferencesDialogComponent>,
+public final class SpreadsheetCellReferencesDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetCellReferencesDialogComponent>,
     SpreadsheetMetadataTesting {
 
     // isMatch..........................................................................................................
@@ -95,7 +95,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
             dialog,
             context,
             "SpreadsheetCellReferencesDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Cell References\n" +
                 "    id=cellReferences-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
@@ -138,7 +138,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
             dialog,
             context,
             "SpreadsheetCellReferencesDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Cell References\n" +
                 "    id=cellReferences-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
@@ -197,7 +197,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
         this.treePrintAndCheck(
             dialog,
             "SpreadsheetCellReferencesDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Cell References\n" +
                 "    id=cellReferences-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +

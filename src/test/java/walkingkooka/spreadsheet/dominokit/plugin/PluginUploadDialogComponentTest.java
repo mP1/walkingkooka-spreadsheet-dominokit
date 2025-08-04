@@ -28,7 +28,7 @@ import walkingkooka.plugin.store.PluginStore;
 import walkingkooka.plugin.store.PluginStores;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
@@ -43,7 +43,7 @@ import java.util.Base64;
 import java.util.Locale;
 import java.util.Optional;
 
-public final class PluginUploadDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<PluginUploadDialogComponent>,
+public final class PluginUploadDialogComponentTest implements DialogComponentLifecycleTesting<PluginUploadDialogComponent>,
     SpreadsheetMetadataTesting {
 
     // isMatch..........................................................................................................
@@ -116,7 +116,7 @@ public final class PluginUploadDialogComponentTest implements SpreadsheetDialogC
             dialog,
             context,
             "PluginUploadDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Upload Plugin\n" +
                 "    id=pluginUpload-Dialog includeClose=true\n" +
                 "      SpreadsheetUploadFileComponent\n" +
@@ -158,7 +158,7 @@ public final class PluginUploadDialogComponentTest implements SpreadsheetDialogC
             dialog,
             context,
             "PluginUploadDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Upload Plugin\n" +
                 "    id=pluginUpload-Dialog includeClose=true\n" +
                 "      SpreadsheetUploadFileComponent\n" +
@@ -188,7 +188,7 @@ public final class PluginUploadDialogComponentTest implements SpreadsheetDialogC
             dialog,
             context,
             "PluginUploadDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Upload Plugin\n" +
                 "    id=pluginUpload-Dialog includeClose=true\n" +
                 "      SpreadsheetUploadFileComponent\n" +

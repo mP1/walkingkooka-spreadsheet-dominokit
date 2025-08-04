@@ -20,13 +20,14 @@ package walkingkooka.spreadsheet.dominokit.link;
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 
 /**
  * Holds a list of {@link AnchorComponent}, and is a dumb container and does not support refreshing all anchors. Refreshing
  * the anchors must be done externally.
- * This is useful for inserting links with commands such as SAVE, CLOSE at the bottom of a {@link walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent}.
+ * This is useful for inserting links with commands such as SAVE, CLOSE at the bottom of a {@link DialogComponent}.
  */
 public final class AnchorListComponent implements HtmlComponent<HTMLDivElement, AnchorListComponent> {
 

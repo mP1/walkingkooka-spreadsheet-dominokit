@@ -28,7 +28,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListRenameSelectHis
 import java.util.Objects;
 import java.util.Optional;
 
-final class AppContextSpreadsheetNameDialogComponentContextSpreadsheetListRename extends AppContextSpreadsheetNameDialogComponentContext {
+final class AppContextSpreadsheetNameDialogComponentContextSpreadsheetListRename extends AppContextNameDialogComponentContext {
 
     static AppContextSpreadsheetNameDialogComponentContextSpreadsheetListRename with(final AppContext context) {
         return new AppContextSpreadsheetNameDialogComponentContextSpreadsheetListRename(

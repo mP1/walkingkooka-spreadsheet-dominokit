@@ -18,11 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.plugin;
 
 import walkingkooka.plugin.PluginName;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
 
 public interface JarEntryInfoListDialogComponentContext extends
-    SpreadsheetDialogComponentContext,
+    DialogComponentContext,
     HasPluginFetcherWatchers,
     JarEntryInfoListTableComponentContext {
 

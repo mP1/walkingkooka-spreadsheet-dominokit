@@ -18,12 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.plugin;
 
 import walkingkooka.plugin.PluginName;
-import walkingkooka.spreadsheet.dominokit.dialog.FakeSpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.FakeDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
 
 import java.util.Locale;
 
-public class FakeJarEntryInfoListDialogComponentContext extends FakeSpreadsheetDialogComponentContext implements JarEntryInfoListDialogComponentContext {
+public class FakeJarEntryInfoListDialogComponentContext extends FakeDialogComponentContext implements JarEntryInfoListDialogComponentContext {
 
     @Override
     public Runnable addPluginFetcherWatcher(final PluginFetcherWatcher watcher) {

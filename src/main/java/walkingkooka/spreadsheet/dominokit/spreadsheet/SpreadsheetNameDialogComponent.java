@@ -25,8 +25,8 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -41,7 +41,7 @@ import java.util.Set;
  * Displays a dialog box allowing the user to edit and save a {@link walkingkooka.spreadsheet.SpreadsheetName}
  * for the selected {@link walkingkooka.spreadsheet.SpreadsheetId}.
  */
-public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogComponentLifecycle,
+public final class SpreadsheetNameDialogComponent implements DialogComponentLifecycle,
     SpreadsheetMetadataFetcherWatcher,
     NopFetcherWatcher,
     ComponentLifecycleMatcherDelegator {
@@ -75,10 +75,10 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
     /**
      * Creates the modal dialog, loaded with the pattern textbox and some links.
      */
-    private SpreadsheetDialogComponent dialogCreate() {
-        return SpreadsheetDialogComponent.smallerPrompt(
+    private DialogComponent dialogCreate() {
+        return DialogComponent.smallerPrompt(
                 ID + SpreadsheetElementIds.DIALOG,
-                SpreadsheetDialogComponent.INCLUDE_CLOSE,
+                DialogComponent.INCLUDE_CLOSE,
                 this.context
             ).appendChild(this.name)
             .appendChild(
@@ -90,11 +90,11 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
     }
 
     @Override
-    public SpreadsheetDialogComponent dialog() {
+    public DialogComponent dialog() {
         return this.dialog;
     }
 
-    private final SpreadsheetDialogComponent dialog;
+    private final DialogComponent dialog;
 
     // id...............................................................................................................
 
@@ -167,7 +167,7 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
      */
     private final HistoryTokenAnchorComponent close;
 
-    // SpreadsheetDialogComponentLifecycle..............................................................................
+    // DialogComponentLifecycle..............................................................................
 
     @Override
     public ComponentLifecycleMatcher componentLifecycleMatcher() {

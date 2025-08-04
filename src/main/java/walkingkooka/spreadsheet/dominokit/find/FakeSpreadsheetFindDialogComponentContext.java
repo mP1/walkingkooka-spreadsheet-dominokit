@@ -24,7 +24,7 @@ import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.store.PluginStore;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.dominokit.dialog.FakeSpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.FakeDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
@@ -44,7 +44,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-public class FakeSpreadsheetFindDialogComponentContext extends FakeSpreadsheetDialogComponentContext implements SpreadsheetFindDialogComponentContext {
+public class FakeSpreadsheetFindDialogComponentContext extends FakeDialogComponentContext implements SpreadsheetFindDialogComponentContext {
     @Override
     public LocalDateTime now() {
         throw new UnsupportedOperationException();

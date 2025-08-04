@@ -18,14 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.insert;
 
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingDialogComponent;
 
 /**
  * The {@link walkingkooka.Context} accompanying a {@link SpreadsheetLabelMappingDialogComponent}.
  */
 public interface SpreadsheetColumnRowInsertCountDialogComponentContext extends
-    SpreadsheetDialogComponentContext,
+    DialogComponentContext,
     ComponentLifecycleMatcher {
 
     /**

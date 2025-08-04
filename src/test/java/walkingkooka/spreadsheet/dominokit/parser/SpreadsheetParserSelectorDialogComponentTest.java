@@ -31,7 +31,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.convert.SpreadsheetConverterContext;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -62,7 +62,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 
-public final class SpreadsheetParserSelectorDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetParserSelectorDialogComponent>,
+public final class SpreadsheetParserSelectorDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetParserSelectorDialogComponent>,
     HistoryTokenTesting,
     SpreadsheetMetadataTesting {
 
@@ -83,7 +83,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
             SpreadsheetParserName.DATE_PARSER_PATTERN + "",
             context,
             "SpreadsheetParserSelectorDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    A1: Parser\n" +
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
@@ -163,7 +163,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
             SpreadsheetParserName.DATE_PARSER_PATTERN + " dd/mm/yyyy",
             context,
             "SpreadsheetParserSelectorDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    A1: Parser\n" +
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
@@ -275,7 +275,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
             SpreadsheetParserName.DATE_TIME_PARSER_PATTERN + " dd/mm/yyyy hh:mm:ss",
             context,
             "SpreadsheetParserSelectorDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    A1: Parser\n" +
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
@@ -406,7 +406,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
             SpreadsheetParserName.NUMBER_PARSER_PATTERN + " $#0.00",
             context,
             "SpreadsheetParserSelectorDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    A1: Parser\n" +
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
@@ -558,7 +558,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
             SpreadsheetParserName.TIME_PARSER_PATTERN + " hh:mm",
             context,
             "SpreadsheetParserSelectorDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    A1: Parser\n" +
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
@@ -651,7 +651,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
             SpreadsheetParserName.DATE_PARSER_PATTERN + " dd/mm/yyyy",
             context,
             "SpreadsheetParserSelectorDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Spreadsheet: Date Parser (dateParser)\n" +
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetPatternKindTabsComponent\n" +
@@ -773,7 +773,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
             SpreadsheetParserName.DATE_TIME_PARSER_PATTERN + " dd/mm/yyyy hh:mm:ss",
             context,
             "SpreadsheetParserSelectorDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Spreadsheet: Date Time Parser (dateTimeParser)\n" +
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetPatternKindTabsComponent\n" +
@@ -914,7 +914,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
             SpreadsheetParserName.NUMBER_PARSER_PATTERN + " $#0.00",
             context,
             "SpreadsheetParserSelectorDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Spreadsheet: Number Parser (numberParser)\n" +
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetPatternKindTabsComponent\n" +
@@ -1076,7 +1076,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
             SpreadsheetParserName.TIME_PARSER_PATTERN + " hh:mm",
             context,
             "SpreadsheetParserSelectorDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Spreadsheet: Time Parser (timeParser)\n" +
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetPatternKindTabsComponent\n" +

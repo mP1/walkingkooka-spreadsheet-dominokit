@@ -26,8 +26,8 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
@@ -51,7 +51,7 @@ import java.util.stream.Collectors;
 /**
  * A model dialog that displays a {@link SpreadsheetLocaleComponent} allowing the user to pick a {@link java.util.Locale}.
  */
-public final class SpreadsheetLocaleDialogComponent implements SpreadsheetDialogComponentLifecycle,
+public final class SpreadsheetLocaleDialogComponent implements DialogComponentLifecycle,
     LoadedSpreadsheetMetadataRequired,
     SpreadsheetDeltaFetcherWatcher,
     SpreadsheetMetadataFetcherWatcher,
@@ -88,12 +88,12 @@ public final class SpreadsheetLocaleDialogComponent implements SpreadsheetDialog
 
     // dialog...........................................................................................................
 
-    private SpreadsheetDialogComponent dialogCreate() {
+    private DialogComponent dialogCreate() {
         final SpreadsheetLocaleDialogComponentContext context = this.context;
 
-        return SpreadsheetDialogComponent.smallerPrompt(
+        return DialogComponent.smallerPrompt(
             ID + SpreadsheetElementIds.DIALOG,
-            SpreadsheetDialogComponent.INCLUDE_CLOSE,
+            DialogComponent.INCLUDE_CLOSE,
             context
         ).appendChild(
             FlexLayoutComponent.row()
@@ -107,12 +107,12 @@ public final class SpreadsheetLocaleDialogComponent implements SpreadsheetDialog
         );
     }
 
-    private final SpreadsheetDialogComponent dialog;
+    private final DialogComponent dialog;
 
     private final SpreadsheetLocaleDialogComponentContext context;
 
     @Override
-    public SpreadsheetDialogComponent dialog() {
+    public DialogComponent dialog() {
         return this.dialog;
     }
 

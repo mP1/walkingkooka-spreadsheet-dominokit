@@ -27,7 +27,7 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-public interface SpreadsheetDialogComponentContextTesting<C extends SpreadsheetDialogComponentContext> extends HistoryContextTesting<C>,
+public interface DialogComponentContextTesting<C extends DialogComponentContext> extends HistoryContextTesting<C>,
     LoggingContextTesting<C> {
 
     @Test
@@ -45,6 +45,6 @@ public interface SpreadsheetDialogComponentContextTesting<C extends SpreadsheetD
 
     @Override
     default String typeNameSuffix() {
-        return SpreadsheetDialogComponentContext.class.getSimpleName();
+        return DialogComponentContext.class.getSimpleName();
     }
 }

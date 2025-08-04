@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.formhandler;
 
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.validation.form.provider.FormHandlerSelector;
 
@@ -28,7 +28,7 @@ import java.util.Optional;
  * A {@link walkingkooka.Context} tht accompanies a {@link FormHandlerSelectorDialogComponent} provided various inputs.
  */
 public interface FormHandlerSelectorDialogComponentContext extends ComponentLifecycleMatcher,
-    SpreadsheetDialogComponentContext {
+    DialogComponentContext {
 
     /**
      * Provides the UNDO text.

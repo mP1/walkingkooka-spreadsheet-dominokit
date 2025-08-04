@@ -22,19 +22,19 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTestingTest.TestSpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTestingTest.TestDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
 import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Optional;
 
-public final class SpreadsheetDialogComponentLifecycleTestingTest implements SpreadsheetDialogComponentLifecycleTesting<TestSpreadsheetDialogComponentLifecycle> {
+public final class DialogComponentLifecycleTestingTest implements DialogComponentLifecycleTesting<TestDialogComponentLifecycle> {
 
     @Test
     public void testAnchor() {
         this.treePrintAndCheck(
-            new TestSpreadsheetDialogComponentLifecycle().anchor("Hello"),
+            new TestDialogComponentLifecycle().anchor("Hello"),
             "\"Hello\" DISABLED id=id123-hello-Link"
         );
     }
@@ -42,7 +42,7 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
     @Test
     public void testAnchorWithMultiWordText() {
         this.treePrintAndCheck(
-            new TestSpreadsheetDialogComponentLifecycle().anchor("Hello goodbye"),
+            new TestDialogComponentLifecycle().anchor("Hello goodbye"),
             "\"Hello goodbye\" DISABLED id=id123-hello-goodbye-Link"
         );
     }
@@ -51,7 +51,7 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
 
     @Test
     public void testNoMatchedOnHistoryTokenChangeAndCheck() {
-        final TestSpreadsheetDialogComponentLifecycle table = new TestSpreadsheetDialogComponentLifecycle();
+        final TestDialogComponentLifecycle table = new TestDialogComponentLifecycle();
         this.onHistoryTokenChangeAndCheck(
             table,
             new FakeAppContext() {
@@ -62,8 +62,8 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
                     );
                 }
             },
-            "TestSpreadsheetDialogComponentLifecycle\n" +
-                "  SpreadsheetDialogComponent\n" +
+            "TestDialogComponentLifecycle\n" +
+                "  DialogComponent\n" +
                 "    id=id123 includeClose=true CLOSED\n" +
                 "      SpreadsheetTextBox\n" +
                 "        [NOT onGiveFocus]\n" +
@@ -80,7 +80,7 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
 
     @Test
     public void testMatchedOnHistoryTokenChangeAndCheck() {
-        final TestSpreadsheetDialogComponentLifecycle table = new TestSpreadsheetDialogComponentLifecycle();
+        final TestDialogComponentLifecycle table = new TestDialogComponentLifecycle();
         this.onHistoryTokenChangeAndCheck(
             table,
             new FakeAppContext() {
@@ -89,8 +89,8 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
                     return HISTORY_TOKEN;
                 }
             },
-            "TestSpreadsheetDialogComponentLifecycle\n" +
-                "  SpreadsheetDialogComponent\n" +
+            "TestDialogComponentLifecycle\n" +
+                "  DialogComponent\n" +
                 "    Title456\n" +
                 "    id=id123 includeClose=true\n" +
                 "      SpreadsheetTextBox\n" +
@@ -108,7 +108,7 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
 
     @Test
     public void testMatchedOnHistoryTokenChangeAndCheckOpenAndClose() {
-        final TestSpreadsheetDialogComponentLifecycle table = new TestSpreadsheetDialogComponentLifecycle();
+        final TestDialogComponentLifecycle table = new TestDialogComponentLifecycle();
 
         this.onHistoryTokenChangeAndCheck(
             table,
@@ -118,8 +118,8 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
                     return HISTORY_TOKEN;
                 }
             },
-            "TestSpreadsheetDialogComponentLifecycle\n" +
-                "  SpreadsheetDialogComponent\n" +
+            "TestDialogComponentLifecycle\n" +
+                "  DialogComponent\n" +
                 "    Title456\n" +
                 "    id=id123 includeClose=true\n" +
                 "      SpreadsheetTextBox\n" +
@@ -142,8 +142,8 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
                     return HistoryToken.parseString("/unknown");
                 }
             },
-            "TestSpreadsheetDialogComponentLifecycle\n" +
-                "  SpreadsheetDialogComponent\n" +
+            "TestDialogComponentLifecycle\n" +
+                "  DialogComponent\n" +
                 "    id=id123 includeClose=true CLOSED\n" +
                 "      SpreadsheetTextBox\n" +
                 "        [onGiveFocus]\n" +
@@ -159,14 +159,14 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
     }
 
     @Override
-    public TestSpreadsheetDialogComponentLifecycle createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
-        return new TestSpreadsheetDialogComponentLifecycle();
+    public TestDialogComponentLifecycle createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
+        return new TestDialogComponentLifecycle();
     }
 
-    final static class TestSpreadsheetDialogComponentLifecycle implements SpreadsheetDialogComponentLifecycle,
+    final static class TestDialogComponentLifecycle implements DialogComponentLifecycle,
         TreePrintable {
 
-        TestSpreadsheetDialogComponentLifecycle() {
+        TestDialogComponentLifecycle() {
             this.onGiveFocus = SpreadsheetTextBox.empty()
                 .setValue(
                     Optional.of("NOT onGiveFocus")
@@ -175,12 +175,12 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
                 .setValue(
                     Optional.of("NOT refreshed")
                 );
-            this.dialog = SpreadsheetDialogComponent.with(
+            this.dialog = DialogComponent.with(
                     null,
                     null,
                     "id123",
-                    SpreadsheetDialogComponent.INCLUDE_CLOSE,
-                    SpreadsheetDialogComponentContexts.fake()
+                    DialogComponent.INCLUDE_CLOSE,
+                    DialogComponentContexts.fake()
                 ).appendChild(this.onGiveFocus)
                 .appendChild(this.refreshed);
         }
@@ -223,11 +223,11 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
         private final SpreadsheetTextBox refreshed;
 
         @Override
-        public SpreadsheetDialogComponent dialog() {
+        public DialogComponent dialog() {
             return this.dialog;
         }
 
-        private final SpreadsheetDialogComponent dialog;
+        private final DialogComponent dialog;
 
         @Override
         public String idPrefix() {
@@ -241,8 +241,8 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
     }
 
     @Override
-    public Class<TestSpreadsheetDialogComponentLifecycle> type() {
-        return TestSpreadsheetDialogComponentLifecycle.class;
+    public Class<TestDialogComponentLifecycle> type() {
+        return TestDialogComponentLifecycle.class;
     }
 
     @Override

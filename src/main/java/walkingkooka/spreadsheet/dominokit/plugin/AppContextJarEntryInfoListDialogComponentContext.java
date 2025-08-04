@@ -19,9 +19,9 @@ package walkingkooka.spreadsheet.dominokit.plugin;
 
 import walkingkooka.plugin.PluginName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextDelegator;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextDelegator;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchersDelegator;
 import walkingkooka.spreadsheet.dominokit.history.PluginSelectHistoryToken;
@@ -31,7 +31,7 @@ import java.util.Objects;
 
 final class AppContextJarEntryInfoListDialogComponentContext implements JarEntryInfoListDialogComponentContext,
     HasPluginFetcherWatchersDelegator,
-    SpreadsheetDialogComponentContextDelegator {
+    DialogComponentContextDelegator {
 
     static AppContextJarEntryInfoListDialogComponentContext with(final AppContext context) {
         return new AppContextJarEntryInfoListDialogComponentContext(
@@ -73,11 +73,11 @@ final class AppContextJarEntryInfoListDialogComponentContext implements JarEntry
         return this.context;
     }
 
-    // SpreadsheetDialogComponentContextDelegator.......................................................................
+    // DialogComponentContextDelegator.......................................................................
 
     @Override
-    public SpreadsheetDialogComponentContext spreadsheetDialogComponentContext() {
-        return SpreadsheetDialogComponentContexts.basic(
+    public DialogComponentContext dialogComponentContext() {
+        return DialogComponentContexts.basic(
             this.context,
             this.context
         );

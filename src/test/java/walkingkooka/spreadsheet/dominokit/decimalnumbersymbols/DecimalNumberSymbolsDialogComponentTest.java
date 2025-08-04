@@ -22,7 +22,7 @@ import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.DecimalNumberSymbolsFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -35,7 +35,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
-public final class DecimalNumberSymbolsDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<DecimalNumberSymbolsDialogComponent>,
+public final class DecimalNumberSymbolsDialogComponentTest implements DialogComponentLifecycleTesting<DecimalNumberSymbolsDialogComponent>,
     HistoryTokenTesting,
     SpreadsheetMetadataTesting {
 
@@ -63,7 +63,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
             ),
             context,
             "DecimalNumberSymbolsDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    A1: Decimal Number Symbols\n" +
                 "    id=decimalNumberSymbols-Dialog includeClose=true\n" +
                 "      FlexLayoutComponent\n" +
@@ -174,7 +174,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
             ),
             context,
             "DecimalNumberSymbolsDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Spreadsheet: Decimal Number Symbols (decimalNumberSymbols)\n" +
                 "    id=decimalNumberSymbols-Dialog includeClose=true\n" +
                 "      FlexLayoutComponent\n" +
@@ -259,7 +259,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements Spreadshee
             ),
             context,
             "DecimalNumberSymbolsDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Spreadsheet: Decimal Number Symbols (decimalNumberSymbols)\n" +
                 "    id=decimalNumberSymbols-Dialog includeClose=true\n" +
                 "      FlexLayoutComponent\n" +

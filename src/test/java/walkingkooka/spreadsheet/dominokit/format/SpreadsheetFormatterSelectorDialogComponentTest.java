@@ -31,7 +31,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.convert.SpreadsheetConverterContext;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetFormatterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -62,7 +62,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 
-public final class SpreadsheetFormatterSelectorDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetFormatterSelectorDialogComponent>,
+public final class SpreadsheetFormatterSelectorDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetFormatterSelectorDialogComponent>,
     HistoryTokenTesting,
     SpreadsheetMetadataTesting {
 
@@ -83,7 +83,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
             SpreadsheetFormatterName.DATE_FORMAT_PATTERN + "",
             context,
             "SpreadsheetFormatterSelectorDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    A1: Formatter\n" +
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
@@ -170,7 +170,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
             SpreadsheetFormatterName.DATE_FORMAT_PATTERN + " dd/mm/yyyy",
             context,
             "SpreadsheetFormatterSelectorDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    A1: Formatter\n" +
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
@@ -289,7 +289,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
             SpreadsheetFormatterName.DATE_TIME_FORMAT_PATTERN + " dd/mm/yyyy hh:mm:ss",
             context,
             "SpreadsheetFormatterSelectorDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    A1: Formatter\n" +
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
@@ -427,7 +427,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
             SpreadsheetFormatterName.NUMBER_FORMAT_PATTERN + " $#0.00",
             context,
             "SpreadsheetFormatterSelectorDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    A1: Formatter\n" +
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
@@ -586,7 +586,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
             SpreadsheetFormatterName.TEXT_FORMAT_PATTERN + " @ \"Hello\"",
             context,
             "SpreadsheetFormatterSelectorDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    A1: Formatter\n" +
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
@@ -671,7 +671,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
             SpreadsheetFormatterName.TIME_FORMAT_PATTERN + " hh:mm",
             context,
             "SpreadsheetFormatterSelectorDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    A1: Formatter\n" +
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
@@ -771,7 +771,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
             SpreadsheetFormatterName.DATE_FORMAT_PATTERN + " dd/mm/yyyy",
             context,
             "SpreadsheetFormatterSelectorDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Spreadsheet: Date Formatter (dateFormatter)\n" +
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetPatternKindTabsComponent\n" +
@@ -902,7 +902,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
             SpreadsheetFormatterName.DATE_TIME_FORMAT_PATTERN + " dd/mm/yyyy hh:mm:ss",
             context,
             "SpreadsheetFormatterSelectorDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Spreadsheet: Date Time Formatter (dateTimeFormatter)\n" +
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetPatternKindTabsComponent\n" +
@@ -1052,7 +1052,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
             SpreadsheetFormatterName.NUMBER_FORMAT_PATTERN + " $#0.00",
             context,
             "SpreadsheetFormatterSelectorDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Spreadsheet: Number Formatter (numberFormatter)\n" +
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetPatternKindTabsComponent\n" +
@@ -1223,7 +1223,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
             SpreadsheetFormatterName.TEXT_FORMAT_PATTERN + " @ \"Hello\"",
             context,
             "SpreadsheetFormatterSelectorDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Spreadsheet: Text Formatter (textFormatter)\n" +
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetPatternKindTabsComponent\n" +
@@ -1320,7 +1320,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
             SpreadsheetFormatterName.TIME_FORMAT_PATTERN + " hh:mm",
             context,
             "SpreadsheetFormatterSelectorDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Spreadsheet: Time Formatter (timeFormatter)\n" +
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetPatternKindTabsComponent\n" +

@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.label;
 
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextTesting;
 
-public interface SpreadsheetLabelMappingDialogComponentContextTesting<C extends SpreadsheetLabelMappingDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C> {
+public interface SpreadsheetLabelMappingDialogComponentContextTesting<C extends SpreadsheetLabelMappingDialogComponentContext> extends DialogComponentContextTesting<C> {
 }

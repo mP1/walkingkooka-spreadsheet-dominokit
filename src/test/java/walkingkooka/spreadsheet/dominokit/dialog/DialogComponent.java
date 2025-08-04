@@ -29,34 +29,34 @@ import walkingkooka.text.printer.TreePrintable;
 import java.util.List;
 import java.util.Objects;
 
-public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponentLike
-    implements TestHtmlElementComponent<HTMLDivElement, SpreadsheetDialogComponent> {
+public final class DialogComponent extends DialogComponentLike
+    implements TestHtmlElementComponent<HTMLDivElement, DialogComponent> {
 
     /**
-     * Factory that creates a new empty {@link SpreadsheetDialogComponent}.
+     * Factory that creates a new empty {@link DialogComponent}.
      */
-    static SpreadsheetDialogComponent with(final IsDialogWidth width,
-                                           final IsDialogHeight height,
-                                           final String id,
-                                           final boolean includeClose,
-                                           final SpreadsheetDialogComponentContext context) {
+    static DialogComponent with(final IsDialogWidth width,
+                                final IsDialogHeight height,
+                                final String id,
+                                final boolean includeClose,
+                                final DialogComponentContext context) {
         Objects.requireNonNull(id, "id");
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetDialogComponent(
+        return new DialogComponent(
             id,
             includeClose
         );
     }
 
-    private SpreadsheetDialogComponent(final String id,
-                                       final boolean includeClose) {
+    private DialogComponent(final String id,
+                            final boolean includeClose) {
         this.id = id;
         this.title = "";
         this.includeClose = includeClose;
     }
 
-    // main/SpreadsheetDialogComponent public members...................................................................
+    // main/DialogComponent public members...................................................................
 
     @Override
     public boolean isOpen() {
@@ -78,7 +78,7 @@ public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponent
     // title............................................................................................................
 
     @Override
-    public SpreadsheetDialogComponent setTitle(final String title) {
+    public DialogComponent setTitle(final String title) {
         this.title = title;
         return this;
     }
@@ -111,7 +111,7 @@ public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponent
     // appendChild......................................................................................................
 
     @Override
-    public SpreadsheetDialogComponent appendChild(final IsElement<?> child) {
+    public DialogComponent appendChild(final IsElement<?> child) {
         Objects.requireNonNull(child, "child");
         this.children.add(child);
         return this;

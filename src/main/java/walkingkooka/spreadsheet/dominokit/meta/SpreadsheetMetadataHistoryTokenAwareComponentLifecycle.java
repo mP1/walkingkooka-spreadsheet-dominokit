@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetFormComponentLifecycle;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataHistoryToken;
@@ -65,7 +65,7 @@ public final class SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E exte
     public boolean isMatch(final HistoryToken token) {
         // isAnyOpen test because a dialog belonging to the viewing/editing of a SpreadsheetMetadata property.
         return token instanceof SpreadsheetMetadataHistoryToken &&
-            false == SpreadsheetDialogComponent.isAnyOpen();
+            false == DialogComponent.isAnyOpen();
     }
 
     @Override

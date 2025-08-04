@@ -17,10 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.plugin;
 
-import walkingkooka.spreadsheet.dominokit.dialog.FakeSpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.FakeDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
 
-public class FakePluginUploadDialogComponentContext extends FakeSpreadsheetDialogComponentContext implements PluginUploadDialogComponentContext {
+public class FakePluginUploadDialogComponentContext extends FakeDialogComponentContext implements PluginUploadDialogComponentContext {
 
     @Override
     public Runnable addPluginFetcherWatcher(final PluginFetcherWatcher watcher) {

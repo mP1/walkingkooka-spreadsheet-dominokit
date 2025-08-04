@@ -25,16 +25,16 @@ import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
 
 import java.util.Optional;
 
-public final class SpreadsheetDialogComponentTest implements HtmlComponentTesting<SpreadsheetDialogComponent, HTMLDivElement> {
+public final class DialogComponentTest implements HtmlComponentTesting<DialogComponent, HTMLDivElement> {
 
     @Test
     public void testOpenTitleCloseableChildren() {
-        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
+        final DialogComponent dialog = DialogComponent.with(
             null,
             null,
             "id123",
-            SpreadsheetDialogComponent.INCLUDE_CLOSE,
-            SpreadsheetDialogComponentContexts.fake()
+            DialogComponent.INCLUDE_CLOSE,
+            DialogComponentContexts.fake()
         );
         dialog.appendChild(
             SpreadsheetTextBox.empty()
@@ -59,7 +59,7 @@ public final class SpreadsheetDialogComponentTest implements HtmlComponentTestin
 
         this.treePrintAndCheck(
             dialog,
-            "SpreadsheetDialogComponent\n" +
+            "DialogComponent\n" +
                 "  id=id123 includeClose=true\n" +
                 "    SpreadsheetTextBox\n" +
                 "      [Value111] id=TextBoxId111\n" +
@@ -70,12 +70,12 @@ public final class SpreadsheetDialogComponentTest implements HtmlComponentTestin
 
     @Test
     public void testClosedTitleCloseableChildren() {
-        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
+        final DialogComponent dialog = DialogComponent.with(
             null,
             null,
             "id123",
-            SpreadsheetDialogComponent.INCLUDE_CLOSE,
-            SpreadsheetDialogComponentContexts.fake()
+            DialogComponent.INCLUDE_CLOSE,
+            DialogComponentContexts.fake()
         ).appendChild(
             SpreadsheetTextBox.empty()
                 .setId("TextBoxId111")
@@ -88,7 +88,7 @@ public final class SpreadsheetDialogComponentTest implements HtmlComponentTestin
 
         this.treePrintAndCheck(
             dialog,
-            "SpreadsheetDialogComponent\n" +
+            "DialogComponent\n" +
                 "  id=id123 includeClose=true CLOSED\n" +
                 "    SpreadsheetTextBox\n" +
                 "      [Value111] id=TextBoxId111\n"
@@ -96,8 +96,8 @@ public final class SpreadsheetDialogComponentTest implements HtmlComponentTestin
     }
 
     @Override
-    public Class<SpreadsheetDialogComponent> type() {
-        return SpreadsheetDialogComponent.class;
+    public Class<DialogComponent> type() {
+        return DialogComponent.class;
     }
 
     @Override

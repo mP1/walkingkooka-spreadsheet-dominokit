@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -33,7 +33,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.OptionalInt;
 
-public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetColumnRowInsertCountDialogComponent>,
+public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetColumnRowInsertCountDialogComponent>,
     SpreadsheetMetadataTesting {
 
     private final static SpreadsheetId ID = SpreadsheetId.with(1);
@@ -116,7 +116,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
             dialog,
             context,
             "SpreadsheetColumnRowInsertCountDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    ColumnTitle1234\n" +
                 "    id=columnRowInsert-Dialog includeClose=true\n" +
                 "      SpreadsheetIntegerBox\n" +
@@ -189,7 +189,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
             dialog,
             context,
             "SpreadsheetColumnRowInsertCountDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    RowTitle1234\n" +
                 "    id=columnRowInsert-Dialog includeClose=true\n" +
                 "      SpreadsheetIntegerBox\n" +

@@ -29,13 +29,13 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocaleTest extends AppContextSpreadsheetLocaleDialogComponentContextTestCase<AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocale> {
+public final class AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocaleTest extends AppContextSpreadsheetLocaleDialogComponentContextTestCase<AppContextSpreadsheetLocaleDialogComponentContextMetadataLocale> {
 
     @Test
     public void testWithNullAppContextFails() {
         assertThrows(
             NullPointerException.class,
-            () -> AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocale.with(null)
+            () -> AppContextSpreadsheetLocaleDialogComponentContextMetadataLocale.with(null)
         );
     }
 
@@ -170,8 +170,8 @@ public final class AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetM
     }
 
     @Override
-    public AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocale createContext() {
-        return AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocale.with(
+    public AppContextSpreadsheetLocaleDialogComponentContextMetadataLocale createContext() {
+        return AppContextSpreadsheetLocaleDialogComponentContextMetadataLocale.with(
             new FakeAppContext() {
 
                 @Override
@@ -186,7 +186,7 @@ public final class AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetM
     }
 
     @Override
-    public Class<AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocale> type() {
-        return AppContextSpreadsheetLocaleDialogComponentContextSpreadsheetMetadataLocale.class;
+    public Class<AppContextSpreadsheetLocaleDialogComponentContextMetadataLocale> type() {
+        return AppContextSpreadsheetLocaleDialogComponentContextMetadataLocale.class;
     }
 }

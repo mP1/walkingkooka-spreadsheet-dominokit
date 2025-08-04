@@ -20,9 +20,9 @@ package walkingkooka.spreadsheet.dominokit.cell;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextDelegator;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextDelegator;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchersDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
@@ -38,7 +38,7 @@ import java.util.Set;
 
 final class AppContextSpreadsheetCellReferencesDialogComponentContext implements SpreadsheetCellReferencesDialogComponentContext,
     HasSpreadsheetDeltaFetcherWatchersDelegator,
-    SpreadsheetDialogComponentContextDelegator {
+    DialogComponentContextDelegator {
 
     static AppContextSpreadsheetCellReferencesDialogComponentContext with(final AppContext context) {
         return new AppContextSpreadsheetCellReferencesDialogComponentContext(
@@ -114,11 +114,11 @@ final class AppContextSpreadsheetCellReferencesDialogComponentContext implements
         return this.context.spreadsheetMetadata();
     }
 
-    // SpreadsheetDialogComponentContext................................................................................
+    // DialogComponentContext...........................................................................................
 
     @Override
-    public SpreadsheetDialogComponentContext spreadsheetDialogComponentContext() {
-        return SpreadsheetDialogComponentContexts.basic(
+    public DialogComponentContext dialogComponentContext() {
+        return DialogComponentContexts.basic(
             this.context,
             this.context
         );

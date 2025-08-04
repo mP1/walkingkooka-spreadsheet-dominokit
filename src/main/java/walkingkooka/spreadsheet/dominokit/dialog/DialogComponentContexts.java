@@ -21,30 +21,30 @@ import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 
-public final class SpreadsheetDialogComponentContexts implements PublicStaticHelper {
+public final class DialogComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see BasicSpreadsheetDialogComponentContext}
+     * {@see BasicDialogComponentContext}
      */
-    public static SpreadsheetDialogComponentContext basic(final HistoryContext historyContext,
-                                                          final LoggingContext loggingContext) {
-        return BasicSpreadsheetDialogComponentContext.with(
+    public static DialogComponentContext basic(final HistoryContext historyContext,
+                                               final LoggingContext loggingContext) {
+        return BasicDialogComponentContext.with(
             historyContext,
             loggingContext
         );
     }
 
     /**
-     * {@see FakeSpreadsheetDialogComponentContext}
+     * {@see FakeDialogComponentContext}
      */
-    public static SpreadsheetDialogComponentContext fake() {
-        return new FakeSpreadsheetDialogComponentContext();
+    public static DialogComponentContext fake() {
+        return new FakeDialogComponentContext();
     }
 
     /**
      * Private ctor
      */
-    private SpreadsheetDialogComponentContexts() {
+    private DialogComponentContexts() {
         throw new UnsupportedOperationException();
     }
 }

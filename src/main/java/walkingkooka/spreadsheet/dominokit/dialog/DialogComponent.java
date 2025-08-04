@@ -37,32 +37,32 @@ import java.util.Optional;
 /**
  * A standard dialog model component with support for title and close icon.
  */
-public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponentLike {
+public final class DialogComponent extends DialogComponentLike {
 
     /**
-     * Helper that returns true if a {@link SpreadsheetDialogComponent} is currently open.
+     * Helper that returns true if a {@link DialogComponent} is currently open.
      * This assumes that only a single instance is ever open and all others are closed.
      */
     public static boolean isAnyOpen() {
         return null != openSpreadsheetDialogComponent;
     }
 
-    private static SpreadsheetDialogComponent openSpreadsheetDialogComponent;
+    private static DialogComponent openSpreadsheetDialogComponent;
 
     /**
-     * Factory that creates a new empty {@link SpreadsheetDialogComponent}.
+     * Factory that creates a new empty {@link DialogComponent}.
      */
-    static SpreadsheetDialogComponent with(final IsDialogWidth width,
-                                           final IsDialogHeight height,
-                                           final String id,
-                                           final boolean includeClose,
-                                           final SpreadsheetDialogComponentContext context) {
+    static DialogComponent with(final IsDialogWidth width,
+                                final IsDialogHeight height,
+                                final String id,
+                                final boolean includeClose,
+                                final DialogComponentContext context) {
         Objects.requireNonNull(width, "width");
         Objects.requireNonNull(height, "height");
         Objects.requireNonNull(id, "id");
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetDialogComponent(
+        return new DialogComponent(
             width,
             height,
             id,
@@ -71,11 +71,11 @@ public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponent
         );
     }
 
-    private SpreadsheetDialogComponent(final IsDialogWidth width,
-                                       final IsDialogHeight height,
-                                       final String id,
-                                       final boolean includeClose,
-                                       final SpreadsheetDialogComponentContext context) {
+    private DialogComponent(final IsDialogWidth width,
+                            final IsDialogHeight height,
+                            final String id,
+                            final boolean includeClose,
+                            final DialogComponentContext context) {
         this.context = context;
 
         final NavBar navBar = dialogNavBar();
@@ -174,7 +174,7 @@ public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponent
      */
     private boolean closeListenerEnabled;
 
-    private final SpreadsheetDialogComponentContext context;
+    private final DialogComponentContext context;
 
     @Override
     public String id() {
@@ -185,7 +185,7 @@ public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponent
      * Replaces the existing title with the new title.
      */
     @Override
-    public SpreadsheetDialogComponent setTitle(final String title) {
+    public DialogComponent setTitle(final String title) {
         this.navBar.setTitle(title);
         return this;
     }
@@ -210,7 +210,7 @@ public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponent
      * Appends a child to the dialog.
      */
     @Override
-    public SpreadsheetDialogComponent appendChild(final IsElement<?> child) {
+    public DialogComponent appendChild(final IsElement<?> child) {
         this.dialog.appendChild(child);
         return this;
     }
@@ -242,7 +242,7 @@ public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponent
             );
         }
 
-        SpreadsheetDialogComponent.openSpreadsheetDialogComponent = this;
+        DialogComponent.openSpreadsheetDialogComponent = this;
     }
 
     /**
@@ -250,9 +250,9 @@ public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponent
      */
     @Override
     public void close() {
-        // instance check is better than a boolean to avoid a close clearing a just opened SpreadsheetDialogComponent.
-        if (this.equals(SpreadsheetDialogComponent.openSpreadsheetDialogComponent)) {
-            SpreadsheetDialogComponent.openSpreadsheetDialogComponent = null;
+        // instance check is better than a boolean to avoid a close clearing a just opened DialogComponent.
+        if (this.equals(DialogComponent.openSpreadsheetDialogComponent)) {
+            DialogComponent.openSpreadsheetDialogComponent = null;
         }
 
         this.open = false;
@@ -275,7 +275,7 @@ public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponent
     // setCssText.......................................................................................................
 
     @Override
-    public SpreadsheetDialogComponent setCssText(final String css) {
+    public DialogComponent setCssText(final String css) {
         this.dialog.cssText(css);
         return this;
     }
@@ -283,8 +283,8 @@ public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponent
     // setCssText.......................................................................................................
 
     @Override
-    public SpreadsheetDialogComponent setCssProperty(final String name,
-                                                     final String value) {
+    public DialogComponent setCssProperty(final String name,
+                                          final String value) {
         this.dialog.setCssProperty(
             name,
             value

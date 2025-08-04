@@ -23,8 +23,8 @@ import walkingkooka.plugin.store.PluginSet;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
@@ -43,7 +43,7 @@ import java.util.Optional;
 /**
  * A dialog that includes a table showing all the entries for a JAR file, along with delete, download and close links.
  */
-public final class PluginSetDialogComponent implements SpreadsheetDialogComponentLifecycle,
+public final class PluginSetDialogComponent implements DialogComponentLifecycle,
     PluginFetcherWatcher,
     NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher {
@@ -105,12 +105,12 @@ public final class PluginSetDialogComponent implements SpreadsheetDialogComponen
 
     private final HistoryTokenAnchorComponent close;
 
-    // SpreadsheetDialogComponentLifecycle..............................................................................
+    // DialogComponentLifecycle..............................................................................
 
-    private SpreadsheetDialogComponent dialogCreate(final PluginSetDialogComponentContext context) {
-        return SpreadsheetDialogComponent.largeEdit(
+    private DialogComponent dialogCreate(final PluginSetDialogComponentContext context) {
+        return DialogComponent.largeEdit(
                 ID + SpreadsheetElementIds.DIALOG, // id
-                SpreadsheetDialogComponent.INCLUDE_CLOSE,
+                DialogComponent.INCLUDE_CLOSE,
                 context
             ).appendChild(this.table)
             .appendChild(
@@ -121,11 +121,11 @@ public final class PluginSetDialogComponent implements SpreadsheetDialogComponen
     }
 
     @Override
-    public SpreadsheetDialogComponent dialog() {
+    public DialogComponent dialog() {
         return this.dialog;
     }
 
-    private final SpreadsheetDialogComponent dialog;
+    private final DialogComponent dialog;
 
     private final PluginSetDialogComponentContext context;
 
@@ -177,7 +177,7 @@ public final class PluginSetDialogComponent implements SpreadsheetDialogComponen
         this.refreshIfOpen(context);
     }
 
-    // SpreadsheetDialogComponentLifecycle..............................................................................
+    // DialogComponentLifecycle..............................................................................
 
     @Override
     public boolean shouldIgnore(final HistoryToken token) {

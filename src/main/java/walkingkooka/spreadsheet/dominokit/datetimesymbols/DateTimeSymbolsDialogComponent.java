@@ -30,8 +30,8 @@ import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.csv.CsvStringListComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.DateTimeSymbolsFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
@@ -75,7 +75,7 @@ import java.util.stream.Collectors;
  * - close link
  * </pre>
  */
-public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogComponentLifecycle,
+public final class DateTimeSymbolsDialogComponent implements DialogComponentLifecycle,
     LoadedSpreadsheetMetadataRequired,
     ComponentLifecycleMatcherDelegator,
     DateTimeSymbolsFetcherWatcher,
@@ -127,12 +127,12 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
 
     // dialog...........................................................................................................
 
-    private SpreadsheetDialogComponent dialogCreate() {
+    private DialogComponent dialogCreate() {
         final DateTimeSymbolsDialogComponentContext context = this.context;
 
-        return SpreadsheetDialogComponent.smallerPrompt(
+        return DialogComponent.smallerPrompt(
             ID + SpreadsheetElementIds.DIALOG,
-            SpreadsheetDialogComponent.INCLUDE_CLOSE,
+            DialogComponent.INCLUDE_CLOSE,
             context
         ).appendChild(
             FlexLayoutComponent.row()
@@ -154,12 +154,12 @@ public final class DateTimeSymbolsDialogComponent implements SpreadsheetDialogCo
         );
     }
 
-    private final SpreadsheetDialogComponent dialog;
+    private final DialogComponent dialog;
 
     private final DateTimeSymbolsDialogComponentContext context;
 
     @Override
-    public SpreadsheetDialogComponent dialog() {
+    public DialogComponent dialog() {
         return this.dialog;
     }
 

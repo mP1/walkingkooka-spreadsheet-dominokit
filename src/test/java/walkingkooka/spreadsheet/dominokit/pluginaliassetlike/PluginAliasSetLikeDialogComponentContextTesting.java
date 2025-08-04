@@ -25,7 +25,7 @@ import walkingkooka.plugin.PluginInfoLike;
 import walkingkooka.plugin.PluginInfoSetLike;
 import walkingkooka.plugin.PluginSelectorLike;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -38,7 +38,7 @@ public interface PluginAliasSetLikeDialogComponentContextTesting<C extends Plugi
     IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
     S extends PluginSelectorLike<N>,
     A extends PluginAliasLike<N, S, A>,
-    AS extends PluginAliasSetLike<N, I, IS, S, A, AS>> extends SpreadsheetDialogComponentContextTesting<C>,
+    AS extends PluginAliasSetLike<N, I, IS, S, A, AS>> extends DialogComponentContextTesting<C>,
     ComponentLifecycleMatcherTesting {
 
     @Test

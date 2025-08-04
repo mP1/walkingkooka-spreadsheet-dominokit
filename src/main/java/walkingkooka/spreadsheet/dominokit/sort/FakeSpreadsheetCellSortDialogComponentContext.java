@@ -22,12 +22,12 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorSelector;
-import walkingkooka.spreadsheet.dominokit.dialog.FakeSpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.FakeDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 
 import java.util.List;
 
-public class FakeSpreadsheetCellSortDialogComponentContext extends FakeSpreadsheetDialogComponentContext
+public class FakeSpreadsheetCellSortDialogComponentContext extends FakeDialogComponentContext
     implements SpreadsheetCellSortDialogComponentContext {
 
     @Override

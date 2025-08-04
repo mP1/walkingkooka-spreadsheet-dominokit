@@ -25,7 +25,7 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -45,7 +45,7 @@ import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
 
-public final class SpreadsheetLocaleDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetLocaleDialogComponent>,
+public final class SpreadsheetLocaleDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetLocaleDialogComponent>,
     HistoryTokenTesting,
     SpreadsheetMetadataTesting {
 
@@ -98,7 +98,7 @@ public final class SpreadsheetLocaleDialogComponentTest implements SpreadsheetDi
             ),
             context,
             "SpreadsheetLocaleDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    A1: Locale\n" +
                 "    id=locale-Dialog includeClose=true\n" +
                 "      FlexLayoutComponent\n" +
@@ -161,7 +161,7 @@ public final class SpreadsheetLocaleDialogComponentTest implements SpreadsheetDi
             ),
             context,
             "SpreadsheetLocaleDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    A1: Locale\n" +
                 "    id=locale-Dialog includeClose=true\n" +
                 "      FlexLayoutComponent\n" +

@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.locale;
 
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.math.DecimalNumberSymbols;
-import walkingkooka.spreadsheet.dominokit.dialog.FakeSpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.FakeDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -28,7 +28,7 @@ import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
 
-public class FakeSpreadsheetLocaleDialogComponentContext extends FakeSpreadsheetDialogComponentContext implements SpreadsheetLocaleDialogComponentContext {
+public class FakeSpreadsheetLocaleDialogComponentContext extends FakeDialogComponentContext implements SpreadsheetLocaleDialogComponentContext {
 
     public FakeSpreadsheetLocaleDialogComponentContext() {
         super();

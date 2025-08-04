@@ -23,8 +23,8 @@ import walkingkooka.plugin.store.PluginSet;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
@@ -44,7 +44,7 @@ import java.util.Optional;
 /**
  * A dialog that supports uploading of a plugin archive.
  */
-public final class PluginUploadDialogComponent implements SpreadsheetDialogComponentLifecycle,
+public final class PluginUploadDialogComponent implements DialogComponentLifecycle,
     PluginFetcherWatcher,
     NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher {
@@ -112,12 +112,12 @@ public final class PluginUploadDialogComponent implements SpreadsheetDialogCompo
 
     private final PluginUploadSaveAnchorComponent uploadLink;
 
-    // SpreadsheetDialogComponentLifecycle..............................................................................
+    // DialogComponentLifecycle..............................................................................
 
-    private SpreadsheetDialogComponent dialogCreate(final PluginUploadDialogComponentContext context) {
-        return SpreadsheetDialogComponent.largeEdit(
+    private DialogComponent dialogCreate(final PluginUploadDialogComponentContext context) {
+        return DialogComponent.largeEdit(
             ID + SpreadsheetElementIds.DIALOG, // id
-            SpreadsheetDialogComponent.INCLUDE_CLOSE,
+            DialogComponent.INCLUDE_CLOSE,
             context
         ).appendChild(
             this.uploadFile
@@ -129,11 +129,11 @@ public final class PluginUploadDialogComponent implements SpreadsheetDialogCompo
     }
 
     @Override
-    public SpreadsheetDialogComponent dialog() {
+    public DialogComponent dialog() {
         return this.dialog;
     }
 
-    private final SpreadsheetDialogComponent dialog;
+    private final DialogComponent dialog;
 
     // id...............................................................................................................
 
@@ -176,7 +176,7 @@ public final class PluginUploadDialogComponent implements SpreadsheetDialogCompo
         // ignore
     }
 
-    // SpreadsheetDialogComponentLifecycle..............................................................................
+    // DialogComponentLifecycle..............................................................................
 
     @Override
     public boolean shouldIgnore(final HistoryToken token) {

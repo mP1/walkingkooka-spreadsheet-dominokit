@@ -24,7 +24,7 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.function.ExpressionFunctionAliasSetComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -45,7 +45,7 @@ import walkingkooka.tree.expression.function.provider.ExpressionFunctionSelector
 import java.util.Arrays;
 import java.util.function.Consumer;
 
-public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<PluginAliasSetLikeDialogComponent<ExpressionFunctionName,
+public final class PluginAliasSetLikeDialogComponentTest implements DialogComponentLifecycleTesting<PluginAliasSetLikeDialogComponent<ExpressionFunctionName,
     ExpressionFunctionInfo,
     ExpressionFunctionInfoSet,
     ExpressionFunctionSelector,
@@ -79,7 +79,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
             "",
             context,
             "PluginAliasSetLikeDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    ExpressionFunctions123\n" +
                 "    id=pluginAliasSet-Dialog includeClose=true\n" +
                 "      AddPluginAliasSetLikeComponent\n" +
@@ -129,7 +129,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
             ).text(),
             context,
             "PluginAliasSetLikeDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    ExpressionFunctions123\n" +
                 "    id=pluginAliasSet-Dialog includeClose=true\n" +
                 "      AddPluginAliasSetLikeComponent\n" +

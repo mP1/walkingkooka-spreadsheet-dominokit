@@ -23,8 +23,8 @@ import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
@@ -52,7 +52,7 @@ import java.util.Set;
 /**
  * A model dialog with several textboxes that allow creation, editing, saving and deletion of a {@link SpreadsheetLabelMapping}.
  */
-public final class SpreadsheetLabelMappingDialogComponent implements SpreadsheetDialogComponentLifecycle,
+public final class SpreadsheetLabelMappingDialogComponent implements DialogComponentLifecycle,
     LoadedSpreadsheetMetadataRequired,
     NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher,
@@ -95,12 +95,12 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
     /**
      * Creates the modal dialog, which includes a few text boxes to edit the label and the reference.
      */
-    private SpreadsheetDialogComponent dialogCreate() {
+    private DialogComponent dialogCreate() {
         final SpreadsheetLabelMappingDialogComponentContext context = this.context;
 
-        return SpreadsheetDialogComponent.smallerPrompt(
+        return DialogComponent.smallerPrompt(
                 ID + SpreadsheetElementIds.DIALOG,
-                SpreadsheetDialogComponent.INCLUDE_CLOSE,
+                DialogComponent.INCLUDE_CLOSE,
                 context
             ).appendChild(this.labelName)
             .appendChild(this.labelMappingReference)
@@ -113,12 +113,12 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
             );
     }
 
-    private final SpreadsheetDialogComponent dialog;
+    private final DialogComponent dialog;
 
     private final SpreadsheetLabelMappingDialogComponentContext context;
 
     @Override
-    public SpreadsheetDialogComponent dialog() {
+    public DialogComponent dialog() {
         return this.dialog;
     }
 

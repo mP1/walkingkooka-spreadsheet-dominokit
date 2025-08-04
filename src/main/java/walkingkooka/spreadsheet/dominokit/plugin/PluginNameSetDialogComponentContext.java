@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.plugin;
 
 
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
@@ -30,7 +30,7 @@ import java.util.OptionalInt;
  * A {@link walkingkooka.Context} tht accompanies a {@link PluginNameSetDialogComponent} providing custom values and functionality.
  */
 public interface PluginNameSetDialogComponentContext
-    extends SpreadsheetDialogComponentContext,
+    extends DialogComponentContext,
     AddPluginNameSetComponentContext,
     RemovePluginNameSetComponentContext,
     HasPluginFetcherWatchers,

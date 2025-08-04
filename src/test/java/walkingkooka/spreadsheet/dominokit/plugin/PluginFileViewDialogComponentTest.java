@@ -21,8 +21,8 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -32,7 +32,7 @@ import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 
 import java.util.Optional;
 
-public final class PluginFileViewDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<PluginFileViewDialogComponent> {
+public final class PluginFileViewDialogComponentTest implements DialogComponentLifecycleTesting<PluginFileViewDialogComponent> {
 
     private final static PluginName PLUGIN_NAME = PluginName.with("TestPluginName111");
 
@@ -49,7 +49,7 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
         this.onHistoryTokenChangeAndCheck(
             "/plugin/" + PLUGIN_NAME + "/file" + JarEntryInfoName.MANIFEST_MF,
             "PluginFileViewDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    /META-INF/MANIFEST.MF\n" +
                 "    id=pluginFileView-Dialog includeClose=true\n" +
                 "      SpreadsheetTextViewComponent\n" +
@@ -76,7 +76,7 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
             dialog,
             context,
             "PluginFileViewDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    /empty-file.txt\n" +
                 "    id=pluginFileView-Dialog includeClose=true\n" +
                 "      SpreadsheetTextViewComponent\n" +
@@ -101,7 +101,7 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
             dialog,
             context,
             "PluginFileViewDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    /non-empty-file.txt\n" +
                 "    id=pluginFileView-Dialog includeClose=true\n" +
                 "      SpreadsheetTextViewComponent\n" +
@@ -128,7 +128,7 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
             dialog,
             context,
             "PluginFileViewDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    /empty-file.txt\n" +
                 "    id=pluginFileView-Dialog includeClose=true\n" +
                 "      SpreadsheetTextViewComponent\n" +
@@ -151,7 +151,7 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
             dialog,
             context,
             "PluginFileViewDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    /non-empty-file.txt\n" +
                 "    id=pluginFileView-Dialog includeClose=true\n" +
                 "      SpreadsheetTextViewComponent\n" +
@@ -256,7 +256,7 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
 
         @Override
         public String dialogTitle() {
-            return SpreadsheetDialogComponent.class.getSimpleName();
+            return DialogComponent.class.getSimpleName();
         }
 
         @Override

@@ -27,8 +27,8 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
@@ -51,7 +51,7 @@ import java.util.Optional;
 /**
  * A modal dialog that displays a value with a few links such as CLOSE.
  */
-public final class SpreadsheetCellValueDialogComponent<T> implements SpreadsheetDialogComponentLifecycle,
+public final class SpreadsheetCellValueDialogComponent<T> implements DialogComponentLifecycle,
     LoadedSpreadsheetMetadataRequired,
     SpreadsheetDeltaFetcherWatcher,
     NopFetcherWatcher,
@@ -138,7 +138,7 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
     /**
      * Creates the modal dialog, with the value editing component and a few links to SAVE, UNDO and CLOSE
      */
-    private SpreadsheetDialogComponent dialogCreate() {
+    private DialogComponent dialogCreate() {
         final SpreadsheetCellValueDialogComponentContext<T> context = this.context;
 
         AnchorListComponent links = AnchorListComponent.empty()
@@ -157,15 +157,15 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
         links = links.appendChild(this.undo)
             .appendChild(this.close);
 
-        return SpreadsheetDialogComponent.smallEdit(
+        return DialogComponent.smallEdit(
                 context.id() + SpreadsheetElementIds.DIALOG,
-                SpreadsheetDialogComponent.INCLUDE_CLOSE,
+                DialogComponent.INCLUDE_CLOSE,
                 context
             ).appendChild(this.value)
             .appendChild(links);
     }
 
-    private final SpreadsheetDialogComponent dialog;
+    private final DialogComponent dialog;
 
     private final SpreadsheetCellValueDialogComponentContext<T> context;
 
@@ -272,10 +272,10 @@ public final class SpreadsheetCellValueDialogComponent<T> implements Spreadsheet
 
     private final HistoryTokenAnchorComponent close;
 
-    // SpreadsheetDialogComponentLifecycle..............................................................................
+    // DialogComponentLifecycle..............................................................................
 
     @Override
-    public SpreadsheetDialogComponent dialog() {
+    public DialogComponent dialog() {
         return this.dialog;
     }
 

@@ -32,7 +32,7 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -48,7 +48,7 @@ import java.util.List;
 import java.util.OptionalInt;
 import java.util.TreeSet;
 
-public final class PluginNameSetDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<PluginNameSetDialogComponent>,
+public final class PluginNameSetDialogComponentTest implements DialogComponentLifecycleTesting<PluginNameSetDialogComponent>,
     HistoryTokenTesting,
     SpreadsheetMetadataTesting {
 
@@ -128,7 +128,7 @@ public final class PluginNameSetDialogComponentTest implements SpreadsheetDialog
             "",
             context,
             "PluginNameSetDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    PluginsTitle999\n" +
                 "    id=pluginNameSet-Dialog includeClose=true\n" +
                 "      AddPluginNameSetComponent\n" +
@@ -169,7 +169,7 @@ public final class PluginNameSetDialogComponentTest implements SpreadsheetDialog
             "plugin111",
             context,
             "PluginNameSetDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    PluginsTitle999\n" +
                 "    id=pluginNameSet-Dialog includeClose=true\n" +
                 "      AddPluginNameSetComponent\n" +
@@ -216,7 +216,7 @@ public final class PluginNameSetDialogComponentTest implements SpreadsheetDialog
             "plugin111",
             context,
             "PluginNameSetDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    PluginsTitle999\n" +
                 "    id=pluginNameSet-Dialog includeClose=true\n" +
                 "      AddPluginNameSetComponent\n" +

@@ -25,7 +25,7 @@ import walkingkooka.plugin.PluginInfoSetLike;
 import walkingkooka.plugin.PluginSelectorLike;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.focus.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
@@ -45,7 +45,7 @@ public interface PluginAliasSetLikeDialogComponentContext<N extends Name & Compa
     extends
     ComponentLifecycleMatcher,
     CanGiveFocus,
-    SpreadsheetDialogComponentContext,
+    DialogComponentContext,
     AddPluginAliasSetLikeComponentContext,
     RemovePluginAliasSetLikeComponentContext {
 

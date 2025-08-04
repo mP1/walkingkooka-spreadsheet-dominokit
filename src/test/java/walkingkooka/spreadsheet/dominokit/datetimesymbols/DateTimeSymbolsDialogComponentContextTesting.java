@@ -19,11 +19,11 @@ package walkingkooka.spreadsheet.dominokit.datetimesymbols;
 
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextTesting;
 
 import java.util.Optional;
 
-public interface DateTimeSymbolsDialogComponentContextTesting<C extends DateTimeSymbolsDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C>,
+public interface DateTimeSymbolsDialogComponentContextTesting<C extends DateTimeSymbolsDialogComponentContext> extends DialogComponentContextTesting<C>,
     ComponentLifecycleMatcherTesting {
 
     default void copyDateTimeSymbolsAndCheck(final C context) {

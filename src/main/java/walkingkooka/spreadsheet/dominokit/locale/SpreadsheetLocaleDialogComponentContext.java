@@ -19,14 +19,14 @@ package walkingkooka.spreadsheet.dominokit.locale;
 
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
 
 import java.util.Locale;
 import java.util.Optional;
 
-public interface SpreadsheetLocaleDialogComponentContext extends SpreadsheetDialogComponentContext,
+public interface SpreadsheetLocaleDialogComponentContext extends DialogComponentContext,
     LocaleContext,
     ComponentLifecycleMatcher,
     HasSpreadsheetDeltaFetcherWatchers,

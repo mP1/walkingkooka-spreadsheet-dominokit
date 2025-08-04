@@ -22,7 +22,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -38,7 +38,7 @@ import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.OptionalLong;
 
-public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<JarEntryInfoListDialogComponent> {
+public final class JarEntryInfoListDialogComponentTest implements DialogComponentLifecycleTesting<JarEntryInfoListDialogComponent> {
 
     private final static PluginName PLUGIN_NAME = PluginName.with("TestPluginName111");
 
@@ -79,7 +79,7 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
         this.onHistoryTokenChangeAndCheck(
             "/plugin/" + PLUGIN_NAME,
             "JarEntryInfoListDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Loading...\n" +
                 "    id=plugin-Dialog includeClose=true\n" +
                 "      JarEntryInfoListTableComponent\n" +
@@ -119,7 +119,7 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
             dialog,
             context,
             "JarEntryInfoListDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Loading...\n" +
                 "    id=plugin-Dialog includeClose=true\n" +
                 "      JarEntryInfoListTableComponent\n" +
@@ -158,7 +158,7 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
             dialog,
             context,
             "JarEntryInfoListDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    TestPluginName111\n" +
                 "    id=plugin-Dialog includeClose=true\n" +
                 "      JarEntryInfoListTableComponent\n" +
@@ -199,7 +199,7 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
             dialog,
             context,
             "JarEntryInfoListDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Loading...\n" +
                 "    id=plugin-Dialog includeClose=true\n" +
                 "      JarEntryInfoListTableComponent\n" +
@@ -254,7 +254,7 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
             dialog,
             context,
             "JarEntryInfoListDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    TestPluginName111\n" +
                 "    id=plugin-Dialog includeClose=true\n" +
                 "      JarEntryInfoListTableComponent\n" +
@@ -312,7 +312,7 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
             dialog,
             context,
             "JarEntryInfoListDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    Loading...\n" +
                 "    id=plugin-Dialog includeClose=true\n" +
                 "      JarEntryInfoListTableComponent\n" +
@@ -367,7 +367,7 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
             dialog,
             context,
             "JarEntryInfoListDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    TestPluginName111\n" +
                 "    id=plugin-Dialog includeClose=true\n" +
                 "      JarEntryInfoListTableComponent\n" +
@@ -443,7 +443,7 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
             dialog,
             context,
             "JarEntryInfoListDialogComponent\n" +
-                "  SpreadsheetDialogComponent\n" +
+                "  DialogComponent\n" +
                 "    differentPlugin222\n" +
                 "    id=plugin-Dialog includeClose=true\n" +
                 "      JarEntryInfoListTableComponent\n" +

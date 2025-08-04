@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.sort;
 
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextTesting;
 
-public interface SpreadsheetCellSortDialogComponentContextTesting<C extends SpreadsheetCellSortDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C> {
+public interface SpreadsheetCellSortDialogComponentContextTesting<C extends SpreadsheetCellSortDialogComponentContext> extends DialogComponentContextTesting<C> {
 }
