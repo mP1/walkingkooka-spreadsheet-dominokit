@@ -24,7 +24,7 @@ import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ValidatorHelper;
-import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBoxTreePrintable;
+import walkingkooka.spreadsheet.dominokit.text.FormValueComponentTreePrintable;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -41,7 +41,7 @@ import java.util.function.Supplier;
  * {@linkSpreadsheetDateTimeComponent}.
  */
 public final class SpreadsheetDateTimeComponent implements FormValueComponent<HTMLFieldSetElement, LocalDateTime, SpreadsheetDateTimeComponent>,
-    SpreadsheetTextBoxTreePrintable<SpreadsheetDateTimeComponent, LocalDateTime>,
+    FormValueComponentTreePrintable<SpreadsheetDateTimeComponent, LocalDateTime>,
     TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetDateTimeComponent>,
     ValidatorHelper {
 
@@ -266,7 +266,7 @@ public final class SpreadsheetDateTimeComponent implements FormValueComponent<HT
         return this;
     }
 
-    // SpreadsheetTextBoxTreePrintable..................................................................................
+    // FormValueComponentTreePrintable..................................................................................
 
     @Override
     public void treePrintAlternateValues(final IndentingPrinter printer) {

@@ -25,7 +25,7 @@ import org.dominokit.domino.ui.forms.suggest.SelectOption;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
-import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBoxTreePrintable;
+import walkingkooka.spreadsheet.dominokit.text.FormValueComponentTreePrintable;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -38,7 +38,7 @@ import java.util.Optional;
  * A select component with a few helpers to assist with build and working with values.
  */
 public final class SpreadsheetSelectComponent<T> implements FormValueComponent<HTMLFieldSetElement, T, SpreadsheetSelectComponent<T>>,
-    SpreadsheetTextBoxTreePrintable<SpreadsheetSelectComponent<T>, T> {
+    FormValueComponentTreePrintable<SpreadsheetSelectComponent<T>, T> {
 
     public static <T> SpreadsheetSelectComponent<T> empty() {
         return new SpreadsheetSelectComponent<>();
@@ -340,7 +340,7 @@ public final class SpreadsheetSelectComponent<T> implements FormValueComponent<H
         return this.select.toString();
     }
 
-    // SpreadsheetTextBoxTreePrintable..................................................................................
+    // FormValueComponentTreePrintable..................................................................................
 
     @Override
     public void treePrintAlternateValues(final IndentingPrinter printer) {

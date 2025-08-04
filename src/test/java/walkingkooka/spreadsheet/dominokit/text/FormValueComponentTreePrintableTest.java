@@ -30,7 +30,7 @@ import walkingkooka.text.printer.TreePrintableTesting;
 import java.util.List;
 import java.util.Optional;
 
-public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableTesting {
+public final class FormValueComponentTreePrintableTest implements TreePrintableTesting {
 
     @Test
     public void testLabel() {
@@ -77,7 +77,7 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
     @Test
     public void testTreePrintAlternateValuesAndErrors() {
         class TestValueComponent implements FormValueComponent<HTMLFieldSetElement, String, TestValueComponent>,
-            SpreadsheetTextBoxTreePrintable<TestValueComponent, String>,
+            FormValueComponentTreePrintable<TestValueComponent, String>,
             TestHtmlElementComponent<HTMLFieldSetElement, TestValueComponent> {
             @Override
             public TestValueComponent setId(String id) {

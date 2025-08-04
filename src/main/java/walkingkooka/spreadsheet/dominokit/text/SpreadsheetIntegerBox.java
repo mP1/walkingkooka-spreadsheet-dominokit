@@ -47,7 +47,7 @@ import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
  * An IntegerBox that adds a few extras that should be common to all text boxes.
  */
 public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLFieldSetElement, Integer, SpreadsheetIntegerBox>,
-    SpreadsheetTextBoxTreePrintable<SpreadsheetIntegerBox, Integer> {
+    FormValueComponentTreePrintable<SpreadsheetIntegerBox, Integer> {
 
     public static SpreadsheetIntegerBox empty() {
         return new SpreadsheetIntegerBox();
@@ -372,7 +372,7 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
 
     private final IntegerBox integerBox;
 
-    // SpreadsheetTextBoxTreePrintable..................................................................................
+    // FormValueComponentTreePrintable..................................................................................
 
     @Override
     public void treePrintAlternateValues(final IndentingPrinter printer) {

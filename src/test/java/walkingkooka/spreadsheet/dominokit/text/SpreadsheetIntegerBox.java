@@ -37,7 +37,7 @@ import java.util.Optional;
  * {@link SpreadsheetIntegerBox}.
  */
 public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLFieldSetElement, Integer, SpreadsheetIntegerBox>,
-    SpreadsheetTextBoxTreePrintable<SpreadsheetIntegerBox, Integer>,
+    FormValueComponentTreePrintable<SpreadsheetIntegerBox, Integer>,
     TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetIntegerBox>,
     ValidatorHelper {
 
@@ -241,7 +241,7 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
 
     private int min;
 
-    // SpreadsheetTextBoxTreePrintable..................................................................................
+    // FormValueComponentTreePrintable..................................................................................
 
     @Override
     public void treePrintAlternateValues(final IndentingPrinter printer) {

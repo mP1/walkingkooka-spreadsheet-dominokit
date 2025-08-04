@@ -47,7 +47,7 @@ import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
  * A textbox that adds a few extras that should be common to all text boxes.
  */
 public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSetElement, String, SpreadsheetTextBox>,
-    SpreadsheetTextBoxTreePrintable<SpreadsheetTextBox, String> {
+    FormValueComponentTreePrintable<SpreadsheetTextBox, String> {
 
     public static SpreadsheetTextBox empty() {
         return new SpreadsheetTextBox();
@@ -388,7 +388,7 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
 
     private final TextBox textBox;
 
-    // SpreadsheetTextBoxTreePrintable..................................................................................
+    // FormValueComponentTreePrintable..................................................................................
 
     @Override
     public void treePrintAlternateValues(final IndentingPrinter printer) {
