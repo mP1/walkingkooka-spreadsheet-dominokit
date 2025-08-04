@@ -33,7 +33,7 @@ public final class SpreadsheetValueTypeComponentTest implements FormValueCompone
         this.treePrintAndCheck(
             SpreadsheetValueTypeComponent.empty(),
             "SpreadsheetValueTypeComponent\n" +
-                "  SpreadsheetSelectComponent\n" +
+                "  SelectComponent\n" +
                 "    []\n" +
                 "      Any=*\n" +
                 "      Boolean=boolean\n" +
@@ -52,7 +52,7 @@ public final class SpreadsheetValueTypeComponentTest implements FormValueCompone
             SpreadsheetValueTypeComponent.empty()
                 .setValue(Optional.of(SpreadsheetValueType.ANY)),
             "SpreadsheetValueTypeComponent\n" +
-                "  SpreadsheetSelectComponent\n" +
+                "  SelectComponent\n" +
                 "    [*]\n" +
                 "      Any=*\n" +
                 "      Boolean=boolean\n" +
@@ -75,7 +75,7 @@ public final class SpreadsheetValueTypeComponentTest implements FormValueCompone
                     )
                 ),
             "SpreadsheetValueTypeComponent\n" +
-                "  SpreadsheetSelectComponent\n" +
+                "  SelectComponent\n" +
                 "    [boolean]\n" +
                 "      Any=*\n" +
                 "      Boolean=boolean\n" +

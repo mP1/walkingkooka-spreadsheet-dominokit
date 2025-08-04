@@ -36,19 +36,19 @@ import java.util.Optional;
 /**
  * A select component with a few helpers to assist with build and working with values.
  */
-public final class SpreadsheetSelectComponent<T> implements FormValueComponent<HTMLFieldSetElement, T, SpreadsheetSelectComponent<T>>,
-    FormValueComponentTreePrintable<SpreadsheetSelectComponent<T>, T>,
-    TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetSelectComponent<T>> {
+public final class SelectComponent<T> implements FormValueComponent<HTMLFieldSetElement, T, SelectComponent<T>>,
+    FormValueComponentTreePrintable<SelectComponent<T>, T>,
+    TestHtmlElementComponent<HTMLFieldSetElement, SelectComponent<T>> {
 
-    public static <T> SpreadsheetSelectComponent<T> empty() {
-        return new SpreadsheetSelectComponent<>();
+    public static <T> SelectComponent<T> empty() {
+        return new SelectComponent<>();
     }
 
-    private SpreadsheetSelectComponent() {
+    private SelectComponent() {
     }
 
     @Override
-    public SpreadsheetSelectComponent<T> setId(final String id) {
+    public SelectComponent<T> setId(final String id) {
         this.id = id;
         return this;
     }
@@ -61,7 +61,7 @@ public final class SpreadsheetSelectComponent<T> implements FormValueComponent<H
     private String id;
 
     @Override
-    public SpreadsheetSelectComponent<T> setLabel(final String label) {
+    public SelectComponent<T> setLabel(final String label) {
         this.label = label;
         return this;
     }
@@ -74,13 +74,13 @@ public final class SpreadsheetSelectComponent<T> implements FormValueComponent<H
     private String label;
 
     @Override
-    public SpreadsheetSelectComponent<T> optional() {
+    public SelectComponent<T> optional() {
         this.required = false;
         return this;
     }
 
     @Override
-    public SpreadsheetSelectComponent<T> required() {
+    public SelectComponent<T> required() {
         this.required = true;
         return this;
     }
@@ -98,7 +98,7 @@ public final class SpreadsheetSelectComponent<T> implements FormValueComponent<H
     }
 
     @Override
-    public SpreadsheetSelectComponent<T> setDisabled(final boolean disabled) {
+    public SelectComponent<T> setDisabled(final boolean disabled) {
         this.disabled = true;
         return this;
     }
@@ -106,7 +106,7 @@ public final class SpreadsheetSelectComponent<T> implements FormValueComponent<H
     private boolean disabled;
 
     @Override
-    public SpreadsheetSelectComponent<T> validate() {
+    public SelectComponent<T> validate() {
         // TODO enable later somehow ?
         return this;
     }
@@ -117,7 +117,7 @@ public final class SpreadsheetSelectComponent<T> implements FormValueComponent<H
     }
 
     @Override
-    public SpreadsheetSelectComponent<T> setErrors(final List<String> errors) {
+    public SelectComponent<T> setErrors(final List<String> errors) {
         Objects.requireNonNull(errors, "errors");
 
         this.errors = Lists.immutable(errors);
@@ -127,17 +127,17 @@ public final class SpreadsheetSelectComponent<T> implements FormValueComponent<H
     private List<String> errors = Lists.empty();
 
     @Override
-    public SpreadsheetSelectComponent<T> focus() {
+    public SelectComponent<T> focus() {
         return this;
     }
 
     @Override
-    public SpreadsheetSelectComponent<T> alwaysShowHelperText() {
+    public SelectComponent<T> alwaysShowHelperText() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public SpreadsheetSelectComponent<T> setHelperText(final Optional<String> text) {
+    public SelectComponent<T> setHelperText(final Optional<String> text) {
         throw new UnsupportedOperationException();
     }
 
@@ -147,48 +147,48 @@ public final class SpreadsheetSelectComponent<T> implements FormValueComponent<H
     }
 
     @Override
-    public SpreadsheetSelectComponent<T> hideMarginBottom() {
+    public SelectComponent<T> hideMarginBottom() {
         return this;
     }
 
     @Override
-    public SpreadsheetSelectComponent<T> removeBorders() {
+    public SelectComponent<T> removeBorders() {
         return this;
     }
 
-    @Override public SpreadsheetSelectComponent<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
+    @Override public SelectComponent<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
         Objects.requireNonNull(listener, "listener");
 
         return this;
     }
 
     @Override
-    public SpreadsheetSelectComponent<T> addClickListener(final EventListener listener) {
+    public SelectComponent<T> addClickListener(final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
         return this;
     }
 
     @Override
-    public SpreadsheetSelectComponent<T> addContextMenuListener(final EventListener listener) {
+    public SelectComponent<T> addContextMenuListener(final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
         return this;
     }
 
     @Override
-    public SpreadsheetSelectComponent<T> addFocusListener(final EventListener listener) {
+    public SelectComponent<T> addFocusListener(final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
         return this;
     }
 
     @Override
-    public SpreadsheetSelectComponent<T> addKeydownListener(final EventListener listener) {
+    public SelectComponent<T> addKeydownListener(final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
 
         return this;
     }
 
     @Override
-    public SpreadsheetSelectComponent<T> addKeyupListener(final EventListener listener) {
+    public SelectComponent<T> addKeyupListener(final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
         return this;
     }
@@ -205,8 +205,8 @@ public final class SpreadsheetSelectComponent<T> implements FormValueComponent<H
     /**
      * Appends a new value to the drop down.
      */
-    public SpreadsheetSelectComponent<T> appendOption(final String text,
-                                                      final T value) {
+    public SelectComponent<T> appendOption(final String text,
+                                           final T value) {
         checkText(text);
         checkValue(value);
 
@@ -219,8 +219,8 @@ public final class SpreadsheetSelectComponent<T> implements FormValueComponent<H
     /**
      * Appends a new value to the drop down.
      */
-    public SpreadsheetSelectComponent<T> appendOption(final String text,
-                                                      final Optional<T> value) {
+    public SelectComponent<T> appendOption(final String text,
+                                           final Optional<T> value) {
         checkText(text);
         checkValue(value);
 
@@ -231,7 +231,7 @@ public final class SpreadsheetSelectComponent<T> implements FormValueComponent<H
         return this;
     }
 
-    public SpreadsheetSelectComponent<T> clearOptions() {
+    public SelectComponent<T> clearOptions() {
         this.textToValue.clear();
         return this;
     }
@@ -240,7 +240,7 @@ public final class SpreadsheetSelectComponent<T> implements FormValueComponent<H
     private final Map<String, Optional<T>> textToValue = Maps.ordered();
 
     @Override
-    public SpreadsheetSelectComponent<T> setValue(final Optional<T> value) {
+    public SelectComponent<T> setValue(final Optional<T> value) {
         checkValue(value);
 
         this.value = value;

@@ -25,12 +25,12 @@ import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetSelectComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, String, SpreadsheetSelectComponent<String>> {
+public final class SelectComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, String, SelectComponent<String>> {
 
     @Test
     public void testTreePrint() {
         this.treePrintAndCheck(
-            SpreadsheetSelectComponent.empty()
+            SelectComponent.empty()
                 .setLabel("Label123")
                 .setValue(Optional.of("Value456"))
                 .setId("id987")
@@ -40,7 +40,7 @@ public final class SpreadsheetSelectComponentTest implements FormValueComponentT
                 .appendOption("text2", "value2")
                 .appendOption("text3", "value3")
             ,
-            "SpreadsheetSelectComponent\n" +
+            "SelectComponent\n" +
                 "  Label123 [Value456] id=id987 DISABLED REQUIRED\n" +
                 "    text1=value1\n" +
                 "    text2=value2\n" +
@@ -51,15 +51,15 @@ public final class SpreadsheetSelectComponentTest implements FormValueComponentT
     // ValueComponent...................................................................................................
 
     @Override
-    public SpreadsheetSelectComponent<String> createComponent() {
-        return SpreadsheetSelectComponent.empty();
+    public SelectComponent<String> createComponent() {
+        return SelectComponent.empty();
     }
 
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SpreadsheetSelectComponent<String>> type() {
-        return Cast.to(SpreadsheetSelectComponent.class);
+    public Class<SelectComponent<String>> type() {
+        return Cast.to(SelectComponent.class);
     }
 
     @Override
