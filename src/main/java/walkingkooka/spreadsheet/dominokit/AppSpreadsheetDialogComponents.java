@@ -29,7 +29,7 @@ import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameLi
 import walkingkooka.spreadsheet.dominokit.convert.ConverterSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.convert.ConverterSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.datetime.DateComponent;
-import walkingkooka.spreadsheet.dominokit.datetime.SpreadsheetDateTimeComponent;
+import walkingkooka.spreadsheet.dominokit.datetime.DateTimeComponent;
 import walkingkooka.spreadsheet.dominokit.datetime.SpreadsheetTimeComponent;
 import walkingkooka.spreadsheet.dominokit.datetimesymbols.DateTimeSymbolsDialogComponent;
 import walkingkooka.spreadsheet.dominokit.datetimesymbols.DateTimeSymbolsDialogComponentContexts;
@@ -144,7 +144,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
             );
 
             SpreadsheetCellValueDialogComponent.with(
-                SpreadsheetDateTimeComponent.empty(
+                DateTimeComponent.empty(
                     dateTimeContext.id(),
                     context::now // HasNow
                 ),

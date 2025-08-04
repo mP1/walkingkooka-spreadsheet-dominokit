@@ -36,18 +36,18 @@ import java.util.function.Supplier;
 /**
  * A date picker that displays a calendar and time picker {@link LocalDateTime}.
  */
-public final class SpreadsheetDateTimeComponent extends SpreadsheetPickerComponent<LocalDateTime, SpreadsheetDateTimeComponent> {
+public final class DateTimeComponent extends SpreadsheetPickerComponent<LocalDateTime, DateTimeComponent> {
 
-    public static SpreadsheetDateTimeComponent empty(final String id,
-                                                     final Supplier<LocalDateTime> clearValue) {
-        return new SpreadsheetDateTimeComponent(
+    public static DateTimeComponent empty(final String id,
+                                          final Supplier<LocalDateTime> clearValue) {
+        return new DateTimeComponent(
             id,
             clearValue
         );
     }
 
-    private SpreadsheetDateTimeComponent(final String id,
-                                         final Supplier<LocalDateTime> clearValue) {
+    private DateTimeComponent(final String id,
+                              final Supplier<LocalDateTime> clearValue) {
         super(clearValue);
 
         final Calendar calendar = Calendar.create();
@@ -79,7 +79,7 @@ public final class SpreadsheetDateTimeComponent extends SpreadsheetPickerCompone
     }
 
     @Override
-    public SpreadsheetDateTimeComponent setValue(final Optional<LocalDateTime> value) {
+    public DateTimeComponent setValue(final Optional<LocalDateTime> value) {
         Objects.requireNonNull(value, "value");
 
         this.calendar.setDate(
@@ -102,14 +102,14 @@ public final class SpreadsheetDateTimeComponent extends SpreadsheetPickerCompone
     }
 
     @Override
-    public SpreadsheetDateTimeComponent setCssText(final String css) {
+    public DateTimeComponent setCssText(final String css) {
         this.calendar.cssText(css);
         return this;
     }
 
     @Override
-    public SpreadsheetDateTimeComponent setCssProperty(final String name,
-                                                       final String value) {
+    public DateTimeComponent setCssProperty(final String name,
+                                            final String value) {
         this.calendar.setCssProperty(
             name,
             value
@@ -117,7 +117,7 @@ public final class SpreadsheetDateTimeComponent extends SpreadsheetPickerCompone
         return this;
     }
 
-    public SpreadsheetDateTimeComponent resetView() {
+    public DateTimeComponent resetView() {
         this.calendar.resetView();
         return this;
     }
@@ -129,7 +129,7 @@ public final class SpreadsheetDateTimeComponent extends SpreadsheetPickerCompone
      * is fired combining the event component with the value of the other component.
      */
     @Override
-    public SpreadsheetDateTimeComponent addChangeListener(final ChangeListener<Optional<LocalDateTime>> listener) {
+    public DateTimeComponent addChangeListener(final ChangeListener<Optional<LocalDateTime>> listener) {
         Objects.requireNonNull(listener, "listener");
 
         final Calendar calendar = this.calendar;
@@ -182,14 +182,14 @@ public final class SpreadsheetDateTimeComponent extends SpreadsheetPickerCompone
     }
 
     @Override
-    public SpreadsheetDateTimeComponent addClickListener(final EventListener listener) {
+    public DateTimeComponent addClickListener(final EventListener listener) {
         this.calendar.addClickListener(listener);
         this.timePicker.addClickListener(listener);
         return this;
     }
 
     @Override
-    public SpreadsheetDateTimeComponent focus() {
+    public DateTimeComponent focus() {
         // NOP
         return this;
     }
