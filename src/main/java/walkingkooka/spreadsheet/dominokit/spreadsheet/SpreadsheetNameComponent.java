@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.text.HasText;
 
@@ -32,7 +32,7 @@ public final class SpreadsheetNameComponent implements ValueSpreadsheetTextBoxWr
     }
 
     private SpreadsheetNameComponent() {
-        this.textBox = ValueSpreadsheetTextBox.with(
+        this.textBox = ValueTextBoxComponent.with(
             SpreadsheetName::with,
             HasText::text
         );
@@ -41,11 +41,11 @@ public final class SpreadsheetNameComponent implements ValueSpreadsheetTextBoxWr
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<SpreadsheetName> valueSpreadsheetTextBox() {
+    public ValueTextBoxComponent<SpreadsheetName> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueSpreadsheetTextBox<SpreadsheetName> textBox;
+    private final ValueTextBoxComponent<SpreadsheetName> textBox;
 
     // Object...........................................................................................................
     @Override

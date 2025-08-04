@@ -39,7 +39,7 @@ public final class SpreadsheetFormulaComponentTest implements FormValueComponent
                     )
                 ),
             "SpreadsheetFormulaComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [1+2]\n"
         );
@@ -75,7 +75,7 @@ public final class SpreadsheetFormulaComponentTest implements FormValueComponent
                     )
                 ),
             "SpreadsheetFormulaComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [1+!!!]\n" +
                 "      Errors\n" +

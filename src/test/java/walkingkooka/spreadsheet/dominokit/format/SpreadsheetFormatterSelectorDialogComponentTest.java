@@ -142,7 +142,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      AppendPluginSelectorTokenComponent\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
-                "        ValueSpreadsheetTextBox\n" +
+                "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [date-format-pattern] id=spreadsheetFormatterSelector-TextBox\n" +
                 "            Errors\n" +
@@ -261,7 +261,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"yyyy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-format-pattern%20dd/mm/] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link\n" +
                 "                      \"yy\" [/1/Spreadsheet1/cell/A1/formatter/save/date-format-pattern%20dd/mm/yy] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
-                "        ValueSpreadsheetTextBox\n" +
+                "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [date-format-pattern dd/mm/yyyy] id=spreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
@@ -399,7 +399,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"ss\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:] id=spreadsheetFormatterSelector-removeOrReplace-remove-10-Link\n" +
                 "                      \"s\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:s] id=spreadsheetFormatterSelector-removeOrReplace-remove-10-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
-                "        ValueSpreadsheetTextBox\n" +
+                "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [date-time-format-pattern dd/mm/yyyy hh:mm:ss] id=spreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
@@ -558,7 +558,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"0\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20$%230.0] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link\n" +
                 "                  \"0\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20$%230.0] id=spreadsheetFormatterSelector-removeOrReplace-remove-5-Link\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
-                "        ValueSpreadsheetTextBox\n" +
+                "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [number-format-pattern $#0.00] id=spreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
@@ -643,7 +643,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \" \" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern%20@%22Hello%22] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
                 "                  \"\"Hello\"\" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern%20@%20] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
-                "        ValueSpreadsheetTextBox\n" +
+                "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [text-format-pattern @ \"Hello\"] id=spreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
@@ -743,7 +743,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"mm\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20hh:] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
                 "                      \"m\" [/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20hh:m] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
-                "        ValueSpreadsheetTextBox\n" +
+                "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [time-format-pattern hh:mm] id=spreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
@@ -874,7 +874,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"yyyy\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date-format-pattern%20dd/mm/] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link\n" +
                 "                      \"yy\" [/1/Spreadsheet1/spreadsheet/dateFormatter/save/date-format-pattern%20dd/mm/yy] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
-                "        ValueSpreadsheetTextBox\n" +
+                "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [date-format-pattern dd/mm/yyyy] id=spreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
@@ -1024,7 +1024,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"ss\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:] id=spreadsheetFormatterSelector-removeOrReplace-remove-10-Link\n" +
                 "                      \"s\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:s] id=spreadsheetFormatterSelector-removeOrReplace-remove-10-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
-                "        ValueSpreadsheetTextBox\n" +
+                "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [date-time-format-pattern dd/mm/yyyy hh:mm:ss] id=spreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
@@ -1195,7 +1195,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"0\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20$%230.0] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link\n" +
                 "                  \"0\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20$%230.0] id=spreadsheetFormatterSelector-removeOrReplace-remove-5-Link\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
-                "        ValueSpreadsheetTextBox\n" +
+                "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [number-format-pattern $#0.00] id=spreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
@@ -1292,7 +1292,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \" \" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text-format-pattern%20@%22Hello%22] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
                 "                  \"\"Hello\"\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text-format-pattern%20@%20] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
-                "        ValueSpreadsheetTextBox\n" +
+                "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [text-format-pattern @ \"Hello\"] id=spreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
@@ -1404,7 +1404,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20hh:] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
                 "                      \"m\" [/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20hh:m] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
-                "        ValueSpreadsheetTextBox\n" +
+                "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [time-format-pattern hh:mm] id=spreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +

@@ -39,7 +39,7 @@ public final class ConditionRightSpreadsheetFormulaParserTokenComponentTest impl
                     )
                 ),
             "ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [< 123]\n"
         );
@@ -55,7 +55,7 @@ public final class ConditionRightSpreadsheetFormulaParserTokenComponentTest impl
                     )
                 ),
             "ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [1+2]\n" +
                 "      Errors\n" +

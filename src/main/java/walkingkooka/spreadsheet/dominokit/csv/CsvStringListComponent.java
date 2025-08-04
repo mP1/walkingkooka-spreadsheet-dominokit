@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.csv;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.CsvStringList;
 import walkingkooka.spreadsheet.dominokit.validator.SpreadsheetValidators;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 
 import java.util.Objects;
@@ -47,7 +47,7 @@ public final class CsvStringListComponent implements ValueSpreadsheetTextBoxWrap
     private CsvStringListComponent(final int min,
                                    final int max,
                                    final boolean inclusive) {
-        this.textBox = ValueSpreadsheetTextBox.with(
+        this.textBox = ValueTextBoxComponent.with(
             CsvStringListComponentParserFunction.with(
                 min,
                 max,
@@ -64,7 +64,7 @@ public final class CsvStringListComponent implements ValueSpreadsheetTextBoxWrap
     public CsvStringListComponent setValidator(final Validator<CsvStringListComponent> validator) {
         Objects.requireNonNull(validator, "validator");
 
-        this.valueSpreadsheetTextBox()
+        this.valueTextBoxComponent()
             .setValidator(
                 SpreadsheetValidators.tryCatch(CsvStringList::parse)
             );
@@ -78,11 +78,11 @@ public final class CsvStringListComponent implements ValueSpreadsheetTextBoxWrap
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<CsvStringList> valueSpreadsheetTextBox() {
+    public ValueTextBoxComponent<CsvStringList> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueSpreadsheetTextBox<CsvStringList> textBox;
+    private final ValueTextBoxComponent<CsvStringList> textBox;
 
     // Object...........................................................................................................
 

@@ -47,7 +47,7 @@ public final class SpreadsheetExporterAliasSetComponentTest implements FormValue
                     )
                 ),
             "SpreadsheetExporterAliasSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [alias1 exporter1, exporter2]\n"
         );
@@ -63,7 +63,7 @@ public final class SpreadsheetExporterAliasSetComponentTest implements FormValue
                     )
                 ),
             "SpreadsheetExporterAliasSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [alias1 exporter1, 9]\n" +
                 "      Errors\n" +

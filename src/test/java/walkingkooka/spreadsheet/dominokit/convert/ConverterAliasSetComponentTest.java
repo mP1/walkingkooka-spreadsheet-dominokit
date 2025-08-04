@@ -53,7 +53,7 @@ public final class ConverterAliasSetComponentTest implements FormValueComponentT
                     )
                 ),
             "ConverterAliasSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [boolean-to-number, chain, character-or-char-sequence-or-has-text-or-string-to-character-or-char-sequence-or-string, character-or-string-to-string, collection, custom-to-string, has-text-to-string, local-date-time-to-local-date, local-date-time-to-local-time, local-date-time-to-number, local-date-time-to-string, local-date-to-local-date-time, local-date-to-number, local-date-to-string, local-time-to-local-date-time, local-time-to-number, local-time-to-string, mapper, never, number-to-boolean, number-to-local-date, number-to-local-date-time, number-to-local-time, number-to-number, number-to-string, object, object-to-string, parser, simple, string-to-character-or-string, string-to-local-date, string-to-local-date-time, string-to-local-time, string-to-number, to-boolean]\n"
         );
@@ -69,7 +69,7 @@ public final class ConverterAliasSetComponentTest implements FormValueComponentT
                     )
                 ),
             "ConverterAliasSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [hello, !]\n" +
                 "      Errors\n" +

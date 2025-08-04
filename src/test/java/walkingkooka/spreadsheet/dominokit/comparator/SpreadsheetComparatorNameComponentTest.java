@@ -35,7 +35,7 @@ public final class SpreadsheetComparatorNameComponentTest implements FormValueCo
                     Optional.of("hello-comparator")
                 ),
             "SpreadsheetComparatorNameComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [hello-comparator]\n"
         );
@@ -49,7 +49,7 @@ public final class SpreadsheetComparatorNameComponentTest implements FormValueCo
                     Optional.of("!@#")
                 ),
             "SpreadsheetComparatorNameComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [!@#]\n" +
                 "      Errors\n" +

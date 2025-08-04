@@ -19,7 +19,7 @@
 package walkingkooka.spreadsheet.dominokit.export;
 
 
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterName;
 
@@ -33,7 +33,7 @@ public final class SpreadsheetExporterNameComponent implements ValueSpreadsheetT
     }
 
     private SpreadsheetExporterNameComponent() {
-        this.textBox = ValueSpreadsheetTextBox.with(
+        this.textBox = ValueTextBoxComponent.with(
             SpreadsheetExporterName::with,
             SpreadsheetExporterName::toString
         );
@@ -42,11 +42,11 @@ public final class SpreadsheetExporterNameComponent implements ValueSpreadsheetT
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<SpreadsheetExporterName> valueSpreadsheetTextBox() {
+    public ValueTextBoxComponent<SpreadsheetExporterName> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueSpreadsheetTextBox<SpreadsheetExporterName> textBox;
+    private final ValueTextBoxComponent<SpreadsheetExporterName> textBox;
 
     // Object...........................................................................................................
 

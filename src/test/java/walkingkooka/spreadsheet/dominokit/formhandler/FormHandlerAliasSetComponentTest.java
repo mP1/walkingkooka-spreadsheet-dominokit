@@ -45,7 +45,7 @@ public final class FormHandlerAliasSetComponentTest implements FormValueComponen
                     Optional.of("alias1 name1, alias2, name2")
                 ),
             "FormHandlerAliasSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [alias1 name1, alias2, name2]\n"
         );
@@ -59,7 +59,7 @@ public final class FormHandlerAliasSetComponentTest implements FormValueComponen
                     Optional.of("alias1 name1, alias2 !")
                 ),
             "FormHandlerAliasSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [alias1 name1, alias2 !]\n" +
                 "      Errors\n" +

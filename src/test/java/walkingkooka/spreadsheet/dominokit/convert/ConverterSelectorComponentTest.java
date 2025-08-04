@@ -35,7 +35,7 @@ public final class ConverterSelectorComponentTest implements FormValueComponentT
                     Optional.of("hello")
                 ),
             "ConverterSelectorComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [hello]\n"
         );
@@ -49,7 +49,7 @@ public final class ConverterSelectorComponentTest implements FormValueComponentT
                     Optional.of("!@#")
                 ),
             "ConverterSelectorComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [!@#]\n" +
                 "      Errors\n" +
@@ -65,7 +65,7 @@ public final class ConverterSelectorComponentTest implements FormValueComponentT
                     Optional.of("Hello!")
                 ),
             "ConverterSelectorComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [Hello!]\n" +
                 "      Errors\n" +

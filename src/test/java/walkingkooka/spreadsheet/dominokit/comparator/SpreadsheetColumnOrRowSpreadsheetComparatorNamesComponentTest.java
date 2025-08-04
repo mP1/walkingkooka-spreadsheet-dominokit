@@ -37,7 +37,7 @@ public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponentTest
                     )
                 ),
             "SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [A=text]\n"
         );
@@ -51,7 +51,7 @@ public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponentTest
                     Optional.of("A=hello,tree")
                 ),
             "SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [A=hello,tree]\n"
         );
@@ -65,7 +65,7 @@ public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponentTest
                     Optional.of("!A=hello")
                 ),
             "SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [!A=hello]\n" +
                 "      Errors\n" +
@@ -81,7 +81,7 @@ public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponentTest
                     Optional.of("A=!hello")
                 ),
             "SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [A=!hello]\n" +
                 "      Errors\n" +

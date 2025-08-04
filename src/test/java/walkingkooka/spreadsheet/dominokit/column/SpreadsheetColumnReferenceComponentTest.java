@@ -37,7 +37,7 @@ public final class SpreadsheetColumnReferenceComponentTest implements FormValueC
                     )
                 ),
             "SpreadsheetColumnReferenceComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [AB]\n"
         );
@@ -53,7 +53,7 @@ public final class SpreadsheetColumnReferenceComponentTest implements FormValueC
                     )
                 ),
             "SpreadsheetColumnReferenceComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [Invalid123!]\n" +
                 "      Errors\n" +

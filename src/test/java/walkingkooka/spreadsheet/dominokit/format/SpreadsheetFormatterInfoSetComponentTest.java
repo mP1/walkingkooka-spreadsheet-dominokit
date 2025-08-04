@@ -51,7 +51,7 @@ public final class SpreadsheetFormatterInfoSetComponentTest implements FormValue
                     )
                 ),
             "SpreadsheetFormatterInfoSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/automatic automatic,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/collection collection,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/date-format-pattern date-format-pattern,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/date-time-format-pattern date-time-format-pattern,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/default-text default-text,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/expression expression,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/general general,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/number-format-pattern number-format-pattern,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/spreadsheet-pattern-collection spreadsheet-pattern-collection,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/text-format-pattern text-format-pattern,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/time-format-pattern time-format-pattern]\n"
         );
@@ -67,7 +67,7 @@ public final class SpreadsheetFormatterInfoSetComponentTest implements FormValue
                     )
                 ),
             "SpreadsheetFormatterInfoSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [https://www.example.com/Hello !]\n" +
                 "      Errors\n" +
@@ -85,7 +85,7 @@ public final class SpreadsheetFormatterInfoSetComponentTest implements FormValue
                     )
                 ),
             "SpreadsheetFormatterInfoSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [https://www.example.com/Hello Hello, bad://www.example.com Hello2]\n" +
                 "      Errors\n" +
@@ -103,7 +103,7 @@ public final class SpreadsheetFormatterInfoSetComponentTest implements FormValue
                     )
                 ),
             "SpreadsheetFormatterInfoSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [https://www.example.com/Hello Good, https://www.example.com Bad!]\n" +
                 "      Errors\n" +

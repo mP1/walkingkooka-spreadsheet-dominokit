@@ -63,7 +63,7 @@ public final class SpreadsheetErrorComponentTest implements FormValueComponentTe
                     )
                 ),
             "SpreadsheetErrorComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [#DIV/0! Hello Error 123]\n"
         );
@@ -79,7 +79,7 @@ public final class SpreadsheetErrorComponentTest implements FormValueComponentTe
                     )
                 ),
             "SpreadsheetErrorComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [#BAD Message123]\n" +
                 "      Errors\n" +

@@ -45,7 +45,7 @@ public final class SpreadsheetComparatorAliasSetComponentTest implements FormVal
                     Optional.of("alias1 name1, alias2, name2")
                 ),
             "SpreadsheetComparatorAliasSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [alias1 name1, alias2, name2]\n"
         );
@@ -59,7 +59,7 @@ public final class SpreadsheetComparatorAliasSetComponentTest implements FormVal
                     Optional.of("alias1 name1, alias2 !")
                 ),
             "SpreadsheetComparatorAliasSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [alias1 name1, alias2 !]\n" +
                 "      Errors\n" +

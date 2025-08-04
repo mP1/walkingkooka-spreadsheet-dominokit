@@ -19,7 +19,7 @@
 package walkingkooka.spreadsheet.dominokit.validation;
 
 
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.validation.provider.ValidatorName;
 
@@ -33,7 +33,7 @@ public final class ValidatorNameComponent implements ValueSpreadsheetTextBoxWrap
     }
 
     private ValidatorNameComponent() {
-        this.textBox = ValueSpreadsheetTextBox.with(
+        this.textBox = ValueTextBoxComponent.with(
             ValidatorName::with,
             ValidatorName::toString
         );
@@ -42,11 +42,11 @@ public final class ValidatorNameComponent implements ValueSpreadsheetTextBoxWrap
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<ValidatorName> valueSpreadsheetTextBox() {
+    public ValueTextBoxComponent<ValidatorName> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueSpreadsheetTextBox<ValidatorName> textBox;
+    private final ValueTextBoxComponent<ValidatorName> textBox;
 
     // Object...........................................................................................................
 

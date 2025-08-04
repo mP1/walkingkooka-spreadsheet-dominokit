@@ -58,7 +58,7 @@ public final class CsvStringListComponentTest implements FormValueComponentTesti
                     )
                 ),
             "CsvStringListComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [January,February,March,April,May,June,July,August,September,October,November,December]\n"
         );
@@ -102,7 +102,7 @@ public final class CsvStringListComponentTest implements FormValueComponentTesti
                 )
             ),
             "CsvStringListComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [Monday,\"Tuesday]\n" +
                 "      Errors\n" +
@@ -123,7 +123,7 @@ public final class CsvStringListComponentTest implements FormValueComponentTesti
                 )
             ),
             "CsvStringListComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [Monday]\n" +
                 "      Errors\n" +
@@ -144,7 +144,7 @@ public final class CsvStringListComponentTest implements FormValueComponentTesti
                 )
             ),
             "CsvStringListComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [Monday]\n" +
                 "      Errors\n" +
@@ -165,7 +165,7 @@ public final class CsvStringListComponentTest implements FormValueComponentTesti
                 )
             ),
             "CsvStringListComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [Monday, Tuesday, Wednesday, Thursday]\n" +
                 "      Errors\n" +
@@ -186,7 +186,7 @@ public final class CsvStringListComponentTest implements FormValueComponentTesti
                 )
             ),
             "CsvStringListComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [Monday, Tuesday, Wednesday, Thursday]\n" +
                 "      Errors\n" +
@@ -207,7 +207,7 @@ public final class CsvStringListComponentTest implements FormValueComponentTesti
                 )
             ),
             "CsvStringListComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [Monday, Tuesday, Wednesday, Thursday]\n" +
                 "      Errors\n" +

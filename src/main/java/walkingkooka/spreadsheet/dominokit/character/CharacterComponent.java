@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.character;
 
 import walkingkooka.predicate.character.CharPredicate;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 
 /**
@@ -38,7 +38,7 @@ public final class CharacterComponent implements ValueSpreadsheetTextBoxWrapper<
     private CharacterComponent(final String label,
                                final CharPredicate predicate,
                                final String message) {
-        this.textBox = ValueSpreadsheetTextBox.with(
+        this.textBox = ValueTextBoxComponent.with(
             CharacterComponentParserFunction.with(
                 label,
                 predicate,
@@ -51,11 +51,11 @@ public final class CharacterComponent implements ValueSpreadsheetTextBoxWrapper<
     // ValueSpreadsheetTextBoxWrapper...................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<Character> valueSpreadsheetTextBox() {
+    public ValueTextBoxComponent<Character> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueSpreadsheetTextBox<Character> textBox;
+    private final ValueTextBoxComponent<Character> textBox;
 
     // Object...........................................................................................................
 

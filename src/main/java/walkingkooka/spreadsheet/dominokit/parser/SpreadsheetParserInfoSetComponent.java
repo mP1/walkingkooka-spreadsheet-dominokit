@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.parser;
 
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
 
@@ -28,7 +28,7 @@ public final class SpreadsheetParserInfoSetComponent implements ValueSpreadsheet
     }
 
     private SpreadsheetParserInfoSetComponent() {
-        this.textBox = ValueSpreadsheetTextBox.with(
+        this.textBox = ValueTextBoxComponent.with(
             SpreadsheetParserInfoSet::parse,
             SpreadsheetParserInfoSet::text
         );
@@ -37,11 +37,11 @@ public final class SpreadsheetParserInfoSetComponent implements ValueSpreadsheet
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<SpreadsheetParserInfoSet> valueSpreadsheetTextBox() {
+    public ValueTextBoxComponent<SpreadsheetParserInfoSet> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueSpreadsheetTextBox<SpreadsheetParserInfoSet> textBox;
+    private final ValueTextBoxComponent<SpreadsheetParserInfoSet> textBox;
 
     // Object...........................................................................................................
 

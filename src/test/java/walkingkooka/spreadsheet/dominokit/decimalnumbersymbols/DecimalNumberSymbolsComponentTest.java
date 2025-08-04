@@ -55,7 +55,7 @@ public final class DecimalNumberSymbolsComponentTest implements FormValueCompone
                     )
                 ),
             "DecimalNumberSymbolsComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [-,+,0,¤,.,E,\",\",∞,.,NaN,%,‰]\n"
         );
@@ -71,7 +71,7 @@ public final class DecimalNumberSymbolsComponentTest implements FormValueCompone
                     )
                 ),
             "DecimalNumberSymbolsComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [hello, !]\n" +
                 "      Errors\n" +

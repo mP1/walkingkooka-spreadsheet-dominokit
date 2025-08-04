@@ -69,19 +69,19 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          CharacterComponent\n" +
-                "            ValueSpreadsheetTextBox\n" +
+                "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
                 "                Negative sign [] id=decimalNumberSymbolsnegativeSign-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Negative sign\"\n" +
                 "          CharacterComponent\n" +
-                "            ValueSpreadsheetTextBox\n" +
+                "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
                 "                Positive sign [] id=decimalNumberSymbolspositiveSign-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Positive sign\"\n" +
                 "          CharacterComponent\n" +
-                "            ValueSpreadsheetTextBox\n" +
+                "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
                 "                Zero digit [] id=decimalNumberSymbolszeroDigit-TextBox\n" +
                 "                Errors\n" +
@@ -91,7 +91,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
-                "            ValueSpreadsheetTextBox\n" +
+                "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
                 "                Decimal separator [] id=decimalNumberSymbolsdecimalSeparator-TextBox\n" +
                 "                Errors\n" +
@@ -101,7 +101,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
-                "            ValueSpreadsheetTextBox\n" +
+                "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
                 "                Group separator [] id=decimalNumberSymbolsgroupSeparator-TextBox\n" +
                 "                Errors\n" +
@@ -111,7 +111,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
-                "            ValueSpreadsheetTextBox\n" +
+                "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
                 "                Monetary decimal separator [] id=decimalNumberSymbolsmonetaryDecimalSeparator-TextBox\n" +
                 "                Errors\n" +
@@ -121,19 +121,19 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
-                "            ValueSpreadsheetTextBox\n" +
+                "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
                 "                Percent symbol [] id=decimalNumberSymbolspercentSymbol-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Percent symbol\"\n" +
                 "          CharacterComponent\n" +
-                "            ValueSpreadsheetTextBox\n" +
+                "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
                 "                Permill symbol [] id=decimalNumberSymbolspermillSymbol-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Permill symbol\"\n" +
                 "          DecimalNumberSymbolsComponent\n" +
-                "            ValueSpreadsheetTextBox\n" +
+                "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
                 "                Date Time Symbols []\n" +
                 "                Errors\n" +
@@ -180,47 +180,47 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          CharacterComponent\n" +
-                "            ValueSpreadsheetTextBox\n" +
+                "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
                 "                Negative sign [-] id=decimalNumberSymbolsnegativeSign-TextBox\n" +
                 "          CharacterComponent\n" +
-                "            ValueSpreadsheetTextBox\n" +
+                "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
                 "                Positive sign [+] id=decimalNumberSymbolspositiveSign-TextBox\n" +
                 "          CharacterComponent\n" +
-                "            ValueSpreadsheetTextBox\n" +
+                "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
                 "                Zero digit [0] id=decimalNumberSymbolszeroDigit-TextBox\n" +
                 "          TextBoxComponent\n" +
                 "            Currency [$] id=decimalNumberSymbolsCurrencySymbol-TextBox\n" +
                 "          CharacterComponent\n" +
-                "            ValueSpreadsheetTextBox\n" +
+                "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
                 "                Decimal separator [.] id=decimalNumberSymbolsdecimalSeparator-TextBox\n" +
                 "          TextBoxComponent\n" +
                 "            Exponent [e] id=decimalNumberSymbolsExponentSymbol-TextBox\n" +
                 "          CharacterComponent\n" +
-                "            ValueSpreadsheetTextBox\n" +
+                "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
                 "                Group separator [,] id=decimalNumberSymbolsgroupSeparator-TextBox\n" +
                 "          TextBoxComponent\n" +
                 "            Infinity [∞] id=decimalNumberSymbolsInfinitySymbol-TextBox\n" +
                 "          CharacterComponent\n" +
-                "            ValueSpreadsheetTextBox\n" +
+                "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
                 "                Monetary decimal separator [.] id=decimalNumberSymbolsmonetaryDecimalSeparator-TextBox\n" +
                 "          TextBoxComponent\n" +
                 "            Nan [NaN] id=decimalNumberSymbolsNanSymbol-TextBox\n" +
                 "          CharacterComponent\n" +
-                "            ValueSpreadsheetTextBox\n" +
+                "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
                 "                Percent symbol [%] id=decimalNumberSymbolspercentSymbol-TextBox\n" +
                 "          CharacterComponent\n" +
-                "            ValueSpreadsheetTextBox\n" +
+                "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
                 "                Permill symbol [‰] id=decimalNumberSymbolspermillSymbol-TextBox\n" +
                 "          DecimalNumberSymbolsComponent\n" +
-                "            ValueSpreadsheetTextBox\n" +
+                "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
                 "                Date Time Symbols [-,+,0,$,.,e,\",\",∞,.,NaN,%,‰]\n" +
                 "      SpreadsheetLocaleComponent\n" +
@@ -265,19 +265,19 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          CharacterComponent\n" +
-                "            ValueSpreadsheetTextBox\n" +
+                "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
                 "                Negative sign [] id=decimalNumberSymbolsnegativeSign-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Negative sign\"\n" +
                 "          CharacterComponent\n" +
-                "            ValueSpreadsheetTextBox\n" +
+                "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
                 "                Positive sign [] id=decimalNumberSymbolspositiveSign-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Positive sign\"\n" +
                 "          CharacterComponent\n" +
-                "            ValueSpreadsheetTextBox\n" +
+                "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
                 "                Zero digit [] id=decimalNumberSymbolszeroDigit-TextBox\n" +
                 "                Errors\n" +
@@ -287,7 +287,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
-                "            ValueSpreadsheetTextBox\n" +
+                "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
                 "                Decimal separator [] id=decimalNumberSymbolsdecimalSeparator-TextBox\n" +
                 "                Errors\n" +
@@ -297,7 +297,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
-                "            ValueSpreadsheetTextBox\n" +
+                "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
                 "                Group separator [] id=decimalNumberSymbolsgroupSeparator-TextBox\n" +
                 "                Errors\n" +
@@ -307,7 +307,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
-                "            ValueSpreadsheetTextBox\n" +
+                "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
                 "                Monetary decimal separator [] id=decimalNumberSymbolsmonetaryDecimalSeparator-TextBox\n" +
                 "                Errors\n" +
@@ -317,19 +317,19 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
-                "            ValueSpreadsheetTextBox\n" +
+                "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
                 "                Percent symbol [] id=decimalNumberSymbolspercentSymbol-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Percent symbol\"\n" +
                 "          CharacterComponent\n" +
-                "            ValueSpreadsheetTextBox\n" +
+                "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
                 "                Permill symbol [] id=decimalNumberSymbolspermillSymbol-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Permill symbol\"\n" +
                 "          DecimalNumberSymbolsComponent\n" +
-                "            ValueSpreadsheetTextBox\n" +
+                "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
                 "                Date Time Symbols []\n" +
                 "                Errors\n" +

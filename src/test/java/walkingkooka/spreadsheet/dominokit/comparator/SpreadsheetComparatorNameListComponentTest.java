@@ -47,7 +47,7 @@ public final class SpreadsheetComparatorNameListComponentTest implements FormVal
                     Optional.of("day-of-month, month-of-year")
                 ),
             "SpreadsheetComparatorNameListComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [day-of-month, month-of-year]\n"
         );
@@ -61,7 +61,7 @@ public final class SpreadsheetComparatorNameListComponentTest implements FormVal
                     Optional.of("day-of-month, !@#")
                 ),
             "SpreadsheetComparatorNameListComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [day-of-month, !@#]\n" +
                 "      Errors\n" +

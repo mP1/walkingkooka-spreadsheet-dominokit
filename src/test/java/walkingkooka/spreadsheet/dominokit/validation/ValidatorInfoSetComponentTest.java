@@ -51,7 +51,7 @@ public final class ValidatorInfoSetComponentTest implements FormValueComponentTe
                     )
                 ),
             "ValidatorInfoSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [https://github.com/mP1/walkingkooka-validation/Validator/collection collection,https://github.com/mP1/walkingkooka-validation/Validator/expression expression,https://github.com/mP1/walkingkooka-validation/Validator/non-null non-null,https://github.com/mP1/walkingkooka-validation/Validator/text-length text-length]\n"
         );
@@ -67,7 +67,7 @@ public final class ValidatorInfoSetComponentTest implements FormValueComponentTe
                     )
                 ),
             "ValidatorInfoSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [https://www.example.com/Hello !]\n" +
                 "      Errors\n" +
@@ -85,7 +85,7 @@ public final class ValidatorInfoSetComponentTest implements FormValueComponentTe
                     )
                 ),
             "ValidatorInfoSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [https://www.example.com/Hello Hello, bad://example.com]\n" +
                 "      Errors\n" +
@@ -103,7 +103,7 @@ public final class ValidatorInfoSetComponentTest implements FormValueComponentTe
                     )
                 ),
             "ValidatorInfoSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [https://www.example.com/1 Good, https://example.com/2 Bad!]\n" +
                 "      Errors\n" +

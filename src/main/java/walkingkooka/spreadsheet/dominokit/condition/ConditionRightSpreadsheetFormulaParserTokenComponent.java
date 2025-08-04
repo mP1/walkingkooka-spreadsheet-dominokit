@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.condition;
 
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.spreadsheet.formula.parser.ConditionRightSpreadsheetFormulaParserToken;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
@@ -40,7 +40,7 @@ public final class ConditionRightSpreadsheetFormulaParserTokenComponent implemen
     private ConditionRightSpreadsheetFormulaParserTokenComponent(final Supplier<SpreadsheetParserContext> context) {
         final ConditionRightSpreadsheetFormulaParserTokenComponentConditionFunction function = ConditionRightSpreadsheetFormulaParserTokenComponentConditionFunction.with(context);
 
-        this.textBox = ValueSpreadsheetTextBox.with(
+        this.textBox = ValueTextBoxComponent.with(
             function,
             HasText::text
         ).setValidator(
@@ -51,11 +51,11 @@ public final class ConditionRightSpreadsheetFormulaParserTokenComponent implemen
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<ConditionRightSpreadsheetFormulaParserToken> valueSpreadsheetTextBox() {
+    public ValueTextBoxComponent<ConditionRightSpreadsheetFormulaParserToken> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueSpreadsheetTextBox<ConditionRightSpreadsheetFormulaParserToken> textBox;
+    private final ValueTextBoxComponent<ConditionRightSpreadsheetFormulaParserToken> textBox;
 
     // Object...........................................................................................................
 

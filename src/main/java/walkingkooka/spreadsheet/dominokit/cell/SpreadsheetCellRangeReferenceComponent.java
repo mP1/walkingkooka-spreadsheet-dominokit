@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -33,7 +33,7 @@ public final class SpreadsheetCellRangeReferenceComponent implements ValueSpread
     }
 
     private SpreadsheetCellRangeReferenceComponent(final String id) {
-        this.textBox = ValueSpreadsheetTextBox.with(
+        this.textBox = ValueTextBoxComponent.with(
             SpreadsheetSelection::parseCellRange,
             HasText::text
         );
@@ -43,11 +43,11 @@ public final class SpreadsheetCellRangeReferenceComponent implements ValueSpread
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<SpreadsheetCellRangeReference> valueSpreadsheetTextBox() {
+    public ValueTextBoxComponent<SpreadsheetCellRangeReference> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueSpreadsheetTextBox<SpreadsheetCellRangeReference> textBox;
+    private final ValueTextBoxComponent<SpreadsheetCellRangeReference> textBox;
 
     // Object...........................................................................................................
 

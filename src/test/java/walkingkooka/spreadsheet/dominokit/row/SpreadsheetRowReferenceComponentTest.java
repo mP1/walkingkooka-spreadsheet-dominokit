@@ -37,7 +37,7 @@ public final class SpreadsheetRowReferenceComponentTest implements FormValueComp
                     )
                 ),
             "SpreadsheetRowReferenceComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [Hello]\n" +
                 "      Errors\n" +
@@ -55,7 +55,7 @@ public final class SpreadsheetRowReferenceComponentTest implements FormValueComp
                     )
                 ),
             "SpreadsheetRowReferenceComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [Invalid123!]\n" +
                 "      Errors\n" +

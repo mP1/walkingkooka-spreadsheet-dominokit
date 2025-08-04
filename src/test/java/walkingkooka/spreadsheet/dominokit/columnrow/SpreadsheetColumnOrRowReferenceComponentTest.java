@@ -37,7 +37,7 @@ public final class SpreadsheetColumnOrRowReferenceComponentTest implements FormV
                     )
                 ),
             "SpreadsheetColumnOrRowReferenceComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [AB]\n"
         );
@@ -53,7 +53,7 @@ public final class SpreadsheetColumnOrRowReferenceComponentTest implements FormV
                     )
                 ),
             "SpreadsheetColumnOrRowReferenceComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [A1!]\n" +
                 "      Errors\n" +
@@ -71,7 +71,7 @@ public final class SpreadsheetColumnOrRowReferenceComponentTest implements FormV
                     )
                 ),
             "SpreadsheetColumnOrRowReferenceComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [C:D]\n" +
                 "      Errors\n" +
@@ -89,7 +89,7 @@ public final class SpreadsheetColumnOrRowReferenceComponentTest implements FormV
                     )
                 ),
             "SpreadsheetColumnOrRowReferenceComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [1]\n"
         );
@@ -105,7 +105,7 @@ public final class SpreadsheetColumnOrRowReferenceComponentTest implements FormV
                     )
                 ),
             "SpreadsheetColumnOrRowReferenceComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [1:2]\n" +
                 "      Errors\n" +
@@ -123,7 +123,7 @@ public final class SpreadsheetColumnOrRowReferenceComponentTest implements FormV
                     )
                 ),
             "SpreadsheetColumnOrRowReferenceComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [Z9]\n" +
                 "      Errors\n" +

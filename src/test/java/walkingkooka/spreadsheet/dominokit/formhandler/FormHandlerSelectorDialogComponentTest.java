@@ -64,7 +64,7 @@ public final class FormHandlerSelectorDialogComponentTest implements DialogCompo
                 "    FormHandler Title123\n" +
                 "    id=selector-Dialog includeClose=true CLOSED\n" +
                 "      FormHandlerSelectorComponent\n" +
-                "        ValueSpreadsheetTextBox\n" +
+                "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [hello-form-handler] id=selector-TextBox\n" +
                 "      AnchorListComponent\n" +

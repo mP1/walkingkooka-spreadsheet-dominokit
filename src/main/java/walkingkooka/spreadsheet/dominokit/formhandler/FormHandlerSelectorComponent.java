@@ -18,7 +18,7 @@
 
 package walkingkooka.spreadsheet.dominokit.formhandler;
 
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.text.HasText;
 import walkingkooka.validation.form.provider.FormHandlerSelector;
@@ -33,7 +33,7 @@ public final class FormHandlerSelectorComponent implements ValueSpreadsheetTextB
     }
 
     private FormHandlerSelectorComponent() {
-        this.textBox = ValueSpreadsheetTextBox.with(
+        this.textBox = ValueTextBoxComponent.with(
             FormHandlerSelector::parse,
             HasText::text
         );
@@ -42,11 +42,11 @@ public final class FormHandlerSelectorComponent implements ValueSpreadsheetTextB
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<FormHandlerSelector> valueSpreadsheetTextBox() {
+    public ValueTextBoxComponent<FormHandlerSelector> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueSpreadsheetTextBox<FormHandlerSelector> textBox;
+    private final ValueTextBoxComponent<FormHandlerSelector> textBox;
 
     // Object...........................................................................................................
 

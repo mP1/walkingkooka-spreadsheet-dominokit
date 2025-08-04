@@ -47,7 +47,7 @@ public final class SpreadsheetImporterAliasSetComponentTest implements FormValue
                     )
                 ),
             "SpreadsheetImporterAliasSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [alias1 importer1, importer2]\n"
         );
@@ -63,7 +63,7 @@ public final class SpreadsheetImporterAliasSetComponentTest implements FormValue
                     )
                 ),
             "SpreadsheetImporterAliasSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [alias1 importer1, 9]\n" +
                 "      Errors\n" +

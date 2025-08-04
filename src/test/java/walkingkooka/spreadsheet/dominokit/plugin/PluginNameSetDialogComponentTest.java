@@ -142,7 +142,7 @@ public final class PluginNameSetDialogComponentTest implements DialogComponentLi
                 "                  \"Plugin222\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin222] id=pluginNameSet-add-2-Link\n" +
                 "      RemovePluginNameSetComponent\n" +
                 "      PluginNameSetComponent\n" +
-                "        ValueSpreadsheetTextBox\n" +
+                "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [] id=pluginNameSet-TextBox\n" +
                 "      AnchorListComponent\n" +
@@ -189,7 +189,7 @@ public final class PluginNameSetDialogComponentTest implements DialogComponentLi
                 "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-remove-0-Link\n" +
                 "                  \"Plugin111\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=pluginNameSet-remove-1-Link\n" +
                 "      PluginNameSetComponent\n" +
-                "        ValueSpreadsheetTextBox\n" +
+                "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [plugin111] id=pluginNameSet-TextBox\n" +
                 "      AnchorListComponent\n" +
@@ -237,7 +237,7 @@ public final class PluginNameSetDialogComponentTest implements DialogComponentLi
                 "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-remove-0-Link\n" +
                 "                  \"Plugin111\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=pluginNameSet-remove-1-Link\n" +
                 "      PluginNameSetComponent\n" +
-                "        ValueSpreadsheetTextBox\n" +
+                "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [plugin111] id=pluginNameSet-TextBox\n" +
                 "      AnchorListComponent\n" +
