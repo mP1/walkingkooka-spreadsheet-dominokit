@@ -24,7 +24,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
+import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
@@ -62,7 +62,7 @@ public final class SpreadsheetDeltaLabelsTableComponent implements TableComponen
                                                  final SpreadsheetDeltaLabelsTableComponentContext context) {
         final String idPrefix = id + "labels-";
 
-        this.card = SpreadsheetCard.empty();
+        this.card = CardComponent.empty();
 
         this.dataTable = SpreadsheetDataTableComponent.with(
             idPrefix, // id-prefix
@@ -211,7 +211,7 @@ public final class SpreadsheetDeltaLabelsTableComponent implements TableComponen
         return this.card.element();
     }
 
-    private final SpreadsheetCard card;
+    private final CardComponent card;
 
     // TreePrintable....................................................................................................
 

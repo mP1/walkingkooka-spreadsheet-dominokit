@@ -55,7 +55,7 @@ public final class AddPluginNameSetComponentTest implements HtmlComponentTesting
         this.treePrintAndCheck(
             component,
             "AddPluginNameSetComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Add\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -77,7 +77,7 @@ public final class AddPluginNameSetComponentTest implements HtmlComponentTesting
         this.treePrintAndCheck(
             component,
             "AddPluginNameSetComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Add\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -101,7 +101,7 @@ public final class AddPluginNameSetComponentTest implements HtmlComponentTesting
         this.treePrintAndCheck(
             component,
             "AddPluginNameSetComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Add\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -124,7 +124,7 @@ public final class AddPluginNameSetComponentTest implements HtmlComponentTesting
         this.treePrintAndCheck(
             component,
             "AddPluginNameSetComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Add\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -150,7 +150,7 @@ public final class AddPluginNameSetComponentTest implements HtmlComponentTesting
         this.treePrintAndCheck(
             component,
             "AddPluginNameSetComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Add\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -175,7 +175,7 @@ public final class AddPluginNameSetComponentTest implements HtmlComponentTesting
         this.treePrintAndCheck(
             component,
             "AddPluginNameSetComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Add\n" +
                 "        SpreadsheetFlexLayout\n" +

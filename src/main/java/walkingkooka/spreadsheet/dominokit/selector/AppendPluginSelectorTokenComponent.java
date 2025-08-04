@@ -23,7 +23,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.plugin.PluginSelectorTokenAlternativeLike;
 import walkingkooka.plugin.PluginSelectorTokenLike;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
-import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
+import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.text.CharSequences;
@@ -51,7 +51,7 @@ public final class AppendPluginSelectorTokenComponent<T extends PluginSelectorTo
         this.id = id;
 
         this.flex = SpreadsheetFlexLayout.row();
-        this.root = SpreadsheetCard.empty()
+        this.root = CardComponent.empty()
             .setTitle("Append component(s)")
             .appendChild(this.flex);
     }
@@ -117,7 +117,7 @@ public final class AppendPluginSelectorTokenComponent<T extends PluginSelectorTo
      */
     private final String id;
 
-    private final SpreadsheetCard root;
+    private final CardComponent root;
 
     /**
      * The parent holding the links.

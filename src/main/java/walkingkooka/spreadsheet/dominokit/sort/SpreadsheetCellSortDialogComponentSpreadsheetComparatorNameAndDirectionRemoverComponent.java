@@ -22,7 +22,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameAndDirection;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
-import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
+import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReferenceOrRange;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -49,7 +49,7 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirect
 
     private SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent(final String id,
                                                                                                     final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter) {
-        this.root = SpreadsheetCard.empty()
+        this.root = CardComponent.empty()
             .setTitle("Remove comparator(s)");
 
         this.id = id;
@@ -62,7 +62,7 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirect
     void refresh(final Optional<SpreadsheetColumnOrRowReferenceOrRange> columnOrRow,
                  final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
                  final SpreadsheetCellSortDialogComponentContext context) {
-        final SpreadsheetCard root = this.root;
+        final CardComponent root = this.root;
         root.removeAllChildren()
             .hide();
 
@@ -78,7 +78,7 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirect
     void refresh0(final SpreadsheetColumnOrRowReferenceOrRange columnOrRow,
                   final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
                   final SpreadsheetCellSortDialogComponentContext context) {
-        final SpreadsheetCard root = this.root;
+        final CardComponent root = this.root;
 
         final HistoryToken historyToken = context.historyToken();
 
@@ -159,7 +159,7 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirect
     /**
      * The parent holding all the current links to remove individual components of a {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}
      */
-    private final SpreadsheetCard root;
+    private final CardComponent root;
 
     // TreePrintable....................................................................................................
 

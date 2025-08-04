@@ -184,7 +184,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/matchXyz()] id=cellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
@@ -305,7 +305,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/matchXyz()] id=cellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
@@ -426,7 +426,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" DISABLED id=cellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
@@ -545,7 +545,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/matchXyz()] id=cellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
@@ -700,7 +700,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/matchXyz()] id=cellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
@@ -850,7 +850,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(cellFormula(),%22*formula*%22)] id=cellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
@@ -969,7 +969,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/1+textMatch(cellFormula(),%22*formula*%22)] id=cellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
@@ -1088,7 +1088,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/or(textMatch(cellFormula(),%22*formula*%22),textMatch(cellFormatter(),%22*formatter*%22))] id=cellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
@@ -1207,7 +1207,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/or(textMatch(cellFormula(),%22*formula*%22),true())] id=cellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
@@ -1326,7 +1326,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/or(textMatch(cellDateTimeSymbols(),%22*Hello*%22),1)] id=cellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
@@ -1445,7 +1445,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/or(textMatch(cellDecimalNumberSymbols(),%22*Hello*%22),1)] id=cellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
@@ -1564,7 +1564,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(cellFormatter(),%22*formatter*%22)] id=cellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
@@ -1683,7 +1683,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(cellParser(),%22*parser*%22)] id=cellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
@@ -1802,7 +1802,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(cellStyle(),%22*style*%22)] id=cellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
@@ -1921,7 +1921,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/cellValue()%3C999] id=cellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
@@ -2040,7 +2040,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(cellValidator(),%22*validator123*%22)] id=cellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
@@ -2159,7 +2159,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(cellFormattedValue(),%22*formatted-value*%22)] id=cellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +
@@ -2278,7 +2278,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*formattedValue*%22,cellFormattedValue()))))))))] id=cellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=cellFind-cells-Table\n" +

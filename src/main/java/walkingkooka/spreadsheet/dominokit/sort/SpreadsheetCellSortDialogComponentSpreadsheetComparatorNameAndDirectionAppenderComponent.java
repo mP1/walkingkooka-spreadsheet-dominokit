@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameAndDirection;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
-import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
+import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReferenceOrRange;
@@ -57,7 +57,7 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirect
     private SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent(final String id,
                                                                                                      final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> setter) {
         this.flex = SpreadsheetFlexLayout.row();
-        this.root = SpreadsheetCard.empty()
+        this.root = CardComponent.empty()
             .setTitle("Append comparator(s)")
             .appendChild(this.flex);
 
@@ -179,7 +179,7 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirect
     /**
      * The parent holding all the current links to remove individual components of a {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}
      */
-    private final SpreadsheetCard root;
+    private final CardComponent root;
 
     /**
      * A flex layout that holds the actual links.

@@ -88,7 +88,7 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
         this.renderAndCheck(
             SpreadsheetDelta.EMPTY,
             "SpreadsheetDeltaLabelsTableComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      SpreadsheetDataTableComponent\n" +
                 "        id=ID123-labels-Table\n" +
@@ -116,7 +116,7 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
                 )
             ),
             "SpreadsheetDeltaLabelsTableComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      SpreadsheetDataTableComponent\n" +
                 "        id=ID123-labels-Table\n" +
@@ -167,7 +167,7 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
                 )
             ),
             "SpreadsheetDeltaLabelsTableComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      SpreadsheetDataTableComponent\n" +
                 "        id=ID123-labels-Table\n" +
@@ -222,7 +222,7 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
                 )
             ),
             "SpreadsheetDeltaLabelsTableComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      SpreadsheetDataTableComponent\n" +
                 "        id=ID123-labels-Table\n" +

@@ -81,7 +81,7 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlComponen
         this.treePrintAndCheck(
             component,
             "RemovePluginAliasSetLikeComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -105,7 +105,7 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlComponen
         this.treePrintAndCheck(
             component,
             "RemovePluginAliasSetLikeComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -131,7 +131,7 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlComponen
         this.treePrintAndCheck(
             component,
             "RemovePluginAliasSetLikeComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -155,7 +155,7 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlComponen
         this.treePrintAndCheck(
             component,
             "RemovePluginAliasSetLikeComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -178,7 +178,7 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlComponen
         this.treePrintAndCheck(
             component,
             "RemovePluginAliasSetLikeComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -201,7 +201,7 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlComponen
         this.treePrintAndCheck(
             component,
             "RemovePluginAliasSetLikeComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove\n" +
                 "        SpreadsheetFlexLayout\n" +

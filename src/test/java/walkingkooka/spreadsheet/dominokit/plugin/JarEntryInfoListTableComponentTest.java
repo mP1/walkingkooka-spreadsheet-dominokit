@@ -45,7 +45,7 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
         this.treePrintAndCheck(
             this.createComponent(),
             "JarEntryInfoListTableComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      SpreadsheetDataTableComponent\n" +
                 "        id=Table123-Table\n" +
@@ -84,7 +84,7 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
                     )
                 ),
             "JarEntryInfoListTableComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      SpreadsheetDataTableComponent\n" +
                 "        id=Table123-Table\n" +
@@ -141,7 +141,7 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
                     )
                 ),
             "JarEntryInfoListTableComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      SpreadsheetDataTableComponent\n" +
                 "        id=Table123-Table\n" +
@@ -207,7 +207,7 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
                     )
                 ),
             "JarEntryInfoListTableComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      SpreadsheetDataTableComponent\n" +
                 "        id=Table123-Table\n" +

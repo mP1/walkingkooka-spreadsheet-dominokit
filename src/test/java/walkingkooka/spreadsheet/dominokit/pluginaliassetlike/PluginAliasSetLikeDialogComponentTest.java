@@ -83,7 +83,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
                 "    ExpressionFunctions123\n" +
                 "    id=pluginAliasSet-Dialog includeClose=true\n" +
                 "      AddPluginAliasSetLikeComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Add\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -133,7 +133,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
                 "    ExpressionFunctions123\n" +
                 "    id=pluginAliasSet-Dialog includeClose=true\n" +
                 "      AddPluginAliasSetLikeComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Add\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -142,7 +142,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
                 "                  \"Name2\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2] id=pluginAliasSet-add-1-Link\n" +
                 "                  \"Name3\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name3] id=pluginAliasSet-add-2-Link\n" +
                 "      RemovePluginAliasSetLikeComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove\n" +
                 "              SpreadsheetFlexLayout\n" +

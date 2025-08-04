@@ -111,7 +111,7 @@ public final class RemoveOrReplacePluginSelectorTokenComponentTest implements Ht
                 )
             ), // textComponents
             "RemoveOrReplacePluginSelectorTokenComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove / Replace component(s)\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -179,7 +179,7 @@ public final class RemoveOrReplacePluginSelectorTokenComponentTest implements Ht
                 )
             ), // textComponents
             "RemoveOrReplacePluginSelectorTokenComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove / Replace component(s)\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -215,7 +215,7 @@ public final class RemoveOrReplacePluginSelectorTokenComponentTest implements Ht
                 )
             ), // textComponents
             "RemoveOrReplacePluginSelectorTokenComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove / Replace component(s)\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -238,7 +238,7 @@ public final class RemoveOrReplacePluginSelectorTokenComponentTest implements Ht
                 )
             ), // textComponents
             "RemoveOrReplacePluginSelectorTokenComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove / Replace component(s)\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -265,7 +265,7 @@ public final class RemoveOrReplacePluginSelectorTokenComponentTest implements Ht
                 )
             ), // textComponents
             "RemoveOrReplacePluginSelectorTokenComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove / Replace component(s)\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -303,7 +303,7 @@ public final class RemoveOrReplacePluginSelectorTokenComponentTest implements Ht
                 )
             ), // textComponents
             "RemoveOrReplacePluginSelectorTokenComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove / Replace component(s)\n" +
                 "        SpreadsheetFlexLayout\n" +

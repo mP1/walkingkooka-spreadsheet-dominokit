@@ -83,7 +83,7 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
                 "    Loading...\n" +
                 "    id=plugin-Dialog includeClose=true\n" +
                 "      JarEntryInfoListTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=plugin-Table\n" +
@@ -123,7 +123,7 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
                 "    Loading...\n" +
                 "    id=plugin-Dialog includeClose=true\n" +
                 "      JarEntryInfoListTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=plugin-Table\n" +
@@ -162,7 +162,7 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
                 "    TestPluginName111\n" +
                 "    id=plugin-Dialog includeClose=true\n" +
                 "      JarEntryInfoListTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=plugin-Table\n" +
@@ -203,7 +203,7 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
                 "    Loading...\n" +
                 "    id=plugin-Dialog includeClose=true\n" +
                 "      JarEntryInfoListTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=plugin-Table\n" +
@@ -258,7 +258,7 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
                 "    TestPluginName111\n" +
                 "    id=plugin-Dialog includeClose=true\n" +
                 "      JarEntryInfoListTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=plugin-Table\n" +
@@ -316,7 +316,7 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
                 "    Loading...\n" +
                 "    id=plugin-Dialog includeClose=true\n" +
                 "      JarEntryInfoListTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=plugin-Table\n" +
@@ -371,7 +371,7 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
                 "    TestPluginName111\n" +
                 "    id=plugin-Dialog includeClose=true\n" +
                 "      JarEntryInfoListTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=plugin-Table\n" +
@@ -447,7 +447,7 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
                 "    differentPlugin222\n" +
                 "    id=plugin-Dialog includeClose=true\n" +
                 "      JarEntryInfoListTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=plugin-Table\n" +

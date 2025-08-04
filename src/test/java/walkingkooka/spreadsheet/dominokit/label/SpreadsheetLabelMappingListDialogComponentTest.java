@@ -96,7 +96,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "    Labels\n" +
                 "    id=labels-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaLabelsTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=labels-labels-Table\n" +
@@ -147,7 +147,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "    Labels\n" +
                 "    id=labels-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaLabelsTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=labels-labels-Table\n" +
@@ -200,7 +200,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "    Labels\n" +
                 "    id=labels-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaLabelsTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=labels-labels-Table\n" +
@@ -272,7 +272,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "    Labels\n" +
                 "    id=labels-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaLabelsTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=labels-labels-Table\n" +
@@ -327,7 +327,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "    Labels\n" +
                 "    id=labels-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaLabelsTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=labels-labels-Table\n" +
@@ -400,7 +400,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "    Labels\n" +
                 "    id=labels-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaLabelsTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=labels-labels-Table\n" +
@@ -455,7 +455,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Spr
                 "    Labels\n" +
                 "    id=labels-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaLabelsTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=labels-labels-Table\n" +

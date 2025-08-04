@@ -99,7 +99,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
                 "    Cell References\n" +
                 "    id=cellReferences-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=cellReferences-cells-Table\n" +
@@ -142,7 +142,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
                 "    Cell References\n" +
                 "    id=cellReferences-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=cellReferences-cells-Table\n" +
@@ -201,7 +201,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
                 "    Cell References\n" +
                 "    id=cellReferences-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=cellReferences-cells-Table\n" +

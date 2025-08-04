@@ -70,7 +70,7 @@ public final class RemovePluginNameSetComponentTest implements HtmlComponentTest
         this.treePrintAndCheck(
             component,
             "RemovePluginNameSetComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -94,7 +94,7 @@ public final class RemovePluginNameSetComponentTest implements HtmlComponentTest
         this.treePrintAndCheck(
             component,
             "RemovePluginNameSetComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -120,7 +120,7 @@ public final class RemovePluginNameSetComponentTest implements HtmlComponentTest
         this.treePrintAndCheck(
             component,
             "RemovePluginNameSetComponent\n" +
-                "  SpreadsheetCard\n" +
+                "  CardComponent\n" +
                 "    Card\n" +
                 "      Remove\n" +
                 "        SpreadsheetFlexLayout\n" +

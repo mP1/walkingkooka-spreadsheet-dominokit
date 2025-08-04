@@ -88,7 +88,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
                 "        SpreadsheetCardLinkListComponent\n" +
-                "          SpreadsheetCard\n" +
+                "          CardComponent\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
                 "                ROW\n" +
@@ -104,7 +104,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"Text Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Time Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=spreadsheetFormatterSelector-Table\n" +
@@ -175,7 +175,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
                 "        SpreadsheetCardLinkListComponent\n" +
-                "          SpreadsheetCard\n" +
+                "          CardComponent\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
                 "                ROW\n" +
@@ -191,7 +191,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"Text Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Time Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=spreadsheetFormatterSelector-Table\n" +
@@ -227,7 +227,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  TextNodeComponent\n" +
                 "                    31/12/1999\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -242,7 +242,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"mmmm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-format-pattern%20dd/mm/yyyymmmm] id=spreadsheetFormatterSelector-appender-append-7-Link\n" +
                 "                  \"mmmmm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-format-pattern%20dd/mm/yyyymmmmm] id=spreadsheetFormatterSelector-appender-append-8-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -294,7 +294,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
                 "        SpreadsheetCardLinkListComponent\n" +
-                "          SpreadsheetCard\n" +
+                "          CardComponent\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
                 "                ROW\n" +
@@ -310,7 +310,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"Text Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Time Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=spreadsheetFormatterSelector-Table\n" +
@@ -346,7 +346,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  TextNodeComponent\n" +
                 "                    31/12/1999 12:58:00\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -371,7 +371,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"yy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssyy] id=spreadsheetFormatterSelector-appender-append-17-Link\n" +
                 "                  \"yyyy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssyyyy] id=spreadsheetFormatterSelector-appender-append-18-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -432,7 +432,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
                 "        SpreadsheetCardLinkListComponent\n" +
-                "          SpreadsheetCard\n" +
+                "          CardComponent\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
                 "                ROW\n" +
@@ -448,7 +448,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"Text Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Time Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=spreadsheetFormatterSelector-Table\n" +
@@ -532,7 +532,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  TextNodeComponent\n" +
                 "                    $1234*50\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -546,7 +546,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"?\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20$%230.00?] id=spreadsheetFormatterSelector-appender-append-6-Link\n" +
                 "                  \"E\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20$%230.00E] id=spreadsheetFormatterSelector-appender-append-7-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -591,7 +591,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
                 "        SpreadsheetCardLinkListComponent\n" +
-                "          SpreadsheetCard\n" +
+                "          CardComponent\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
                 "                ROW\n" +
@@ -607,7 +607,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"Text Format Pattern\" DISABLED id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Time Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=spreadsheetFormatterSelector-Table\n" +
@@ -625,7 +625,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  TextNodeComponent\n" +
                 "                    Hello World 123 Hello\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -634,7 +634,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"@\" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern%20@%20%22Hello%22@] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
                 "                  \"_ \" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern%20@%20%22Hello%22_%20] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -676,7 +676,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
                 "        SpreadsheetCardLinkListComponent\n" +
-                "          SpreadsheetCard\n" +
+                "          CardComponent\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
                 "                ROW\n" +
@@ -692,7 +692,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"Text Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Time Format Pattern\" DISABLED id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=spreadsheetFormatterSelector-Table\n" +
@@ -716,7 +716,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  TextNodeComponent\n" +
                 "                    12:58\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -732,7 +732,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"s\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20hh:mms] id=spreadsheetFormatterSelector-appender-append-8-Link\n" +
                 "                  \"ss\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20hh:mmss] id=spreadsheetFormatterSelector-appender-append-9-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -788,7 +788,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter] id=spreadsheetFormatterSelector-Tabs-time-format\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
                 "        SpreadsheetCardLinkListComponent\n" +
-                "          SpreadsheetCard\n" +
+                "          CardComponent\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
                 "                ROW\n" +
@@ -804,7 +804,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"Text Format Pattern\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Time Format Pattern\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=spreadsheetFormatterSelector-Table\n" +
@@ -840,7 +840,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  TextNodeComponent\n" +
                 "                    31/12/1999\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -855,7 +855,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"mmmm\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date-format-pattern%20dd/mm/yyyymmmm] id=spreadsheetFormatterSelector-appender-append-7-Link\n" +
                 "                  \"mmmmm\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date-format-pattern%20dd/mm/yyyymmmmm] id=spreadsheetFormatterSelector-appender-append-8-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -919,7 +919,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter] id=spreadsheetFormatterSelector-Tabs-time-format\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
                 "        SpreadsheetCardLinkListComponent\n" +
-                "          SpreadsheetCard\n" +
+                "          CardComponent\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
                 "                ROW\n" +
@@ -935,7 +935,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"Text Format Pattern\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Time Format Pattern\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=spreadsheetFormatterSelector-Table\n" +
@@ -971,7 +971,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  TextNodeComponent\n" +
                 "                    31/12/1999 12:58:00\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -996,7 +996,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"yy\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssyy] id=spreadsheetFormatterSelector-appender-append-17-Link\n" +
                 "                  \"yyyy\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssyyyy] id=spreadsheetFormatterSelector-appender-append-18-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -1069,7 +1069,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter] id=spreadsheetFormatterSelector-Tabs-time-format\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
                 "        SpreadsheetCardLinkListComponent\n" +
-                "          SpreadsheetCard\n" +
+                "          CardComponent\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
                 "                ROW\n" +
@@ -1085,7 +1085,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"Text Format Pattern\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Time Format Pattern\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=spreadsheetFormatterSelector-Table\n" +
@@ -1169,7 +1169,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  TextNodeComponent\n" +
                 "                    $1234*50\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -1183,7 +1183,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"?\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20$%230.00?] id=spreadsheetFormatterSelector-appender-append-6-Link\n" +
                 "                  \"E\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20$%230.00E] id=spreadsheetFormatterSelector-appender-append-7-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -1240,7 +1240,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter] id=spreadsheetFormatterSelector-Tabs-time-format\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
                 "        SpreadsheetCardLinkListComponent\n" +
-                "          SpreadsheetCard\n" +
+                "          CardComponent\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
                 "                ROW\n" +
@@ -1256,7 +1256,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"Text Format Pattern\" DISABLED id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Time Format Pattern\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=spreadsheetFormatterSelector-Table\n" +
@@ -1274,7 +1274,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  TextNodeComponent\n" +
                 "                    Hello World 123 Hello\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -1283,7 +1283,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"@\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text-format-pattern%20@%20%22Hello%22@] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
                 "                  \"_ \" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text-format-pattern%20@%20%22Hello%22_%20] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -1337,7 +1337,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "            \"Time\" DISABLED id=spreadsheetFormatterSelector-Tabs-time-format\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
                 "        SpreadsheetCardLinkListComponent\n" +
-                "          SpreadsheetCard\n" +
+                "          CardComponent\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
                 "                ROW\n" +
@@ -1353,7 +1353,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"Text Format Pattern\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Time Format Pattern\" DISABLED id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=spreadsheetFormatterSelector-Table\n" +
@@ -1377,7 +1377,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  TextNodeComponent\n" +
                 "                    12:58\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Append component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -1393,7 +1393,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "                  \"s\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20hh:mms] id=spreadsheetFormatterSelector-appender-append-8-Link\n" +
                 "                  \"ss\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20hh:mmss] id=spreadsheetFormatterSelector-appender-append-9-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
-                "        SpreadsheetCard\n" +
+                "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              SpreadsheetFlexLayout\n" +

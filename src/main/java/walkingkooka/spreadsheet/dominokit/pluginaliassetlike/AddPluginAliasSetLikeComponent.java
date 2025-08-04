@@ -27,7 +27,7 @@ import walkingkooka.plugin.PluginInfoLike;
 import walkingkooka.plugin.PluginInfoSetLike;
 import walkingkooka.plugin.PluginSelectorLike;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
-import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
+import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.text.CaseKind;
@@ -69,7 +69,7 @@ public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>
         this.id = id;
 
         this.flex = SpreadsheetFlexLayout.row();
-        this.root = SpreadsheetCard.empty()
+        this.root = CardComponent.empty()
             .setTitle("Add")
             .appendChild(this.flex);
     }
@@ -185,7 +185,7 @@ public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>
      */
     private final String id;
 
-    private final SpreadsheetCard root;
+    private final CardComponent root;
 
     /**
      * The parent holding LINKS
