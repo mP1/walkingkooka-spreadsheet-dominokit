@@ -38,7 +38,7 @@ import java.util.Optional;
  * {@link SpreadsheetTextBox}.
  */
 public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSetElement, String, SpreadsheetTextBox>,
-    SpreadsheetTextBoxTreePrintable<SpreadsheetTextBox, String>,
+    FormValueComponentTreePrintable<SpreadsheetTextBox, String>,
     TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetTextBox>,
     ValidatorHelper {
 
@@ -254,7 +254,7 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
         return false;
     }
 
-    // SpreadsheetTextBoxTreePrintable..................................................................................
+    // FormValueComponentTreePrintable..................................................................................
 
     @Override
     public void treePrintAlternateValues(final IndentingPrinter printer) {
