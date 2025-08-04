@@ -106,7 +106,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -137,7 +137,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Formula [] id=cellFind-formula-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -154,7 +154,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -227,7 +227,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -258,7 +258,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Formula [] id=cellFind-formula-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -275,7 +275,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -348,7 +348,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -379,7 +379,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Formula [] id=cellFind-formula-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -396,7 +396,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -467,7 +467,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -498,7 +498,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Formula [] id=cellFind-formula-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -515,7 +515,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -622,7 +622,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -653,7 +653,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Formula [] id=cellFind-formula-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -670,7 +670,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -772,7 +772,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -803,7 +803,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Formula [*formula*] id=cellFind-formula-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -820,7 +820,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -891,7 +891,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -922,7 +922,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Formula [*formula*] id=cellFind-formula-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -939,7 +939,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -1010,7 +1010,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -1041,7 +1041,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Formula [*formula*] id=cellFind-formula-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -1058,7 +1058,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -1129,7 +1129,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -1160,7 +1160,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Formula [*formula*] id=cellFind-formula-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -1177,7 +1177,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -1248,7 +1248,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -1279,7 +1279,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Formula [] id=cellFind-formula-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -1296,7 +1296,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -1367,7 +1367,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -1398,7 +1398,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Formula [] id=cellFind-formula-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -1415,7 +1415,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -1486,7 +1486,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -1517,7 +1517,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Formula [] id=cellFind-formula-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -1534,7 +1534,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -1605,7 +1605,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -1636,7 +1636,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Formula [] id=cellFind-formula-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -1653,7 +1653,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Parser [*parser*] id=cellFind-parser-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -1724,7 +1724,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -1755,7 +1755,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Formula [] id=cellFind-formula-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -1772,7 +1772,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -1843,7 +1843,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -1874,7 +1874,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Formula [] id=cellFind-formula-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -1891,7 +1891,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -1962,7 +1962,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -1993,7 +1993,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Formula [] id=cellFind-formula-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -2010,7 +2010,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -2081,7 +2081,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -2112,7 +2112,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Formula [] id=cellFind-formula-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -2129,7 +2129,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Parser [] id=cellFind-parser-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -2200,7 +2200,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "  SpreadsheetDialogComponent\n" +
                 "    Find\n" +
                 "    id=cellFind-Dialog includeClose=true\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -2231,7 +2231,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Formula [*formula*] id=cellFind-formula-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
@@ -2248,7 +2248,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +
                 "              Parser [*parser*] id=cellFind-parser-TextBox\n" +
-                "      SpreadsheetRowComponent\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueSpreadsheetTextBox\n" +
                 "            SpreadsheetTextBox\n" +

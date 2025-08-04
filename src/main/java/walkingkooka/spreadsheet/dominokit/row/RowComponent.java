@@ -32,28 +32,28 @@ import java.util.function.Supplier;
  * A {@link walkingkooka.spreadsheet.dominokit.Component} that uses Columns to hold {@link HtmlComponent} as they
  * are added.
  */
-public final class SpreadsheetRowComponent implements HtmlComponent<HTMLDivElement, SpreadsheetRowComponent> {
+public final class RowComponent implements HtmlComponent<HTMLDivElement, RowComponent> {
 
-    public static SpreadsheetRowComponent columnSpan3() {
+    public static RowComponent columnSpan3() {
         return with(Column::span3);
     }
 
-    public static SpreadsheetRowComponent columnSpan4() {
+    public static RowComponent columnSpan4() {
         return with(Column::span4);
     }
 
-    private static SpreadsheetRowComponent with(final Supplier<Column> column) {
-        return new SpreadsheetRowComponent(column);
+    private static RowComponent with(final Supplier<Column> column) {
+        return new RowComponent(column);
     }
 
-    private SpreadsheetRowComponent(final Supplier<Column> column) {
+    private RowComponent(final Supplier<Column> column) {
         this.row = Row.create();
         this.children = Lists.array();
 
         this.column = column;
     }
 
-    public SpreadsheetRowComponent appendChild(final HtmlComponent<?, ?> child) {
+    public RowComponent appendChild(final HtmlComponent<?, ?> child) {
         Objects.requireNonNull(child, "child");
 
         this.row.appendChild(
@@ -69,14 +69,14 @@ public final class SpreadsheetRowComponent implements HtmlComponent<HTMLDivEleme
     private final List<HtmlComponent<?, ?>> children;
 
     @Override
-    public SpreadsheetRowComponent setCssText(final String css) {
+    public RowComponent setCssText(final String css) {
         this.row.cssText(css);
         return this;
     }
 
     @Override
-    public SpreadsheetRowComponent setCssProperty(final String name,
-                                                  final String value) {
+    public RowComponent setCssProperty(final String name,
+                                       final String value) {
         this.row.setCssProperty(
             name,
             value

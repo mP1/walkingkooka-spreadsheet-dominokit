@@ -26,21 +26,21 @@ import walkingkooka.text.printer.IndentingPrinter;
 import java.util.List;
 import java.util.Objects;
 
-public class SpreadsheetRowComponent implements TestHtmlElementComponent<HTMLDivElement, SpreadsheetRowComponent> {
+public class RowComponent implements TestHtmlElementComponent<HTMLDivElement, RowComponent> {
 
-    public static SpreadsheetRowComponent columnSpan3() {
-        return new SpreadsheetRowComponent();
+    public static RowComponent columnSpan3() {
+        return new RowComponent();
     }
 
-    public static SpreadsheetRowComponent columnSpan4() {
-        return new SpreadsheetRowComponent();
+    public static RowComponent columnSpan4() {
+        return new RowComponent();
     }
 
-    private SpreadsheetRowComponent() {
+    private RowComponent() {
         this.children = Lists.array();
     }
 
-    public SpreadsheetRowComponent appendChild(final HtmlComponent<?, ?> child) {
+    public RowComponent appendChild(final HtmlComponent<?, ?> child) {
         Objects.requireNonNull(child, "child");
 
         this.children.add(child);
