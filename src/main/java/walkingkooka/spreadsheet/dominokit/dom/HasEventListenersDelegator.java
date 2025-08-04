@@ -26,39 +26,45 @@ public interface HasEventListenersDelegator<V, C extends HasEventListeners<V, C>
 
     @Override
     default C addChangeListener(final ChangeListener<Optional<V>> listener) {
-        return this.hasEventListeners()
+        this.hasEventListeners()
             .addChangeListener(listener);
+        return (C) this;
     }
 
     @Override
     default C addClickListener(final EventListener listener) {
-        return this.hasEventListeners()
+        this.hasEventListeners()
             .addClickListener(listener);
+        return (C) this;
     }
 
     @Override
     default C addContextMenuListener(final EventListener listener) {
-        return this.hasEventListeners()
+        this.hasEventListeners()
             .addContextMenuListener(listener);
+        return (C) this;
     }
 
     @Override
     default C addFocusListener(final EventListener listener) {
-        return this.hasEventListeners()
+        this.hasEventListeners()
             .addFocusListener(listener);
+        return (C) this;
     }
 
     @Override
     default C addKeydownListener(final EventListener listener) {
-        return this.hasEventListeners()
+        this.hasEventListeners()
             .addKeydownListener(listener);
+        return (C) this;
     }
 
     @Override
     default C addKeyupListener(final EventListener listener) {
-        return this.hasEventListeners()
+        this.hasEventListeners()
             .addKeyupListener(listener);
+        return (C) this;
     }
 
-    C hasEventListeners();
+    HasEventListeners<V, ?> hasEventListeners();
 }
