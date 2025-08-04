@@ -174,28 +174,28 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "  FlexLayoutComponent\n" +
                 "    ROW\n" +
                 "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hideZeroValues/save/true] id=toolbar-hide-zero-values-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Show Zero Values\"\n" +
                 "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/find] id=toolbar-find-cells-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Find cells...\"\n" +
                 "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/findHighlighting/save/true] id=toolbar-find-highlight-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Enable cell highlighting\"\n" +
                 "      mdi-flag-checkered \"Create Label\" [#/1/Spreadsheet123/create-label] id=toolbar-label-create-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Create Label\"\n" +
                 "      mdi-flag-checkered \"Labels\" [#/1/Spreadsheet123/label] id=toolbar-label-list-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Labels\"\n" +
                 "      mdi-reload \"Reload\" [#/1/Spreadsheet123/reload] id=toolbar-reload-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Reload\"\n" +
                 "      mdi-power-plug \"Plugin\" [#/plugin] id=toolbar-plugin-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Manage system plugin(s)\"\n" +
                 "      \"Swagger\" [/api-doc/index.html] _blank id=toolbar-swagger-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Click to open swagger html client\"\n"
         );
     }
@@ -217,91 +217,91 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "  FlexLayoutComponent\n" +
                 "    ROW\n" +
                 "      mdi-format-bold \"Bold\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/font-weight/save/bold] id=toolbar-font_weight-BOLD-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Bold\"\n" +
                 "      mdi-format-italic \"Italics\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/font-style/save/ITALIC] id=toolbar-font_style-ITALIC-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Italics\"\n" +
                 "      mdi-format-strikethrough \"Strike\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/text-decoration-line/save/LINE_THROUGH] id=toolbar-text_decoration_line-LINE_THROUGH-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Strike-thru\"\n" +
                 "      mdi-format-underline \"Underline\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/text-decoration-line/save/UNDERLINE] id=toolbar-text_decoration_line-UNDERLINE-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Underline\"\n" +
                 "      mdi-format-align-left \"Left\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/text-align/save/LEFT] id=toolbar-text_align-LEFT-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Left align\"\n" +
                 "      mdi-format-align-center \"Center\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/text-align/save/CENTER] id=toolbar-text_align-CENTER-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Center align\"\n" +
                 "      mdi-format-align-right \"Right\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/text-align/save/RIGHT] id=toolbar-text_align-RIGHT-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Right align\"\n" +
                 "      mdi-format-align-justify \"Justify\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/text-align/save/JUSTIFY] id=toolbar-text_align-JUSTIFY-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Justify\"\n" +
                 "      mdi-format-align-top \"Top\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/vertical-align/save/TOP] id=toolbar-vertical_align-TOP-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Align top\"\n" +
                 "      mdi-format-align-middle \"Middle\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/vertical-align/save/MIDDLE] id=toolbar-vertical_align-MIDDLE-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Align middle\"\n" +
                 "      mdi-format-align-bottom \"Bottom\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/vertical-align/save/BOTTOM] id=toolbar-vertical_align-BOTTOM-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Align bottom\"\n" +
                 "      mdi-format-letter-case \"Capitalize\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/text-transform/save/CAPITALIZE] id=toolbar-text_transform-CAPITALIZE-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Capitalize text\"\n" +
                 "      mdi-format-letter-case-lower \"Lower-case\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/text-transform/save/LOWERCASE] id=toolbar-text_transform-LOWERCASE-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Lower-case text\"\n" +
                 "      mdi-format-letter-case-lower \"Upper-case\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/text-transform/save/UPPERCASE] id=toolbar-text_transform-UPPERCASE-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Upper-case text\"\n" +
                 "      mdi-format-text \"Formatting\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/formatter] id=toolbar-formatter-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Formatting...\"\n" +
                 "      mdi-earth \"DateTimeSymbols\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/dateTimeSymbols] id=toolbar-date-time-symbols-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"DateTimeSymbols...\"\n" +
                 "      mdi-format-text \"Parsing\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/parser] id=toolbar-parser-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Parser(s)...\"\n" +
                 "      mdi-earth \"DecimalNumberSymbols\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/decimalNumberSymbols] id=toolbar-decimal-number-symbols-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"DecimalNumberSymbols...\"\n" +
                 "      mdi-format-clear \"Clear styling\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/*/save/] CHECKED id=toolbar-*-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Clear styling\"\n" +
                 "      mdi-sign-yield \"Validator\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/validator] id=toolbar-validator ch-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Validator...\"\n" +
                 "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hideZeroValues/save/true] id=toolbar-hide-zero-values-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Show Zero Values\"\n" +
                 "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/find] id=toolbar-find-cells-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Find cells...\"\n" +
                 "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/findHighlighting/save/true] id=toolbar-find-highlight-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Enable cell highlighting\"\n" +
                 "      mdi-sort \"Sort\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/sort/edit] id=toolbar-sort-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Sort cell(s), column(s), row(s)...\"\n" +
                 "      mdi-flag-checkered \"Create Label\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/label] id=toolbar-label-create-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Create Label\"\n" +
                 "      mdi-flag-checkered \"Labels\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/labels] id=toolbar-label-list-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Labels\"\n" +
                 "      mdi-reload \"Reload\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/reload] id=toolbar-reload-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Reload\"\n" +
                 "      mdi-power-plug \"Plugin\" [#/plugin] id=toolbar-plugin-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Manage system plugin(s)\"\n" +
                 "      \"Swagger\" [/api-doc/index.html] _blank id=toolbar-swagger-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Click to open swagger html client\"\n"
         );
     }
@@ -323,31 +323,31 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "  FlexLayoutComponent\n" +
                 "    ROW\n" +
                 "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hideZeroValues/save/true] id=toolbar-hide-zero-values-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Show Zero Values\"\n" +
                 "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/find] id=toolbar-find-cells-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Find cells...\"\n" +
                 "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/findHighlighting/save/true] id=toolbar-find-highlight-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Enable cell highlighting\"\n" +
                 "      mdi-sort \"Sort\" [#/1/Spreadsheet123/column/B:C/right/sort/edit] id=toolbar-sort-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Sort cell(s), column(s), row(s)...\"\n" +
                 "      mdi-flag-checkered \"Create Label\" [#/1/Spreadsheet123/create-label] id=toolbar-label-create-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Create Label\"\n" +
                 "      mdi-flag-checkered \"Labels\" [#/1/Spreadsheet123/label] id=toolbar-label-list-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Labels\"\n" +
                 "      mdi-reload \"Reload\" [#/1/Spreadsheet123/reload] id=toolbar-reload-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Reload\"\n" +
                 "      mdi-power-plug \"Plugin\" [#/plugin] id=toolbar-plugin-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Manage system plugin(s)\"\n" +
                 "      \"Swagger\" [/api-doc/index.html] _blank id=toolbar-swagger-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Click to open swagger html client\"\n"
         );
     }
@@ -369,31 +369,31 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "  FlexLayoutComponent\n" +
                 "    ROW\n" +
                 "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hideZeroValues/save/true] id=toolbar-hide-zero-values-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Show Zero Values\"\n" +
                 "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/find] id=toolbar-find-cells-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Find cells...\"\n" +
                 "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/findHighlighting/save/true] id=toolbar-find-highlight-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Enable cell highlighting\"\n" +
                 "      mdi-sort \"Sort\" [#/1/Spreadsheet123/row/3:4/bottom/sort/edit] id=toolbar-sort-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Sort cell(s), column(s), row(s)...\"\n" +
                 "      mdi-flag-checkered \"Create Label\" [#/1/Spreadsheet123/create-label] id=toolbar-label-create-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Create Label\"\n" +
                 "      mdi-flag-checkered \"Labels\" [#/1/Spreadsheet123/label] id=toolbar-label-list-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Labels\"\n" +
                 "      mdi-reload \"Reload\" [#/1/Spreadsheet123/reload] id=toolbar-reload-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Reload\"\n" +
                 "      mdi-power-plug \"Plugin\" [#/plugin] id=toolbar-plugin-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Manage system plugin(s)\"\n" +
                 "      \"Swagger\" [/api-doc/index.html] _blank id=toolbar-swagger-Link\n" +
-                "        SpreadsheetTooltipComponent\n" +
+                "        TooltipComponent\n" +
                 "          \"Click to open swagger html client\"\n"
         );
     }

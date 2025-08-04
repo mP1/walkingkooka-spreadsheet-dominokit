@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.tooltip;
 
-import elemental2.dom.Node;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.popover.Tooltip;
 import walkingkooka.text.CharSequences;
@@ -27,73 +26,55 @@ import java.util.Objects;
 /**
  * Wraps a {@link Tooltip}.
  */
-public final class SpreadsheetTooltipComponent implements SpreadsheetTooltipComponentLike {
+public final class TooltipComponent implements TooltipComponentLike {
 
-    public static SpreadsheetTooltipComponent attach(final SpreadsheetTooltipComponentTarget<?, ?> component,
-                                                     final String text,
-                                                     final DropDirection direction) {
+    public static TooltipComponent attach(final TooltipComponentTarget<?, ?> component,
+                                          final String text,
+                                          final DropDirection direction) {
         Objects.requireNonNull(component, "component");
         CharSequences.failIfNullOrEmpty(text, "text");
         Objects.requireNonNull(direction, "direction");
 
-        return new SpreadsheetTooltipComponent(
+        return new TooltipComponent(
             component,
             text,
             direction
         );
     }
 
-    private SpreadsheetTooltipComponent(final SpreadsheetTooltipComponentTarget<?, ?> component,
-                                        final String text,
-                                        final DropDirection direction) {
-        this.tooltip = Tooltip.create(
-            component.element(),
-            text
-        ).setPosition(direction);
-        this.direction = direction;
-
+    private TooltipComponent(final TooltipComponentTarget<?, ?> component,
+                             final String text,
+                             final DropDirection direction) {
+        this.text = text;
         component.tooltipAttached(this);
         this.component = component;
     }
 
+    /**
+     * Getter that returns the text content of this tooltip.
+     */
     @Override
     public String textContent() {
-        return this.tooltipTextNode().textContent;
+        return this.text;
     }
 
     @Override
-    public SpreadsheetTooltipComponent setTextContent(final String text) {
+    public TooltipComponent setTextContent(final String text) {
         CharSequences.failIfNullOrEmpty(text, "text");
 
-        // unable to update text by simply doing a tooltip#setContent
-        // recreating tooltip seems best bet.
-
-        this.tooltip.detach();
-
-        this.tooltip = Tooltip.create(
-            this.component.element(),
-            text
-        ).setPosition(this.direction);
-
+        this.text = text;
         return this;
     }
 
-    private final DropDirection direction;
-
-    private Node tooltipTextNode() {
-        return this.tooltip.element().lastChild;
-    }
+    private String text;
 
     /**
      * Removes the tooltip.
      */
     @Override
     public void detach() {
-        this.tooltip.detach();
         this.component.tooltipDetached();
     }
 
-    private Tooltip tooltip;
-
-    private final SpreadsheetTooltipComponentTarget<?, ?> component;
+    private final TooltipComponentTarget<?, ?> component;
 }
