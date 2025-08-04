@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.formula;
 
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.text.HasText;
@@ -35,7 +35,7 @@ public final class SpreadsheetFormulaComponent implements ValueSpreadsheetTextBo
     }
 
     private SpreadsheetFormulaComponent(final Function<String, SpreadsheetFormula> parser) {
-        this.textBox = ValueSpreadsheetTextBox.with(
+        this.textBox = ValueTextBoxComponent.with(
             parser,
             HasText::text
         ).setValidator(SpreadsheetFormulaComponentValidator.with(parser));
@@ -44,11 +44,11 @@ public final class SpreadsheetFormulaComponent implements ValueSpreadsheetTextBo
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<SpreadsheetFormula> valueSpreadsheetTextBox() {
+    public ValueTextBoxComponent<SpreadsheetFormula> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueSpreadsheetTextBox<SpreadsheetFormula> textBox;
+    private final ValueTextBoxComponent<SpreadsheetFormula> textBox;
 
     // Object...........................................................................................................
 

@@ -35,7 +35,7 @@ public class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponentTest i
                     Optional.of("A")
                 ),
             "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [A]\n" +
                 "      Errors\n" +
@@ -51,7 +51,7 @@ public class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponentTest i
                     Optional.of("A=")
                 ),
             "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [A=]\n" +
                 "      Errors\n" +
@@ -69,7 +69,7 @@ public class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponentTest i
                     )
                 ),
             "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [A=text;B=text-case-insensitive]\n"
         );
@@ -83,7 +83,7 @@ public class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponentTest i
                     Optional.of("A=GOOD;!B=BAD")
                 ),
             "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [A=GOOD;!B=BAD]\n" +
                 "      Errors\n" +
@@ -99,7 +99,7 @@ public class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponentTest i
                     Optional.of("A=GOOD;B=BAD!")
                 ),
             "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [A=GOOD;B=BAD!]\n" +
                 "      Errors\n" +

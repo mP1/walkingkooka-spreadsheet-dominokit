@@ -144,7 +144,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
                 "          Errors\n" +
                 "            Required\n" +
                 "      SpreadsheetExpressionReferenceComponent\n" +
-                "        ValueSpreadsheetTextBox\n" +
+                "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            Cell, cell range or Label [] id=labelMapping-reference-TextBox\n" +
                 "            Errors\n" +
@@ -174,7 +174,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
                 "          Errors\n" +
                 "            Required\n" +
                 "      SpreadsheetExpressionReferenceComponent\n" +
-                "        ValueSpreadsheetTextBox\n" +
+                "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            Cell, cell range or Label [A1] id=labelMapping-reference-TextBox\n" +
                 "      AnchorListComponent\n" +
@@ -202,7 +202,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
                 "          Errors\n" +
                 "            Required\n" +
                 "      SpreadsheetExpressionReferenceComponent\n" +
-                "        ValueSpreadsheetTextBox\n" +
+                "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            Cell, cell range or Label [B2:C3] id=labelMapping-reference-TextBox\n" +
                 "      AnchorListComponent\n" +
@@ -230,7 +230,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
                 "          Errors\n" +
                 "            Required\n" +
                 "      SpreadsheetExpressionReferenceComponent\n" +
-                "        ValueSpreadsheetTextBox\n" +
+                "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            Cell, cell range or Label [Label123] id=labelMapping-reference-TextBox\n" +
                 "      AnchorListComponent\n" +
@@ -265,7 +265,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
                 "          Errors\n" +
                 "            Required\n" +
                 "      SpreadsheetExpressionReferenceComponent\n" +
-                "        ValueSpreadsheetTextBox\n" +
+                "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            Cell, cell range or Label [] id=labelMapping-reference-TextBox\n" +
                 "            Errors\n" +
@@ -293,7 +293,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
                 "          Errors\n" +
                 "            Required\n" +
                 "      SpreadsheetExpressionReferenceComponent\n" +
-                "        ValueSpreadsheetTextBox\n" +
+                "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            Cell, cell range or Label [] id=labelMapping-reference-TextBox\n" +
                 "            Errors\n" +
@@ -328,7 +328,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
                 "        SuggestBoxComponent\n" +
                 "          Label [Label999] id=labelMapping-label-TextBox REQUIRED\n" +
                 "      SpreadsheetExpressionReferenceComponent\n" +
-                "        ValueSpreadsheetTextBox\n" +
+                "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            Cell, cell range or Label [] id=labelMapping-reference-TextBox\n" +
                 "            Errors\n" +
@@ -366,7 +366,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
                 "        SuggestBoxComponent\n" +
                 "          Label [Label999] id=labelMapping-label-TextBox REQUIRED\n" +
                 "      SpreadsheetExpressionReferenceComponent\n" +
-                "        ValueSpreadsheetTextBox\n" +
+                "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            Cell, cell range or Label [] id=labelMapping-reference-TextBox\n" +
                 "            Errors\n" +

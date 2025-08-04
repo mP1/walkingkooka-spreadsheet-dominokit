@@ -47,7 +47,7 @@ public final class ValidatorAliasSetComponentTest implements FormValueComponentT
                     )
                 ),
             "ValidatorAliasSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [alias1 validator1, validator2]\n"
         );
@@ -63,7 +63,7 @@ public final class ValidatorAliasSetComponentTest implements FormValueComponentT
                     )
                 ),
             "ValidatorAliasSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [alias1 validator1, 9]\n" +
                 "      Errors\n" +

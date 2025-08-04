@@ -35,7 +35,7 @@ public final class ConverterNameComponentTest implements FormValueComponentTesti
                     Optional.of("hello")
                 ),
             "ConverterNameComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [hello]\n"
         );
@@ -49,7 +49,7 @@ public final class ConverterNameComponentTest implements FormValueComponentTesti
                     Optional.of("Hello!")
                 ),
             "ConverterNameComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [Hello!]\n" +
                 "      Errors\n" +
@@ -65,7 +65,7 @@ public final class ConverterNameComponentTest implements FormValueComponentTesti
                     Optional.of(" Hello!")
                 ),
             "ConverterNameComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [ Hello!]\n" +
                 "      Errors\n" +

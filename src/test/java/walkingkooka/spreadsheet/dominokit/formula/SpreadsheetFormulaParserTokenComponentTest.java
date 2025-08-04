@@ -229,7 +229,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements FormVal
         this.treePrintAndCheck(
             this.createComponent(),
             "SpreadsheetFormulaParserTokenComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      []\n" +
                 "      Errors\n" +
@@ -247,7 +247,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements FormVal
                     )
                 ),
             "SpreadsheetFormulaParserTokenComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [=1+2]\n"
         );
@@ -263,7 +263,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements FormVal
                     )
                 ),
             "SpreadsheetFormulaParserTokenComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [>3]\n"
         );
@@ -279,7 +279,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements FormVal
                     )
                 ),
             "SpreadsheetFormulaParserTokenComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [=\"Hello\"]\n"
         );
@@ -295,7 +295,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements FormVal
                     )
                 ),
             "SpreadsheetFormulaParserTokenComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [=123.0]\n"
         );
@@ -311,7 +311,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements FormVal
                     )
                 ),
             "SpreadsheetFormulaParserTokenComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [=1999/12/31]\n"
         );
@@ -327,7 +327,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements FormVal
                     )
                 ),
             "SpreadsheetFormulaParserTokenComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [=1999/12/31 12:58]\n"
         );
@@ -343,7 +343,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements FormVal
                     )
                 ),
             "SpreadsheetFormulaParserTokenComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [=12:58:59]\n"
         );
@@ -359,7 +359,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements FormVal
                     )
                 ),
             "SpreadsheetFormulaParserTokenComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [=1.25+]\n" +
                 "      Errors\n" +

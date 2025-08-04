@@ -35,21 +35,21 @@ import java.util.function.Function;
  * A text box that supports a typed value using a {@link Function} as a parser. Any thrown exception messages become
  * the validation fail messages. it is possible to replace the default validator mentioned above using {@link #setValidator(Validator)}.
  */
-public final class ValueSpreadsheetTextBox<T> implements FormValueComponent<HTMLFieldSetElement, T, ValueSpreadsheetTextBox<T>> {
+public final class ValueTextBoxComponent<T> implements FormValueComponent<HTMLFieldSetElement, T, ValueTextBoxComponent<T>> {
 
     /**
-     * Creates a new {@link ValueSpreadsheetTextBox}.
+     * Creates a new {@link ValueTextBoxComponent}.
      */
-    public static <T> ValueSpreadsheetTextBox<T> with(final Function<String, T> parser,
-                                                      final Function<T, String> formatter) {
-        return new ValueSpreadsheetTextBox<>(
+    public static <T> ValueTextBoxComponent<T> with(final Function<String, T> parser,
+                                                    final Function<T, String> formatter) {
+        return new ValueTextBoxComponent<>(
             Objects.requireNonNull(parser, "parser"),
             Objects.requireNonNull(formatter, "formatter")
         );
     }
 
-    private ValueSpreadsheetTextBox(final Function<String, T> parser,
-                                    final Function<T, String> formatter) {
+    private ValueTextBoxComponent(final Function<String, T> parser,
+                                  final Function<T, String> formatter) {
         this.textBox = TextBoxComponent.empty()
             .autocompleteOff()
             .clearIcon()
@@ -63,7 +63,7 @@ public final class ValueSpreadsheetTextBox<T> implements FormValueComponent<HTML
     /**
      * Sets a new {@link Function} will be used to parse String into values.
      */
-    private ValueSpreadsheetTextBox<T> setParser(final Function<String, T> parser) {
+    private ValueTextBoxComponent<T> setParser(final Function<String, T> parser) {
         Objects.requireNonNull(parser, "parser");
 
         this.parser = parser;
@@ -80,7 +80,7 @@ public final class ValueSpreadsheetTextBox<T> implements FormValueComponent<HTML
     /**
      * Sets a new {@link Function} will be used to format values into text for editing
      */
-    private ValueSpreadsheetTextBox<T> setFormatter(final Function<T, String> formatter) {
+    private ValueTextBoxComponent<T> setFormatter(final Function<T, String> formatter) {
         Objects.requireNonNull(formatter, "formatter");
 
         this.formatter = formatter;
@@ -90,7 +90,7 @@ public final class ValueSpreadsheetTextBox<T> implements FormValueComponent<HTML
     private Function<T, String> formatter;
 
     @Override
-    public ValueSpreadsheetTextBox<T> setId(final String id) {
+    public ValueTextBoxComponent<T> setId(final String id) {
         this.textBox.setId(id);
         return this;
     }
@@ -101,7 +101,7 @@ public final class ValueSpreadsheetTextBox<T> implements FormValueComponent<HTML
     }
 
     @Override
-    public ValueSpreadsheetTextBox<T> setLabel(final String label) {
+    public ValueTextBoxComponent<T> setLabel(final String label) {
         this.textBox.setLabel(label);
         return this;
     }
@@ -117,13 +117,13 @@ public final class ValueSpreadsheetTextBox<T> implements FormValueComponent<HTML
     }
 
     @Override
-    public ValueSpreadsheetTextBox<T> setDisabled(final boolean disabled) {
+    public ValueTextBoxComponent<T> setDisabled(final boolean disabled) {
         this.textBox.setDisabled(disabled);
         return this;
     }
 
     @Override
-    public ValueSpreadsheetTextBox<T> optional() {
+    public ValueTextBoxComponent<T> optional() {
         this.textBox.setValidator(
             SpreadsheetValidators.optional(this.validator)
         );
@@ -132,7 +132,7 @@ public final class ValueSpreadsheetTextBox<T> implements FormValueComponent<HTML
     }
 
     @Override
-    public ValueSpreadsheetTextBox<T> required() {
+    public ValueTextBoxComponent<T> required() {
         this.textBox.setValidator(this.validator);
         this.required = true;
         return this;
@@ -149,7 +149,7 @@ public final class ValueSpreadsheetTextBox<T> implements FormValueComponent<HTML
         return this.validator;
     }
 
-    public ValueSpreadsheetTextBox<T> setValidator(final Validator<Optional<String>> validator) {
+    public ValueTextBoxComponent<T> setValidator(final Validator<Optional<String>> validator) {
         this.textBox.setValidator(validator);
         this.validator = validator;
         return this;
@@ -158,7 +158,7 @@ public final class ValueSpreadsheetTextBox<T> implements FormValueComponent<HTML
     private Validator<Optional<String>> validator;
 
     @Override
-    public ValueSpreadsheetTextBox<T> validate() {
+    public ValueTextBoxComponent<T> validate() {
         this.textBox.validate();
         return this;
     }
@@ -169,13 +169,13 @@ public final class ValueSpreadsheetTextBox<T> implements FormValueComponent<HTML
     }
 
     @Override
-    public ValueSpreadsheetTextBox<T> setErrors(final List<String> errors) {
+    public ValueTextBoxComponent<T> setErrors(final List<String> errors) {
         this.textBox.setErrors(errors);
         return this;
     }
 
     @Override
-    public ValueSpreadsheetTextBox<T> focus() {
+    public ValueTextBoxComponent<T> focus() {
         this.textBox.focus();
         return this;
     }
@@ -186,13 +186,13 @@ public final class ValueSpreadsheetTextBox<T> implements FormValueComponent<HTML
     }
 
     @Override
-    public ValueSpreadsheetTextBox<T> alwaysShowHelperText() {
+    public ValueTextBoxComponent<T> alwaysShowHelperText() {
         this.textBox.alwaysShowHelperText();
         return this;
     }
 
     @Override
-    public ValueSpreadsheetTextBox<T> setHelperText(final Optional<String> text) {
+    public ValueTextBoxComponent<T> setHelperText(final Optional<String> text) {
         this.textBox.setHelperText(text);
         return this;
     }
@@ -203,19 +203,19 @@ public final class ValueSpreadsheetTextBox<T> implements FormValueComponent<HTML
     }
 
     @Override
-    public ValueSpreadsheetTextBox<T> hideMarginBottom() {
+    public ValueTextBoxComponent<T> hideMarginBottom() {
         this.textBox.hideMarginBottom();
         return this;
     }
 
     @Override
-    public ValueSpreadsheetTextBox<T> removeBorders() {
+    public ValueTextBoxComponent<T> removeBorders() {
         this.textBox.removeBorders();
         return this;
     }
 
     @Override
-    public ValueSpreadsheetTextBox<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
+    public ValueTextBoxComponent<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
         Objects.requireNonNull(listener, "listener");
 
         this.textBox.addChangeListener(
@@ -231,31 +231,31 @@ public final class ValueSpreadsheetTextBox<T> implements FormValueComponent<HTML
     }
 
     @Override
-    public ValueSpreadsheetTextBox<T> addClickListener(final EventListener listener) {
+    public ValueTextBoxComponent<T> addClickListener(final EventListener listener) {
         this.textBox.addClickListener(listener);
         return this;
     }
 
     @Override
-    public ValueSpreadsheetTextBox<T> addContextMenuListener(final EventListener listener) {
+    public ValueTextBoxComponent<T> addContextMenuListener(final EventListener listener) {
         this.textBox.addContextMenuListener(listener);
         return this;
     }
 
     @Override
-    public ValueSpreadsheetTextBox<T> addFocusListener(final EventListener listener) {
+    public ValueTextBoxComponent<T> addFocusListener(final EventListener listener) {
         this.textBox.addFocusListener(listener);
         return this;
     }
 
     @Override
-    public ValueSpreadsheetTextBox<T> addKeydownListener(final EventListener listener) {
+    public ValueTextBoxComponent<T> addKeydownListener(final EventListener listener) {
         this.textBox.addKeydownListener(listener);
         return this;
     }
 
     @Override
-    public ValueSpreadsheetTextBox<T> addKeyupListener(final EventListener listener) {
+    public ValueTextBoxComponent<T> addKeyupListener(final EventListener listener) {
         this.textBox.addKeyupListener(listener);
         return this;
     }
@@ -263,7 +263,7 @@ public final class ValueSpreadsheetTextBox<T> implements FormValueComponent<HTML
     // setCssText.......................................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<T> setCssText(final String css) {
+    public ValueTextBoxComponent<T> setCssText(final String css) {
         this.textBox.setCssText(css);
         return this;
     }
@@ -271,8 +271,8 @@ public final class ValueSpreadsheetTextBox<T> implements FormValueComponent<HTML
     // setCssProperty...................................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<T> setCssProperty(final String name,
-                                                     final String value) {
+    public ValueTextBoxComponent<T> setCssProperty(final String name,
+                                                   final String value) {
         this.textBox.setCssProperty(
             name,
             value
@@ -290,7 +290,7 @@ public final class ValueSpreadsheetTextBox<T> implements FormValueComponent<HTML
     // Value............................................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<T> setValue(final Optional<T> value) {
+    public ValueTextBoxComponent<T> setValue(final Optional<T> value) {
         Objects.requireNonNull(value, "value");
 
         this.textBox.setValue(
@@ -341,7 +341,7 @@ public final class ValueSpreadsheetTextBox<T> implements FormValueComponent<HTML
      * Sets the given {@link String value} on the wrapped {@link org.dominokit.domino.ui.forms.TextBox} skipping any
      * validation or conversion.
      */
-    public ValueSpreadsheetTextBox<T> setStringValue(final Optional<String> value) {
+    public ValueTextBoxComponent<T> setStringValue(final Optional<String> value) {
         this.textBox.setValue(value);
         return this;
     }

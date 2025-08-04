@@ -33,7 +33,7 @@ public final class CharacterComponentTest implements FormValueComponentTesting<H
             this.createComponent()
                 .clearValue(),
             "CharacterComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      []\n" +
                 "      Errors\n" +
@@ -49,7 +49,7 @@ public final class CharacterComponentTest implements FormValueComponentTesting<H
                     Optional.of("")
                 ),
             "CharacterComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      []\n" +
                 "      Errors\n" +
@@ -65,7 +65,7 @@ public final class CharacterComponentTest implements FormValueComponentTesting<H
                     Optional.of("1")
                 ),
             "CharacterComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [1]\n" +
                 "      Errors\n" +
@@ -81,7 +81,7 @@ public final class CharacterComponentTest implements FormValueComponentTesting<H
                     Optional.of("A")
                 ),
             "CharacterComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [A]\n"
         );

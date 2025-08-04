@@ -47,7 +47,7 @@ public final class SpreadsheetParserAliasSetComponentTest implements FormValueCo
                     )
                 ),
             "SpreadsheetParserAliasSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [alias1 parser1, parser2]\n"
         );
@@ -63,7 +63,7 @@ public final class SpreadsheetParserAliasSetComponentTest implements FormValueCo
                     )
                 ),
             "SpreadsheetParserAliasSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [alias1 parser1, 9]\n" +
                 "      Errors\n" +

@@ -18,7 +18,7 @@
 
 package walkingkooka.spreadsheet.dominokit.validation;
 
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.text.HasText;
 import walkingkooka.validation.provider.ValidatorSelector;
@@ -33,7 +33,7 @@ public final class ValidatorSelectorComponent implements ValueSpreadsheetTextBox
     }
 
     private ValidatorSelectorComponent() {
-        this.textBox = ValueSpreadsheetTextBox.with(
+        this.textBox = ValueTextBoxComponent.with(
             ValidatorSelector::parse,
             HasText::text
         );
@@ -42,11 +42,11 @@ public final class ValidatorSelectorComponent implements ValueSpreadsheetTextBox
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<ValidatorSelector> valueSpreadsheetTextBox() {
+    public ValueTextBoxComponent<ValidatorSelector> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueSpreadsheetTextBox<ValidatorSelector> textBox;
+    private final ValueTextBoxComponent<ValidatorSelector> textBox;
 
     // Object...........................................................................................................
 

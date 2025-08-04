@@ -47,7 +47,7 @@ public final class PluginNameSetComponentTest implements FormValueComponentTesti
                     )
                 ),
             "PluginNameSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [plugin1, plugin2]\n"
         );
@@ -63,7 +63,7 @@ public final class PluginNameSetComponentTest implements FormValueComponentTesti
                     )
                 ),
             "PluginNameSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [plugin111, 9]\n" +
                 "      Errors\n" +

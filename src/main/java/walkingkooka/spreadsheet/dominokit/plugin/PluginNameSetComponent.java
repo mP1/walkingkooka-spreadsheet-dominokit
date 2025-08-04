@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.plugin;
 
 import walkingkooka.plugin.PluginNameSet;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 
 public final class PluginNameSetComponent implements ValueSpreadsheetTextBoxWrapper<PluginNameSetComponent, PluginNameSet> {
@@ -28,7 +28,7 @@ public final class PluginNameSetComponent implements ValueSpreadsheetTextBoxWrap
     }
 
     private PluginNameSetComponent() {
-        this.textBox = ValueSpreadsheetTextBox.with(
+        this.textBox = ValueTextBoxComponent.with(
             PluginNameSet::parse,
             PluginNameSet::text
         );
@@ -37,11 +37,11 @@ public final class PluginNameSetComponent implements ValueSpreadsheetTextBoxWrap
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<PluginNameSet> valueSpreadsheetTextBox() {
+    public ValueTextBoxComponent<PluginNameSet> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueSpreadsheetTextBox<PluginNameSet> textBox;
+    private final ValueTextBoxComponent<PluginNameSet> textBox;
 
     // Object...........................................................................................................
 

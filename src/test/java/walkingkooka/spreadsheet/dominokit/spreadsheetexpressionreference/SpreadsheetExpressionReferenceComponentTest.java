@@ -37,7 +37,7 @@ public final class SpreadsheetExpressionReferenceComponentTest implements FormVa
                     )
                 ),
             "SpreadsheetExpressionReferenceComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [A1]\n"
         );
@@ -53,7 +53,7 @@ public final class SpreadsheetExpressionReferenceComponentTest implements FormVa
                     )
                 ),
             "SpreadsheetExpressionReferenceComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [$A$1]\n"
         );
@@ -69,7 +69,7 @@ public final class SpreadsheetExpressionReferenceComponentTest implements FormVa
                     )
                 ),
             "SpreadsheetExpressionReferenceComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [A1:B2]\n"
         );
@@ -85,7 +85,7 @@ public final class SpreadsheetExpressionReferenceComponentTest implements FormVa
                     )
                 ),
             "SpreadsheetExpressionReferenceComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [Label123]\n"
         );
@@ -101,7 +101,7 @@ public final class SpreadsheetExpressionReferenceComponentTest implements FormVa
                     )
                 ),
             "SpreadsheetExpressionReferenceComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [Invalid123!]\n" +
                 "      Errors\n" +
@@ -119,7 +119,7 @@ public final class SpreadsheetExpressionReferenceComponentTest implements FormVa
                     )
                 ),
             "SpreadsheetExpressionReferenceComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [$A]\n" +
                 "      Errors\n" +
@@ -137,7 +137,7 @@ public final class SpreadsheetExpressionReferenceComponentTest implements FormVa
                     )
                 ),
             "SpreadsheetExpressionReferenceComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [123]\n" +
                 "      Errors\n" +

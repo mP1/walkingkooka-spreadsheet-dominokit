@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.validation;
 
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.validation.provider.ValidatorInfoSet;
 
@@ -28,7 +28,7 @@ public final class ValidatorInfoSetComponent implements ValueSpreadsheetTextBoxW
     }
 
     private ValidatorInfoSetComponent() {
-        this.textBox = ValueSpreadsheetTextBox.with(
+        this.textBox = ValueTextBoxComponent.with(
             ValidatorInfoSet::parse,
             ValidatorInfoSet::text
         );
@@ -37,11 +37,11 @@ public final class ValidatorInfoSetComponent implements ValueSpreadsheetTextBoxW
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<ValidatorInfoSet> valueSpreadsheetTextBox() {
+    public ValueTextBoxComponent<ValidatorInfoSet> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueSpreadsheetTextBox<ValidatorInfoSet> textBox;
+    private final ValueTextBoxComponent<ValidatorInfoSet> textBox;
 
     // Object...........................................................................................................
 

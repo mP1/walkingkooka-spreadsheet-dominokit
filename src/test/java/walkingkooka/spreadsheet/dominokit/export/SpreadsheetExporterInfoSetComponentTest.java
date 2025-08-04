@@ -51,7 +51,7 @@ public final class SpreadsheetExporterInfoSetComponentTest implements FormValueC
                     )
                 ),
             "SpreadsheetExporterInfoSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetExporter/collection collection,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetExporter/empty empty,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetExporter/json json]\n"
         );
@@ -67,7 +67,7 @@ public final class SpreadsheetExporterInfoSetComponentTest implements FormValueC
                     )
                 ),
             "SpreadsheetExporterInfoSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [https://www.example.com/Hello !]\n" +
                 "      Errors\n" +
@@ -85,7 +85,7 @@ public final class SpreadsheetExporterInfoSetComponentTest implements FormValueC
                     )
                 ),
             "SpreadsheetExporterInfoSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [https://www.example.com/1 Hello, bad:// Hello2]\n" +
                 "      Errors\n" +
@@ -103,7 +103,7 @@ public final class SpreadsheetExporterInfoSetComponentTest implements FormValueC
                     )
                 ),
             "SpreadsheetExporterInfoSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [https://www.example.com/1 Hello, https://example.com/2 Bad!]\n" +
                 "      Errors\n" +

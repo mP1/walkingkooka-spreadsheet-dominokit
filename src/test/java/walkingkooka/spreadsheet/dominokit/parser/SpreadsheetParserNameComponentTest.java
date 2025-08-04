@@ -37,7 +37,7 @@ public final class SpreadsheetParserNameComponentTest implements FormValueCompon
                     )
                 ),
             "SpreadsheetParserNameComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [Hello]\n"
         );
@@ -53,7 +53,7 @@ public final class SpreadsheetParserNameComponentTest implements FormValueCompon
                     )
                 ),
             "SpreadsheetParserNameComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [Invalid123!]\n" +
                 "      Errors\n" +

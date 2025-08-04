@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.decimalnumbersymbols;
 
 import walkingkooka.math.DecimalNumberSymbols;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 
 public final class DecimalNumberSymbolsComponent implements ValueSpreadsheetTextBoxWrapper<DecimalNumberSymbolsComponent, DecimalNumberSymbols> {
@@ -28,7 +28,7 @@ public final class DecimalNumberSymbolsComponent implements ValueSpreadsheetText
     }
 
     private DecimalNumberSymbolsComponent() {
-        this.textBox = ValueSpreadsheetTextBox.with(
+        this.textBox = ValueTextBoxComponent.with(
             DecimalNumberSymbols::parse,
             DecimalNumberSymbols::text
         );
@@ -37,11 +37,11 @@ public final class DecimalNumberSymbolsComponent implements ValueSpreadsheetText
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<DecimalNumberSymbols> valueSpreadsheetTextBox() {
+    public ValueTextBoxComponent<DecimalNumberSymbols> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueSpreadsheetTextBox<DecimalNumberSymbols> textBox;
+    private final ValueTextBoxComponent<DecimalNumberSymbols> textBox;
 
     // Object...........................................................................................................
 

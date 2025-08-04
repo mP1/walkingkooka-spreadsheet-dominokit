@@ -29,13 +29,13 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class ValueSpreadsheetTextBoxTest implements FormValueComponentTesting<HTMLFieldSetElement, SpreadsheetCellReference, ValueSpreadsheetTextBox<SpreadsheetCellReference>> {
+public final class ValueTextBoxComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, SpreadsheetCellReference, ValueTextBoxComponent<SpreadsheetCellReference>> {
 
     @Test
     public void testWithNullParserFunctionFails() {
         assertThrows(
             NullPointerException.class,
-            () -> ValueSpreadsheetTextBox.with(
+            () -> ValueTextBoxComponent.with(
                 null,
                 Object::toString
             )
@@ -46,7 +46,7 @@ public final class ValueSpreadsheetTextBoxTest implements FormValueComponentTest
     public void testWithNullFormatterFunctionFails() {
         assertThrows(
             NullPointerException.class,
-            () -> ValueSpreadsheetTextBox.with(
+            () -> ValueTextBoxComponent.with(
                 (s) -> {
                     throw new UnsupportedOperationException();
                 },
@@ -78,7 +78,7 @@ public final class ValueSpreadsheetTextBoxTest implements FormValueComponentTest
                         "AB!12"
                     )
                 ),
-            "ValueSpreadsheetTextBox\n" +
+            "ValueTextBoxComponent\n" +
                 "  TextBoxComponent\n" +
                 "    [AB!12] id=id123\n" +
                 "    Errors\n" +
@@ -96,7 +96,7 @@ public final class ValueSpreadsheetTextBoxTest implements FormValueComponentTest
                         SpreadsheetSelection.parseCell("AB12")
                     )
                 ),
-            "ValueSpreadsheetTextBox\n" +
+            "ValueTextBoxComponent\n" +
                 "  TextBoxComponent\n" +
                 "    [AB12] id=id123\n"
         );
@@ -105,8 +105,8 @@ public final class ValueSpreadsheetTextBoxTest implements FormValueComponentTest
     // ValueComponent...................................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<SpreadsheetCellReference> createComponent() {
-        return ValueSpreadsheetTextBox.with(
+    public ValueTextBoxComponent<SpreadsheetCellReference> createComponent() {
+        return ValueTextBoxComponent.with(
             SpreadsheetSelection::parseCell,
             HasText::text
         );
@@ -115,8 +115,8 @@ public final class ValueSpreadsheetTextBoxTest implements FormValueComponentTest
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<ValueSpreadsheetTextBox<SpreadsheetCellReference>> type() {
-        return Cast.to(ValueSpreadsheetTextBox.class);
+    public Class<ValueTextBoxComponent<SpreadsheetCellReference>> type() {
+        return Cast.to(ValueTextBoxComponent.class);
     }
 
     @Override

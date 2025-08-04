@@ -47,7 +47,7 @@ public final class SpreadsheetFormatterAliasSetComponentTest implements FormValu
                     )
                 ),
             "SpreadsheetFormatterAliasSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [alias1 formatter1, formatter2]\n"
         );
@@ -63,7 +63,7 @@ public final class SpreadsheetFormatterAliasSetComponentTest implements FormValu
                     )
                 ),
             "SpreadsheetFormatterAliasSetComponent\n" +
-                "  ValueSpreadsheetTextBox\n" +
+                "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [alias1 formatter1, 9]\n" +
                 "      Errors\n" +

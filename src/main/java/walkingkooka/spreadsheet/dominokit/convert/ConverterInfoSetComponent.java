@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.convert;
 
 import walkingkooka.convert.provider.ConverterInfoSet;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 
 public final class ConverterInfoSetComponent implements ValueSpreadsheetTextBoxWrapper<ConverterInfoSetComponent, ConverterInfoSet> {
@@ -28,7 +28,7 @@ public final class ConverterInfoSetComponent implements ValueSpreadsheetTextBoxW
     }
 
     private ConverterInfoSetComponent() {
-        this.textBox = ValueSpreadsheetTextBox.with(
+        this.textBox = ValueTextBoxComponent.with(
             ConverterInfoSet::parse,
             ConverterInfoSet::text
         );
@@ -37,11 +37,11 @@ public final class ConverterInfoSetComponent implements ValueSpreadsheetTextBoxW
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<ConverterInfoSet> valueSpreadsheetTextBox() {
+    public ValueTextBoxComponent<ConverterInfoSet> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueSpreadsheetTextBox<ConverterInfoSet> textBox;
+    private final ValueTextBoxComponent<ConverterInfoSet> textBox;
 
     // Object...........................................................................................................
 

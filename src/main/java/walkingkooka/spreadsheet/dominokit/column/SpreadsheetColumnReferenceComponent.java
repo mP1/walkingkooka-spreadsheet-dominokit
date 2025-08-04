@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.column;
 
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -33,7 +33,7 @@ public final class SpreadsheetColumnReferenceComponent implements ValueSpreadshe
     }
 
     private SpreadsheetColumnReferenceComponent() {
-        this.textBox = ValueSpreadsheetTextBox.with(
+        this.textBox = ValueTextBoxComponent.with(
             SpreadsheetSelection::parseColumn,
             HasText::text
         );
@@ -42,11 +42,11 @@ public final class SpreadsheetColumnReferenceComponent implements ValueSpreadshe
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<SpreadsheetColumnReference> valueSpreadsheetTextBox() {
+    public ValueTextBoxComponent<SpreadsheetColumnReference> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueSpreadsheetTextBox<SpreadsheetColumnReference> textBox;
+    private final ValueTextBoxComponent<SpreadsheetColumnReference> textBox;
 
     // Object...........................................................................................................
 
