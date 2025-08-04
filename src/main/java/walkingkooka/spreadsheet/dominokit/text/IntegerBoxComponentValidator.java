@@ -24,14 +24,14 @@ import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import java.util.Objects;
 import java.util.Optional;
 
-final class SpreadsheetIntegerBoxValidator implements Validator<IntegerBox> {
+final class IntegerBoxComponentValidator implements Validator<IntegerBox> {
 
-    static SpreadsheetIntegerBoxValidator with(final Validator<Optional<Integer>> validator) {
+    static IntegerBoxComponentValidator with(final Validator<Optional<Integer>> validator) {
         Objects.requireNonNull(validator, "validator");
-        return new SpreadsheetIntegerBoxValidator(validator);
+        return new IntegerBoxComponentValidator(validator);
     }
 
-    private SpreadsheetIntegerBoxValidator(final Validator<Optional<Integer>> validator) {
+    private IntegerBoxComponentValidator(final Validator<Optional<Integer>> validator) {
         this.validator = validator;
     }
 

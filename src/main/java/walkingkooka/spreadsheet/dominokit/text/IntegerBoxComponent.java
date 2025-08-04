@@ -77,7 +77,7 @@ public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSe
     @Override
     public IntegerBoxComponent addChangeListener(final ChangeListener<Optional<Integer>> listener) {
         this.integerBox.addChangeListener(
-            SpreadsheetIntegerBoxChangeListener.with(listener)
+            IntegerBoxComponentChangeListener.with(listener)
         );
         return this;
     }
@@ -249,7 +249,7 @@ public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSe
         integerBox.setAutoValidation(true);
         integerBox.getValidators().clear();
         integerBox.addValidator(
-            SpreadsheetIntegerBoxValidator.with(validator)
+            IntegerBoxComponentValidator.with(validator)
         );
         return this;
     }
