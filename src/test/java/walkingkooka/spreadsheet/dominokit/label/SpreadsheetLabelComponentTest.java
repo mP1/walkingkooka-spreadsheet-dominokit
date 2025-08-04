@@ -45,7 +45,7 @@ public final class SpreadsheetLabelComponentTest implements FormValueComponentTe
                     Optional.empty()
                 ),
             "SpreadsheetLabelComponent\n" +
-                "  SpreadsheetSuggestBoxComponent\n" +
+                "  SuggestBoxComponent\n" +
                 "    Text123 [] REQUIRED\n" +
                 "    Errors\n" +
                 "      Required\n"
@@ -63,7 +63,7 @@ public final class SpreadsheetLabelComponentTest implements FormValueComponentTe
                     )
                 ),
             "SpreadsheetLabelComponent\n" +
-                "  SpreadsheetSuggestBoxComponent\n" +
+                "  SuggestBoxComponent\n" +
                 "    Text123 [Label123] REQUIRED\n"
         );
     }

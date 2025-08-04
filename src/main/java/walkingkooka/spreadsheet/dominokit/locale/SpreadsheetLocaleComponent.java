@@ -20,8 +20,8 @@ package walkingkooka.spreadsheet.dominokit.locale;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent;
-import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;
+import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponentDelegator;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.util.HasLocale;
@@ -33,7 +33,7 @@ import java.util.Optional;
 /**
  * A drop down that supports picking an optional {@link Locale}.
  */
-public final class SpreadsheetLocaleComponent<T> implements SpreadsheetSuggestBoxComponentDelegator<HTMLFieldSetElement, Locale, SpreadsheetLocaleComponent<T>>,
+public final class SpreadsheetLocaleComponent<T> implements SuggestBoxComponentDelegator<HTMLFieldSetElement, Locale, SpreadsheetLocaleComponent<T>>,
     TreePrintable {
 
     /**
@@ -47,7 +47,7 @@ public final class SpreadsheetLocaleComponent<T> implements SpreadsheetSuggestBo
     }
 
     private SpreadsheetLocaleComponent(final SpreadsheetLocaleComponentContext<T> context) {
-        this.suggestBox = SpreadsheetSuggestBoxComponent.with(
+        this.suggestBox = SuggestBoxComponent.with(
             context,
             context::createMenuItem
         );
@@ -153,14 +153,14 @@ public final class SpreadsheetLocaleComponent<T> implements SpreadsheetSuggestBo
             .map(HasLocale::locale);
     }
 
-    // SpreadsheetSuggestBoxComponentDelegator..........................................................................
+    // SuggestBoxComponentDelegator..........................................................................
 
     @Override
-    public SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<T>> spreadsheetSuggestBoxComponent() {
+    public SuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<T>> suggestBoxComponent() {
         return this.suggestBox;
     }
 
-    private final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<T>> suggestBox;
+    private final SuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<T>> suggestBox;
 
     // Object...........................................................................................................
 

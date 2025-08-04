@@ -44,7 +44,7 @@ import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleComponent;
 import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleComponentContext;
 import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleComponentSuggestionsValue;
-import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent;
+import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResource;
@@ -455,7 +455,7 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
 
                 @Override
                 public void filter(final String startsWith,
-                                   final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<DateTimeSymbols>> suggestBox) {
+                                   final SuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<DateTimeSymbols>> suggestBox) {
                     context.findDateTimeSymbolsWithLocaleStartsWith(startsWith);
                 }
 
@@ -475,7 +475,7 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
 
                 @Override
                 public void verifyOption(final SpreadsheetLocaleComponentSuggestionsValue<DateTimeSymbols> value,
-                                         final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<DateTimeSymbols>> suggestBox) {
+                                         final SuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<DateTimeSymbols>> suggestBox) {
                     throw new UnsupportedOperationException();
                 }
             }
@@ -565,7 +565,7 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
     public void onDateTimeSymbolsHateosResourceSet(final String localeStartsWith,
                                                    final DateTimeSymbolsHateosResourceSet symbols,
                                                    final AppContext context) {
-        this.localeLoad.spreadsheetSuggestBoxComponent()
+        this.localeLoad.suggestBoxComponent()
             .setOptions(
                 symbols.stream()
                     .map(SpreadsheetLocaleComponentSuggestionsValue::fromDateTimeSymbolsHateosResource)

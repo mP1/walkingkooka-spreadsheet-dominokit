@@ -17,21 +17,21 @@
 
 package walkingkooka.spreadsheet.dominokit.suggestbox;
 
-public class FakeSpreadsheetSuggestBoxComponentSuggestionsProvider<T> implements SpreadsheetSuggestBoxComponentSuggestionsProvider<T> {
+public class FakeSuggestBoxComponentSuggestionsProvider<T> implements SuggestBoxComponentSuggestionsProvider<T> {
 
-    public FakeSpreadsheetSuggestBoxComponentSuggestionsProvider() {
+    public FakeSuggestBoxComponentSuggestionsProvider() {
         super();
     }
 
     @Override
     public void filter(final String startsWith,
-                       final SpreadsheetSuggestBoxComponent<T> suggestBox) {
+                       final SuggestBoxComponent<T> suggestBox) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public void verifyOption(final T value,
-                             final SpreadsheetSuggestBoxComponent<T> suggestBox) {
+                             final SuggestBoxComponent<T> suggestBox) {
         throw new UnsupportedOperationException();
     }
 

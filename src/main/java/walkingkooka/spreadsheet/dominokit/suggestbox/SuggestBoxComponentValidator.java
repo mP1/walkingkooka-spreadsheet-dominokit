@@ -29,16 +29,16 @@ import java.util.Optional;
  * Reads the text of the input for the {@link SuggestBox} and attempts to validate the text, using the provided Validator.
  * Any caught {@link Exception#getMessage()} becomes the validation failure message.
  */
-final class SpreadsheetSuggestBoxComponentValidator<T> implements Validator<SuggestBox<T, SpanElement, SuggestOption<T>>> {
+final class SuggestBoxComponentValidator<T> implements Validator<SuggestBox<T, SpanElement, SuggestOption<T>>> {
 
     /**
      * Factory
      */
-    static <T> SpreadsheetSuggestBoxComponentValidator<T> with(final Validator<Optional<T>> validator) {
-        return new SpreadsheetSuggestBoxComponentValidator<>(validator);
+    static <T> SuggestBoxComponentValidator<T> with(final Validator<Optional<T>> validator) {
+        return new SuggestBoxComponentValidator<>(validator);
     }
 
-    private SpreadsheetSuggestBoxComponentValidator(final Validator<Optional<T>> validator) {
+    private SuggestBoxComponentValidator(final Validator<Optional<T>> validator) {
         super();
         this.validator = validator;
     }

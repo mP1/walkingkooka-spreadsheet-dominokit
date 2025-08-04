@@ -27,19 +27,19 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
-public final class SpreadsheetSuggestBoxComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, SpreadsheetCellReference, SpreadsheetSuggestBoxComponent<SpreadsheetCellReference>> {
+public final class SuggestBoxComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, SpreadsheetCellReference, SuggestBoxComponent<SpreadsheetCellReference>> {
 
-    private final static SpreadsheetSuggestBoxComponentSuggestionsProvider<SpreadsheetCellReference> SUGGESTIONS_PROVIDER = new SpreadsheetSuggestBoxComponentSuggestionsProvider<>() {
+    private final static SuggestBoxComponentSuggestionsProvider<SpreadsheetCellReference> SUGGESTIONS_PROVIDER = new SuggestBoxComponentSuggestionsProvider<>() {
 
         @Override
         public void filter(final String value,
-                           final SpreadsheetSuggestBoxComponent<SpreadsheetCellReference> suggestBox) {
+                           final SuggestBoxComponent<SpreadsheetCellReference> suggestBox) {
             // NOP
         }
 
         @Override
         public void verifyOption(final SpreadsheetCellReference searchValue,
-                                 final SpreadsheetSuggestBoxComponent<SpreadsheetCellReference> suggestBox) {
+                                 final SuggestBoxComponent<SpreadsheetCellReference> suggestBox) {
             // NOP
         }
 
@@ -55,7 +55,7 @@ public final class SpreadsheetSuggestBoxComponentTest implements FormValueCompon
             this.createComponent()
                 .setLabel("Label123")
                 .optional(),
-            "SpreadsheetSuggestBoxComponent\n" +
+            "SuggestBoxComponent\n" +
                 "  Label123 []\n"
         );
     }
@@ -67,7 +67,7 @@ public final class SpreadsheetSuggestBoxComponentTest implements FormValueCompon
                 .setLabel("Label123")
                 .optional()
                 .setValue(Optional.empty()),
-            "SpreadsheetSuggestBoxComponent\n" +
+            "SuggestBoxComponent\n" +
                 "  Label123 []\n"
         );
     }
@@ -80,7 +80,7 @@ public final class SpreadsheetSuggestBoxComponentTest implements FormValueCompon
                 .setValue(
                     Optional.of(SpreadsheetSelection.A1)
                 ),
-            "SpreadsheetSuggestBoxComponent\n" +
+            "SuggestBoxComponent\n" +
                 "  Label123 [A1] REQUIRED\n"
         );
     }
@@ -91,7 +91,7 @@ public final class SpreadsheetSuggestBoxComponentTest implements FormValueCompon
             this.createComponent()
                 .setLabel("Label123")
                 .clearValue(),
-            "SpreadsheetSuggestBoxComponent\n" +
+            "SuggestBoxComponent\n" +
                 "  Label123 [] REQUIRED\n" +
                 "  Errors\n" +
                 "    Required\n"
@@ -101,8 +101,8 @@ public final class SpreadsheetSuggestBoxComponentTest implements FormValueCompon
     // ValueComponent...................................................................................................
 
     @Override
-    public SpreadsheetSuggestBoxComponent<SpreadsheetCellReference> createComponent() {
-        return SpreadsheetSuggestBoxComponent.with(
+    public SuggestBoxComponent<SpreadsheetCellReference> createComponent() {
+        return SuggestBoxComponent.with(
             SUGGESTIONS_PROVIDER,
             (SpreadsheetCellReference c) -> {
                 throw new UnsupportedOperationException();
@@ -113,8 +113,8 @@ public final class SpreadsheetSuggestBoxComponentTest implements FormValueCompon
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SpreadsheetSuggestBoxComponent<SpreadsheetCellReference>> type() {
-        return Cast.to(SpreadsheetSuggestBoxComponent.class);
+    public Class<SuggestBoxComponent<SpreadsheetCellReference>> type() {
+        return Cast.to(SuggestBoxComponent.class);
     }
 
     @Override

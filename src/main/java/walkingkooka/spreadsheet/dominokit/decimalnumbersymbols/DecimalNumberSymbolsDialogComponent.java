@@ -46,7 +46,7 @@ import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleComponent;
 import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleComponentContext;
 import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleComponentSuggestionsValue;
-import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent;
+import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.validator.SpreadsheetValidators;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -608,7 +608,7 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
 
                     @Override
                     public void filter(final String startsWith,
-                                       final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<DecimalNumberSymbols>> suggestBox) {
+                                       final SuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<DecimalNumberSymbols>> suggestBox) {
                         context.findDecimalNumberSymbolsWithLocaleStartsWith(startsWith);
                     }
 
@@ -628,7 +628,7 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
 
                     @Override
                     public void verifyOption(final SpreadsheetLocaleComponentSuggestionsValue<DecimalNumberSymbols> value,
-                                             final SpreadsheetSuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<DecimalNumberSymbols>> suggestBox) {
+                                             final SuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<DecimalNumberSymbols>> suggestBox) {
                         throw new UnsupportedOperationException();
                     }
                 }
@@ -753,7 +753,7 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
     public void onDecimalNumberSymbolsHateosResourceSet(final String localeStartsWith,
                                                         final DecimalNumberSymbolsHateosResourceSet symbols,
                                                         final AppContext context) {
-        this.localeLoad.spreadsheetSuggestBoxComponent()
+        this.localeLoad.suggestBoxComponent()
             .setOptions(
                 symbols.stream()
                     .map(SpreadsheetLocaleComponentSuggestionsValue::fromDecimalNumberSymbolsHateosResource)

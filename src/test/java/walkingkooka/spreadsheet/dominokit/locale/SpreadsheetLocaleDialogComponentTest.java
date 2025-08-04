@@ -104,7 +104,7 @@ public final class SpreadsheetLocaleDialogComponentTest implements DialogCompone
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          SpreadsheetLocaleComponent\n" +
-                "            SpreadsheetSuggestBoxComponent\n" +
+                "            SuggestBoxComponent\n" +
                 "              []\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -167,7 +167,7 @@ public final class SpreadsheetLocaleDialogComponentTest implements DialogCompone
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          SpreadsheetLocaleComponent\n" +
-                "            SpreadsheetSuggestBoxComponent\n" +
+                "            SuggestBoxComponent\n" +
                 "              [English (Australian)]\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +

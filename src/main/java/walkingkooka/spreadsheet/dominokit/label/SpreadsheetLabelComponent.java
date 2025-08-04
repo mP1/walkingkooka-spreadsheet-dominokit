@@ -29,9 +29,9 @@ import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponent;
-import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponentDelegator;
-import walkingkooka.spreadsheet.dominokit.suggestbox.SpreadsheetSuggestBoxComponentSuggestionsProvider;
+import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;
+import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponentSuggestionsProvider;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
@@ -49,7 +49,7 @@ import java.util.stream.Collectors;
 /**
  * A text box component that includes support for finding a label.
  */
-public final class SpreadsheetLabelComponent implements SpreadsheetSuggestBoxComponentDelegator<HTMLFieldSetElement, SpreadsheetLabelName, SpreadsheetLabelComponent>,
+public final class SpreadsheetLabelComponent implements SuggestBoxComponentDelegator<HTMLFieldSetElement, SpreadsheetLabelName, SpreadsheetLabelComponent>,
     SpreadsheetDeltaFetcherWatcher,
     NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher {
@@ -64,11 +64,11 @@ public final class SpreadsheetLabelComponent implements SpreadsheetSuggestBoxCom
 
     private SpreadsheetLabelComponent(final Function<SpreadsheetLabelName, MenuItem<SpreadsheetLabelName>> optionMenuItemCreator,
                                       final SpreadsheetLabelComponentContext context) {
-        this.suggestBox = SpreadsheetSuggestBoxComponent.with(
-            new SpreadsheetSuggestBoxComponentSuggestionsProvider<>() {
+        this.suggestBox = SuggestBoxComponent.with(
+            new SuggestBoxComponentSuggestionsProvider<>() {
                 @Override
                 public void filter(final String startsWith,
-                                   final SpreadsheetSuggestBoxComponent<SpreadsheetLabelName> suggestBox) {
+                                   final SuggestBoxComponent<SpreadsheetLabelName> suggestBox) {
                     context.findLabelByName(
                         startsWith,
                         OptionalInt.of(0), // offset
@@ -78,7 +78,7 @@ public final class SpreadsheetLabelComponent implements SpreadsheetSuggestBoxCom
 
                 @Override
                 public void verifyOption(final SpreadsheetLabelName value,
-                                         final SpreadsheetSuggestBoxComponent<SpreadsheetLabelName> suggestBox) {
+                                         final SuggestBoxComponent<SpreadsheetLabelName> suggestBox) {
                     suggestBox.setVerifiedOption(value);
                 }
 
@@ -192,14 +192,14 @@ public final class SpreadsheetLabelComponent implements SpreadsheetSuggestBoxCom
         return this.suggestBox.element();
     }
 
-    // SpreadsheetSuggestBoxComponentDelegator..........................................................................
+    // SuggestBoxComponentDelegator..........................................................................
 
     @Override
-    public SpreadsheetSuggestBoxComponent<SpreadsheetLabelName> spreadsheetSuggestBoxComponent() {
+    public SuggestBoxComponent<SpreadsheetLabelName> suggestBoxComponent() {
         return this.suggestBox;
     }
 
-    private final SpreadsheetSuggestBoxComponent<SpreadsheetLabelName> suggestBox;
+    private final SuggestBoxComponent<SpreadsheetLabelName> suggestBox;
 
     // TreePrintable....................................................................................................
 

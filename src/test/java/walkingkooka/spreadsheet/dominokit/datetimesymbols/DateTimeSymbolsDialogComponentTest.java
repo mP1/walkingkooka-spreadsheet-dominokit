@@ -105,7 +105,7 @@ public final class DateTimeSymbolsDialogComponentTest implements DialogComponent
                 "                Errors\n" +
                 "                  Expected 5 tokens but got 0\n" +
                 "      SpreadsheetLocaleComponent\n" +
-                "        SpreadsheetSuggestBoxComponent\n" +
+                "        SuggestBoxComponent\n" +
                 "          Load from Locale []\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -170,7 +170,7 @@ public final class DateTimeSymbolsDialogComponentTest implements DialogComponent
                 "              SpreadsheetTextBox\n" +
                 "                Date Time Symbols [\"am,pm\",\"January,February,March,April,May,June,July,August,September,October,November,December\",\"Jan.,Feb.,Mar.,Apr.,May,Jun.,Jul.,Aug.,Sep.,Oct.,Nov.,Dec.\",\"Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday\",\"Sun.,Mon.,Tue.,Wed.,Thu.,Fri.,Sat.\"]\n" +
                 "      SpreadsheetLocaleComponent\n" +
-                "        SpreadsheetSuggestBoxComponent\n" +
+                "        SuggestBoxComponent\n" +
                 "          Load from Locale []\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -247,7 +247,7 @@ public final class DateTimeSymbolsDialogComponentTest implements DialogComponent
                 "                Errors\n" +
                 "                  Expected 5 tokens but got 0\n" +
                 "      SpreadsheetLocaleComponent\n" +
-                "        SpreadsheetSuggestBoxComponent\n" +
+                "        SuggestBoxComponent\n" +
                 "          Load from Locale []\n" +"      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
