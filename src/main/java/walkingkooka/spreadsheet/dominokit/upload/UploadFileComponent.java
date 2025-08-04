@@ -47,14 +47,14 @@ import static org.dominokit.domino.ui.style.SpacingCss.dui_m_b_4;
  * <br>
  * Note that {@link #setValue(Optional)} may not be used to set a new selected file.
  */
-public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileComponentLike {
+public final class UploadFileComponent extends UploadFileComponentLike {
 
-    public static SpreadsheetUploadFileComponent empty(final String id) {
-        return new SpreadsheetUploadFileComponent()
+    public static UploadFileComponent empty(final String id) {
+        return new UploadFileComponent()
             .setId(id);
     }
 
-    private SpreadsheetUploadFileComponent() {
+    private UploadFileComponent() {
         super();
         this.defaultFileUploadDecoration = DefaultFileUploadDecoration.create()
             .setIcon(Icons.upload().addCss(dui_font_size_12, dui_fg_accent))
@@ -62,7 +62,7 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
         this.label = "";
         this.helperText = Optional.empty();
 
-        this.fileUpload = FileUpload.create(SpreadsheetUploadFileComponent::forFile)
+        this.fileUpload = FileUpload.create(UploadFileComponent::forFile)
             .setDecoration(this.defaultFileUploadDecoration)
             .manualUpload() // no auto upload
             .setMultiUpload(false)
@@ -87,7 +87,7 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
     }
 
     @Override
-    public SpreadsheetUploadFileComponent setId(final String id) {
+    public UploadFileComponent setId(final String id) {
         this.fileUpload.setId(
             Objects.requireNonNull(id, "id")
         );
@@ -100,7 +100,7 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
     }
 
     @Override
-    public SpreadsheetUploadFileComponent setLabel(final String label) {
+    public UploadFileComponent setLabel(final String label) {
         Objects.requireNonNull(label, "label");
 
         this.label = label;
@@ -118,7 +118,7 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
     }
 
     @Override
-    public SpreadsheetUploadFileComponent setHelperText(final Optional<String> text) {
+    public UploadFileComponent setHelperText(final Optional<String> text) {
         Objects.requireNonNull(text, "text");
 
         this.defaultFileUploadDecoration.setDescription(
@@ -143,7 +143,7 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
      * Only the user may pick a file to be uploaded.
      */
     @Override
-    public SpreadsheetUploadFileComponent setValue(final Optional<BrowserFile> value) {
+    public UploadFileComponent setValue(final Optional<BrowserFile> value) {
         Objects.requireNonNull(value, "value");
 
         final Optional<BrowserFile> oldValue = this.value;
@@ -171,13 +171,13 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
     }
 
     @Override
-    public SpreadsheetUploadFileComponent setDisabled(final boolean disabled) {
+    public UploadFileComponent setDisabled(final boolean disabled) {
         this.fileUpload.setDisabled(disabled);
         return this;
     }
 
     @Override
-    public SpreadsheetUploadFileComponent addChangeListener(final ChangeListener<Optional<BrowserFile>> listener) {
+    public UploadFileComponent addChangeListener(final ChangeListener<Optional<BrowserFile>> listener) {
         Objects.requireNonNull(listener, "listener");
 
         this.changeListener.add(listener);
@@ -185,7 +185,7 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
     }
 
     @Override
-    public SpreadsheetUploadFileComponent addContextMenuListener(final EventListener listener) {
+    public UploadFileComponent addContextMenuListener(final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
 
         this.fileUpload.addEventListener(
@@ -236,7 +236,7 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
     private final List<ChangeListener<Optional<BrowserFile>>> changeListener = Lists.array();
 
     @Override
-    public SpreadsheetUploadFileComponent addFocusListener(final EventListener listener) {
+    public UploadFileComponent addFocusListener(final EventListener listener) {
         this.fileUpload.addEventListener(
             EventType.focus,
             listener
@@ -245,7 +245,7 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
     }
 
     @Override
-    public SpreadsheetUploadFileComponent focus() {
+    public UploadFileComponent focus() {
         this.fileUpload.element()
             .focus();
         return this;
@@ -257,14 +257,14 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
     }
 
     @Override
-    public SpreadsheetUploadFileComponent setCssText(final String css) {
+    public UploadFileComponent setCssText(final String css) {
         this.element().style.cssText = css;
         return this;
     }
 
     @Override
-    public SpreadsheetUploadFileComponent setCssProperty(final String name,
-                                                         final String value) {
+    public UploadFileComponent setCssProperty(final String name,
+                                              final String value) {
         this.element().style.setProperty(
             name,
             value

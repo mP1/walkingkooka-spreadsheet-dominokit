@@ -119,7 +119,7 @@ public final class PluginUploadDialogComponentTest implements DialogComponentLif
                 "  DialogComponent\n" +
                 "    Upload Plugin\n" +
                 "    id=pluginUpload-Dialog includeClose=true\n" +
-                "      SpreadsheetUploadFileComponent\n" +
+                "      UploadFileComponent\n" +
                 "        id=pluginUpload-UploadFile\n" +
                 "        label=Drop files here or click to upload.\n" +
                 "      AnchorListComponent\n" +
@@ -161,7 +161,7 @@ public final class PluginUploadDialogComponentTest implements DialogComponentLif
                 "  DialogComponent\n" +
                 "    Upload Plugin\n" +
                 "    id=pluginUpload-Dialog includeClose=true\n" +
-                "      SpreadsheetUploadFileComponent\n" +
+                "      UploadFileComponent\n" +
                 "        id=pluginUpload-UploadFile\n" +
                 "        label=Drop files here or click to upload.\n" +
                 "      AnchorListComponent\n" +
@@ -191,7 +191,7 @@ public final class PluginUploadDialogComponentTest implements DialogComponentLif
                 "  DialogComponent\n" +
                 "    Upload Plugin\n" +
                 "    id=pluginUpload-Dialog includeClose=true\n" +
-                "      SpreadsheetUploadFileComponent\n" +
+                "      UploadFileComponent\n" +
                 "        id=pluginUpload-UploadFile\n" +
                 "        label=Drop files here or click to upload.\n" +
                 "          BrowserFileBase64\n" +

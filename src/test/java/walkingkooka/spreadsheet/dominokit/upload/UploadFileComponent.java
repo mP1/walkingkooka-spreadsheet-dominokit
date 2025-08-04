@@ -30,15 +30,15 @@ import java.util.Optional;
 /**
  * Wraps a
  */
-public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileComponentLike
-    implements TestHtmlElementComponent<HTMLDivElement, SpreadsheetUploadFileComponent> {
+public final class UploadFileComponent extends UploadFileComponentLike
+    implements TestHtmlElementComponent<HTMLDivElement, UploadFileComponent> {
 
-    public static SpreadsheetUploadFileComponent empty(final String id) {
-        return new SpreadsheetUploadFileComponent()
+    public static UploadFileComponent empty(final String id) {
+        return new UploadFileComponent()
             .setId(id);
     }
 
-    private SpreadsheetUploadFileComponent() {
+    private UploadFileComponent() {
         super();
     }
 
@@ -48,7 +48,7 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
     }
 
     @Override
-    public SpreadsheetUploadFileComponent setId(final String id) {
+    public UploadFileComponent setId(final String id) {
         CharSequences.failIfNullOrEmpty(id, "id");
 
         this.id = id;
@@ -63,7 +63,7 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
     }
 
     @Override
-    public SpreadsheetUploadFileComponent setValue(final Optional<BrowserFile> value) {
+    public UploadFileComponent setValue(final Optional<BrowserFile> value) {
         this.value = value;
         return this;
     }
@@ -71,7 +71,7 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
     private Optional<BrowserFile> value = Optional.empty();
 
     @Override
-    public SpreadsheetUploadFileComponent setLabel(final String label) {
+    public UploadFileComponent setLabel(final String label) {
         this.label = Objects.requireNonNull(label, "label");
         return this;
     }
@@ -89,7 +89,7 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
     }
 
     @Override
-    public SpreadsheetUploadFileComponent setHelperText(final Optional<String> text) {
+    public UploadFileComponent setHelperText(final Optional<String> text) {
         this.helperText = Objects.requireNonNull(text, "text");
         return this;
     }
@@ -102,7 +102,7 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
     }
 
     @Override
-    public SpreadsheetUploadFileComponent setDisabled(final boolean disabled) {
+    public UploadFileComponent setDisabled(final boolean disabled) {
         this.disabled = disabled;
         return this;
     }
@@ -110,22 +110,22 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
     private boolean disabled = false;
 
     @Override
-    public SpreadsheetUploadFileComponent addContextMenuListener(final EventListener listener) {
+    public UploadFileComponent addContextMenuListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetUploadFileComponent addChangeListener(final ChangeListener<Optional<BrowserFile>> listener) {
+    public UploadFileComponent addChangeListener(final ChangeListener<Optional<BrowserFile>> listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetUploadFileComponent addFocusListener(final EventListener listener) {
+    public UploadFileComponent addFocusListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetUploadFileComponent focus() {
+    public UploadFileComponent focus() {
         return this;
     }
 }

@@ -34,7 +34,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.PluginUploadSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.PluginUploadSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.upload.SpreadsheetUploadFileComponent;
+import walkingkooka.spreadsheet.dominokit.upload.UploadFileComponent;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 
@@ -82,8 +82,8 @@ public final class PluginUploadDialogComponent implements DialogComponentLifecyc
 
     // upload.........................................................................................................
 
-    private SpreadsheetUploadFileComponent uploadFile() {
-        return SpreadsheetUploadFileComponent.empty(ID_PREFIX + "UploadFile")
+    private UploadFileComponent uploadFile() {
+        return UploadFileComponent.empty(ID_PREFIX + "UploadFile")
             .setLabel("Drop files here or click to upload.")
             .addChangeListener(
                 (oldFile, newFile) -> this.refreshIfOpen(this.context)
@@ -95,7 +95,7 @@ public final class PluginUploadDialogComponent implements DialogComponentLifecyc
     }
 
     // @VisibleForTesting
-    final SpreadsheetUploadFileComponent uploadFile;
+    final UploadFileComponent uploadFile;
 
     // uploadLink.........................................................................................................
 

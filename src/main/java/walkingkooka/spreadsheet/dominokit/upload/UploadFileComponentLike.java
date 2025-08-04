@@ -28,19 +28,19 @@ import java.util.List;
 /**
  * Base class that captures the common methods between the real and test implementation/sub-classes.
  */
-abstract class SpreadsheetUploadFileComponentLike implements FormValueComponent<HTMLDivElement, BrowserFile, SpreadsheetUploadFileComponent> {
+abstract class UploadFileComponentLike implements FormValueComponent<HTMLDivElement, BrowserFile, UploadFileComponent> {
 
-    SpreadsheetUploadFileComponentLike() {
+    UploadFileComponentLike() {
         super();
     }
 
     @Override
-    public final SpreadsheetUploadFileComponent optional() {
+    public final UploadFileComponent optional() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final SpreadsheetUploadFileComponent required() {
+    public final UploadFileComponent required() {
         throw new UnsupportedOperationException();
     }
 
@@ -50,7 +50,7 @@ abstract class SpreadsheetUploadFileComponentLike implements FormValueComponent<
     }
 
     @Override
-    public final SpreadsheetUploadFileComponent validate() {
+    public final UploadFileComponent validate() {
         throw new UnsupportedOperationException();
     }
 
@@ -60,37 +60,37 @@ abstract class SpreadsheetUploadFileComponentLike implements FormValueComponent<
     }
 
     @Override
-    public final SpreadsheetUploadFileComponent setErrors(final List<String> errors) {
+    public final UploadFileComponent setErrors(final List<String> errors) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final SpreadsheetUploadFileComponent alwaysShowHelperText() {
+    public final UploadFileComponent alwaysShowHelperText() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final SpreadsheetUploadFileComponent hideMarginBottom() {
+    public final UploadFileComponent hideMarginBottom() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final SpreadsheetUploadFileComponent removeBorders() {
+    public final UploadFileComponent removeBorders() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final SpreadsheetUploadFileComponent addClickListener(final EventListener listener) {
+    public final UploadFileComponent addClickListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final SpreadsheetUploadFileComponent addKeydownListener(final EventListener listener) {
+    public final UploadFileComponent addKeydownListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final SpreadsheetUploadFileComponent addKeyupListener(final EventListener listener) {
+    public final UploadFileComponent addKeyupListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }
 

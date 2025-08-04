@@ -25,14 +25,14 @@ import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetUploadFileComponentTest implements FormValueComponentTesting<HTMLDivElement, BrowserFile, SpreadsheetUploadFileComponent> {
+public final class UploadFileComponentTest implements FormValueComponentTesting<HTMLDivElement, BrowserFile, UploadFileComponent> {
 
     @Test
     public void testClearValueAndTreePrint() {
         this.treePrintAndCheck(
-            SpreadsheetUploadFileComponent.empty("id123")
+            UploadFileComponent.empty("id123")
                 .clearValue(),
-            "SpreadsheetUploadFileComponent\n" +
+            "UploadFileComponent\n" +
                 "  id=id123\n"
         );
     }
@@ -40,7 +40,7 @@ public final class SpreadsheetUploadFileComponentTest implements FormValueCompon
     @Test
     public void testSetValueAndTreePrint() {
         this.treePrintAndCheck(
-            SpreadsheetUploadFileComponent.empty("id456")
+            UploadFileComponent.empty("id456")
                 .setValue(
                     Optional.of(
                         BrowserFile.base64(
@@ -49,7 +49,7 @@ public final class SpreadsheetUploadFileComponentTest implements FormValueCompon
                         )
                     )
                 ),
-            "SpreadsheetUploadFileComponent\n" +
+            "UploadFileComponent\n" +
                 "  id=id456\n" +
                 "    BrowserFileBase64\n" +
                 "      \"FileName123\"\n" +
@@ -60,7 +60,7 @@ public final class SpreadsheetUploadFileComponentTest implements FormValueCompon
     @Test
     public void testSetLabelSetHelperSetValueAndTreePrint() {
         this.treePrintAndCheck(
-            SpreadsheetUploadFileComponent.empty("id456")
+            UploadFileComponent.empty("id456")
                 .setLabel("Label123")
                 .setHelperText(
                     Optional.of("HelperText123")
@@ -72,7 +72,7 @@ public final class SpreadsheetUploadFileComponentTest implements FormValueCompon
                         )
                     )
                 ),
-            "SpreadsheetUploadFileComponent\n" +
+            "UploadFileComponent\n" +
                 "  id=id456\n" +
                 "  label=Label123\n" +
                 "  helperText=HelperText123\n" +
@@ -83,15 +83,15 @@ public final class SpreadsheetUploadFileComponentTest implements FormValueCompon
     }
 
     @Override
-    public SpreadsheetUploadFileComponent createComponent() {
-        return SpreadsheetUploadFileComponent.empty("id999");
+    public UploadFileComponent createComponent() {
+        return UploadFileComponent.empty("id999");
     }
 
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetUploadFileComponent> type() {
-        return SpreadsheetUploadFileComponent.class;
+    public Class<UploadFileComponent> type() {
+        return UploadFileComponent.class;
     }
 
     @Override
