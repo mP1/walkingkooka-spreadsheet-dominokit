@@ -20,12 +20,12 @@ package walkingkooka.spreadsheet.dominokit.convert;
 
 import walkingkooka.convert.provider.ConverterName;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 
 /**
  * A text box that accepts entry and validates it as a {@link ConverterName}.
  */
-public final class ConverterNameComponent implements ValueSpreadsheetTextBoxWrapper<ConverterNameComponent, ConverterName> {
+public final class ConverterNameComponent implements ValueTextBoxComponentDelegator<ConverterNameComponent, ConverterName> {
 
     public static ConverterNameComponent empty() {
         return new ConverterNameComponent();
@@ -38,7 +38,7 @@ public final class ConverterNameComponent implements ValueSpreadsheetTextBoxWrap
         );
     }
 
-    // ValueSpreadsheetTextBoxWrapper..................................................................................
+    // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
     public ValueTextBoxComponent<ConverterName> valueTextBoxComponent() {

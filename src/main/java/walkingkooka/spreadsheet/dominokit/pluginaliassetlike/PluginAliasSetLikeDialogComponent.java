@@ -38,7 +38,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.CharSequences;
 
@@ -54,7 +54,7 @@ import java.util.function.Predicate;
  *
  * Disable SpreadsheetImporterInfoSet links
  *
- * ValueSpreadsheetTextBoxWrapper<SpreadsheetImporterInfoSetComponent, SpreadsheetImporterInfoSet>
+ * ValueTextBoxComponentDelegator<SpreadsheetImporterInfoSetComponent, SpreadsheetImporterInfoSet>
  *
  * SAVE
  * UNDO
@@ -236,9 +236,9 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
     }
 
     /**
-     * The {@link ValueSpreadsheetTextBoxWrapper} that holds the {@link PluginAliasSetLike} in text form.
+     * The {@link ValueTextBoxComponentDelegator} that holds the {@link PluginAliasSetLike} in text form.
      */
-    private final ValueSpreadsheetTextBoxWrapper<?, AS> textBox;
+    private final ValueTextBoxComponentDelegator<?, AS> textBox;
 
     // dialog links.....................................................................................................
 

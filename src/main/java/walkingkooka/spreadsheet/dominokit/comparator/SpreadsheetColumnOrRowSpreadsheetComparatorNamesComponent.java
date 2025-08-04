@@ -19,13 +19,13 @@ package walkingkooka.spreadsheet.dominokit.comparator;
 
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 import walkingkooka.text.HasText;
 
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}.
  */
-public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent, SpreadsheetColumnOrRowSpreadsheetComparatorNames> {
+public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent implements ValueTextBoxComponentDelegator<SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent, SpreadsheetColumnOrRowSpreadsheetComparatorNames> {
 
     public static SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent empty() {
         return new SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent();
@@ -38,7 +38,7 @@ public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent imp
         );
     }
 
-    // ValueSpreadsheetTextBoxWrapper..................................................................................
+    // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
     public ValueTextBoxComponent<SpreadsheetColumnOrRowSpreadsheetComparatorNames> valueTextBoxComponent() {

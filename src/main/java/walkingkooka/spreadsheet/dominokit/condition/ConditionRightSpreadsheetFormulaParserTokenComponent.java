@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.condition;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 import walkingkooka.spreadsheet.formula.parser.ConditionRightSpreadsheetFormulaParserToken;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
 import walkingkooka.text.HasText;
@@ -29,7 +29,7 @@ import java.util.function.Supplier;
 /**
  * A text box that accepts {@link ConditionRightSpreadsheetFormulaParserToken} expressions.
  */
-public final class ConditionRightSpreadsheetFormulaParserTokenComponent implements ValueSpreadsheetTextBoxWrapper<ConditionRightSpreadsheetFormulaParserTokenComponent, ConditionRightSpreadsheetFormulaParserToken> {
+public final class ConditionRightSpreadsheetFormulaParserTokenComponent implements ValueTextBoxComponentDelegator<ConditionRightSpreadsheetFormulaParserTokenComponent, ConditionRightSpreadsheetFormulaParserToken> {
 
     public static ConditionRightSpreadsheetFormulaParserTokenComponent empty(final Supplier<SpreadsheetParserContext> context) {
         return new ConditionRightSpreadsheetFormulaParserTokenComponent(
@@ -48,7 +48,7 @@ public final class ConditionRightSpreadsheetFormulaParserTokenComponent implemen
         );
     }
 
-    // ValueSpreadsheetTextBoxWrapper..................................................................................
+    // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
     public ValueTextBoxComponent<ConditionRightSpreadsheetFormulaParserToken> valueTextBoxComponent() {

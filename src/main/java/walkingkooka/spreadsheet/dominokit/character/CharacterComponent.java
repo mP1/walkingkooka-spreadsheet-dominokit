@@ -19,12 +19,12 @@ package walkingkooka.spreadsheet.dominokit.character;
 
 import walkingkooka.predicate.character.CharPredicate;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 
 /**
  * A component that will be used to support entry text entry of a character.
  */
-public final class CharacterComponent implements ValueSpreadsheetTextBoxWrapper<CharacterComponent, Character> {
+public final class CharacterComponent implements ValueTextBoxComponentDelegator<CharacterComponent, Character> {
     public static CharacterComponent empty(final String label,
                                            final CharPredicate predicate,
                                            final String message) {
@@ -48,7 +48,7 @@ public final class CharacterComponent implements ValueSpreadsheetTextBoxWrapper<
         );
     }
 
-    // ValueSpreadsheetTextBoxWrapper...................................................................................
+    // ValueTextBoxComponentDelegator...................................................................................
 
     @Override
     public ValueTextBoxComponent<Character> valueTextBoxComponent() {

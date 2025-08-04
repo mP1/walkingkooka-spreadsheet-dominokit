@@ -20,13 +20,13 @@ package walkingkooka.spreadsheet.dominokit.format;
 
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetFormatterName}.
  */
-public final class SpreadsheetFormatterNameComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetFormatterNameComponent, SpreadsheetFormatterName> {
+public final class SpreadsheetFormatterNameComponent implements ValueTextBoxComponentDelegator<SpreadsheetFormatterNameComponent, SpreadsheetFormatterName> {
 
     public static SpreadsheetFormatterNameComponent empty() {
         return new SpreadsheetFormatterNameComponent();
@@ -39,7 +39,7 @@ public final class SpreadsheetFormatterNameComponent implements ValueSpreadsheet
         );
     }
 
-    // ValueSpreadsheetTextBoxWrapper..................................................................................
+    // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
     public ValueTextBoxComponent<SpreadsheetFormatterName> valueTextBoxComponent() {

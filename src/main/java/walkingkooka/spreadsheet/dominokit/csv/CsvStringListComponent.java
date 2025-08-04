@@ -21,14 +21,14 @@ import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.CsvStringList;
 import walkingkooka.spreadsheet.dominokit.validator.SpreadsheetValidators;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 
 import java.util.Objects;
 
 /**
  * A component that will be used to support entry text entry of lists of days, months etc as a CSV text.
  */
-public final class CsvStringListComponent implements ValueSpreadsheetTextBoxWrapper<CsvStringListComponent, CsvStringList> {
+public final class CsvStringListComponent implements ValueTextBoxComponentDelegator<CsvStringListComponent, CsvStringList> {
 
     public final static boolean INCLUSIVE = true;
 
@@ -75,7 +75,7 @@ public final class CsvStringListComponent implements ValueSpreadsheetTextBoxWrap
 
     private Validator<CsvStringListComponent> validator;
 
-    // ValueSpreadsheetTextBoxWrapper..................................................................................
+    // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
     public ValueTextBoxComponent<CsvStringList> valueTextBoxComponent() {

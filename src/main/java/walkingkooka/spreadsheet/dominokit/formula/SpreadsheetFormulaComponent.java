@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.formula;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.text.HasText;
 
@@ -28,7 +28,7 @@ import java.util.function.Function;
  * A text box that accepts entry and validates it as a syntactically correct expression with the
  * {@link SpreadsheetFormula#token()} being populated
  */
-public final class SpreadsheetFormulaComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetFormulaComponent, SpreadsheetFormula> {
+public final class SpreadsheetFormulaComponent implements ValueTextBoxComponentDelegator<SpreadsheetFormulaComponent, SpreadsheetFormula> {
 
     public static SpreadsheetFormulaComponent empty(final Function<String, SpreadsheetFormula> parser) {
         return new SpreadsheetFormulaComponent(parser);
@@ -41,7 +41,7 @@ public final class SpreadsheetFormulaComponent implements ValueSpreadsheetTextBo
         ).setValidator(SpreadsheetFormulaComponentValidator.with(parser));
     }
 
-    // ValueSpreadsheetTextBoxWrapper..................................................................................
+    // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
     public ValueTextBoxComponent<SpreadsheetFormula> valueTextBoxComponent() {

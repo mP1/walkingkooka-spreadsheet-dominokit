@@ -28,7 +28,7 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.focus.CanGiveFocus;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.util.function.Consumer;
@@ -52,7 +52,7 @@ public interface PluginAliasSetLikeDialogComponentContext<N extends Name & Compa
     /**
      * Creates a textbox that will be used to edit the {@link PluginInfoSetLike}.
      */
-    ValueSpreadsheetTextBoxWrapper<?, AS> textBox();
+    ValueTextBoxComponentDelegator<?, AS> textBox();
 
     /**
      * Adds a {@link SpreadsheetMetadataFetcherWatcher}.<br>

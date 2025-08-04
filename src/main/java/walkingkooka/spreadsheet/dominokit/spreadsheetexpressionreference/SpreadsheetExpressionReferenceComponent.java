@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.spreadsheetexpressionreference;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.HasText;
@@ -26,7 +26,7 @@ import walkingkooka.text.HasText;
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetExpressionReference}.
  */
-public final class SpreadsheetExpressionReferenceComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetExpressionReferenceComponent, SpreadsheetExpressionReference> {
+public final class SpreadsheetExpressionReferenceComponent implements ValueTextBoxComponentDelegator<SpreadsheetExpressionReferenceComponent, SpreadsheetExpressionReference> {
 
     public static SpreadsheetExpressionReferenceComponent empty() {
         return new SpreadsheetExpressionReferenceComponent();
@@ -39,7 +39,7 @@ public final class SpreadsheetExpressionReferenceComponent implements ValueSprea
         );
     }
 
-    // ValueSpreadsheetTextBoxWrapper..................................................................................
+    // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
     public ValueTextBoxComponent<SpreadsheetExpressionReference> valueTextBoxComponent() {

@@ -19,12 +19,12 @@ package walkingkooka.spreadsheet.dominokit.error;
 
 import walkingkooka.spreadsheet.SpreadsheetError;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 
 /**
  * A component that will be used to support entry text entry of a {@link walkingkooka.spreadsheet.SpreadsheetError}.
  */
-public final class SpreadsheetErrorComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetErrorComponent, SpreadsheetError> {
+public final class SpreadsheetErrorComponent implements ValueTextBoxComponentDelegator<SpreadsheetErrorComponent, SpreadsheetError> {
 
     public static SpreadsheetErrorComponent empty() {
         return new SpreadsheetErrorComponent();
@@ -37,7 +37,7 @@ public final class SpreadsheetErrorComponent implements ValueSpreadsheetTextBoxW
         );
     }
 
-    // ValueSpreadsheetTextBoxWrapper..................................................................................
+    // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
     public ValueTextBoxComponent<SpreadsheetError> valueTextBoxComponent() {

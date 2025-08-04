@@ -18,13 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.textstyle;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 import walkingkooka.tree.text.TextStyle;
 
 /**
  * A text box that accepts entry as text parsing it as a {@link TextStyle}.
  */
-public final class TextStyleComponent implements ValueSpreadsheetTextBoxWrapper<TextStyleComponent, TextStyle> {
+public final class TextStyleComponent implements ValueTextBoxComponentDelegator<TextStyleComponent, TextStyle> {
 
     public static TextStyleComponent empty() {
         return new TextStyleComponent();
@@ -37,7 +37,7 @@ public final class TextStyleComponent implements ValueSpreadsheetTextBoxWrapper<
         );
     }
 
-    // ValueSpreadsheetTextBoxWrapper..................................................................................
+    // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
     public ValueTextBoxComponent<TextStyle> valueTextBoxComponent() {

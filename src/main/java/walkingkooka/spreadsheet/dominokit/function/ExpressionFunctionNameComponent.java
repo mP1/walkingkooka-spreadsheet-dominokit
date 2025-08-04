@@ -20,13 +20,13 @@ package walkingkooka.spreadsheet.dominokit.function;
 
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 import walkingkooka.tree.expression.ExpressionFunctionName;
 
 /**
  * A text box that accepts entry and validates it as a {@link ExpressionFunctionName}.
  */
-public final class ExpressionFunctionNameComponent implements ValueSpreadsheetTextBoxWrapper<ExpressionFunctionNameComponent, ExpressionFunctionName> {
+public final class ExpressionFunctionNameComponent implements ValueTextBoxComponentDelegator<ExpressionFunctionNameComponent, ExpressionFunctionName> {
 
     public static ExpressionFunctionNameComponent empty() {
         return new ExpressionFunctionNameComponent();
@@ -39,7 +39,7 @@ public final class ExpressionFunctionNameComponent implements ValueSpreadsheetTe
         );
     }
 
-    // ValueSpreadsheetTextBoxWrapper..................................................................................
+    // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
     public ValueTextBoxComponent<ExpressionFunctionName> valueTextBoxComponent() {

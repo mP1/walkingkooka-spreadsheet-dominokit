@@ -19,9 +19,9 @@ package walkingkooka.spreadsheet.dominokit.datetimesymbols;
 
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 
-public final class DateTimeSymbolsComponent implements ValueSpreadsheetTextBoxWrapper<DateTimeSymbolsComponent, DateTimeSymbols> {
+public final class DateTimeSymbolsComponent implements ValueTextBoxComponentDelegator<DateTimeSymbolsComponent, DateTimeSymbols> {
 
     public static DateTimeSymbolsComponent empty() {
         return new DateTimeSymbolsComponent();
@@ -34,7 +34,7 @@ public final class DateTimeSymbolsComponent implements ValueSpreadsheetTextBoxWr
         );
     }
 
-    // ValueSpreadsheetTextBoxWrapper..................................................................................
+    // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
     public ValueTextBoxComponent<DateTimeSymbols> valueTextBoxComponent() {
