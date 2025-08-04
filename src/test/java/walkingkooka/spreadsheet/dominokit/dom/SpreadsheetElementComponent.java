@@ -22,6 +22,7 @@ import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.style.CssClass;
+import walkingkooka.CanBeEmpty;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.Sets;
@@ -300,7 +301,13 @@ public abstract class SpreadsheetElementComponent<E extends HTMLElement, C exten
 
     @Override
     public final void printTreeChildren(final IndentingPrinter printer) {
-        for(final Object child : this.children) {
+        for (final Object child : this.children) {
+            if (child instanceof CanBeEmpty) {
+                final CanBeEmpty canBeEmpty = (CanBeEmpty) child;
+                if (canBeEmpty.isEmpty()) {
+                    continue;
+                }
+            }
             TreePrintable.printTreeOrToString(
                 child,
                 printer
