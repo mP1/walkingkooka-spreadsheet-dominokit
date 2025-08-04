@@ -301,6 +301,7 @@ public abstract class SpreadsheetElementComponent<E extends HTMLElement, C exten
     @Override
     public final void printTreeChildren(final IndentingPrinter printer) {
         for(final Object child : this.children) {
+            printer.lineStart();
             TreePrintable.printTreeOrToString(
                 child,
                 printer

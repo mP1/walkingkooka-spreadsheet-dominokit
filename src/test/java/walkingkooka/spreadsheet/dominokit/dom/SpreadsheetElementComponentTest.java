@@ -25,7 +25,12 @@ import walkingkooka.Cast;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextComponent;
+import walkingkooka.text.Indentation;
+import walkingkooka.text.LineEnding;
+import walkingkooka.text.printer.IndentingPrinters;
+import walkingkooka.text.printer.Printers;
 import walkingkooka.text.printer.TreePrintableTesting;
 import walkingkooka.tree.text.TextNode;
 
@@ -408,6 +413,34 @@ public final class SpreadsheetElementComponentTest implements ClassTesting<Sprea
                 "      TD\n" +
                 "        SpreadsheetTextComponent\n" +
                 "          \"Footer C\"\n"
+        );
+    }
+
+    // printTreeChildren................................................................................................
+
+    @Test
+    public void testPrintTreeChildren() {
+        final SpreadsheetDivComponent component = SpreadsheetElementComponent.div();
+        component.appendChild(
+            HistoryTokenAnchorComponent.empty()
+                .setTextContent("Hello111")
+        ).appendChild(
+            HistoryTokenAnchorComponent.empty()
+                .setTextContent("Hello222")
+        );
+
+        final StringBuilder b = new StringBuilder();
+        component.printTreeChildren(
+            IndentingPrinters.printer(
+                Printers.stringBuilder(b, LineEnding.NL),
+                Indentation.SPACES2
+            )
+        );
+
+        this.checkEquals(
+            "\"Hello111\" DISABLED\n" +
+                "\"Hello222\" DISABLED",
+            b.toString()
         );
     }
 
