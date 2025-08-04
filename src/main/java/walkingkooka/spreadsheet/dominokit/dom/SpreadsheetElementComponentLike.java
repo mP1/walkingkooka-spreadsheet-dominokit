@@ -117,6 +117,8 @@ abstract class SpreadsheetElementComponentLike<E extends HTMLElement, C extends 
 
     public abstract C appendChild(final IsElement<?> child);
 
+    public abstract C appendText(final String text);
+
     public abstract C removeChild(final Node child);
 
     public abstract C removeChild(final IsElement<?> child);
