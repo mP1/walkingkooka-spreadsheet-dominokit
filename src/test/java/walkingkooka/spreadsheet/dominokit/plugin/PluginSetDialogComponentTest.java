@@ -192,13 +192,13 @@ public final class PluginSetDialogComponentTest implements DialogComponentLifecy
                 "                Links\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"TestPluginName1\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"filename1.jar\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"user@example.com\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"31/12/99, 12:58 pm\"\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
@@ -206,13 +206,13 @@ public final class PluginSetDialogComponentTest implements DialogComponentLifecy
                 "                      \"Download\" [/api/plugin/TestPluginName1/download] id=pluginList-download-Link\n" +
                 "                      \"View\" [#/plugin/TestPluginName1] id=pluginList-view-Link\n" +
                 "                ROW 1\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"TestPluginName2\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"filename2.jar\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"user@example.com\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"31/12/99, 12:58 pm\"\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
@@ -220,13 +220,13 @@ public final class PluginSetDialogComponentTest implements DialogComponentLifecy
                 "                      \"Download\" [/api/plugin/TestPluginName2/download] id=pluginList-download-Link\n" +
                 "                      \"View\" [#/plugin/TestPluginName2] id=pluginList-view-Link\n" +
                 "                ROW 2\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"TestPluginName3\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"filename3.jar\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"user@example.com\"\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"31/12/99, 12:58 pm\"\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +

@@ -104,13 +104,13 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
                 "          Links\n" +
                 "        ROW(S)\n" +
                 "          ROW 0\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"TestPlugin111\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"filename111.jar\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"user111@example.com\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"31/12/99, 12:58 pm\"\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
@@ -118,13 +118,13 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
                 "                \"Download\" [/api/plugin/TestPlugin111/download] id=Table123-download-Link\n" +
                 "                \"View\" [#/plugin/TestPlugin111] id=Table123-view-Link\n" +
                 "          ROW 1\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"TestPlugin222\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"filename222.jar\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"user222@example.com\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"1/1/00, 12:58 pm\"\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
@@ -197,13 +197,13 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
                 "          Links\n" +
                 "        ROW(S)\n" +
                 "          ROW 0\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"TestPlugin111\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"filename111.jar\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"user111@example.com\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"1/1/00, 12:58 pm\"\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
@@ -211,13 +211,13 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
                 "                \"Download\" [/api/plugin/TestPlugin111/download] id=Table123-download-Link\n" +
                 "                \"View\" [#/plugin/TestPlugin111] id=Table123-view-Link\n" +
                 "          ROW 1\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"TestPlugin222\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"filename222.jar\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"user222@example.com\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"2/1/00, 12:58 pm\"\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
@@ -225,13 +225,13 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
                 "                \"Download\" [/api/plugin/TestPlugin222/download] id=Table123-download-Link\n" +
                 "                \"View\" [#/plugin/TestPlugin222] id=Table123-view-Link\n" +
                 "          ROW 2\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"TestPlugin333\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"filename333.jar\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"user333@example.com\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"3/3/00, 12:58 pm\"\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
@@ -239,13 +239,13 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
                 "                \"Download\" [/api/plugin/TestPlugin333/download] id=Table123-download-Link\n" +
                 "                \"View\" [#/plugin/TestPlugin333] id=Table123-view-Link\n" +
                 "          ROW 3\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"TestPlugin444\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"filename444.jar\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"user444@example.com\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"4/4/00, 12:58 pm\"\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +

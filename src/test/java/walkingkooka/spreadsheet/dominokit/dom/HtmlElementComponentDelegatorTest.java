@@ -22,7 +22,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponentDelegatorTest.TestSpreadsheetElementComponentDelegator;
-import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextComponent;
+import walkingkooka.spreadsheet.dominokit.text.TextComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Optional;
@@ -50,14 +50,14 @@ public class HtmlElementComponentDelegatorTest implements HtmlComponentTesting<T
                 .appendChild(
                     HtmlElementComponent.th()
                         .appendChild(
-                            SpreadsheetTextComponent.with(
+                            TextComponent.with(
                                 Optional.of("A")
                             )
                         )
                 ).appendChild(
                     HtmlElementComponent.th()
                         .appendChild(
-                            SpreadsheetTextComponent.with(
+                            TextComponent.with(
                                 Optional.of("B")
                             )
                         )
@@ -67,14 +67,14 @@ public class HtmlElementComponentDelegatorTest implements HtmlComponentTesting<T
                 .appendChild(
                     HtmlElementComponent.td()
                         .appendChild(
-                            SpreadsheetTextComponent.with(
+                            TextComponent.with(
                                 Optional.of("A1=1+2")
                             )
                         )
                 ).appendChild(
                     HtmlElementComponent.td()
                         .appendChild(
-                            SpreadsheetTextComponent.with(
+                            TextComponent.with(
                                 Optional.of("B1=333")
                             )
                         )
@@ -87,17 +87,17 @@ public class HtmlElementComponentDelegatorTest implements HtmlComponentTesting<T
                 "  TABLE\n" +
                 "    THEAD\n" +
                 "      TH\n" +
-                "        SpreadsheetTextComponent\n" +
+                "        TextComponent\n" +
                 "          \"A\"\n" +
                 "      TH\n" +
-                "        SpreadsheetTextComponent\n" +
+                "        TextComponent\n" +
                 "          \"B\"\n" +
                 "    TR\n" +
                 "      TD\n" +
-                "        SpreadsheetTextComponent\n" +
+                "        TextComponent\n" +
                 "          \"A1=1+2\"\n" +
                 "      TD\n" +
-                "        SpreadsheetTextComponent\n" +
+                "        TextComponent\n" +
                 "          \"B1=333\"\n"
         );
     }

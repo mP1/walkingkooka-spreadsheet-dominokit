@@ -27,7 +27,7 @@ import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextComponent;
+import walkingkooka.spreadsheet.dominokit.text.TextComponent;
 import walkingkooka.text.Indentation;
 import walkingkooka.text.LineEnding;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -296,21 +296,21 @@ public final class HtmlElementComponentTest implements ClassTesting<HtmlElementC
                                 .setCssText("background-color: white; color: black")
                                 .setCssProperty("background-color", "yellow")
                                 .appendChild(
-                                    SpreadsheetTextComponent.with(
+                                    TextComponent.with(
                                         Optional.of("A")
                                     )
                                 )
                         ).appendChild(
                             HtmlElementComponent.th()
                                 .appendChild(
-                                    SpreadsheetTextComponent.with(
+                                    TextComponent.with(
                                         Optional.of("B")
                                     )
                                 )
                         ).appendChild(
                             HtmlElementComponent.th()
                                 .appendChild(
-                                    SpreadsheetTextComponent.with(
+                                    TextComponent.with(
                                         Optional.of("C")
                                     )
                                 )
@@ -320,21 +320,21 @@ public final class HtmlElementComponentTest implements ClassTesting<HtmlElementC
                         .appendChild(
                             HtmlElementComponent.td()
                                 .appendChild(
-                                    SpreadsheetTextComponent.with(
+                                    TextComponent.with(
                                         Optional.of("A1")
                                     )
                                 )
                         ).appendChild(
                             HtmlElementComponent.td()
                                 .appendChild(
-                                    SpreadsheetTextComponent.with(
+                                    TextComponent.with(
                                         Optional.of("B1")
                                     )
                                 )
                         ).appendChild(
                             HtmlElementComponent.td()
                                 .appendChild(
-                                    SpreadsheetTextComponent.with(
+                                    TextComponent.with(
                                         Optional.of("C1")
                                     )
                                 )
@@ -344,21 +344,21 @@ public final class HtmlElementComponentTest implements ClassTesting<HtmlElementC
                         .appendChild(
                             HtmlElementComponent.td()
                                 .appendChild(
-                                    SpreadsheetTextComponent.with(
+                                    TextComponent.with(
                                         Optional.of("A2")
                                     )
                                 )
                         ).appendChild(
                             HtmlElementComponent.td()
                                 .appendChild(
-                                    SpreadsheetTextComponent.with(
+                                    TextComponent.with(
                                         Optional.of("B2")
                                     )
                                 )
                         ).appendChild(
                             HtmlElementComponent.td()
                                 .appendChild(
-                                    SpreadsheetTextComponent.with(
+                                    TextComponent.with(
                                         Optional.of("C2")
                                     )
                                 )
@@ -368,21 +368,21 @@ public final class HtmlElementComponentTest implements ClassTesting<HtmlElementC
                         .appendChild(
                             HtmlElementComponent.td()
                                 .appendChild(
-                                    SpreadsheetTextComponent.with(
+                                    TextComponent.with(
                                         Optional.of("Footer A")
                                     )
                                 )
                         ).appendChild(
                             HtmlElementComponent.td()
                                 .appendChild(
-                                    SpreadsheetTextComponent.with(
+                                    TextComponent.with(
                                         Optional.of("Footer B")
                                     )
                                 )
                         ).appendChild(
                             HtmlElementComponent.td()
                                 .appendChild(
-                                    SpreadsheetTextComponent.with(
+                                    TextComponent.with(
                                         Optional.of("Footer C")
                                     )
                                 )
@@ -393,43 +393,43 @@ public final class HtmlElementComponentTest implements ClassTesting<HtmlElementC
                 "    THEAD\n" +
                 "      TH\n" +
                 "        id=\"th111\" style=\"background-color: #ffff00; color: #000000;\"\n" +
-                "          SpreadsheetTextComponent\n" +
+                "          TextComponent\n" +
                 "            \"A\"\n" +
                 "      TH\n" +
-                "        SpreadsheetTextComponent\n" +
+                "        TextComponent\n" +
                 "          \"B\"\n" +
                 "      TH\n" +
-                "        SpreadsheetTextComponent\n" +
+                "        TextComponent\n" +
                 "          \"C\"\n" +
                 "    TR\n" +
                 "      TD\n" +
-                "        SpreadsheetTextComponent\n" +
+                "        TextComponent\n" +
                 "          \"A1\"\n" +
                 "      TD\n" +
-                "        SpreadsheetTextComponent\n" +
+                "        TextComponent\n" +
                 "          \"B1\"\n" +
                 "      TD\n" +
-                "        SpreadsheetTextComponent\n" +
+                "        TextComponent\n" +
                 "          \"C1\"\n" +
                 "    TR\n" +
                 "      TD\n" +
-                "        SpreadsheetTextComponent\n" +
+                "        TextComponent\n" +
                 "          \"A2\"\n" +
                 "      TD\n" +
-                "        SpreadsheetTextComponent\n" +
+                "        TextComponent\n" +
                 "          \"B2\"\n" +
                 "      TD\n" +
-                "        SpreadsheetTextComponent\n" +
+                "        TextComponent\n" +
                 "          \"C2\"\n" +
                 "    TBODY\n" +
                 "      TD\n" +
-                "        SpreadsheetTextComponent\n" +
+                "        TextComponent\n" +
                 "          \"Footer A\"\n" +
                 "      TD\n" +
-                "        SpreadsheetTextComponent\n" +
+                "        TextComponent\n" +
                 "          \"Footer B\"\n" +
                 "      TD\n" +
-                "        SpreadsheetTextComponent\n" +
+                "        TextComponent\n" +
                 "          \"Footer C\"\n"
         );
     }

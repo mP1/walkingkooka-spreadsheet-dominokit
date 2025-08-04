@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellLinksComponent;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponentCellRenderer;
 import walkingkooka.spreadsheet.dominokit.formula.SpreadsheetFormulaSelectAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.spreadsheetexpressionreference.SpreadsheetExpressionReferenceSelectAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.text.SpreadsheetTextComponent;
+import walkingkooka.spreadsheet.dominokit.text.TextComponent;
 import walkingkooka.spreadsheet.dominokit.text.TextNodeComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 
@@ -103,8 +103,8 @@ final class SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCell
         );
     }
 
-    private SpreadsheetTextComponent renderCellValue(final SpreadsheetCell cell) {
-        return SpreadsheetTextComponent.with(
+    private TextComponent renderCellValue(final SpreadsheetCell cell) {
+        return TextComponent.with(
             cell.formula()
                 .errorOrValue()
                 .map(Object::toString)

@@ -103,13 +103,13 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "        ROW(S)\n" +
                 "          ROW 0\n" +
                 "            \"Spreadsheet111\" [#/1] id=Table123-1-Link\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"creator@example.com\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"31/12/99, 12:01 pm\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"modifier@example.com\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"31/1/00, 12:58 pm\"\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
@@ -117,13 +117,13 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "                \"Delete\" [#/delete/1] id=Table123-1-delete-Link\n" +
                 "          ROW 1\n" +
                 "            \"Spreadsheet222\" [#/2] id=Table123-2-Link\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"creator@example.com\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"31/12/99, 12:01 pm\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"modifier@example.com\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"31/1/00, 12:58 pm\"\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
@@ -131,13 +131,13 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "                \"Delete\" [#/delete/2] id=Table123-2-delete-Link\n" +
                 "          ROW 2\n" +
                 "            \"Spreadsheet333\" [#/3] id=Table123-3-Link\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"creator@example.com\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"31/12/99, 12:01 pm\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"modifier@example.com\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"31/1/00, 12:58 pm\"\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
@@ -184,13 +184,13 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "        ROW(S)\n" +
                 "          ROW 0\n" +
                 "            \"Spreadsheet111\" [#/1] id=Table123-1-Link\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"creator@example.com\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"31/12/99, 12:01 pm\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"modifier@example.com\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"31/1/00, 12:58 pm\"\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
@@ -198,13 +198,13 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "                \"Delete\" [#/delete/1] id=Table123-1-delete-Link\n" +
                 "          ROW 1\n" +
                 "            \"Spreadsheet222\" [#/2] id=Table123-2-Link\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"creator@example.com\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"31/12/99, 12:01 pm\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"modifier@example.com\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"31/1/00, 12:58 pm\"\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
@@ -212,13 +212,13 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "                \"Delete\" [#/delete/2] id=Table123-2-delete-Link\n" +
                 "          ROW 2\n" +
                 "            \"Spreadsheet333\" [#/3] id=Table123-3-Link\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"creator@example.com\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"31/12/99, 12:01 pm\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"modifier@example.com\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"31/1/00, 12:58 pm\"\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
@@ -265,13 +265,13 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "        ROW(S)\n" +
                 "          ROW 0\n" +
                 "            \"Spreadsheet111\" [#/1] id=Table123-1-Link\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"creator@example.com\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"31/12/99, 12:01 pm\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"modifier@example.com\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"31/1/00, 12:58 pm\"\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
@@ -279,13 +279,13 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "                \"Delete\" [#/delete/1] id=Table123-1-delete-Link\n" +
                 "          ROW 1\n" +
                 "            \"Spreadsheet222\" [#/2] id=Table123-2-Link\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"creator@example.com\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"31/12/99, 12:01 pm\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"modifier@example.com\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"31/1/00, 12:58 pm\"\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
@@ -293,13 +293,13 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "                \"Delete\" [#/delete/2] id=Table123-2-delete-Link\n" +
                 "          ROW 2\n" +
                 "            \"Spreadsheet333\" [#/3] id=Table123-3-Link\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"creator@example.com\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"31/12/99, 12:01 pm\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"modifier@example.com\"\n" +
-                "            SpreadsheetTextComponent\n" +
+                "            TextComponent\n" +
                 "              \"31/1/00, 12:58 pm\"\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +

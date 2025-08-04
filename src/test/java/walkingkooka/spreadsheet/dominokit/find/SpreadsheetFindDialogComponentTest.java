@@ -714,7 +714,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "                ROW 0\n" +
                 "                  \"A1\" [#/123/SpreadsheetName456/cell/A1] id=cellFind-cells-A1-Link\n" +
                 "                  \"A1\" [#/123/SpreadsheetName456/cell/A1/formula] id=cellFind-cells-A1-formula-Link\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"\"\n" +
                 "                  TextNodeComponent\n" +
                 "                  SpreadsheetCellLinksComponent\n" +
@@ -729,7 +729,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "                ROW 1\n" +
                 "                  \"B2\" [#/123/SpreadsheetName456/cell/B2] id=cellFind-cells-B2-Link\n" +
                 "                  \"=2\" [#/123/SpreadsheetName456/cell/B2/formula] id=cellFind-cells-B2-formula-Link\n" +
-                "                  SpreadsheetTextComponent\n" +
+                "                  TextComponent\n" +
                 "                    \"\"\n" +
                 "                  TextNodeComponent\n" +
                 "                  SpreadsheetCellLinksComponent\n" +
