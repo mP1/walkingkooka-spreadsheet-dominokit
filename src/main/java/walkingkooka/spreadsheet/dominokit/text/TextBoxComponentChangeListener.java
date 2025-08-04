@@ -22,14 +22,14 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import java.util.Objects;
 import java.util.Optional;
 
-final class SpreadsheetTextBoxChangeListener implements ChangeListener<String> {
+final class TextBoxComponentChangeListener implements ChangeListener<String> {
 
-    static SpreadsheetTextBoxChangeListener with(final ChangeListener<Optional<String>> listener) {
+    static TextBoxComponentChangeListener with(final ChangeListener<Optional<String>> listener) {
         Objects.requireNonNull(listener, "listener");
-        return new SpreadsheetTextBoxChangeListener(listener);
+        return new TextBoxComponentChangeListener(listener);
     }
 
-    private SpreadsheetTextBoxChangeListener(final ChangeListener<Optional<String>> listener) {
+    private TextBoxComponentChangeListener(final ChangeListener<Optional<String>> listener) {
         this.listener = listener;
     }
 

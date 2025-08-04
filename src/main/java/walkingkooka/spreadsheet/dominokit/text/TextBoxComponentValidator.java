@@ -25,14 +25,14 @@ import walkingkooka.text.CharSequences;
 import java.util.Objects;
 import java.util.Optional;
 
-final class SpreadsheetTextBoxValidator implements Validator<TextBox> {
+final class TextBoxComponentValidator implements Validator<TextBox> {
 
-    static SpreadsheetTextBoxValidator with(final Validator<Optional<String>> validator) {
+    static TextBoxComponentValidator with(final Validator<Optional<String>> validator) {
         Objects.requireNonNull(validator, "validator");
-        return new SpreadsheetTextBoxValidator(validator);
+        return new TextBoxComponentValidator(validator);
     }
 
-    private SpreadsheetTextBoxValidator(final Validator<Optional<String>> validator) {
+    private TextBoxComponentValidator(final Validator<Optional<String>> validator) {
         this.validator = validator;
     }
 

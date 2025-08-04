@@ -61,7 +61,7 @@ public final class TextBoxComponent implements FormValueComponent<HTMLFieldSetEl
     @Override
     public TextBoxComponent addChangeListener(final ChangeListener<Optional<String>> listener) {
         this.textBox.addChangeListener(
-            SpreadsheetTextBoxChangeListener.with(listener)
+            TextBoxComponentChangeListener.with(listener)
         );
         return this;
     }
@@ -261,7 +261,7 @@ public final class TextBoxComponent implements FormValueComponent<HTMLFieldSetEl
         textBox.setAutoValidation(true);
         textBox.getValidators().clear();
         textBox.addValidator(
-            SpreadsheetTextBoxValidator.with(validator)
+            TextBoxComponentValidator.with(validator)
         );
         return this;
     }
