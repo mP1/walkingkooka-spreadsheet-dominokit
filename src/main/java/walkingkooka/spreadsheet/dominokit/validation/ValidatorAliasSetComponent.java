@@ -18,10 +18,10 @@
 package walkingkooka.spreadsheet.dominokit.validation;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 import walkingkooka.validation.provider.ValidatorAliasSet;
 
-public final class ValidatorAliasSetComponent implements ValueSpreadsheetTextBoxWrapper<ValidatorAliasSetComponent, ValidatorAliasSet> {
+public final class ValidatorAliasSetComponent implements ValueTextBoxComponentDelegator<ValidatorAliasSetComponent, ValidatorAliasSet> {
 
     public static ValidatorAliasSetComponent empty() {
         return new ValidatorAliasSetComponent();
@@ -34,7 +34,7 @@ public final class ValidatorAliasSetComponent implements ValueSpreadsheetTextBox
         );
     }
 
-    // ValueSpreadsheetTextBoxWrapper..................................................................................
+    // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
     public ValueTextBoxComponent<ValidatorAliasSet> valueTextBoxComponent() {

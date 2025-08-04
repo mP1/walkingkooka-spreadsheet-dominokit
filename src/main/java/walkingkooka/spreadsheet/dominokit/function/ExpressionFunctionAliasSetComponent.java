@@ -20,14 +20,14 @@ package walkingkooka.spreadsheet.dominokit.function;
 
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 import walkingkooka.spreadsheet.expression.SpreadsheetExpressionFunctions;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliasSet;
 
 /**
  * A text box that accepts entry and validates it as a {@link ExpressionFunctionAliasSet}.
  */
-public final class ExpressionFunctionAliasSetComponent implements ValueSpreadsheetTextBoxWrapper<ExpressionFunctionAliasSetComponent, ExpressionFunctionAliasSet> {
+public final class ExpressionFunctionAliasSetComponent implements ValueTextBoxComponentDelegator<ExpressionFunctionAliasSetComponent, ExpressionFunctionAliasSet> {
 
     public static ExpressionFunctionAliasSetComponent empty() {
         return new ExpressionFunctionAliasSetComponent();
@@ -40,7 +40,7 @@ public final class ExpressionFunctionAliasSetComponent implements ValueSpreadshe
         );
     }
 
-    // ValueSpreadsheetTextBoxWrapper..................................................................................
+    // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
     public ValueTextBoxComponent<ExpressionFunctionAliasSet> valueTextBoxComponent() {

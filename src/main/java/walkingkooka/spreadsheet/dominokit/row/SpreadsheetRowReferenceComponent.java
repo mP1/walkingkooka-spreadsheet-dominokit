@@ -19,7 +19,7 @@
 package walkingkooka.spreadsheet.dominokit.row;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.HasText;
@@ -27,7 +27,7 @@ import walkingkooka.text.HasText;
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetRowReference}.
  */
-public final class SpreadsheetRowReferenceComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetRowReferenceComponent, SpreadsheetRowReference> {
+public final class SpreadsheetRowReferenceComponent implements ValueTextBoxComponentDelegator<SpreadsheetRowReferenceComponent, SpreadsheetRowReference> {
 
     public static SpreadsheetRowReferenceComponent empty() {
         return new SpreadsheetRowReferenceComponent();
@@ -40,7 +40,7 @@ public final class SpreadsheetRowReferenceComponent implements ValueSpreadsheetT
         );
     }
 
-    // ValueSpreadsheetTextBoxWrapper..................................................................................
+    // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
     public ValueTextBoxComponent<SpreadsheetRowReference> valueTextBoxComponent() {

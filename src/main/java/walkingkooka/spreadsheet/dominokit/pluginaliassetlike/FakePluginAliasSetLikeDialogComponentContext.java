@@ -26,7 +26,7 @@ import walkingkooka.plugin.PluginSelectorLike;
 import walkingkooka.spreadsheet.dominokit.dialog.FakeDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 
 import java.util.function.Consumer;
 
@@ -54,7 +54,7 @@ public class FakePluginAliasSetLikeDialogComponentContext<N extends Name & Compa
     }
 
     @Override
-    public ValueSpreadsheetTextBoxWrapper<?, AS> textBox() {
+    public ValueTextBoxComponentDelegator<?, AS> textBox() {
         throw new UnsupportedOperationException();
     }
 

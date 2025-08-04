@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.textmatch;
 
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 import walkingkooka.spreadsheet.expression.function.TextMatch;
 
 /**
@@ -31,7 +31,7 @@ import walkingkooka.spreadsheet.expression.function.TextMatch;
  * _search_
  * </pre>
  */
-public final class TextMatchComponent implements ValueSpreadsheetTextBoxWrapper<TextMatchComponent, TextMatch> {
+public final class TextMatchComponent implements ValueTextBoxComponentDelegator<TextMatchComponent, TextMatch> {
 
     public static TextMatchComponent empty() {
         return new TextMatchComponent();
@@ -43,7 +43,7 @@ public final class TextMatchComponent implements ValueSpreadsheetTextBoxWrapper<
             Object::toString
         );
     }
-    // ValueSpreadsheetTextBoxWrapper..................................................................................
+    // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
     public ValueTextBoxComponent<TextMatch> valueTextBoxComponent() {

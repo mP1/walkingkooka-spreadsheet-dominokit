@@ -19,9 +19,9 @@ package walkingkooka.spreadsheet.dominokit.convert;
 
 import walkingkooka.convert.provider.ConverterAliasSet;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 
-public final class ConverterAliasSetComponent implements ValueSpreadsheetTextBoxWrapper<ConverterAliasSetComponent, ConverterAliasSet> {
+public final class ConverterAliasSetComponent implements ValueTextBoxComponentDelegator<ConverterAliasSetComponent, ConverterAliasSet> {
 
     public static ConverterAliasSetComponent empty() {
         return new ConverterAliasSetComponent();
@@ -34,7 +34,7 @@ public final class ConverterAliasSetComponent implements ValueSpreadsheetTextBox
         );
     }
 
-    // ValueSpreadsheetTextBoxWrapper..................................................................................
+    // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
     public ValueTextBoxComponent<ConverterAliasSet> valueTextBoxComponent() {

@@ -19,9 +19,9 @@ package walkingkooka.spreadsheet.dominokit.plugin;
 
 import walkingkooka.plugin.PluginNameSet;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 
-public final class PluginNameSetComponent implements ValueSpreadsheetTextBoxWrapper<PluginNameSetComponent, PluginNameSet> {
+public final class PluginNameSetComponent implements ValueTextBoxComponentDelegator<PluginNameSetComponent, PluginNameSet> {
 
     public static PluginNameSetComponent empty() {
         return new PluginNameSetComponent();
@@ -34,7 +34,7 @@ public final class PluginNameSetComponent implements ValueSpreadsheetTextBoxWrap
         );
     }
 
-    // ValueSpreadsheetTextBoxWrapper..................................................................................
+    // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
     public ValueTextBoxComponent<PluginNameSet> valueTextBoxComponent() {

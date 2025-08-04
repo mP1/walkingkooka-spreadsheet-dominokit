@@ -20,13 +20,13 @@ package walkingkooka.spreadsheet.dominokit.validation;
 
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 import walkingkooka.validation.provider.ValidatorName;
 
 /**
  * A text box that accepts entry and validates it as a {@link ValidatorName}.
  */
-public final class ValidatorNameComponent implements ValueSpreadsheetTextBoxWrapper<ValidatorNameComponent, ValidatorName> {
+public final class ValidatorNameComponent implements ValueTextBoxComponentDelegator<ValidatorNameComponent, ValidatorName> {
 
     public static ValidatorNameComponent empty() {
         return new ValidatorNameComponent();
@@ -39,7 +39,7 @@ public final class ValidatorNameComponent implements ValueSpreadsheetTextBoxWrap
         );
     }
 
-    // ValueSpreadsheetTextBoxWrapper..................................................................................
+    // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
     public ValueTextBoxComponent<ValidatorName> valueTextBoxComponent() {

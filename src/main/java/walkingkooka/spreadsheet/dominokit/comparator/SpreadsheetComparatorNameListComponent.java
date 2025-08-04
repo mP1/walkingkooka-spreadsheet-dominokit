@@ -19,9 +19,9 @@ package walkingkooka.spreadsheet.dominokit.comparator;
 
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameList;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 
-public final class SpreadsheetComparatorNameListComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetComparatorNameListComponent, SpreadsheetComparatorNameList> {
+public final class SpreadsheetComparatorNameListComponent implements ValueTextBoxComponentDelegator<SpreadsheetComparatorNameListComponent, SpreadsheetComparatorNameList> {
 
     public static SpreadsheetComparatorNameListComponent empty() {
         return new SpreadsheetComparatorNameListComponent();
@@ -34,7 +34,7 @@ public final class SpreadsheetComparatorNameListComponent implements ValueSpread
         );
     }
 
-    // ValueSpreadsheetTextBoxWrapper..................................................................................
+    // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
     public ValueTextBoxComponent<SpreadsheetComparatorNameList> valueTextBoxComponent() {

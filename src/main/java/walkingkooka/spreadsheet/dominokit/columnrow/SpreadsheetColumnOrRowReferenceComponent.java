@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.columnrow;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReferenceOrRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.HasText;
@@ -29,7 +29,7 @@ import walkingkooka.text.HasText;
  * {@link walkingkooka.spreadsheet.reference.SpreadsheetRowRangeReference} or {@link walkingkooka.spreadsheet.reference.SpreadsheetCellReference} will
  * fail.
  */
-public final class SpreadsheetColumnOrRowReferenceComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetColumnOrRowReferenceComponent, SpreadsheetColumnOrRowReferenceOrRange> {
+public final class SpreadsheetColumnOrRowReferenceComponent implements ValueTextBoxComponentDelegator<SpreadsheetColumnOrRowReferenceComponent, SpreadsheetColumnOrRowReferenceOrRange> {
 
     public static SpreadsheetColumnOrRowReferenceComponent empty() {
         return new SpreadsheetColumnOrRowReferenceComponent();
@@ -42,7 +42,7 @@ public final class SpreadsheetColumnOrRowReferenceComponent implements ValueSpre
         );
     }
 
-    // ValueSpreadsheetTextBoxWrapper..................................................................................
+    // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
     public ValueTextBoxComponent<SpreadsheetColumnOrRowReferenceOrRange> valueTextBoxComponent() {

@@ -18,10 +18,10 @@
 package walkingkooka.spreadsheet.dominokit.importer;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 import walkingkooka.spreadsheet.importer.SpreadsheetImporterInfoSet;
 
-public final class SpreadsheetImporterInfoSetComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetImporterInfoSetComponent, SpreadsheetImporterInfoSet> {
+public final class SpreadsheetImporterInfoSetComponent implements ValueTextBoxComponentDelegator<SpreadsheetImporterInfoSetComponent, SpreadsheetImporterInfoSet> {
 
     public static SpreadsheetImporterInfoSetComponent empty() {
         return new SpreadsheetImporterInfoSetComponent();
@@ -34,7 +34,7 @@ public final class SpreadsheetImporterInfoSetComponent implements ValueSpreadshe
         );
     }
 
-    // ValueSpreadsheetTextBoxWrapper..................................................................................
+    // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
     public ValueTextBoxComponent<SpreadsheetImporterInfoSet> valueTextBoxComponent() {
