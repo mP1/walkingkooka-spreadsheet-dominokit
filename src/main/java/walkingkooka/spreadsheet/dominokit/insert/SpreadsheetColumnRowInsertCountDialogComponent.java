@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.text.SpreadsheetIntegerBox;
+import walkingkooka.spreadsheet.dominokit.text.IntegerBoxComponent;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -102,8 +102,8 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Dia
 
     // SpreadsheetLabelComponent........................................................................................
 
-    private SpreadsheetIntegerBox count() {
-        return SpreadsheetIntegerBox.empty()
+    private IntegerBoxComponent count() {
+        return IntegerBoxComponent.empty()
             .setId(ID_PREFIX + "count-TextBox")
             .min(1)
             .setLabel("Count")
@@ -115,7 +115,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Dia
             );
     }
 
-    private final SpreadsheetIntegerBox count;
+    private final IntegerBoxComponent count;
 
     private final static int DEFAULT_COUNT = 1;
 

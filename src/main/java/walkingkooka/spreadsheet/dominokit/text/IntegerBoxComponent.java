@@ -46,28 +46,28 @@ import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
 /**
  * An IntegerBox that adds a few extras that should be common to all text boxes.
  */
-public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLFieldSetElement, Integer, SpreadsheetIntegerBox>,
-    FormValueComponentTreePrintable<SpreadsheetIntegerBox, Integer> {
+public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSetElement, Integer, IntegerBoxComponent>,
+    FormValueComponentTreePrintable<IntegerBoxComponent, Integer> {
 
-    public static SpreadsheetIntegerBox empty() {
-        return new SpreadsheetIntegerBox();
+    public static IntegerBoxComponent empty() {
+        return new IntegerBoxComponent();
     }
 
-    private SpreadsheetIntegerBox() {
+    private IntegerBoxComponent() {
         this.integerBox = new IntegerBox();
 
         this.integerBox.getInputElement().element().type = "number";
         this.integerBox.getInputElement().element().step = "1";
     }
 
-    public SpreadsheetIntegerBox max(final int value) {
+    public IntegerBoxComponent max(final int value) {
         this.integerBox.getInputElement()
             .element()
             .max = String.valueOf(value);
         return this;
     }
 
-    public SpreadsheetIntegerBox min(final int value) {
+    public IntegerBoxComponent min(final int value) {
         this.integerBox.getInputElement()
             .element()
             .min = String.valueOf(value);
@@ -75,7 +75,7 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     }
 
     @Override
-    public SpreadsheetIntegerBox addChangeListener(final ChangeListener<Optional<Integer>> listener) {
+    public IntegerBoxComponent addChangeListener(final ChangeListener<Optional<Integer>> listener) {
         this.integerBox.addChangeListener(
             SpreadsheetIntegerBoxChangeListener.with(listener)
         );
@@ -83,7 +83,7 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     }
 
     @Override
-    public SpreadsheetIntegerBox addClickListener(final EventListener listener) {
+    public IntegerBoxComponent addClickListener(final EventListener listener) {
         return this.addEventListener(
             EventType.click,
             listener
@@ -91,7 +91,7 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     }
 
     @Override
-    public SpreadsheetIntegerBox addContextMenuListener(final EventListener listener) {
+    public IntegerBoxComponent addContextMenuListener(final EventListener listener) {
         return this.addEventListener(
             EventType.contextmenu,
             listener
@@ -99,7 +99,7 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     }
 
     @Override
-    public SpreadsheetIntegerBox addFocusListener(final EventListener listener) {
+    public IntegerBoxComponent addFocusListener(final EventListener listener) {
         return this.addEventListener(
             EventType.focus,
             listener
@@ -107,7 +107,7 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     }
 
     @Override
-    public SpreadsheetIntegerBox addKeydownListener(final EventListener listener) {
+    public IntegerBoxComponent addKeydownListener(final EventListener listener) {
         return this.addEventListener(
             EventType.keydown,
             listener
@@ -115,15 +115,15 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     }
 
     @Override
-    public SpreadsheetIntegerBox addKeyupListener(final EventListener listener) {
+    public IntegerBoxComponent addKeyupListener(final EventListener listener) {
         return this.addEventListener(
             EventType.keyup,
             listener
         );
     }
 
-    private SpreadsheetIntegerBox addEventListener(final EventType eventType,
-                                                   final EventListener listener) {
+    private IntegerBoxComponent addEventListener(final EventType eventType,
+                                                 final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
 
         this.integerBox.addEventListener(
@@ -133,7 +133,7 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
         return this;
     }
 
-    public SpreadsheetIntegerBox clearIcon() {
+    public IntegerBoxComponent clearIcon() {
         this.integerBox.apply(
             self -> self.appendChild(
                 PostfixAddOn.of(
@@ -149,12 +149,12 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     }
 
     @Override
-    public SpreadsheetIntegerBox focus() {
+    public IntegerBoxComponent focus() {
         this.integerBox.focus();
         return this;
     }
 
-    public SpreadsheetIntegerBox enterFiresValueChange() {
+    public IntegerBoxComponent enterFiresValueChange() {
         final IntegerBox integerBox = this.integerBox;
 
         integerBox.addEventListener(
@@ -179,7 +179,7 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     }
 
     @Override
-    public SpreadsheetIntegerBox alwaysShowHelperText() {
+    public IntegerBoxComponent alwaysShowHelperText() {
         final DominoElement<Element> element = elements.elementOf(
             this.integerBox.element()
                 .firstElementChild
@@ -189,7 +189,7 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     }
 
     @Override
-    public SpreadsheetIntegerBox setHelperText(final Optional<String> text) {
+    public IntegerBoxComponent setHelperText(final Optional<String> text) {
         Objects.requireNonNull(text, "text");
 
         this.integerBox.setHelperText(
@@ -206,13 +206,13 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     }
 
     @Override
-    public SpreadsheetIntegerBox hideMarginBottom() {
+    public IntegerBoxComponent hideMarginBottom() {
         this.integerBox.setMarginBottom("0");
         return this;
     }
 
     @Override
-    public SpreadsheetIntegerBox removeBorders() {
+    public IntegerBoxComponent removeBorders() {
         this.integerBox.getInputElement()
             .parent()
             .setBorder("0")
@@ -221,7 +221,7 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     }
 
     @Override
-    public SpreadsheetIntegerBox setId(final String id) {
+    public IntegerBoxComponent setId(final String id) {
         this.integerBox.getInputElement()
             .setId(id);
         return this;
@@ -234,7 +234,7 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     }
 
     @Override
-    public SpreadsheetIntegerBox setLabel(final String label) {
+    public IntegerBoxComponent setLabel(final String label) {
         this.integerBox.setLabel(label);
         return this;
     }
@@ -244,7 +244,7 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
         return this.integerBox.getLabel();
     }
 
-    public SpreadsheetIntegerBox setValidator(final Validator<Optional<Integer>> validator) {
+    public IntegerBoxComponent setValidator(final Validator<Optional<Integer>> validator) {
         final IntegerBox integerBox = this.integerBox;
         integerBox.setAutoValidation(true);
         integerBox.getValidators().clear();
@@ -271,7 +271,7 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     // Value............................................................................................................
 
     @Override
-    public SpreadsheetIntegerBox setValue(final Optional<Integer> value) {
+    public IntegerBoxComponent setValue(final Optional<Integer> value) {
         Objects.requireNonNull(value, "value");
 
         this.integerBox.setValue(
@@ -295,13 +295,13 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     }
 
     @Override
-    public SpreadsheetIntegerBox setDisabled(final boolean disabled) {
+    public IntegerBoxComponent setDisabled(final boolean disabled) {
         this.integerBox.setDisabled(disabled);
         return this;
     }
 
     @Override
-    public SpreadsheetIntegerBox required() {
+    public IntegerBoxComponent required() {
         this.required = true;
         return this.setValidator(
             new RequiredValidator<>(this.integerBox)
@@ -309,7 +309,7 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     }
 
     @Override
-    public SpreadsheetIntegerBox optional() {
+    public IntegerBoxComponent optional() {
         throw new UnsupportedOperationException();
     }
 
@@ -320,7 +320,7 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     private boolean required;
 
     @Override
-    public SpreadsheetIntegerBox validate() {
+    public IntegerBoxComponent validate() {
         this.integerBox.validate();
         return this;
     }
@@ -333,7 +333,7 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     }
 
     @Override
-    public SpreadsheetIntegerBox setErrors(final List<String> errors) {
+    public IntegerBoxComponent setErrors(final List<String> errors) {
         Objects.requireNonNull(errors, "errors");
 
         this.integerBox.invalidate(
@@ -345,7 +345,7 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     // setCssText.......................................................................................................
 
     @Override
-    public SpreadsheetIntegerBox setCssText(final String css) {
+    public IntegerBoxComponent setCssText(final String css) {
         Objects.requireNonNull(css, "css");
 
         this.integerBox.cssText(css);
@@ -355,8 +355,8 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     // setCssProperty...................................................................................................
 
     @Override
-    public SpreadsheetIntegerBox setCssProperty(final String name,
-                                                final String value) {
+    public IntegerBoxComponent setCssProperty(final String name,
+                                              final String value) {
         this.integerBox.setCssProperty(
             name,
             value

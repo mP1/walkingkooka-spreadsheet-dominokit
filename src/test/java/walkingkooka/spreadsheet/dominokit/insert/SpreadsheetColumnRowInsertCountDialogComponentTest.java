@@ -119,7 +119,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
                 "  DialogComponent\n" +
                 "    ColumnTitle1234\n" +
                 "    id=columnRowInsert-Dialog includeClose=true\n" +
-                "      SpreadsheetIntegerBox\n" +
+                "      IntegerBoxComponent\n" +
                 "        Count [] id=columnRowInsert-count-TextBox REQUIRED\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -192,7 +192,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
                 "  DialogComponent\n" +
                 "    RowTitle1234\n" +
                 "    id=columnRowInsert-Dialog includeClose=true\n" +
-                "      SpreadsheetIntegerBox\n" +
+                "      IntegerBoxComponent\n" +
                 "        Count [] id=columnRowInsert-count-TextBox REQUIRED\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +

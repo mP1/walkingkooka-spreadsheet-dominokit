@@ -26,19 +26,19 @@ import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetIntegerBoxTest implements FormValueComponentTesting<HTMLFieldSetElement, Integer, SpreadsheetIntegerBox> {
+public final class IntegerBoxComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, Integer, IntegerBoxComponent> {
 
     @Test
     public void testSetValue() {
         this.treePrintAndCheck(
-            SpreadsheetIntegerBox.empty()
+            IntegerBoxComponent.empty()
                 .setId("id123")
                 .setValue(
                     Optional.of(
                         123
                     )
                 ),
-            "SpreadsheetIntegerBox\n" +
+            "IntegerBoxComponent\n" +
                 "  [123] id=id123\n"
         );
     }
@@ -46,7 +46,7 @@ public final class SpreadsheetIntegerBoxTest implements FormValueComponentTestin
     @Test
     public void testSetValueValidatorPass() {
         this.treePrintAndCheck(
-            SpreadsheetIntegerBox.empty()
+            IntegerBoxComponent.empty()
                 .setId("id123")
                 .setValidator(
                     Optional.of(
@@ -63,7 +63,7 @@ public final class SpreadsheetIntegerBoxTest implements FormValueComponentTestin
                         123
                     )
                 ),
-            "SpreadsheetIntegerBox\n" +
+            "IntegerBoxComponent\n" +
                 "  [123] id=id123\n"
         );
     }
@@ -71,7 +71,7 @@ public final class SpreadsheetIntegerBoxTest implements FormValueComponentTestin
     @Test
     public void testSetValueValidatorInvalid() {
         this.treePrintAndCheck(
-            SpreadsheetIntegerBox.empty()
+            IntegerBoxComponent.empty()
                 .setId("id123")
                 .setValidator(
                     Optional.of(
@@ -88,7 +88,7 @@ public final class SpreadsheetIntegerBoxTest implements FormValueComponentTestin
                         123
                     )
                 ),
-            "SpreadsheetIntegerBox\n" +
+            "IntegerBoxComponent\n" +
                 "  [123] id=id123\n" +
                 "  Errors\n" +
                 "    Invalid value 123\n"
@@ -98,15 +98,15 @@ public final class SpreadsheetIntegerBoxTest implements FormValueComponentTestin
     // ValueComponent...................................................................................................
 
     @Override
-    public SpreadsheetIntegerBox createComponent() {
-        return SpreadsheetIntegerBox.empty();
+    public IntegerBoxComponent createComponent() {
+        return IntegerBoxComponent.empty();
     }
 
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SpreadsheetIntegerBox> type() {
-        return SpreadsheetIntegerBox.class;
+    public Class<IntegerBoxComponent> type() {
+        return IntegerBoxComponent.class;
     }
 
     @Override

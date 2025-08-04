@@ -33,20 +33,20 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * A mock of main/SpreadsheetIntegerBox with the same public interface and a helpful {@link TreePrintable}. This will be useful for unit tests to verify the rough apperance of a component that includes
- * {@link SpreadsheetIntegerBox}.
+ * A mock of main/IntegerBoxComponent with the same public interface and a helpful {@link TreePrintable}. This will be useful for unit tests to verify the rough apperance of a component that includes
+ * {@link IntegerBoxComponent}.
  */
-public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLFieldSetElement, Integer, SpreadsheetIntegerBox>,
-    FormValueComponentTreePrintable<SpreadsheetIntegerBox, Integer>,
-    TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetIntegerBox>,
+public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSetElement, Integer, IntegerBoxComponent>,
+    FormValueComponentTreePrintable<IntegerBoxComponent, Integer>,
+    TestHtmlElementComponent<HTMLFieldSetElement, IntegerBoxComponent>,
     ValidatorHelper {
 
-    public static SpreadsheetIntegerBox empty() {
-        return new SpreadsheetIntegerBox();
+    public static IntegerBoxComponent empty() {
+        return new IntegerBoxComponent();
     }
 
     @Override
-    public SpreadsheetIntegerBox setId(final String id) {
+    public IntegerBoxComponent setId(final String id) {
         this.id = id;
         return this;
     }
@@ -59,7 +59,7 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     private String id;
 
     @Override
-    public SpreadsheetIntegerBox setLabel(final String label) {
+    public IntegerBoxComponent setLabel(final String label) {
         this.label = label;
         return this;
     }
@@ -72,7 +72,7 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     private String label;
 
     @Override
-    public SpreadsheetIntegerBox setValue(final Optional<Integer> value) {
+    public IntegerBoxComponent setValue(final Optional<Integer> value) {
         Objects.requireNonNull(value, "value");
         this.value = value;
 
@@ -87,18 +87,18 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     private Optional<Integer> value = Optional.empty();
 
     @Override
-    public SpreadsheetIntegerBox focus() {
+    public IntegerBoxComponent focus() {
         return this;
     }
 
     @Override
-    public SpreadsheetIntegerBox optional() {
+    public IntegerBoxComponent optional() {
         this.required = false;
         return this;
     }
 
     @Override
-    public SpreadsheetIntegerBox required() {
+    public IntegerBoxComponent required() {
         this.required = true;
         return this;
     }
@@ -111,7 +111,7 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     private boolean required;
 
     @Override
-    public SpreadsheetIntegerBox validate() {
+    public IntegerBoxComponent validate() {
         this.setErrors(
             this.validateAndGetErrors(
                 this.value,
@@ -127,7 +127,7 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     }
 
     @Override
-    public SpreadsheetIntegerBox setErrors(final List<String> errors) {
+    public IntegerBoxComponent setErrors(final List<String> errors) {
         Objects.requireNonNull(errors, "errors");
         this.errors = Lists.immutable(errors);
         return this;
@@ -141,7 +141,7 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     }
 
     @Override
-    public SpreadsheetIntegerBox setDisabled(final boolean disabled) {
+    public IntegerBoxComponent setDisabled(final boolean disabled) {
         this.disabled = true;
         return this;
     }
@@ -149,42 +149,42 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     private boolean disabled;
 
     @Override
-    public SpreadsheetIntegerBox addChangeListener(final ChangeListener<Optional<Integer>> listener) {
+    public IntegerBoxComponent addChangeListener(final ChangeListener<Optional<Integer>> listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetIntegerBox addClickListener(final EventListener listener) {
+    public IntegerBoxComponent addClickListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetIntegerBox addContextMenuListener(final EventListener listener) {
+    public IntegerBoxComponent addContextMenuListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetIntegerBox addFocusListener(final EventListener listener) {
+    public IntegerBoxComponent addFocusListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetIntegerBox addKeydownListener(final EventListener listener) {
+    public IntegerBoxComponent addKeydownListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetIntegerBox addKeyupListener(final EventListener listener) {
+    public IntegerBoxComponent addKeyupListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetIntegerBox alwaysShowHelperText() {
+    public IntegerBoxComponent alwaysShowHelperText() {
         return this;
     }
 
     @Override
-    public SpreadsheetIntegerBox setHelperText(final Optional<String> text) {
+    public IntegerBoxComponent setHelperText(final Optional<String> text) {
         Objects.requireNonNull(text, "text");
         this.helperText = text;
         return this;
@@ -197,28 +197,28 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     private Optional<String> helperText = Optional.empty();
 
     @Override
-    public SpreadsheetIntegerBox hideMarginBottom() {
+    public IntegerBoxComponent hideMarginBottom() {
         return this;
     }
 
     @Override
-    public SpreadsheetIntegerBox removeBorders() {
+    public IntegerBoxComponent removeBorders() {
         return this;
     }
 
-    public SpreadsheetIntegerBox clearIcon() {
+    public IntegerBoxComponent clearIcon() {
         return this;
     }
 
-    public SpreadsheetIntegerBox disableSpellcheck() {
+    public IntegerBoxComponent disableSpellcheck() {
         return this;
     }
 
-    public SpreadsheetIntegerBox enterFiresValueChange() {
+    public IntegerBoxComponent enterFiresValueChange() {
         return this;
     }
 
-    public SpreadsheetIntegerBox setValidator(final Optional<Validator<Optional<Integer>>> validator) {
+    public IntegerBoxComponent setValidator(final Optional<Validator<Optional<Integer>>> validator) {
         Objects.requireNonNull(validator, "validator");
 
         this.validator = validator;
@@ -227,14 +227,14 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
 
     private Optional<Validator<Optional<Integer>>> validator = Optional.empty();
 
-    public SpreadsheetIntegerBox max(final int value) {
+    public IntegerBoxComponent max(final int value) {
         this.max = value;
         return this;
     }
 
     private int max;
 
-    public SpreadsheetIntegerBox min(final int value) {
+    public IntegerBoxComponent min(final int value) {
         this.min = value;
         return this;
     }
