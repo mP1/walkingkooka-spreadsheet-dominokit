@@ -32,7 +32,7 @@ public final class SpreadsheetCellRangeReferencePathComponentTest implements For
         this.treePrintAndCheck(
             SpreadsheetCellRangeReferencePathComponent.empty(),
             "SpreadsheetCellRangeReferencePathComponent\n" +
-                "  SpreadsheetSelectComponent\n" +
+                "  SelectComponent\n" +
                 "    []\n" +
                 "      left-right top-down=LRTD\n" +
                 "      right-left top-down=RLTD\n" +
@@ -53,7 +53,7 @@ public final class SpreadsheetCellRangeReferencePathComponentTest implements For
                     Optional.of(SpreadsheetCellRangeReferencePath.BULR)
                 ),
             "SpreadsheetCellRangeReferencePathComponent\n" +
-                "  SpreadsheetSelectComponent\n" +
+                "  SelectComponent\n" +
                 "    [BULR]\n" +
                 "      left-right top-down=LRTD\n" +
                 "      right-left top-down=RLTD\n" +

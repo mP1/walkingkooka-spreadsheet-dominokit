@@ -21,27 +21,27 @@ import org.dominokit.domino.ui.forms.suggest.Select;
 import org.dominokit.domino.ui.forms.validations.ValidationResult;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 
-final class SpreadsheetSelectComponentValidator<T> implements Validator<Select<T>> {
+final class SelectComponentValidator<T> implements Validator<Select<T>> {
 
-    static <T> SpreadsheetSelectComponentValidator<T> with(final SpreadsheetSelectComponent<T> spreadsheetSelectComponent) {
-        return new SpreadsheetSelectComponentValidator<>(spreadsheetSelectComponent);
+    static <T> SelectComponentValidator<T> with(final SelectComponent<T> selectComponent) {
+        return new SelectComponentValidator<>(selectComponent);
     }
 
-    private SpreadsheetSelectComponentValidator(final SpreadsheetSelectComponent<T> spreadsheetSelectComponent) {
-        this.spreadsheetSelectComponent = spreadsheetSelectComponent;
+    private SelectComponentValidator(final SelectComponent<T> selectComponent) {
+        this.selectComponent = selectComponent;
     }
 
     @Override
     public ValidationResult isValid(final Select<T> component) {
-        return null == component.getValue() && this.spreadsheetSelectComponent.isRequired()/**/ ?
+        return null == component.getValue() && this.selectComponent.isRequired()/**/ ?
             ValidationResult.invalid("Selection required") :
             ValidationResult.valid();
     }
 
-    private final SpreadsheetSelectComponent<T> spreadsheetSelectComponent;
+    private final SelectComponent<T> selectComponent;
 
     @Override
     public String toString() {
-        return this.spreadsheetSelectComponent.toString();
+        return this.selectComponent.toString();
     }
 }

@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.find;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.spreadsheet.dominokit.select.SpreadsheetSelectComponent;
+import walkingkooka.spreadsheet.dominokit.select.SelectComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -39,7 +39,7 @@ public final class SpreadsheetCellRangeReferencePathComponent implements FormVal
     }
 
     private SpreadsheetCellRangeReferencePathComponent() {
-        this.select = SpreadsheetSelectComponent.empty();
+        this.select = SelectComponent.empty();
 
         for (final SpreadsheetCellRangeReferencePath path : SpreadsheetCellRangeReferencePath.values()) {
             this.select.appendOption(
@@ -234,7 +234,7 @@ public final class SpreadsheetCellRangeReferencePathComponent implements FormVal
         return this.select.isEditing();
     }
 
-    private final SpreadsheetSelectComponent<SpreadsheetCellRangeReferencePath> select;
+    private final SelectComponent<SpreadsheetCellRangeReferencePath> select;
 
     // Object...........................................................................................................
 

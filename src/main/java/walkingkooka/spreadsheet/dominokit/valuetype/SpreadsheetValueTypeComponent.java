@@ -21,7 +21,7 @@ import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
-import walkingkooka.spreadsheet.dominokit.select.SpreadsheetSelectComponent;
+import walkingkooka.spreadsheet.dominokit.select.SelectComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -43,7 +43,7 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
     }
 
     private SpreadsheetValueTypeComponent() {
-        final SpreadsheetSelectComponent<ValidationValueTypeName> select = SpreadsheetSelectComponent.empty();
+        final SelectComponent<ValidationValueTypeName> select = SelectComponent.empty();
 
         select.appendOption(
             "Any",
@@ -254,7 +254,7 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
         return this.select.value();
     }
 
-    private final SpreadsheetSelectComponent<ValidationValueTypeName> select;
+    private final SelectComponent<ValidationValueTypeName> select;
 
     // Object...........................................................................................................
 

@@ -112,7 +112,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "            SpreadsheetTextBox\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Cell Range Path [BULR] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
@@ -123,7 +123,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              bottom-up left-right=BULR\n" +
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Value type [date] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
@@ -233,7 +233,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "            SpreadsheetTextBox\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Cell Range Path [BULR] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
@@ -244,7 +244,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              bottom-up left-right=BULR\n" +
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Value type [date] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
@@ -354,7 +354,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "            SpreadsheetTextBox\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
@@ -365,7 +365,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              bottom-up left-right=BULR\n" +
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Value type [] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
@@ -473,7 +473,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "            SpreadsheetTextBox\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Cell Range Path [BULR] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
@@ -484,7 +484,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              bottom-up left-right=BULR\n" +
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Value type [date] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
@@ -628,7 +628,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "            SpreadsheetTextBox\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Cell Range Path [BULR] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
@@ -639,7 +639,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              bottom-up left-right=BULR\n" +
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Value type [date] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
@@ -778,7 +778,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "            SpreadsheetTextBox\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
@@ -789,7 +789,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              bottom-up left-right=BULR\n" +
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Value type [] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
@@ -897,7 +897,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "            SpreadsheetTextBox\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
@@ -908,7 +908,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              bottom-up left-right=BULR\n" +
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Value type [] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
@@ -1016,7 +1016,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "            SpreadsheetTextBox\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
@@ -1027,7 +1027,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              bottom-up left-right=BULR\n" +
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Value type [] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
@@ -1135,7 +1135,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "            SpreadsheetTextBox\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
@@ -1146,7 +1146,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              bottom-up left-right=BULR\n" +
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Value type [] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
@@ -1254,7 +1254,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "            SpreadsheetTextBox\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
@@ -1265,7 +1265,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              bottom-up left-right=BULR\n" +
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Value type [] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
@@ -1373,7 +1373,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "            SpreadsheetTextBox\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
@@ -1384,7 +1384,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              bottom-up left-right=BULR\n" +
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Value type [] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
@@ -1492,7 +1492,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "            SpreadsheetTextBox\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
@@ -1503,7 +1503,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              bottom-up left-right=BULR\n" +
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Value type [] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
@@ -1611,7 +1611,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "            SpreadsheetTextBox\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
@@ -1622,7 +1622,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              bottom-up left-right=BULR\n" +
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Value type [] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
@@ -1730,7 +1730,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "            SpreadsheetTextBox\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
@@ -1741,7 +1741,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              bottom-up left-right=BULR\n" +
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Value type [] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
@@ -1849,7 +1849,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "            SpreadsheetTextBox\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
@@ -1860,7 +1860,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              bottom-up left-right=BULR\n" +
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Value type [] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
@@ -1968,7 +1968,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "            SpreadsheetTextBox\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
@@ -1979,7 +1979,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              bottom-up left-right=BULR\n" +
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Value type [] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
@@ -2087,7 +2087,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "            SpreadsheetTextBox\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
@@ -2098,7 +2098,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              bottom-up left-right=BULR\n" +
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Value type [] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
@@ -2206,7 +2206,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "            SpreadsheetTextBox\n" +
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
                 "              left-right top-down=LRTD\n" +
                 "              right-left top-down=RLTD\n" +
@@ -2217,7 +2217,7 @@ public final class SpreadsheetFindDialogComponentTest implements DialogComponent
                 "              bottom-up left-right=BULR\n" +
                 "              bottom-up right-left=BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
-                "          SpreadsheetSelectComponent\n" +
+                "          SelectComponent\n" +
                 "            Value type [] id=cellFind-value-type-Select\n" +
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
