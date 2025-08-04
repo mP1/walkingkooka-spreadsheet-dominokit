@@ -87,7 +87,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "    A1: Parser\n" +
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
-                "        SpreadsheetCardLinkListComponent\n" +
+                "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -167,7 +167,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "    A1: Parser\n" +
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
-                "        SpreadsheetCardLinkListComponent\n" +
+                "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -279,7 +279,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "    A1: Parser\n" +
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
-                "        SpreadsheetCardLinkListComponent\n" +
+                "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -410,7 +410,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "    A1: Parser\n" +
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
-                "        SpreadsheetCardLinkListComponent\n" +
+                "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -562,7 +562,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "    A1: Parser\n" +
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
-                "        SpreadsheetCardLinkListComponent\n" +
+                "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -665,7 +665,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "          TAB 3\n" +
                 "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeParser] id=spreadsheetParserSelector-Tabs-time-parse\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
-                "        SpreadsheetCardLinkListComponent\n" +
+                "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -787,7 +787,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "          TAB 3\n" +
                 "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeParser] id=spreadsheetParserSelector-Tabs-time-parse\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
-                "        SpreadsheetCardLinkListComponent\n" +
+                "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -928,7 +928,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "          TAB 3\n" +
                 "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeParser] id=spreadsheetParserSelector-Tabs-time-parse\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
-                "        SpreadsheetCardLinkListComponent\n" +
+                "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -1090,7 +1090,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "          TAB 3 SELECTED\n" +
                 "            \"Time\" DISABLED id=spreadsheetParserSelector-Tabs-time-parse\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
-                "        SpreadsheetCardLinkListComponent\n" +
+                "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +

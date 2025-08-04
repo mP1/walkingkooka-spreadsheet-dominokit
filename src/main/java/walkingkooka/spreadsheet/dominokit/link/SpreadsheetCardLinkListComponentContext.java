@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.link;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 
 /**
- * Context for {@link SpreadsheetCardLinkListComponent}.
+ * Context for {@link CardLinkListComponent}.
  */
 public interface SpreadsheetCardLinkListComponentContext extends HistoryContext {
 

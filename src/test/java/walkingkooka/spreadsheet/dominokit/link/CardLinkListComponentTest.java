@@ -34,7 +34,7 @@ import java.util.function.Function;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetCardLinkListComponentTest implements HtmlComponentTesting<SpreadsheetCardLinkListComponent, HTMLDivElement> {
+public final class CardLinkListComponentTest implements HtmlComponentTesting<CardLinkListComponent, HTMLDivElement> {
 
     private final static String ID = "LinkList123-";
 
@@ -48,7 +48,7 @@ public final class SpreadsheetCardLinkListComponentTest implements HtmlComponent
     public void testWithNullIdFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetCardLinkListComponent.with(
+            () -> CardLinkListComponent.with(
                 null,
                 TITLE,
                 LABEL_MAKER
@@ -60,7 +60,7 @@ public final class SpreadsheetCardLinkListComponentTest implements HtmlComponent
     public void testWithEmptyIdFails() {
         assertThrows(
             IllegalArgumentException.class,
-            () -> SpreadsheetCardLinkListComponent.with(
+            () -> CardLinkListComponent.with(
                 "",
                 TITLE,
                 LABEL_MAKER
@@ -72,7 +72,7 @@ public final class SpreadsheetCardLinkListComponentTest implements HtmlComponent
     public void testWithNullTitleFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetCardLinkListComponent.with(
+            () -> CardLinkListComponent.with(
                 ID,
                 null,
                 LABEL_MAKER
@@ -84,7 +84,7 @@ public final class SpreadsheetCardLinkListComponentTest implements HtmlComponent
     public void testWithNullLabelMakerFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetCardLinkListComponent.with(
+            () -> CardLinkListComponent.with(
                 ID,
                 TITLE,
                 null
@@ -99,7 +99,7 @@ public final class SpreadsheetCardLinkListComponentTest implements HtmlComponent
         this.refreshAndCheck(
             Lists.empty(),
             Optional.empty(), // no selection
-            "SpreadsheetCardLinkListComponent\n"
+            "CardLinkListComponent\n"
         );
     }
 
@@ -114,7 +114,7 @@ public final class SpreadsheetCardLinkListComponentTest implements HtmlComponent
             Optional.of(
                 SpreadsheetFormatterName.with("banana2")
             ),
-            "SpreadsheetCardLinkListComponent\n" +
+            "CardLinkListComponent\n" +
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Title123\n" +
@@ -135,7 +135,7 @@ public final class SpreadsheetCardLinkListComponentTest implements HtmlComponent
                 "carrot3"
             ),
             Optional.empty(),
-            "SpreadsheetCardLinkListComponent\n" +
+            "CardLinkListComponent\n" +
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Title123\n" +
@@ -150,7 +150,7 @@ public final class SpreadsheetCardLinkListComponentTest implements HtmlComponent
     private void refreshAndCheck(final List<String> texts,
                                  final Optional<SpreadsheetFormatterName> selected,
                                  final String expected) {
-        final SpreadsheetCardLinkListComponent list = SpreadsheetCardLinkListComponent.with(
+        final CardLinkListComponent list = CardLinkListComponent.with(
             ID,
             TITLE,
             LABEL_MAKER
@@ -191,8 +191,8 @@ public final class SpreadsheetCardLinkListComponentTest implements HtmlComponent
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetCardLinkListComponent> type() {
-        return SpreadsheetCardLinkListComponent.class;
+    public Class<CardLinkListComponent> type() {
+        return CardLinkListComponent.class;
     }
 
     @Override
