@@ -24,8 +24,8 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextWriteWatchers;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardTextItem;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
-import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
+import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 
 /**
  * A {@link HistoryToken} that represents a COPY to the clipboard of a cell or cell range in part of whole.

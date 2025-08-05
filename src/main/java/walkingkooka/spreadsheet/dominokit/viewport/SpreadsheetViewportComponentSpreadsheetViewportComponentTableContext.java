@@ -21,11 +21,11 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
-import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigationContext;
+import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigation;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigationContext;
 import walkingkooka.tree.text.TextStyle;
 
 final class SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext implements SpreadsheetViewportComponentTableContext,

@@ -17,12 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
-import walkingkooka.spreadsheet.SpreadsheetViewportRectangle;
-import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
-import walkingkooka.spreadsheet.reference.FakeSpreadsheetViewportNavigationContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.viewport.FakeSpreadsheetViewportNavigationContext;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportRectangle;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportWindows;
 
 import java.util.Optional;
 

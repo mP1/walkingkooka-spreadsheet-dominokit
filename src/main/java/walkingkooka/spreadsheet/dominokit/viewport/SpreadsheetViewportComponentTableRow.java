@@ -20,12 +20,12 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 import elemental2.dom.HTMLTableRowElement;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.dom.TrComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportWindows;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.function.Predicate;

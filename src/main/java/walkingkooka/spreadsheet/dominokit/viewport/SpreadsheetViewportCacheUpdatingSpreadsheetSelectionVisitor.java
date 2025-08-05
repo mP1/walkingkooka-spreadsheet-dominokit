@@ -18,13 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.collect.set.SortedSets;
-import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelectionVisitor;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportWindows;
 
 import java.util.Collection;
 import java.util.Map;
