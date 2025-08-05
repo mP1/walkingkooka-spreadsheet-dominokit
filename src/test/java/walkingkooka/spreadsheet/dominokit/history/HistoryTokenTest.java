@@ -49,6 +49,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetRowRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigationList;
 import walkingkooka.spreadsheet.validation.form.SpreadsheetForms;
 import walkingkooka.test.ParseStringTesting;
 import walkingkooka.tree.expression.ExpressionNumberKind;
@@ -3034,6 +3035,34 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                     OptionalInt.of(111), // offset
                     OptionalInt.of(222) // count
                 )
+            )
+        );
+    }
+
+    // cell/navigate....................................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellNavigate() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/navigate",
+            HistoryToken.cellNavigation(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                SpreadsheetViewportNavigationList.EMPTY
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellNavigateRightSpace100px() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/navigate/right 100px",
+            HistoryToken.cellNavigation(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                SpreadsheetViewportNavigationList.parse("right 100px")
             )
         );
     }

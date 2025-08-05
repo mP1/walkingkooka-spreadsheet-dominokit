@@ -53,6 +53,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
+import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigationList;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 import walkingkooka.spreadsheet.validation.form.SpreadsheetForms;
 import walkingkooka.text.CharSequences;
@@ -222,6 +223,10 @@ public abstract class HistoryToken implements HasUrlFragment,
     final static String MENU_STRING = "menu";
 
     final static UrlFragment MENU = UrlFragment.parse(MENU_STRING);
+
+    final static String NAVIGATE_STRING = "navigate";
+
+    final static UrlFragment NAVIGATE = UrlFragment.parse(NAVIGATE_STRING);
 
     final static String OFFSET_STRING = "offset";
 
@@ -695,6 +700,21 @@ public abstract class HistoryToken implements HasUrlFragment,
         );
     }
 
+    /**
+     * {@see SpreadsheetCellNavigateHistoryToken}
+     */
+    public static SpreadsheetCellNavigateHistoryToken cellNavigation(final SpreadsheetId id,
+                                                                     final SpreadsheetName name,
+                                                                     final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                     final SpreadsheetViewportNavigationList navigation) {
+        return SpreadsheetCellNavigateHistoryToken.with(
+            id,
+            name,
+            anchoredSelection,
+            navigation
+        );
+    }
+    
     /**
      * {@see SpreadsheetCellParserSaveHistoryToken}
      */
@@ -3510,6 +3530,30 @@ public abstract class HistoryToken implements HasUrlFragment,
             this;
     }
 
+    // navigation.......................................................................................................
+
+    public final HistoryToken setNavigation(final SpreadsheetViewportNavigationList navigation) {
+        Objects.requireNonNull(navigation, "navigation");
+
+        HistoryToken historyToken;
+
+        if (this instanceof SpreadsheetCellHistoryToken) {
+            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
+
+            historyToken = HistoryToken.cellNavigation(
+                cell.id(),
+                cell.name(),
+                cell.anchoredSelection(),
+                navigation
+            );
+
+        } else {
+            historyToken = this;
+        }
+
+        return historyToken;
+    }
+    
     // OFFSET...........................................................................................................
 
     /**
