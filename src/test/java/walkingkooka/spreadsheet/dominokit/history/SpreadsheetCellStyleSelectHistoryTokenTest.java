@@ -22,9 +22,9 @@ import walkingkooka.Cast;
 import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
+import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;

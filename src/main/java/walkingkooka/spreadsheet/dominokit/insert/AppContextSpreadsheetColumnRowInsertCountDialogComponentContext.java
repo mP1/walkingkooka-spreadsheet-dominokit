@@ -24,8 +24,8 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnInsertHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowInsertHistoryToken;
-import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 
 import java.util.Objects;
 import java.util.Optional;

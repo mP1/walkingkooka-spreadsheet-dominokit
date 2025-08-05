@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
 import walkingkooka.validation.form.FormName;

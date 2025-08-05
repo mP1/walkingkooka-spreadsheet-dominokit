@@ -21,7 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 
 /**
  * Deletes the selected row or rows and any cells that may be present within them.

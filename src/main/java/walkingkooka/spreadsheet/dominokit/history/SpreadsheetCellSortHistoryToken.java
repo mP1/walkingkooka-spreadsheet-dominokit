@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 
 /**
  * Base class for both cell sort history tokens.

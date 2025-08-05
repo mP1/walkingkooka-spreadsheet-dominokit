@@ -20,9 +20,9 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
+import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.tree.text.TextStyle;
 
 /**

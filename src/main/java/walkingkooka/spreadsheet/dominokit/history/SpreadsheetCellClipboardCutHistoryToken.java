@@ -26,9 +26,9 @@ import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextWriteWatcher
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardTextItem;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher;
-import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.tree.json.JsonNode;
 
 import java.util.Optional;

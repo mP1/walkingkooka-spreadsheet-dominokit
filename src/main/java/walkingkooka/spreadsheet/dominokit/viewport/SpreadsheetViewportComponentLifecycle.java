@@ -17,12 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
-import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportWindows;
 
 /**
  * A {@link HistoryTokenAwareComponentLifecycle} specialization where {@link #isMatch(HistoryToken)} logic performs the same

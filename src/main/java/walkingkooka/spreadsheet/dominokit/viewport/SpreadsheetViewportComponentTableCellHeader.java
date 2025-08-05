@@ -26,8 +26,8 @@ import walkingkooka.spreadsheet.dominokit.dom.ThComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 
 import java.util.Optional;
 import java.util.function.Predicate;

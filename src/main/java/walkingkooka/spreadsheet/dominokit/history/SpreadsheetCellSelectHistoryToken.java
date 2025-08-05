@@ -31,7 +31,7 @@ import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToText
 import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToValidationValueTypeNameMap;
 import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToValidatorSelectorMap;
 import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellSet;
-import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
 
 /**

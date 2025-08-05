@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnRangeReference;
@@ -29,7 +28,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetRowRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelectionVisitor;
-import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
+import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
 
 /**
  * This visitor is used to create a {@link SpreadsheetHistoryToken} that selects the given {@link SpreadsheetSelection}.

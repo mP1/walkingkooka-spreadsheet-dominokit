@@ -51,8 +51,8 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelectorToken;
-import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.text.TextNode;
 

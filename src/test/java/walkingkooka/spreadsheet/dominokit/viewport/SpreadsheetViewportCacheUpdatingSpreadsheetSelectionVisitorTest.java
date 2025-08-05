@@ -19,8 +19,8 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.collect.map.Maps;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelectionVisitorTesting;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportWindows;
 
 import java.util.Collections;
 

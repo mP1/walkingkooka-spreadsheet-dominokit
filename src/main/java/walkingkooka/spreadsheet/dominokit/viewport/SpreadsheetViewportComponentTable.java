@@ -24,7 +24,6 @@ import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.SortedSets;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.dom.TBodyComponent;
@@ -32,6 +31,7 @@ import walkingkooka.spreadsheet.dominokit.dom.THeadComponent;
 import walkingkooka.spreadsheet.dominokit.dom.TableComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportWindows;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;

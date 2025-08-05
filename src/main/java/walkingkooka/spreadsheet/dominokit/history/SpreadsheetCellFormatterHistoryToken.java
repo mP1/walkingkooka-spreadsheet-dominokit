@@ -21,7 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 
 import java.util.Objects;
 import java.util.Optional;

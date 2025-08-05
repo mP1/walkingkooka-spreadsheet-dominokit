@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetCompara
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
 
 import java.util.Objects;
