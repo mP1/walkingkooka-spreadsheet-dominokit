@@ -36,7 +36,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewport;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportRectangle;
-import walkingkooka.text.CharSequences;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.form.provider.FormHandlerAliasSet;
@@ -392,10 +391,6 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
                     propertyName::toString
                 );
             }
-
-            System.out.println(propertyName);
-            System.out.println("  " + CharSequences.quoteIfChars(value));
-            System.out.println("  " + "/123/SpreadsheetName456/spreadsheet/" + propertyName.value() + "/save/" + HistoryToken.saveUrlFragmentValue(value));
 
             this.parseAndCheck(
                 "/123/SpreadsheetName456/spreadsheet/" + propertyName.value() + "/save/" + HistoryToken.saveUrlFragmentValue(value),
