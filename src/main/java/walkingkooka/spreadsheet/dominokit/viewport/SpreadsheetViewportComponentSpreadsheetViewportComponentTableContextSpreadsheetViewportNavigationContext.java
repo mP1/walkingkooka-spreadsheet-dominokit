@@ -19,12 +19,9 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.FakeSpreadsheetViewportNavigationContext;
-import walkingkooka.spreadsheet.viewport.SpreadsheetViewportRectangle;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewport;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportWindows;
-
-import java.util.Optional;
 
 final class SpreadsheetViewportComponentSpreadsheetViewportComponentTableContextSpreadsheetViewportNavigationContext extends FakeSpreadsheetViewportNavigationContext {
 
@@ -48,9 +45,7 @@ final class SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext
     }
 
     @Override
-    public SpreadsheetViewportWindows windows(final SpreadsheetViewportRectangle rectangle,
-                                              final boolean includeFrozenColumnsRows,
-                                              final Optional<SpreadsheetSelection> selection) {
+    public SpreadsheetViewportWindows windows(final SpreadsheetViewport viewport) {
         return this.cache.windows();
     }
 
