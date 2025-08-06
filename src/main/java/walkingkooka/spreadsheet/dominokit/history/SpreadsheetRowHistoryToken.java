@@ -47,7 +47,7 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
 
     @Override //
     final UrlFragment selectionUrlFragment() {
-        return SpreadsheetUrlFragments.ROW.appendSlashThen(
+        return SpreadsheetUrlFragments.ROW.append(
             this.anchoredSelection.urlFragment()
         ).appendSlashThen(this.rowUrlFragment());
     }
