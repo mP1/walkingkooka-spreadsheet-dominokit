@@ -47,7 +47,7 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetAnchoredS
 
     @Override //
     final UrlFragment selectionUrlFragment() {
-        return SpreadsheetUrlFragments.COLUMN.appendSlashThen(
+        return SpreadsheetUrlFragments.COLUMN.append(
             this.anchoredSelection.urlFragment()
         ).appendSlashThen(this.columnUrlFragment());
     }

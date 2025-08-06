@@ -53,7 +53,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
 
     @Override //
     final UrlFragment selectionUrlFragment() {
-        return SpreadsheetUrlFragments.CELL.appendSlashThen(
+        return SpreadsheetUrlFragments.CELL.append(
             this.anchoredSelection.urlFragment()
         ).appendSlashThen(this.cellUrlFragment());
     }
