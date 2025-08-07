@@ -37,6 +37,8 @@ public final class SpreadsheetElementIds implements PublicStaticHelper {
 
     public final static String SELECT = "-Select";
 
+    public final static String SLIDER = "-Slider";
+
     public final static String SUB_MENU = "-SubMenu";
 
     public final static String TABLE = "-Table";
