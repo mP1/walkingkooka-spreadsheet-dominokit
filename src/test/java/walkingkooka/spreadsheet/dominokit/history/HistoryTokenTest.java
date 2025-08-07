@@ -3920,6 +3920,40 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             )
         );
     }
+    
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnNavigate() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/column/AA/navigate/home/Z99/width/200/height/300/navigations/right%20444px",
+            HistoryToken.columnNavigate(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor(),
+                SpreadsheetViewportRectangleNavigationList.with(
+                    SpreadsheetViewportRectangle.parse("Z99:200:300")
+                ).setNavigations(
+                    SpreadsheetViewportNavigationList.parse("right 444px")
+                )
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnRangeNavigate() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/column/BB:CC/left/navigate/home/Z99/width/200/height/300/navigations/right%20444px",
+            HistoryToken.columnNavigate(
+                ID,
+                NAME,
+                COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.LEFT),
+                SpreadsheetViewportRectangleNavigationList.with(
+                    SpreadsheetViewportRectangle.parse("Z99:200:300")
+                ).setNavigations(
+                    SpreadsheetViewportNavigationList.parse("right 444px")
+                )
+            )
+        );
+    }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnUnfreezeInvalidFails() {

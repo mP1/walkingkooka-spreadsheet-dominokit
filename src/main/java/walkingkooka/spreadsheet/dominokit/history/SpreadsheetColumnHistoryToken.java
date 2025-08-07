@@ -92,6 +92,9 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetAnchoredS
                     SpreadsheetLabelNameResolvers.fake()
                 );
                 break;
+            case NAVIGATE_STRING:
+                result = this.parseNavigate(cursor);
+                break;
             case SORT_STRING:
                 result = this.parseSort(cursor);
                 break;
