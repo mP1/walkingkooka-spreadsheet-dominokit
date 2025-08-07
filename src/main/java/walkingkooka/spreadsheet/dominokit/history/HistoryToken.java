@@ -714,7 +714,7 @@ public abstract class HistoryToken implements HasUrlFragment,
             navigation
         );
     }
-    
+
     /**
      * {@see SpreadsheetCellParserSaveHistoryToken}
      */
@@ -1241,6 +1241,21 @@ public abstract class HistoryToken implements HasUrlFragment,
             id,
             name,
             anchoredSelection
+        );
+    }
+
+    /**
+     * {@see SpreadsheetColumnNavigateHistoryToken}
+     */
+    public static SpreadsheetColumnNavigateHistoryToken columnNavigate(final SpreadsheetId id,
+                                                                       final SpreadsheetName name,
+                                                                       final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                       final SpreadsheetViewportRectangleNavigationList navigation) {
+        return SpreadsheetColumnNavigateHistoryToken.with(
+            id,
+            name,
+            anchoredSelection,
+            navigation
         );
     }
 
@@ -3555,25 +3570,35 @@ public abstract class HistoryToken implements HasUrlFragment,
     public final HistoryToken setNavigation(final SpreadsheetViewportRectangleNavigationList navigation) {
         Objects.requireNonNull(navigation, "navigation");
 
-        HistoryToken historyToken;
+        HistoryToken historyToken = this;
 
-        if (this instanceof SpreadsheetCellHistoryToken) {
-            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
+        if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
+            final SpreadsheetAnchoredSelectionHistoryToken spreadsheetAnchoredSelectionHistoryToken = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
+            final SpreadsheetId id = spreadsheetAnchoredSelectionHistoryToken.id();
+            final SpreadsheetName name = spreadsheetAnchoredSelectionHistoryToken.name();
+            final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = spreadsheetAnchoredSelectionHistoryToken.anchoredSelection();
 
-            historyToken = HistoryToken.cellNavigate(
-                cell.id(),
-                cell.name(),
-                cell.anchoredSelection(),
-                navigation
-            );
-
-        } else {
-            historyToken = this;
+            if (this instanceof SpreadsheetCellHistoryToken) {
+                historyToken = HistoryToken.cellNavigate(
+                    id,
+                    name,
+                    anchoredSpreadsheetSelection,
+                    navigation
+                );
+            }
+            if (this instanceof SpreadsheetColumnHistoryToken) {
+                historyToken = HistoryToken.columnNavigate(
+                    id,
+                    name,
+                    anchoredSpreadsheetSelection,
+                    navigation
+                );
+            }
         }
 
         return historyToken;
     }
-    
+
     // OFFSET...........................................................................................................
 
     /**

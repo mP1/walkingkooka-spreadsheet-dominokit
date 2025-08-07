@@ -26,7 +26,6 @@ import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolvers;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
-import walkingkooka.spreadsheet.viewport.SpreadsheetViewportRectangleNavigationList;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
 import walkingkooka.validation.ValidationValueTypeName;
@@ -230,20 +229,6 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
         }
 
         return this.labels(offsetAndCount);
-    }
-
-    final HistoryToken parseNavigate(final TextCursor cursor) {
-        final TextCursorSavePoint save = cursor.save();
-        cursor.end();
-
-        return this.setNavigation(
-            SpreadsheetViewportRectangleNavigationList.fromUrlFragment(
-                UrlFragment.parse(
-                    save.textBetween()
-                        .toString()
-                )
-            )
-        );
     }
 
     private HistoryToken parsePaste(final TextCursor cursor) {
