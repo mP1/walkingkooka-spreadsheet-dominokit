@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
-import walkingkooka.spreadsheet.viewport.SpreadsheetViewportRectangleNavigationList;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
 
 import java.util.Objects;
 
@@ -30,7 +30,7 @@ import java.util.Objects;
 /**
  * This {@link HistoryToken} is used by viewport scrollbar left/right arrows.
  * <pre>
- * http://localhost:12345/index.html#/2/Untitled/column/A/navigate/home/B2/width/200/height/300/navigations/up 1500px
+ * http://localhost:12345/index.html#/2/Untitled/column/A/navigate/B2/up 1500px
  * </pre>
  */
 public final class SpreadsheetColumnNavigateHistoryToken extends SpreadsheetColumnHistoryToken {
@@ -38,7 +38,7 @@ public final class SpreadsheetColumnNavigateHistoryToken extends SpreadsheetColu
     static SpreadsheetColumnNavigateHistoryToken with(final SpreadsheetId id,
                                                       final SpreadsheetName name,
                                                       final AnchoredSpreadsheetSelection anchoredSelection,
-                                                      final SpreadsheetViewportRectangleNavigationList navigation) {
+                                                      final SpreadsheetViewportHomeNavigationList navigation) {
         return new SpreadsheetColumnNavigateHistoryToken(
             id,
             name,
@@ -50,7 +50,7 @@ public final class SpreadsheetColumnNavigateHistoryToken extends SpreadsheetColu
     private SpreadsheetColumnNavigateHistoryToken(final SpreadsheetId id,
                                                   final SpreadsheetName name,
                                                   final AnchoredSpreadsheetSelection anchoredSelection,
-                                                  final SpreadsheetViewportRectangleNavigationList navigation) {
+                                                  final SpreadsheetViewportHomeNavigationList navigation) {
         super(
             id,
             name,
@@ -59,13 +59,13 @@ public final class SpreadsheetColumnNavigateHistoryToken extends SpreadsheetColu
         this.navigation = Objects.requireNonNull(navigation, "navigation");
     }
 
-    public SpreadsheetViewportRectangleNavigationList navigation() {
+    public SpreadsheetViewportHomeNavigationList navigation() {
         return this.navigation;
     }
 
-    private final SpreadsheetViewportRectangleNavigationList navigation;
+    private final SpreadsheetViewportHomeNavigationList navigation;
 
-    // /1/SpreadsheetName/column/A/navigate/home/Z9/width/200/height/300/navigation/right 400
+    // /1/SpreadsheetName/column/A/navigate/Z9/right 400
     @Override
     UrlFragment columnUrlFragment() {
         return NAVIGATE.append(

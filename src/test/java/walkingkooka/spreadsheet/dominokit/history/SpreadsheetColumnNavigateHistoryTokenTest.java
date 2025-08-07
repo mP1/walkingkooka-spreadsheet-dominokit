@@ -20,18 +20,18 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigationList;
-import walkingkooka.spreadsheet.viewport.SpreadsheetViewportRectangle;
-import walkingkooka.spreadsheet.viewport.SpreadsheetViewportRectangleNavigationList;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetColumnNavigateHistoryTokenTest extends SpreadsheetColumnHistoryTokenTestCase<SpreadsheetColumnNavigateHistoryToken> {
 
-    private final static SpreadsheetViewportRectangleNavigationList NAVIGATIONS = SpreadsheetViewportRectangleNavigationList.with(
-        SpreadsheetViewportRectangle.parse("Z99:300:400")
+    private final static SpreadsheetViewportHomeNavigationList NAVIGATIONS = SpreadsheetViewportHomeNavigationList.with(
+        SpreadsheetSelection.parseCell("Z99")
     ).setNavigations(
         SpreadsheetViewportNavigationList.parse("right 555px")
     );
@@ -53,14 +53,14 @@ public final class SpreadsheetColumnNavigateHistoryTokenTest extends Spreadsheet
 
     @Test
     public void testUrlFragmentColumn() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/column/A/navigate/home/Z99/width/300/height/400/navigations/right 555px");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/column/A/navigate/Z99/right 555px");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.LEFT),
-            "/123/SpreadsheetName456/column/B:C/left/navigate/home/Z99/width/300/height/400/navigations/right 555px"
+            "/123/SpreadsheetName456/column/B:C/left/navigate/Z99/right 555px"
         );
     }
 
@@ -79,33 +79,9 @@ public final class SpreadsheetColumnNavigateHistoryTokenTest extends Spreadsheet
     }
 
     @Test
-    public void testParseInvalidWidth() {
-        this.parseAndCheck(
-            "/123/SpreadsheetName456/column/A/navigate/home/Z9/width/!invalid",
-            HistoryToken.columnSelect(
-                ID,
-                NAME,
-                COLUMN.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseInvalidHeight() {
-        this.parseAndCheck(
-            "/123/SpreadsheetName456/column/A/navigate/home/Z9/width/200/height/!invalid",
-            HistoryToken.columnSelect(
-                ID,
-                NAME,
-                COLUMN.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
     public void testParseInvalidNavigation() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/column/A/navigate/home/Z9/width/200/height/300/navigate/!invalid",
+            "/123/SpreadsheetName456/column/A/navigate/home/Z9/!invalid",
             HistoryToken.columnSelect(
                 ID,
                 NAME,

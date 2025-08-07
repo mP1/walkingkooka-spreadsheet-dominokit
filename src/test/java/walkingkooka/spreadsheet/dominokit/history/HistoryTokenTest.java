@@ -50,9 +50,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.validation.form.SpreadsheetForms;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigationList;
-import walkingkooka.spreadsheet.viewport.SpreadsheetViewportRectangle;
-import walkingkooka.spreadsheet.viewport.SpreadsheetViewportRectangleNavigationList;
 import walkingkooka.test.ParseStringTesting;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -3046,13 +3045,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellNavigate() {
         this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/navigate/home/Z99/width/200/height/300/navigations/right%20444px",
+            "/123/SpreadsheetName456/cell/A1/navigate/Z99/right%20444px",
             HistoryToken.cellNavigate(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                SpreadsheetViewportRectangleNavigationList.with(
-                    SpreadsheetViewportRectangle.parse("Z99:200:300")
+                SpreadsheetViewportHomeNavigationList.with(
+                    SpreadsheetSelection.parseCell("Z99")
                 ).setNavigations(
                     SpreadsheetViewportNavigationList.parse("right 444px")
                 )
@@ -3063,13 +3062,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellRangeNavigate() {
         this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/B2:C3/top-left/navigate/home/Z99/width/200/height/300/navigations/right%20444px",
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/navigate/Z99/right%20444px",
             HistoryToken.cellNavigate(
                 ID,
                 NAME,
                 CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                SpreadsheetViewportRectangleNavigationList.with(
-                    SpreadsheetViewportRectangle.parse("Z99:200:300")
+                SpreadsheetViewportHomeNavigationList.with(
+                    SpreadsheetSelection.parseCell("Z99")
                 ).setNavigations(
                     SpreadsheetViewportNavigationList.parse("right 444px")
                 )
@@ -3924,13 +3923,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnNavigate() {
         this.parseStringAndCheck(
-            "/123/SpreadsheetName456/column/AA/navigate/home/Z99/width/200/height/300/navigations/right%20444px",
+            "/123/SpreadsheetName456/column/AA/navigate/Z99/right%20444px",
             HistoryToken.columnNavigate(
                 ID,
                 NAME,
                 COLUMN.setDefaultAnchor(),
-                SpreadsheetViewportRectangleNavigationList.with(
-                    SpreadsheetViewportRectangle.parse("Z99:200:300")
+                SpreadsheetViewportHomeNavigationList.with(
+                    SpreadsheetSelection.parseCell("Z99")
                 ).setNavigations(
                     SpreadsheetViewportNavigationList.parse("right 444px")
                 )
@@ -3941,13 +3940,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnRangeNavigate() {
         this.parseStringAndCheck(
-            "/123/SpreadsheetName456/column/BB:CC/left/navigate/home/Z99/width/200/height/300/navigations/right%20444px",
+            "/123/SpreadsheetName456/column/BB:CC/left/navigate/Z99/right%20444px",
             HistoryToken.columnNavigate(
                 ID,
                 NAME,
                 COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.LEFT),
-                SpreadsheetViewportRectangleNavigationList.with(
-                    SpreadsheetViewportRectangle.parse("Z99:200:300")
+                SpreadsheetViewportHomeNavigationList.with(
+                    SpreadsheetSelection.parseCell("Z99")
                 ).setNavigations(
                     SpreadsheetViewportNavigationList.parse("right 444px")
                 )
@@ -4308,13 +4307,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowNavigate() {
         this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/11/navigate/home/Z99/width/200/height/300/navigations/down%20444px",
+            "/123/SpreadsheetName456/row/11/navigate/Z99/down%20444px",
             HistoryToken.rowNavigate(
                 ID,
                 NAME,
                 ROW.setDefaultAnchor(),
-                SpreadsheetViewportRectangleNavigationList.with(
-                    SpreadsheetViewportRectangle.parse("Z99:200:300")
+                SpreadsheetViewportHomeNavigationList.with(
+                    SpreadsheetSelection.parseCell("Z99")
                 ).setNavigations(
                     SpreadsheetViewportNavigationList.parse("down 444px")
                 )
@@ -4325,13 +4324,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowRangeNavigate() {
         this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/22:33/bottom/navigate/home/Z99/width/200/height/300/navigations/down%20444px",
+            "/123/SpreadsheetName456/row/22:33/bottom/navigate/Z99/down%20444px",
             HistoryToken.rowNavigate(
                 ID,
                 NAME,
                 ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
-                SpreadsheetViewportRectangleNavigationList.with(
-                    SpreadsheetViewportRectangle.parse("Z99:200:300")
+                SpreadsheetViewportHomeNavigationList.with(
+                    SpreadsheetSelection.parseCell("Z99")
                 ).setNavigations(
                     SpreadsheetViewportNavigationList.parse("down 444px")
                 )
