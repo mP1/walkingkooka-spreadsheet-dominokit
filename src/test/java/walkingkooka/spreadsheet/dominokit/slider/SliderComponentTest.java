@@ -103,11 +103,13 @@ public final class SliderComponentTest implements FormValueComponentTesting<HTML
     // TreePrintable....................................................................................................
 
     @Test
-    public void testSetMinValueSetMaxValueSetStepAndTreePrint() {
-        final Double value = 123.0;
+    public void testTreePrintHorizontalSetMinValueSetMaxValueSetStep() {
+        final Double value = 125.0;
 
-        final SliderComponent slider = this.createComponent()
-            .setValue(
+        final SliderComponent slider = SliderComponent.horizontal(
+                100.0, // minValue
+                200.0 // maxValue
+            ).setValue(
                 Optional.of(value)
             ).setMinValue(100.0)
             .setMaxValue(200.0)
@@ -115,7 +117,28 @@ public final class SliderComponentTest implements FormValueComponentTesting<HTML
         this.treePrintAndCheck(
             slider,
             "SliderComponent\n" +
-                "  [123.0] min=100.0 max=200.0\n"
+                "  Horizontal\n" +
+                "    [125.0] min=100.0 max=200.0\n"
+        );
+    }
+
+    @Test
+    public void testTreePrintVerticalSetMinValueSetMaxValueSetStep() {
+        final Double value = 150.0;
+
+        final SliderComponent slider = SliderComponent.vertical(
+                100.0, // minValue
+                200.0 // maxValue
+            ).setValue(
+                Optional.of(value)
+            ).setMinValue(100.0)
+            .setMaxValue(200.0)
+            .setStep(5.0);
+        this.treePrintAndCheck(
+            slider,
+            "SliderComponent\n" +
+                "  Vertical\n" +
+                "    [150.0] min=100.0 max=200.0\n"
         );
     }
 
@@ -123,7 +146,7 @@ public final class SliderComponentTest implements FormValueComponentTesting<HTML
 
     @Override
     public SliderComponent createComponent() {
-        return SliderComponent.empty(
+        return SliderComponent.horizontal(
             100.0, // minValue
             200.0 // maxValue
         );

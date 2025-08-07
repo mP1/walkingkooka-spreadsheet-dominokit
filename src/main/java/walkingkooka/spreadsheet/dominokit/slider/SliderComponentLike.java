@@ -32,7 +32,16 @@ abstract class SliderComponentLike implements FormValueComponent<HTMLDivElement,
     SliderComponentLike() {
         super();
     }
-    
+
+    final SliderComponent setVertical() {
+        return this.setCssProperty(
+            "writing-mode",
+            "vertical"
+        );
+    }
+
+    abstract boolean isVertical();
+
     // MinValue.........................................................................................................
 
     public abstract SliderComponent setMinValue(final double minValue);
@@ -58,46 +67,56 @@ abstract class SliderComponentLike implements FormValueComponent<HTMLDivElement,
         printer.println(this.getClass().getSimpleName());
         printer.indent();
         {
-            final List<String> components = Lists.array();
-
-            final String label = this.label();
-            if (null != label) {
-                components.add(label);
-            }
-
-            components.add(
-                "[" +
-                    this.value()
-                        .map(Object::toString)
-                        .orElse("") +
-                    "]"
-            );
-
-            components.add(
-                "min=" + this.minValue()
-            );
-
-            components.add(
-                "max=" + this.maxValue()
-            );
-
-            final String id = this.id();
-            if (null != id) {
-                components.add("id=" + id);
-            }
-
-            if (this.isDisabled()) {
-                components.add("DISABLED");
-            }
-
-            if (this.isRequired()) {
-                components.add("REQUIRED");
-            }
-
             printer.println(
-                components.stream()
-                    .collect(Collectors.joining(" "))
+                this.isVertical() ?
+                    "Vertical" :
+                    "Horizontal"
             );
+            printer.indent();
+            {
+
+                final List<String> components = Lists.array();
+
+                final String label = this.label();
+                if (null != label) {
+                    components.add(label);
+                }
+
+                components.add(
+                    "[" +
+                        this.value()
+                            .map(Object::toString)
+                            .orElse("") +
+                        "]"
+                );
+
+                components.add(
+                    "min=" + this.minValue()
+                );
+
+                components.add(
+                    "max=" + this.maxValue()
+                );
+
+                final String id = this.id();
+                if (null != id) {
+                    components.add("id=" + id);
+                }
+
+                if (this.isDisabled()) {
+                    components.add("DISABLED");
+                }
+
+                if (this.isRequired()) {
+                    components.add("REQUIRED");
+                }
+
+                printer.println(
+                    components.stream()
+                        .collect(Collectors.joining(" "))
+                );
+            }
+            printer.outdent();
         }
         printer.outdent();
     }

@@ -39,9 +39,15 @@ import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
  */
 public final class SliderComponent extends SliderComponentLike {
 
-    public static SliderComponent empty(final double min,
-                                        final double max) {
+    public static SliderComponent horizontal(final double min,
+                                             final double max) {
         return new SliderComponent(min, max);
+    }
+
+    public static SliderComponent vertical(final double min,
+                                           final double max) {
+        return new SliderComponent(min, max)
+            .setVertical();
     }
 
     private SliderComponent(final double min,
@@ -50,6 +56,11 @@ public final class SliderComponent extends SliderComponentLike {
             min,
             max
         ).show();
+    }
+
+    @Override
+    boolean isVertical() {
+        return false; // TODO read CSS writing-mode
     }
 
     @Override
