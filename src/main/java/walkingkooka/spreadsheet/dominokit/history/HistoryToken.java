@@ -1859,9 +1859,9 @@ public abstract class HistoryToken implements HasUrlFragment,
         } else {
             boolean skipLeadingSlash = true;
             if (this instanceof SpreadsheetMetadataPropertyHistoryToken) {
-                skipLeadingSlash = false == this.cast(SpreadsheetMetadataPropertyHistoryToken.class)
+                skipLeadingSlash = this.cast(SpreadsheetMetadataPropertyHistoryToken.class)
                     .propertyName()
-                    .equals(SpreadsheetMetadataPropertyName.VIEWPORT);
+                    .isUrlFragmentRemoveLeadingSlash();
             }
 
             historyToken = this.setSaveStringValue(
