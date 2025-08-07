@@ -391,9 +391,18 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
                     propertyName::toString
                 );
             }
+            System.out.println(propertyName);
+if(propertyName.equals(SpreadsheetMetadataPropertyName.VIEWPORT)) {
+    int z = 0;
+}
+            String urlFragment = HistoryToken.saveUrlFragmentValue(value)
+                .toString();
+            if (false == urlFragment.startsWith("/")) {
+                urlFragment = "/" + urlFragment;
+            }
 
             this.parseAndCheck(
-                "/123/SpreadsheetName456/spreadsheet/" + propertyName.value() + "/save/" + HistoryToken.saveUrlFragmentValue(value),
+                "/123/SpreadsheetName456/spreadsheet/" + propertyName.value() + "/save" + urlFragment,
                 SpreadsheetMetadataPropertySaveHistoryToken.with(
                     ID,
                     NAME,
