@@ -1661,6 +1661,21 @@ public abstract class HistoryToken implements HasUrlFragment,
         );
     }
 
+    /**
+     * {@see SpreadsheetRowNavigateHistoryToken}
+     */
+    public static SpreadsheetRowNavigateHistoryToken rowNavigate(final SpreadsheetId id,
+                                                                 final SpreadsheetName name,
+                                                                 final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                 final SpreadsheetViewportRectangleNavigationList navigation) {
+        return SpreadsheetRowNavigateHistoryToken.with(
+            id,
+            name,
+            anchoredSelection,
+            navigation
+        );
+    }
+
     // row... sort......................................................................................................
 
     /**
@@ -3588,6 +3603,14 @@ public abstract class HistoryToken implements HasUrlFragment,
             }
             if (this instanceof SpreadsheetColumnHistoryToken) {
                 historyToken = HistoryToken.columnNavigate(
+                    id,
+                    name,
+                    anchoredSpreadsheetSelection,
+                    navigation
+                );
+            }
+            if (this instanceof SpreadsheetRowHistoryToken) {
+                historyToken = HistoryToken.rowNavigate(
                     id,
                     name,
                     anchoredSpreadsheetSelection,
