@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
-import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigationList;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportRectangleNavigationList;
 
 import java.util.Objects;
 
@@ -38,7 +38,7 @@ public final class SpreadsheetCellNavigateHistoryToken extends SpreadsheetCellHi
     static SpreadsheetCellNavigateHistoryToken with(final SpreadsheetId id,
                                                     final SpreadsheetName name,
                                                     final AnchoredSpreadsheetSelection anchoredSelection,
-                                                    final SpreadsheetViewportNavigationList navigation) {
+                                                    final SpreadsheetViewportRectangleNavigationList navigation) {
         return new SpreadsheetCellNavigateHistoryToken(
             id,
             name,
@@ -50,7 +50,7 @@ public final class SpreadsheetCellNavigateHistoryToken extends SpreadsheetCellHi
     private SpreadsheetCellNavigateHistoryToken(final SpreadsheetId id,
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection,
-                                                final SpreadsheetViewportNavigationList navigation) {
+                                                final SpreadsheetViewportRectangleNavigationList navigation) {
         super(
             id,
             name,
@@ -59,15 +59,16 @@ public final class SpreadsheetCellNavigateHistoryToken extends SpreadsheetCellHi
         this.navigation = Objects.requireNonNull(navigation, "navigation");
     }
 
-    public SpreadsheetViewportNavigationList navigation() {
+    public SpreadsheetViewportRectangleNavigationList navigation() {
         return this.navigation;
     }
 
-    private final SpreadsheetViewportNavigationList navigation;
+    private final SpreadsheetViewportRectangleNavigationList navigation;
 
+    // /1/SpreadsheetName/cell/A1/navigate/home/Z9/width/200/height/300/navigation/right 400
     @Override
     UrlFragment cellUrlFragment() {
-        return NAVIGATE.appendSlashThen(
+        return NAVIGATE.append(
             this.navigation.urlFragment()
         );
     }

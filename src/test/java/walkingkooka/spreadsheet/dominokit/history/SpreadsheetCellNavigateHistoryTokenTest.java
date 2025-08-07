@@ -23,12 +23,18 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigationList;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportRectangle;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportRectangleNavigationList;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetCellNavigateHistoryTokenTest extends SpreadsheetCellHistoryTokenTestCase<SpreadsheetCellNavigateHistoryToken> {
 
-    private final static SpreadsheetViewportNavigationList NAVIGATIONS = SpreadsheetViewportNavigationList.parse("right 100px");
+    private final static SpreadsheetViewportRectangleNavigationList NAVIGATIONS = SpreadsheetViewportRectangleNavigationList.with(
+        SpreadsheetViewportRectangle.parse("Z99:300:400")
+    ).setNavigations(
+        SpreadsheetViewportNavigationList.parse("right 555px")
+    );
 
     @Test
     public void testWithNullNavigationFails() {
@@ -47,14 +53,14 @@ public final class SpreadsheetCellNavigateHistoryTokenTest extends SpreadsheetCe
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/navigate/right 100px");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/navigate/home/Z99/width/300/height/400/navigations/right 555px");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/123/SpreadsheetName456/cell/B2:C3/top-left/navigate/right 100px"
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/navigate/home/Z99/width/300/height/400/navigations/right 555px"
         );
     }
 
@@ -62,16 +68,52 @@ public final class SpreadsheetCellNavigateHistoryTokenTest extends SpreadsheetCe
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
             LABEL,
-            "/123/SpreadsheetName456/cell/Label123/navigate/right 100px"
+            "/123/SpreadsheetName456/cell/Label123/navigate/home/Z99/width/300/height/400/navigations/right 555px"
         );
     }
 
     // parse............................................................................................................
 
     @Test
-    public void testParseInvalidSpreadsheetViewportNavigation() {
+    public void testParseInvalidHome() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/navigate/!invalid",
+            "/123/SpreadsheetName456/cell/A1/navigate/home/!invalid",
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseInvalidWidth() {
+        this.parseAndCheck(
+            "/123/SpreadsheetName456/cell/A1/navigate/home/Z9/width/!invalid",
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseInvalidHeight() {
+        this.parseAndCheck(
+            "/123/SpreadsheetName456/cell/A1/navigate/home/Z9/width/200/height/!invalid",
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseInvalidNavigation() {
+        this.parseAndCheck(
+            "/123/SpreadsheetName456/cell/A1/navigate/home/Z9/width/200/height/300/navigate/!invalid",
             HistoryToken.cellSelect(
                 ID,
                 NAME,
