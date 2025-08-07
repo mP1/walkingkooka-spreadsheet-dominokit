@@ -71,7 +71,10 @@ public abstract class PluginNameHistoryToken extends PluginHistoryToken {
     }
 
     private HistoryToken parseFile(final TextCursor cursor) {
-        final String text = parseUntilEmpty(cursor);
+        final String text = parseUntilEmpty(
+            cursor,
+            true // skipLeadingSlash
+        );
 
         return pluginFileView(
             this.name,

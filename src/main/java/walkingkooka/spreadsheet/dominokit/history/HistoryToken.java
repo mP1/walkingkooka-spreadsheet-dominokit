@@ -1851,12 +1851,28 @@ public abstract class HistoryToken implements HasUrlFragment,
     // parse............................................................................................................
 
     final HistoryToken parseSave(final TextCursor cursor) {
-        return this instanceof SpreadsheetCellSelectHistoryToken ?
-            this.cast(SpreadsheetCellSelectHistoryToken.class)
-                .parseCellSave(cursor) :
-            this.setSaveStringValue(
-                parseUntilEmpty(cursor)
+        HistoryToken historyToken;
+
+        if (this instanceof SpreadsheetCellSelectHistoryToken) {
+            historyToken = this.cast(SpreadsheetCellSelectHistoryToken.class)
+                .parseCellSave(cursor);
+        } else {
+            boolean skipLeadingSlash = true;
+            if (this instanceof SpreadsheetMetadataPropertyHistoryToken) {
+                skipLeadingSlash = false == this.cast(SpreadsheetMetadataPropertyHistoryToken.class)
+                    .propertyName()
+                    .equals(SpreadsheetMetadataPropertyName.VIEWPORT);
+            }
+
+            historyToken = this.setSaveStringValue(
+                parseUntilEmpty(
+                    cursor,
+                    skipLeadingSlash
+                )
             );
+        }
+
+        return historyToken;
     }
 
     /**
@@ -1938,16 +1954,17 @@ public abstract class HistoryToken implements HasUrlFragment,
     /**
      * Consumes all remaining text into a {@link String}.
      */
-    static String parseUntilEmpty(final TextCursor cursor) {
+    static String parseUntilEmpty(final TextCursor cursor,
+                                  final boolean skipLeadingSlash) {
         final TextCursorSavePoint save = cursor.save();
         cursor.end();
 
         final String text = save.textBetween()
             .toString();
-        return text.isEmpty() ?
-            text :
-            text.substring(1); // drops assumed leading slash
 
+        return skipLeadingSlash && text.startsWith("/") ?
+            text.substring(1) :
+            text;
     }
 
     /**
@@ -1989,7 +2006,10 @@ public abstract class HistoryToken implements HasUrlFragment,
                            final Class<T> type) {
         return parseJson(
             JsonNode.parse(
-                parseUntilEmpty(cursor)
+                parseUntilEmpty(
+                    cursor,
+                    true // skipLeadingSlash
+                )
             ),
             type
         );
