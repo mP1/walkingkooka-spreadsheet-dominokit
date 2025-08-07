@@ -4306,6 +4306,40 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     }
 
     @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowNavigate() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/11/navigate/home/Z99/width/200/height/300/navigations/down%20444px",
+            HistoryToken.rowNavigate(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor(),
+                SpreadsheetViewportRectangleNavigationList.with(
+                    SpreadsheetViewportRectangle.parse("Z99:200:300")
+                ).setNavigations(
+                    SpreadsheetViewportNavigationList.parse("down 444px")
+                )
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowRangeNavigate() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/22:33/bottom/navigate/home/Z99/width/200/height/300/navigations/down%20444px",
+            HistoryToken.rowNavigate(
+                ID,
+                NAME,
+                ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
+                SpreadsheetViewportRectangleNavigationList.with(
+                    SpreadsheetViewportRectangle.parse("Z99:200:300")
+                ).setNavigations(
+                    SpreadsheetViewportNavigationList.parse("down 444px")
+                )
+            )
+        );
+    }
+
+    @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowUnfreezeInvalid() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/row/11/unfreeze",
