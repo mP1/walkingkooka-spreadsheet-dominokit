@@ -61,6 +61,7 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
 import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewport;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallUnmarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContextPreProcessor;
 import walkingkooka.util.HasLocale;
@@ -207,6 +208,17 @@ public interface AppContext extends CanGiveFocus,
      * Requests a reload of this spreadsheet.
      */
     void reload();
+
+    default SpreadsheetViewport viewport(final SpreadsheetViewportHomeNavigationList homeNavigationList,
+                                         final Optional<AnchoredSpreadsheetSelection> anchoredSpreadsheetSelection) {
+        final SpreadsheetViewport viewport = this.viewport(anchoredSpreadsheetSelection);
+        return viewport.setRectangle(
+            viewport.rectangle()
+                .setHome(homeNavigationList.home())
+        ).setNavigations(
+            homeNavigationList.navigations()
+        );
+    }
 
     /**
      * Creates a {@link SpreadsheetViewport} with the provided {@link AnchoredSpreadsheetSelection}.
