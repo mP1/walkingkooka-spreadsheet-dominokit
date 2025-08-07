@@ -36,16 +36,44 @@ import java.util.Optional;
 public final class SliderComponent extends SliderComponentLike
     implements TestHtmlElementComponent<HTMLDivElement, SliderComponent> {
 
-    public static SliderComponent empty(final double minValue,
-                                        final double maxValue) {
-        return new SliderComponent()
-            .setMinValue(minValue)
-            .setMaxValue(maxValue);
+    public static SliderComponent horizontal(final double min,
+                                             final double max) {
+        return new SliderComponent(
+            min,
+            max,
+            false // horizontal
+        );
     }
 
-    private SliderComponent() {
-        super();
+    public static SliderComponent vertical(final double min,
+                                           final double max) {
+        return new SliderComponent(
+            min,
+            max,
+            true // vertical
+        ).setVertical();
     }
+
+    private SliderComponent(final double minValue,
+                            final double maxValue,
+                            final boolean vertical) {
+        super();
+
+        this.setMinValue(minValue)
+            .setMaxValue(maxValue);
+
+        this.vertical = vertical;
+    }
+
+    @Override
+    boolean isVertical() {
+        return this.vertical;
+    }
+
+    /**
+     * In JDK tests this will be used to track whether this slider is horizontal(false) or vertical(true)
+     */
+    final boolean vertical;
 
     @Override
     public SliderComponent setId(final String id) {
