@@ -20,18 +20,18 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigationList;
-import walkingkooka.spreadsheet.viewport.SpreadsheetViewportRectangle;
-import walkingkooka.spreadsheet.viewport.SpreadsheetViewportRectangleNavigationList;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetCellNavigateHistoryTokenTest extends SpreadsheetCellHistoryTokenTestCase<SpreadsheetCellNavigateHistoryToken> {
 
-    private final static SpreadsheetViewportRectangleNavigationList NAVIGATIONS = SpreadsheetViewportRectangleNavigationList.with(
-        SpreadsheetViewportRectangle.parse("Z99:300:400")
+    private final static SpreadsheetViewportHomeNavigationList NAVIGATIONS = SpreadsheetViewportHomeNavigationList.with(
+        SpreadsheetSelection.parseCell("Z99")
     ).setNavigations(
         SpreadsheetViewportNavigationList.parse("right 555px")
     );
@@ -53,14 +53,14 @@ public final class SpreadsheetCellNavigateHistoryTokenTest extends SpreadsheetCe
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/navigate/home/Z99/width/300/height/400/navigations/right 555px");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/navigate/Z99/right 555px");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/123/SpreadsheetName456/cell/B2:C3/top-left/navigate/home/Z99/width/300/height/400/navigations/right 555px"
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/navigate/Z99/right 555px"
         );
     }
 
@@ -68,7 +68,7 @@ public final class SpreadsheetCellNavigateHistoryTokenTest extends SpreadsheetCe
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
             LABEL,
-            "/123/SpreadsheetName456/cell/Label123/navigate/home/Z99/width/300/height/400/navigations/right 555px"
+            "/123/SpreadsheetName456/cell/Label123/navigate/Z99/right 555px"
         );
     }
 
@@ -77,31 +77,7 @@ public final class SpreadsheetCellNavigateHistoryTokenTest extends SpreadsheetCe
     @Test
     public void testParseInvalidHome() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/navigate/home/!invalid",
-            HistoryToken.cellSelect(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseInvalidWidth() {
-        this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/navigate/home/Z9/width/!invalid",
-            HistoryToken.cellSelect(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseInvalidHeight() {
-        this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/navigate/home/Z9/width/200/height/!invalid",
+            "/123/SpreadsheetName456/cell/A1/navigate/!invalid",
             HistoryToken.cellSelect(
                 ID,
                 NAME,
@@ -113,7 +89,7 @@ public final class SpreadsheetCellNavigateHistoryTokenTest extends SpreadsheetCe
     @Test
     public void testParseInvalidNavigation() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/navigate/home/Z9/width/200/height/300/navigate/!invalid",
+            "/123/SpreadsheetName456/cell/A1/navigate/Z9/width/200/height/300/navigate/!invalid",
             HistoryToken.cellSelect(
                 ID,
                 NAME,

@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
-import walkingkooka.spreadsheet.viewport.SpreadsheetViewportRectangleNavigationList;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
 
@@ -70,7 +70,7 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
         cursor.end();
 
         return this.setNavigation(
-            SpreadsheetViewportRectangleNavigationList.fromUrlFragment(
+            SpreadsheetViewportHomeNavigationList.fromUrlFragment(
                 UrlFragment.parse(
                     save.textBetween()
                         .toString()
