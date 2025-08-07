@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
 
 import java.util.Objects;
+import java.util.Optional;
 
 
 /**
@@ -89,5 +90,15 @@ public final class SpreadsheetRowNavigateHistoryToken extends SpreadsheetRowHist
                                final AppContext context) {
         // load the cells
         // http://localhost:12345/api/spreadsheet/1/cell/*/force-recompute?home=A1&width=1568&height=463&includeFrozenColumnsRows=true&selection=123&selectionType=row&navigation=down+1567px
+        context.spreadsheetDeltaFetcher()
+            .getCells(
+                this.id(),
+                context.viewport(
+                    this.navigation(),
+                    Optional.of(this.anchoredSelection)
+                ).setIncludeFrozenColumnsRows(true)
+            );
+
+        context.pushHistoryToken(previous);
     }
 }
