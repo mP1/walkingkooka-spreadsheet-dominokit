@@ -30,7 +30,7 @@ import java.util.Objects;
 /**
  * This {@link HistoryToken} is used by viewport scrollbar left/right arrows.
  * <pre>
- * http://localhost:12345/index.html#/2/Untitled/cell/A1/navigate/home/B2/width/200/height/300/navigations/right 1500px
+ * http://localhost:12345/index.html#/2/Untitled/column/A/navigate/home/B2/width/200/height/300/navigations/up 1500px
  * </pre>
  */
 public final class SpreadsheetColumnNavigateHistoryToken extends SpreadsheetColumnHistoryToken {
@@ -88,6 +88,6 @@ public final class SpreadsheetColumnNavigateHistoryToken extends SpreadsheetColu
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
         // load the cells
-        // http://localhost:12345/api/spreadsheet/1/cell/*/force-recompute?home=A1&width=1568&height=463&includeFrozenColumnsRows=true&selection=F1&selectionType=cell&navigation=right+1567px
+        // http://localhost:12345/api/spreadsheet/1/cell/*/force-recompute?home=A1&width=1568&height=463&includeFrozenColumnsRows=true&selection=F&selectionType=column&navigation=up+1567px
     }
 }
