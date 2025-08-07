@@ -51,6 +51,8 @@ import walkingkooka.spreadsheet.validation.form.SpreadsheetForms;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigationList;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportRectangle;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportRectangleNavigationList;
 import walkingkooka.test.ParseStringTesting;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -3044,25 +3046,33 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellNavigate() {
         this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/navigate",
-            HistoryToken.cellNavigation(
+            "/123/SpreadsheetName456/cell/A1/navigate/home/Z99/width/200/height/300/navigations/right%20444px",
+            HistoryToken.cellNavigate(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                SpreadsheetViewportNavigationList.EMPTY
+                SpreadsheetViewportRectangleNavigationList.with(
+                    SpreadsheetViewportRectangle.parse("Z99:200:300")
+                ).setNavigations(
+                    SpreadsheetViewportNavigationList.parse("right 444px")
+                )
             )
         );
     }
 
     @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellNavigateRightSpace100px() {
+    public void testParseSpreadsheetIdSpreadsheetNameCellRangeNavigate() {
         this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/navigate/right 100px",
-            HistoryToken.cellNavigation(
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/navigate/home/Z99/width/200/height/300/navigations/right%20444px",
+            HistoryToken.cellNavigate(
                 ID,
                 NAME,
-                CELL.setDefaultAnchor(),
-                SpreadsheetViewportNavigationList.parse("right 100px")
+                CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+                SpreadsheetViewportRectangleNavigationList.with(
+                    SpreadsheetViewportRectangle.parse("Z99:200:300")
+                ).setNavigations(
+                    SpreadsheetViewportNavigationList.parse("right 444px")
+                )
             )
         );
     }
