@@ -178,9 +178,12 @@ final class SpreadsheetViewportComponentTable implements HtmlComponent<HTMLTable
 
     private Map<SpreadsheetRowReference, SpreadsheetViewportComponentTableRowCells> rowsToTableRowCells;
 
+    /**
+     * Tests if any column/cell/row within this table has focus, returning true.
+     */
     @Override
     public boolean isEditing() {
-        return false;
+        return HtmlComponent.hasFocus(this.element());
     }
 
     @Override
