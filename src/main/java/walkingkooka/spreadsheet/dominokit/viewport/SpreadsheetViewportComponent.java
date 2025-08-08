@@ -946,10 +946,10 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
         this.reload = reload;
 
         this.tableContainer.element()
-            .style.cssText = "width: " + this.width() + "px; height: " + this.height() + "px; overflow: hidden; position: relative;";
+            .style.cssText = "width: " + this.tableWidth() + "px; height: " + this.tableHeight() + "px; overflow: hidden; position: relative;";
 
-        this.table.setWidth(this.tableWidth());
-        this.table.setHeight(this.tableHeight());
+        this.table.setWidth(this.tableInnerWidth());
+        this.table.setHeight(this.tableInnerHeight());
 
         this.loadViewportCellsIfNecessary();
     }
@@ -966,32 +966,32 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
             .setAnchoredSelection(anchoredSelection);
     }
 
-    private int width() {
+    private int tableWidth() {
         return this.width;
     }
 
-    private int tableWidth() {
-        return this.width() - SCROLLBAR_LENGTH;
+    private int tableInnerWidth() {
+        return this.tableWidth() - SCROLLBAR_LENGTH;
     }
 
     private int tableCellsWidth() {
-        return this.tableWidth() -
+        return this.tableInnerWidth() -
             (int) ROW_WIDTH.pixelValue() -
             SCROLLBAR_LENGTH;
     }
 
-    private int height() {
+    private int tableHeight() {
         return this.height - this.formula.element()
             .offsetHeight;
     }
 
-    private int tableHeight() {
-        return this.height() -
+    private int tableInnerHeight() {
+        return this.tableHeight() -
             SCROLLBAR_LENGTH;
     }
 
     private int tableCellsHeight() {
-        return this.tableHeight() -
+        return this.tableInnerHeight() -
             (int) COLUMN_HEIGHT.pixelValue();
     }
 
