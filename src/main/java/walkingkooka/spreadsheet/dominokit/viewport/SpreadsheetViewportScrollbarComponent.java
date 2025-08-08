@@ -92,7 +92,14 @@ abstract public class SpreadsheetViewportScrollbarComponent<R extends Spreadshee
                     SpreadsheetElementIds.LINK
             );
         this.slider = this.createSlider()
-            .setId(idPrefix + "-value" + SpreadsheetElementIds.SLIDER);
+            .setId(idPrefix + "-value" + SpreadsheetElementIds.SLIDER)
+            .setCssProperty("flex", "1")
+            .setCssProperty("margin", "0");
+
+        if(this instanceof SpreadsheetViewportScrollbarComponentColumns) {
+            this.slider.setCssProperty("margin-top", "-7px");
+        }
+
         this.after = HistoryTokenAnchorComponent.empty()
             .setId(
                 idPrefix +

@@ -54,12 +54,12 @@ final class SpreadsheetViewportComponentSpreadsheetViewportScrollbarComponentCon
 
     @Override
     public double viewportWidth() {
-        return this.component.tableWidth();
+        return this.component.tableWidth;
     }
 
     @Override
     public double viewportHeight() {
-        return this.component.tableHeight();
+        return this.component.tableHeight;
     }
 
     private final SpreadsheetViewportComponent component;

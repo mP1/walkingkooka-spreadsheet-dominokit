@@ -29,6 +29,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
 
 public interface SpreadsheetViewportComponentContext extends HistoryContext,
@@ -50,5 +52,15 @@ public interface SpreadsheetViewportComponentContext extends HistoryContext,
     default <T> SpreadsheetViewportComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,
                                                                         final T value) {
         throw new UnsupportedOperationException();
+    }
+
+    /**
+     * Helper that gets the {@link SpreadsheetCellReference home} for the viewport or fails
+     */
+    default SpreadsheetCellReference home() {
+        return this.spreadsheetMetadata()
+            .getOrFail(SpreadsheetMetadataPropertyName.VIEWPORT)
+            .rectangle()
+            .home();
     }
 }
