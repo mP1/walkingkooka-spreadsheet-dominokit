@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.Element;
+import elemental2.dom.Event;
 import elemental2.dom.EventListener;
 import elemental2.dom.EventTarget;
 import elemental2.dom.HTMLTableElement;
@@ -68,7 +69,8 @@ final class SpreadsheetViewportComponentTable implements HtmlComponent<HTMLTable
                 (event) -> this.onClickEvent(
                     Js.cast(event)
                 )
-            ).addKeyDownListener(
+            ).addContextMenuListener(this::onContextMenu)
+            .addKeyDownListener(
                 (event) -> this.onKeyDownEvent(
                     Js.cast(event)
                 )
@@ -137,6 +139,46 @@ final class SpreadsheetViewportComponentTable implements HtmlComponent<HTMLTable
             }
 
             walk = walk.parentElement;
+        }
+    }
+
+    // context menu.....................................................................................................
+
+    /**
+     * First tries to find the outer parent element be it a column/row or cell trying to find an id and then extracting the
+     * selection from the id. Once this is found, the context menu is updated with the {@link SpreadsheetSelection}.
+     */
+    private void onContextMenu(final Event event) {
+        event.preventDefault();
+
+        final EventTarget eventTarget = event.target;
+        if (eventTarget instanceof Element) {
+            Element element = Js.cast(eventTarget);
+
+            for (; ; ) {
+                if (null == element || element.tagName.equalsIgnoreCase("TABLE")) {
+                    break;
+                }
+
+                final Optional<SpreadsheetSelection> maybeSelection = SpreadsheetViewportComponent.parseElementId(element.id);
+                if (maybeSelection.isPresent()) {
+                    final SpreadsheetSelection selection = maybeSelection.get();
+
+                    final SpreadsheetViewportComponentTableContext context = this.context;
+
+                    context.pushHistoryToken(
+                        context.historyToken()
+                            .menu(
+                                Optional.of(selection),
+                                context.spreadsheetViewportCache()
+                            )
+                    );
+                    break;
+                }
+
+                // try again
+                element = element.parentElement;
+            }
         }
     }
 
