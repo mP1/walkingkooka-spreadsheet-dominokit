@@ -117,6 +117,7 @@ abstract public class SpreadsheetViewportScrollbarComponent<R extends Spreadshee
 
     @Override
     public final SpreadsheetViewportScrollbarComponent<R> setCssText(final String css) {
+        this.layout.setCssText(css);
         return this;
     }
 
