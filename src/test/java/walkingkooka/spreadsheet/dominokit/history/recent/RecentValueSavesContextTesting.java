@@ -42,4 +42,11 @@ public interface RecentValueSavesContextTesting<C extends RecentValueSavesContex
             context.recentValueSaves(type)
         );
     }
+
+    // class............................................................................................................
+
+    @Override
+    default String typeNameSuffix() {
+        return RecentValueSavesContext.class.getSimpleName();
+    }
 }
