@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.history.recent;
 
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 
 public final class RecentValueSavesContexts implements PublicStaticHelper {
 
@@ -26,6 +27,13 @@ public final class RecentValueSavesContexts implements PublicStaticHelper {
      */
     public static RecentValueSavesContext fake() {
         return new FakeRecentValueSavesContext();
+    }
+
+    /**
+     * {@see HistoryContextRecentValueSavesContext}
+     */
+    public static RecentValueSavesContext historyContext(final HistoryContext context) {
+        return HistoryContextRecentValueSavesContext.with(context);
     }
 
     /**
