@@ -173,7 +173,9 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
             HtmlElementComponent.div()
                 .setCssText("position: relative;")
                 .appendChild(this.formula)
-                .appendChild(this.formulaCellLinks.setCssText("position:absolute; bottom: 0px; right: 15px; height: fit-content; display:flex;"))
+                .appendChild(
+                    this.formulaCellLinks.setCssText("position:absolute; bottom: 0px; right: 15px; height: fit-content; display:flex;")
+                )
         );
         root.appendChild(this.tableContainer);
 
@@ -586,7 +588,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
      */
     final static String ID_PREFIX = ID + "-";
 
-    // horizontal-scrollbar..............................................................................................
+    // horizontal-scrollbar.............................................................................................
 
     private DivComponent horizontalScrollbar() {
         return this.scrollbar(
@@ -906,7 +908,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
      */
     private int height;
 
-    // giveViewportSelectionFocus......................................................................................
+    // giveViewportSelectionFocus.......................................................................................
 
     private void giveViewportSelectionFocus(final AnchoredSpreadsheetSelection selection,
                                             final RefreshContext context) {
@@ -948,7 +950,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
         }
     }
 
-    // HistoryTokenAwareComponentLifecycle..............................................................................................
+    // HistoryTokenAwareComponentLifecycle..............................................................................
 
     @Override
     public boolean isOpen() {
