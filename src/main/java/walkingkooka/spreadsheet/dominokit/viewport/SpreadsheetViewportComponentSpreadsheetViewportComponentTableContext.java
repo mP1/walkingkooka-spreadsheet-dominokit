@@ -91,6 +91,11 @@ final class SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext
             .get();
     }
 
+    @Override
+    public void pushNavigation(final SpreadsheetViewportNavigation navigation) {
+        this.spreadsheetViewportComponent.onNavigation(navigation);
+    }
+
     private final SpreadsheetViewportComponent spreadsheetViewportComponent;
 
     private final SpreadsheetViewportNavigationContext navigationContext;

@@ -21,6 +21,7 @@ import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigation;
 import walkingkooka.tree.text.TextStyle;
 
 public class FakeSpreadsheetViewportComponentTableContext extends FakeHistoryContext
@@ -57,6 +58,11 @@ public class FakeSpreadsheetViewportComponentTableContext extends FakeHistoryCon
 
     @Override
     public AnchoredSpreadsheetSelection extendRow(final SpreadsheetRowReference row) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void pushNavigation(final SpreadsheetViewportNavigation navigation) {
         throw new UnsupportedOperationException();
     }
 

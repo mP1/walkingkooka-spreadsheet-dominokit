@@ -17,8 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import elemental2.dom.Element;
 import elemental2.dom.EventListener;
+import elemental2.dom.EventTarget;
 import elemental2.dom.HTMLTableElement;
+import elemental2.dom.KeyboardEvent;
+import elemental2.dom.MouseEvent;
+import jsinterop.base.Js;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.SortedSets;
@@ -26,17 +31,21 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.dom.TBodyComponent;
 import walkingkooka.spreadsheet.dominokit.dom.THeadComponent;
 import walkingkooka.spreadsheet.dominokit.dom.TableComponent;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigation;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportWindows;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.Predicate;
 
@@ -54,7 +63,16 @@ final class SpreadsheetViewportComponentTable implements HtmlComponent<HTMLTable
 
         final TableComponent table = HtmlElementComponent.table()
             .setId(SpreadsheetViewportComponent.ID)
-            .setOverflow("hidden");
+            .setOverflow("hidden")
+            .addClickListener(
+                (event) -> this.onClickEvent(
+                    Js.cast(event)
+                )
+            ).addKeyDownListener(
+                (event) -> this.onKeyDownEvent(
+                    Js.cast(event)
+                )
+            );
         this.columnHeaders = SpreadsheetViewportComponentTableRowColumnHeaders.empty(context);
 
         final THeadComponent thead = HtmlElementComponent.thead();
@@ -72,6 +90,112 @@ final class SpreadsheetViewportComponentTable implements HtmlComponent<HTMLTable
 
         this.rows = SortedSets.tree();
         this.rowsToTableRowCells = Maps.sorted();
+    }
+
+    // click ...........................................................................................................
+
+    private void onClickEvent(final MouseEvent event) {
+        event.preventDefault();
+
+        final EventTarget eventTarget = event.target;
+        if (eventTarget instanceof Element) {
+            this.findSelectionAndNavigate(
+                Js.cast(eventTarget),
+                event.shiftKey
+            );
+        }
+    }
+
+    /**
+     * Attempts to find the matching {@link SpreadsheetSelection} and adds to the navigations.
+     */
+    private void findSelectionAndNavigate(final Element element,
+                                          final boolean shiftKeyDown) {
+        Element walk = element;
+        for (; ; ) {
+            if (null == walk || walk.tagName.equalsIgnoreCase("TABLE")) {
+                break;
+            }
+
+            final Optional<SpreadsheetSelection> maybeSelection = SpreadsheetViewportComponent.parseElementId(walk.id);
+            if (maybeSelection.isPresent()) {
+                final SpreadsheetSelection selection = maybeSelection.get();
+                if (selection.isCell()) {
+                    final SpreadsheetCellReference cell = selection.toCell();
+
+                    this.context.pushNavigation(
+                        shiftKeyDown ?
+                            SpreadsheetViewportNavigation.extendCell(
+                                cell
+                            ) :
+                            SpreadsheetViewportNavigation.cell(
+                                cell
+                            )
+                    );
+                    break;
+                }
+            }
+
+            walk = walk.parentElement;
+        }
+    }
+
+    // key down.........................................................................................................
+
+    /**
+     * Generic key event handler that handles any key events for cell/column OR row.
+     */
+    private void onKeyDownEvent(final KeyboardEvent event) {
+        event.preventDefault();
+
+        final boolean shifted = event.shiftKey;
+        final SpreadsheetViewportComponentTableContext context = this.context;
+
+        SpreadsheetViewportNavigation navigation = null;
+        switch (Key.fromEvent(event)) {
+            case ArrowLeft:
+                navigation = shifted ?
+                    SpreadsheetViewportNavigation.extendLeftColumn() :
+                    SpreadsheetViewportNavigation.leftColumn();
+                break;
+            case ArrowUp:
+                navigation = shifted ?
+                    SpreadsheetViewportNavigation.extendUpRow() :
+                    SpreadsheetViewportNavigation.upRow();
+                break;
+            case ArrowRight:
+                navigation = shifted ?
+                    SpreadsheetViewportNavigation.extendRightColumn() :
+                    SpreadsheetViewportNavigation.rightColumn();
+                break;
+            case ArrowDown:
+                navigation = shifted ?
+                    SpreadsheetViewportNavigation.extendDownRow() :
+                    SpreadsheetViewportNavigation.downRow();
+                break;
+            case Enter:
+                // if cell then edit formula
+                // TODO table.blur
+                context.pushHistoryToken(
+                    context.historyToken()
+                        .formula()
+                );
+                break;
+            case Escape:
+                // clear any selection
+                context.pushHistoryToken(
+                    context.historyToken()
+                        .clearSelection()
+                );
+                break;
+            default:
+                // ignore other keys
+                break;
+        }
+
+        if (null != navigation) {
+            context.pushNavigation(navigation);
+        }
     }
 
     void setWidth(final int width) {
@@ -199,11 +323,6 @@ final class SpreadsheetViewportComponentTable implements HtmlComponent<HTMLTable
             name,
             value
         );
-        return this;
-    }
-
-    SpreadsheetViewportComponentTable addClickListener(final EventListener listener) {
-        this.table.addClickListener(listener);
         return this;
     }
 
