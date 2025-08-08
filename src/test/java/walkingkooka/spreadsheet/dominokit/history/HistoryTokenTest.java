@@ -2622,6 +2622,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         );
     }
 
+    // clear............................................................................................................
+
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellClear() {
         this.parseStringAndCheck(
@@ -2635,6 +2637,136 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     }
 
     @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellRangeClear() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/B2:C3/clear",
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellRangeAnchorClear() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/B2:C3/top-right/clear",
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_RIGHT)
+            )
+        );
+    }
+
+    // cell/dateTimeSymbols.............................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellDateTimeSymbols() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/dateTimeSymbols",
+            HistoryToken.cellDateTimeSymbolsSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellDateTimeSymbolsToolbar() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/dateTimeSymbols/toolbar",
+            HistoryToken.cellDateTimeSymbolsUnselect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellDateTimeSymbolsSaveEmpty() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/dateTimeSymbols/save/",
+            HistoryToken.cellDateTimeSymbolsSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                Optional.empty()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellDateTimeSymbolsSave() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/dateTimeSymbols/save/" + DATE_TIME_SYMBOLS.text(),
+            HistoryToken.cellDateTimeSymbolsSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                Optional.of(DATE_TIME_SYMBOLS)
+            )
+        );
+    }
+
+    // cell/decimalNumberSymbols........................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellDecimalNumberSymbols() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/decimalNumberSymbols",
+            HistoryToken.cellDecimalNumberSymbolsSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellDecimalNumberSymbolsToolbar() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/decimalNumberSymbols/toolbar",
+            HistoryToken.cellDecimalNumberSymbolsUnselect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellDecimalNumberSymbolsSaveEmpty() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/decimalNumberSymbols/save/",
+            HistoryToken.cellDecimalNumberSymbolsSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                Optional.empty()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellDecimalNumberSymbolsSave() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/decimalNumberSymbols/save/" + urlEncode(DECIMAL_NUMBER_SYMBOLS.text()),
+            HistoryToken.cellDecimalNumberSymbolsSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                Optional.of(DECIMAL_NUMBER_SYMBOLS)
+            )
+        );
+    }
+
+    // cell/delete......................................................................................................
+
+    @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellDelete() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/cell/A1/delete",
@@ -2645,6 +2777,170 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             )
         );
     }
+
+    // cell/form/FormName...............................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellForm() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/form",
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellFormFormName() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/form/FormName123",
+            HistoryToken.cellFormSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                FormName.with("FormName123")
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellFormFormNameSave() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/form/FormName123/save",
+            HistoryToken.cellFormSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                FormName.with("FormName123"),
+                SpreadsheetCellReferenceToValueMap.EMPTY
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellFormFormNameSaveValue() {
+        final Map<SpreadsheetCellReference, Optional<Object>> cellToValues = Maps.of(
+            SpreadsheetSelection.A1,
+            Optional.of(
+                ExpressionNumberKind.BIG_DECIMAL.create(12.5)
+            ),
+            SpreadsheetSelection.parseCell("A2"),
+            Optional.of("String222"),
+            SpreadsheetSelection.parseCell("A3"),
+            Optional.of(
+                LocalDate.of(1999, 12, 31)
+            )
+        );
+
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/form/FormName123/save/" + SpreadsheetCellReferenceToValueMap.with(cellToValues).urlFragment(),
+            HistoryToken.cellFormSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                FormName.with("FormName123"),
+                cellToValues
+            )
+        );
+    }
+
+    // cell/formatter...................................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellFormatter() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/formatter",
+            HistoryToken.cellFormatterSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellFormatterToolbar() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/formatter/toolbar",
+            HistoryToken.cellFormatterUnselect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellFormatterSaveEmptyDateFormat() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/formatter/save/",
+            HistoryToken.cellFormatterSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                Optional.empty()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellFormatterSaveTimeFormat() {
+        final SpreadsheetFormatterSelector selector = SpreadsheetPattern.parseTimeFormatPattern("hh:mm:ss")
+            .spreadsheetFormatterSelector();
+
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/formatter/save/" + selector,
+            HistoryToken.cellFormatterSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                Optional.of(selector)
+            )
+        );
+    }
+
+    // cell/formula.....................................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellFormula() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/formula",
+            HistoryToken.cellFormula(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellFormulaMenu() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/formula/menu",
+            HistoryToken.cellFormulaMenu(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellFormulaSave() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/formula/save/=1+2",
+            HistoryToken.cellFormulaSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                "=1+2"
+            )
+        );
+    }
+
+    // cell/freeze......................................................................................................
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellFreezeInvalidColumnFails() {
@@ -2768,221 +3064,6 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         );
     }
 
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellCellSaveEmptyLabel() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/label/save/",
-            HistoryToken.cellLabelSelect(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellCellSaveLabel() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/label/save/Label123",
-            HistoryToken.cellLabelSave(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor(),
-                LABEL
-            )
-        );
-    }
-
-    // cell/menu........................................................................................................
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellMenu() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/menu",
-            HistoryToken.cellMenu(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellSort() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/sort",
-            HistoryToken.cellSelect(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellSortInvalid() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/sort/invalid",
-            HistoryToken.cellSelect(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellRangeUnfreezeInvalidColumn() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/B2:C3/unfreeze",
-            HistoryToken.cellSelect(
-                ID,
-                NAME,
-                SpreadsheetSelection.parseCellRange("B2:C3")
-                    .setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellRangeUnfreezeInvalidRow() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A2:C3/unfreeze",
-            HistoryToken.cellSelect(
-                ID,
-                NAME,
-                SpreadsheetSelection.parseCellRange("A2:C3")
-                    .setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellRangeUnfreeze() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1:B2/unfreeze",
-            HistoryToken.cellUnfreeze(
-                ID,
-                NAME,
-                SpreadsheetSelection.parseCellRange("A1:B2")
-                    .setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellUnfreezeInvalidColumn() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/B2/unfreeze",
-            HistoryToken.cellSelect(
-                ID,
-                NAME,
-                SpreadsheetSelection.parseCell("B2")
-                    .setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellUnfreezeInvalidRow() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A2/unfreeze",
-            HistoryToken.cellSelect(
-                ID,
-                NAME,
-                SpreadsheetSelection.parseCell("A2")
-                    .setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellUnfreeze() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/unfreeze",
-            HistoryToken.cellUnfreeze(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellUnfreezeExtra() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/unfreeze/extra",
-            HistoryToken.cellUnfreeze(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellRangeClear() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/B2:C3/clear",
-            HistoryToken.cellSelect(
-                ID,
-                NAME,
-                CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellRangeAnchorClear() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/B2:C3/top-right/clear",
-            HistoryToken.cellSelect(
-                ID,
-                NAME,
-                CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_RIGHT)
-            )
-        );
-    }
-
-    // cell/formula.....................................................................................................
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellFormula() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/formula",
-            HistoryToken.cellFormula(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellFormulaMenu() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/formula/menu",
-            HistoryToken.cellFormulaMenu(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellFormulaSave() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/formula/save/=1+2",
-            HistoryToken.cellFormulaSave(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor(),
-                "=1+2"
-            )
-        );
-    }
-
     // cell/labels......................................................................................................
 
     @Test
@@ -3040,6 +3121,20 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         );
     }
 
+    // cell/menu........................................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellMenu() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/menu",
+            HistoryToken.cellMenu(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
     // cell/navigate....................................................................................................
 
     @Test
@@ -3076,234 +3171,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         );
     }
 
-    // cell/dateTimeSymbols.............................................................................................
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellDateTimeSymbols() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/dateTimeSymbols",
-            HistoryToken.cellDateTimeSymbolsSelect(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellDateTimeSymbolsToolbar() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/dateTimeSymbols/toolbar",
-            HistoryToken.cellDateTimeSymbolsUnselect(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellDateTimeSymbolsSaveEmpty() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/dateTimeSymbols/save/",
-            HistoryToken.cellDateTimeSymbolsSave(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor(),
-                Optional.empty()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellDateTimeSymbolsSave() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/dateTimeSymbols/save/" + DATE_TIME_SYMBOLS.text(),
-            HistoryToken.cellDateTimeSymbolsSave(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor(),
-                Optional.of(DATE_TIME_SYMBOLS)
-            )
-        );
-    }
-
-    // cell/decimalNumberSymbols........................................................................................
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellDecimalNumberSymbols() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/decimalNumberSymbols",
-            HistoryToken.cellDecimalNumberSymbolsSelect(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellDecimalNumberSymbolsToolbar() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/decimalNumberSymbols/toolbar",
-            HistoryToken.cellDecimalNumberSymbolsUnselect(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellDecimalNumberSymbolsSaveEmpty() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/decimalNumberSymbols/save/",
-            HistoryToken.cellDecimalNumberSymbolsSave(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor(),
-                Optional.empty()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellDecimalNumberSymbolsSave() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/decimalNumberSymbols/save/" + urlEncode(DECIMAL_NUMBER_SYMBOLS.text()),
-            HistoryToken.cellDecimalNumberSymbolsSave(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor(),
-                Optional.of(DECIMAL_NUMBER_SYMBOLS)
-            )
-        );
-    }
-
-    // cell/form/FormName...............................................................................................
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellForm() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/form",
-            HistoryToken.cellSelect(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellFormFormName() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/form/FormName123",
-            HistoryToken.cellFormSelect(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor(),
-                FormName.with("FormName123")
-            )
-        );
-    }
-
-    // cell/form/FormName/save/XXX......................................................................................
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellFormFormNameSave() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/form/FormName123/save",
-            HistoryToken.cellFormSave(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor(),
-                FormName.with("FormName123"),
-                SpreadsheetCellReferenceToValueMap.EMPTY
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellFormFormNameSaveValue() {
-        final Map<SpreadsheetCellReference, Optional<Object>> cellToValues = Maps.of(
-            SpreadsheetSelection.A1,
-            Optional.of(
-                ExpressionNumberKind.BIG_DECIMAL.create(12.5)
-            ),
-            SpreadsheetSelection.parseCell("A2"),
-            Optional.of("String222"),
-            SpreadsheetSelection.parseCell("A3"),
-            Optional.of(
-                LocalDate.of(1999, 12, 31)
-            )
-        );
-
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/form/FormName123/save/" + SpreadsheetCellReferenceToValueMap.with(cellToValues).urlFragment(),
-            HistoryToken.cellFormSave(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor(),
-                FormName.with("FormName123"),
-                cellToValues
-            )
-        );
-    }
-
-    // cell/formatter/parser............................................................................................
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellFormatter() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/formatter",
-            HistoryToken.cellFormatterSelect(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellFormatterToolbar() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/formatter/toolbar",
-            HistoryToken.cellFormatterUnselect(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellFormatterSaveEmptyDateFormat() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/formatter/save/",
-            HistoryToken.cellFormatterSave(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor(),
-                Optional.empty()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellFormatterSaveTimeFormat() {
-        final SpreadsheetFormatterSelector selector = SpreadsheetPattern.parseTimeFormatPattern("hh:mm:ss")
-            .spreadsheetFormatterSelector();
-
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/formatter/save/" + selector,
-            HistoryToken.cellFormatterSave(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor(),
-                Optional.of(selector)
-            )
-        );
-    }
+    // cell/parser......................................................................................................
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellParser() {
@@ -3416,6 +3284,59 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         );
     }
 
+    // cell/save........................................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellCellSaveEmptyLabel() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/label/save/",
+            HistoryToken.cellLabelSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellCellSaveLabel() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/label/save/Label123",
+            HistoryToken.cellLabelSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                LABEL
+            )
+        );
+    }
+
+    // cell/sort........................................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellSort() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/sort",
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellSortInvalid() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/sort/invalid",
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
     // cell/style.......................................................................................................
 
     @Test
@@ -3448,7 +3369,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     }
 
     @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellStyleSavWithoutValue() {
+    public void testParseSpreadsheetIdSpreadsheetNameCellStyleSaveWithoutValue() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/cell/A1/style/color/save/",
             HistoryToken.cellStyleSave(
@@ -3473,6 +3394,97 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                 Optional.of(
                     Color.parse("#123456")
                 )
+            )
+        );
+    }
+
+    // cell/unfreeze....................................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellRangeUnfreezeInvalidColumn() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/B2:C3/unfreeze",
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCellRange("B2:C3")
+                    .setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellRangeUnfreezeInvalidRow() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A2:C3/unfreeze",
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A2:C3")
+                    .setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellRangeUnfreeze() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1:B2/unfreeze",
+            HistoryToken.cellUnfreeze(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A1:B2")
+                    .setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellUnfreezeInvalidColumn() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/B2/unfreeze",
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCell("B2")
+                    .setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellUnfreezeInvalidRow() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A2/unfreeze",
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCell("A2")
+                    .setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellUnfreeze() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/unfreeze",
+            HistoryToken.cellUnfreeze(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellUnfreezeExtra() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/unfreeze/extra",
+            HistoryToken.cellUnfreeze(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
             )
         );
     }
@@ -3776,6 +3788,18 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     }
 
     @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnFormula() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/column/AA",
+            HistoryToken.columnSelect(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnFreezeInvalidRemoved() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/column/AA/freeze",
@@ -3919,7 +3943,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             )
         );
     }
-    
+
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnNavigate() {
         this.parseStringAndCheck(
@@ -3950,6 +3974,30 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                 ).setNavigations(
                     SpreadsheetViewportNavigationList.parse("right 444px")
                 )
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnPattern() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/column/AA/formatter/yymmdd",
+            HistoryToken.columnSelect(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnStyle() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/column/AA/style",
+            HistoryToken.columnSelect(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor()
             )
         );
     }
@@ -3987,449 +4035,6 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                 NAME,
                 SpreadsheetSelection.parseColumn("A")
                     .setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameColumnFormula() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/column/AA",
-            HistoryToken.columnSelect(
-                ID,
-                NAME,
-                COLUMN.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameColumnPattern() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/column/AA/formatter/yymmdd",
-            HistoryToken.columnSelect(
-                ID,
-                NAME,
-                COLUMN.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameColumnStyle() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/column/AA/style",
-            HistoryToken.columnSelect(
-                ID,
-                NAME,
-                COLUMN.setDefaultAnchor()
-            )
-        );
-    }
-
-    // row.............................................................................................................
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowMissingReference() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row",
-            SPREADSHEET_ID_SPREADSHEET_NAME_TOKEN
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowInvalidReference() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/A1",
-            SPREADSHEET_ID_SPREADSHEET_NAME_TOKEN
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowInvalidReference2() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/123456789/row/1",
-            SPREADSHEET_ID_SPREADSHEET_NAME_TOKEN
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowRowReference() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/11",
-            HistoryToken.rowSelect(
-                ID,
-                NAME,
-                ROW.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowInvalidAnchor() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/11/bottom-left",
-            HistoryToken.rowSelect(
-                ID,
-                NAME,
-                ROW.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowRangeMissingAnchor() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/22:33",
-            HistoryToken.rowSelect(
-                ID,
-                NAME,
-                ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM)
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowRangeTop() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/22:33/top",
-            HistoryToken.rowSelect(
-                ID,
-                NAME,
-                ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP)
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowRangeBottom() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/22:33/bottom",
-            HistoryToken.rowSelect(
-                ID,
-                NAME,
-                ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM)
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowRangeInvalidAnchor() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/22:33/top-left",
-            HistoryToken.rowSelect(
-                ID,
-                NAME,
-                ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM)
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowInvalidAction() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/11/!invalid",
-            HistoryToken.rowSelect(
-                ID,
-                NAME,
-                ROW.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowClear() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/11/clear",
-            HistoryToken.rowClear(
-                ID,
-                NAME,
-                ROW.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowDelete() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/11/delete",
-            HistoryToken.rowDelete(
-                ID,
-                NAME,
-                ROW.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowFreezeInvalidFails() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/11/freeze",
-            HistoryToken.rowSelect(
-                ID,
-                NAME,
-                ROW.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowFreeze() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/1/freeze",
-            HistoryToken.rowFreeze(
-                ID,
-                NAME,
-                SpreadsheetSelection.parseRow("1").setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowRangeFreezeInvalidFails() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/22:33/freeze",
-            HistoryToken.rowSelect(
-                ID,
-                NAME,
-                ROW_RANGE.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowRangeFreeze() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/1:2/freeze",
-            HistoryToken.rowFreeze(
-                ID,
-                NAME,
-                SpreadsheetSelection.parseRowRange("1:2").setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowInsertAfterMissingCount() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/11/insertAfter",
-            HistoryToken.rowInsertAfter(
-                ID,
-                NAME,
-                ROW.setDefaultAnchor(),
-                OptionalInt.empty()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowInsertAfterEmptyCount() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/11/insertAfter/",
-            HistoryToken.rowInsertAfter(
-                ID,
-                NAME,
-                ROW.setDefaultAnchor(),
-                OptionalInt.empty()
-            )
-        );
-    }
-
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowInsertAfter123() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/11/insertAfter/123",
-            HistoryToken.rowInsertAfter(
-                ID,
-                NAME,
-                ROW.setDefaultAnchor(),
-                OptionalInt.of(
-                    123
-                )
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowInsertBeforeMissingCount() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/11/insertBefore",
-            HistoryToken.rowInsertBefore(
-                ID,
-                NAME,
-                ROW.setDefaultAnchor(),
-                OptionalInt.empty()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowInsertBeforeEmptyCount() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/11/insertBefore/",
-            HistoryToken.rowInsertBefore(
-                ID,
-                NAME,
-                ROW.setDefaultAnchor(),
-                OptionalInt.empty()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowInsertBefore123() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/11/insertBefore/123",
-            HistoryToken.rowInsertBefore(
-                ID,
-                NAME,
-                ROW.setDefaultAnchor(),
-                OptionalInt.of(
-                    123
-                )
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowMenu() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/11/menu",
-            HistoryToken.rowMenu(
-                ID,
-                NAME,
-                ROW.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowNavigate() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/11/navigate/Z99/down%20444px",
-            HistoryToken.rowNavigate(
-                ID,
-                NAME,
-                ROW.setDefaultAnchor(),
-                SpreadsheetViewportHomeNavigationList.with(
-                    SpreadsheetSelection.parseCell("Z99")
-                ).setNavigations(
-                    SpreadsheetViewportNavigationList.parse("down 444px")
-                )
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowRangeNavigate() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/22:33/bottom/navigate/Z99/down%20444px",
-            HistoryToken.rowNavigate(
-                ID,
-                NAME,
-                ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
-                SpreadsheetViewportHomeNavigationList.with(
-                    SpreadsheetSelection.parseCell("Z99")
-                ).setNavigations(
-                    SpreadsheetViewportNavigationList.parse("down 444px")
-                )
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowUnfreezeInvalid() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/11/unfreeze",
-            HistoryToken.rowSelect(
-                ID,
-                NAME,
-                ROW.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowUnfreeze() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/1/unfreeze",
-            HistoryToken.rowUnfreeze(
-                ID,
-                NAME,
-                SpreadsheetSelection.parseRow("1").setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowRangeUnfreezeInvalid() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/22:33/unfreeze",
-            HistoryToken.rowSelect(
-                ID,
-                NAME,
-                ROW_RANGE.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowRangeUnfreeze() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/1/unfreeze",
-            HistoryToken.rowUnfreeze(
-                ID,
-                NAME,
-                SpreadsheetSelection.parseRow("1").setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowUnfreezeExtra() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/1/unfreeze/extra",
-            HistoryToken.rowUnfreeze(
-                ID,
-                NAME,
-                SpreadsheetSelection.parseRow("1").setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowFormula() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/11",
-            HistoryToken.rowSelect(
-                ID,
-                NAME,
-                ROW.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowPattern() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/11/formatter/yymmdd",
-            HistoryToken.rowSelect(
-                ID,
-                NAME,
-                ROW.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowStyle() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/11/style",
-            HistoryToken.rowSelect(
-                ID,
-                NAME,
-                ROW.setDefaultAnchor()
             )
         );
     }
@@ -4477,6 +4082,18 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     }
 
     @Test
+    public void testParseSpreadsheetIdSpreadsheetNameFormFormNameDelete() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/form/FormName123/delete",
+            HistoryToken.formDelete(
+                ID,
+                NAME,
+                FormName.with("FormName123")
+            )
+        );
+    }
+
+    @Test
     public void testParseSpreadsheetIdSpreadsheetNameFormFormNameSave() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/form/FormName123/save",
@@ -4506,18 +4123,6 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                 ID,
                 NAME,
                 form
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameFormFormNameDelete() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/form/FormName123/delete",
-            HistoryToken.formDelete(
-                ID,
-                NAME,
-                FormName.with("FormName123")
             )
         );
     }
@@ -4879,6 +4484,413 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                 ).setNavigations(
                     SpreadsheetViewportNavigationList.parse("right 444px")
                 )
+            )
+        );
+    }
+
+    // row.............................................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowMissingReference() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row",
+            SPREADSHEET_ID_SPREADSHEET_NAME_TOKEN
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowInvalidReference() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/A1",
+            SPREADSHEET_ID_SPREADSHEET_NAME_TOKEN
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowInvalidReference2() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/123456789/row/1",
+            SPREADSHEET_ID_SPREADSHEET_NAME_TOKEN
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowRowReference() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/11",
+            HistoryToken.rowSelect(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowInvalidAnchor() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/11/bottom-left",
+            HistoryToken.rowSelect(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowRangeMissingAnchor() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/22:33",
+            HistoryToken.rowSelect(
+                ID,
+                NAME,
+                ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM)
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowRangeTop() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/22:33/top",
+            HistoryToken.rowSelect(
+                ID,
+                NAME,
+                ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP)
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowRangeBottom() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/22:33/bottom",
+            HistoryToken.rowSelect(
+                ID,
+                NAME,
+                ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM)
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowRangeInvalidAnchor() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/22:33/top-left",
+            HistoryToken.rowSelect(
+                ID,
+                NAME,
+                ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM)
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowInvalidAction() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/11/!invalid",
+            HistoryToken.rowSelect(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowClear() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/11/clear",
+            HistoryToken.rowClear(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowDelete() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/11/delete",
+            HistoryToken.rowDelete(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowFormula() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/11",
+            HistoryToken.rowSelect(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowFreezeInvalidFails() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/11/freeze",
+            HistoryToken.rowSelect(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowFreeze() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/1/freeze",
+            HistoryToken.rowFreeze(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseRow("1").setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowRangeFreezeInvalidFails() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/22:33/freeze",
+            HistoryToken.rowSelect(
+                ID,
+                NAME,
+                ROW_RANGE.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowRangeFreeze() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/1:2/freeze",
+            HistoryToken.rowFreeze(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseRowRange("1:2").setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowInsertAfterMissingCount() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/11/insertAfter",
+            HistoryToken.rowInsertAfter(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor(),
+                OptionalInt.empty()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowInsertAfterEmptyCount() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/11/insertAfter/",
+            HistoryToken.rowInsertAfter(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor(),
+                OptionalInt.empty()
+            )
+        );
+    }
+
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowInsertAfter123() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/11/insertAfter/123",
+            HistoryToken.rowInsertAfter(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor(),
+                OptionalInt.of(
+                    123
+                )
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowInsertBeforeMissingCount() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/11/insertBefore",
+            HistoryToken.rowInsertBefore(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor(),
+                OptionalInt.empty()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowInsertBeforeEmptyCount() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/11/insertBefore/",
+            HistoryToken.rowInsertBefore(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor(),
+                OptionalInt.empty()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowInsertBefore123() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/11/insertBefore/123",
+            HistoryToken.rowInsertBefore(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor(),
+                OptionalInt.of(
+                    123
+                )
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowMenu() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/11/menu",
+            HistoryToken.rowMenu(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowNavigate() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/11/navigate/Z99/down%20444px",
+            HistoryToken.rowNavigate(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor(),
+                SpreadsheetViewportHomeNavigationList.with(
+                    SpreadsheetSelection.parseCell("Z99")
+                ).setNavigations(
+                    SpreadsheetViewportNavigationList.parse("down 444px")
+                )
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowRangeNavigate() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/22:33/bottom/navigate/Z99/down%20444px",
+            HistoryToken.rowNavigate(
+                ID,
+                NAME,
+                ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
+                SpreadsheetViewportHomeNavigationList.with(
+                    SpreadsheetSelection.parseCell("Z99")
+                ).setNavigations(
+                    SpreadsheetViewportNavigationList.parse("down 444px")
+                )
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowPattern() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/11/formatter/yymmdd",
+            HistoryToken.rowSelect(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowStyle() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/11/style",
+            HistoryToken.rowSelect(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowUnfreezeInvalid() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/11/unfreeze",
+            HistoryToken.rowSelect(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowUnfreeze() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/1/unfreeze",
+            HistoryToken.rowUnfreeze(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseRow("1").setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowRangeUnfreezeInvalid() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/22:33/unfreeze",
+            HistoryToken.rowSelect(
+                ID,
+                NAME,
+                ROW_RANGE.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowRangeUnfreeze() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/1/unfreeze",
+            HistoryToken.rowUnfreeze(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseRow("1").setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowUnfreezeExtra() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/1/unfreeze/extra",
+            HistoryToken.rowUnfreeze(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseRow("1").setDefaultAnchor()
             )
         );
     }
