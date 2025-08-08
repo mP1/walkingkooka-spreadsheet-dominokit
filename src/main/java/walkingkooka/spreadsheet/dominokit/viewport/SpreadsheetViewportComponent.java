@@ -48,7 +48,6 @@ import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuTarg
 import walkingkooka.spreadsheet.dominokit.dom.DivComponent;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopSpreadsheetFormatterInfoSetFetcherWatcher;
@@ -352,122 +351,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
                 SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext.with(
                     this
                 )
-            ).addClickListener(
-                (event) -> onTableClickEvent(
-                    Js.cast(event)
-                )
-            ).addContextMenuListener(this::onTableContextMenu)
-            .addKeyDownListener(
-                (event) -> onTableKeyDownEvent(
-                    Js.cast(event)
-                )
-            );
-    }
-
-    // click ...........................................................................................................
-
-    private void onTableClickEvent(final MouseEvent event) {
-        event.preventDefault();
-
-        final EventTarget eventTarget = event.target;
-        if (eventTarget instanceof Element) {
-            this.findSelectionAndNavigate(
-                Js.cast(eventTarget),
-                event.shiftKey
-            );
-        }
-    }
-
-    /**
-     * Attempts to find the matching {@link SpreadsheetSelection} and adds to the navigations.
-     */
-    private void findSelectionAndNavigate(final Element element,
-                                          final boolean shiftKeyDown) {
-        Element walk = element;
-        for (; ; ) {
-            if (null == walk || walk.tagName.equalsIgnoreCase("TABLE")) {
-                break;
-            }
-
-            final Optional<SpreadsheetSelection> maybeSelection = parseElementId(walk.id);
-            if (maybeSelection.isPresent()) {
-                final SpreadsheetSelection selection = maybeSelection.get();
-                if (selection.isCell()) {
-                    final SpreadsheetCellReference cell = selection.toCell();
-
-                    this.onNavigation(
-                        shiftKeyDown ?
-                            SpreadsheetViewportNavigation.extendCell(
-                                cell
-                            ) :
-                            SpreadsheetViewportNavigation.cell(
-                                cell
-                            )
-                    );
-                    break;
-                }
-            }
-
-            walk = walk.parentElement;
-        }
-    }
-
-    // key down.........................................................................................................
-
-    /**
-     * Generic key event handler that handles any key events for cell/column OR row.
-     */
-    private void onTableKeyDownEvent(final KeyboardEvent event) {
-        event.preventDefault();
-
-        final boolean shifted = event.shiftKey;
-        final SpreadsheetViewportComponentContext context = this.context;
-
-        SpreadsheetViewportNavigation navigation = null;
-        switch (Key.fromEvent(event)) {
-            case ArrowLeft:
-                navigation = shifted ?
-                    SpreadsheetViewportNavigation.extendLeftColumn() :
-                    SpreadsheetViewportNavigation.leftColumn();
-                break;
-            case ArrowUp:
-                navigation = shifted ?
-                    SpreadsheetViewportNavigation.extendUpRow() :
-                    SpreadsheetViewportNavigation.upRow();
-                break;
-            case ArrowRight:
-                navigation = shifted ?
-                    SpreadsheetViewportNavigation.extendRightColumn() :
-                    SpreadsheetViewportNavigation.rightColumn();
-                break;
-            case ArrowDown:
-                navigation = shifted ?
-                    SpreadsheetViewportNavigation.extendDownRow() :
-                    SpreadsheetViewportNavigation.downRow();
-                break;
-            case Enter:
-                // if cell then edit formula
-                // TODO table.blur
-                context.pushHistoryToken(
-                    context.historyToken()
-                        .formula()
-                );
-                break;
-            case Escape:
-                // clear any selection
-                context.pushHistoryToken(
-                    context.historyToken()
-                        .clearSelection()
-                );
-                break;
-            default:
-                // ignore other keys
-                break;
-        }
-
-        if (null != navigation) {
-            this.onNavigation(navigation);
-        }
+            ).addContextMenuListener(this::onTableContextMenu);
     }
 
     // context menu.....................................................................................................
@@ -1341,7 +1225,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
      * Accepts and adds the given {@link SpreadsheetViewportNavigation} to the buffer and if possible
      * sends it to the server for actioning.
      */
-    private void onNavigation(final SpreadsheetViewportNavigation navigation) {
+    void onNavigation(final SpreadsheetViewportNavigation navigation) {
         Objects.requireNonNull(navigation, "navigation");
 
         this.navigations = this.navigations.concat(navigation);

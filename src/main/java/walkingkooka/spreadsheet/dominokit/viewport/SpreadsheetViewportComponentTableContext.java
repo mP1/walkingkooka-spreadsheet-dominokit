@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigation;
 import walkingkooka.tree.text.TextStyle;
 
 /**
@@ -63,4 +64,9 @@ interface SpreadsheetViewportComponentTableContext extends HistoryContext,
      * Returns a {@link HistoryToken} that extends the current selection to include this row.
      */
     AnchoredSpreadsheetSelection extendRow(final SpreadsheetRowReference row);
+
+    /**
+     * Pushes a new {@link SpreadsheetViewportNavigation} reacting to a keyboard cursor key etc.
+     */
+    void pushNavigation(final SpreadsheetViewportNavigation navigation);
 }
