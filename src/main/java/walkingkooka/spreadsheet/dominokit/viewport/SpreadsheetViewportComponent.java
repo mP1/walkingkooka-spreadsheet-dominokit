@@ -29,6 +29,7 @@ import elemental2.dom.MouseEvent;
 import jsinterop.base.Js;
 import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.icons.MdiIcon;
+import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
@@ -55,24 +56,19 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetFormatterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormulaHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormulaMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellMenuHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellParserSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellStyleSaveHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValidatorSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSelectHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.recent.HistoryTokenRecorder;
+import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContext;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetSelectionMenu;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterAliasSet;
@@ -123,11 +119,6 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
     LoadedSpreadsheetMetadataRequired,
     NopEmptyResponseFetcherWatcher {
 
-    /**
-     * The maximum number of recent format / parse pattern saves.
-     */
-    final static int MAX_RECENT_COUNT = 3;
-
     public static SpreadsheetViewportComponent empty(final SpreadsheetViewportComponentContext context) {
         Objects.requireNonNull(context, "context");
 
@@ -153,52 +144,8 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
 
         this.root = this.root();
 
-        this.recentFormatterSelectors = this.recentCellSaves(
-            historyToken -> Optional.ofNullable(
-                historyToken instanceof SpreadsheetCellFormatterSaveHistoryToken ?
-                    historyToken.cast(SpreadsheetCellFormatterSaveHistoryToken.class)
-                        .spreadsheetFormatterSelector()
-                        .orElse(null) :
-                    null
-            ),
-            context
-        );
-
         this.spreadsheetFormatterSelectorSelection = null;
         this.spreadsheetFormatterSelectorMenus = null;
-
-        this.recentParserSelectors = this.recentCellSaves(
-            historyToken -> Optional.ofNullable(
-                historyToken instanceof SpreadsheetCellParserSaveHistoryToken ?
-                    historyToken.cast(SpreadsheetCellParserSaveHistoryToken.class)
-                        .spreadsheetParserSelector()
-                        .orElse(null) :
-                    null
-            ),
-            context
-        );
-
-        this.recentValidatorSelectors = this.recentCellSaves(
-            historyToken -> Optional.ofNullable(
-                historyToken instanceof SpreadsheetCellValidatorSaveHistoryToken ?
-                    historyToken.cast(SpreadsheetCellValidatorSaveHistoryToken.class)
-                        .value()
-                        .orElse(null) :
-                    null
-            ),
-            context
-        );
-
-        this.recentTextStyleProperties = HistoryTokenRecorder.with(
-            (historyToken) -> Optional.ofNullable(
-                historyToken instanceof SpreadsheetCellStyleSaveHistoryToken ?
-                    historyToken.cast(SpreadsheetCellStyleSaveHistoryToken.class)
-                        .textStyleProperty() :
-                    null
-            ),
-            MAX_RECENT_COUNT
-        );
-        context.addHistoryTokenWatcher(this.recentTextStyleProperties);
 
         this.setVisibility(false);
 
@@ -207,20 +154,6 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
         context.addSpreadsheetFormatterFetcherWatcher(this);
         context.addSpreadsheetMetadataFetcherWatcher(this);
         context.addSpreadsheetDeltaFetcherWatcher(this);
-    }
-
-    /**
-     * Creates a {@link HistoryTokenRecorder} which will keep the most recent saves of {@link SpreadsheetFormatterSelector},
-     * {@link SpreadsheetParserSelector} or {@link ValidatorSelector}.
-     */
-    private <T> HistoryTokenRecorder<T> recentCellSaves(final Function<HistoryToken, Optional<T>> mapper,
-                                                        final HistoryContext context) {
-        final HistoryTokenRecorder<T> recorder = HistoryTokenRecorder.with(
-            mapper,
-            MAX_RECENT_COUNT
-        );
-        context.addHistoryTokenWatcher(recorder);
-        return recorder;
     }
 
     // root.............................................................................................................
@@ -623,15 +556,17 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
                 spreadsheetFormatterSelectorMenus = Lists.empty();
             }
 
+            final RecentValueSavesContext recentValueSavesContext = this.context;
+
             SpreadsheetSelectionMenu.build(
                 historyToken,
                 menu,
                 SpreadsheetViewportComponentSpreadsheetSelectionMenuContext.with(
-                    this.recentFormatterSelectors.values(),
+                    recentValueSavesContext.recentValueSaves(SpreadsheetFormatterSelector.class),
                     spreadsheetFormatterSelectorMenus,
-                    this.recentParserSelectors.values(),
-                    this.recentTextStyleProperties.values(),
-                    this.recentValidatorSelectors.values(),
+                    recentValueSavesContext.recentValueSaves(SpreadsheetParserSelector.class),
+                    recentValueSavesContext.recentValueSaves(TEXT_STYLE_PROPERTY_CLASS),
+                    recentValueSavesContext.recentValueSaves(ValidatorSelector.class),
                     this.context
                 )
             );
@@ -640,10 +575,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
         }
     }
 
-    /**
-     * Watches {@link HistoryToken} events for {@link SpreadsheetFormatterSelector} saves adding new entry.
-     */
-    private final HistoryTokenRecorder<SpreadsheetFormatterSelector> recentFormatterSelectors;
+    private final static Class<TextStyleProperty<?>> TEXT_STYLE_PROPERTY_CLASS = Cast.to(TextStyleProperty.class);
 
     /**
      * The {@link SpreadsheetExpressionReference} that was used to fetch {@link SpreadsheetFormatterMenu}.
@@ -655,21 +587,6 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
      * This should be updated each time the {@link SpreadsheetMetadataPropertyName#FORMATTERS} property changes.
      */
     private List<SpreadsheetFormatterMenu> spreadsheetFormatterSelectorMenus;
-
-    /**
-     * Watches {@link HistoryToken} events for {@link SpreadsheetParserSelector} saves adding new entry.
-     */
-    private final HistoryTokenRecorder<SpreadsheetParserSelector> recentParserSelectors;
-
-    /**
-     * Watches {@link HistoryToken} events for {@link TextStyleProperty} saves adding new entry.
-     */
-    private final HistoryTokenRecorder<TextStyleProperty<?>> recentTextStyleProperties;
-
-    /**
-     * Watches {@link HistoryToken} events for {@link ValidatorSelector} saves adding new entry.
-     */
-    private final HistoryTokenRecorder<ValidatorSelector> recentValidatorSelectors;
 
     /**
      * A TABLE that holds the grid of cells including the column and row headers.

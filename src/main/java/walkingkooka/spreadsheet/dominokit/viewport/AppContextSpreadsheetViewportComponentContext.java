@@ -36,6 +36,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetFormatterFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
+import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContext;
+import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContextDelegator;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -61,7 +63,8 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
     HasSpreadsheetMetadataFetcherWatchersDelegator,
     ProviderContextDelegator,
     SpreadsheetLabelNameResolver,
-    SpreadsheetParserProviderDelegator {
+    SpreadsheetParserProviderDelegator,
+    RecentValueSavesContextDelegator {
 
     static AppContextSpreadsheetViewportComponentContext with(final AppContext appContext) {
         return new AppContextSpreadsheetViewportComponentContext(
@@ -164,6 +167,11 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
     public Set<SpreadsheetExpressionReference> cellReferences(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
         return this.spreadsheetViewportCache()
             .cellReferences(spreadsheetExpressionReference);
+    }
+
+    @Override
+    public RecentValueSavesContext recentValueSavesContext() {
+        return this.context;
     }
 
     private final AppContext context;

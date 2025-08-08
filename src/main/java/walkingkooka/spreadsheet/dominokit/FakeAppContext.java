@@ -781,4 +781,11 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     public void error(final Object... values) {
         throw new UnsupportedOperationException();
     }
+
+    // RecentValueSavesContext..........................................................................................
+
+    @Override
+    public <T> List<T> recentValueSaves(final Class<T> type) {
+        throw new UnsupportedOperationException();
+    }
 }
