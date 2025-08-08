@@ -20,14 +20,14 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.slider.SliderComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
@@ -56,7 +56,7 @@ import java.util.Optional;
  */
 abstract public class SpreadsheetViewportScrollbarComponent<R extends SpreadsheetColumnOrRowReference>
     implements ValueComponent<HTMLDivElement, R, SpreadsheetViewportScrollbarComponent<R>>,
-    HistoryTokenWatcher {
+    SpreadsheetViewportComponentLifecycle {
 
     public static SpreadsheetViewportScrollbarComponent<SpreadsheetColumnReference> columns(final SpreadsheetViewportScrollbarComponentContext context) {
         return SpreadsheetViewportScrollbarComponentColumns.with(context);
@@ -268,13 +268,35 @@ abstract public class SpreadsheetViewportScrollbarComponent<R extends Spreadshee
 
     final HistoryTokenAnchorComponent after;
 
-
-    // HistoryTokenWatcher..............................................................................................
+    // SpreadsheetViewportComponentLifecycle............................................................................
 
     @Override
-    public void onHistoryTokenChange(final HistoryToken previous,
-                                     final AppContext context) {
-        final SpreadsheetCellReference home = context.spreadsheetMetadata()
+    public void openGiveFocus(final RefreshContext context) {
+        // NOP
+    }
+
+    @Override
+    public boolean isOpen() {
+        return this.open;
+    }
+
+    @Override
+    public void open(final RefreshContext context) {
+        this.open = true;
+    }
+
+    @Override
+    public void close(final RefreshContext context) {
+        this.before.clear();
+        this.after.clear();
+        this.open = false;
+    }
+
+    private boolean open;
+
+    @Override
+    public void refresh(final RefreshContext context) {
+        final SpreadsheetCellReference home = this.spreadsheetMetadata()
             .getOrFail(SpreadsheetMetadataPropertyName.VIEWPORT)
             .rectangle()
             .home();
@@ -322,6 +344,21 @@ abstract public class SpreadsheetViewportScrollbarComponent<R extends Spreadshee
                 )
             )
         );
+    }
+
+    @Override
+    public SpreadsheetViewportCache spreadsheetViewportCache() {
+        return this.context.spreadsheetViewportCache();
+    }
+
+    @Override
+    public SpreadsheetMetadata spreadsheetMetadata() {
+        return this.context.spreadsheetMetadata();
+    }
+
+    @Override
+    public boolean shouldLogLifecycleChanges() {
+        return false;
     }
 
     private final SpreadsheetViewportScrollbarComponentContext context;

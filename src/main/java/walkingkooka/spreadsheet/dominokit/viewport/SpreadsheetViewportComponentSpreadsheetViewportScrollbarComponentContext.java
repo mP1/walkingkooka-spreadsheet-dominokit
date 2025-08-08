@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.util.Objects;
 
@@ -37,6 +38,16 @@ final class SpreadsheetViewportComponentSpreadsheetViewportScrollbarComponentCon
                                                                                      final HistoryContext historyContext) {
         this.component = component;
         this.historyContext = historyContext;
+    }
+
+    @Override
+    public SpreadsheetViewportCache spreadsheetViewportCache() {
+        return this.component.spreadsheetViewportCache();
+    }
+
+    @Override
+    public SpreadsheetMetadata spreadsheetMetadata() {
+        return this.component.spreadsheetMetadata();
     }
 
     // SpreadsheetViewportScrollbarComponentContext.....................................................................

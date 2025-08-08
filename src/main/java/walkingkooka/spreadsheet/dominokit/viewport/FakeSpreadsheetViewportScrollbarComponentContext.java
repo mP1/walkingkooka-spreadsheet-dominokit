@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 public class FakeSpreadsheetViewportScrollbarComponentContext extends FakeHistoryContext implements SpreadsheetViewportScrollbarComponentContext {
 
@@ -32,6 +33,16 @@ public class FakeSpreadsheetViewportScrollbarComponentContext extends FakeHistor
 
     @Override
     public double viewportHeight() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public SpreadsheetMetadata spreadsheetMetadata() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public SpreadsheetViewportCache spreadsheetViewportCache() {
         throw new UnsupportedOperationException();
     }
 }

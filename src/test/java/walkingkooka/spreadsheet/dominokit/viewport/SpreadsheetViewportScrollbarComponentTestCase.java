@@ -22,9 +22,14 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.TypeNameTesting;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -33,7 +38,9 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportRectangle;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportWindows;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public abstract class SpreadsheetViewportScrollbarComponentTestCase<R extends SpreadsheetColumnOrRowReference>
@@ -41,9 +48,20 @@ public abstract class SpreadsheetViewportScrollbarComponentTestCase<R extends Sp
     TypeNameTesting<SpreadsheetViewportScrollbarComponent<R>>,
     SpreadsheetMetadataTesting {
 
+    final static SpreadsheetCellReference HOME = SpreadsheetSelection.A1;
+
     final static SpreadsheetId ID = SpreadsheetId.with(1);
 
     final static SpreadsheetName NAME = SpreadsheetName.with("SpreadsheetName222");
+
+    final static HistoryToken SPREADSHEET_LIST = HistoryToken.spreadsheetListSelect(
+        HistoryTokenOffsetAndCount.EMPTY
+    );
+
+    final static HistoryToken SPREADSHEET_SELECT = HistoryToken.spreadsheetSelect(
+        ID,
+        NAME
+    );
 
     final static HistoryToken CELL_SELECT = HistoryToken.cellSelect(
         ID,
@@ -63,6 +81,9 @@ public abstract class SpreadsheetViewportScrollbarComponentTestCase<R extends Sp
         TestAppContext(final SpreadsheetCellReference home,
                        final HistoryToken historyToken) {
             this.spreadsheetMetadata = SpreadsheetMetadataTesting.METADATA_EN_AU.set(
+                SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                ID
+            ).set(
                 SpreadsheetMetadataPropertyName.VIEWPORT,
                 SpreadsheetViewportRectangle.with(
                     home,
@@ -71,6 +92,44 @@ public abstract class SpreadsheetViewportScrollbarComponentTestCase<R extends Sp
                 ).viewport()
             );
             this.historyToken = historyToken;
+
+            this.spreadsheetViewportCache.onSpreadsheetMetadata(
+                this.spreadsheetMetadata,
+                this
+            );
+
+            this.spreadsheetViewportCache.setWindows(
+                SpreadsheetViewportWindows.parse("A1:C3")
+            );
+        }
+
+        @Override
+        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+            this.historyTokenWatchers.add(watcher);
+            return null;
+        }
+
+        private HistoryTokenWatchers historyTokenWatchers = HistoryTokenWatchers.empty();
+
+        @Override
+        public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+            return null;
+        }
+
+        @Override
+        public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+            return null;
+        }
+
+        @Override
+        public void pushHistoryToken(final HistoryToken token) {
+            final HistoryToken previous = this.historyToken;
+            this.historyToken = token;
+
+            this.historyTokenWatchers.onHistoryTokenChange(
+                previous,
+                this
+            );
         }
 
         @Override
@@ -78,7 +137,7 @@ public abstract class SpreadsheetViewportScrollbarComponentTestCase<R extends Sp
             return this.historyToken;
         }
 
-        private final HistoryToken historyToken;
+        private HistoryToken historyToken;
 
         @Override
         public SpreadsheetMetadata spreadsheetMetadata() {
@@ -86,25 +145,37 @@ public abstract class SpreadsheetViewportScrollbarComponentTestCase<R extends Sp
         }
 
         private final SpreadsheetMetadata spreadsheetMetadata;
+
+        @Override
+        public SpreadsheetViewportCache spreadsheetViewportCache() {
+            return this.spreadsheetViewportCache;
+        }
+
+        private final SpreadsheetViewportCache spreadsheetViewportCache = SpreadsheetViewportCache.empty(this);
+
+        @Override
+        public void debug(final Object... values) {
+            System.out.println(
+                Arrays.toString(values)
+            );
+        }
     }
 
     static class TestSpreadsheetViewportScrollbarComponentContext extends FakeSpreadsheetViewportScrollbarComponentContext {
-        TestSpreadsheetViewportScrollbarComponentContext(final HistoryToken token) {
+        TestSpreadsheetViewportScrollbarComponentContext(final TestAppContext context) {
             super();
-            this.historyToken = Objects.requireNonNull(token, "token");
+            this.context = Objects.requireNonNull(context, "context");
         }
 
         @Override
         public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-            return null;
+            return this.context.addHistoryTokenWatcher(watcher);
         }
 
         @Override
         public HistoryToken historyToken() {
-            return this.historyToken;
+            return this.context.historyToken();
         }
-
-        private final HistoryToken historyToken;
 
         @Override
         public double viewportWidth() {
@@ -115,6 +186,18 @@ public abstract class SpreadsheetViewportScrollbarComponentTestCase<R extends Sp
         public double viewportHeight() {
             return VIEWPORT_HEIGHT;
         }
+
+        @Override
+        public SpreadsheetMetadata spreadsheetMetadata() {
+            return this.context.spreadsheetMetadata();
+        }
+
+        @Override
+        public SpreadsheetViewportCache spreadsheetViewportCache() {
+            return this.context.spreadsheetViewportCache();
+        }
+
+        private final AppContext context;
     }
 
     @Override

@@ -21,45 +21,21 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-
-import java.util.Optional;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportWindows;
 
 public final class SpreadsheetViewportScrollbarComponentColumnsTest extends SpreadsheetViewportScrollbarComponentTestCase<SpreadsheetColumnReference> {
 
     @Test
-    public void testTreePrintLinksMissingHistoryToken() {
-        this.treePrintAndCheck(
-            SpreadsheetViewportScrollbarComponent.columns(
-                new TestSpreadsheetViewportScrollbarComponentContext(CELL_SELECT)
-            ).setValue(
-                Optional.of(
-                    SpreadsheetSelection.parseColumn("M")
-                )
-            ),
-            "SpreadsheetViewportScrollbarComponentColumns\n" +
-                "  FlexLayoutComponent\n" +
-                "    ROW\n" +
-                "      id=viewport-horizontal-scrollbar-Layout\n" +
-                "        mdi-arrow-left \"Left\" DISABLED id=viewport-horizontal-scrollbar-left-Link\n" +
-                "        SliderComponent\n" +
-                "          Horizontal\n" +
-                "            [12.0] min=1.0 max=16383.0 id=viewport-horizontal-scrollbar-value-Slider\n" +
-                "        \"Right\" DISABLED mdi-arrow-right id=viewport-horizontal-scrollbar-right-Link\n"
+    public void testTreePrintAfterOnSpreadsheetListHistoryToken() {
+        final TestAppContext appContext = new TestAppContext(
+            SpreadsheetSelection.parseCell("C3"), // home
+            CELL_SELECT
         );
-    }
 
-    @Test
-    public void testTreePrintAfterOnHistoryToken() {
         final SpreadsheetViewportScrollbarComponent<SpreadsheetColumnReference> component = SpreadsheetViewportScrollbarComponent.columns(
-            new TestSpreadsheetViewportScrollbarComponentContext(CELL_SELECT)
+            new TestSpreadsheetViewportScrollbarComponentContext(appContext)
         );
-        component.onHistoryTokenChange(
-            CELL_SELECT,
-            new TestAppContext(
-                SpreadsheetSelection.parseCell("D4"),
-                CELL_SELECT
-            )
-        );
+        appContext.pushHistoryToken(SPREADSHEET_LIST);
 
         this.treePrintAndCheck(
             component,
@@ -67,11 +43,67 @@ public final class SpreadsheetViewportScrollbarComponentColumnsTest extends Spre
                 "  FlexLayoutComponent\n" +
                 "    ROW\n" +
                 "      id=viewport-horizontal-scrollbar-Layout\n" +
-                "        mdi-arrow-left \"Left\" [#/1/SpreadsheetName222/cell/A1/navigate/D4/left%201000px] id=viewport-horizontal-scrollbar-left-Link\n" +
+                "        mdi-arrow-left \"Left\" DISABLED id=viewport-horizontal-scrollbar-left-Link\n" +
                 "        SliderComponent\n" +
                 "          Horizontal\n" +
                 "            [] min=1.0 max=16383.0 id=viewport-horizontal-scrollbar-value-Slider\n" +
-                "        \"Right\" [#/1/SpreadsheetName222/cell/A1/navigate/D4/right%201000px] mdi-arrow-right id=viewport-horizontal-scrollbar-right-Link\n"
+                "        \"Right\" DISABLED mdi-arrow-right id=viewport-horizontal-scrollbar-right-Link\n"
+        );
+    }
+
+    @Test
+    public void testTreePrintAfterOnSpreadsheetSelectHistoryToken() {
+        final TestAppContext appContext = new TestAppContext(
+            SpreadsheetSelection.parseCell("C3"), // home
+            CELL_SELECT
+        );
+
+        final SpreadsheetViewportScrollbarComponent<SpreadsheetColumnReference> component = SpreadsheetViewportScrollbarComponent.columns(
+            new TestSpreadsheetViewportScrollbarComponentContext(appContext)
+        );
+        appContext.pushHistoryToken(SPREADSHEET_SELECT);
+
+        this.treePrintAndCheck(
+            component,
+            "SpreadsheetViewportScrollbarComponentColumns\n" +
+                "  FlexLayoutComponent\n" +
+                "    ROW\n" +
+                "      id=viewport-horizontal-scrollbar-Layout\n" +
+                "        mdi-arrow-left \"Left\" [#/1/SpreadsheetName222/navigate/C3/left%201000px] id=viewport-horizontal-scrollbar-left-Link\n" +
+                "        SliderComponent\n" +
+                "          Horizontal\n" +
+                "            [] min=1.0 max=16383.0 id=viewport-horizontal-scrollbar-value-Slider\n" +
+                "        \"Right\" [#/1/SpreadsheetName222/navigate/C3/right%201000px] mdi-arrow-right id=viewport-horizontal-scrollbar-right-Link\n"
+        );
+    }
+
+    @Test
+    public void testTreePrintAfterOnSpreadsheetCellSelectHistoryToken() {
+        final TestAppContext appContext = new TestAppContext(
+            SpreadsheetSelection.parseCell("C3"), // home
+            CELL_SELECT
+        );
+
+        final SpreadsheetViewportScrollbarComponent<SpreadsheetColumnReference> component = SpreadsheetViewportScrollbarComponent.columns(
+            new TestSpreadsheetViewportScrollbarComponentContext(appContext)
+        );
+        appContext.spreadsheetViewportCache()
+            .setWindows(
+                SpreadsheetViewportWindows.parse("A1:C3")
+            );
+        appContext.pushHistoryToken(CELL_SELECT);
+
+        this.treePrintAndCheck(
+            component,
+            "SpreadsheetViewportScrollbarComponentColumns\n" +
+                "  FlexLayoutComponent\n" +
+                "    ROW\n" +
+                "      id=viewport-horizontal-scrollbar-Layout\n" +
+                "        mdi-arrow-left \"Left\" [#/1/SpreadsheetName222/cell/A1/navigate/C3/left%201000px] id=viewport-horizontal-scrollbar-left-Link\n" +
+                "        SliderComponent\n" +
+                "          Horizontal\n" +
+                "            [] min=1.0 max=16383.0 id=viewport-horizontal-scrollbar-value-Slider\n" +
+                "        \"Right\" [#/1/SpreadsheetName222/cell/A1/navigate/C3/right%201000px] mdi-arrow-right id=viewport-horizontal-scrollbar-right-Link\n"
         );
     }
 
@@ -79,7 +111,10 @@ public final class SpreadsheetViewportScrollbarComponentColumnsTest extends Spre
     public SpreadsheetViewportScrollbarComponent<SpreadsheetColumnReference> createComponent() {
         return SpreadsheetViewportScrollbarComponent.columns(
             new TestSpreadsheetViewportScrollbarComponentContext(
-                CELL_SELECT
+                new TestAppContext(
+                    HOME,
+                    CELL_SELECT
+                )
             )
         );
     }
