@@ -89,7 +89,7 @@ public final class SpreadsheetCellNavigateHistoryTokenTest extends SpreadsheetCe
     @Test
     public void testParseInvalidNavigation() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/navigate/Z9/width/200/height/300/navigate/!invalid",
+            "/123/SpreadsheetName456/cell/A1/navigate/Z9/invalid",
             HistoryToken.cellSelect(
                 ID,
                 NAME,
