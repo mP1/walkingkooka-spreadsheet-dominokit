@@ -238,4 +238,9 @@ public class FakeSpreadsheetViewportComponentContext extends FakeHistoryContext 
     public Optional<SpreadsheetSelection> resolveLabel(SpreadsheetLabelName spreadsheetLabelName) {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public <T> List<T> recentValueSaves(final Class<T> type) {
+        throw new UnsupportedOperationException();
+    }
 }

@@ -121,6 +121,9 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListRenameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListSelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContext;
+import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContextDelegator;
+import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContexts;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
@@ -231,7 +234,8 @@ public class App implements EntryPoint,
     PluginFetcherWatcher,
     HasPluginFetcherWatchersDelegator,
     SpreadsheetProviderDelegator,
-    SpreadsheetFormatterContextDelegator {
+    SpreadsheetFormatterContextDelegator,
+    RecentValueSavesContextDelegator {
 
     /**
      * When a {@link HistoryTokenWatcher#onHistoryTokenChange(HistoryToken, AppContext)} exceeds this value, it should be considered too slow and a WARN message logged.
@@ -438,6 +442,8 @@ public class App implements EntryPoint,
             0,
             Integer.MAX_VALUE
         );
+
+        this.recentValueSavesContext = RecentValueSavesContexts.historyContext(this);
     }
 
     // WindowResize.....................................................................................................
@@ -1578,4 +1584,13 @@ public class App implements EntryPoint,
     }
 
     private final LoggingContext loggingContext;
+
+    // RecentValueSavesContextDelegator.................................................................................
+
+    @Override
+    public RecentValueSavesContext recentValueSavesContext() {
+        return this.recentValueSavesContext;
+    }
+
+    private final RecentValueSavesContext recentValueSavesContext;
 }
