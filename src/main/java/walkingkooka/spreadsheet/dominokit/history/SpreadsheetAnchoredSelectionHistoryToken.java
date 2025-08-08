@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
@@ -25,9 +24,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
-import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
 import walkingkooka.text.cursor.TextCursor;
-import walkingkooka.text.cursor.TextCursorSavePoint;
 
 import java.util.Objects;
 
@@ -64,20 +61,6 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
                                                          final AnchoredSpreadsheetSelection anchoredSelection);
 
     // parse............................................................................................................
-
-    final HistoryToken parseNavigate(final TextCursor cursor) {
-        final TextCursorSavePoint save = cursor.save();
-        cursor.end();
-
-        return this.setNavigation(
-            SpreadsheetViewportHomeNavigationList.fromUrlFragment(
-                UrlFragment.parse(
-                    save.textBetween()
-                        .toString()
-                )
-            )
-        );
-    }
 
     final HistoryToken parseSort(final TextCursor cursor) {
         final HistoryToken historyToken;

@@ -1494,6 +1494,21 @@ public abstract class HistoryToken implements HasUrlFragment,
         );
     }
 
+    // navigate.........................................................................................................
+
+    /**
+     * {@see SpreadsheetNavigateHistoryToken}
+     */
+    public static SpreadsheetNavigateHistoryToken navigate(final SpreadsheetId id,
+                                                           final SpreadsheetName name,
+                                                           final SpreadsheetViewportHomeNavigationList navigation) {
+        return SpreadsheetNavigateHistoryToken.with(
+            id,
+            name,
+            navigation
+        );
+    }
+
     // plugin...........................................................................................................
 
     /**
@@ -3587,33 +3602,43 @@ public abstract class HistoryToken implements HasUrlFragment,
 
         HistoryToken historyToken = this;
 
-        if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
-            final SpreadsheetAnchoredSelectionHistoryToken spreadsheetAnchoredSelectionHistoryToken = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
-            final SpreadsheetId id = spreadsheetAnchoredSelectionHistoryToken.id();
-            final SpreadsheetName name = spreadsheetAnchoredSelectionHistoryToken.name();
-            final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = spreadsheetAnchoredSelectionHistoryToken.anchoredSelection();
+        if (this instanceof SpreadsheetNameHistoryToken) {
+            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+            final SpreadsheetId id = spreadsheetNameHistoryToken.id();
+            final SpreadsheetName name = spreadsheetNameHistoryToken.name();
 
-            if (this instanceof SpreadsheetCellHistoryToken) {
-                historyToken = HistoryToken.cellNavigate(
+            if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
+                final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
+                    .anchoredSelection();
+
+                if (this instanceof SpreadsheetCellHistoryToken) {
+                    historyToken = HistoryToken.cellNavigate(
+                        id,
+                        name,
+                        anchoredSpreadsheetSelection,
+                        navigation
+                    );
+                }
+                if (this instanceof SpreadsheetColumnHistoryToken) {
+                    historyToken = HistoryToken.columnNavigate(
+                        id,
+                        name,
+                        anchoredSpreadsheetSelection,
+                        navigation
+                    );
+                }
+                if (this instanceof SpreadsheetRowHistoryToken) {
+                    historyToken = HistoryToken.rowNavigate(
+                        id,
+                        name,
+                        anchoredSpreadsheetSelection,
+                        navigation
+                    );
+                }
+            } else {
+                historyToken = HistoryToken.navigate(
                     id,
                     name,
-                    anchoredSpreadsheetSelection,
-                    navigation
-                );
-            }
-            if (this instanceof SpreadsheetColumnHistoryToken) {
-                historyToken = HistoryToken.columnNavigate(
-                    id,
-                    name,
-                    anchoredSpreadsheetSelection,
-                    navigation
-                );
-            }
-            if (this instanceof SpreadsheetRowHistoryToken) {
-                historyToken = HistoryToken.rowNavigate(
-                    id,
-                    name,
-                    anchoredSpreadsheetSelection,
                     navigation
                 );
             }

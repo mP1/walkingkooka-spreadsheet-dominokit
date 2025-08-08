@@ -86,6 +86,9 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
             case LABEL_STRING:
                 result = this.parseLabel(cursor);
                 break;
+            case NAVIGATE_STRING:
+                result = parseNavigate(cursor);
+                break;
             case SPEADSHEET_STRING:
                 result = this.parseMetadata(cursor);
                 break;

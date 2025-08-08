@@ -4865,6 +4865,24 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         );
     }
 
+    // /navigate........................................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameNavigate() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/navigate/Z99/right%20444px",
+            HistoryToken.navigate(
+                ID,
+                NAME,
+                SpreadsheetViewportHomeNavigationList.with(
+                    SpreadsheetSelection.parseCell("Z99")
+                ).setNavigations(
+                    SpreadsheetViewportNavigationList.parse("right 444px")
+                )
+            )
+        );
+    }
+
     @Override
     public HistoryToken parseString(final String urlFragment) {
         return HistoryToken.parseString(urlFragment);
