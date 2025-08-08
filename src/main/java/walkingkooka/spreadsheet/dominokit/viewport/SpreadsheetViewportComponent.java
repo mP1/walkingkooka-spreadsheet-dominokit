@@ -359,19 +359,8 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
                 (event) -> onTableKeyDownEvent(
                     Js.cast(event)
                 )
-            ).addFocusInListener(
-                (event) -> this.focused = true
-            ).addFocusOutListener(
-                (event) -> this.focused = false
             );
     }
-
-    // focus ...........................................................................................................
-
-    /**
-     * When true indicates that some part of the viewport has FOCUS.
-     */
-    private boolean focused;
 
     // click ...........................................................................................................
 
@@ -459,7 +448,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
                 break;
             case Enter:
                 // if cell then edit formula
-                this.focused = false;
+                // TODO table.blur
                 context.pushHistoryToken(
                     context.historyToken()
                         .formula()
@@ -1202,7 +1191,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
      */
     private void synchronizeHistoryToken(final SpreadsheetViewport viewport,
                                          final AppContext context) {
-        if (this.focused) {
+        if (this.table.isEditing()) {
             // before pushing history token need to update the AppContext.metadata
             final HistoryToken historyToken = context.historyToken();
 
