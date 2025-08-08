@@ -29,5 +29,5 @@ public interface RecentValueSavesContext extends Context {
     /**
      * Retrieves the most recent saves for the given {@link Class}
      */
-    <T> List<T> recentSaves(final Class<T> type);
+    <T> List<T> recentValueSaves(final Class<T> type);
 }

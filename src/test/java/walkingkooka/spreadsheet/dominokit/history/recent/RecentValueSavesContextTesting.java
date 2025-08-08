@@ -39,7 +39,7 @@ public interface RecentValueSavesContextTesting<C extends RecentValueSavesContex
                                               final List<T> expected) {
         this.checkEquals(
             expected,
-            context.recentSaves(type)
+            context.recentValueSaves(type)
         );
     }
 }
