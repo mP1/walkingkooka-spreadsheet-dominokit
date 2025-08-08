@@ -69,7 +69,7 @@ public final class SpreadsheetRowNavigateHistoryTokenTest extends SpreadsheetRow
     @Test
     public void testParseInvalidHome() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/row/1/navigate/home/!invalid",
+            "/123/SpreadsheetName456/row/1/navigate/!invalid",
             HistoryToken.rowSelect(
                 ID,
                 NAME,
@@ -81,7 +81,7 @@ public final class SpreadsheetRowNavigateHistoryTokenTest extends SpreadsheetRow
     @Test
     public void testParseInvalidNavigation() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/row/1/navigate/home/Z9/!invalid",
+            "/123/SpreadsheetName456/row/1/navigate/Z9/!invalid",
             HistoryToken.rowSelect(
                 ID,
                 NAME,
