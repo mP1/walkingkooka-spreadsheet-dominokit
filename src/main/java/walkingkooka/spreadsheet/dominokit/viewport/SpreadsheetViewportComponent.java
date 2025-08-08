@@ -381,8 +381,6 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
      */
     private void findSelectionAndNavigate(final Element element,
                                           final boolean shiftKeyDown) {
-        final SpreadsheetViewportComponentContext context = this.context;
-
         Element walk = element;
         for (; ; ) {
             if (null == walk || walk.tagName.equalsIgnoreCase("TABLE")) {
@@ -402,8 +400,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
                             ) :
                             SpreadsheetViewportNavigation.cell(
                                 cell
-                            ),
-                        context
+                            )
                     );
                     break;
                 }
@@ -467,10 +464,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
         }
 
         if (null != navigation) {
-            this.onNavigation(
-                navigation,
-                context
-            );
+            this.onNavigation(navigation);
         }
     }
 
@@ -645,10 +639,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
 
         this.context.debug("SpreadsheetViewportComponent.horizontalScrollbarOnClick clientX: " + clientX + "< " + leftClientX + " " + navigation);
 
-        this.onNavigation(
-            navigation,
-            this.context
-        );
+        this.onNavigation(navigation);
     }
 
     private void verticalScrollbarOnClick(final MouseEvent event) {
@@ -665,10 +656,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
 
         this.context.debug("SpreadsheetViewportComponent.horizontalScrollbarOnClick clientY: " + clientY + "< " + topClientY + " " + navigation);
 
-        this.onNavigation(
-            navigation,
-            this.context
-        );
+        this.onNavigation(navigation);
     }
 
     private DivComponent horizontalScrollbarThumb() {
@@ -751,8 +739,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
 
         button.addClickListener(
             (e) -> this.onNavigation(
-                navigation.get(),
-                this.context
+                navigation.get()
             )
         );
 
@@ -1352,10 +1339,8 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
      * Accepts and adds the given {@link SpreadsheetViewportNavigation} to the buffer and if possible
      * sends it to the server for actioning.
      */
-    private void onNavigation(final SpreadsheetViewportNavigation navigation,
-                              final SpreadsheetViewportComponentContext context) {
+    private void onNavigation(final SpreadsheetViewportNavigation navigation) {
         Objects.requireNonNull(navigation, "navigation");
-        Objects.requireNonNull(context, "context");
 
         this.navigations = this.navigations.concat(navigation);
         this.reload = true;
