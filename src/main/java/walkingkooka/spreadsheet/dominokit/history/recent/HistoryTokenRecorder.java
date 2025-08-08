@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.history.util;
+package walkingkooka.spreadsheet.dominokit.history.recent;
 
 import walkingkooka.ToStringBuilder;
 import walkingkooka.collect.list.Lists;

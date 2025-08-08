@@ -72,7 +72,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnMenuHistoryTo
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSelectHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.util.HistoryTokenRecorder;
+import walkingkooka.spreadsheet.dominokit.history.recent.HistoryTokenRecorder;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetSelectionMenu;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterAliasSet;
