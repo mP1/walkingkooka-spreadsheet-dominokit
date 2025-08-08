@@ -374,7 +374,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
         }
 
         if (null != element) {
-            final SpreadsheetContextMenu menu = SpreadsheetContextMenu.wrap(
+            final SpreadsheetContextMenu<?> menu = SpreadsheetContextMenu.wrap(
                 SpreadsheetContextMenuTargets.element(element),
                 context
             );
