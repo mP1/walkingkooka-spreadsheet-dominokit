@@ -17,21 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.history.recent;
 
-import walkingkooka.reflect.PublicStaticHelper;
+import java.util.List;
 
-public final class RecentValueSavesContexts implements PublicStaticHelper {
+public class FakeRecentValueSavesContext implements RecentValueSavesContext {
 
-    /**
-     * {@see FakeRecentValueSavesContext}
-     */
-    public static RecentValueSavesContext fake() {
-        return new FakeRecentValueSavesContext();
+    public FakeRecentValueSavesContext() {
+        super();
     }
 
-    /**
-     * Private to stop creation
-     */
-    private RecentValueSavesContexts() {
+    @Override
+    public <T> List<T> recentValueSaves(final Class<T> type) {
         throw new UnsupportedOperationException();
     }
 }
