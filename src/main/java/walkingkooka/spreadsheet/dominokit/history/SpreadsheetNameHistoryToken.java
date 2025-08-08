@@ -24,7 +24,9 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
 import walkingkooka.text.cursor.TextCursor;
+import walkingkooka.text.cursor.TextCursorSavePoint;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
@@ -60,6 +62,20 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     abstract HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind);
 
     // parse............................................................................................................
+
+    final HistoryToken parseNavigate(final TextCursor cursor) {
+        final TextCursorSavePoint save = cursor.save();
+        cursor.end();
+
+        return this.setNavigation(
+            SpreadsheetViewportHomeNavigationList.fromUrlFragment(
+                UrlFragment.parse(
+                    save.textBetween()
+                        .toString()
+                )
+            )
+        );
+    }
 
     final HistoryToken parseStyle(final TextCursor cursor) {
         HistoryToken result = this;
