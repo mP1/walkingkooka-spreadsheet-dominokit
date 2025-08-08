@@ -18,11 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 
 /**
  * A {@link walkingkooka.Context} that accompanies a {@link SpreadsheetViewportScrollbarComponent}.
  */
-public interface SpreadsheetViewportScrollbarComponentContext extends HistoryContext {
+public interface SpreadsheetViewportScrollbarComponentContext extends HasSpreadsheetMetadata,
+    HasSpreadsheetViewportCache,
+    HistoryContext {
 
     /**
      * The width of the viewport in pixels.
@@ -33,4 +36,7 @@ public interface SpreadsheetViewportScrollbarComponentContext extends HistoryCon
      * The height of the viewport in pixels.
      */
     double viewportHeight();
+
+
+
 }
