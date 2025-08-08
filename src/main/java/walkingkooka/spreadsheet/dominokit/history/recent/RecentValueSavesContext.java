@@ -15,16 +15,19 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.recent;
+package walkingkooka.spreadsheet.dominokit.history.recent;
 
-import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.Context;
 
-public final class RecentValueSavesContexts implements PublicStaticHelper {
+import java.util.List;
+
+/**
+ * A {@link Context} that may be used to query recent value saves.
+ */
+public interface RecentValueSavesContext extends Context {
 
     /**
-     * Private to stop creation
+     * Retrieves the most recent saves for the given {@link Class}
      */
-    private RecentValueSavesContexts() {
-        throw new UnsupportedOperationException();
-    }
+    <T> List<T> recentSaves(final Class<T> type);
 }
