@@ -883,7 +883,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
             .setAnchoredSelection(anchoredSelection);
     }
 
-    private int tableWidth() {
+    int tableWidth() {
         return this.width;
     }
 
@@ -897,7 +897,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
             SCROLLBAR_LENGTH;
     }
 
-    private int tableHeight() {
+    int tableHeight() {
         return this.height - this.formula.element()
             .offsetHeight;
     }
