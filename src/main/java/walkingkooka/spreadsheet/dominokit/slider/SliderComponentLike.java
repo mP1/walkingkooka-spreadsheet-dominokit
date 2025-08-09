@@ -69,8 +69,8 @@ abstract class SliderComponentLike implements FormValueComponent<HTMLDivElement,
         {
             printer.println(
                 this.isVertical() ?
-                    "Vertical" :
-                    "Horizontal"
+                    "VERTICAL" :
+                    "HORIZONTAL"
             );
             printer.indent();
             {
