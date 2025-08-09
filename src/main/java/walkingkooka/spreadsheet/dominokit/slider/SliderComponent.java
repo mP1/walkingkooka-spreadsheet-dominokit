@@ -41,21 +41,27 @@ public final class SliderComponent extends SliderComponentLike {
 
     public static SliderComponent horizontal(final double min,
                                              final double max) {
-        return new SliderComponent(min, max);
+        return new SliderComponent(min, max, false);
     }
 
     public static SliderComponent vertical(final double min,
                                            final double max) {
-        return new SliderComponent(min, max)
+        return new SliderComponent(min, max, true)
             .setVertical();
     }
 
     private SliderComponent(final double min,
-                            final double max) {
+                            final double max,
+                            final boolean horizontal) {
         this.slider = Slider.create(
-            min,
-            max
+            max,
+            min
         ).show();
+
+        if(horizontal) {
+            this.slider.getInput()
+                .setWidth("7px");
+        }
     }
 
     @Override
