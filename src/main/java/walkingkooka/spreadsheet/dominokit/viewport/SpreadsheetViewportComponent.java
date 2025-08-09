@@ -354,69 +354,6 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
     }
 
     /**
-     * Renders a drop down menu, provided the selection is in the current viewport TABLE.
-     */
-    private void renderContextMenu(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
-                                   final RefreshContext context) {
-        final Element element;
-
-        if (historyToken instanceof SpreadsheetCellFormulaMenuHistoryToken) {
-            element = this.formula.element();
-        } else {
-            final AnchoredSpreadsheetSelection anchored = historyToken.anchoredSelection();
-
-            element = this.findElement(
-                this.context.spreadsheetViewportCache()
-                    .resolveIfLabelOrFail(
-                        anchored.selection()
-                    ).focused(anchored.anchor())
-            ).orElse(null);
-        }
-
-        if (null != element) {
-            final SpreadsheetContextMenu<?> menu = SpreadsheetContextMenu.wrap(
-                SpreadsheetContextMenuTargets.element(element),
-                context
-            );
-
-            List<SpreadsheetFormatterMenu> spreadsheetFormatterSelectorMenus = this.spreadsheetFormatterSelectorMenus;
-            if (null == spreadsheetFormatterSelectorMenus) {
-                spreadsheetFormatterSelectorMenus = Lists.empty();
-            }
-
-            final RecentValueSavesContext recentValueSavesContext = this.context;
-
-            SpreadsheetSelectionMenu.build(
-                historyToken,
-                menu,
-                SpreadsheetViewportComponentSpreadsheetSelectionMenuContext.with(
-                    recentValueSavesContext.recentValueSaves(SpreadsheetFormatterSelector.class),
-                    spreadsheetFormatterSelectorMenus,
-                    recentValueSavesContext.recentValueSaves(SpreadsheetParserSelector.class),
-                    recentValueSavesContext.recentValueSaves(TEXT_STYLE_PROPERTY_CLASS),
-                    recentValueSavesContext.recentValueSaves(ValidatorSelector.class),
-                    this.context
-                )
-            );
-
-            menu.focus();
-        }
-    }
-
-    private final static Class<TextStyleProperty<?>> TEXT_STYLE_PROPERTY_CLASS = Cast.to(TextStyleProperty.class);
-
-    /**
-     * The {@link SpreadsheetExpressionReference} that was used to fetch {@link SpreadsheetFormatterMenu}.
-     * This is used to detect selection changes,
-     */
-    private SpreadsheetExpressionReference spreadsheetFormatterSelectorSelection;
-
-    /**
-     * This should be updated each time the {@link SpreadsheetMetadataPropertyName#FORMATTERS} property changes.
-     */
-    private List<SpreadsheetFormatterMenu> spreadsheetFormatterSelectorMenus;
-
-    /**
      * A TABLE that holds the grid of cells including the column and row headers.
      */
     private final SpreadsheetViewportComponentTable table;
@@ -741,48 +678,6 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
      */
     private int height;
 
-    // giveViewportSelectionFocus.......................................................................................
-
-    private void giveViewportSelectionFocus(final AnchoredSpreadsheetSelection selection,
-                                            final RefreshContext context) {
-        final SpreadsheetSelection nonLabelSelection = this.spreadsheetViewportCache()
-            .resolveIfLabelOrFail(
-                selection.selection()
-            );
-        final SpreadsheetSelection spreadsheetSelection = nonLabelSelection.focused(
-            selection.anchor()
-        );
-        final Optional<Element> maybeElement = this.findElement(
-            spreadsheetSelection
-        );
-        if (maybeElement.isPresent()) {
-            Element element = maybeElement.get();
-
-            boolean give = true;
-
-            final Element active = DomGlobal.document.activeElement;
-            if (null != active) {
-                // verify active element belongs to the same selection. if it does it must have focus so no need to focus again
-                give = false == Doms.isOrHasChild(
-                    element,
-                    active
-                );
-            }
-
-            if (give) {
-                // for column/row the anchor and not the TH/TD should receive focus.
-                if (spreadsheetSelection.isColumn() || spreadsheetSelection.isRow()) {
-                    element = element.firstElementChild;
-                }
-
-                context.debug("SpreadsheetViewportComponent.giveViewportSelectionFocus " + spreadsheetSelection + " focus element " + element);
-                element.focus();
-            }
-        } else {
-            context.debug("SpreadsheetViewportComponent.giveViewportSelectionFocus " + spreadsheetSelection + " element not found!");
-        }
-    }
-
     // HistoryTokenAwareComponentLifecycle..............................................................................
 
     @Override
@@ -909,6 +804,110 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
      * Cached {@link SpreadsheetViewport} shared by {@link SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext}.
      */
     SpreadsheetViewport spreadsheetViewport;
+
+    private void giveViewportSelectionFocus(final AnchoredSpreadsheetSelection selection,
+                                            final RefreshContext context) {
+        final SpreadsheetSelection nonLabelSelection = this.spreadsheetViewportCache()
+            .resolveIfLabelOrFail(
+                selection.selection()
+            );
+        final SpreadsheetSelection spreadsheetSelection = nonLabelSelection.focused(
+            selection.anchor()
+        );
+        final Optional<Element> maybeElement = this.findElement(
+            spreadsheetSelection
+        );
+        if (maybeElement.isPresent()) {
+            Element element = maybeElement.get();
+
+            boolean give = true;
+
+            final Element active = DomGlobal.document.activeElement;
+            if (null != active) {
+                // verify active element belongs to the same selection. if it does it must have focus so no need to focus again
+                give = false == Doms.isOrHasChild(
+                    element,
+                    active
+                );
+            }
+
+            if (give) {
+                // for column/row the anchor and not the TH/TD should receive focus.
+                if (spreadsheetSelection.isColumn() || spreadsheetSelection.isRow()) {
+                    element = element.firstElementChild;
+                }
+
+                context.debug("SpreadsheetViewportComponent.giveViewportSelectionFocus " + spreadsheetSelection + " focus element " + element);
+                element.focus();
+            }
+        } else {
+            context.debug("SpreadsheetViewportComponent.giveViewportSelectionFocus " + spreadsheetSelection + " element not found!");
+        }
+    }
+
+    /**
+     * Renders a drop down menu, provided the selection is in the current viewport TABLE.
+     */
+    private void renderContextMenu(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
+                                   final RefreshContext context) {
+        final Element element;
+
+        if (historyToken instanceof SpreadsheetCellFormulaMenuHistoryToken) {
+            element = this.formula.element();
+        } else {
+            final AnchoredSpreadsheetSelection anchored = historyToken.anchoredSelection();
+
+            element = this.findElement(
+                this.context.spreadsheetViewportCache()
+                    .resolveIfLabelOrFail(
+                        anchored.selection()
+                    ).focused(anchored.anchor())
+            ).orElse(null);
+        }
+
+        if (null != element) {
+            final SpreadsheetContextMenu<?> menu = SpreadsheetContextMenu.wrap(
+                SpreadsheetContextMenuTargets.element(element),
+                context
+            );
+
+            List<SpreadsheetFormatterMenu> spreadsheetFormatterSelectorMenus = this.spreadsheetFormatterSelectorMenus;
+            if (null == spreadsheetFormatterSelectorMenus) {
+                spreadsheetFormatterSelectorMenus = Lists.empty();
+            }
+
+            final RecentValueSavesContext recentValueSavesContext = this.context;
+
+            SpreadsheetSelectionMenu.build(
+                historyToken,
+                menu,
+                SpreadsheetViewportComponentSpreadsheetSelectionMenuContext.with(
+                    recentValueSavesContext.recentValueSaves(SpreadsheetFormatterSelector.class),
+                    spreadsheetFormatterSelectorMenus,
+                    recentValueSavesContext.recentValueSaves(SpreadsheetParserSelector.class),
+                    recentValueSavesContext.recentValueSaves(TEXT_STYLE_PROPERTY_CLASS),
+                    recentValueSavesContext.recentValueSaves(ValidatorSelector.class),
+                    this.context
+                )
+            );
+
+            menu.focus();
+        }
+    }
+
+    private final static Class<TextStyleProperty<?>> TEXT_STYLE_PROPERTY_CLASS = Cast.to(TextStyleProperty.class);
+
+    /**
+     * The {@link SpreadsheetExpressionReference} that was used to fetch {@link SpreadsheetFormatterMenu}.
+     * This is used to detect selection changes,
+     */
+    private SpreadsheetExpressionReference spreadsheetFormatterSelectorSelection;
+
+    /**
+     * This should be updated each time the {@link SpreadsheetMetadataPropertyName#FORMATTERS} property changes.
+     */
+    private List<SpreadsheetFormatterMenu> spreadsheetFormatterSelectorMenus;
+
 
     @Override
     public void openGiveFocus(final RefreshContext context) {
