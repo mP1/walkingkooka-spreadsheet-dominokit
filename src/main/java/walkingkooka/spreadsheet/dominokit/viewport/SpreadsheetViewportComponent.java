@@ -21,13 +21,10 @@ import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
 import elemental2.dom.Event;
 import elemental2.dom.HTMLDivElement;
-import elemental2.dom.HTMLElement;
 import elemental2.dom.Headers;
 import elemental2.dom.KeyboardEvent;
 import elemental2.dom.MouseEvent;
 import jsinterop.base.Js;
-import org.dominokit.domino.ui.button.Button;
-import org.dominokit.domino.ui.icons.MdiIcon;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
@@ -40,7 +37,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
-import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellLinksComponent;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuTargets;
@@ -74,16 +71,18 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenu;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenuList;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewport;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigation;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigationList;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportRectangle;
@@ -97,12 +96,9 @@ import walkingkooka.validation.provider.ValidatorSelector;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.OptionalInt;
 import java.util.Set;
-import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.function.Supplier;
 
 /**
  * A ui that displays a table holding the cells and headers for the columns and rows.
@@ -116,6 +112,10 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
     SpreadsheetViewportComponentLifecycle,
     LoadedSpreadsheetMetadataRequired,
     NopEmptyResponseFetcherWatcher {
+
+    final static Length<?> COLUMN_HEIGHT = Length.pixel(30.0);
+
+    final static Length<?> ROW_WIDTH = Length.pixel(80.0);
 
     public static SpreadsheetViewportComponent empty(final SpreadsheetViewportComponentContext context) {
         Objects.requireNonNull(context, "context");
@@ -131,11 +131,14 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
 
         this.table = this.table();
 
-        this.horizontalScrollbarThumb = this.horizontalScrollbarThumb();
-        this.horizontalScrollbar = this.horizontalScrollbar();
-
-        this.verticalScrollbarThumb = this.verticalScrollbarThumb();
-        this.verticalScrollbar = this.verticalScrollbar();
+        {
+            final SpreadsheetViewportScrollbarComponentContext spreadsheetViewportScrollbarComponentContext = SpreadsheetViewportComponentSpreadsheetViewportScrollbarComponentContext.with(
+                this,
+                context // HistoryContext
+            );
+            this.horizontalScrollbar = this.horizontalScrollbar(spreadsheetViewportScrollbarComponentContext);
+            this.verticalScrollbar = this.verticalScrollbar(spreadsheetViewportScrollbarComponentContext);
+        }
 
         this.tableContainer = this.tableContainer();
         this.refreshMetadata = SpreadsheetMetadata.EMPTY;
@@ -326,17 +329,13 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
     // table container..................................................................................................
 
     private DivComponent tableContainer() {
-        final DivComponent container = HtmlElementComponent.div();
-        container.setCssText("position: relative; top: 0; left 0px; border: none; margin: 0px; padding: none; width:100%;");
+        final DivComponent container = HtmlElementComponent.div()
+            .setCssText("display: grid; border: none; margin: 0px; padding: 0px; grid-column-gap: 0px; grid-row-gap: 0px;");
+
         container.appendChild(this.table);
-
-        container.appendChild(this.horizontalScrollbar);
-        container.appendChild(this.horizontalScrollbarLeft());
-        container.appendChild(this.horizontalScrollbarRight());
-
         container.appendChild(this.verticalScrollbar);
-        container.appendChild(this.verticalScrollbarUp());
-        container.appendChild(this.verticalScrollbarDown());
+        container.appendChild(this.horizontalScrollbar);
+        // bottom/right navigate to link https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/5903
 
         return container;
     }
@@ -358,325 +357,117 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
      */
     private final SpreadsheetViewportComponentTable table;
 
-    // horizontal-scrollbar.............................................................................................
+    // scrollbars.......................................................................................................
 
-    private DivComponent horizontalScrollbar() {
-        return this.scrollbar(
-            "h-scrollbar",
-            "left: 0px; bottom: 0px; width: calc(100% - " + (SCROLLBAR_LENGTH + BUTTON_LENGTH * 2 - 5) + "px);height:" + SCROLLBAR_LENGTH + "px; flex-flow: row; border-radius: 0 10px 10px 0;",
-            this.horizontalScrollbarThumb,
-            this::horizontalScrollbarOnClick
-        );
-    }
-
-    private final DivComponent horizontalScrollbar;
-
-    private DivComponent verticalScrollbar() {
-        return this.scrollbar(
-            "v-scrollbar",
-            "top: 0px; right: 0px; height: calc(100% - " + (SCROLLBAR_LENGTH + BUTTON_LENGTH * 2 - 5) + "px); width: " + SCROLLBAR_LENGTH + "px; flex-flow: column; border-radius: 0 0 10px 10px;",
-            this.verticalScrollbarThumb,
-            this::verticalScrollbarOnClick
-        );
-    }
-
-    private final DivComponent verticalScrollbar;
-
-    private DivComponent scrollbar(final String idSuffix,
-                                   final String cssText,
-                                   final DivComponent thumb,
-                                   final Consumer<MouseEvent> click) {
-        final DivComponent scrollbar = HtmlElementComponent.div();
-
-        scrollbar.setId(ID_PREFIX + idSuffix);
-        scrollbar.setCssText("position: absolute; display: flex;" + cssText + "border-width: 2px;border-color: black;border-style: solid;padding: 2px;background-color: #aaa;");
-
-        return scrollbar.appendChild(thumb)
-            .addClickListener(
-                e -> click.accept((MouseEvent) e)
+    SpreadsheetViewportScrollbarComponent<SpreadsheetColumnReference> horizontalScrollbar(final SpreadsheetViewportScrollbarComponentContext context) {
+        return SpreadsheetViewportScrollbarComponent.columns(context)
+            .setCssProperty("height", SCROLLBAR_LENGTH + "px")
+            .setCssProperty("border-color", SpreadsheetDominoKitColor.VIEWPORT_LINES_COLOR.toString())
+            .setCssProperty("border-style", "solid")
+            .setCssProperty("border-width", "1px")
+            .setCssProperty("background-color", SpreadsheetDominoKitColor.VIEWPORT_HEADER_UNSELECTED_BACKGROUND_COLOR.toString())
+            .addChangeListener(
+                (Optional<SpreadsheetColumnReference> oldValue, Optional<SpreadsheetColumnReference> newValue) -> {
+                    this.pushNewHome(
+                        newValue.orElse(null)
+                    );
+                }
             );
     }
 
-    private void horizontalScrollbarOnClick(final MouseEvent event) {
-        event.preventDefault();
+    private final SpreadsheetViewportScrollbarComponent<SpreadsheetColumnReference> horizontalScrollbar;
 
-        final int width = this.horizontalScrollbar.element()
-            .offsetWidth;
-
-        final double clientX = event.clientX;
-        final double leftClientX = this.horizontalScrollbarThumbLeft * width * 0.01;
-        final SpreadsheetViewportNavigation navigation = clientX < leftClientX ?
-            SpreadsheetViewportNavigation.leftPixel(width) :
-            SpreadsheetViewportNavigation.rightPixel(width);
-
-        this.context.debug("SpreadsheetViewportComponent.horizontalScrollbarOnClick clientX: " + clientX + "< " + leftClientX + " " + navigation);
-
-        this.onNavigation(navigation);
-    }
-
-    private void verticalScrollbarOnClick(final MouseEvent event) {
-        event.preventDefault();
-
-        final int height = this.horizontalScrollbar.element()
-            .offsetHeight;
-
-        final double clientY = event.clientY;
-        final double topClientY = this.verticalScrollbarThumbTop * height * 0.01;
-        final SpreadsheetViewportNavigation navigation = clientY < topClientY ?
-            SpreadsheetViewportNavigation.upPixel(height) :
-            SpreadsheetViewportNavigation.downPixel(height);
-
-        this.context.debug("SpreadsheetViewportComponent.horizontalScrollbarOnClick clientY: " + clientY + "< " + topClientY + " " + navigation);
-
-        this.onNavigation(navigation);
-    }
-
-    private DivComponent horizontalScrollbarThumb() {
-        return scrollbarThumb(
-            "h-scrollbar-thumb",
-            "0%",
-            "90%"
-        );
-    }
-
-    private final DivComponent horizontalScrollbarThumb;
-
-    private DivComponent verticalScrollbarThumb() {
-        return scrollbarThumb(
-            "v-scrollbar-thumb",
-            "90%",
-            "0%"
-        );
-    }
-
-    private final DivComponent verticalScrollbarThumb;
-
-    private DivComponent scrollbarThumb(final String idSuffix,
-                                        final String width,
-                                        final String height) {
-        final DivComponent thumb = HtmlElementComponent.div();
-        thumb.setId(ID_PREFIX + idSuffix);
-        thumb.setCssText("position: absolute; width:" + width + "; height: " + height + "; box-sizing: border-box; border-color: black; border-style: solid; border-width: 1px; background-color: #fff; border-radius: " + (SCROLLBAR_LENGTH / 3) + "px");
-        return thumb;
-    }
-
-    private HTMLElement horizontalScrollbarLeft() {
-        return scrollbarArrow(
-            "h-scrollbar-left",
-            SpreadsheetIcons.arrowLeft(),
-            "right: " + (SCROLLBAR_LENGTH + BUTTON_LENGTH - 8) + "px; bottom: -10px;",
-            () -> SpreadsheetViewportNavigation.leftPixel(this.tableCellsWidth() - 1)
-        );
-    }
-
-    private HTMLElement verticalScrollbarUp() {
-        return scrollbarArrow(
-            "v-scrollbar-up",
-            SpreadsheetIcons.arrowUp(),
-            "bottom: " + (SCROLLBAR_LENGTH + BUTTON_LENGTH - 3) + "px; right: -16px;",
-            () -> SpreadsheetViewportNavigation.upPixel(this.tableCellsHeight() - 1)
-        );
-    }
-
-    private HTMLElement horizontalScrollbarRight() {
-        return scrollbarArrow(
-            "h-scrollbar-right",
-            SpreadsheetIcons.arrowRight(),
-            "right: " + (SCROLLBAR_LENGTH - 8) + "px; bottom: -10px;",
-            () -> SpreadsheetViewportNavigation.rightPixel(this.tableCellsWidth() - 1)
-        );
-    }
-
-    private HTMLElement verticalScrollbarDown() {
-        return scrollbarArrow(
-            "v-scrollbar-down",
-            SpreadsheetIcons.arrowDown(),
-            "bottom: " + (SCROLLBAR_LENGTH - 3) + "px; right: -16px;",
-            () -> SpreadsheetViewportNavigation.downPixel(this.tableCellsHeight() - 1)
-        );
-    }
-
-    private HTMLElement scrollbarArrow(final String idSuffix,
-                                       final MdiIcon icon,
-                                       final String css,
-                                       final Supplier<SpreadsheetViewportNavigation> navigation) {
-        final Button button = Button.create(icon)
-            .circle();
-
-        final HTMLElement element = button.element();
-        element.id = ID_PREFIX + idSuffix;
-        element.tabIndex = 0;
-
-        element.style.cssText = "position: absolute;" + css + "width: " + BUTTON_LENGTH + "px; height: " + BUTTON_LENGTH + "px";
-
-        button.addClickListener(
-            (e) -> this.onNavigation(
-                navigation.get()
-            )
-        );
-
-        return element;
-    }
-
-    /**
-     * Updates the coordinates and dimensions of both the horizontal and vertical scrollbar thumbs. The calculations are
-     * done using the last window.
-     */
-    private void scrollbarsRefresh() {
-        final SpreadsheetViewportCache cache = this.spreadsheetViewportCache();
-        final Optional<SpreadsheetCellRangeReference> maybeLast = cache.windows()
-            .last();
-        final OptionalInt maybeColumnCount = cache.columnCount();
-        final OptionalInt maybeRowCount = cache.rowCount();
-
-        final DivComponent horizontalScrollbarThumb = this.horizontalScrollbarThumb;
-        final DivComponent verticalScrollbarThumb = this.verticalScrollbarThumb;
-
-        if (maybeLast.isPresent() && maybeColumnCount.isPresent() && maybeRowCount.isPresent()) {
-            final SpreadsheetCellRangeReference last = maybeLast.get();
-            final SpreadsheetCellReference topLeft = last.begin();
-
-            final int left = topLeft.column()
-                .value();
-            final int top = topLeft.row()
-                .value();
-
-            final int columnCount = maybeColumnCount.getAsInt();
-            final int rowCount = maybeRowCount.getAsInt();
-
-            final SpreadsheetViewportComponentThumbnails thumbnails = SpreadsheetViewportComponentThumbnails.compute(
-                last,
-                columnCount,
-                rowCount
+    SpreadsheetViewportScrollbarComponent<SpreadsheetRowReference> verticalScrollbar(final SpreadsheetViewportScrollbarComponentContext context) {
+        return SpreadsheetViewportScrollbarComponent.rows(context)
+            .setCssProperty("width", SCROLLBAR_LENGTH + "px")
+            .setCssProperty("border-color", SpreadsheetDominoKitColor.VIEWPORT_LINES_COLOR.toString())
+            .setCssProperty("border-style", "solid")
+            .setCssProperty("border-width", "1px")
+            .setCssProperty("background-color", SpreadsheetDominoKitColor.VIEWPORT_HEADER_UNSELECTED_BACKGROUND_COLOR.toString())
+            .addChangeListener(
+                (Optional<SpreadsheetRowReference> oldValue, Optional<SpreadsheetRowReference> newValue) -> {
+                    this.pushNewHome(
+                        newValue.orElse(null)
+                    );
+                }
             );
+    }
 
-            final float hLeft = thumbnails.left;
-            final float hWidth = thumbnails.width;
+    private final SpreadsheetViewportScrollbarComponent<SpreadsheetRowReference> verticalScrollbar;
 
-            horizontalScrollbarThumb
-                .setDisplay("visible")
-                .setLeft(
-                    hLeft + "%"
-                )
-                .setWidth(
-                    hWidth + "%"
+    private void pushNewHome(final SpreadsheetColumnOrRowReference newHomeColumnOrRow) {
+        if (null != newHomeColumnOrRow) {
+            final SpreadsheetViewportComponentContext context = this.context;
+            SpreadsheetCellReference home = context.home();
+            if (newHomeColumnOrRow.isColumn()) {
+                home = home.setColumn(
+                    (SpreadsheetColumnReference) newHomeColumnOrRow
                 );
-
-            final float vTop = thumbnails.top;
-            final float vHeight = thumbnails.height;
-
-            verticalScrollbarThumb.setDisplay("visible")
-                .setTop(
-                    vTop + "%"
-                )
-                .setHeight(
-                    vHeight + "%"
+            } else {
+                home = home.setRow(
+                    (SpreadsheetRowReference) newHomeColumnOrRow
                 );
+            }
 
-            this.horizontalScrollbarThumbLeft = hLeft;
-            this.verticalScrollbarThumbTop = vTop;
-
-            context.debug("SpreadsheetViewportComponent.scrollbarsRefresh " + last + " left: " + left + " top: " + top + " hLeft: " + hLeft + " hWidth: " + hWidth + " vTop: " + vTop + " vHeight: " + vHeight);
-        } else {
-            horizontalScrollbarThumb.setDisplay("hidden");
-            verticalScrollbarThumb.setDisplay("hidden");
-
-            this.horizontalScrollbarThumbLeft = Integer.MAX_VALUE;
-            this.verticalScrollbarThumbTop = Integer.MAX_VALUE;
+            context.pushHistoryToken(
+                context.historyToken()
+                    .setNavigation(
+                        SpreadsheetViewportHomeNavigationList.with(home)
+                    )
+            );
         }
     }
-
-    /**
-     * The css position left percentage for the horizontal scrollbar thumb. This will be used to determine whether clicks on the horizontal scrollbar are before or after the thumb.
-     */
-    private float horizontalScrollbarThumbLeft;
-
-    /**
-     * The css position top percentage for the vertical scrollbar thumb. This will be used to determine whether clicks on the vertical scrollbar are before or after the thumb.
-     */
-    private float verticalScrollbarThumbTop;
 
     // misc.............................................................................................................
 
     public void setWidthAndHeight(final int width,
                                   final int height) {
-        final boolean reload = width > this.width || height > this.height;
+        final boolean reload = width > this.tableWidth || height > this.tableHeight;
 
         final SpreadsheetViewportComponentContext context = this.context;
-        context.debug("SpreadsheetViewportComponent.setWidthAndHeight " + width + "x" + height + " was " + this.width + "x" + this.height + " reload: " + reload);
+        context.debug("SpreadsheetViewportComponent.setWidthAndHeight " + width + "x" + height + " was " + this.tableWidth + "x" + this.tableHeight + " reload: " + reload);
 
-        this.width = width;
-        this.height = height;
+        this.tableWidth = width;
+        this.tableHeight = height - this.formula.element()
+            .offsetHeight;
+
+        this.tableContainer.setCssProperty(
+            "width",
+            width + "px"
+        ).setCssProperty(
+            "height",
+            height + "px"
+        );
 
         this.reload = reload;
 
-        this.tableContainer.element()
-            .style.cssText = "width: " + this.tableWidth() + "px; height: " + this.tableHeight() + "px; overflow: hidden; position: relative;";
-
-        this.table.setWidth(this.tableInnerWidth());
-        this.table.setHeight(this.tableInnerHeight());
+        if(this.isOpen()) {
+            refreshTableScrollbars(context);
+        }
 
         this.loadViewportCellsIfNecessary();
     }
 
-    public SpreadsheetViewport viewport(final Optional<AnchoredSpreadsheetSelection> anchoredSelection) {
-        final SpreadsheetCellReference home = this.context.spreadsheetMetadata()
-            .getOrFail(SpreadsheetMetadataPropertyName.VIEWPORT)
-            .rectangle()
-            .home();
-        return home.viewportRectangle(
-                this.tableCellsWidth(),
-                this.tableCellsHeight()
-            ).viewport()
-            .setAnchoredSelection(anchoredSelection);
-    }
-
-    int tableWidth() {
-        return this.width;
-    }
-
-    private int tableInnerWidth() {
-        return this.tableWidth() - SCROLLBAR_LENGTH;
-    }
-
-    private int tableCellsWidth() {
-        return this.tableInnerWidth() -
-            (int) ROW_WIDTH.pixelValue() -
-            SCROLLBAR_LENGTH;
-    }
-
-    int tableHeight() {
-        return this.height - this.formula.element()
-            .offsetHeight;
-    }
-
-    private int tableInnerHeight() {
-        return this.tableHeight() -
-            SCROLLBAR_LENGTH;
-    }
-
-    private int tableCellsHeight() {
-        return this.tableInnerHeight() -
-            (int) COLUMN_HEIGHT.pixelValue();
-    }
-
-    final static Length<?> COLUMN_HEIGHT = Length.pixel(30.0);
-
-    final static Length<?> ROW_WIDTH = Length.pixel(80.0);
-
-    private final static int BUTTON_LENGTH = 50;
-
-    private final static int SCROLLBAR_LENGTH = 32;
-
     /**
      * The width allocated to the widget.
      */
-    private int width;
+    int tableWidth;
 
     /**
      * The height allocated to the widget.
      */
-    private int height;
+    int tableHeight;
+
+    private final static int SCROLLBAR_LENGTH = 32;
+
+    public SpreadsheetViewport viewport(final Optional<AnchoredSpreadsheetSelection> anchoredSelection) {
+        return this.context.home()
+            .viewportRectangle(
+            this.tableWidth,
+            this.tableHeight
+            ).viewport()
+            .setAnchoredSelection(anchoredSelection);
+    }
 
     // HistoryTokenAwareComponentLifecycle..............................................................................
 
@@ -754,7 +545,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
         }
 
         this.formulaCellLinksRefresh();
-        this.scrollbarsRefresh();
+        this.refreshTableScrollbars(context);
     }
 
     private void refreshTable(final Optional<AnchoredSpreadsheetSelection> maybeAnchorSelection) {
@@ -804,6 +595,43 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
      * Cached {@link SpreadsheetViewport} shared by {@link SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext}.
      */
     SpreadsheetViewport spreadsheetViewport;
+
+    private void refreshTableScrollbars(final RefreshContext context) {
+        final int contentWidth = this.tableWidth - SCROLLBAR_LENGTH;
+        final int contentHeight = this.tableHeight - SCROLLBAR_LENGTH;
+
+        this.tableContainer.setCssProperty(
+            "grid-template-columns",
+            contentWidth + "px " + SCROLLBAR_LENGTH + "px"
+        );
+        this.tableContainer.setCssProperty(
+            "grid-template-rows",
+            contentHeight + "px " + SCROLLBAR_LENGTH + "px"
+        );
+
+//        final SpreadsheetCellReference home = this.context.home();
+//        this.horizontalScrollbar.setValue(
+//            Optional.of(home.column())
+//        );
+//
+//        this.verticalScrollbar.setValue(
+//            Optional.of(home.row())
+//        );
+
+        this.horizontalScrollbar.setCssProperty(
+            "width",
+            contentWidth + "px"
+        );
+        this.verticalScrollbar.setCssProperty(
+            "height",
+            contentHeight + "px"
+        );
+
+        this.horizontalScrollbar.refresh(context);
+        this.verticalScrollbar.refresh(context);
+
+        //DomGlobal.console.log("@@Refreshing table scrollbars home: " + home);
+    }
 
     private void giveViewportSelectionFocus(final AnchoredSpreadsheetSelection selection,
                                             final RefreshContext context) {
@@ -1095,9 +923,9 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
         if (fetchSpreadsheetFormatterSelectorsMenu) {
             this.spreadsheetFormatterSelectorSelection = null;
             this.spreadsheetFormatterSelectorMenus = null;
-
-            this.refreshIfOpen(context);
         }
+
+        this.refreshIfOpen(context);
     }
 
     /**
@@ -1113,8 +941,8 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
 
         if (context.spreadsheetDeltaFetcher().waitingRequestCount() == 0) {
             final boolean reload = this.reload;
-            final int width = this.width;
-            final int height = this.height;
+            final int width = this.tableWidth;
+            final int height = this.tableHeight;
 
             final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
             if (reload && width > 0 && height > 0 && metadata.isNotEmpty()) {
@@ -1162,9 +990,9 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
         final SpreadsheetViewportRectangle rectangle = viewport.rectangle();
         return viewport.setRectangle(
             rectangle.setWidth(
-                this.tableCellsWidth()
+                this.tableWidth
             ).setHeight(
-                this.tableCellsHeight()
+                this.tableHeight
             )
         );
     }
