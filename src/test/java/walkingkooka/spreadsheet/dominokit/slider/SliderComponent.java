@@ -290,6 +290,16 @@ public final class SliderComponent extends SliderComponentLike
         return this;
     }
 
+    // setCssProperty...................................................................................................
+
+    @Override
+    public SliderComponent setCssProperty(final String name,
+                                          final String value) {
+        Objects.requireNonNull(name, "name");
+        Objects.requireNonNull(value, "value");
+        return this;
+    }
+
     @Override
     public boolean isEditing() {
         return false;
