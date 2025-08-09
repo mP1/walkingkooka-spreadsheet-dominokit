@@ -609,15 +609,6 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
             contentHeight + "px " + SCROLLBAR_LENGTH + "px"
         );
 
-//        final SpreadsheetCellReference home = this.context.home();
-//        this.horizontalScrollbar.setValue(
-//            Optional.of(home.column())
-//        );
-//
-//        this.verticalScrollbar.setValue(
-//            Optional.of(home.row())
-//        );
-
         this.horizontalScrollbar.setCssProperty(
             "width",
             contentWidth + "px"
@@ -629,8 +620,6 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
 
         this.horizontalScrollbar.refresh(context);
         this.verticalScrollbar.refresh(context);
-
-        //DomGlobal.console.log("@@Refreshing table scrollbars home: " + home);
     }
 
     private void giveViewportSelectionFocus(final AnchoredSpreadsheetSelection selection,
