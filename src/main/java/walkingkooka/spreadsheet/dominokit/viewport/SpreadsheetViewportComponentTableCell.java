@@ -56,6 +56,10 @@ abstract class SpreadsheetViewportComponentTableCell<E extends HTMLElement, C ex
     final static BorderStyle BORDER_STYLE = BorderStyle.SOLID;
     final static Length<?> BORDER_LENGTH = Length.pixel(1.0);
 
+    /**
+     * Creates some CSS with some minimal styling, mostly width/height control.
+     * Colors, fonts are other text type styles are not included.
+     */
     static String css(final TextStyle style,
                       final Length<?> width,
                       final Length<?> height) {
