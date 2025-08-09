@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.parser;
 
+import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetParserFetcherWatchers;
@@ -74,4 +75,10 @@ public interface SpreadsheetParserSelectorDialogComponentContext extends CanGive
      * Adds a {@link SpreadsheetMetadataFetcherWatcher}.
      */
     Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher);
+
+    @Override
+    default  <T> SpreadsheetParserSelectorDialogComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,
+                                                                                     final T value) {
+        throw new UnsupportedOperationException();
+    }
 }

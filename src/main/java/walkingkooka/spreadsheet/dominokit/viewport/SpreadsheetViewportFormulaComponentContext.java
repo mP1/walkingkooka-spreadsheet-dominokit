@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcher;
@@ -33,4 +34,10 @@ public interface SpreadsheetViewportFormulaComponentContext extends HistoryConte
     HasSpreadsheetMetadataFetcher,
     SpreadsheetParserProvider,
     ProviderContext {
+
+    @Override
+    default <T> SpreadsheetViewportFormulaComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,
+                                                                               final T value) {
+        throw new UnsupportedOperationException();
+    }
 }
