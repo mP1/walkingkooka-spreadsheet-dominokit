@@ -25,6 +25,7 @@ import elemental2.dom.Headers;
 import elemental2.dom.KeyboardEvent;
 import elemental2.dom.MouseEvent;
 import jsinterop.base.Js;
+import org.gwtproject.core.shared.GWT;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
@@ -528,6 +529,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
         if (historyToken instanceof SpreadsheetCellSelectHistoryToken ||
             historyToken instanceof SpreadsheetColumnSelectHistoryToken ||
             historyToken instanceof SpreadsheetRowSelectHistoryToken) {
+
             this.giveViewportSelectionFocus(
                 maybeAnchorSelection.get(),
                 context
@@ -624,41 +626,43 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
 
     private void giveViewportSelectionFocus(final AnchoredSpreadsheetSelection selection,
                                             final RefreshContext context) {
-        final SpreadsheetSelection nonLabelSelection = this.spreadsheetViewportCache()
-            .resolveIfLabelOrFail(
-                selection.selection()
-            );
-        final SpreadsheetSelection spreadsheetSelection = nonLabelSelection.focused(
-            selection.anchor()
-        );
-        final Optional<Element> maybeElement = this.findElement(
-            spreadsheetSelection
-        );
-        if (maybeElement.isPresent()) {
-            Element element = maybeElement.get();
-
-            boolean give = true;
-
-            final Element active = DomGlobal.document.activeElement;
-            if (null != active) {
-                // verify active element belongs to the same selection. if it does it must have focus so no need to focus again
-                give = false == Doms.isOrHasChild(
-                    element,
-                    active
+        if(GWT.isScript()) {
+            final SpreadsheetSelection nonLabelSelection = this.spreadsheetViewportCache()
+                .resolveIfLabelOrFail(
+                    selection.selection()
                 );
-            }
+            final SpreadsheetSelection spreadsheetSelection = nonLabelSelection.focused(
+                selection.anchor()
+            );
+            final Optional<Element> maybeElement = this.findElement(
+                spreadsheetSelection
+            );
+            if (maybeElement.isPresent()) {
+                Element element = maybeElement.get();
 
-            if (give) {
-                // for column/row the anchor and not the TH/TD should receive focus.
-                if (spreadsheetSelection.isColumn() || spreadsheetSelection.isRow()) {
-                    element = element.firstElementChild;
+                boolean give = true;
+
+                final Element active = DomGlobal.document.activeElement;
+                if (null != active) {
+                    // verify active element belongs to the same selection. if it does it must have focus so no need to focus again
+                    give = false == Doms.isOrHasChild(
+                        element,
+                        active
+                    );
                 }
 
-                context.debug("SpreadsheetViewportComponent.giveViewportSelectionFocus " + spreadsheetSelection + " focus element " + element);
-                element.focus();
+                if (give) {
+                    // for column/row the anchor and not the TH/TD should receive focus.
+                    if (spreadsheetSelection.isColumn() || spreadsheetSelection.isRow()) {
+                        element = element.firstElementChild;
+                    }
+
+                    context.debug("SpreadsheetViewportComponent.giveViewportSelectionFocus " + spreadsheetSelection + " focus element " + element);
+                    element.focus();
+                }
+            } else {
+                context.debug("SpreadsheetViewportComponent.giveViewportSelectionFocus " + spreadsheetSelection + " element not found!");
             }
-        } else {
-            context.debug("SpreadsheetViewportComponent.giveViewportSelectionFocus " + spreadsheetSelection + " element not found!");
         }
     }
 
@@ -718,7 +722,8 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
      * The {@link SpreadsheetExpressionReference} that was used to fetch {@link SpreadsheetFormatterMenu}.
      * This is used to detect selection changes,
      */
-    private SpreadsheetExpressionReference spreadsheetFormatterSelectorSelection;
+    // @VisibleForTesting
+    SpreadsheetExpressionReference spreadsheetFormatterSelectorSelection;
 
     /**
      * This should be updated each time the {@link SpreadsheetMetadataPropertyName#FORMATTERS} property changes.
@@ -920,7 +925,8 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
     /**
      * Initial metadata is EMPTY or nothing.
      */
-    private SpreadsheetMetadata metadata = SpreadsheetMetadata.EMPTY;
+    // @VisibleForTesting
+    SpreadsheetMetadata metadata = SpreadsheetMetadata.EMPTY;
 
     /**
      * Tests if various requirements are ready and the viewport should be loaded again.
@@ -1096,6 +1102,16 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
 
     @Override
     public void printTree(final IndentingPrinter printer) {
-        throw new UnsupportedOperationException();
+        printer.println(this.getClass().getSimpleName());
+        printer.indent();
+
+        {
+            this.formula.printTree(printer);
+            this.table.printTree(printer);
+            this.verticalScrollbar.printTree(printer);
+            this.horizontalScrollbar.printTree(printer);
+        }
+
+        printer.outdent();
     }
 }
