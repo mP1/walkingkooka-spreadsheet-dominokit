@@ -21,6 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
 
@@ -88,15 +89,15 @@ public final class SpreadsheetColumnNavigateHistoryToken extends SpreadsheetColu
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        // load the cells
-        // http://localhost:12345/api/spreadsheet/1/cell/*/force-recompute?home=A1&width=1568&height=463&includeFrozenColumnsRows=true&selection=F&selectionType=column&navigation=up+1567px
-        context.spreadsheetDeltaFetcher()
-            .getCells(
+        // PATCH the metadata viewport
+        context.spreadsheetMetadataFetcher()
+            .patchMetadata(
                 this.id(),
+                SpreadsheetMetadataPropertyName.VIEWPORT,
                 context.viewport(
                     this.navigation(),
                     Optional.of(this.anchoredSelection)
-                ).setIncludeFrozenColumnsRows(true)
+                )
             );
 
         context.pushHistoryToken(previous);
