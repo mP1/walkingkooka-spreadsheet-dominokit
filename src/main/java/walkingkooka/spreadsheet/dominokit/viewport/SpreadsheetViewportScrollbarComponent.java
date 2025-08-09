@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+import walkingkooka.Cast;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
@@ -325,10 +326,14 @@ abstract public class SpreadsheetViewportScrollbarComponent<R extends Spreadshee
             )
         );
 
-        this.slider.setStep(
-            columns ?
-                width :
-                height
+        this.setValue(
+            Cast.to(
+                Optional.of(
+                    columns ?
+                        home.column() :
+                        home.row()
+                )
+            )
         );
 
         this.after.setHistoryToken(
