@@ -42,13 +42,13 @@ final class SpreadsheetViewportScrollbarComponentColumns extends SpreadsheetView
             Optional.of(
                 SpreadsheetIcons.arrowLeft()
             )
-        ).setTextContent("Left");
+        );
 
         this.after.setIconAfter(
             Optional.of(
                 SpreadsheetIcons.arrowRight()
             )
-        ).setTextContent("Right");
+        );
     }
 
     @Override

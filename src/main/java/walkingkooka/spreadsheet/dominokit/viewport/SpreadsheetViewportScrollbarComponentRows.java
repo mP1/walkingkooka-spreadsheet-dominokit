@@ -42,13 +42,13 @@ final class SpreadsheetViewportScrollbarComponentRows extends SpreadsheetViewpor
             Optional.of(
                 SpreadsheetIcons.arrowUp()
             )
-        ).setTextContent("Up");
+        );
 
         this.after.setIconAfter(
             Optional.of(
                 SpreadsheetIcons.arrowDown()
             )
-        ).setTextContent("Down");
+        );
     }
 
     @Override
