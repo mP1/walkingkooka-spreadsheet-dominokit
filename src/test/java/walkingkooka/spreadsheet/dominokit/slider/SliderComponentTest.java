@@ -117,7 +117,7 @@ public final class SliderComponentTest implements FormValueComponentTesting<HTML
         this.treePrintAndCheck(
             slider,
             "SliderComponent\n" +
-                "  Horizontal\n" +
+                "  HORIZONTAL\n" +
                 "    [125.0] min=100.0 max=200.0\n"
         );
     }
@@ -137,7 +137,7 @@ public final class SliderComponentTest implements FormValueComponentTesting<HTML
         this.treePrintAndCheck(
             slider,
             "SliderComponent\n" +
-                "  Vertical\n" +
+                "  VERTICAL\n" +
                 "    [150.0] min=100.0 max=200.0\n"
         );
     }

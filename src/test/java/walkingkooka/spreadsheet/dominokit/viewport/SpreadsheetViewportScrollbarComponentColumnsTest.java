@@ -45,7 +45,7 @@ public final class SpreadsheetViewportScrollbarComponentColumnsTest extends Spre
                 "      id=viewport-horizontal-scrollbar-Layout\n" +
                 "        mdi-arrow-left \"Left\" DISABLED id=viewport-horizontal-scrollbar-left-Link\n" +
                 "        SliderComponent\n" +
-                "          Horizontal\n" +
+                "          HORIZONTAL\n" +
                 "            [] min=1.0 max=16383.0 id=viewport-horizontal-scrollbar-value-Slider\n" +
                 "        \"Right\" DISABLED mdi-arrow-right id=viewport-horizontal-scrollbar-right-Link\n"
         );
@@ -71,7 +71,7 @@ public final class SpreadsheetViewportScrollbarComponentColumnsTest extends Spre
                 "      id=viewport-horizontal-scrollbar-Layout\n" +
                 "        mdi-arrow-left \"Left\" [#/1/SpreadsheetName222/navigate/C3/left%201000px] id=viewport-horizontal-scrollbar-left-Link\n" +
                 "        SliderComponent\n" +
-                "          Horizontal\n" +
+                "          HORIZONTAL\n" +
                 "            [] min=1.0 max=16383.0 id=viewport-horizontal-scrollbar-value-Slider\n" +
                 "        \"Right\" [#/1/SpreadsheetName222/navigate/C3/right%201000px] mdi-arrow-right id=viewport-horizontal-scrollbar-right-Link\n"
         );
@@ -101,7 +101,7 @@ public final class SpreadsheetViewportScrollbarComponentColumnsTest extends Spre
                 "      id=viewport-horizontal-scrollbar-Layout\n" +
                 "        mdi-arrow-left \"Left\" [#/1/SpreadsheetName222/cell/A1/navigate/C3/left%201000px] id=viewport-horizontal-scrollbar-left-Link\n" +
                 "        SliderComponent\n" +
-                "          Horizontal\n" +
+                "          HORIZONTAL\n" +
                 "            [] min=1.0 max=16383.0 id=viewport-horizontal-scrollbar-value-Slider\n" +
                 "        \"Right\" [#/1/SpreadsheetName222/cell/A1/navigate/C3/right%201000px] mdi-arrow-right id=viewport-horizontal-scrollbar-right-Link\n"
         );
