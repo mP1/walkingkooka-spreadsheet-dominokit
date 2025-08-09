@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.find;
 
 import walkingkooka.datetime.HasNow;
+import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaCellsTableComponentContext;
@@ -47,4 +48,10 @@ public interface SpreadsheetCellFindDialogComponentContext extends HistoryContex
     void findCells(final SpreadsheetId id,
                    final SpreadsheetCellRangeReference cells,
                    final SpreadsheetCellFindQuery find);
+
+    @Override
+    default <T> SpreadsheetCellFindDialogComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,
+                                                                              final T value) {
+        throw new UnsupportedOperationException();
+    }
 }

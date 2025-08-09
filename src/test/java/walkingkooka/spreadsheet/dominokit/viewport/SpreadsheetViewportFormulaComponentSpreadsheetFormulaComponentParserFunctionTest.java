@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
+import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
@@ -423,6 +424,12 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
         }
 
         private final SpreadsheetViewportCache viewportCache = SpreadsheetViewportCache.empty(this);
+
+        @Override
+        public <T> TestSpreadsheetViewportFormulaComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,
+                                                                                      final T value) {
+            throw new UnsupportedOperationException();
+        }
     }
 
     @Override

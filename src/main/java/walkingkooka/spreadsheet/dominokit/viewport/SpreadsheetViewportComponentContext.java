@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellLinksComponentContext;
@@ -44,4 +45,10 @@ public interface SpreadsheetViewportComponentContext extends HistoryContext,
     SpreadsheetViewportFormulaComponentContext,
     SpreadsheetCellLinksComponentContext,
     RecentValueSavesContext {
+
+    @Override
+    default <T> SpreadsheetViewportComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,
+                                                                        final T value) {
+        throw new UnsupportedOperationException();
+    }
 }

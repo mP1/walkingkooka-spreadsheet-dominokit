@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
+import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.reflect.JavaVisibility;
@@ -241,6 +242,12 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
         @Override
         public void warn(final Object... values) {
             System.out.println(Arrays.toString(values));
+        }
+
+        @Override
+        public <T> TestSpreadsheetViewportFormulaComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,
+                                                                                      final T value) {
+            throw new UnsupportedOperationException();
         }
     }
 

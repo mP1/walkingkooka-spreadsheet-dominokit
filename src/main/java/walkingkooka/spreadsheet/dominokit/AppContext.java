@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit;
 import elemental2.dom.Headers;
 import walkingkooka.Context;
 import walkingkooka.datetime.HasNow;
+import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
@@ -261,6 +262,12 @@ public interface AppContext extends CanGiveFocus,
      * This will be used to provide ENABLE | DISABLE links when editing any {@link SpreadsheetMetadata} {@link walkingkooka.plugin.PluginInfoSetLike}.
      */
     SpreadsheetProvider systemSpreadsheetProvider();
+
+    @Override
+    default <T> AppContext setEnvironmentValue(final EnvironmentValueName<T> name,
+                                               final T value) {
+        throw new UnsupportedOperationException();
+    }
 
     @Override
     default AppContext setPreProcessor(final JsonNodeUnmarshallContextPreProcessor processor) {
