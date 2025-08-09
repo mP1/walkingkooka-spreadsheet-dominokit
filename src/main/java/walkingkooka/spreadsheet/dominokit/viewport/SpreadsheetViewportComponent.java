@@ -421,16 +421,6 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
      */
     private final SpreadsheetViewportComponentTable table;
 
-    /**
-     * The ID assigned to the container TABLE element.
-     */
-    final static String ID = "viewport";
-
-    /**
-     * Prefix for any ui within a viewport
-     */
-    final static String ID_PREFIX = ID + "-";
-
     // horizontal-scrollbar.............................................................................................
 
     private DivComponent horizontalScrollbar() {
@@ -1223,6 +1213,16 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
     final SpreadsheetViewportComponentContext context;
 
     // helpers..........................................................................................................
+
+    /**
+     * The ID assigned to the container TABLE element.
+     */
+    final static String ID = "viewport";
+
+    /**
+     * Prefix for any ui within a viewport
+     */
+    final static String ID_PREFIX = ID + "-";
 
     // viewport-column-A
     public static String id(final SpreadsheetSelection selection) {
