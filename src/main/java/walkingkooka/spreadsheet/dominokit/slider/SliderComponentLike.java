@@ -36,7 +36,7 @@ abstract class SliderComponentLike implements FormValueComponent<HTMLDivElement,
     final SliderComponent setVertical() {
         return this.setCssProperty(
             "writing-mode",
-            "vertical"
+            "vertical-lr"
         );
     }
 
