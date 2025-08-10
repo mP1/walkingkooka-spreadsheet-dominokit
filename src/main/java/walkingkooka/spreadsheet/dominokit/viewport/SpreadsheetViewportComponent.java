@@ -818,10 +818,12 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
 
         final Optional<SpreadsheetViewport> maybeSpreadsheetViewport = delta.viewport();
         if (maybeSpreadsheetViewport.isPresent()) {
+            final SpreadsheetViewport viewport = maybeSpreadsheetViewport.get();
             this.synchronizeHistoryToken(
-                maybeSpreadsheetViewport.get(),
+                viewport,
                 context
             );
+            this.reloadSpreadsheetMetadataIfViewportChanged(viewport);
         }
         this.componentLifecycleHistoryTokenQuery(context);
         this.loadViewportCellsIfNecessary();
@@ -850,6 +852,20 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
                     withSelection
             );
             context.pushHistoryToken(withSelection);
+        }
+    }
+
+    /**
+     * Because a {@link SpreadsheetDelta} response could contain a new {@link SpreadsheetViewport} the entire {@link SpreadsheetMetadata}
+     * should be reloaded. When the {@link SpreadsheetMetadata} returns the UI viewport home and scrollbars will be
+     * refreshed.
+     */
+    private void reloadSpreadsheetMetadataIfViewportChanged(final SpreadsheetViewport viewport) {
+        if(false == viewport.rectangle().home().equalsIgnoreReferenceKind(this.context.home())) {
+            this.context.spreadsheetMetadataFetcher()
+                .getSpreadsheetMetadata(
+                    this.metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID)
+                );
         }
     }
 
