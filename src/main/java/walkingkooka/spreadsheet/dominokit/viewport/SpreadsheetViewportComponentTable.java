@@ -239,14 +239,6 @@ final class SpreadsheetViewportComponentTable implements HtmlComponent<HTMLTable
         }
     }
 
-    void setWidth(final int width) {
-        this.table.setWidth(width + "px");
-    }
-
-    void setHeight(final int height) {
-        this.table.setHeight(height + "px");
-    }
-
     void refresh(final SpreadsheetId id,
                  final SpreadsheetName name,
                  final SpreadsheetViewportWindows windows,
