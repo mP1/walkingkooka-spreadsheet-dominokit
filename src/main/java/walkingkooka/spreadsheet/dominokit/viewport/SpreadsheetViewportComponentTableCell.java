@@ -60,9 +60,9 @@ abstract class SpreadsheetViewportComponentTableCell<E extends HTMLElement, C ex
      * Creates some CSS with some minimal styling, mostly width/height control.
      * Colors, fonts are other text type styles are not included.
      */
-    static String css(final TextStyle style,
-                      final Length<?> width,
-                      final Length<?> height) {
+    static String setWidthAndHeight(final TextStyle style,
+                                    final Length<?> width,
+                                    final Length<?> height) {
         return style.setValues(
             Maps.of(
                 TextStylePropertyName.MIN_WIDTH,
