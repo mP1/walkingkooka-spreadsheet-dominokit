@@ -23,6 +23,7 @@ import walkingkooka.collect.set.Sets;
 import walkingkooka.color.Color;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
+import walkingkooka.predicate.Predicates;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -46,11 +47,185 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Arrays;
 import java.util.Optional;
+import java.util.function.Predicate;
 
 public final class SpreadsheetViewportComponentTableTest implements HtmlComponentTesting<SpreadsheetViewportComponentTable, HTMLTableElement> {
 
+    final static SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1);
+
+    final static SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("SpreadsheetName222");
+
     @Test
-    public void testTreePrint() {
+    public void testTreePrintCellSelected() {
+        final String printTree = this.printTreeAndCheck(
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            "TABLE\n" +
+                "  id=\"viewport\" style=\"overflow: hidden;\"\n" +
+                "    THEAD\n" +
+                "      SpreadsheetViewportComponentTableRowColumnHeaders\n" +
+                "        TR\n" +
+                "          SpreadsheetViewportComponentTableCellHeaderSelectAll\n" +
+                "            TH\n" +
+                "              id=\"viewport-select-all-cells\" style=\"box-sizing: border-box; color: #111111; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
+                "                \"All\" [#/1/sheet1/cell/*/bottom-right] id=viewport-select-all-cells-Link\n" +
+                "          SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
+                "            TH\n" +
+                "              id=\"viewport-column-A\" style=\"background-color: #222222; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 100px; width: 100px;\"\n" +
+                "                \"A\" [#/1/SpreadsheetName222/column/A] id=viewport-column-A-Link\n" +
+                "          SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
+                "            TH\n" +
+                "              id=\"viewport-column-B\" style=\"box-sizing: border-box; color: #222222; height: 30px; min-height: 30px; min-width: 100px; width: 100px;\"\n" +
+                "                \"B\" [#/1/SpreadsheetName222/column/B] id=viewport-column-B-Link\n" +
+                "          SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
+                "            TH\n" +
+                "              id=\"viewport-column-C\" style=\"box-sizing: border-box; color: #222222; height: 30px; min-height: 30px; min-width: 100px; width: 100px;\"\n" +
+                "                \"C\" [#/1/SpreadsheetName222/column/C] id=viewport-column-C-Link\n" +
+                "    TBODY\n" +
+                "      SpreadsheetViewportComponentTableRowCells\n" +
+                "        TR\n" +
+                "          SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow\n" +
+                "            TH\n" +
+                "              id=\"viewport-row-1\" style=\"background-color: #333333; box-sizing: border-box; height: 50px; min-height: 50px; min-width: 80px; width: 80px;\"\n" +
+                "                \"1\" [#/1/SpreadsheetName222/row/1] id=viewport-row-1-Link\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-A1\" tabIndex=0 style=\"background-color: black; box-sizing: border-box; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "                Text \"*** 3.0\"\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-B1\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-C1\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "      SpreadsheetViewportComponentTableRowCells\n" +
+                "        TR\n" +
+                "          SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow\n" +
+                "            TH\n" +
+                "              id=\"viewport-row-2\" style=\"box-sizing: border-box; color: #333333; height: 50px; min-height: 50px; min-width: 80px; width: 80px;\"\n" +
+                "                \"2\" [#/1/SpreadsheetName222/row/2] id=viewport-row-2-Link\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-A2\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-B2\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-C2\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "      SpreadsheetViewportComponentTableRowCells\n" +
+                "        TR\n" +
+                "          SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow\n" +
+                "            TH\n" +
+                "              id=\"viewport-row-3\" style=\"box-sizing: border-box; color: #333333; height: 50px; min-height: 50px; min-width: 80px; width: 80px;\"\n" +
+                "                \"3\" [#/1/SpreadsheetName222/row/3] id=viewport-row-3-Link\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-A3\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-B3\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-C3\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n"
+        );
+
+        this.checkEquals(
+            true,
+            printTree.contains("background-color"),
+            "Missing background-color missing selections\n" + printTree
+        );
+    }
+
+    @Test
+    public void testTreePrintNothingSelected() {
+        final String printTree = this.printTreeAndCheck(
+            HistoryToken.spreadsheetSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
+            ),
+            "TABLE\n" +
+                "  id=\"viewport\" style=\"overflow: hidden;\"\n" +
+                "    THEAD\n" +
+                "      SpreadsheetViewportComponentTableRowColumnHeaders\n" +
+                "        TR\n" +
+                "          SpreadsheetViewportComponentTableCellHeaderSelectAll\n" +
+                "            TH\n" +
+                "              id=\"viewport-select-all-cells\" style=\"box-sizing: border-box; color: #111111; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
+                "                \"All\" [#/1/sheet1/cell/*/bottom-right] id=viewport-select-all-cells-Link\n" +
+                "          SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
+                "            TH\n" +
+                "              id=\"viewport-column-A\" style=\"box-sizing: border-box; color: #222222; height: 30px; min-height: 30px; min-width: 100px; width: 100px;\"\n" +
+                "                \"A\" [#/1/SpreadsheetName222/column/A] id=viewport-column-A-Link\n" +
+                "          SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
+                "            TH\n" +
+                "              id=\"viewport-column-B\" style=\"box-sizing: border-box; color: #222222; height: 30px; min-height: 30px; min-width: 100px; width: 100px;\"\n" +
+                "                \"B\" [#/1/SpreadsheetName222/column/B] id=viewport-column-B-Link\n" +
+                "          SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
+                "            TH\n" +
+                "              id=\"viewport-column-C\" style=\"box-sizing: border-box; color: #222222; height: 30px; min-height: 30px; min-width: 100px; width: 100px;\"\n" +
+                "                \"C\" [#/1/SpreadsheetName222/column/C] id=viewport-column-C-Link\n" +
+                "    TBODY\n" +
+                "      SpreadsheetViewportComponentTableRowCells\n" +
+                "        TR\n" +
+                "          SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow\n" +
+                "            TH\n" +
+                "              id=\"viewport-row-1\" style=\"box-sizing: border-box; color: #333333; height: 50px; min-height: 50px; min-width: 80px; width: 80px;\"\n" +
+                "                \"1\" [#/1/SpreadsheetName222/row/1] id=viewport-row-1-Link\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-A1\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "                Text \"*** 3.0\"\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-B1\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-C1\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "      SpreadsheetViewportComponentTableRowCells\n" +
+                "        TR\n" +
+                "          SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow\n" +
+                "            TH\n" +
+                "              id=\"viewport-row-2\" style=\"box-sizing: border-box; color: #333333; height: 50px; min-height: 50px; min-width: 80px; width: 80px;\"\n" +
+                "                \"2\" [#/1/SpreadsheetName222/row/2] id=viewport-row-2-Link\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-A2\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-B2\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-C2\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "      SpreadsheetViewportComponentTableRowCells\n" +
+                "        TR\n" +
+                "          SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow\n" +
+                "            TH\n" +
+                "              id=\"viewport-row-3\" style=\"box-sizing: border-box; color: #333333; height: 50px; min-height: 50px; min-width: 80px; width: 80px;\"\n" +
+                "                \"3\" [#/1/SpreadsheetName222/row/3] id=viewport-row-3-Link\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-A3\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-B3\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-C3\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n"
+        );
+
+        this.checkEquals(
+            false,
+            printTree.contains("background-color"),
+            "background-color found something was selected\n" + printTree
+        );
+    }
+
+    private String printTreeAndCheck(final HistoryToken historyToken,
+                                     final String expected) {
         final SpreadsheetId spreadsheetId = SpreadsheetId.with(1);
         final SpreadsheetName spreadsheetName = SpreadsheetName.with("sheet1");
 
@@ -82,15 +257,11 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
 
             @Override
             public HistoryToken historyToken() {
-                return HistoryToken.cellSelect(
-                    SpreadsheetId.with(1),
-                    SpreadsheetName.with("SpreadsheetName222"),
-                    SpreadsheetSelection.A1.setDefaultAnchor()
-                );
+                return historyToken;
             }
 
             @Override
-            public boolean hideZeroValues() {
+            public boolean shouldHideZeroValues() {
                 return false;
             }
 
@@ -105,14 +276,41 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
             }
 
             @Override
-            public TextStyle defaultCellStyle() {
-                return TextStyle.EMPTY.set(
+            public TextStyle allCellsStyle() {
+                return TextStyle.parse("color: #111;");
+            }
+
+            @Override
+            public TextStyle cellStyle() {
+                return TextStyle.parse("color: white;");
+            }
+
+            @Override
+            public TextStyle selectedCellStyle(final TextStyle cellStyle) {
+                return cellStyle.set(
                     TextStylePropertyName.BACKGROUND_COLOR,
-                    Color.WHITE
-                ).set(
-                    TextStylePropertyName.COLOR,
                     Color.BLACK
                 );
+            }
+
+            @Override
+            public TextStyle columnStyle() {
+                return TextStyle.parse("color: #222;");
+            }
+
+            @Override
+            public TextStyle selectedColumnStyle() {
+                return TextStyle.parse("background-color: #222;");
+            }
+
+            @Override
+            public TextStyle rowStyle() {
+                return TextStyle.parse("color: #333;");
+            }
+
+            @Override
+            public TextStyle selectedRowStyle() {
+                return TextStyle.parse("background-color: #333;");
             }
 
             @Override
@@ -130,7 +328,7 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
 
         final SpreadsheetMetadata metadata = SpreadsheetMetadata.EMPTY.set(
             SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-            SpreadsheetId.with(1)
+            SPREADSHEET_ID
         ).set(
             SpreadsheetMetadataPropertyName.STYLE,
             TextStyle.EMPTY.set(
@@ -174,79 +372,19 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
             spreadsheetId,
             spreadsheetName,
             SpreadsheetViewportWindows.parse("A1:C3"),
-            SpreadsheetSelection.A1::equalsIgnoreReferenceKind
+            historyToken.anchoredSelectionOrEmpty()
+                .map(a -> (Predicate<SpreadsheetSelection>) a.selection())
+                .orElse(Predicates.never())
         );
 
         this.treePrintAndCheck(
             component,
-            "TABLE\n" +
-                "  id=\"viewport\" style=\"overflow: hidden;\"\n" +
-                "    THEAD\n" +
-                "      SpreadsheetViewportComponentTableRowColumnHeaders\n" +
-                "        TR\n" +
-                "          SpreadsheetViewportComponentTableCellHeaderSelectAll\n" +
-                "            TH\n" +
-                "              id=\"viewport-select-all-cells\" style=\"background-color: #dddddd; border-bottom-color: #888888; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #888888; border-left-style: solid; border-left-width: 1px; border-right-color: #888888; border-right-style: solid; border-right-width: 1px; border-top-color: #888888; border-top-style: solid; border-top-width: 1px; box-sizing: border-box; font-size: 11; font-style: normal; font-variant: normal; font-weight: normal; height: 30px; hyphens: none; margin-bottom: none; margin-left: none; margin-right: none; margin-top: none; min-height: 30px; min-width: 80px; padding-bottom: none; padding-left: none; padding-right: none; padding-top: none; text-align: center; vertical-align: middle; width: 80px; word-break: normal;\"\n" +
-                "                \"All\" [#/1/sheet1/cell/*/bottom-right] id=viewport-select-all-cells-Link\n" +
-                "          SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
-                "            TH\n" +
-                "              id=\"viewport-column-A\" style=\"background-color: #dddddd; border-bottom-color: #888888; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #888888; border-left-style: solid; border-left-width: 1px; border-right-color: #888888; border-right-style: solid; border-right-width: 1px; border-top-color: #888888; border-top-style: solid; border-top-width: 1px; box-sizing: border-box; font-size: 11; font-style: normal; font-variant: normal; font-weight: normal; height: 30px; hyphens: none; margin-bottom: none; margin-left: none; margin-right: none; margin-top: none; min-height: 30px; min-width: 100px; padding-bottom: none; padding-left: none; padding-right: none; padding-top: none; text-align: center; vertical-align: middle; width: 100px; word-break: normal;\"\n" +
-                "                \"A\" [#/1/SpreadsheetName222/column/A] id=viewport-column-A-Link\n" +
-                "          SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
-                "            TH\n" +
-                "              id=\"viewport-column-B\" style=\"background-color: #dddddd; border-bottom-color: #888888; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #888888; border-left-style: solid; border-left-width: 1px; border-right-color: #888888; border-right-style: solid; border-right-width: 1px; border-top-color: #888888; border-top-style: solid; border-top-width: 1px; box-sizing: border-box; font-size: 11; font-style: normal; font-variant: normal; font-weight: normal; height: 30px; hyphens: none; margin-bottom: none; margin-left: none; margin-right: none; margin-top: none; min-height: 30px; min-width: 100px; padding-bottom: none; padding-left: none; padding-right: none; padding-top: none; text-align: center; vertical-align: middle; width: 100px; word-break: normal;\"\n" +
-                "                \"B\" [#/1/SpreadsheetName222/column/B] id=viewport-column-B-Link\n" +
-                "          SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
-                "            TH\n" +
-                "              id=\"viewport-column-C\" style=\"background-color: #dddddd; border-bottom-color: #888888; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #888888; border-left-style: solid; border-left-width: 1px; border-right-color: #888888; border-right-style: solid; border-right-width: 1px; border-top-color: #888888; border-top-style: solid; border-top-width: 1px; box-sizing: border-box; font-size: 11; font-style: normal; font-variant: normal; font-weight: normal; height: 30px; hyphens: none; margin-bottom: none; margin-left: none; margin-right: none; margin-top: none; min-height: 30px; min-width: 100px; padding-bottom: none; padding-left: none; padding-right: none; padding-top: none; text-align: center; vertical-align: middle; width: 100px; word-break: normal;\"\n" +
-                "                \"C\" [#/1/SpreadsheetName222/column/C] id=viewport-column-C-Link\n" +
-                "    TBODY\n" +
-                "      SpreadsheetViewportComponentTableRowCells\n" +
-                "        TR\n" +
-                "          SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow\n" +
-                "            TH\n" +
-                "              id=\"viewport-row-1\" style=\"background-color: #dddddd; border-bottom-color: #888888; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #888888; border-left-style: solid; border-left-width: 1px; border-right-color: #888888; border-right-style: solid; border-right-width: 1px; border-top-color: #888888; border-top-style: solid; border-top-width: 1px; box-sizing: border-box; font-size: 11; font-style: normal; font-variant: normal; font-weight: normal; height: 50px; hyphens: none; margin-bottom: none; margin-left: none; margin-right: none; margin-top: none; min-height: 50px; min-width: 80px; padding-bottom: none; padding-left: none; padding-right: none; padding-top: none; text-align: center; vertical-align: middle; width: 80px; word-break: normal;\"\n" +
-                "                \"1\" [#/1/SpreadsheetName222/row/1] id=viewport-row-1-Link\n" +
-                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
-                "            TD\n" +
-                "              id=\"viewport-cell-A1\" tabIndex=0 style=\"background-color: #eeeeee; border-bottom-color: #888888; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #888888; border-left-style: solid; border-left-width: 1px; border-right-color: #888888; border-right-style: solid; border-right-width: 1px; border-top-color: #888888; border-top-style: solid; border-top-width: 1px; box-sizing: border-box; color: black; font-size: 11; font-style: normal; font-variant: normal; font-weight: normal; height: 50px; hyphens: none; margin-bottom: none; margin-left: none; margin-right: none; margin-top: none; min-height: 50px; min-width: 100px; padding-bottom: none; padding-left: none; padding-right: none; padding-top: none; text-align: left; vertical-align: top; width: 100px; word-break: normal;\"\n" +
-                "                Text \"*** 3.0\"\n" +
-                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
-                "            TD\n" +
-                "              id=\"viewport-cell-B1\" tabIndex=0 style=\"background-color: white; border-bottom-color: #888888; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #888888; border-left-style: solid; border-left-width: 1px; border-right-color: #888888; border-right-style: solid; border-right-width: 1px; border-top-color: #888888; border-top-style: solid; border-top-width: 1px; box-sizing: border-box; color: black; font-size: 11; font-style: normal; font-variant: normal; font-weight: normal; height: 50px; hyphens: none; margin-bottom: none; margin-left: none; margin-right: none; margin-top: none; min-height: 50px; min-width: 100px; padding-bottom: none; padding-left: none; padding-right: none; padding-top: none; text-align: left; vertical-align: top; width: 100px; word-break: normal;\"\n" +
-                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
-                "            TD\n" +
-                "              id=\"viewport-cell-C1\" tabIndex=0 style=\"background-color: white; border-bottom-color: #888888; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #888888; border-left-style: solid; border-left-width: 1px; border-right-color: #888888; border-right-style: solid; border-right-width: 1px; border-top-color: #888888; border-top-style: solid; border-top-width: 1px; box-sizing: border-box; color: black; font-size: 11; font-style: normal; font-variant: normal; font-weight: normal; height: 50px; hyphens: none; margin-bottom: none; margin-left: none; margin-right: none; margin-top: none; min-height: 50px; min-width: 100px; padding-bottom: none; padding-left: none; padding-right: none; padding-top: none; text-align: left; vertical-align: top; width: 100px; word-break: normal;\"\n" +
-                "      SpreadsheetViewportComponentTableRowCells\n" +
-                "        TR\n" +
-                "          SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow\n" +
-                "            TH\n" +
-                "              id=\"viewport-row-2\" style=\"background-color: #dddddd; border-bottom-color: #888888; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #888888; border-left-style: solid; border-left-width: 1px; border-right-color: #888888; border-right-style: solid; border-right-width: 1px; border-top-color: #888888; border-top-style: solid; border-top-width: 1px; box-sizing: border-box; font-size: 11; font-style: normal; font-variant: normal; font-weight: normal; height: 50px; hyphens: none; margin-bottom: none; margin-left: none; margin-right: none; margin-top: none; min-height: 50px; min-width: 80px; padding-bottom: none; padding-left: none; padding-right: none; padding-top: none; text-align: center; vertical-align: middle; width: 80px; word-break: normal;\"\n" +
-                "                \"2\" [#/1/SpreadsheetName222/row/2] id=viewport-row-2-Link\n" +
-                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
-                "            TD\n" +
-                "              id=\"viewport-cell-A2\" tabIndex=0 style=\"background-color: white; border-bottom-color: #888888; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #888888; border-left-style: solid; border-left-width: 1px; border-right-color: #888888; border-right-style: solid; border-right-width: 1px; border-top-color: #888888; border-top-style: solid; border-top-width: 1px; box-sizing: border-box; color: black; font-size: 11; font-style: normal; font-variant: normal; font-weight: normal; height: 50px; hyphens: none; margin-bottom: none; margin-left: none; margin-right: none; margin-top: none; min-height: 50px; min-width: 100px; padding-bottom: none; padding-left: none; padding-right: none; padding-top: none; text-align: left; vertical-align: top; width: 100px; word-break: normal;\"\n" +
-                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
-                "            TD\n" +
-                "              id=\"viewport-cell-B2\" tabIndex=0 style=\"background-color: white; border-bottom-color: #888888; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #888888; border-left-style: solid; border-left-width: 1px; border-right-color: #888888; border-right-style: solid; border-right-width: 1px; border-top-color: #888888; border-top-style: solid; border-top-width: 1px; box-sizing: border-box; color: black; font-size: 11; font-style: normal; font-variant: normal; font-weight: normal; height: 50px; hyphens: none; margin-bottom: none; margin-left: none; margin-right: none; margin-top: none; min-height: 50px; min-width: 100px; padding-bottom: none; padding-left: none; padding-right: none; padding-top: none; text-align: left; vertical-align: top; width: 100px; word-break: normal;\"\n" +
-                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
-                "            TD\n" +
-                "              id=\"viewport-cell-C2\" tabIndex=0 style=\"background-color: white; border-bottom-color: #888888; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #888888; border-left-style: solid; border-left-width: 1px; border-right-color: #888888; border-right-style: solid; border-right-width: 1px; border-top-color: #888888; border-top-style: solid; border-top-width: 1px; box-sizing: border-box; color: black; font-size: 11; font-style: normal; font-variant: normal; font-weight: normal; height: 50px; hyphens: none; margin-bottom: none; margin-left: none; margin-right: none; margin-top: none; min-height: 50px; min-width: 100px; padding-bottom: none; padding-left: none; padding-right: none; padding-top: none; text-align: left; vertical-align: top; width: 100px; word-break: normal;\"\n" +
-                "      SpreadsheetViewportComponentTableRowCells\n" +
-                "        TR\n" +
-                "          SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow\n" +
-                "            TH\n" +
-                "              id=\"viewport-row-3\" style=\"background-color: #dddddd; border-bottom-color: #888888; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #888888; border-left-style: solid; border-left-width: 1px; border-right-color: #888888; border-right-style: solid; border-right-width: 1px; border-top-color: #888888; border-top-style: solid; border-top-width: 1px; box-sizing: border-box; font-size: 11; font-style: normal; font-variant: normal; font-weight: normal; height: 50px; hyphens: none; margin-bottom: none; margin-left: none; margin-right: none; margin-top: none; min-height: 50px; min-width: 80px; padding-bottom: none; padding-left: none; padding-right: none; padding-top: none; text-align: center; vertical-align: middle; width: 80px; word-break: normal;\"\n" +
-                "                \"3\" [#/1/SpreadsheetName222/row/3] id=viewport-row-3-Link\n" +
-                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
-                "            TD\n" +
-                "              id=\"viewport-cell-A3\" tabIndex=0 style=\"background-color: white; border-bottom-color: #888888; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #888888; border-left-style: solid; border-left-width: 1px; border-right-color: #888888; border-right-style: solid; border-right-width: 1px; border-top-color: #888888; border-top-style: solid; border-top-width: 1px; box-sizing: border-box; color: black; font-size: 11; font-style: normal; font-variant: normal; font-weight: normal; height: 50px; hyphens: none; margin-bottom: none; margin-left: none; margin-right: none; margin-top: none; min-height: 50px; min-width: 100px; padding-bottom: none; padding-left: none; padding-right: none; padding-top: none; text-align: left; vertical-align: top; width: 100px; word-break: normal;\"\n" +
-                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
-                "            TD\n" +
-                "              id=\"viewport-cell-B3\" tabIndex=0 style=\"background-color: white; border-bottom-color: #888888; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #888888; border-left-style: solid; border-left-width: 1px; border-right-color: #888888; border-right-style: solid; border-right-width: 1px; border-top-color: #888888; border-top-style: solid; border-top-width: 1px; box-sizing: border-box; color: black; font-size: 11; font-style: normal; font-variant: normal; font-weight: normal; height: 50px; hyphens: none; margin-bottom: none; margin-left: none; margin-right: none; margin-top: none; min-height: 50px; min-width: 100px; padding-bottom: none; padding-left: none; padding-right: none; padding-top: none; text-align: left; vertical-align: top; width: 100px; word-break: normal;\"\n" +
-                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
-                "            TD\n" +
-                "              id=\"viewport-cell-C3\" tabIndex=0 style=\"background-color: white; border-bottom-color: #888888; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #888888; border-left-style: solid; border-left-width: 1px; border-right-color: #888888; border-right-style: solid; border-right-width: 1px; border-top-color: #888888; border-top-style: solid; border-top-width: 1px; box-sizing: border-box; color: black; font-size: 11; font-style: normal; font-variant: normal; font-weight: normal; height: 50px; hyphens: none; margin-bottom: none; margin-left: none; margin-right: none; margin-top: none; min-height: 50px; min-width: 100px; padding-bottom: none; padding-left: none; padding-right: none; padding-top: none; text-align: left; vertical-align: top; width: 100px; word-break: normal;\"\n"
+            expected
+        );
+
+        return component.treeToString(
+            INDENTATION,
+            EOL
         );
     }
 

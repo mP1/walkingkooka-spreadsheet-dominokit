@@ -18,6 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
+import walkingkooka.tree.text.Length;
+import walkingkooka.tree.text.TextStyle;
 
 /**
  * A TH that contains a ROW header. Note new instances are created when a new spreadsheet is created/loaded.
@@ -36,12 +38,6 @@ final class SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow extends Sp
                                                                       final SpreadsheetViewportComponentTableContext context) {
         super(
             SpreadsheetViewportComponent.id(row), // id
-            setWidthAndHeight(
-                HEADER_STYLE,
-                SpreadsheetViewportComponent.ROW_WIDTH,
-                context.spreadsheetViewportCache()
-                    .rowHeight(row)
-            ), // css
             row, // selection
             row.toString()
                 .toUpperCase(), // link text
@@ -49,7 +45,29 @@ final class SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow extends Sp
         );
     }
 
-    @Override void refreshNonExtendLink(final SpreadsheetViewportComponentTableContext context) {
+    @Override //
+    Length<?> width(final SpreadsheetViewportComponentTableContext context) {
+        return SpreadsheetViewportContext.ROW_HEADER_WIDTH;
+    }
+
+    @Override //
+    Length<?> height(final SpreadsheetViewportComponentTableContext context) {
+        return context.spreadsheetViewportCache()
+            .rowHeight(this.selection);
+    }
+
+    @Override//
+    TextStyle selectedTextStyle(final SpreadsheetViewportComponentTableContext context) {
+        return context.selectedRowStyle();
+    }
+
+    @Override //
+    TextStyle unselectedTextStyle(final SpreadsheetViewportComponentTableContext context) {
+        return context.rowStyle();
+    }
+
+    @Override //
+    void refreshNonExtendLink(final SpreadsheetViewportComponentTableContext context) {
         this.setAnchoredSpreadsheetSelection(
             this.selection.setDefaultAnchor()
         );

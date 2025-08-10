@@ -84,7 +84,7 @@ public final class SpreadsheetViewportComponentTableRowCellsTest extends Spreads
             }
 
             @Override
-            public boolean hideZeroValues() {
+            public boolean shouldHideZeroValues() {
                 return false;
             }
 
@@ -99,14 +99,26 @@ public final class SpreadsheetViewportComponentTableRowCellsTest extends Spreads
             }
 
             @Override
-            public TextStyle defaultCellStyle() {
-                return TextStyle.EMPTY.set(
-                    TextStylePropertyName.BACKGROUND_COLOR,
-                    Color.WHITE
-                ).set(
+            public TextStyle cellStyle() {
+                return TextStyle.parse("color: white;");
+            }
+
+            @Override
+            public TextStyle selectedCellStyle(final TextStyle cellStyle) {
+                return cellStyle.set(
                     TextStylePropertyName.COLOR,
-                    Color.BLACK
+                    Color.WHITE
                 );
+            }
+
+            @Override
+            public TextStyle rowStyle() {
+                return TextStyle.parse("background-color: #111;");
+            }
+
+            @Override
+            public TextStyle selectedRowStyle() {
+                return TextStyle.parse("color: #222;");
             }
 
             @Override
@@ -171,11 +183,11 @@ public final class SpreadsheetViewportComponentTableRowCellsTest extends Spreads
                 "  TR\n" +
                 "    SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow\n" +
                 "      TH\n" +
-                "        id=\"viewport-row-1\" style=\"background-color: #dddddd; border-bottom-color: #888888; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #888888; border-left-style: solid; border-left-width: 1px; border-right-color: #888888; border-right-style: solid; border-right-width: 1px; border-top-color: #888888; border-top-style: solid; border-top-width: 1px; box-sizing: border-box; font-size: 11; font-style: normal; font-variant: normal; font-weight: normal; height: 50px; hyphens: none; margin-bottom: none; margin-left: none; margin-right: none; margin-top: none; min-height: 50px; min-width: 80px; padding-bottom: none; padding-left: none; padding-right: none; padding-top: none; text-align: center; vertical-align: middle; width: 80px; word-break: normal;\"\n" +
+                "        id=\"viewport-row-1\" style=\"background-color: #111111; box-sizing: border-box; color: #222222; height: 50px; min-height: 50px; min-width: 80px; width: 80px;\"\n" +
                 "          \"1\" [#/1/SpreadsheetName222/row/1] id=viewport-row-1-Link\n" +
                 "    SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
                 "      TD\n" +
-                "        id=\"viewport-cell-A1\" tabIndex=0 style=\"background-color: #eeeeee; border-bottom-color: #888888; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #888888; border-left-style: solid; border-left-width: 1px; border-right-color: #888888; border-right-style: solid; border-right-width: 1px; border-top-color: #888888; border-top-style: solid; border-top-width: 1px; box-sizing: border-box; color: black; font-size: 11; font-style: normal; font-variant: normal; font-weight: normal; height: 50px; hyphens: none; margin-bottom: none; margin-left: none; margin-right: none; margin-top: none; min-height: 50px; min-width: 100px; padding-bottom: none; padding-left: none; padding-right: none; padding-top: none; text-align: left; vertical-align: top; width: 100px; word-break: normal;\"\n" +
+                "        id=\"viewport-cell-A1\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
                 "          Text \"*** 3.0\"\n"
         );
     }

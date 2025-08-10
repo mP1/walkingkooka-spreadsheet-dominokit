@@ -19,9 +19,6 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.HTMLTableCellElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.color.Color;
-import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -37,7 +34,68 @@ import walkingkooka.tree.text.TextStylePropertyName;
 public final class SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumnTest extends SpreadsheetViewportComponentTableCellTestCase<HTMLTableCellElement, SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn>  {
 
     @Test
-    public void testTreePrint() {
+    public void testTreePrintWithCellSelected() {
+        this.treePrintAndCheck2(
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            "SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
+                "  TH\n" +
+                "    id=\"viewport-column-A\" style=\"box-sizing: border-box; color: #222222; height: 30px; min-height: 30px; min-width: 100px; width: 100px;\"\n" +
+                "      \"A\" [#/1/SpreadsheetName222/column/A] id=viewport-column-A-Link\n"
+        );
+    }
+
+    @Test
+    public void testTreePrintWithCellUnselected() {
+        this.treePrintAndCheck2(
+            HistoryToken.spreadsheetSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
+            ),
+            "SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
+                "  TH\n" +
+                "    id=\"viewport-column-A\" style=\"background-color: #111111; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 100px; width: 100px;\"\n" +
+                "      \"A\" [#/1/SpreadsheetName222/column/A] id=viewport-column-A-Link\n"
+        );
+    }
+
+    @Test
+    public void testTreePrintWithColumnSelected() {
+        this.treePrintAndCheck2(
+            HistoryToken.columnSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.column()
+                    .setDefaultAnchor()
+            ),
+            "SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
+                "  TH\n" +
+                "    id=\"viewport-column-A\" style=\"box-sizing: border-box; color: #222222; height: 30px; min-height: 30px; min-width: 100px; width: 100px;\"\n" +
+                "      \"A\" [#/1/SpreadsheetName222/column/A] id=viewport-column-A-Link\n"
+        );
+    }
+
+    @Test
+    public void testTreePrintWithRowSelected() {
+        this.treePrintAndCheck2(
+            HistoryToken.rowSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.row()
+                    .setDefaultAnchor()
+            ),
+            "SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
+                "  TH\n" +
+                "    id=\"viewport-column-A\" style=\"background-color: #111111; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 100px; width: 100px;\"\n" +
+                "      \"A\" [#/1/SpreadsheetName222/column/A] id=viewport-column-A-Link\n"
+        );
+    }
+
+    private void treePrintAndCheck2(final HistoryToken historyToken,
+                                    final String expected) {
         final SpreadsheetViewportCacheContext cacheContext = new FakeSpreadsheetViewportCacheContext() {
             @Override
             public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
@@ -59,11 +117,7 @@ public final class SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumnT
 
             @Override
             public HistoryToken historyToken() {
-                return HistoryToken.cellSelect(
-                    SpreadsheetId.with(1),
-                    SpreadsheetName.with("SpreadsheetName222"),
-                    SpreadsheetSelection.A1.setDefaultAnchor()
-                );
+                return historyToken;
             }
 
             @Override
@@ -77,19 +131,21 @@ public final class SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumnT
             }
 
             @Override
-            public TextStyle defaultCellStyle() {
-                return TextStyle.EMPTY.set(
-                    TextStylePropertyName.COLOR,
-                    Color.BLACK
-                );
-            }
-
-            @Override
             public SpreadsheetViewportCache spreadsheetViewportCache() {
                 return this.spreadsheetViewportCache;
             }
 
             private final SpreadsheetViewportCache spreadsheetViewportCache = SpreadsheetViewportCache.empty(cacheContext);
+
+            @Override
+            public TextStyle columnStyle() {
+                return TextStyle.parse("background-color: #111;");
+            }
+
+            @Override
+            public TextStyle selectedColumnStyle() {
+                return TextStyle.parse("color: #222;");
+            }
         };
 
         final SpreadsheetMetadata metadata = SpreadsheetMetadata.EMPTY.set(
@@ -114,10 +170,7 @@ public final class SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumnT
                 SpreadsheetSelection.A1.column(),
                 tableContext
             ),
-            "SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
-                "  TH\n" +
-                "    id=\"viewport-column-A\" style=\"border-bottom-color: #888888; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #888888; border-left-style: solid; border-left-width: 1px; border-right-color: #888888; border-right-style: solid; border-right-width: 1px; border-top-color: #888888; border-top-style: solid; border-top-width: 1px; box-sizing: border-box; font-size: 11; font-style: normal; font-variant: normal; font-weight: normal; height: 30px; hyphens: none; margin-bottom: none; margin-left: none; margin-right: none; margin-top: none; min-height: 30px; min-width: 100px; padding-bottom: none; padding-left: none; padding-right: none; padding-top: none; text-align: center; vertical-align: middle; width: 100px; word-break: normal;\"\n" +
-                "      \"A\" [#/1/SpreadsheetName222/column/A] id=viewport-column-A-Link\n"
+            expected
         );
     }
 

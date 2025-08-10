@@ -17,14 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigation;
-import walkingkooka.tree.text.TextStyle;
 
-public class FakeSpreadsheetViewportComponentTableContext extends FakeHistoryContext
+public class FakeSpreadsheetViewportComponentTableContext extends FakeSpreadsheetViewportComponentContext
     implements SpreadsheetViewportComponentTableContext {
 
     public FakeSpreadsheetViewportComponentTableContext() {
@@ -32,12 +30,7 @@ public class FakeSpreadsheetViewportComponentTableContext extends FakeHistoryCon
     }
 
     @Override
-    public boolean hideZeroValues() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public TextStyle defaultCellStyle() {
+    public boolean shouldHideZeroValues() {
         throw new UnsupportedOperationException();
     }
 
@@ -63,31 +56,6 @@ public class FakeSpreadsheetViewportComponentTableContext extends FakeHistoryCon
 
     @Override
     public void pushNavigation(final SpreadsheetViewportNavigation navigation) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void debug(Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void info(Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void warn(Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void error(final Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetViewportCache spreadsheetViewportCache() {
         throw new UnsupportedOperationException();
     }
 }

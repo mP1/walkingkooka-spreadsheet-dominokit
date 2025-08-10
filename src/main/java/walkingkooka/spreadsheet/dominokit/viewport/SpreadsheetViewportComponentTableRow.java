@@ -32,6 +32,7 @@ import java.util.function.Predicate;
 
 /**
  * Represents a single TR row within the TABLE which contains all rendered column & row headers and cells.
+ * Note it does not add any styling such as colors or borders to show a selected or unselected row.
  */
 abstract class SpreadsheetViewportComponentTableRow<T extends SpreadsheetViewportComponentTableRow<T>> implements HtmlComponent<HTMLTableRowElement, T>,
     HtmlElementComponentDelegator<HTMLTableRowElement, T> {
@@ -52,7 +53,7 @@ abstract class SpreadsheetViewportComponentTableRow<T extends SpreadsheetViewpor
         return false;
     }
 
-    // HtmlElementComponentDelegator.............................................................................
+    // HtmlElementComponentDelegator....................................................................................
 
     @Override
     public final HtmlElementComponent<HTMLTableRowElement, ?> htmlElementComponent() {

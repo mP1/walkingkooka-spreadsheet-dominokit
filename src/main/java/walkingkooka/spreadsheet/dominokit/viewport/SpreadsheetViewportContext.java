@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.Context;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStyle;
 
 import java.util.Objects;
@@ -27,6 +28,10 @@ import java.util.Objects;
  * A {@link Context} that mostly contains styles for a viewport.
  */
 public interface SpreadsheetViewportContext extends Context {
+
+    Length<?> COLUMN_HEADER_HEIGHT = Length.pixel(30.0);
+
+    Length<?> ROW_HEADER_WIDTH = Length.pixel(80.0);
 
     /**
      * The {@link TextStyle} for the top/left select all box.

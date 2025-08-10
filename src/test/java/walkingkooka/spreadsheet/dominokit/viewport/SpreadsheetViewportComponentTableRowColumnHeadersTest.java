@@ -18,8 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
@@ -35,11 +35,98 @@ import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Arrays;
+import java.util.function.Predicate;
 
 public final class SpreadsheetViewportComponentTableRowColumnHeadersTest extends SpreadsheetViewportComponentTableRowTestCase<SpreadsheetViewportComponentTableRowColumnHeaders> {
 
     @Test
-    public void testRefresh() {
+    public void testRefreshNothingSelected() {
+        this.treePrintAndCheck2(
+            HistoryToken.spreadsheetSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
+            ),
+            "SpreadsheetViewportComponentTableRowColumnHeaders\n" +
+                "  TR\n" +
+                "    SpreadsheetViewportComponentTableCellHeaderSelectAll\n" +
+                "      TH\n" +
+                "        id=\"viewport-select-all-cells\" style=\"background-color: #111111; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
+                "          \"All\" [#/1/SpreadsheetName222/cell/*/bottom-right] id=viewport-select-all-cells-Link\n" +
+                "    SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
+                "      TH\n" +
+                "        id=\"viewport-column-A\" style=\"background-color: #222222; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 100px; width: 100px;\"\n" +
+                "          \"A\" [#/1/SpreadsheetName222/column/A] id=viewport-column-A-Link\n"
+        );
+    }
+
+    @Test
+    public void testRefreshDifferentCellSelected() {
+        this.treePrintAndCheck2(
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.parseCell("B2")
+                    .setDefaultAnchor()
+            ),
+            "SpreadsheetViewportComponentTableRowColumnHeaders\n" +
+                "  TR\n" +
+                "    SpreadsheetViewportComponentTableCellHeaderSelectAll\n" +
+                "      TH\n" +
+                "        id=\"viewport-select-all-cells\" style=\"background-color: #111111; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
+                "          \"All\" [#/1/SpreadsheetName222/cell/*/bottom-right] id=viewport-select-all-cells-Link\n" +
+                "    SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
+                "      TH\n" +
+                "        id=\"viewport-column-A\" style=\"background-color: #222222; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 100px; width: 100px;\"\n" +
+                "          \"A\" [#/1/SpreadsheetName222/column/A] id=viewport-column-A-Link\n"
+        );
+    }
+
+    @Test
+    public void testRefreshColumnSelected() {
+        this.treePrintAndCheck2(
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            "SpreadsheetViewportComponentTableRowColumnHeaders\n" +
+                "  TR\n" +
+                "    SpreadsheetViewportComponentTableCellHeaderSelectAll\n" +
+                "      TH\n" +
+                "        id=\"viewport-select-all-cells\" style=\"background-color: #111111; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
+                "          \"All\" [#/1/SpreadsheetName222/cell/*/bottom-right] id=viewport-select-all-cells-Link\n" +
+                "    SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
+                "      TH\n" +
+                "        id=\"viewport-column-A\" style=\"box-sizing: border-box; color: #333333; height: 30px; min-height: 30px; min-width: 100px; width: 100px;\"\n" +
+                "          \"A\" [#/1/SpreadsheetName222/column/A] id=viewport-column-A-Link\n"
+        );
+    }
+
+    @Test
+    public void testRefreshRowSelected() {
+        this.treePrintAndCheck2(
+            HistoryToken.rowSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.parseRow("2")
+                    .setDefaultAnchor()
+            ),
+            "SpreadsheetViewportComponentTableRowColumnHeaders\n" +
+                "  TR\n" +
+                "    SpreadsheetViewportComponentTableCellHeaderSelectAll\n" +
+                "      TH\n" +
+                "        id=\"viewport-select-all-cells\" style=\"background-color: #111111; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
+                "          \"All\" [#/1/SpreadsheetName222/cell/*/bottom-right] id=viewport-select-all-cells-Link\n" +
+                "    SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
+                "      TH\n" +
+                "        id=\"viewport-column-A\" style=\"background-color: #222222; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 100px; width: 100px;\"\n" +
+                "          \"A\" [#/1/SpreadsheetName222/column/A] id=viewport-column-A-Link\n"
+        );
+    }
+
+
+    private void treePrintAndCheck2(final HistoryToken historyToken,
+                                    final String expected) {
         final AppContext appContext = new FakeAppContext() {
             @Override
             public void debug(final Object... values) {
@@ -68,11 +155,7 @@ public final class SpreadsheetViewportComponentTableRowColumnHeadersTest extends
 
             @Override
             public HistoryToken historyToken() {
-                return HistoryToken.cellSelect(
-                    SpreadsheetId.with(1),
-                    SpreadsheetName.with("SpreadsheetName222"),
-                    SpreadsheetSelection.A1.setDefaultAnchor()
-                );
+                return historyToken;
             }
 
             @Override
@@ -86,6 +169,33 @@ public final class SpreadsheetViewportComponentTableRowColumnHeadersTest extends
             }
 
             private final SpreadsheetViewportCache spreadsheetViewportCache = SpreadsheetViewportCache.empty(cacheContext);
+
+            @Override
+            public TextStyle allCellsStyle() {
+                return TextStyle.parse("background-color: #111;");
+            }
+
+            @Override
+            public TextStyle cellStyle() {
+                return TextStyle.parse("background-color: white;");
+            }
+
+            @Override
+            public TextStyle selectedCellStyle(final TextStyle cellStyle) {
+                return cellStyle.merge(
+                    TextStyle.parse("color: white;")
+                );
+            }
+
+            @Override
+            public TextStyle columnStyle() {
+                return TextStyle.parse("background-color: #222;");
+            }
+
+            @Override
+            public TextStyle selectedColumnStyle() {
+                return TextStyle.parse("color: #333;");
+            }
         };
 
         final SpreadsheetMetadata metadata = SpreadsheetMetadata.EMPTY.set(
@@ -111,24 +221,18 @@ public final class SpreadsheetViewportComponentTableRowColumnHeadersTest extends
         final SpreadsheetViewportComponentTableRowColumnHeaders component = SpreadsheetViewportComponentTableRowColumnHeaders.empty(
             tableContext
         );
+
         component.refresh(
             SpreadsheetViewportWindows.parse("A1:A3"),
-            SpreadsheetSelection.A1::equals,
+            historyToken.anchoredSelectionOrEmpty()
+                .map(a -> (Predicate<SpreadsheetSelection>)a.selection())
+                .orElse(Predicates.never()),
             tableContext
         );
 
         this.treePrintAndCheck(
             component,
-            "SpreadsheetViewportComponentTableRowColumnHeaders\n" +
-                "  TR\n" +
-                "    SpreadsheetViewportComponentTableCellHeaderSelectAll\n" +
-                "      TH\n" +
-                "        id=\"viewport-select-all-cells\" style=\"background-color: #dddddd; border-bottom-color: #888888; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #888888; border-left-style: solid; border-left-width: 1px; border-right-color: #888888; border-right-style: solid; border-right-width: 1px; border-top-color: #888888; border-top-style: solid; border-top-width: 1px; box-sizing: border-box; font-size: 11; font-style: normal; font-variant: normal; font-weight: normal; height: 30px; hyphens: none; margin-bottom: none; margin-left: none; margin-right: none; margin-top: none; min-height: 30px; min-width: 80px; padding-bottom: none; padding-left: none; padding-right: none; padding-top: none; text-align: center; vertical-align: middle; width: 80px; word-break: normal;\"\n" +
-                "          \"All\" [#/1/SpreadsheetName222/cell/*/bottom-right] id=viewport-select-all-cells-Link\n" +
-                "    SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
-                "      TH\n" +
-                "        id=\"viewport-column-A\" style=\"background-color: #dddddd; border-bottom-color: #888888; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #888888; border-left-style: solid; border-left-width: 1px; border-right-color: #888888; border-right-style: solid; border-right-width: 1px; border-top-color: #888888; border-top-style: solid; border-top-width: 1px; box-sizing: border-box; font-size: 11; font-style: normal; font-variant: normal; font-weight: normal; height: 30px; hyphens: none; margin-bottom: none; margin-left: none; margin-right: none; margin-top: none; min-height: 30px; min-width: 100px; padding-bottom: none; padding-left: none; padding-right: none; padding-top: none; text-align: center; vertical-align: middle; width: 100px; word-break: normal;\"\n" +
-                "          \"A\" [#/1/SpreadsheetName222/column/A] id=viewport-column-A-Link\n"
+            expected
         );
     }
 

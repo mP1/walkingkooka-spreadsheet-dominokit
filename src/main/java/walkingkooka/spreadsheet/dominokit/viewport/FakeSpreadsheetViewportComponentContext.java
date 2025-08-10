@@ -44,6 +44,7 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserSelectorToken;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.tree.text.TextStyle;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -252,6 +253,53 @@ public class FakeSpreadsheetViewportComponentContext extends FakeHistoryContext 
 
     @Override
     public <T> List<T> recentValueSaves(final Class<T> type) {
+        throw new UnsupportedOperationException();
+    }
+
+    // SpreadsheetViewportContext.......................................................................................
+
+    @Override
+    public TextStyle allCellsStyle() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public TextStyle selectedAllCellsStyle() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public TextStyle cellStyle() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public TextStyle selectedCellStyle(final TextStyle cellStyle) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public TextStyle columnStyle() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public TextStyle selectedColumnStyle() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public TextStyle rowStyle() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public TextStyle selectedRowStyle() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public TextStyle hideZeroStyle(final TextStyle style) {
         throw new UnsupportedOperationException();
     }
 }

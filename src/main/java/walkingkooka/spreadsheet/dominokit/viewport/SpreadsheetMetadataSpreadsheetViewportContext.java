@@ -192,7 +192,7 @@ final class SpreadsheetMetadataSpreadsheetViewportContext implements Spreadsheet
     public TextStyle hideZeroStyle(final TextStyle style) {
         Objects.requireNonNull(style, "style");
 
-        return setBackgroundColor(
+        return mixBackgroundColor(
             style,
             SpreadsheetDominoKitColor.HIGHLIGHT_COLOR
         );

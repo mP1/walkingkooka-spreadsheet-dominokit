@@ -89,8 +89,6 @@ import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigationList;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportRectangle;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportWindows;
 import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.tree.text.Length;
-import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStyleProperty;
 import walkingkooka.validation.provider.ValidatorSelector;
 
@@ -114,10 +112,6 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
     LoadedSpreadsheetMetadataRequired,
     NopEmptyResponseFetcherWatcher {
 
-    final static Length<?> COLUMN_HEIGHT = Length.pixel(30.0);
-
-    final static Length<?> ROW_WIDTH = Length.pixel(80.0);
-
     public static SpreadsheetViewportComponent empty(final SpreadsheetViewportComponentContext context) {
         Objects.requireNonNull(context, "context");
 
@@ -130,7 +124,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
         this.formula = this.createFormula();
         this.formulaCellLinks = this.formulaCellLinks();
 
-        this.table = this.table();
+        this.table = this.table(context);
 
         {
             final SpreadsheetViewportScrollbarComponentContext spreadsheetViewportScrollbarComponentContext = SpreadsheetViewportComponentSpreadsheetViewportScrollbarComponentContext.with(
@@ -345,10 +339,11 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
 
     // table............................................................................................................
 
-    private SpreadsheetViewportComponentTable table() {
+    private SpreadsheetViewportComponentTable table(final SpreadsheetViewportContext context) {
         return SpreadsheetViewportComponentTable.empty(
                 SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext.with(
-                    this
+                    this,
+                    context
                 )
             );
     }
@@ -569,9 +564,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
                 (false == s.isCellRange() && selectionNotLabel.test(s));
         }
 
-        this.hideZeroValues = metadata.getOrFail(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES);
-        this.defaultCellStyle = metadata.effectiveStyle()
-            .merge(SpreadsheetViewportComponentTableCell.CELL_STYLE);
+        this.shouldHideZeroValues = metadata.getOrFail(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES);
         this.mustRefresh = metadata.shouldViewRefresh(this.refreshMetadata);
         this.spreadsheetViewport = this.spreadsheetViewport();
 
@@ -587,9 +580,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
 
     private SpreadsheetMetadata refreshMetadata;
 
-    boolean hideZeroValues;
-
-    TextStyle defaultCellStyle;
+    boolean shouldHideZeroValues;
 
     boolean mustRefresh;
 
