@@ -54,6 +54,11 @@ public interface SpreadsheetViewportComponentContext extends HistoryContext,
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    default SpreadsheetViewportComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
+        throw new UnsupportedOperationException();
+    }
+
     /**
      * Helper that gets the {@link SpreadsheetCellReference home} for the viewport or fails
      */

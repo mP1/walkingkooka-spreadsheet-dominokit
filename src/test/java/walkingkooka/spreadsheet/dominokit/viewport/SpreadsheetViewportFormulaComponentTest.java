@@ -249,6 +249,11 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
                                                                                       final T value) {
             throw new UnsupportedOperationException();
         }
+
+        @Override
+        public TestSpreadsheetViewportFormulaComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
+            throw new UnsupportedOperationException();
+        }
     }
 
     // class............................................................................................................

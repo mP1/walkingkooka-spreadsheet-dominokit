@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.find;
 
+import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.ProviderContextDelegator;
 import walkingkooka.spreadsheet.SpreadsheetCell;
@@ -143,6 +144,11 @@ final class AppContextSpreadsheetCellFindDialogComponentContext implements Sprea
     @Override
     public ProviderContext providerContext() {
         return this.context;
+    }
+
+    @Override
+    public SpreadsheetCellFindDialogComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
+        throw new UnsupportedOperationException();
     }
 
     // DialogComponentContext...........................................................................................

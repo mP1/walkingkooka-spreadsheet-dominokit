@@ -82,4 +82,9 @@ public interface SpreadsheetFormatterSelectorDialogComponentContext extends CanG
                                                                                        final T value) {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    default SpreadsheetFormatterSelectorDialogComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
+        throw new UnsupportedOperationException();
+    }
 }

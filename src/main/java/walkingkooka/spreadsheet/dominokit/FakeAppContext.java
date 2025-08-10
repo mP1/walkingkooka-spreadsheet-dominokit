@@ -388,6 +388,11 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     }
 
     @Override
+    public AppContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public Set<EnvironmentValueName<?>> environmentValueNames() {
         throw new UnsupportedOperationException();
     }

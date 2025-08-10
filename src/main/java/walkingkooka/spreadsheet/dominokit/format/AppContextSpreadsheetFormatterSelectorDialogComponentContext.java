@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.format;
 
 import walkingkooka.convert.CanConvert;
+import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.ProviderContextDelegator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -134,6 +135,13 @@ abstract class AppContextSpreadsheetFormatterSelectorDialogComponentContext impl
             this.context,
             this.context
         );
+    }
+
+    // EnvironmentContext...............................................................................................
+
+    @Override
+    public final SpreadsheetFormatterSelectorDialogComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
+        throw new UnsupportedOperationException();
     }
 
     // Object..........................................................................................................

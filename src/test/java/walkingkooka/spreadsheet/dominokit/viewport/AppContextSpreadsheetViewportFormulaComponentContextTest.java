@@ -38,6 +38,11 @@ public final class AppContextSpreadsheetViewportFormulaComponentContextTest impl
     }
 
     @Override
+    public void testRemoveEnvironmentValueWithNullNameFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public void testSpreadsheetFormatterSelectorWithNullParserSelectorFails() {
         throw new UnsupportedOperationException();
     }
