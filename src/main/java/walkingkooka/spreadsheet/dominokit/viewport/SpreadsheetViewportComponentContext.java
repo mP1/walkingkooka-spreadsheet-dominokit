@@ -49,15 +49,11 @@ public interface SpreadsheetViewportComponentContext extends HistoryContext,
     RecentValueSavesContext {
 
     @Override
-    default <T> SpreadsheetViewportComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,
-                                                                        final T value) {
-        throw new UnsupportedOperationException();
-    }
+    <T> SpreadsheetViewportComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,
+                                                                final T value);
 
     @Override
-    default SpreadsheetViewportComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
-        throw new UnsupportedOperationException();
-    }
+    SpreadsheetViewportComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name);
 
     /**
      * Helper that gets the {@link SpreadsheetCellReference home} for the viewport or fails
