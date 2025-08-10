@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.ProviderContextDelegator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -72,6 +73,11 @@ final class AppContextSpreadsheetViewportFormulaComponentContext implements Spre
     @Override
     public LoggingContext loggingContext() {
         return this.context;
+    }
+
+    @Override
+    public SpreadsheetViewportFormulaComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
+        throw new UnsupportedOperationException();
     }
 
     @Override

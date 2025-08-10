@@ -81,4 +81,9 @@ public interface SpreadsheetParserSelectorDialogComponentContext extends CanGive
                                                                                      final T value) {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    default SpreadsheetParserSelectorDialogComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
+        throw new UnsupportedOperationException();
+    }
 }

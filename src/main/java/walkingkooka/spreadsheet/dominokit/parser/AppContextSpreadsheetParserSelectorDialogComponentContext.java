@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.parser;
 
 import walkingkooka.InvalidCharacterException;
 import walkingkooka.convert.CanConvert;
+import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.ProviderContextDelegator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -161,6 +162,11 @@ abstract class AppContextSpreadsheetParserSelectorDialogComponentContext impleme
     @Override
     public final CanConvert canConvert() {
         return this.context;
+    }
+
+    @Override
+    public AppContextSpreadsheetParserSelectorDialogComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
+        throw new UnsupportedOperationException();
     }
 
     @Override

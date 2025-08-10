@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.ProviderContextDelegator;
 import walkingkooka.spreadsheet.SpreadsheetCell;
@@ -175,6 +176,13 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
     }
 
     private final AppContext context;
+
+    // EnvironmentContext...............................................................................................
+
+    @Override
+    public SpreadsheetViewportComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
+        throw new UnsupportedOperationException();
+    }
 
     // Object...........................................................................................................
 

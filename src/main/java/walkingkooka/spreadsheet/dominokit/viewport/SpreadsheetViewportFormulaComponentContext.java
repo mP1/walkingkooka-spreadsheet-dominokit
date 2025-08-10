@@ -40,4 +40,9 @@ public interface SpreadsheetViewportFormulaComponentContext extends HistoryConte
                                                                                final T value) {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    default SpreadsheetViewportFormulaComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
+        throw new UnsupportedOperationException();
+    }
 }
