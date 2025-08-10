@@ -33,7 +33,7 @@ final class SpreadsheetViewportComponentTableCellHeaderSelectAll extends Spreads
     private SpreadsheetViewportComponentTableCellHeaderSelectAll(final HistoryContext context) {
         super(
             SpreadsheetViewportComponent.ID_PREFIX + "select-all-cells", // id
-            css(
+            setWidthAndHeight(
                 HEADER_STYLE,
                 SpreadsheetViewportComponent.ROW_WIDTH,
                 SpreadsheetViewportComponent.COLUMN_HEIGHT

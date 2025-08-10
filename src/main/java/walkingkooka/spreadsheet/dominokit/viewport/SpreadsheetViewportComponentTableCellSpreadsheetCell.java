@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 import elemental2.dom.HTMLTableCellElement;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.popover.Tooltip;
-import walkingkooka.collect.map.Maps;
 import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetError;
@@ -34,7 +33,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.ExpressionNumberSign;
-import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -66,7 +64,7 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
                 SpreadsheetViewportComponent.id(cellReference)
             ).setTabIndex(0)
             .setCssText(
-                css(
+                setWidthAndHeight(
                     CELL_STYLE,
                     cache.columnWidth(cellReference.column()),
                     cache.rowHeight(cellReference.row())
@@ -164,26 +162,13 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
             }
 
             // copy width/height to MIN to prevent table squashing cells to fit.
-            final Length<?> width = cache.columnWidth(cellReference.column());
-            final Length<?> height = cache.rowHeight(cellReference.row());
-
-            style = style.setValues(
-                Maps.of(
-                    TextStylePropertyName.WIDTH,
-                    width,
-                    TextStylePropertyName.HEIGHT,
-                    height,
-                    TextStylePropertyName.MIN_WIDTH,
-                    width,
-                    TextStylePropertyName.MIN_HEIGHT,
-                    height
+            td.setCssText(
+                setWidthAndHeight(
+                    style,
+                    cache.columnWidth(cellReference.column()),
+                    cache.rowHeight(cellReference.row())
                 )
             );
-
-            td.setCssText(
-                style.text() + "box-sizing: border-box;"
-            );
-
 
             this.tooltipRefresh(maybeError);
         }

@@ -36,7 +36,7 @@ final class SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn extends
                                                                          final SpreadsheetViewportComponentTableContext context) {
         super(
             SpreadsheetViewportComponent.id(column), // id
-            css(
+            setWidthAndHeight(
                 SpreadsheetViewportComponentTableCell.HEADER_STYLE,
                 context.spreadsheetViewportCache()
                     .columnWidth(column),
