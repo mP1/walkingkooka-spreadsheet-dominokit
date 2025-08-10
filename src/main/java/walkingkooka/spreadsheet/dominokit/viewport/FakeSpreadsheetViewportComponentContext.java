@@ -83,6 +83,17 @@ public class FakeSpreadsheetViewportComponentContext extends FakeHistoryContext 
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public <T> SpreadsheetViewportComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,
+                                                                       final T value) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public SpreadsheetViewportComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
+        throw new UnsupportedOperationException();
+    }
+
     @Override 
     public Optional<EmailAddress> user() {
         throw new UnsupportedOperationException();
