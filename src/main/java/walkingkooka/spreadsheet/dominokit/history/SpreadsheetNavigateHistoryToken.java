@@ -22,7 +22,6 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
 import walkingkooka.text.cursor.TextCursor;
 
@@ -103,15 +102,15 @@ public final class SpreadsheetNavigateHistoryToken extends SpreadsheetNameHistor
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        // PATCH the metadata viewport
-        context.spreadsheetMetadataFetcher()
-            .patchMetadata(
+        // load the cells
+        // http://localhost:12345/api/spreadsheet/1/cell/*/force-recompute?home=A1&width=1568&height=463&includeFrozenColumnsRows=true&selection=F1&selectionType=cell&navigation=right+1567px
+        context.spreadsheetDeltaFetcher()
+            .getCells(
                 this.id(),
-                SpreadsheetMetadataPropertyName.VIEWPORT,
                 context.viewport(
                     this.navigation(),
-                    Optional.empty() // no selection
-                )
+                    Optional.empty() // selection
+                ).setIncludeFrozenColumnsRows(true)
             );
 
         context.pushHistoryToken(previous);
