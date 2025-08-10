@@ -75,9 +75,22 @@ final class AppContextSpreadsheetViewportFormulaComponentContext implements Spre
         return this.context;
     }
 
+    // EnvironmentContext...............................................................................................
+
+    @Override
+    public <T> SpreadsheetViewportFormulaComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,
+                                                                              final T value) {
+        this.context.setEnvironmentValue(
+            name,
+            value
+        );
+        return this;
+    }
+
     @Override
     public SpreadsheetViewportFormulaComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
-        throw new UnsupportedOperationException();
+        this.context.removeEnvironmentValue(name);
+        return this;
     }
 
     @Override

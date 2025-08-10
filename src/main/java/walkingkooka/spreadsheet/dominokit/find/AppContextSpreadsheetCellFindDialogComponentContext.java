@@ -146,9 +146,22 @@ final class AppContextSpreadsheetCellFindDialogComponentContext implements Sprea
         return this.context;
     }
 
+    // EnvironmentContext...............................................................................................
+
+    @Override
+    public <T> SpreadsheetCellFindDialogComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,
+                                                                             final T value) {
+        this.context.setEnvironmentValue(
+            name,
+            value
+        );
+        return this;
+    }
+
     @Override
     public SpreadsheetCellFindDialogComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
-        throw new UnsupportedOperationException();
+        this.context.removeEnvironmentValue(name);
+        return this;
     }
 
     // DialogComponentContext...........................................................................................

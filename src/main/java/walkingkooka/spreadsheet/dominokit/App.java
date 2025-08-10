@@ -32,6 +32,7 @@ import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.environment.EnvironmentContext;
 import walkingkooka.environment.EnvironmentContexts;
+import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.j2cl.locale.LocaleAware;
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.locale.LocaleContexts;
@@ -1359,6 +1360,24 @@ public class App implements EntryPoint,
     @Override
     public CanConvert canConvert() {
         return this.spreadsheetFormatterContext(); // prioritize SpreadsheetFormatterContext over ProviderContext
+    }
+
+    // EnvironmentContext...............................................................................................
+
+    @Override
+    public <T> AppContext setEnvironmentValue(final EnvironmentValueName<T> name,
+                                              final T value) {
+        this.providerContext.setEnvironmentValue(
+            name,
+            value
+        );
+        return this;
+    }
+
+    @Override
+    public AppContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
+        this.providerContext.removeEnvironmentValue(name);
+        return this;
     }
 
     @Override
