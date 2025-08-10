@@ -180,8 +180,19 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
     // EnvironmentContext...............................................................................................
 
     @Override
+    public <T> SpreadsheetViewportComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,
+                                                                       final T value) {
+        this.context.setEnvironmentValue(
+            name,
+            value
+        );
+        return this;
+    }
+
+    @Override
     public SpreadsheetViewportComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
-        throw new UnsupportedOperationException();
+        this.context.removeEnvironmentValue(name);
+        return this;
     }
 
     // Object...........................................................................................................

@@ -140,8 +140,19 @@ abstract class AppContextSpreadsheetFormatterSelectorDialogComponentContext impl
     // EnvironmentContext...............................................................................................
 
     @Override
+    public final <T> SpreadsheetFormatterSelectorDialogComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,
+                                                                                            final T value) {
+        this.context.setEnvironmentValue(
+            name,
+            value
+        );
+        return this;
+    }
+
+    @Override
     public final SpreadsheetFormatterSelectorDialogComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
-        throw new UnsupportedOperationException();
+        this.context.removeEnvironmentValue(name);
+        return this;
     }
 
     // Object..........................................................................................................

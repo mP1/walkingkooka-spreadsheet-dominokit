@@ -165,8 +165,19 @@ abstract class AppContextSpreadsheetParserSelectorDialogComponentContext impleme
     }
 
     @Override
-    public AppContextSpreadsheetParserSelectorDialogComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
-        throw new UnsupportedOperationException();
+    public final <T> SpreadsheetParserSelectorDialogComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,
+                                                                       final T value) {
+        this.context.setEnvironmentValue(
+            name,
+            value
+        );
+        return this;
+    }
+
+    @Override
+    public final SpreadsheetParserSelectorDialogComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
+        this.context.removeEnvironmentValue(name);
+        return this;
     }
 
     @Override
