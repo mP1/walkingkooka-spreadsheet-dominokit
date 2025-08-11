@@ -50,9 +50,9 @@ final class SpreadsheetMetadataSpreadsheetViewportContext implements Spreadsheet
     NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher {
 
-    final static Color BORDER_COLOR = SpreadsheetDominoKitColor.VIEWPORT_LINES_COLOR;
-    final static BorderStyle BORDER_STYLE = BorderStyle.SOLID;
-    final static Length<?> BORDER_LENGTH = Length.pixel(1.0);
+    private final static Color BORDER_COLOR = SpreadsheetDominoKitColor.VIEWPORT_LINES_COLOR;
+    private final static BorderStyle BORDER_STYLE = BorderStyle.SOLID;
+    private final static Length<?> BORDER_LENGTH = Length.pixel(1.0);
 
     private final static TextStyle DEFAULT_STYLE = TextStyle.EMPTY
         .set(
