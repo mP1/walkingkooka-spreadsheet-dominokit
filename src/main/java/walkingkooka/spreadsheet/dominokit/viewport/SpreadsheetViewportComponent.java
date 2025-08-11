@@ -402,11 +402,11 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
             SpreadsheetCellReference home = context.home();
             if (newHomeColumnOrRow.isColumn()) {
                 home = home.setColumn(
-                    (SpreadsheetColumnReference) newHomeColumnOrRow
+                    newHomeColumnOrRow.toColumn()
                 );
             } else {
                 home = home.setRow(
-                    (SpreadsheetRowReference) newHomeColumnOrRow
+                    newHomeColumnOrRow.toRow()
                 );
             }
 
