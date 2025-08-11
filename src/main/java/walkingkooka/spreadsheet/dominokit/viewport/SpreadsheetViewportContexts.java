@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatchers;
 import walkingkooka.tree.text.TextStyle;
 
 import java.util.function.Function;
@@ -57,6 +58,13 @@ public final class SpreadsheetViewportContexts implements PublicStaticHelper {
      */
     public static SpreadsheetViewportContext fake() {
         return new FakeSpreadsheetViewportContext();
+    }
+
+    /**
+     * {@see SpreadsheetMetadataSpreadsheetViewportContext}
+     */
+    public static SpreadsheetViewportContext spreadsheetMetadata(final SpreadsheetMetadataFetcherWatchers watchers) {
+        return SpreadsheetMetadataSpreadsheetViewportContext.with(watchers);
     }
 
     /**
