@@ -30,6 +30,13 @@ public final class SpreadsheetViewportComponentContexts implements PublicStaticH
     }
 
     /**
+     * {@see FakeSpreadsheetViewportComponentContext}
+     */
+    public static SpreadsheetViewportComponentContext fake() {
+        return new FakeSpreadsheetViewportComponentContext();
+    }
+
+    /**
      * Stop creation
      */
     private SpreadsheetViewportComponentContexts() {
