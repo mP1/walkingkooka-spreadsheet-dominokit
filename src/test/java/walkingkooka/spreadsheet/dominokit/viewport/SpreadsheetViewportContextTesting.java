@@ -19,11 +19,13 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.ContextTesting;
+import walkingkooka.text.printer.TreePrintableTesting;
 import walkingkooka.tree.text.TextStyle;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public interface SpreadsheetViewportContextTesting<C extends SpreadsheetViewportContext> extends ContextTesting<C> {
+public interface SpreadsheetViewportContextTesting<C extends SpreadsheetViewportContext> extends ContextTesting<C>,
+    TreePrintableTesting {
 
     // allCellsStyle....................................................................................................
 
