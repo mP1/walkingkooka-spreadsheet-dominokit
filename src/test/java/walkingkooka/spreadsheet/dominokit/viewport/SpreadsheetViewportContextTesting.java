@@ -83,4 +83,11 @@ public interface SpreadsheetViewportContextTesting<C extends SpreadsheetViewport
             textStyle::toString
         );
     }
+
+    // class............................................................................................................
+
+    @Override
+    default String typeNameSuffix() {
+        return SpreadsheetViewportContext.class.getSimpleName();
+    }
 }
