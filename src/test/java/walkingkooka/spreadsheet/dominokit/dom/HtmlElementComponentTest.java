@@ -248,10 +248,10 @@ public final class HtmlElementComponentTest implements ClassTesting<HtmlElementC
         this.treePrintAndCheck(
             HtmlElementComponent.table()
                 .setId("tableId123")
-                .setCssText("color: black;")
+                .setCssText("color: #123456;")
             ,
             "TABLE\n" +
-                "  id=\"tableId123\" style=\"color: #000000;\"\n"
+                "  id=\"tableId123\" style=\"color: #123456;\"\n"
         );
     }
 
@@ -283,6 +283,26 @@ public final class HtmlElementComponentTest implements ClassTesting<HtmlElementC
     }
 
     @Test
+    public void testTreePrintWithColorBlack() {
+        this.treePrintAndCheck(
+            HtmlElementComponent.div()
+                .setColor("black"),
+            "DIV\n" +
+                "  style=\"color: black;\"\n"
+        );
+    }
+
+    @Test
+    public void testTreePrintWithColorWithoutWebColorName() {
+        this.treePrintAndCheck(
+            HtmlElementComponent.div()
+                .setColor("#123456"),
+            "DIV\n" +
+                "  style=\"color: #123456;\"\n"
+        );
+    }
+
+    @Test
     public void testTable() {
         this.treePrintAndCheck(
             HtmlElementComponent.table()
@@ -294,7 +314,7 @@ public final class HtmlElementComponentTest implements ClassTesting<HtmlElementC
                                 .setId("th111")
                                 .setColor("green")
                                 .setCssText("background-color: white; color: black")
-                                .setCssProperty("background-color", "yellow")
+                                .setCssProperty("background-color", "#123456")
                                 .appendChild(
                                     TextComponent.with(
                                         Optional.of("A")
@@ -392,7 +412,7 @@ public final class HtmlElementComponentTest implements ClassTesting<HtmlElementC
                 "  id=\"tableId123\"\n" +
                 "    THEAD\n" +
                 "      TH\n" +
-                "        id=\"th111\" style=\"background-color: #ffff00; color: #000000;\"\n" +
+                "        id=\"th111\" style=\"background-color: #123456; color: black;\"\n" +
                 "          TextComponent\n" +
                 "            \"A\"\n" +
                 "      TH\n" +

@@ -27,6 +27,8 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.color.Color;
+import walkingkooka.color.RgbColor;
+import walkingkooka.color.WebColorName;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.text.CharSequences;
@@ -298,8 +300,15 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
         String out;
 
         try {
-            out = Color.parseRgb(value)
-                .toHexString();
+            final RgbColor color = Color.parseRgb(value);
+
+            final WebColorName webColorName = color.toWebColorName()
+                .orElse(null);
+            if (null != webColorName) {
+                out = webColorName.toString();
+            } else {
+                out = color.toHexString();
+            }
         } catch (final IllegalArgumentException iae) {
             out = value;
         }
