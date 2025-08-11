@@ -87,9 +87,9 @@ final class SpreadsheetMetadataSpreadsheetViewportContext implements Spreadsheet
         BORDER_LENGTH
     );
 
-    final static TextStyle CELL_STYLE = setCellTextAlignVerticalAlign(DEFAULT_STYLE);
+    private final static TextStyle CELL_STYLE = setCellTextAlignVerticalAlign(DEFAULT_STYLE);
 
-    final static TextStyle CELL_STYLE_WITH_BORDERS = setCellTextAlignVerticalAlign(STYLE_WITH_BORDERS);
+    private final static TextStyle CELL_STYLE_WITH_BORDERS = setCellTextAlignVerticalAlign(STYLE_WITH_BORDERS);
 
     private static TextStyle setCellTextAlignVerticalAlign(final TextStyle style) {
         return setTextAlignVerticalAlign(
