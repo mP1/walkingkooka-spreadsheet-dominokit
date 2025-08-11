@@ -27,7 +27,7 @@ final class BasicSpreadsheetViewportContext implements SpreadsheetViewportContex
     static BasicSpreadsheetViewportContext with(final TextStyle allCellsStyle,
                                                 final TextStyle selectedAllCellsStyle,
                                                 final TextStyle cellStyle,
-                                                final TextStyle selectedCellStyle,
+                                                final Function<TextStyle,TextStyle> selectedCellStyle,
                                                 final TextStyle columnStyle,
                                                 final TextStyle selectedColumnStyle,
                                                 final TextStyle rowStyle,
@@ -49,7 +49,7 @@ final class BasicSpreadsheetViewportContext implements SpreadsheetViewportContex
     private BasicSpreadsheetViewportContext(final TextStyle allCellsStyle,
                                             final TextStyle selectedAllCellsStyle,
                                             final TextStyle cellStyle,
-                                            final TextStyle selectedCellStyle,
+                                            final Function<TextStyle, TextStyle> selectedCellStyle,
                                             final TextStyle columnStyle,
                                             final TextStyle selectedColumnStyle,
                                             final TextStyle rowStyle,
@@ -94,11 +94,11 @@ final class BasicSpreadsheetViewportContext implements SpreadsheetViewportContex
     private final TextStyle cellStyle;
 
     @Override
-    public TextStyle selectedCellStyle() {
-        return this.selectedCellStyle;
+    public TextStyle selectedCellStyle(final TextStyle cellStyle) {
+        return this.selectedCellStyle.apply(cellStyle);
     }
 
-    private final TextStyle selectedCellStyle;
+    private final Function<TextStyle, TextStyle> selectedCellStyle;
 
     @Override
     public TextStyle columnStyle() {

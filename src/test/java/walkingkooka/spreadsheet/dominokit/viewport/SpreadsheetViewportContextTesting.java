@@ -25,6 +25,36 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public interface SpreadsheetViewportContextTesting<C extends SpreadsheetViewportContext> extends ContextTesting<C> {
 
+    // selectedCellStyle................................................................................................
+
+    @Test
+    default void testSelectedCellStyleWithNullTextStyleFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createContext()
+                .selectedCellStyle(null)
+        );
+    }
+
+    default void selectedCellStyleAndCheck(final TextStyle textStyle,
+                                           final TextStyle expected) {
+        this.selectedCellStyleAndCheck(
+            this.createContext(),
+            textStyle,
+            expected
+        );
+    }
+
+    default void selectedCellStyleAndCheck(final C context,
+                                           final TextStyle textStyle,
+                                           final TextStyle expected) {
+        this.checkEquals(
+            expected,
+            context.selectedCellStyle(textStyle),
+            textStyle::toString
+        );
+    }
+    
     // hideZeroStyle....................................................................................................
 
     @Test

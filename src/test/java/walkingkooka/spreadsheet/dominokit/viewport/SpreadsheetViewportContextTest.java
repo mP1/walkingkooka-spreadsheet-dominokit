@@ -29,6 +29,10 @@ public final class SpreadsheetViewportContextTest implements ClassTesting<Spread
 
     private final static TextStyle TEXT_STYLE = TextStyle.parse("color: black;");
 
+    private final static TextStyle CELL_STYLE = TextStyle.parse("background-color: white;");
+
+    private final static TextStyle SELECTED_CELL_STYLE = TEXT_STYLE.merge(CELL_STYLE);
+
     @Test
     public void testSelectionStyleWithCell() {
         this.selectionStyleAndCheck(
@@ -151,12 +155,13 @@ public final class SpreadsheetViewportContextTest implements ClassTesting<Spread
             new FakeSpreadsheetViewportContext() {
 
                 @Override
-                public TextStyle selectedCellStyle() {
-                    return TEXT_STYLE;
+                public TextStyle selectedCellStyle(final TextStyle cellStyle) {
+                    return TEXT_STYLE.merge(cellStyle);
                 }
             },
             SpreadsheetSelection.A1,
-            TEXT_STYLE
+            CELL_STYLE,
+            SELECTED_CELL_STYLE
         );
     }
 
@@ -166,12 +171,13 @@ public final class SpreadsheetViewportContextTest implements ClassTesting<Spread
             new FakeSpreadsheetViewportContext() {
 
                 @Override
-                public TextStyle selectedCellStyle() {
-                    return TEXT_STYLE;
+                public TextStyle selectedCellStyle(final TextStyle cellStyle) {
+                    return TEXT_STYLE.merge(cellStyle);
                 }
             },
             SpreadsheetSelection.parseCellRange("B2:C3"),
-            TEXT_STYLE
+            CELL_STYLE,
+            SELECTED_CELL_STYLE
         );
     }
 
@@ -181,12 +187,13 @@ public final class SpreadsheetViewportContextTest implements ClassTesting<Spread
             new FakeSpreadsheetViewportContext() {
 
                 @Override
-                public TextStyle selectedCellStyle() {
-                    return TEXT_STYLE;
+                public TextStyle selectedCellStyle(final TextStyle cellStyle) {
+                    return TEXT_STYLE.merge(cellStyle);
                 }
             },
             SpreadsheetSelection.labelName("Label123"),
-            TEXT_STYLE
+            CELL_STYLE,
+            SELECTED_CELL_STYLE
         );
     }
 
@@ -253,9 +260,24 @@ public final class SpreadsheetViewportContextTest implements ClassTesting<Spread
     private void selectedSelectionStyleAndCheck(final SpreadsheetViewportContext context,
                                                 final SpreadsheetSelection selection,
                                                 final TextStyle expected) {
+        this.selectedSelectionStyleAndCheck(
+            context,
+            selection,
+            TextStyle.EMPTY,
+            expected
+        );
+    }
+
+    private void selectedSelectionStyleAndCheck(final SpreadsheetViewportContext context,
+                                                final SpreadsheetSelection selection,
+                                                final TextStyle style,
+                                                final TextStyle expected) {
         this.checkEquals(
             expected,
-            context.selectedSelectionStyle(selection),
+            context.selectedSelectionStyle(
+                selection,
+                style
+            ),
             selection::toString
         );
     }
