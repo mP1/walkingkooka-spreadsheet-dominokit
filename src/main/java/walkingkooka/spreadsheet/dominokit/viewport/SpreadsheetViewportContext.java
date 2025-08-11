@@ -38,7 +38,7 @@ public interface SpreadsheetViewportContext extends Context {
     /**
      * The {@link TextStyle} for an unselected cell.
      */
-    TextStyle ellStyle();
+    TextStyle cellStyle();
 
     /**
      * The {@link TextStyle} for a selected cell.

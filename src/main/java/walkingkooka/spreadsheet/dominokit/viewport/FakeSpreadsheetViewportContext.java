@@ -36,7 +36,7 @@ public class FakeSpreadsheetViewportContext implements SpreadsheetViewportContex
     }
 
     @Override
-    public TextStyle ellStyle() {
+    public TextStyle cellStyle() {
         throw new UnsupportedOperationException();
     }
 
