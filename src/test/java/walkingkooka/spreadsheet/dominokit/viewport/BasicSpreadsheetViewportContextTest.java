@@ -259,11 +259,6 @@ public final class BasicSpreadsheetViewportContextTest implements SpreadsheetVie
 
     // class............................................................................................................
 
-    @Override
-    public String typeNameSuffix() {
-        return SpreadsheetViewportContext.class.getSimpleName();
-    }
-
     @Override 
     public Class<BasicSpreadsheetViewportContext> type() {
         return BasicSpreadsheetViewportContext.class;
