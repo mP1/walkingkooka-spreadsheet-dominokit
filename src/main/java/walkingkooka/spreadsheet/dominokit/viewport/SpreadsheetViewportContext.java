@@ -18,7 +18,10 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.Context;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStyle;
+
+import java.util.Objects;
 
 /**
  * A {@link Context} that mostly contains styles for a viewport.
@@ -64,6 +67,25 @@ public interface SpreadsheetViewportContext extends Context {
      * The {@link TextStyle} for a selected row.
      */
     TextStyle selectedRowStyle();
+
+    /**
+     * Picks the {@link TextStyle} given the {@link SpreadsheetSelection} type.
+     */
+    default TextStyle selectionStyle(final SpreadsheetSelection selection) {
+        Objects.requireNonNull(selection, "selection");
+
+        return selection.isExternalReference() ?
+            this.cellStyle() :
+            selection.isColumnOrColumnRange() ?
+                this.columnStyle() :
+                selection.isRowOrRowRange() ?
+                    this.rowStyle() :
+                    unknownSelection(selection);
+    }
+
+    private TextStyle unknownSelection(final SpreadsheetSelection selection) {
+        throw new IllegalArgumentException("Invalid selection " + selection);
+    }
 
     /**
      * Add some styling to indicate a hide zero.
