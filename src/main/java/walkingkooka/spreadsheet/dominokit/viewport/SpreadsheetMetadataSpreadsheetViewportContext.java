@@ -20,10 +20,10 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.text.BorderStyle;
@@ -118,11 +118,11 @@ final class SpreadsheetMetadataSpreadsheetViewportContext implements Spreadsheet
         );
     }
 
-    static SpreadsheetMetadataSpreadsheetViewportContext with(final SpreadsheetMetadataFetcherWatchers watchers) {
+    static SpreadsheetMetadataSpreadsheetViewportContext with(final HasSpreadsheetMetadataFetcherWatchers watchers) {
         return new SpreadsheetMetadataSpreadsheetViewportContext(watchers);
     }
 
-    private SpreadsheetMetadataSpreadsheetViewportContext(final SpreadsheetMetadataFetcherWatchers watchers) {
+    private SpreadsheetMetadataSpreadsheetViewportContext(final HasSpreadsheetMetadataFetcherWatchers watchers) {
         watchers.addSpreadsheetMetadataFetcherWatcher(this);
     }
 
