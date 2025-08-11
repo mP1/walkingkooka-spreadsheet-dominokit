@@ -83,6 +83,21 @@ public interface SpreadsheetViewportContext extends Context {
                     unknownSelection(selection);
     }
 
+    /**
+     * Picks the selected {@link TextStyle} given the {@link SpreadsheetSelection} type.
+     */
+    default TextStyle selectedSelectionStyle(final SpreadsheetSelection selection) {
+        Objects.requireNonNull(selection, "selection");
+
+        return selection.isExternalReference() ?
+            this.selectedCellStyle() :
+            selection.isColumnOrColumnRange() ?
+                this.selectedColumnStyle() :
+                selection.isRowOrRowRange() ?
+                    this.selectedRowStyle() :
+                    unknownSelection(selection);
+    }
+
     private TextStyle unknownSelection(final SpreadsheetSelection selection) {
         throw new IllegalArgumentException("Invalid selection " + selection);
     }

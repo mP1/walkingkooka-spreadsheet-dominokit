@@ -143,6 +143,123 @@ public final class SpreadsheetViewportContextTest implements ClassTesting<Spread
         );
     }
 
+    // selectedSelectionStyle...........................................................................................
+
+    @Test
+    public void testSelectedSelectionStyleWithCell() {
+        this.selectedSelectionStyleAndCheck(
+            new FakeSpreadsheetViewportContext() {
+
+                @Override
+                public TextStyle selectedCellStyle() {
+                    return TEXT_STYLE;
+                }
+            },
+            SpreadsheetSelection.A1,
+            TEXT_STYLE
+        );
+    }
+
+    @Test
+    public void testSelectedSelectionStyleWithCellRange() {
+        this.selectedSelectionStyleAndCheck(
+            new FakeSpreadsheetViewportContext() {
+
+                @Override
+                public TextStyle selectedCellStyle() {
+                    return TEXT_STYLE;
+                }
+            },
+            SpreadsheetSelection.parseCellRange("B2:C3"),
+            TEXT_STYLE
+        );
+    }
+
+    @Test
+    public void testSelectedSelectionStyleWithLabel() {
+        this.selectedSelectionStyleAndCheck(
+            new FakeSpreadsheetViewportContext() {
+
+                @Override
+                public TextStyle selectedCellStyle() {
+                    return TEXT_STYLE;
+                }
+            },
+            SpreadsheetSelection.labelName("Label123"),
+            TEXT_STYLE
+        );
+    }
+
+    @Test
+    public void testSelectedSelectionStyleWithColumn() {
+        this.selectedSelectionStyleAndCheck(
+            new FakeSpreadsheetViewportContext() {
+
+                @Override
+                public TextStyle selectedColumnStyle() {
+                    return TEXT_STYLE;
+                }
+            },
+            SpreadsheetSelection.parseColumn("F"),
+            TEXT_STYLE
+        );
+    }
+
+    @Test
+    public void testSelectedSelectionStyleWithColumnRange() {
+        this.selectedSelectionStyleAndCheck(
+            new FakeSpreadsheetViewportContext() {
+
+                @Override
+                public TextStyle selectedColumnStyle() {
+                    return TEXT_STYLE;
+                }
+            },
+            SpreadsheetSelection.parseColumnRange("G:H"),
+            TEXT_STYLE
+        );
+    }
+
+    @Test
+    public void testSelectedSelectionStyleWithRow() {
+        this.selectedSelectionStyleAndCheck(
+            new FakeSpreadsheetViewportContext() {
+
+                @Override
+                public TextStyle selectedRowStyle() {
+                    return TEXT_STYLE;
+                }
+            },
+            SpreadsheetSelection.parseRow("6"),
+            TEXT_STYLE
+        );
+    }
+
+    @Test
+    public void testSelectedSelectionStyleWithRowRange() {
+        this.selectedSelectionStyleAndCheck(
+            new FakeSpreadsheetViewportContext() {
+
+                @Override
+                public TextStyle selectedRowStyle() {
+                    return TEXT_STYLE;
+                }
+            },
+            SpreadsheetSelection.parseRowRange("7:88"),
+            TEXT_STYLE
+        );
+    }
+
+    private void selectedSelectionStyleAndCheck(final SpreadsheetViewportContext context,
+                                                final SpreadsheetSelection selection,
+                                                final TextStyle expected) {
+        this.checkEquals(
+            expected,
+            context.selectedSelectionStyle(selection),
+            selection::toString
+        );
+    }
+
     // class............................................................................................................
 
     @Override
