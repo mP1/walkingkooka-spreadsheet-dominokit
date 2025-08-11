@@ -253,7 +253,7 @@ public final class BasicSpreadsheetViewportContextTest implements SpreadsheetVie
     public void testToString() {
         this.toStringAndCheck(
             this.createContext(),
-            "allCellsStyle: {color=#000000}, selectedAllCellsStyle: {color=#111111}, cellStyle: {color=#222222}, selectedCellStyle: {color=#333333}, columnStyle: {color=#444444}, selectedColumnStyle: {color=#555555}, rowStyle: {color=#666666}, selectedRowStyle: {color=#777777}, hideZeroStyle: " + HIDE_ZERO_STYLE
+            "allCellsStyle: {color=black}, selectedAllCellsStyle: {color=#111111}, cellStyle: {color=#222222}, selectedCellStyle: {color=#333333}, columnStyle: {color=#444444}, selectedColumnStyle: {color=#555555}, rowStyle: {color=#666666}, selectedRowStyle: {color=#777777}, hideZeroStyle: " + HIDE_ZERO_STYLE
         );
     }
 

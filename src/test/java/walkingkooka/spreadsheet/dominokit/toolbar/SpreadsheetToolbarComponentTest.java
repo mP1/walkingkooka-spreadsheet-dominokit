@@ -110,7 +110,7 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
         this.idAndCheck(
             TextStylePropertyName.COLOR,
             Optional.of(Color.BLACK),
-            "toolbar-color-#000000"
+            "toolbar-color-BLACK"
         );
     }
 
