@@ -33,7 +33,7 @@ public final class SpreadsheetViewportContexts implements PublicStaticHelper {
     public static SpreadsheetViewportContext basic(final TextStyle allCellsStyle,
                                                    final TextStyle selectedAllCellsStyle,
                                                    final TextStyle cellStyle,
-                                                   final TextStyle selectedCellStyle,
+                                                   final Function<TextStyle,TextStyle> selectedCellStyle,
                                                    final TextStyle columnStyle,
                                                    final TextStyle selectedColumnStyle,
                                                    final TextStyle rowStyle,

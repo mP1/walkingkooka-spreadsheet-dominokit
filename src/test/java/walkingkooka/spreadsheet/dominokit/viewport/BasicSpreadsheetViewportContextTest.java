@@ -43,10 +43,10 @@ public final class BasicSpreadsheetViewportContextTest implements SpreadsheetVie
         TextStylePropertyName.COLOR,
         Color.parse("#222")
     );
-    private final static  TextStyle SELECTED_CELL_STYLE = TextStyle.EMPTY.set(
-        TextStylePropertyName.COLOR,
-        Color.parse("#333")
-    );
+    private final static Function<TextStyle, TextStyle> SELECTED_CELL_STYLE = (s) -> {
+        Objects.requireNonNull(s, "textStyle");
+        return s;
+    };
     private final static TextStyle COLUMN_STYLE = TextStyle.EMPTY.set(
         TextStylePropertyName.COLOR,
         Color.parse("#444")
@@ -253,7 +253,7 @@ public final class BasicSpreadsheetViewportContextTest implements SpreadsheetVie
     public void testToString() {
         this.toStringAndCheck(
             this.createContext(),
-            "allCellsStyle: {color=black}, selectedAllCellsStyle: {color=#111111}, cellStyle: {color=#222222}, selectedCellStyle: {color=#333333}, columnStyle: {color=#444444}, selectedColumnStyle: {color=#555555}, rowStyle: {color=#666666}, selectedRowStyle: {color=#777777}, hideZeroStyle: " + HIDE_ZERO_STYLE
+            "allCellsStyle: {color=black}, selectedAllCellsStyle: {color=#111111}, cellStyle: {color=#222222}, selectedCellStyle: " + SELECTED_CELL_STYLE + ", columnStyle: {color=#444444}, selectedColumnStyle: {color=#555555}, rowStyle: {color=#666666}, selectedRowStyle: {color=#777777}, hideZeroStyle: " + HIDE_ZERO_STYLE
         );
     }
 

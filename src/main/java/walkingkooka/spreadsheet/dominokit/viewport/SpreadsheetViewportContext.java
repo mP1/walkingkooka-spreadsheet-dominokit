@@ -46,7 +46,7 @@ public interface SpreadsheetViewportContext extends Context {
     /**
      * The {@link TextStyle} for a selected cell.
      */
-    TextStyle selectedCellStyle();
+    TextStyle selectedCellStyle(final TextStyle cellStyle);
 
     /**
      * The {@link TextStyle} for a unselected column.
@@ -86,11 +86,12 @@ public interface SpreadsheetViewportContext extends Context {
     /**
      * Picks the selected {@link TextStyle} given the {@link SpreadsheetSelection} type.
      */
-    default TextStyle selectedSelectionStyle(final SpreadsheetSelection selection) {
+    default TextStyle selectedSelectionStyle(final SpreadsheetSelection selection,
+                                             final TextStyle cellStyle) {
         Objects.requireNonNull(selection, "selection");
 
         return selection.isExternalReference() ?
-            this.selectedCellStyle() :
+            this.selectedCellStyle(cellStyle) :
             selection.isColumnOrColumnRange() ?
                 this.selectedColumnStyle() :
                 selection.isRowOrRowRange() ?

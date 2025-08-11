@@ -40,9 +40,9 @@ public interface SpreadsheetViewportContextDelegator extends SpreadsheetViewport
     }
 
     @Override
-    default TextStyle selectedCellStyle() {
+    default TextStyle selectedCellStyle(final TextStyle cellStyle) {
         return this.spreadsheetViewportContext()
-            .selectedCellStyle();
+            .selectedCellStyle(cellStyle);
     }
 
     @Override

@@ -41,7 +41,7 @@ public class FakeSpreadsheetViewportContext implements SpreadsheetViewportContex
     }
 
     @Override
-    public TextStyle selectedCellStyle() {
+    public TextStyle selectedCellStyle(final TextStyle style) {
         throw new UnsupportedOperationException();
     }
 

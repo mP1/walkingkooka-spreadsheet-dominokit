@@ -44,6 +44,12 @@ public final class SpreadsheetViewportContextDelegatorTest implements Spreadshee
         @Override
         public SpreadsheetViewportContext spreadsheetViewportContext() {
             return new FakeSpreadsheetViewportContext() {
+
+                @Override
+                public TextStyle selectedCellStyle(final TextStyle style) {
+                    return Objects.requireNonNull(style, "style");
+                }
+
                 @Override
                 public TextStyle hideZeroStyle(final TextStyle style) {
                     return Objects.requireNonNull(style, "style");
