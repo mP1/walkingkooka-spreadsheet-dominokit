@@ -18,11 +18,39 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.tree.text.TextStyle;
+
+import java.util.function.Function;
 
 /**
  * A collection of {@link SpreadsheetViewportContext}
  */
 public final class SpreadsheetViewportContexts implements PublicStaticHelper {
+
+    /**
+     * {@see BasicSpreadsheetViewportContext}
+     */
+    public static SpreadsheetViewportContext basic(final TextStyle allCellsStyle,
+                                                   final TextStyle selectedAllCellsStyle,
+                                                   final TextStyle cellStyle,
+                                                   final TextStyle selectedCellStyle,
+                                                   final TextStyle columnStyle,
+                                                   final TextStyle selectedColumnStyle,
+                                                   final TextStyle rowStyle,
+                                                   final TextStyle selectedRowStyle,
+                                                   final Function<TextStyle, TextStyle> hideZeroStyle) {
+        return BasicSpreadsheetViewportContext.with(
+            allCellsStyle,
+            selectedAllCellsStyle,
+            cellStyle,
+            selectedCellStyle,
+            columnStyle,
+            selectedColumnStyle,
+            rowStyle,
+            selectedRowStyle,
+            hideZeroStyle
+        );
+    }
 
     /**
      * {@see FakeSpreadsheetViewportContext}
