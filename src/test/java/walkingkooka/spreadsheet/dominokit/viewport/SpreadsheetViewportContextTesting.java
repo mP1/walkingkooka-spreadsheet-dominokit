@@ -25,6 +25,42 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public interface SpreadsheetViewportContextTesting<C extends SpreadsheetViewportContext> extends ContextTesting<C> {
 
+    // allCellsStyle....................................................................................................
+
+
+    default void allCellsStyleAndCheck(final C context, 
+                                       final TextStyle expected) {
+        this.checkEquals(
+            expected,
+            context.allCellsStyle(),
+            context::toString
+        );
+    }
+
+    // selectedAllCellsStyle............................................................................................
+
+
+    default void selectedAllCellsStyleAndCheck(final C context,
+                                       final TextStyle expected) {
+        this.checkEquals(
+            expected,
+            context.selectedAllCellsStyle(),
+            context::toString
+        );
+    }
+
+    // cellStyle........................................................................................................
+    
+
+    default void cellStyleAndCheck(final C context,
+                                   final TextStyle expected) {
+        this.checkEquals(
+            expected,
+            context.cellStyle(),
+            context::toString
+        );
+    }
+    
     // selectedCellStyle................................................................................................
 
     @Test
@@ -52,6 +88,54 @@ public interface SpreadsheetViewportContextTesting<C extends SpreadsheetViewport
             expected,
             context.selectedCellStyle(textStyle),
             textStyle::toString
+        );
+    }
+
+    // columnsStyle.....................................................................................................
+
+
+    default void columnsStyleAndCheck(final C context,
+                                       final TextStyle expected) {
+        this.checkEquals(
+            expected,
+            context.columnStyle(),
+            context::toString
+        );
+    }
+
+    // selectedColumnsStyle.............................................................................................
+
+
+    default void selectedColumnsStyleAndCheck(final C context,
+                                               final TextStyle expected) {
+        this.checkEquals(
+            expected,
+            context.selectedColumnStyle(),
+            context::toString
+        );
+    }
+
+    // rowsStyle........................................................................................................
+
+
+    default void rowsStyleAndCheck(final C context,
+                                      final TextStyle expected) {
+        this.checkEquals(
+            expected,
+            context.rowStyle(),
+            context::toString
+        );
+    }
+
+    // selectedRowsStyle................................................................................................
+
+
+    default void selectedRowsStyleAndCheck(final C context,
+                                              final TextStyle expected) {
+        this.checkEquals(
+            expected,
+            context.selectedRowStyle(),
+            context::toString
         );
     }
     
