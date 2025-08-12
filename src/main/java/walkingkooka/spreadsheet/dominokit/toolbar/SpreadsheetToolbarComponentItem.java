@@ -167,6 +167,13 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
 
 
     /**
+     * {@see SpreadsheetToolbarComponentItemAnchorMetadataBooleanShowFormulas}
+     */
+    static SpreadsheetToolbarComponentItem<?> showFormulas(final SpreadsheetToolbarComponentContext context) {
+        return SpreadsheetToolbarComponentItemAnchorMetadataBooleanShowFormulas.with(context);
+    }
+
+    /**
      * {@link SpreadsheetToolbarComponentItemAnchorSort}
      */
     static SpreadsheetToolbarComponentItem<?> sort(final SpreadsheetToolbarComponentContext context) {
