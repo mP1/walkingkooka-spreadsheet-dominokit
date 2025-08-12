@@ -24,7 +24,7 @@ import walkingkooka.color.Color;
 import walkingkooka.color.WebColorName;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
-import walkingkooka.spreadsheet.dominokit.AppContexts;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -39,7 +39,9 @@ import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
+import walkingkooka.tree.text.WordBreak;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest extends SpreadsheetViewportComponentTableCellTestCase<HTMLTableCellElement, SpreadsheetViewportComponentTableCellSpreadsheetCell> {
@@ -55,7 +57,8 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
             123,
             "SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
                 "  TD\n" +
-                "    id=\"viewport-cell-A1\" tabIndex=0 style=\"background-color: black; box-sizing: border-box; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n"
+                "    id=\"viewport-cell-A1\" tabIndex=0 style=\"background-color: black; box-sizing: border-box; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "      Text \"123\"\n"
         );
     }
 
@@ -70,7 +73,7 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
             0,
             "SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
                 "  TD\n" +
-                "    id=\"viewport-cell-A1\" tabIndex=0 style=\"background-color: black; box-sizing: border-box; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n"
+                "    id=\"viewport-cell-A1\" tabIndex=0 style=\"background-color: black; box-sizing: border-box; height: 50px; min-height: 50px; min-width: 100px; width: 100px; word-break: keep-all;\"\n"
         );
     }
 
@@ -87,7 +90,8 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
             123,
             "SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
                 "  TD\n" +
-                "    id=\"viewport-cell-A1\" tabIndex=0 style=\"box-sizing: border-box; color: green; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n"
+                "    id=\"viewport-cell-A1\" tabIndex=0 style=\"box-sizing: border-box; color: green; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "      Text \"123\"\n"
         );
     }
 
@@ -104,7 +108,8 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
             123,
             "SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
                 "  TD\n" +
-                "    id=\"viewport-cell-A1\" tabIndex=0 style=\"box-sizing: border-box; color: green; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n"
+                "    id=\"viewport-cell-A1\" tabIndex=0 style=\"box-sizing: border-box; color: green; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "      Text \"123\"\n"
         );
     }
 
@@ -120,7 +125,8 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
             123,
             "SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
                 "  TD\n" +
-                "    id=\"viewport-cell-A1\" tabIndex=0 style=\"box-sizing: border-box; color: green; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n"
+                "    id=\"viewport-cell-A1\" tabIndex=0 style=\"box-sizing: border-box; color: green; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "      Text \"123\"\n"
         );
     }
 
@@ -184,6 +190,16 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
             }
 
             @Override
+            public TextStyle hideZeroStyle(final TextStyle style) {
+                return style.merge(
+                    TextStyle.EMPTY.set(
+                        TextStylePropertyName.WORD_BREAK,
+                        WordBreak.KEEP_ALL
+                    )
+                );
+            }
+
+            @Override
             public SpreadsheetViewportCache spreadsheetViewportCache() {
                 return this.spreadsheetViewportCache;
             }
@@ -192,6 +208,12 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
         };
 
         final SpreadsheetMetadata metadata = SpreadsheetMetadata.EMPTY.set(
+            SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+            SPREADSHEET_ID
+        ).set(
+            SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
+            SPREADSHEET_NAME
+        ).set(
             SpreadsheetMetadataPropertyName.STYLE,
             TextStyle.EMPTY.set(
                 TextStylePropertyName.WIDTH,
@@ -202,10 +224,18 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
             )
         );
 
+        final AppContext appContext = new FakeAppContext() {
+
+            @Override
+            public void debug(final Object... values) {
+                System.out.println("DEBUG " + Arrays.toString(values));
+            }
+        };
+
         tableContext.spreadsheetViewportCache()
             .onSpreadsheetMetadata(
                 metadata,
-                new FakeAppContext()
+                appContext
             );
 
         tableContext.spreadsheetViewportCache()
@@ -230,7 +260,7 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
                         )
                     )
                 ),
-                AppContexts.fake()
+                appContext
             );
 
         this.treePrintAndCheck(
