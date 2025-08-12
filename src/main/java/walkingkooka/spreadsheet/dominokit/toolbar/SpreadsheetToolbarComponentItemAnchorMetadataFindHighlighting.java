@@ -84,7 +84,7 @@ final class SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting extend
 
         if (token instanceof SpreadsheetMetadataPropertyHistoryToken) {
             final SpreadsheetMetadataPropertyHistoryToken<?> metadata = token.cast(SpreadsheetMetadataPropertyHistoryToken.class);
-            ignore = false == SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES.equals(metadata.propertyName());
+            ignore = false == SpreadsheetMetadataPropertyName.FIND_HIGHLIGHTING.equals(metadata.propertyName());
         }
 
         return ignore;
