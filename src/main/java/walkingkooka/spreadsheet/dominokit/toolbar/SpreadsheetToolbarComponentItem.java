@@ -96,7 +96,7 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
     }
 
     /**
-     * {@see SpreadsheetToolbarComponentItemLinkMetadataHideZeroValues}
+     * {@see SpreadsheetToolbarComponentItemAnchorMetadataBooleanHideZeroValues}
      */
     static SpreadsheetToolbarComponentItem<?> hideZeroValues(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorMetadataBooleanHideZeroValues.with(
