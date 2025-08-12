@@ -176,7 +176,7 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hideZeroValues/save/true] id=toolbar-hide-zero-values-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Zero Values\"\n" +
-                "      mdi-spotlight-beam \"Show Formulas\" [#/1/Spreadsheet123/spreadsheet/showFormulas/save/true] id=toolbar-find-highlight-Link\n" +
+                "      mdi-math-integral \"Show Formulas\" [#/1/Spreadsheet123/spreadsheet/showFormulas/save/true] id=toolbar-show-formulas-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Hide Formulas\"\n" +
                 "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/find] id=toolbar-find-cells-Link\n" +
@@ -282,7 +282,7 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hideZeroValues/save/true] id=toolbar-hide-zero-values-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Zero Values\"\n" +
-                "      mdi-spotlight-beam \"Show Formulas\" [#/1/Spreadsheet123/spreadsheet/showFormulas/save/true] id=toolbar-find-highlight-Link\n" +
+                "      mdi-math-integral \"Show Formulas\" [#/1/Spreadsheet123/spreadsheet/showFormulas/save/true] id=toolbar-show-formulas-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Hide Formulas\"\n" +
                 "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/find] id=toolbar-find-cells-Link\n" +
@@ -331,7 +331,7 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hideZeroValues/save/true] id=toolbar-hide-zero-values-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Zero Values\"\n" +
-                "      mdi-spotlight-beam \"Show Formulas\" [#/1/Spreadsheet123/spreadsheet/showFormulas/save/true] id=toolbar-find-highlight-Link\n" +
+                "      mdi-math-integral \"Show Formulas\" [#/1/Spreadsheet123/spreadsheet/showFormulas/save/true] id=toolbar-show-formulas-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Hide Formulas\"\n" +
                 "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/find] id=toolbar-find-cells-Link\n" +
@@ -380,7 +380,7 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hideZeroValues/save/true] id=toolbar-hide-zero-values-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Zero Values\"\n" +
-                "      mdi-spotlight-beam \"Show Formulas\" [#/1/Spreadsheet123/spreadsheet/showFormulas/save/true] id=toolbar-find-highlight-Link\n" +
+                "      mdi-math-integral \"Show Formulas\" [#/1/Spreadsheet123/spreadsheet/showFormulas/save/true] id=toolbar-show-formulas-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Hide Formulas\"\n" +
                 "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/find] id=toolbar-find-cells-Link\n" +

@@ -254,6 +254,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.table_row_remove();
     }
 
+    public static MdiIcon showFormulas() {
+        return Icons.math_integral();
+    }
+
     public static MdiIcon sort() {
         return Icons.sort();
     }
