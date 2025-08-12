@@ -74,6 +74,12 @@ public interface SpreadsheetViewportContextDelegator extends SpreadsheetViewport
         return this.spreadsheetViewportContext()
             .hideZeroStyle(style);
     }
+
+    @Override
+    default TextStyle showFormulasStyle(final TextStyle style) {
+        return this.spreadsheetViewportContext()
+            .hideZeroStyle(style);
+    }
     
     SpreadsheetViewportContext spreadsheetViewportContext();
 }

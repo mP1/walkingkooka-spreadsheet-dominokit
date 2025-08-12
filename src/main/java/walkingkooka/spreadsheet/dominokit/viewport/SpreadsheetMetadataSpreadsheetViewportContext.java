@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.text.BorderStyle;
+import walkingkooka.tree.text.FontFamily;
 import walkingkooka.tree.text.FontSize;
 import walkingkooka.tree.text.FontStyle;
 import walkingkooka.tree.text.FontVariant;
@@ -217,6 +218,16 @@ final class SpreadsheetMetadataSpreadsheetViewportContext implements Spreadsheet
             color
         );
     }
+
+    @Override
+    public TextStyle showFormulasStyle(final TextStyle style) {
+        return style.set(
+            TextStylePropertyName.FONT_FAMILY,
+            FORMULA_FONT
+        );
+    }
+
+    private final static FontFamily FORMULA_FONT = FontFamily.with("Courier");
 
     // SpreadsheetMetadataFetcherWatcher................................................................................
 

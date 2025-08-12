@@ -67,6 +67,10 @@ public final class BasicSpreadsheetViewportContextTest implements SpreadsheetVie
         Objects.requireNonNull(s, "textStyle");
         return s;
     };
+    private final static  Function<TextStyle, TextStyle> SHOW_FORMULAS_STYLE = (s) -> {
+        Objects.requireNonNull(s, "textStyle");
+        return s;
+    };
 
     // with.............................................................................................................
 
@@ -83,7 +87,8 @@ public final class BasicSpreadsheetViewportContextTest implements SpreadsheetVie
                 SELECTED_COLUMN_STYLE,
                 ROW_STYLE,
                 SELECTED_ROW_STYLE,
-                HIDE_ZERO_STYLE
+                HIDE_ZERO_STYLE,
+                SHOW_FORMULAS_STYLE
             )
         );
     }
@@ -101,7 +106,8 @@ public final class BasicSpreadsheetViewportContextTest implements SpreadsheetVie
                 SELECTED_COLUMN_STYLE,
                 ROW_STYLE,
                 SELECTED_ROW_STYLE,
-                HIDE_ZERO_STYLE
+                HIDE_ZERO_STYLE,
+                SHOW_FORMULAS_STYLE
             )
         );
     }
@@ -119,7 +125,8 @@ public final class BasicSpreadsheetViewportContextTest implements SpreadsheetVie
                 SELECTED_COLUMN_STYLE,
                 ROW_STYLE,
                 SELECTED_ROW_STYLE,
-                HIDE_ZERO_STYLE
+                HIDE_ZERO_STYLE,
+                SHOW_FORMULAS_STYLE
             )
         );
     }
@@ -137,7 +144,8 @@ public final class BasicSpreadsheetViewportContextTest implements SpreadsheetVie
                 SELECTED_COLUMN_STYLE,
                 ROW_STYLE,
                 SELECTED_ROW_STYLE,
-                HIDE_ZERO_STYLE
+                HIDE_ZERO_STYLE,
+                SHOW_FORMULAS_STYLE
             )
         );
     }
@@ -155,7 +163,8 @@ public final class BasicSpreadsheetViewportContextTest implements SpreadsheetVie
                 SELECTED_COLUMN_STYLE,
                 ROW_STYLE,
                 SELECTED_ROW_STYLE,
-                HIDE_ZERO_STYLE
+                HIDE_ZERO_STYLE,
+                SHOW_FORMULAS_STYLE
             )
         );
     }
@@ -173,7 +182,8 @@ public final class BasicSpreadsheetViewportContextTest implements SpreadsheetVie
                 null,
                 ROW_STYLE,
                 SELECTED_ROW_STYLE,
-                HIDE_ZERO_STYLE
+                HIDE_ZERO_STYLE,
+                SHOW_FORMULAS_STYLE
             )
         );
     }
@@ -191,7 +201,8 @@ public final class BasicSpreadsheetViewportContextTest implements SpreadsheetVie
                 SELECTED_COLUMN_STYLE,
                 null,
                 SELECTED_ROW_STYLE,
-                HIDE_ZERO_STYLE
+                HIDE_ZERO_STYLE,
+                SHOW_FORMULAS_STYLE
             )
         );
     }
@@ -209,7 +220,8 @@ public final class BasicSpreadsheetViewportContextTest implements SpreadsheetVie
                 SELECTED_COLUMN_STYLE,
                 ROW_STYLE,
                 null,
-                HIDE_ZERO_STYLE
+                HIDE_ZERO_STYLE,
+                SHOW_FORMULAS_STYLE
             )
         );
     }
@@ -227,6 +239,26 @@ public final class BasicSpreadsheetViewportContextTest implements SpreadsheetVie
                 SELECTED_COLUMN_STYLE,
                 ROW_STYLE,
                 SELECTED_ROW_STYLE,
+                null,
+                SHOW_FORMULAS_STYLE
+            )
+        );
+    }
+
+    @Test
+    public void testWithNullShowFormulasStyleFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> BasicSpreadsheetViewportContext.with(
+                ALL_CELLS_STYLE,
+                SELECTED_ALL_CELLS_STYLE,
+                CELL_STYLE,
+                SELECTED_CELL_STYLE,
+                COLUMN_STYLE,
+                SELECTED_COLUMN_STYLE,
+                ROW_STYLE,
+                SELECTED_ROW_STYLE,
+                HIDE_ZERO_STYLE,
                 null
             )
         );
@@ -243,7 +275,8 @@ public final class BasicSpreadsheetViewportContextTest implements SpreadsheetVie
             SELECTED_COLUMN_STYLE,
             ROW_STYLE,
             SELECTED_ROW_STYLE,
-            HIDE_ZERO_STYLE
+            HIDE_ZERO_STYLE,
+            SHOW_FORMULAS_STYLE
         );
     }
 
@@ -253,7 +286,11 @@ public final class BasicSpreadsheetViewportContextTest implements SpreadsheetVie
     public void testToString() {
         this.toStringAndCheck(
             this.createContext(),
-            "allCellsStyle: {color=black}, selectedAllCellsStyle: {color=#111111}, cellStyle: {color=#222222}, selectedCellStyle: " + SELECTED_CELL_STYLE + ", columnStyle: {color=#444444}, selectedColumnStyle: {color=#555555}, rowStyle: {color=#666666}, selectedRowStyle: {color=#777777}, hideZeroStyle: " + HIDE_ZERO_STYLE
+            "allCellsStyle: {color=black}, selectedAllCellsStyle: {color=#111111}, cellStyle: {color=#222222}, " +
+                "selectedCellStyle: " + SELECTED_CELL_STYLE + ", columnStyle: {color=#444444}, " +
+                "selectedColumnStyle: {color=#555555}, rowStyle: {color=#666666}, selectedRowStyle: {color=#777777}, " +
+                "hideZeroStyle: " + HIDE_ZERO_STYLE +
+                ", showFormulasStyle: " + SHOW_FORMULAS_STYLE
         );
     }
 

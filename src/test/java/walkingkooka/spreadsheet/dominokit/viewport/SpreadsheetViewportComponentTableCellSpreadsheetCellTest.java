@@ -35,6 +35,7 @@ import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.tree.text.FontStyle;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
@@ -91,7 +92,7 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
             0,
             "SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
                 "  TD\n" +
-                "    id=\"viewport-cell-A1\" tabIndex=0 style=\"background-color: black; box-sizing: border-box; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "    id=\"viewport-cell-A1\" tabIndex=0 style=\"background-color: black; box-sizing: border-box; font-style: italic; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
                 "      Text \"=1+2\"\n"
         );
     }
@@ -223,6 +224,16 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
                     TextStyle.EMPTY.set(
                         TextStylePropertyName.WORD_BREAK,
                         WordBreak.KEEP_ALL
+                    )
+                );
+            }
+
+            @Override
+            public TextStyle showFormulasStyle(final TextStyle style) {
+                return style.merge(
+                    TextStyle.EMPTY.set(
+                        TextStylePropertyName.FONT_STYLE,
+                        FontStyle.ITALIC
                     )
                 );
             }

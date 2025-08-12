@@ -32,7 +32,8 @@ final class BasicSpreadsheetViewportContext implements SpreadsheetViewportContex
                                                 final TextStyle selectedColumnStyle,
                                                 final TextStyle rowStyle,
                                                 final TextStyle selectedRowStyle,
-                                                final Function<TextStyle, TextStyle> hideZeroStyle) {
+                                                final Function<TextStyle, TextStyle> hideZeroStyle,
+                                                final Function<TextStyle, TextStyle> showFormulasStyle) {
         return new BasicSpreadsheetViewportContext(
             Objects.requireNonNull(allCellsStyle, "allCellsStyle"),
             Objects.requireNonNull(selectedAllCellsStyle, "selectedAllCellsStyle"),
@@ -42,7 +43,8 @@ final class BasicSpreadsheetViewportContext implements SpreadsheetViewportContex
             Objects.requireNonNull(selectedColumnStyle, "selectedColumnStyle"),
             Objects.requireNonNull(rowStyle, "rowStyle"),
             Objects.requireNonNull(selectedRowStyle, "selectedRowStyle"),
-            Objects.requireNonNull(hideZeroStyle, "hideZeroStyle")
+            Objects.requireNonNull(hideZeroStyle, "hideZeroStyle"),
+            Objects.requireNonNull(showFormulasStyle, "showFormulasStyle")
         );
     }
 
@@ -54,7 +56,8 @@ final class BasicSpreadsheetViewportContext implements SpreadsheetViewportContex
                                             final TextStyle selectedColumnStyle,
                                             final TextStyle rowStyle,
                                             final TextStyle selectedRowStyle,
-                                            final Function<TextStyle, TextStyle> hideZeroStyle) {
+                                            final Function<TextStyle, TextStyle> hideZeroStyle,
+                                            final Function<TextStyle, TextStyle> showFormulasStyle) {
         this.allCellsStyle = allCellsStyle;
         this.selectedAllCellsStyle = selectedAllCellsStyle;
 
@@ -68,6 +71,8 @@ final class BasicSpreadsheetViewportContext implements SpreadsheetViewportContex
         this.selectedRowStyle = selectedRowStyle;
 
         this.hideZeroStyle = hideZeroStyle;
+
+        this.showFormulasStyle = showFormulasStyle;
     }
 
     // SpreadsheetViewportContext.......................................................................................
@@ -136,6 +141,13 @@ final class BasicSpreadsheetViewportContext implements SpreadsheetViewportContex
 
     private Function<TextStyle, TextStyle> hideZeroStyle;
 
+    @Override
+    public TextStyle showFormulasStyle(final TextStyle style) {
+        return this.showFormulasStyle.apply(style);
+    }
+
+    private Function<TextStyle, TextStyle> showFormulasStyle;
+
     // Object...........................................................................................................
 
     @Override
@@ -148,6 +160,7 @@ final class BasicSpreadsheetViewportContext implements SpreadsheetViewportContex
             ", selectedColumnStyle: " + this.selectedColumnStyle +
             ", rowStyle: " + this.rowStyle +
             ", selectedRowStyle: " + this.selectedRowStyle +
-            ", hideZeroStyle: " + this.hideZeroStyle;
+            ", hideZeroStyle: " + this.hideZeroStyle +
+            ", showFormulasStyle: " + this.showFormulasStyle;
     }
 }
