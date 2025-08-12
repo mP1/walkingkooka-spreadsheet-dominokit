@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.dom.TdComponent;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.expression.ExpressionNumber;
@@ -94,34 +95,41 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
 
         Optional<SpreadsheetError> maybeError = Optional.empty();
         boolean shouldHideZeroValues = context.shouldHideZeroValues();
+        final boolean showFormulas = context.shouldShowFormulas();
 
         boolean zeroValue = false;
-        if (null != cell && shouldHideZeroValues) {
-            final Object value = cell.formula()
-                .errorOrValue()
-                .orElse(null);
-
-            if (ExpressionNumber.is(value) &&
-                ExpressionNumberSign.ZERO == ExpressionNumberKind.DEFAULT.create((Number) value).sign()) {
-                zeroValue = true;
-            }
-        }
-
         if (null != cell) {
-            style = style.merge(
-                cell.style()
-            );
-
-            if (false == zeroValue) {
-                final TextNode formatted = cell.formattedValue()
+            final SpreadsheetFormula formula = cell.formula();
+            if (false == showFormulas && shouldHideZeroValues) {
+                final Object value = formula.errorOrValue()
                     .orElse(null);
-                if (null != formatted) {
-                    td.appendChild(formatted);
+
+                if (ExpressionNumber.is(value) &&
+                    ExpressionNumberSign.ZERO == ExpressionNumberKind.DEFAULT.create((Number) value).sign()) {
+                    zeroValue = true;
                 }
             }
 
-            maybeError = cell.formula()
-                .error();
+            final String formulaText = formula.text();
+            if (showFormulas && false == formulaText.trim().isEmpty()) {
+                td.appendChild(
+                    TextNode.text(formulaText)
+                );
+            } else {
+                style = style.merge(
+                    cell.style()
+                );
+
+                if (false == zeroValue) {
+                    final TextNode formatted = cell.formattedValue()
+                        .orElse(null);
+                    if (null != formatted) {
+                        td.appendChild(formatted);
+                    }
+                }
+            }
+
+            maybeError = formula.error();
         }
         if (zeroValue) {
             style = context.hideZeroStyle(style);

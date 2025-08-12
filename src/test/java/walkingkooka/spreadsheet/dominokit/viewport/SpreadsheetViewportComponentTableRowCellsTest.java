@@ -89,6 +89,11 @@ public final class SpreadsheetViewportComponentTableRowCellsTest extends Spreads
             }
 
             @Override
+            public boolean shouldShowFormulas() {
+                return false;
+            }
+
+            @Override
             public boolean isShiftKeyDown() {
                 return false;
             }

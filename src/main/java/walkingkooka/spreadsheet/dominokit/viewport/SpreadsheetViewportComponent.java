@@ -565,6 +565,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
         }
 
         this.shouldHideZeroValues = metadata.getOrFail(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES);
+        this.shouldShowFormulas = metadata.getOrFail(SpreadsheetMetadataPropertyName.SHOW_FORMULAS);
         this.mustRefresh = metadata.shouldViewRefresh(this.refreshMetadata);
         this.spreadsheetViewport = this.spreadsheetViewport();
 
@@ -581,6 +582,8 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
     private SpreadsheetMetadata refreshMetadata;
 
     boolean shouldHideZeroValues;
+
+    boolean shouldShowFormulas;
 
     boolean mustRefresh;
 

@@ -54,6 +54,7 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
                 SPREADSHEET_NAME
             ),
             false, // shouldHideZeroValues
+            false, // shouldShowFormulas
             123,
             "SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
                 "  TD\n" +
@@ -70,10 +71,28 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
                 SPREADSHEET_NAME
             ),
             true, // shouldHideZeroValues
+            false, // shouldShowFormulas
             0,
             "SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
                 "  TD\n" +
                 "    id=\"viewport-cell-A1\" tabIndex=0 style=\"background-color: black; box-sizing: border-box; height: 50px; min-height: 50px; min-width: 100px; width: 100px; word-break: keep-all;\"\n"
+        );
+    }
+
+    @Test
+    public void testTreePrintNothingSelectedShowFormulas() {
+        this.treePrintAndCheck2(
+            HistoryToken.spreadsheetSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
+            ),
+            false, // shouldHideZeroValues
+            true, // shouldShowFormulas
+            0,
+            "SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "  TD\n" +
+                "    id=\"viewport-cell-A1\" tabIndex=0 style=\"background-color: black; box-sizing: border-box; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "      Text \"=1+2\"\n"
         );
     }
 
@@ -87,6 +106,7 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
                     .setDefaultAnchor()
             ),
             false, // shouldHideZeroValues
+            false, // shouldShowFormulas
             123,
             "SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
                 "  TD\n" +
@@ -105,6 +125,7 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
                     .setDefaultAnchor()
             ),
             false, // shouldHideZeroValues
+            false, // shouldShowFormulas
             123,
             "SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
                 "  TD\n" +
@@ -122,6 +143,7 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
                 SpreadsheetSelection.A1.setDefaultAnchor()
             ),
             false, // shouldHideZeroValues
+            false, // shouldShowFormulas
             123,
             "SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
                 "  TD\n" +
@@ -132,6 +154,7 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
 
     private void treePrintAndCheck2(final HistoryToken historyToken,
                                     final boolean shouldHideZeroValues,
+                                    final boolean shouldShowFormulas,
                                     final Object value,
                                     final String expected) {
         final SpreadsheetViewportCacheContext cacheContext = new FakeSpreadsheetViewportCacheContext() {
@@ -161,6 +184,11 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
             @Override
             public boolean shouldHideZeroValues() {
                 return shouldHideZeroValues;
+            }
+
+            @Override
+            public boolean shouldShowFormulas() {
+                return shouldShowFormulas;
             }
 
             @Override
@@ -245,7 +273,7 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
                 SpreadsheetDelta.EMPTY.setCells(
                     Sets.of(
                         SpreadsheetSelection.A1.setFormula(
-                            SpreadsheetFormula.EMPTY.setText("'Hello")
+                            SpreadsheetFormula.EMPTY.setText("=1+2")
                                 .setValue(
                                     Optional.ofNullable(value)
                                 )

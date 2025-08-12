@@ -266,6 +266,12 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
             }
 
             @Override
+            public boolean shouldShowFormulas() {
+                return false;
+            }
+
+
+            @Override
             public boolean isShiftKeyDown() {
                 return false;
             }

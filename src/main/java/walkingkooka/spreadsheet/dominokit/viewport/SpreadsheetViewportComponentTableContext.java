@@ -39,6 +39,11 @@ interface SpreadsheetViewportComponentTableContext extends HistoryContext,
     boolean shouldHideZeroValues();
 
     /**
+     * Holds the boolean value of {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName#SHOW_FORMULAS}.
+     */
+    boolean shouldShowFormulas();
+
+    /**
      * When true a {@link SpreadsheetViewportComponentTableCell} must refresh.
      */
     boolean mustRefresh();
