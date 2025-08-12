@@ -33,9 +33,9 @@ final class SpreadsheetToolbarComponentItemAnchorMetadataBooleanShowFormulas ext
 
     private SpreadsheetToolbarComponentItemAnchorMetadataBooleanShowFormulas(final SpreadsheetToolbarComponentContext context) {
         super(
-            SpreadsheetToolbarComponent.findHighlightId(),
+            SpreadsheetToolbarComponent.showFormulas(),
             Optional.of(
-                SpreadsheetIcons.highlight()
+                SpreadsheetIcons.showFormulas()
             ),
             "Show Formulas",
             "Show Formulas", // let refresh load tooltip
