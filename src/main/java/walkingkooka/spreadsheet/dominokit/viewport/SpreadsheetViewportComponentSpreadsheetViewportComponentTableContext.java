@@ -62,6 +62,11 @@ final class SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext
     }
 
     @Override
+    public boolean shouldShowFormulas() {
+        return this.spreadsheetViewportComponent.shouldShowFormulas;
+    }
+
+    @Override
     public boolean mustRefresh() {
         return this.spreadsheetViewportComponent.mustRefresh;
     }

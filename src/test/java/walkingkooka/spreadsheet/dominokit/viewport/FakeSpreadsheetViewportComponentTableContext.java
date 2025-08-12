@@ -35,6 +35,11 @@ public class FakeSpreadsheetViewportComponentTableContext extends FakeSpreadshee
     }
 
     @Override
+    public boolean shouldShowFormulas() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public boolean mustRefresh() {
         throw new UnsupportedOperationException();
     }
