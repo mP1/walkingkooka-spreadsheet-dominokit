@@ -18,9 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.toolbar;
 
 import elemental2.dom.Event;
+import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
-import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
-import walkingkooka.spreadsheet.dominokit.find.FindHighlighting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -28,41 +27,43 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import java.util.Optional;
 
 /**
- * When clicked, updates the {@link SpreadsheetMetadataPropertyName#HIDE_ZERO_VALUES} with the opposite of its current value.
+ * A boolean {@link SpreadsheetMetadataPropertyName}.
  */
-final class SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting extends SpreadsheetToolbarComponentItemAnchorMetadata<SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting> {
+abstract class SpreadsheetToolbarComponentItemAnchorMetadataBoolean<T extends SpreadsheetToolbarComponentItemAnchorMetadataBoolean<T>> extends SpreadsheetToolbarComponentItemAnchorMetadata<T> {
 
-    static SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting with(final SpreadsheetToolbarComponentContext context) {
-        return new SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting(context);
-    }
-
-    private SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting(final SpreadsheetToolbarComponentContext context) {
+    SpreadsheetToolbarComponentItemAnchorMetadataBoolean(final String id,
+                                                         final Optional<Icon<?>> icon,
+                                                         final String text,
+                                                         final String tooltipText,
+                                                         final SpreadsheetToolbarComponentContext context) {
         super(
-            SpreadsheetToolbarComponent.findHighlightId(),
-            Optional.of(
-                SpreadsheetIcons.highlight()
-            ),
-            "Highlight",
-            "Highlight", // let refresh load tooltip
+            id,
+            icon,
+            text,
+            tooltipText,
             context
         );
     }
 
-    // SpreadsheetToolbarComponentItemLink............................................................................
+    // SpreadsheetToolbarComponentItemLink..............................................................................
 
-    @Override
-    void onFocus(final Event event) {
+    @Override //
+    final void onFocus(final Event event) {
         // nop
     }
 
     // HistoryTokenAwareComponentLifecycle..............................................................................
 
     @Override
-    public void refresh(final RefreshContext context) {
-        final boolean enabled = FindHighlighting.isEnabled(this.context);
+    public final void refresh(final RefreshContext context) {
+        final SpreadsheetMetadataPropertyName<Boolean> propertyName = this.propertyName();
+
+        final boolean enabled = this.context.spreadsheetMetadata()
+            .get(propertyName)
+            .orElse(false);
 
         this.setTooltipText(
-            FindHighlighting.label(false == enabled)
+            tooltipText(false == enabled)
         );
 
         this.anchor.setChecked(
@@ -70,7 +71,7 @@ final class SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting extend
         ).setHistoryToken(
             Optional.of(
                 context.historyToken()
-                    .setMetadataPropertyName(SpreadsheetMetadataPropertyName.FIND_HIGHLIGHTING)
+                    .setMetadataPropertyName(propertyName)
                     .setSaveValue(
                         Optional.of(false == enabled)
                     )
@@ -78,15 +79,19 @@ final class SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting extend
         );
     }
 
+    abstract String tooltipText(final boolean disabled);
+
     @Override
-    public boolean shouldIgnore(final HistoryToken token) {
+    public final boolean shouldIgnore(final HistoryToken token) {
         boolean ignore = false;
 
         if (token instanceof SpreadsheetMetadataPropertyHistoryToken) {
             final SpreadsheetMetadataPropertyHistoryToken<?> metadata = token.cast(SpreadsheetMetadataPropertyHistoryToken.class);
-            ignore = false == SpreadsheetMetadataPropertyName.FIND_HIGHLIGHTING.equals(metadata.propertyName());
+            ignore = false == this.propertyName().equals(metadata.propertyName());
         }
 
         return ignore;
     }
+
+    abstract SpreadsheetMetadataPropertyName<Boolean> propertyName();
 }

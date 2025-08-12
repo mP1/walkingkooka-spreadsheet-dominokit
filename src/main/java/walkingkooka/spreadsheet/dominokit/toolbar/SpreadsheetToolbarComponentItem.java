@@ -99,16 +99,16 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
      * {@see SpreadsheetToolbarComponentItemLinkMetadataHideZeroValues}
      */
     static SpreadsheetToolbarComponentItem<?> hideZeroValues(final SpreadsheetToolbarComponentContext context) {
-        return SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues.with(
+        return SpreadsheetToolbarComponentItemAnchorMetadataBooleanHideZeroValues.with(
             context
         );
     }
 
     /**
-     * {@see SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting}
+     * {@see SpreadsheetToolbarComponentItemAnchorMetadataBooleanFindHighlighting}
      */
     static SpreadsheetToolbarComponentItem<?> highlightCells(final SpreadsheetToolbarComponentContext context) {
-        return SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting.with(
+        return SpreadsheetToolbarComponentItemAnchorMetadataBooleanFindHighlighting.with(
             context
         );
     }
