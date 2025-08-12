@@ -174,6 +174,13 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
     }
 
     /**
+     * {@see SpreadsheetToolbarComponentItemAnchorMetadataBooleanShowGridLines}
+     */
+    static SpreadsheetToolbarComponentItem<?> showGridLines(final SpreadsheetToolbarComponentContext context) {
+        return SpreadsheetToolbarComponentItemAnchorMetadataBooleanShowGridLines.with(context);
+    }
+
+    /**
      * {@link SpreadsheetToolbarComponentItemAnchorSort}
      */
     static SpreadsheetToolbarComponentItem<?> sort(final SpreadsheetToolbarComponentContext context) {

@@ -150,6 +150,7 @@ public final class SpreadsheetToolbarComponent implements HtmlComponent<HTMLDivE
             // metadata properties
             SpreadsheetToolbarComponentItem.hideZeroValues(context),
             SpreadsheetToolbarComponentItem.showFormulas(context),
+            SpreadsheetToolbarComponentItem.showGridLines(context),
             // finding/sorting/highlighting
             SpreadsheetToolbarComponentItem.findCells(context),
             SpreadsheetToolbarComponentItem.highlightCells(context),

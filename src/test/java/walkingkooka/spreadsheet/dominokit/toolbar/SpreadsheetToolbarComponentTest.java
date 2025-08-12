@@ -179,6 +179,9 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-math-integral \"Show Formulas\" [#/1/Spreadsheet123/spreadsheet/showFormulas/save/true] id=toolbar-show-formulas-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Hide Formulas\"\n" +
+                "      mdi-spotlight-beam \"Show Grid Lines\" [#/1/Spreadsheet123/spreadsheet/showGridLines/save/false] CHECKED id=toolbar-find-highlight-Link\n" +
+                "        TooltipComponent\n" +
+                "          \"Show Grid Lines\"\n" +
                 "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/find] id=toolbar-find-cells-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Find cells...\"\n" +
@@ -285,6 +288,9 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-math-integral \"Show Formulas\" [#/1/Spreadsheet123/spreadsheet/showFormulas/save/true] id=toolbar-show-formulas-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Hide Formulas\"\n" +
+                "      mdi-spotlight-beam \"Show Grid Lines\" [#/1/Spreadsheet123/spreadsheet/showGridLines/save/false] CHECKED id=toolbar-find-highlight-Link\n" +
+                "        TooltipComponent\n" +
+                "          \"Show Grid Lines\"\n" +
                 "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/find] id=toolbar-find-cells-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Find cells...\"\n" +
@@ -334,6 +340,9 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-math-integral \"Show Formulas\" [#/1/Spreadsheet123/spreadsheet/showFormulas/save/true] id=toolbar-show-formulas-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Hide Formulas\"\n" +
+                "      mdi-spotlight-beam \"Show Grid Lines\" [#/1/Spreadsheet123/spreadsheet/showGridLines/save/false] CHECKED id=toolbar-find-highlight-Link\n" +
+                "        TooltipComponent\n" +
+                "          \"Show Grid Lines\"\n" +
                 "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/find] id=toolbar-find-cells-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Find cells...\"\n" +
@@ -383,6 +392,9 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-math-integral \"Show Formulas\" [#/1/Spreadsheet123/spreadsheet/showFormulas/save/true] id=toolbar-show-formulas-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Hide Formulas\"\n" +
+                "      mdi-spotlight-beam \"Show Grid Lines\" [#/1/Spreadsheet123/spreadsheet/showGridLines/save/false] CHECKED id=toolbar-find-highlight-Link\n" +
+                "        TooltipComponent\n" +
+                "          \"Show Grid Lines\"\n" +
                 "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/find] id=toolbar-find-cells-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Find cells...\"\n" +
