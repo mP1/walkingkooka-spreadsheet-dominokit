@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import java.util.Optional;
 
 /**
- * When clicked, updates the {@link SpreadsheetMetadataPropertyName#HIDE_ZERO_VALUES} with the opposite of its current value.
+ * When clicked, updates the {@link SpreadsheetMetadataPropertyName#FIND_HIGHLIGHTING} with the opposite of its current value.
  */
 final class SpreadsheetToolbarComponentItemAnchorMetadataBooleanFindHighlighting extends SpreadsheetToolbarComponentItemAnchorMetadataBoolean<SpreadsheetToolbarComponentItemAnchorMetadataBooleanFindHighlighting> {
 
