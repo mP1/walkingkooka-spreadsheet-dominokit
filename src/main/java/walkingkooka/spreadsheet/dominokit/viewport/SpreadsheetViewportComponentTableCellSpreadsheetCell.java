@@ -94,7 +94,7 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
             context.cellStyle();
 
         Optional<SpreadsheetError> maybeError = Optional.empty();
-        boolean shouldHideZeroValues = context.shouldHideZeroValues();
+        final boolean shouldHideZeroValues = context.shouldHideZeroValues();
         final boolean showFormulas = context.shouldShowFormulas();
 
         boolean zeroValue = false;
