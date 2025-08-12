@@ -111,11 +111,13 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
             }
 
             final String formulaText = formula.text();
-            if (showFormulas && false == formulaText.trim().isEmpty()) {
-                td.appendChild(
-                    TextNode.text(formulaText)
-                );
-                style = context.showFormulasStyle(style);;
+            if (showFormulas) {
+                if (false == formulaText.trim().isEmpty()) {
+                    td.appendChild(
+                        TextNode.text(formulaText)
+                    );
+                    style = context.showFormulasStyle(style);
+                }
             } else {
                 style = style.merge(
                     cell.style()
