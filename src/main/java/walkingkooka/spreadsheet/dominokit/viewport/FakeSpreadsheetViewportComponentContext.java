@@ -302,4 +302,9 @@ public class FakeSpreadsheetViewportComponentContext extends FakeHistoryContext 
     public TextStyle hideZeroStyle(final TextStyle style) {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public TextStyle showFormulasStyle(final TextStyle style) {
+        throw new UnsupportedOperationException();
+    }
 }

@@ -115,6 +115,7 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
                 td.appendChild(
                     TextNode.text(formulaText)
                 );
+                style = context.showFormulasStyle(style);;
             } else {
                 style = style.merge(
                     cell.style()

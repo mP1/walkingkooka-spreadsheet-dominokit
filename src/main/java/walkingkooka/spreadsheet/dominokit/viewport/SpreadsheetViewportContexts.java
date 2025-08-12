@@ -39,7 +39,8 @@ public final class SpreadsheetViewportContexts implements PublicStaticHelper {
                                                    final TextStyle selectedColumnStyle,
                                                    final TextStyle rowStyle,
                                                    final TextStyle selectedRowStyle,
-                                                   final Function<TextStyle, TextStyle> hideZeroStyle) {
+                                                   final Function<TextStyle, TextStyle> hideZeroStyle,
+                                                   final Function<TextStyle, TextStyle> showFormulasStyle) {
         return BasicSpreadsheetViewportContext.with(
             allCellsStyle,
             selectedAllCellsStyle,
@@ -49,7 +50,8 @@ public final class SpreadsheetViewportContexts implements PublicStaticHelper {
             selectedColumnStyle,
             rowStyle,
             selectedRowStyle,
-            hideZeroStyle
+            hideZeroStyle,
+            showFormulasStyle
         );
     }
 

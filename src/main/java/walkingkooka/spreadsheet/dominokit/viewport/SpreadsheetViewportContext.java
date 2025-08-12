@@ -112,4 +112,9 @@ public interface SpreadsheetViewportContext extends Context {
      * Add some styling to indicate a hide zero.
      */
     TextStyle hideZeroStyle(final TextStyle style);
+
+    /**
+     * Adds some style like font-family, font-size to a cell when a formulas is being displayed.
+     */
+    TextStyle showFormulasStyle(final TextStyle style);
 }
