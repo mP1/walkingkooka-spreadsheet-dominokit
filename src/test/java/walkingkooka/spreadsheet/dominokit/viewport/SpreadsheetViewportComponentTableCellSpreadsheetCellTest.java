@@ -19,25 +19,115 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.HTMLTableCellElement;
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.set.Sets;
 import walkingkooka.color.Color;
-import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.color.WebColorName;
+import walkingkooka.net.Url;
+import walkingkooka.net.http.HttpMethod;
+import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.Length;
+import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest extends SpreadsheetViewportComponentTableCellTestCase<HTMLTableCellElement, SpreadsheetViewportComponentTableCellSpreadsheetCell>  {
+import java.util.Optional;
+
+public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest extends SpreadsheetViewportComponentTableCellTestCase<HTMLTableCellElement, SpreadsheetViewportComponentTableCellSpreadsheetCell> {
 
     @Test
-    public void testTreePrint() {
+    public void testTreePrintNothingSelected() {
+        this.treePrintAndCheck2(
+            HistoryToken.spreadsheetSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
+            ),
+            false, // shouldHideZeroValues
+            123,
+            "SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "  TD\n" +
+                "    id=\"viewport-cell-A1\" tabIndex=0 style=\"background-color: black; box-sizing: border-box; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n"
+        );
+    }
+
+    @Test
+    public void testTreePrintNothingSelectedHideZeroValues() {
+        this.treePrintAndCheck2(
+            HistoryToken.spreadsheetSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
+            ),
+            true, // shouldHideZeroValues
+            0,
+            "SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "  TD\n" +
+                "    id=\"viewport-cell-A1\" tabIndex=0 style=\"background-color: black; box-sizing: border-box; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n"
+        );
+    }
+
+    @Test
+    public void testTreePrintColumnSelected() {
+        this.treePrintAndCheck2(
+            HistoryToken.columnSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.column()
+                    .setDefaultAnchor()
+            ),
+            false, // shouldHideZeroValues
+            123,
+            "SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "  TD\n" +
+                "    id=\"viewport-cell-A1\" tabIndex=0 style=\"box-sizing: border-box; color: green; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n"
+        );
+    }
+
+    @Test
+    public void testTreePrintRowSelected() {
+        this.treePrintAndCheck2(
+            HistoryToken.rowSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.row()
+                    .setDefaultAnchor()
+            ),
+            false, // shouldHideZeroValues
+            123,
+            "SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "  TD\n" +
+                "    id=\"viewport-cell-A1\" tabIndex=0 style=\"box-sizing: border-box; color: green; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n"
+        );
+    }
+
+    @Test
+    public void testTreePrintCellSelected() {
+        this.treePrintAndCheck2(
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            false, // shouldHideZeroValues
+            123,
+            "SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "  TD\n" +
+                "    id=\"viewport-cell-A1\" tabIndex=0 style=\"box-sizing: border-box; color: green; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n"
+        );
+    }
+
+    private void treePrintAndCheck2(final HistoryToken historyToken,
+                                    final boolean shouldHideZeroValues,
+                                    final Object value,
+                                    final String expected) {
         final SpreadsheetViewportCacheContext cacheContext = new FakeSpreadsheetViewportCacheContext() {
             @Override
             public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
@@ -59,11 +149,12 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
 
             @Override
             public HistoryToken historyToken() {
-                return HistoryToken.cellSelect(
-                    SpreadsheetId.with(1),
-                    SpreadsheetName.with("SpreadsheetName222"),
-                    SpreadsheetSelection.A1.setDefaultAnchor()
-                );
+                return historyToken;
+            }
+
+            @Override
+            public boolean shouldHideZeroValues() {
+                return shouldHideZeroValues;
             }
 
             @Override
@@ -77,10 +168,18 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
             }
 
             @Override
-            public TextStyle defaultCellStyle() {
+            public TextStyle cellStyle() {
                 return TextStyle.EMPTY.set(
-                    TextStylePropertyName.COLOR,
+                    TextStylePropertyName.BACKGROUND_COLOR,
                     Color.BLACK
+                );
+            }
+
+            @Override
+            public TextStyle selectedCellStyle(final TextStyle cellStyle) {
+                return cellStyle.set(
+                    TextStylePropertyName.COLOR,
+                    WebColorName.GREEN.color()
                 );
             }
 
@@ -109,14 +208,37 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
                 new FakeAppContext()
             );
 
+        tableContext.spreadsheetViewportCache()
+            .onSpreadsheetDelta(
+                HttpMethod.GET,
+                Url.parseRelative("/api/spreadsheet/1/cell/A1"),
+                SpreadsheetDelta.EMPTY.setCells(
+                    Sets.of(
+                        SpreadsheetSelection.A1.setFormula(
+                            SpreadsheetFormula.EMPTY.setText("'Hello")
+                                .setValue(
+                                    Optional.ofNullable(value)
+                                )
+                        ).setFormattedValue(
+                            Optional.ofNullable(
+                                null != value ?
+                                    TextNode.text(
+                                        value.toString()
+                                    ) :
+                                    null
+                            )
+                        )
+                    )
+                ),
+                AppContexts.fake()
+            );
+
         this.treePrintAndCheck(
             SpreadsheetViewportComponentTableCellSpreadsheetCell.empty(
                 SpreadsheetSelection.A1,
                 tableContext
             ),
-            "SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
-                "  TD\n" +
-                "    id=\"viewport-cell-A1\" tabIndex=0 style=\"border-bottom-color: #888888; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #888888; border-left-style: solid; border-left-width: 1px; border-right-color: #888888; border-right-style: solid; border-right-width: 1px; border-top-color: #888888; border-top-style: solid; border-top-width: 1px; box-sizing: border-box; font-size: 11; font-style: normal; font-variant: normal; font-weight: normal; height: 50px; hyphens: none; margin-bottom: none; margin-left: none; margin-right: none; margin-top: none; min-height: 50px; min-width: 100px; padding-bottom: none; padding-left: none; padding-right: none; padding-top: none; text-align: left; vertical-align: top; width: 100px; word-break: normal;\"\n"
+            expected
         );
     }
 

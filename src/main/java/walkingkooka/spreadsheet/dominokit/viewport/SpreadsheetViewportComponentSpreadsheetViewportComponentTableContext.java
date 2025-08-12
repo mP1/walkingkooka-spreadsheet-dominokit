@@ -26,22 +26,29 @@ import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigation;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigationContext;
-import walkingkooka.tree.text.TextStyle;
 
 final class SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext implements SpreadsheetViewportComponentTableContext,
     HistoryContextDelegator,
-    LoggingContextDelegator {
+    LoggingContextDelegator,
+    SpreadsheetViewportContextDelegator {
 
 
-    static SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext with(final SpreadsheetViewportComponent spreadsheetViewportComponent) {
-        return new SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext(spreadsheetViewportComponent);
+    static SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext with(final SpreadsheetViewportComponent spreadsheetViewportComponent,
+                                                                                     final SpreadsheetViewportContext context) {
+        return new SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext(
+            spreadsheetViewportComponent,
+            context
+        );
     }
 
-    private SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext(final SpreadsheetViewportComponent spreadsheetViewportComponent) {
+    private SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext(final SpreadsheetViewportComponent spreadsheetViewportComponent,
+                                                                                 final SpreadsheetViewportContext context) {
         this.spreadsheetViewportComponent = spreadsheetViewportComponent;
         this.navigationContext = SpreadsheetViewportComponentSpreadsheetViewportComponentTableContextSpreadsheetViewportNavigationContext.with(
             spreadsheetViewportComponent.spreadsheetViewportCache()
         );
+
+        this.context = context;
     }
 
     @Override
@@ -50,13 +57,8 @@ final class SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext
     }
 
     @Override
-    public boolean hideZeroValues() {
-        return this.spreadsheetViewportComponent.hideZeroValues;
-    }
-
-    @Override
-    public TextStyle defaultCellStyle() {
-        return this.spreadsheetViewportComponent.defaultCellStyle;
+    public boolean shouldHideZeroValues() {
+        return this.spreadsheetViewportComponent.shouldHideZeroValues;
     }
 
     @Override
@@ -99,6 +101,15 @@ final class SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext
     private final SpreadsheetViewportComponent spreadsheetViewportComponent;
 
     private final SpreadsheetViewportNavigationContext navigationContext;
+
+    // SpreadsheetViewportContextDelegator..............................................................................
+
+    @Override
+    public SpreadsheetViewportContext spreadsheetViewportContext() {
+        return this.context;
+    }
+
+    private final SpreadsheetViewportContext context;
 
     // HistoryContext...................................................................................................
 

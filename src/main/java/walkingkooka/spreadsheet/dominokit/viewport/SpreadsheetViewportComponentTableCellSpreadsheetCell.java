@@ -20,12 +20,10 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 import elemental2.dom.HTMLTableCellElement;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.popover.Tooltip;
-import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetError;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.dom.TdComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
@@ -33,9 +31,9 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.ExpressionNumberSign;
+import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
-import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 import java.util.function.Predicate;
@@ -57,21 +55,14 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
                                                                  final SpreadsheetViewportComponentTableContext context) {
         super();
 
-        final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
-
         this.td = HtmlElementComponent.td()
             .setId(
                 SpreadsheetViewportComponent.id(cellReference)
-            ).setTabIndex(0)
-            .setCssText(
-                setWidthAndHeight(
-                    CELL_STYLE,
-                    cache.columnWidth(cellReference.column()),
-                    cache.rowHeight(cellReference.row())
-                )
-            );
+            ).setTabIndex(0);
         this.cellReference = cellReference;
         this.tooltipMessage = "";
+
+        this.refresh(context);
     }
 
     @Override
@@ -87,100 +78,66 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
         final SpreadsheetCellReference cellReference = this.cellReference;
 
-        final Optional<SpreadsheetCell> maybeCell = cache.cell(cellReference);
+        final SpreadsheetCell cell = cache.cell(cellReference)
+            .orElse(null);
 
-        final boolean isSelected = selected.test(cellReference);
-        Color mixBackgroundColor = isSelected ?
-            SpreadsheetDominoKitColor.VIEWPORT_CELL_SELECTED_BACKGROUND_COLOR :
-            null;
+        final TdComponent td = this.td;
+        td.clear();
 
-        boolean hideZeroValues = false;
+        TextStyle style = selected.test(cellReference) ?
+            context.selectedCellStyle(
+                null != cell ?
+                    cell.style() :
+                    TextStyle.EMPTY
+            ) :
+            context.cellStyle();
 
-        if (maybeCell.isPresent()) {
-            final SpreadsheetCell cell = maybeCell.get();
+        Optional<SpreadsheetError> maybeError = Optional.empty();
+        boolean shouldHideZeroValues = context.shouldHideZeroValues();
 
-            if (context.hideZeroValues()) {
-                final Object value = cell.formula()
-                    .errorOrValue()
-                    .orElse(null);
+        boolean zeroValue = false;
+        if (null != cell && shouldHideZeroValues) {
+            final Object value = cell.formula()
+                .errorOrValue()
+                .orElse(null);
 
-                if (ExpressionNumber.is(value) &&
-                    ExpressionNumberSign.ZERO == ExpressionNumberKind.DEFAULT.create((Number) value).sign()) {
-                    mixBackgroundColor = mixBackgroundColor.mix(
-                        SpreadsheetDominoKitColor.HIGHLIGHT_COLOR,
-                        0.25f
-                    );
-
-                    hideZeroValues = true;
-                }
+            if (ExpressionNumber.is(value) &&
+                ExpressionNumberSign.ZERO == ExpressionNumberKind.DEFAULT.create((Number) value).sign()) {
+                zeroValue = true;
             }
         }
 
-        if (context.mustRefresh() ||
-            false == maybeCell.equals(this.cell) ||
-            this.selected != isSelected ||
-            this.hideZeroValues != hideZeroValues
-        ) {
-            this.cell = maybeCell;
-            this.selected = isSelected;
-            this.hideZeroValues = hideZeroValues;
-
-            final TdComponent td = this.td;
-            td.clear();
-
-            TextStyle style = context.defaultCellStyle();
-            Optional<SpreadsheetError> maybeError = Optional.empty();
-
-            if (maybeCell.isPresent()) {
-                final SpreadsheetCell cell = maybeCell.get();
-
-                if (false == hideZeroValues) {
-                    final Optional<TextNode> maybeFormatted = cell.formattedValue();
-                    if (maybeFormatted.isPresent()) {
-                        td.appendChild(
-                            maybeFormatted.get()
-                        );
-                    }
-                }
-                style = style.merge(
-                    cell.style()
-                );
-                maybeError = cell.formula()
-                    .error();
-            }
-
-            if (null != mixBackgroundColor) {
-                Color color = style.getOrFail(TextStylePropertyName.BACKGROUND_COLOR);
-
-                style = style.set(
-                    TextStylePropertyName.BACKGROUND_COLOR,
-                    color.mix(
-                        mixBackgroundColor,
-                        0.25f
-                    )
-                );
-            }
-
-            // copy width/height to MIN to prevent table squashing cells to fit.
-            td.setCssText(
-                setWidthAndHeight(
-                    style,
-                    cache.columnWidth(cellReference.column()),
-                    cache.rowHeight(cellReference.row())
-                )
+        if (null != cell) {
+            style = style.merge(
+                cell.style()
             );
 
-            this.tooltipRefresh(maybeError);
+            if (false == zeroValue) {
+                final TextNode formatted = cell.formattedValue()
+                    .orElse(null);
+                if (null != formatted) {
+                    td.appendChild(formatted);
+                }
+            }
+
+            maybeError = cell.formula()
+                .error();
         }
+        if (zeroValue) {
+            style = context.hideZeroStyle(style);
+        }
+
+        td.setCssText(
+            setWidthAndHeight(
+                style,
+                context
+            )
+        );
+
+        this.tooltipRefresh(maybeError);
     }
 
     private final SpreadsheetCellReference cellReference;
-
-    private Optional<SpreadsheetCell> cell;
-
-    private boolean selected;
-
-    private boolean hideZeroValues;
 
     private void tooltipRefresh(final Optional<SpreadsheetError> error) {
         final String newTooltipMessage = error.map(
@@ -216,7 +173,29 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
 
     private Tooltip tooltip;
 
-    // HtmlElementComponentDelegator.............................................................................
+    @Override //
+    Length<?> width(final SpreadsheetViewportComponentTableContext context) {
+        return context.spreadsheetViewportCache()
+            .columnWidth(this.cellReference.toColumn());
+    }
+
+    @Override //
+    Length<?> height(final SpreadsheetViewportComponentTableContext context) {
+        return context.spreadsheetViewportCache()
+            .rowHeight(this.cellReference.toRow());
+    }
+
+    @Override//
+    TextStyle selectedTextStyle(final SpreadsheetViewportComponentTableContext context) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override //
+    TextStyle unselectedTextStyle(final SpreadsheetViewportComponentTableContext context) {
+        throw new UnsupportedOperationException();
+    }
+
+    // HtmlElementComponentDelegator....................................................................................
 
     @Override
     public HtmlElementComponent<HTMLTableCellElement, ?> htmlElementComponent() {

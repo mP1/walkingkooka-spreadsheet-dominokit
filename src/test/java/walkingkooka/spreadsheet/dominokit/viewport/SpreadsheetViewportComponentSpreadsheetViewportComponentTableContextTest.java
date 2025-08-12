@@ -20,7 +20,10 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 public final class SpreadsheetViewportComponentSpreadsheetViewportComponentTableContextTest implements SpreadsheetViewportComponentTableContextTesting<SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext> {
     @Override
     public SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext createContext() {
-        return SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext.with(null);
+        return SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext.with(
+            null,
+            null
+        );
     }
 
     // class............................................................................................................

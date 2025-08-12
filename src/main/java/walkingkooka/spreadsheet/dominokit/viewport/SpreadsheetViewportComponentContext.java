@@ -46,7 +46,8 @@ public interface SpreadsheetViewportComponentContext extends HistoryContext,
     SpreadsheetLabelNameResolver,
     SpreadsheetViewportFormulaComponentContext,
     SpreadsheetCellLinksComponentContext,
-    RecentValueSavesContext {
+    RecentValueSavesContext,
+    SpreadsheetViewportContext {
 
     @Override
     <T> SpreadsheetViewportComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,

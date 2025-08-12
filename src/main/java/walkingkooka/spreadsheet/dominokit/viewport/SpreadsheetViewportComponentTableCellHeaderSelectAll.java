@@ -17,31 +17,47 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.tree.text.Length;
+import walkingkooka.tree.text.TextStyle;
 
 /**
  * A Header that contains the SELECT ALL link. Note new instances are created when a new spreadsheet is created/loaded.
  */
 final class SpreadsheetViewportComponentTableCellHeaderSelectAll extends SpreadsheetViewportComponentTableCellHeader<SpreadsheetCellRangeReference, SpreadsheetViewportComponentTableCellHeaderSelectAll> {
 
-    static SpreadsheetViewportComponentTableCellHeaderSelectAll empty(final HistoryContext context) {
+    static SpreadsheetViewportComponentTableCellHeaderSelectAll empty(final SpreadsheetViewportComponentTableContext context) {
         return new SpreadsheetViewportComponentTableCellHeaderSelectAll(context);
     }
 
-    private SpreadsheetViewportComponentTableCellHeaderSelectAll(final HistoryContext context) {
+    private SpreadsheetViewportComponentTableCellHeaderSelectAll(final SpreadsheetViewportComponentTableContext context) {
         super(
-            SpreadsheetViewportComponent.ID_PREFIX + "select-all-cells", // id
-            setWidthAndHeight(
-                HEADER_STYLE,
-                SpreadsheetViewportComponent.ROW_WIDTH,
-                SpreadsheetViewportComponent.COLUMN_HEIGHT
-            ), // css
+            SpreadsheetViewportComponent.ID_PREFIX + "select-all-cells", // id// css
             SpreadsheetSelection.ALL_CELLS, // selection
             "All", // link text
             context
         );
+    }
+
+    @Override //
+    Length<?> width(final SpreadsheetViewportComponentTableContext context) {
+        return SpreadsheetViewportContext.ROW_HEADER_WIDTH;
+    }
+
+    @Override //
+    Length<?> height(final SpreadsheetViewportComponentTableContext context) {
+        return SpreadsheetViewportContext.COLUMN_HEADER_HEIGHT;
+    }
+
+    @Override//
+    TextStyle selectedTextStyle(final SpreadsheetViewportComponentTableContext context) {
+        return context.selectedAllCellsStyle();
+    }
+
+    @Override //
+    TextStyle unselectedTextStyle(final SpreadsheetViewportComponentTableContext context) {
+        return context.allCellsStyle();
     }
 
     @Override

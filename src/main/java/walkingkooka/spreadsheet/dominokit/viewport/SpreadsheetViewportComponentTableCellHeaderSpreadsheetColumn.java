@@ -18,6 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
+import walkingkooka.tree.text.Length;
+import walkingkooka.tree.text.TextStyle;
 
 /**
  * A TH holding a single COLUMN header. Note new instances are created when a new spreadsheet is created/loaded.
@@ -36,17 +38,32 @@ final class SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn extends
                                                                          final SpreadsheetViewportComponentTableContext context) {
         super(
             SpreadsheetViewportComponent.id(column), // id
-            setWidthAndHeight(
-                SpreadsheetViewportComponentTableCell.HEADER_STYLE,
-                context.spreadsheetViewportCache()
-                    .columnWidth(column),
-                SpreadsheetViewportComponent.COLUMN_HEIGHT
-            ), // css
             column, // selection
             column.toString()
                 .toUpperCase(), // link text
             context
         );
+    }
+
+    @Override //
+    Length<?> width(final SpreadsheetViewportComponentTableContext context) {
+        return context.spreadsheetViewportCache()
+            .columnWidth(this.selection);
+    }
+
+    @Override //
+    Length<?> height(final SpreadsheetViewportComponentTableContext context) {
+        return SpreadsheetViewportContext.COLUMN_HEADER_HEIGHT;
+    }
+
+    @Override//
+    TextStyle selectedTextStyle(final SpreadsheetViewportComponentTableContext context) {
+        return context.selectedColumnStyle();
+    }
+
+    @Override //
+    TextStyle unselectedTextStyle(final SpreadsheetViewportComponentTableContext context) {
+        return context.columnStyle();
     }
 
     @Override

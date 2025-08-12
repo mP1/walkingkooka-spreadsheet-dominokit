@@ -65,7 +65,8 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
     ProviderContextDelegator,
     SpreadsheetLabelNameResolver,
     SpreadsheetParserProviderDelegator,
-    RecentValueSavesContextDelegator {
+    RecentValueSavesContextDelegator,
+    SpreadsheetViewportContextDelegator{
 
     static AppContextSpreadsheetViewportComponentContext with(final AppContext appContext) {
         return new AppContextSpreadsheetViewportComponentContext(
@@ -75,6 +76,7 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
 
     private AppContextSpreadsheetViewportComponentContext(final AppContext context) {
         this.context = context;
+        this.spreadsheetViewportContext = SpreadsheetViewportContexts.spreadsheetMetadata(context);
     }
 
     @Override
@@ -194,6 +196,15 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
         this.context.removeEnvironmentValue(name);
         return this;
     }
+
+    // SpreadsheetViewportContextDelegator..............................................................................
+
+    @Override
+    public SpreadsheetViewportContext spreadsheetViewportContext() {
+        return this.spreadsheetViewportContext;
+    }
+
+    private final SpreadsheetViewportContext spreadsheetViewportContext;
 
     // Object...........................................................................................................
 

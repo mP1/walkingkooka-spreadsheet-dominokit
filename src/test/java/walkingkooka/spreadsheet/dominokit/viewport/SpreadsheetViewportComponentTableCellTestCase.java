@@ -19,6 +19,8 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.HTMLElement;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 
 public abstract class SpreadsheetViewportComponentTableCellTestCase<E extends HTMLElement, C extends SpreadsheetViewportComponentTableCell<E, C>> implements HtmlComponentTesting<C, E> {
@@ -26,6 +28,10 @@ public abstract class SpreadsheetViewportComponentTableCellTestCase<E extends HT
     SpreadsheetViewportComponentTableCellTestCase() {
         super();
     }
+
+    final static SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1);
+
+    final static SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("SpreadsheetName222");
 
     @Override
     public final JavaVisibility typeVisibility() {

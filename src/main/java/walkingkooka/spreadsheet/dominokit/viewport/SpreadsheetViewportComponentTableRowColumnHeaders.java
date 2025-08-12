@@ -21,7 +21,6 @@ import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.dom.TrComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportWindows;
@@ -35,11 +34,11 @@ import java.util.function.Predicate;
  */
 final class SpreadsheetViewportComponentTableRowColumnHeaders extends SpreadsheetViewportComponentTableRow<SpreadsheetViewportComponentTableRowColumnHeaders> {
 
-    static SpreadsheetViewportComponentTableRowColumnHeaders empty(final HistoryContext context) {
+    static SpreadsheetViewportComponentTableRowColumnHeaders empty(final SpreadsheetViewportComponentTableContext context) {
         return new SpreadsheetViewportComponentTableRowColumnHeaders(context);
     }
 
-    private SpreadsheetViewportComponentTableRowColumnHeaders(final HistoryContext context) {
+    private SpreadsheetViewportComponentTableRowColumnHeaders(final SpreadsheetViewportComponentTableContext context) {
         this.selectAll = SpreadsheetViewportComponentTableCellHeaderSelectAll.empty(context);
         this.columns = null;
         this.columnToHeaders = Maps.sorted();

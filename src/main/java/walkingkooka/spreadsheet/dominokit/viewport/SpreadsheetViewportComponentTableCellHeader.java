@@ -20,10 +20,8 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 import elemental2.dom.HTMLTableCellElement;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.dom.ThComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -38,10 +36,9 @@ import java.util.function.Predicate;
 abstract class SpreadsheetViewportComponentTableCellHeader<S extends SpreadsheetSelection, C extends SpreadsheetViewportComponentTableCellHeader<S, C>> extends SpreadsheetViewportComponentTableCell<HTMLTableCellElement, C> {
 
     SpreadsheetViewportComponentTableCellHeader(final String id,
-                                                final String css,
                                                 final S selection,
                                                 final String text,
-                                                final HistoryContext context) {
+                                                final SpreadsheetViewportComponentTableContext context) {
         super();
 
         final HistoryTokenAnchorComponent anchor = context.historyToken()
@@ -55,11 +52,12 @@ abstract class SpreadsheetViewportComponentTableCellHeader<S extends Spreadsheet
 
         this.th = HtmlElementComponent.th()
             .setId(id)
-            .setCssText(css)
             .appendChild(anchor);
 
         this.selection = selection;
         this.extended = null;
+
+        this.refresh(context);
     }
 
     @Override //
@@ -94,10 +92,17 @@ abstract class SpreadsheetViewportComponentTableCellHeader<S extends Spreadsheet
     @Override //
     final void refresh(final Predicate<SpreadsheetSelection> selected,
                        final SpreadsheetViewportComponentTableContext context) {
-        this.th.setBackgroundColor(
-            selected.test(this.selection) ?
-                SpreadsheetDominoKitColor.VIEWPORT_HEADER_SELECTED_BACKGROUND_COLOR.toString() :
-                SpreadsheetDominoKitColor.VIEWPORT_HEADER_UNSELECTED_BACKGROUND_COLOR.toString()
+        final SpreadsheetSelection selection = this.selection;
+
+        this.th.setCssText(
+            setWidthAndHeight(
+                (SpreadsheetSelection.ALL_CELLS.equals(selection) ?
+                    selected.equals(selection) :
+                    selected.test(selection)) ?
+                    this.selectedTextStyle(context) :
+                    this.unselectedTextStyle(context),
+                context
+            )
         );
 
         final Boolean extended = context.isShiftKeyDown();

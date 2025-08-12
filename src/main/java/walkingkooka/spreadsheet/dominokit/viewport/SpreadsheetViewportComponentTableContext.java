@@ -24,24 +24,19 @@ import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigation;
-import walkingkooka.tree.text.TextStyle;
 
 /**
  * A {@link walkingkooka.Context} required by table components to refresh themselves.
  */
 interface SpreadsheetViewportComponentTableContext extends HistoryContext,
     LoggingContext,
-    HasSpreadsheetViewportCache {
+    HasSpreadsheetViewportCache,
+    SpreadsheetViewportContext{
 
     /**
      * When true indicates that hide zero values is active, and cells should add extra styling to show this.
      */
-    boolean hideZeroValues();
-
-    /**
-     * The default {@link TextStyle} for a cell.
-     */
-    TextStyle defaultCellStyle();
+    boolean shouldHideZeroValues();
 
     /**
      * When true a {@link SpreadsheetViewportComponentTableCell} must refresh.
