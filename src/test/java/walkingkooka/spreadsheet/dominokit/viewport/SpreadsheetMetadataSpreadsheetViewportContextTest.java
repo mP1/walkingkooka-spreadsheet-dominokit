@@ -44,7 +44,7 @@ public final class SpreadsheetMetadataSpreadsheetViewportContextTest implements 
     }
 
     @Test
-    public void testCellWithoutGridLines() {
+    public void testCellWithShowGridLinesFalse() {
         final SpreadsheetMetadataSpreadsheetViewportContext context = this.createContext();
 
         final TextStyle style = TextStyle.EMPTY.set(
@@ -63,8 +63,17 @@ public final class SpreadsheetMetadataSpreadsheetViewportContextTest implements 
             AppContexts.fake()
         );
 
+        final TextStyle cellStyle = context.cellStyle();
+
+        this.checkEquals(
+            false,
+            cellStyle.toString()
+                .contains("border"),
+            () -> "CellStyle should not have any border* properties\n" + cellStyle
+        );
+
         this.treePrintAndCheck(
-            context.cellStyle(),
+            cellStyle,
             "TextStyle\n" +
                 "  background-color=green (walkingkooka.color.OpaqueRgbColor)\n" +
                 "  font-size=11 (walkingkooka.tree.text.FontSize)\n" +
@@ -87,7 +96,7 @@ public final class SpreadsheetMetadataSpreadsheetViewportContextTest implements 
     }
 
     @Test
-    public void testCellWithGridLines() {
+    public void testCellWithShowGridLinesTrue() {
         final SpreadsheetMetadataSpreadsheetViewportContext context = this.createContext();
 
         final TextStyle style = TextStyle.EMPTY.set(
@@ -106,8 +115,17 @@ public final class SpreadsheetMetadataSpreadsheetViewportContextTest implements 
             AppContexts.fake()
         );
 
+        final TextStyle cellStyle = context.cellStyle();
+
+        this.checkEquals(
+            true,
+            cellStyle.toString()
+                .contains("border"),
+            () -> "CellStyle should not have any border* properties\n" + cellStyle
+        );
+
         this.treePrintAndCheck(
-            context.cellStyle(),
+            cellStyle,
             "TextStyle\n" +
                 "  background-color=green (walkingkooka.color.OpaqueRgbColor)\n" +
                 "  border-bottom-color=#888888 (walkingkooka.color.OpaqueRgbColor)\n" +
