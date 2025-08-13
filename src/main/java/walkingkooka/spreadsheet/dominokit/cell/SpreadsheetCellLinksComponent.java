@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.cell;
 
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
@@ -30,7 +31,7 @@ import java.util.Optional;
 /**
  * A container that holds a few links CREATE LABELS, LABELS, REFERENCES and DELETE for a {@link SpreadsheetExpressionReference}.
  */
-public final class SpreadsheetCellLinksComponent implements HtmlComponent<HTMLDivElement, SpreadsheetCellLinksComponent> {
+public final class SpreadsheetCellLinksComponent implements HtmlComponentDelegator<HTMLDivElement, SpreadsheetCellLinksComponent> {
 
     public static SpreadsheetCellLinksComponent empty(final String id,
                                                       final SpreadsheetCellLinksComponentContext context) {
@@ -119,31 +120,11 @@ public final class SpreadsheetCellLinksComponent implements HtmlComponent<HTMLDi
         return HtmlComponent.hasFocus(this.element());
     }
 
-    // setCssText.......................................................................................................
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public SpreadsheetCellLinksComponent setCssText(final String css) {
-        this.root.setCssText(css);
-        return this;
-    }
-
-    // setCssProperty...................................................................................................
-
-    @Override
-    public SpreadsheetCellLinksComponent setCssProperty(final String name,
-                                                        final String value) {
-        this.root.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
-
-    // IsElement........................................................................................................
-
-    @Override
-    public HTMLDivElement element() {
-        return this.root.element();
+    public HtmlComponent<HTMLDivElement, ?> htmlComponent() {
+        return this.root;
     }
 
     private final AnchorListComponent root;
