@@ -22,6 +22,8 @@ import org.dominokit.domino.ui.datatable.CellTextAlign;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 import walkingkooka.spreadsheet.dominokit.datatable.DataTableComponent;
@@ -39,7 +41,8 @@ import java.util.Optional;
  * A table that lists all the entries from a {@link JarEntryInfoList}.
  * No previous or next paging links are provided, it is assumed the table will scroll.
  */
-final class JarEntryInfoListTableComponent implements TableComponent<HTMLDivElement, JarEntryInfoList, JarEntryInfoListTableComponent> {
+final class JarEntryInfoListTableComponent implements TableComponent<HTMLDivElement, JarEntryInfoList, JarEntryInfoListTableComponent>,
+    HtmlComponentDelegator<HTMLDivElement, JarEntryInfoListTableComponent> {
 
     /**
      * Creates an empty {@link JarEntryInfoListTableComponent}.
@@ -149,33 +152,11 @@ final class JarEntryInfoListTableComponent implements TableComponent<HTMLDivElem
 
     private final DataTableComponent<JarEntryInfo> table;
 
-    // setCssText.......................................................................................................
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public JarEntryInfoListTableComponent setCssText(final String css) {
-        Objects.requireNonNull(css, "css");
-
-        this.card.setCssText(css);
-        return this;
-    }
-
-    // setCssProperty...................................................................................................
-
-    @Override
-    public JarEntryInfoListTableComponent setCssProperty(final String name,
-                                                         final String value) {
-        this.card.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
-
-    // HtmlComponent.............................................................................................
-
-    @Override
-    public HTMLDivElement element() {
-        return this.card.element();
+    public HtmlComponent<HTMLDivElement, ?> htmlComponent() {
+        return this.card;
     }
 
     private final CardComponent card;
