@@ -37,6 +37,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellLinksComponent;
@@ -102,7 +103,7 @@ import java.util.function.Predicate;
 /**
  * A ui that displays a table holding the cells and headers for the columns and rows.
  */
-public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDivElement, SpreadsheetViewportComponent>,
+public final class SpreadsheetViewportComponent implements HtmlComponentDelegator<HTMLDivElement, SpreadsheetViewportComponent>,
     SpreadsheetDeltaFetcherWatcher,
     SpreadsheetFormatterFetcherWatcher,
     NopSpreadsheetFormatterInfoSetFetcherWatcher,
@@ -195,6 +196,13 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
         return root;
     }
 
+    // HtmlComponentDelegator...........................................................................................
+
+    @Override
+    public HtmlComponent<HTMLDivElement, ?> htmlComponent() {
+        return this.root;
+    }
+
     /**
      * The root or container that holds the {@link SpreadsheetViewportFormulaComponent} and {@link #table}.
      */
@@ -220,38 +228,6 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
      * True when the SHIFT key is down. Column and Row headers will create {@link SpreadsheetViewportNavigation#extendColumn(SpreadsheetColumnReference)} etc rather than {@link SpreadsheetViewportNavigation#column(SpreadsheetColumnReference)}, navigations.
      */
     boolean shiftKeyDown;
-
-    // setCssText.......................................................................................................
-
-    @Override
-    public SpreadsheetViewportComponent setCssText(final String css) {
-        Objects.requireNonNull(css, "css");
-
-        this.root.setCssText(css);
-        return this;
-    }
-
-    // setCssProperty...................................................................................................
-
-    @Override
-    public SpreadsheetViewportComponent setCssProperty(final String name,
-                                                       final String value) {
-        this.root.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
-
-    // IsElement........................................................................................................
-
-    /**
-     * The root DIV element holding the formula and TABLE holding all headers and cells.
-     */
-    @Override
-    public HTMLDivElement element() {
-        return this.root.element();
-    }
 
     // formulaComponent.................................................................................................
 
