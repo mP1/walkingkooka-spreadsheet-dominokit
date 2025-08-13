@@ -24,6 +24,7 @@ import walkingkooka.plugin.PluginAliasSetLike;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.plugin.PluginNameSet;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -31,14 +32,13 @@ import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 
-import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
 
 /**
  * A component that contains a panel holding links of for each present {@link PluginAliasLike}, removing each from a {@link PluginAliasSetLike}.
  */
-public final class RemovePluginNameSetComponent implements HtmlComponent<HTMLDivElement, RemovePluginNameSetComponent> {
+public final class RemovePluginNameSetComponent implements HtmlComponentDelegator<HTMLDivElement, RemovePluginNameSetComponent> {
 
     /**
      * Creates an empty {@link RemovePluginNameSetComponent}.
@@ -155,8 +155,6 @@ public final class RemovePluginNameSetComponent implements HtmlComponent<HTMLDiv
      */
     private final String id;
 
-    private final CardComponent root;
-
     /**
      * The parent holding LINKS
      */
@@ -169,34 +167,14 @@ public final class RemovePluginNameSetComponent implements HtmlComponent<HTMLDiv
         return false;
     }
 
-    // setCssText.......................................................................................................
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public RemovePluginNameSetComponent setCssText(final String css) {
-        Objects.requireNonNull(css, "css");
-
-        this.root.setCssText(css);
-        return this;
+    public HtmlComponent<HTMLDivElement, ?> htmlComponent() {
+        return this.root;
     }
 
-    // setCssProperty...................................................................................................
-
-    @Override
-    public RemovePluginNameSetComponent setCssProperty(final String name,
-                                                       final String value) {
-        this.root.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
-
-    // IsElement........................................................................................................
-
-    @Override
-    public HTMLDivElement element() {
-        return this.root.element();
-    }
+    private final CardComponent root;
 
     // TreePrintable....................................................................................................
 
