@@ -34,6 +34,16 @@ interface SpreadsheetViewportComponentTableContext extends HistoryContext,
     SpreadsheetViewportContext{
 
     /**
+     * The width allocated to the viewport grid.
+     */
+    int viewportGridWidth();
+
+    /**
+     * The height allocated to the viewport grid.
+     */
+    int viewportGridHeight();
+
+    /**
      * When true indicates that hide zero values is active, and cells should add extra styling to show this.
      */
     boolean shouldHideZeroValues();

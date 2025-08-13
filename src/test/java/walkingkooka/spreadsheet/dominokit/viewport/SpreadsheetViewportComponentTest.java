@@ -234,8 +234,8 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
     private final static int CELL_WIDTH = 50;
     private final static int CELL_HEIGHT = 50;
 
-    private final static int VIEWPORT_WIDTH = CELL_WIDTH * 2 - 1;
-    private final static int VIEWPORT_HEIGHT = CELL_HEIGHT * 2 - 1;
+    private final static int VIEWPORT_GRID_WIDTH = CELL_WIDTH * 2 - 1;
+    private final static int VIEWPORT_GRID_HEIGHT = CELL_HEIGHT * 2 - 1;
 
     private final static SpreadsheetMetadata SPREADSHEET_METADATA = SpreadsheetMetadataTesting.METADATA_EN_AU.set(
         SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
@@ -262,8 +262,8 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
         SpreadsheetMetadataPropertyName.VIEWPORT,
         SpreadsheetViewportRectangle.with(
             SpreadsheetSelection.A1,
-            VIEWPORT_WIDTH,
-            VIEWPORT_HEIGHT
+            VIEWPORT_GRID_WIDTH,
+            VIEWPORT_GRID_HEIGHT
         ).viewport()
     );
 
@@ -718,8 +718,8 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                 appContext
             );
 
-        component.tableWidth = VIEWPORT_WIDTH;
-        component.tableHeight = VIEWPORT_HEIGHT;
+        component.viewportGridWidth = VIEWPORT_GRID_WIDTH;
+        component.viewportGridHeight = VIEWPORT_GRID_HEIGHT;
 
         appContext.fireCurrentHistoryToken();
 

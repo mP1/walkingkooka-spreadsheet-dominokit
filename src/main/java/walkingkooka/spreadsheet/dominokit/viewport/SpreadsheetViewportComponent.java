@@ -418,13 +418,13 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
 
     public void setWidthAndHeight(final int width,
                                   final int height) {
-        final boolean reload = width > this.tableWidth || height > this.tableHeight;
+        final boolean reload = width > this.viewportGridWidth || height > this.viewportGridHeight;
 
         final SpreadsheetViewportComponentContext context = this.context;
-        context.debug("SpreadsheetViewportComponent.setWidthAndHeight " + width + "x" + height + " was " + this.tableWidth + "x" + this.tableHeight + " reload: " + reload);
+        context.debug("SpreadsheetViewportComponent.setWidthAndHeight " + width + "x" + height + " was " + this.viewportGridWidth + "x" + this.viewportGridHeight + " reload: " + reload);
 
-        this.tableWidth = width;
-        this.tableHeight = height - this.formula.element()
+        this.viewportGridWidth = width;
+        this.viewportGridHeight = height - this.formula.element()
             .offsetHeight;
 
         this.tableContainer.setCssProperty(
@@ -447,20 +447,20 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
     /**
      * The width allocated to the widget.
      */
-    int tableWidth;
+    int viewportGridWidth;
 
     /**
      * The height allocated to the widget.
      */
-    int tableHeight;
+    int viewportGridHeight;
 
     private final static int SCROLLBAR_LENGTH = 32;
 
     public SpreadsheetViewport viewport(final Optional<AnchoredSpreadsheetSelection> anchoredSelection) {
         return this.context.home()
             .viewportRectangle(
-            this.tableWidth,
-            this.tableHeight
+            this.viewportGridWidth,
+            this.viewportGridHeight
             ).viewport()
             .setAnchoredSelection(anchoredSelection);
     }
@@ -593,8 +593,8 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
     SpreadsheetViewport spreadsheetViewport;
 
     private void refreshTableScrollbars(final RefreshContext context) {
-        final int contentWidth = this.tableWidth - SCROLLBAR_LENGTH;
-        final int contentHeight = this.tableHeight - SCROLLBAR_LENGTH;
+        final int contentWidth = this.viewportGridWidth - SCROLLBAR_LENGTH;
+        final int contentHeight = this.viewportGridHeight - SCROLLBAR_LENGTH;
 
         this.tableContainer.setCssProperty(
             "grid-template-columns",
@@ -946,8 +946,8 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
 
         if (context.spreadsheetDeltaFetcher().waitingRequestCount() == 0) {
             final boolean reload = this.reload;
-            final int width = this.tableWidth;
-            final int height = this.tableHeight;
+            final int width = this.viewportGridWidth;
+            final int height = this.viewportGridHeight;
 
             final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
             if (reload && width > 0 && height > 0 && metadata.isNotEmpty()) {
@@ -995,9 +995,9 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
         final SpreadsheetViewportRectangle rectangle = viewport.rectangle();
         return viewport.setRectangle(
             rectangle.setWidth(
-                this.tableWidth
+                this.viewportGridWidth
             ).setHeight(
-                this.tableHeight
+                this.viewportGridHeight
             )
         );
     }

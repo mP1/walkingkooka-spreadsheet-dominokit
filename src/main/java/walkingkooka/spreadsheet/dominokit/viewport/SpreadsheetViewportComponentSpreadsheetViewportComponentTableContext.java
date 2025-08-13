@@ -52,6 +52,16 @@ final class SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext
     }
 
     @Override
+    public int viewportGridWidth() {
+        return this.spreadsheetViewportComponent.viewportGridWidth;
+    }
+
+    @Override
+    public int viewportGridHeight() {
+        return this.spreadsheetViewportComponent.viewportGridHeight;
+    }
+
+    @Override
     public SpreadsheetViewportCache spreadsheetViewportCache() {
         return this.spreadsheetViewportComponent.spreadsheetViewportCache();
     }

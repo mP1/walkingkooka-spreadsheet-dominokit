@@ -30,6 +30,16 @@ public class FakeSpreadsheetViewportComponentTableContext extends FakeSpreadshee
     }
 
     @Override
+    public int viewportGridWidth() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public int viewportGridHeight() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public boolean shouldHideZeroValues() {
         throw new UnsupportedOperationException();
     }
