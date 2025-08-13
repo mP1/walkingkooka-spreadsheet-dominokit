@@ -136,18 +136,11 @@ abstract class SpreadsheetViewportComponentTableCellHeader<S extends Spreadsheet
      */
     Boolean extended;
 
-    // HtmlElementComponentDelegator.............................................................................
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public HtmlElementComponent<HTMLTableCellElement, ?> htmlElementComponent() {
+    public HtmlElementComponent<HTMLTableCellElement, ?> htmlComponent() {
         return this.th;
-    }
-
-    // IsElement........................................................................................................
-
-    @Override
-    public final HTMLTableCellElement element() {
-        return this.th.element();
     }
 
     private final ThComponent th;
