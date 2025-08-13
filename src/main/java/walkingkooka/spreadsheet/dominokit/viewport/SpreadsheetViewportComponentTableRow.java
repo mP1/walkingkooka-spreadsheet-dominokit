@@ -20,8 +20,8 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 import elemental2.dom.HTMLTableRowElement;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.dom.TrComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportWindows;
@@ -33,7 +33,8 @@ import java.util.function.Predicate;
  * Represents a single TR row within the TABLE which contains all rendered column & row headers and cells.
  * Note it does not add any styling such as colors or borders to show a selected or unselected row.
  */
-abstract class SpreadsheetViewportComponentTableRow<T extends SpreadsheetViewportComponentTableRow<T>> implements HtmlElementComponentDelegator<HTMLTableRowElement, T> {
+abstract class SpreadsheetViewportComponentTableRow<T extends SpreadsheetViewportComponentTableRow<T>>
+    implements HtmlComponentDelegator<HTMLTableRowElement, T> {
 
     SpreadsheetViewportComponentTableRow() {
         this.tr = HtmlElementComponent.tr();
@@ -51,10 +52,10 @@ abstract class SpreadsheetViewportComponentTableRow<T extends SpreadsheetViewpor
         return false;
     }
 
-    // HtmlElementComponentDelegator....................................................................................
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public final HtmlElementComponent<HTMLTableRowElement, ?> htmlElementComponent() {
+    public final HtmlElementComponent<HTMLTableRowElement, ?> htmlComponent() {
         return this.tr;
     }
 

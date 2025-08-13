@@ -206,10 +206,10 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
         throw new UnsupportedOperationException();
     }
 
-    // HtmlElementComponentDelegator....................................................................................
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public HtmlElementComponent<HTMLTableCellElement, ?> htmlElementComponent() {
+    public HtmlElementComponent<HTMLTableCellElement, ?> htmlComponent() {
         return this.td;
     }
 

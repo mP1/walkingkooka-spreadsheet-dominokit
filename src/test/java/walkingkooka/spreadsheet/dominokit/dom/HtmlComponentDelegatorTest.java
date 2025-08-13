@@ -20,14 +20,15 @@ package walkingkooka.spreadsheet.dominokit.dom;
 import elemental2.dom.HTMLTableElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
-import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponentDelegatorTest.TestSpreadsheetElementComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.dom.HtmlComponentDelegatorTest.TestSpreadsheetComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.text.TextComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Optional;
 
-public class HtmlElementComponentDelegatorTest implements HtmlComponentTesting<TestSpreadsheetElementComponentDelegator, HTMLTableElement> {
+public class HtmlComponentDelegatorTest implements HtmlComponentTesting<TestSpreadsheetComponentDelegator, HTMLTableElement> {
 
     @Override
     public void testTestNaming() {
@@ -35,16 +36,8 @@ public class HtmlElementComponentDelegatorTest implements HtmlComponentTesting<T
     }
 
     @Test
-    public void testClassName() {
-        this.checkEquals(
-            HtmlElementComponent.class.getSimpleName() + "Delegator",
-            HtmlElementComponentDelegator.class.getSimpleName()
-        );
-    }
-
-    @Test
     public void testTreePrint() {
-        final TestSpreadsheetElementComponentDelegator component = new TestSpreadsheetElementComponentDelegator();
+        final TestSpreadsheetComponentDelegator component = new TestSpreadsheetComponentDelegator();
         component.table.appendChild(
             HtmlElementComponent.thead()
                 .appendChild(
@@ -83,7 +76,7 @@ public class HtmlElementComponentDelegatorTest implements HtmlComponentTesting<T
 
         this.treePrintAndCheck(
             component,
-            "TestSpreadsheetElementComponentDelegator\n" +
+            "TestSpreadsheetComponentDelegator\n" +
                 "  TABLE\n" +
                 "    THEAD\n" +
                 "      TH\n" +
@@ -102,10 +95,10 @@ public class HtmlElementComponentDelegatorTest implements HtmlComponentTesting<T
         );
     }
 
-    final static class TestSpreadsheetElementComponentDelegator implements HtmlElementComponentDelegator<HTMLTableElement, TestSpreadsheetElementComponentDelegator> {
+    final static class TestSpreadsheetComponentDelegator implements HtmlComponentDelegator<HTMLTableElement, TestSpreadsheetComponentDelegator> {
 
         @Override
-        public TableComponent htmlElementComponent() {
+        public TableComponent htmlComponent() {
             return this.table;
         }
 
@@ -131,8 +124,8 @@ public class HtmlElementComponentDelegatorTest implements HtmlComponentTesting<T
     // class............................................................................................................
 
     @Override
-    public Class<TestSpreadsheetElementComponentDelegator> type() {
-        return TestSpreadsheetElementComponentDelegator.class;
+    public Class<TestSpreadsheetComponentDelegator> type() {
+        return TestSpreadsheetComponentDelegator.class;
     }
 
     @Override
