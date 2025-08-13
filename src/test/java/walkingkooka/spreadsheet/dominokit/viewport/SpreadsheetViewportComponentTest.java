@@ -295,6 +295,10 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                 "              TH\n" +
                 "                id=\"viewport-column-A\" style=\"background-color: #333333; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 50px; width: 50px;\"\n" +
                 "                  \"A\" [#/1/SpreadsheetName111/column/A] id=viewport-column-A-Link\n" +
+                "            SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
+                "              TH\n" +
+                "                id=\"viewport-column-B\" style=\"background-color: #222222; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 50px; width: 50px;\"\n" +
+                "                  \"B\" [#/1/SpreadsheetName111/column/B] id=viewport-column-B-Link\n" +
                 "      TBODY\n" +
                 "        SpreadsheetViewportComponentTableRowCells\n" +
                 "          TR\n" +
@@ -306,6 +310,9 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                 "              TD\n" +
                 "                id=\"viewport-cell-A1\" tabIndex=0 style=\"box-sizing: border-box; color: black; height: 50px; min-height: 50px; min-width: 50px; width: 50px;\"\n" +
                 "                  Text \"*** 3.0\"\n" +
+                "            SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "              TD\n" +
+                "                id=\"viewport-cell-B1\" tabIndex=0 style=\"background-color: white; box-sizing: border-box; height: 50px; min-height: 50px; min-width: 50px; width: 50px;\"\n" +
                 "        SpreadsheetViewportComponentTableRowCells\n" +
                 "          TR\n" +
                 "            SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow\n" +
@@ -315,6 +322,9 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                 "            SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
                 "              TD\n" +
                 "                id=\"viewport-cell-A2\" tabIndex=0 style=\"background-color: white; box-sizing: border-box; height: 50px; min-height: 50px; min-width: 50px; width: 50px;\"\n" +
+                "            SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "              TD\n" +
+                "                id=\"viewport-cell-B2\" tabIndex=0 style=\"background-color: white; box-sizing: border-box; height: 50px; min-height: 50px; min-width: 50px; width: 50px;\"\n" +
                 "  SpreadsheetViewportScrollbarComponentRows\n" +
                 "    FlexLayoutComponent\n" +
                 "      COLUMN\n" +
@@ -365,6 +375,10 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                 "              TH\n" +
                 "                id=\"viewport-column-A\" style=\"background-color: #333333; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 50px; width: 50px;\"\n" +
                 "                  \"A\" [#/1/SpreadsheetName111/column/A] id=viewport-column-A-Link\n" +
+                "            SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
+                "              TH\n" +
+                "                id=\"viewport-column-B\" style=\"background-color: #222222; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 50px; width: 50px;\"\n" +
+                "                  \"B\" [#/1/SpreadsheetName111/column/B] id=viewport-column-B-Link\n" +
                 "      TBODY\n" +
                 "        SpreadsheetViewportComponentTableRowCells\n" +
                 "          TR\n" +
@@ -376,6 +390,9 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                 "              TD\n" +
                 "                id=\"viewport-cell-A1\" tabIndex=0 style=\"box-sizing: border-box; color: black; height: 50px; min-height: 50px; min-width: 50px; width: 50px;\"\n" +
                 "                  Text \"*** 3.0\"\n" +
+                "            SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "              TD\n" +
+                "                id=\"viewport-cell-B1\" tabIndex=0 style=\"background-color: white; box-sizing: border-box; height: 50px; min-height: 50px; min-width: 50px; width: 50px;\"\n" +
                 "        SpreadsheetViewportComponentTableRowCells\n" +
                 "          TR\n" +
                 "            SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow\n" +
@@ -385,6 +402,9 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                 "            SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
                 "              TD\n" +
                 "                id=\"viewport-cell-A2\" tabIndex=0 style=\"box-sizing: border-box; color: black; height: 50px; min-height: 50px; min-width: 50px; width: 50px;\"\n" +
+                "            SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "              TD\n" +
+                "                id=\"viewport-cell-B2\" tabIndex=0 style=\"background-color: white; box-sizing: border-box; height: 50px; min-height: 50px; min-width: 50px; width: 50px;\"\n" +
                 "  SpreadsheetViewportScrollbarComponentRows\n" +
                 "    FlexLayoutComponent\n" +
                 "      COLUMN\n" +
@@ -435,6 +455,10 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                 "              TH\n" +
                 "                id=\"viewport-column-A\" style=\"background-color: #222222; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 50px; width: 50px;\"\n" +
                 "                  \"A\" [#/1/SpreadsheetName111/column/A] id=viewport-column-A-Link\n" +
+                "            SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
+                "              TH\n" +
+                "                id=\"viewport-column-B\" style=\"background-color: #222222; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 50px; width: 50px;\"\n" +
+                "                  \"B\" [#/1/SpreadsheetName111/column/B] id=viewport-column-B-Link\n" +
                 "      TBODY\n" +
                 "        SpreadsheetViewportComponentTableRowCells\n" +
                 "          TR\n" +
@@ -446,6 +470,9 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                 "              TD\n" +
                 "                id=\"viewport-cell-A1\" tabIndex=0 style=\"box-sizing: border-box; color: black; height: 50px; min-height: 50px; min-width: 50px; width: 50px;\"\n" +
                 "                  Text \"*** 3.0\"\n" +
+                "            SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "              TD\n" +
+                "                id=\"viewport-cell-B1\" tabIndex=0 style=\"box-sizing: border-box; color: black; height: 50px; min-height: 50px; min-width: 50px; width: 50px;\"\n" +
                 "        SpreadsheetViewportComponentTableRowCells\n" +
                 "          TR\n" +
                 "            SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow\n" +
@@ -455,6 +482,9 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                 "            SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
                 "              TD\n" +
                 "                id=\"viewport-cell-A2\" tabIndex=0 style=\"background-color: white; box-sizing: border-box; height: 50px; min-height: 50px; min-width: 50px; width: 50px;\"\n" +
+                "            SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "              TD\n" +
+                "                id=\"viewport-cell-B2\" tabIndex=0 style=\"background-color: white; box-sizing: border-box; height: 50px; min-height: 50px; min-width: 50px; width: 50px;\"\n" +
                 "  SpreadsheetViewportScrollbarComponentRows\n" +
                 "    FlexLayoutComponent\n" +
                 "      COLUMN\n" +

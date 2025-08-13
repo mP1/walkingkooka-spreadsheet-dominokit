@@ -117,6 +117,11 @@ public final class SpreadsheetViewportComponentTableCellHeaderSpreadsheetRowTest
             }
 
             @Override
+            public boolean shouldShowHeaders() {
+                return true;
+            }
+
+            @Override
             public TextStyle rowStyle() {
                 return TextStyle.parse("background-color: #111;");
             }

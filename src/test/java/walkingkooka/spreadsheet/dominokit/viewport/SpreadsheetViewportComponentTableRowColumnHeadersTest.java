@@ -177,6 +177,11 @@ public final class SpreadsheetViewportComponentTableRowColumnHeadersTest extends
             }
 
             @Override
+            public boolean shouldShowHeaders() {
+                return true;
+            }
+
+            @Override
             public SpreadsheetViewportCache spreadsheetViewportCache() {
                 return this.spreadsheetViewportCache;
             }

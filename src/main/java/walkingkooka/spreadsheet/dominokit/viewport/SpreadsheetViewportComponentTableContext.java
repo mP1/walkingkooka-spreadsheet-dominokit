@@ -54,6 +54,11 @@ interface SpreadsheetViewportComponentTableContext extends HistoryContext,
     boolean shouldShowFormulas();
 
     /**
+     * Holds the boolean value of {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName#SHOW_HEADINGS}
+     */
+    boolean shouldShowHeaders();
+
+    /**
      * When true a {@link SpreadsheetViewportComponentTableCell} must refresh.
      */
     boolean mustRefresh();

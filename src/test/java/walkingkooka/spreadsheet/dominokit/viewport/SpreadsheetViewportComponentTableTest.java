@@ -56,13 +56,14 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
     final static SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("SpreadsheetName222");
 
     @Test
-    public void testTreePrintCellSelected() {
+    public void testTreePrintCellSelectedAndShouldShowHeadersTrue() {
         final String printTree = this.printTreeAndCheck(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor()
             ),
+            true, // shouldShowHeaders
             "TABLE\n" +
                 "  id=\"viewport\" style=\"overflow-x: hidden; overflow-y: hidden;\"\n" +
                 "    THEAD\n" +
@@ -115,7 +116,40 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
                 "              id=\"viewport-cell-B2\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
                 "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
                 "            TD\n" +
-                "              id=\"viewport-cell-C2\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n"
+                "              id=\"viewport-cell-C2\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "      SpreadsheetViewportComponentTableRowCells\n" +
+                "        TR\n" +
+                "          SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow\n" +
+                "            TH\n" +
+                "              id=\"viewport-row-3\" style=\"box-sizing: border-box; color: #333333; height: 50px; min-height: 50px; min-width: 80px; width: 80px;\"\n" +
+                "                \"3\" [#/1/SpreadsheetName222/row/3] id=viewport-row-3-Link\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-A3\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-B3\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-C3\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n"
+        );
+
+        this.checkEquals(
+            true,
+            printTree.contains("select-all"),
+            "TR should contain select-all\n" + printTree
+        );
+
+        this.checkEquals(
+            true,
+            printTree.contains("column"),
+            "TR should be contain column\n" + printTree
+        );
+
+        this.checkEquals(
+            true,
+            printTree.contains("row"),
+            "TR should be contain ROW header\n" + printTree
         );
 
         this.checkEquals(
@@ -126,12 +160,13 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
     }
 
     @Test
-    public void testTreePrintNothingSelected() {
+    public void testTreePrintNothingSelectedAndShouldShowHeadersTrue() {
         final String printTree = this.printTreeAndCheck(
             HistoryToken.spreadsheetSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME
             ),
+            true, // shouldShowHeaders
             "TABLE\n" +
                 "  id=\"viewport\" style=\"overflow-x: hidden; overflow-y: hidden;\"\n" +
                 "    THEAD\n" +
@@ -184,7 +219,113 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
                 "              id=\"viewport-cell-B2\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
                 "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
                 "            TD\n" +
-                "              id=\"viewport-cell-C2\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n"
+                "              id=\"viewport-cell-C2\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "      SpreadsheetViewportComponentTableRowCells\n" +
+                "        TR\n" +
+                "          SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow\n" +
+                "            TH\n" +
+                "              id=\"viewport-row-3\" style=\"box-sizing: border-box; color: #333333; height: 50px; min-height: 50px; min-width: 80px; width: 80px;\"\n" +
+                "                \"3\" [#/1/SpreadsheetName222/row/3] id=viewport-row-3-Link\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-A3\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-B3\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-C3\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n"
+        );
+
+        this.checkEquals(
+            true,
+            printTree.contains("select-all"),
+            "TR should contain select-all\n" + printTree
+        );
+
+        this.checkEquals(
+            true,
+            printTree.contains("column"),
+            "TR should be contain column\n" + printTree
+        );
+
+        this.checkEquals(
+            true,
+            printTree.contains("row"),
+            "TR should be contain ROW header\n" + printTree
+        );
+
+        this.checkEquals(
+            false,
+            printTree.contains("background-color"),
+            "background-color found something was selected\n" + printTree
+        );
+    }
+
+    @Test
+    public void testTreePrintNothingSelectedAndShouldShowHeadersFalse() {
+        final String printTree = this.printTreeAndCheck(
+            HistoryToken.spreadsheetSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
+            ),
+            false, // shouldShowHeaders
+            "TABLE\n" +
+                "  id=\"viewport\" style=\"overflow-x: hidden; overflow-y: hidden;\"\n" +
+                "    THEAD\n" +
+                "    TBODY\n" +
+                "      SpreadsheetViewportComponentTableRowCells\n" +
+                "        TR\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-A1\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "                Text \"*** 3.0\"\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-B1\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-C1\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "      SpreadsheetViewportComponentTableRowCells\n" +
+                "        TR\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-A2\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-B2\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-C2\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "      SpreadsheetViewportComponentTableRowCells\n" +
+                "        TR\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-A3\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-B3\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "          SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "            TD\n" +
+                "              id=\"viewport-cell-C3\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n"
+        );
+
+        this.checkEquals(
+            false,
+            printTree.contains("select-all"),
+            "TR should be missing select-all\n" + printTree
+        );
+
+        this.checkEquals(
+            false,
+            printTree.contains("column"),
+            "TR should be missing column\n" + printTree
+        );
+
+        this.checkEquals(
+            false,
+            printTree.contains("row"),
+            "TR should be missing ROW header\n" + printTree
         );
 
         this.checkEquals(
@@ -195,6 +336,7 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
     }
 
     private String printTreeAndCheck(final HistoryToken historyToken,
+                                     final boolean shouldShowHeaders,
                                      final String expected) {
         final SpreadsheetId spreadsheetId = SpreadsheetId.with(1);
         final SpreadsheetName spreadsheetName = SpreadsheetName.with("sheet1");
@@ -250,6 +392,10 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
                 return false;
             }
 
+            @Override
+            public boolean shouldShowHeaders() {
+                return shouldShowHeaders;
+            }
 
             @Override
             public boolean isShiftKeyDown() {

@@ -77,6 +77,11 @@ final class SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext
     }
 
     @Override
+    public boolean shouldShowHeaders() {
+        return this.spreadsheetViewportComponent.shouldShowHeaders;
+    }
+
+    @Override
     public boolean mustRefresh() {
         return this.spreadsheetViewportComponent.mustRefresh;
     }
