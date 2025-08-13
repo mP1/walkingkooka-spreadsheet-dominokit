@@ -98,6 +98,12 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
         return this;
     }
 
+    @Override
+    public HistoryTokenAnchorComponent removeCssProperty(final String name) {
+        this.element.removeCssProperty(name);
+        return this;
+    }
+
     // disabled.........................................................................................................
 
     @Override

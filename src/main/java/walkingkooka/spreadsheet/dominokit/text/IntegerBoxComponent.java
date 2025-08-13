@@ -386,10 +386,17 @@ public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSe
     @Override
     public IntegerBoxComponent setCssProperty(final String name,
                                               final String value) {
-        this.integerBox.setCssProperty(
-            name,
-            value
+        this.integerBox.removeCssProperty(
+            name
         );
+        return this;
+    }
+
+    // removeCssProperty................................................................................................
+
+    @Override
+    public IntegerBoxComponent removeCssProperty(final String name) {
+        this.integerBox.removeCssProperty(name);
         return this;
     }
 

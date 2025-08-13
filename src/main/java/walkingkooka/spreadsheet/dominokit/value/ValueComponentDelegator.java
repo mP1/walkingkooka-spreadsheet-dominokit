@@ -162,6 +162,13 @@ public interface ValueComponentDelegator<E extends HTMLElement, V, C extends Val
     }
 
     @Override
+    default C removeCssProperty(final String name) {
+        this.valueComponent()
+            .removeCssProperty(name);
+        return (C) this;
+    }
+
+    @Override
     default E element() {
         return this.valueComponent()
             .element();

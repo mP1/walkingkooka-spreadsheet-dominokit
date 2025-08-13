@@ -233,6 +233,14 @@ final class SpreadsheetAppLayout extends AppLayout implements
         return this;
     }
 
+    // removeCssProperty................................................................................................
+
+    @Override
+    public SpreadsheetAppLayout removeCssProperty(final String name) {
+        this.element.removeCssProperty(name);
+        return this;
+    }
+
     // TreePrintable....................................................................................................
 
     @Override

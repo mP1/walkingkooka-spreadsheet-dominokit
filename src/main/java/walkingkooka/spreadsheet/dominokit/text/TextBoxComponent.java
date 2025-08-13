@@ -381,6 +381,17 @@ public final class TextBoxComponent implements FormValueComponent<HTMLFieldSetEl
         return this;
     }
 
+    // removeCssProperty................................................................................................
+
+    @Override
+    public TextBoxComponent removeCssProperty(final String name) {
+        Objects.requireNonNull(name, "name");
+
+        this.textBox.removeCssProperty(name);
+        return this;
+    }
+
+
     // isEditing........................................................................................................
 
     @Override

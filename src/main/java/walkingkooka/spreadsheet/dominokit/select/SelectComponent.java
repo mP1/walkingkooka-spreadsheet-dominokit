@@ -321,6 +321,14 @@ public final class SelectComponent<T> implements FormValueComponent<HTMLFieldSet
         return this;
     }
 
+    // removeCssProperty................................................................................................
+
+    @Override
+    public SelectComponent<T> removeCssProperty(final String name) {
+        this.select.removeCssProperty(name);
+        return this;
+    }
+
     // isEditing........................................................................................................
 
     @Override

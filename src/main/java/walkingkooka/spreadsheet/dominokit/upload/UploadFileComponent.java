@@ -284,6 +284,13 @@ public final class UploadFileComponent extends UploadFileComponentLike {
     }
 
     @Override
+    public UploadFileComponent removeCssProperty(final String name) {
+        this.element()
+            .style.removeProperty(name);
+        return this;
+    }
+
+    @Override
     public HTMLDivElement element() {
         return this.fileUpload.element();
     }

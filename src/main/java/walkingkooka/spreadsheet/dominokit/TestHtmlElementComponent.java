@@ -54,4 +54,12 @@ public interface TestHtmlElementComponent<E extends HTMLElement, C extends HtmlC
         // ignore
         return (C) this;
     }
+
+    // removeCssProperty................................................................................................
+
+    @Override
+    default C removeCssProperty(final String name) {
+        // ignore
+        return (C) this;
+    }
 }

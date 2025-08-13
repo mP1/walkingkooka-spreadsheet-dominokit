@@ -93,6 +93,15 @@ public final class CardComponent implements HtmlComponent<HTMLDivElement, CardCo
         return this;
     }
 
+    // removeCssProperty................................................................................................
+
+    @Override
+    public CardComponent removeCssProperty(final String name) {
+        this.card.style()
+            .removeCssProperty(name);
+        return this;
+    }
+
     // filter...........................................................................................................
 
     /**

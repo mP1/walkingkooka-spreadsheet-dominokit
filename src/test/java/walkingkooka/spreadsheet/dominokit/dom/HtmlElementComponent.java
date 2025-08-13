@@ -144,6 +144,14 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
     }
 
     @Override
+    public final C removeCssProperty(final String name) {
+        CharSequences.failIfNullOrEmpty(name, "name");
+
+        this.style.remove(name);
+        return (C) this;
+    }
+
+    @Override
     public final C setCssText(final String cssText) {
         Objects.requireNonNull(cssText, "cssText");
 

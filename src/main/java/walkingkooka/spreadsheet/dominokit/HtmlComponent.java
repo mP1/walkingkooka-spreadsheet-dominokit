@@ -72,6 +72,11 @@ public interface HtmlComponent<E extends HTMLElement, C extends HtmlComponent<E,
     C setCssProperty(final String name,
                      final String value);
 
+    /**
+     * Removes a CSS property from this component.
+     */
+    C removeCssProperty(final String name);
+
     String VISIBILITY = "visibility";
     String HIDDEN = "hidden";
     String VISIBLE = "visible";

@@ -88,6 +88,12 @@ public final class DateComponent extends DominoKitPickerComponent<LocalDate, Dat
         return this;
     }
 
+    @Override
+    public DateComponent removeCssProperty(final String name) {
+        this.calendar.removeCssProperty(name);
+        return this;
+    }
+
     public DateComponent resetView() {
         this.calendar.resetView();
         return this;

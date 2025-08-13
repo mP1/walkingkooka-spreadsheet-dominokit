@@ -339,6 +339,14 @@ public final class SliderComponent extends SliderComponentLike {
         return this;
     }
 
+    // removeCssProperty................................................................................................
+
+    @Override
+    public SliderComponent removeCssProperty(final String name) {
+        this.slider.removeCssProperty(name);
+        return this;
+    }
+
     // isEditing........................................................................................................
 
     @Override

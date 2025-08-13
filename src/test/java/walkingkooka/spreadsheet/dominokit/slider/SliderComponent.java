@@ -305,6 +305,14 @@ public final class SliderComponent extends SliderComponentLike
         return this;
     }
 
+    // removeCssProperty................................................................................................
+
+    @Override
+    public SliderComponent removeCssProperty(final String name) {
+        Objects.requireNonNull(name, "name");
+        return this;
+    }
+
     @Override
     public boolean isEditing() {
         return false;

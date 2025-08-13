@@ -186,6 +186,14 @@ public final class DataTableComponent<T> extends DataTableComponentLike<T> {
         return this;
     }
 
+    // removeCssProperty................................................................................................
+
+    @Override
+    public DataTableComponent<T> removeCssProperty(final String name) {
+        this.table.removeCssProperty(name);
+        return this;
+    }
+
     // ComponentWithChildren............................................................................................
 
     @Override

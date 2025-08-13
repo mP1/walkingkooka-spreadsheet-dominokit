@@ -40,6 +40,13 @@ public interface HtmlComponentDelegator<E extends HTMLElement, C extends HtmlCom
     }
 
     @Override
+    default C removeCssProperty(final String name) {
+        this.htmlComponent()
+            .removeCssProperty(name);
+        return (C) this;
+    }
+
+    @Override
     default E element() {
         return this.htmlComponent()
             .element();

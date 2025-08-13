@@ -292,6 +292,12 @@ public final class DialogComponent extends DialogComponentLike {
         return this;
     }
 
+    @Override
+    public DialogComponent removeCssProperty(final String name) {
+        this.dialog.removeCssProperty(name);
+        return this;
+    }
+
     // HtmlComponent.............................................................................................
 
     @Override

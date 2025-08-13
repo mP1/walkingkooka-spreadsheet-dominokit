@@ -119,6 +119,12 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
     }
 
     @Override
+    public final C removeCssProperty(final String name) {
+        this.element.style.removeProperty(name);
+        return (C) this;
+    }
+
+    @Override
     public final C setCssText(final String cssText) {
         this.element.style.cssText = cssText;
         return (C) this;

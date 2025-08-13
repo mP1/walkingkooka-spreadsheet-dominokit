@@ -87,6 +87,12 @@ public final class TimeComponent extends DominoKitPickerComponent<LocalTime, Tim
         return this;
     }
 
+    @Override
+    public TimeComponent removeCssProperty(final String name) {
+        this.timePicker.removeCssProperty(name);
+        return this;
+    }
+
     // events...........................................................................................................
 
     @Override
