@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.format;
 
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.link.CardLinkListComponent;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
@@ -30,7 +31,7 @@ import java.util.stream.Collectors;
 /**
  * A component that list all available {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterName} by querying {@link SpreadsheetFormatterProvider#spreadsheetFormatterInfos()}.
  */
-public final class SpreadsheetFormatterNameLinkListComponent implements HtmlComponent<HTMLDivElement, SpreadsheetFormatterNameLinkListComponent> {
+public final class SpreadsheetFormatterNameLinkListComponent implements HtmlComponentDelegator<HTMLDivElement, SpreadsheetFormatterNameLinkListComponent> {
 
     static SpreadsheetFormatterNameLinkListComponent empty(final String id) {
         return new SpreadsheetFormatterNameLinkListComponent(id);
@@ -63,22 +64,6 @@ public final class SpreadsheetFormatterNameLinkListComponent implements HtmlComp
             .value();
     }
 
-    @Override
-    public SpreadsheetFormatterNameLinkListComponent setCssText(final String css) {
-        this.list.setCssText(css);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetFormatterNameLinkListComponent setCssProperty(final String name,
-                                                                    final String value) {
-        this.list.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
-
     // isEditing........................................................................................................
 
     @Override
@@ -87,9 +72,11 @@ public final class SpreadsheetFormatterNameLinkListComponent implements HtmlComp
             this.list.isEditing();
     }
 
+    // HtmlComponentDelegator...........................................................................................
+
     @Override
-    public HTMLDivElement element() {
-        return this.list.element();
+    public HtmlComponent<HTMLDivElement, ?> htmlComponent() {
+        return this.list;
     }
 
     private final CardLinkListComponent list;
