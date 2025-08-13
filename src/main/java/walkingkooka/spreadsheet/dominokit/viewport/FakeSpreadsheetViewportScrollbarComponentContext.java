@@ -27,12 +27,12 @@ public class FakeSpreadsheetViewportScrollbarComponentContext extends FakeHistor
     }
 
     @Override
-    public double viewportGridWidth() {
+    public int viewportGridWidth() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public double viewportGridHeight() {
+    public int viewportGridHeight() {
         throw new UnsupportedOperationException();
     }
 
