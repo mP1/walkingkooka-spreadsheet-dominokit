@@ -79,6 +79,9 @@ final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewpor
 
             final SpreadsheetRowReference row = this.rowHeader.selection;
 
+            double rowWidth = context.viewportGridWidth()
+                - SpreadsheetViewportContext.ROW_HEADER_WIDTH_PIXELS;
+
             // create the cells as necessary for this row...
             for (final SpreadsheetColumnReference column : columns) {
                 SpreadsheetViewportComponentTableCellSpreadsheetCell columnTableCell = oldColumnToCells.get(column);
@@ -90,6 +93,12 @@ final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewpor
                 }
                 newColumnToCells.put(column, columnTableCell);
                 element.appendChild(columnTableCell);
+
+                rowWidth = rowWidth - columnTableCell.width(context)
+                    .pixelValue();
+                if(rowWidth <= 0) {
+                    break;
+                }
             }
 
             this.columnToCells = newColumnToCells;

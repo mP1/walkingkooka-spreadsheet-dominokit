@@ -29,9 +29,13 @@ import java.util.Objects;
  */
 public interface SpreadsheetViewportContext extends Context {
 
-    Length<?> COLUMN_HEADER_HEIGHT = Length.pixel(30.0);
+    int COLUMN_HEADER_HEIGHT_PIXELS = 30;
 
-    Length<?> ROW_HEADER_WIDTH = Length.pixel(80.0);
+    Length<?> COLUMN_HEADER_HEIGHT = Length.pixel((double)COLUMN_HEADER_HEIGHT_PIXELS);
+
+    int ROW_HEADER_WIDTH_PIXELS = 80;
+
+    Length<?> ROW_HEADER_WIDTH = Length.pixel((double)ROW_HEADER_WIDTH_PIXELS);
 
     /**
      * The {@link TextStyle} for the top/left select all box.
