@@ -30,13 +30,10 @@ public interface SpreadsheetViewportScrollbarComponentContext extends HasSpreads
     /**
      * The width of the viewport in pixels.
      */
-    double viewportWidth();
+    double viewportGridWidth();
 
     /**
      * The height of the viewport in pixels.
      */
-    double viewportHeight();
-
-
-
+    double viewportGridHeight();
 }

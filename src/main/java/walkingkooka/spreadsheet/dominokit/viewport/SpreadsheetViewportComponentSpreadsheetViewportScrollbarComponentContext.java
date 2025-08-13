@@ -53,12 +53,12 @@ final class SpreadsheetViewportComponentSpreadsheetViewportScrollbarComponentCon
     // SpreadsheetViewportScrollbarComponentContext.....................................................................
 
     @Override
-    public double viewportWidth() {
+    public double viewportGridWidth() {
         return this.component.viewportGridWidth;
     }
 
     @Override
-    public double viewportHeight() {
+    public double viewportGridHeight() {
         return this.component.viewportGridHeight;
     }
 
