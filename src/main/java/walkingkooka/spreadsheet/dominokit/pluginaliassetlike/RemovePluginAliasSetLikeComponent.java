@@ -26,6 +26,7 @@ import walkingkooka.plugin.PluginInfoLike;
 import walkingkooka.plugin.PluginInfoSetLike;
 import walkingkooka.plugin.PluginSelectorLike;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -33,7 +34,6 @@ import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 
-import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
 
@@ -46,7 +46,7 @@ public final class RemovePluginAliasSetLikeComponent<N extends Name & Comparable
     S extends PluginSelectorLike<N>,
     A extends PluginAliasLike<N, S, A>,
     AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
-    implements HtmlComponent<HTMLDivElement, RemovePluginAliasSetLikeComponent<N, I, IS, S, A, AS>> {
+    implements HtmlComponentDelegator<HTMLDivElement, RemovePluginAliasSetLikeComponent<N, I, IS, S, A, AS>> {
 
     /**
      * Creates an empty {@link RemovePluginAliasSetLikeComponent}.
@@ -171,8 +171,6 @@ public final class RemovePluginAliasSetLikeComponent<N extends Name & Comparable
      */
     private final String id;
 
-    private final CardComponent root;
-
     /**
      * The parent holding LINKS
      */
@@ -185,34 +183,14 @@ public final class RemovePluginAliasSetLikeComponent<N extends Name & Comparable
         return false;
     }
 
-    // setCssText.......................................................................................................
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public RemovePluginAliasSetLikeComponent<N, I, IS, S, A, AS> setCssText(final String css) {
-        Objects.requireNonNull(css, "css");
-
-        this.root.setCssText(css);
-        return this;
+    public HtmlComponent<HTMLDivElement, ?> htmlComponent() {
+        return this.root;
     }
 
-    // setCssProperty...................................................................................................
-
-    @Override
-    public RemovePluginAliasSetLikeComponent<N, I, IS, S, A, AS> setCssProperty(final String name,
-                                                                                final String value) {
-        this.root.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
-
-    // IsElement........................................................................................................
-
-    @Override
-    public HTMLDivElement element() {
-        return this.root.element();
-    }
+    private final CardComponent root;
 
     // TreePrintable....................................................................................................
 
