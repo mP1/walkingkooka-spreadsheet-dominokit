@@ -23,6 +23,7 @@ import walkingkooka.collect.set.SortedSets;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.plugin.PluginNameSet;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -30,7 +31,6 @@ import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 
-import java.util.Objects;
 import java.util.Optional;
 import java.util.SortedSet;
 import java.util.function.Predicate;
@@ -38,7 +38,7 @@ import java.util.function.Predicate;
 /**
  * A component that contains a card filled with links of {@link PluginName}, which when clicked add a plugin.
  */
-public final class AddPluginNameSetComponent implements HtmlComponent<HTMLDivElement, AddPluginNameSetComponent> {
+public final class AddPluginNameSetComponent implements HtmlComponentDelegator<HTMLDivElement, AddPluginNameSetComponent> {
 
     /**
      * Creates an empty {@link AddPluginNameSetComponent}.
@@ -167,34 +167,10 @@ public final class AddPluginNameSetComponent implements HtmlComponent<HTMLDivEle
      */
     private final String id;
 
-    private final CardComponent root;
-
     /**
      * The parent holding LINKS
      */
     private final FlexLayoutComponent flex;
-
-    // setCssText.......................................................................................................
-
-    @Override
-    public AddPluginNameSetComponent setCssText(final String css) {
-        Objects.requireNonNull(css, "css");
-
-        this.root.setCssText(css);
-        return this;
-    }
-
-    // setCssProperty...................................................................................................
-
-    @Override
-    public AddPluginNameSetComponent setCssProperty(final String name,
-                                                    final String value) {
-        this.root.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
 
     // isEditing........................................................................................................
 
@@ -203,12 +179,14 @@ public final class AddPluginNameSetComponent implements HtmlComponent<HTMLDivEle
         return false;
     }
 
-    // IsElement........................................................................................................
+    // HtmlComponentDelegator)..........................................................................................
 
     @Override
-    public HTMLDivElement element() {
-        return this.root.element();
+    public HtmlComponent<HTMLDivElement, ?> htmlComponent() {
+        return this.root;
     }
+
+    private final CardComponent root;
 
     // TreePrintable....................................................................................................
 
