@@ -24,17 +24,17 @@ import org.dominokit.domino.ui.style.SpacingCss;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.ComponentWithChildren;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.dom.DivComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
-import java.util.Objects;
 
 /**
  * A very basic attempt at re-creating the old DominoUI 1.x FlexLayout.
  */
-public class FlexLayoutComponent implements HtmlComponent<HTMLDivElement, FlexLayoutComponent>,
+public class FlexLayoutComponent implements HtmlComponentDelegator<HTMLDivElement, FlexLayoutComponent>,
     ComponentWithChildren<FlexLayoutComponent, HTMLDivElement> {
 
     private final static CssClass GAP = SpacingCss.dui_gap_1;
@@ -127,28 +127,6 @@ public class FlexLayoutComponent implements HtmlComponent<HTMLDivElement, FlexLa
      */
     private final List<IsElement<?>> children;
 
-    // setCssText.......................................................................................................
-
-    @Override
-    public FlexLayoutComponent setCssText(final String css) {
-        Objects.requireNonNull(css, "css");
-
-        this.div.setCssText(css);
-        return this;
-    }
-
-    // setCssProperty...................................................................................................
-
-    @Override
-    public FlexLayoutComponent setCssProperty(final String name,
-                                              final String value) {
-        this.div.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
-
     // isEditing........................................................................................................
 
     @Override
@@ -156,12 +134,14 @@ public class FlexLayoutComponent implements HtmlComponent<HTMLDivElement, FlexLa
         return false;
     }
 
-    // IsElement........................................................................................................
+    // HtmlElementDelegator.............................................................................................
 
     @Override
-    public HTMLDivElement element() {
-        return this.div.element();
+    public HtmlComponent<HTMLDivElement, ?> htmlComponent() {
+        return this.div;
     }
+
+    private final DivComponent div = DivComponent.div();
 
     // CanBeEmpty.......................................................................................................
 
@@ -200,6 +180,4 @@ public class FlexLayoutComponent implements HtmlComponent<HTMLDivElement, FlexLa
         }
         printer.outdent();
     }
-
-    private final DivComponent div = DivComponent.div();
 }
