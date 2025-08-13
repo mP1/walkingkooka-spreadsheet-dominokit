@@ -282,7 +282,7 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-format-clear \"Clear styling\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/*/save/] CHECKED id=toolbar-*-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Clear styling\"\n" +
-                "      mdi-sign-yield \"Validator\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/validator] id=toolbar-validator ch-Link\n" +
+                "      mdi-sign-yield \"Validator\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/validator] id=toolbar-validator-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Validator...\"\n" +
                 "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hideZeroValues/save/true] id=toolbar-hide-zero-values-Link\n" +
