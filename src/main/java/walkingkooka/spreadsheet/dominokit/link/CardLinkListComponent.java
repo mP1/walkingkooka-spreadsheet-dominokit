@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.link;
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -35,7 +36,7 @@ import java.util.function.Function;
  * A card that holds links, each with a save history token link.
  * The initial use-case for this component is to display available spreadsheet formatter names when the user is editing a format.
  */
-public final class CardLinkListComponent implements HtmlComponent<HTMLDivElement, CardLinkListComponent> {
+public final class CardLinkListComponent implements HtmlComponentDelegator<HTMLDivElement, CardLinkListComponent> {
 
     public static CardLinkListComponent with(final String id,
                                              final String title,
@@ -123,43 +124,23 @@ public final class CardLinkListComponent implements HtmlComponent<HTMLDivElement
      */
     private final CardComponent root;
 
+    // HtmlComponentDelegator...........................................................................................
+
+    @Override
+    public HtmlComponent<HTMLDivElement, ?> htmlComponent() {
+        return this.root;
+    }
+
     /**
      * The parent holding the links.
      */
     private final FlexLayoutComponent flex;
-
-    // setCssText.......................................................................................................
-
-    @Override
-    public CardLinkListComponent setCssText(final String css) {
-        this.root.setCssText(css);
-        return this;
-    }
-
-    // setCssProperty...................................................................................................
-
-    @Override
-    public CardLinkListComponent setCssProperty(final String name,
-                                                final String value) {
-        this.root.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
 
     // IsElement........................................................................................................
 
     @Override
     public boolean isEditing() {
         return false;
-    }
-
-    // IsElement........................................................................................................
-
-    @Override
-    public HTMLDivElement element() {
-        return this.root.element();
     }
 
     // TreePrintable....................................................................................................
