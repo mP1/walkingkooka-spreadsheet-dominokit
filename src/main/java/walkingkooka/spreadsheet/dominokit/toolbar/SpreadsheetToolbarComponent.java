@@ -319,7 +319,7 @@ public final class SpreadsheetToolbarComponent implements HtmlComponent<HTMLDivE
     }
 
     public static String validatorId() {
-        return TOOLBAR_ID_PREFIX + "validator ch";
+        return TOOLBAR_ID_PREFIX + "validator";
     }
 
     final static String TOOLBAR_ID_PREFIX = "toolbar-";
