@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.link;
 
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
@@ -29,7 +30,7 @@ import walkingkooka.text.printer.IndentingPrinter;
  * the anchors must be done externally.
  * This is useful for inserting links with commands such as SAVE, CLOSE at the bottom of a {@link DialogComponent}.
  */
-public final class AnchorListComponent implements HtmlComponent<HTMLDivElement, AnchorListComponent> {
+public final class AnchorListComponent implements HtmlComponentDelegator<HTMLDivElement, AnchorListComponent> {
 
     public static AnchorListComponent empty() {
         return new AnchorListComponent();
@@ -49,26 +50,6 @@ public final class AnchorListComponent implements HtmlComponent<HTMLDivElement, 
      */
     private final FlexLayoutComponent root;
 
-    // setCssText.......................................................................................................
-
-    @Override
-    public AnchorListComponent setCssText(final String css) {
-        this.root.setCssText(css);
-        return this;
-    }
-
-    // setCssProperty...................................................................................................
-
-    @Override
-    public AnchorListComponent setCssProperty(final String name,
-                                              final String value) {
-        this.root.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
-
     // isEditing........................................................................................................
 
     @Override
@@ -76,11 +57,11 @@ public final class AnchorListComponent implements HtmlComponent<HTMLDivElement, 
         return this.root.isEditing();
     }
 
-    // IsElement........................................................................................................
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public HTMLDivElement element() {
-        return this.root.element();
+    public HtmlComponent<HTMLDivElement, ?> htmlComponent() {
+        return this.root;
     }
 
     // TreePrintable....................................................................................................
