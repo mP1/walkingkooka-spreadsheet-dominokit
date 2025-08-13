@@ -178,12 +178,12 @@ public abstract class SpreadsheetViewportScrollbarComponentTestCase<R extends Sp
         }
 
         @Override
-        public double viewportWidth() {
+        public double viewportGridWidth() {
             return VIEWPORT_WIDTH;
         }
 
         @Override
-        public double viewportHeight() {
+        public double viewportGridHeight() {
             return VIEWPORT_HEIGHT;
         }
 
