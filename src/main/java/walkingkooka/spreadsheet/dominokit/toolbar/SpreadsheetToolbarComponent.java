@@ -302,7 +302,7 @@ public final class SpreadsheetToolbarComponent implements HtmlComponent<HTMLDivE
         return TOOLBAR_ID_PREFIX + "reload";
     }
 
-    public static String showFormulas() {
+    public static String showFormulasId() {
         return TOOLBAR_ID_PREFIX + "show-formulas";
     }
 
