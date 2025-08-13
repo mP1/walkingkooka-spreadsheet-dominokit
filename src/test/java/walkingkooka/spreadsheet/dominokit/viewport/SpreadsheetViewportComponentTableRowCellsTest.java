@@ -46,6 +46,9 @@ import java.util.Optional;
 
 public final class SpreadsheetViewportComponentTableRowCellsTest extends SpreadsheetViewportComponentTableRowTestCase<SpreadsheetViewportComponentTableRowCells> {
 
+    private final static Length<?> WIDTH = Length.parse("100px");
+    private final static Length<?> HEIGHT = Length.parse("50px");
+
     @Test
     public void testRefresh() {
         final AppContext appContext = new FakeAppContext() {
@@ -81,6 +84,16 @@ public final class SpreadsheetViewportComponentTableRowCellsTest extends Spreads
                     SpreadsheetName.with("SpreadsheetName222"),
                     SpreadsheetSelection.A1.setDefaultAnchor()
                 );
+            }
+
+            @Override
+            public int viewportGridWidth() {
+                return (int)WIDTH.pixelValue();
+            }
+
+            @Override
+            public int viewportGridHeight() {
+                return (int)HEIGHT.pixelValue();
             }
 
             @Override

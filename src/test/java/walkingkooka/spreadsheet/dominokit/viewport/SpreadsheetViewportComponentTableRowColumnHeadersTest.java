@@ -39,6 +39,9 @@ import java.util.function.Predicate;
 
 public final class SpreadsheetViewportComponentTableRowColumnHeadersTest extends SpreadsheetViewportComponentTableRowTestCase<SpreadsheetViewportComponentTableRowColumnHeaders> {
 
+    private final static Length<?> WIDTH = Length.parse("100px");
+    private final static Length<?> HEIGHT = Length.parse("50px");
+
     @Test
     public void testRefreshNothingSelected() {
         this.treePrintAndCheck2(
@@ -154,6 +157,16 @@ public final class SpreadsheetViewportComponentTableRowColumnHeadersTest extends
         final SpreadsheetViewportComponentTableContext tableContext = new FakeSpreadsheetViewportComponentTableContext() {
 
             @Override
+            public int viewportGridWidth() {
+                return (int)WIDTH.pixelValue();
+            }
+
+            @Override
+            public int viewportGridHeight() {
+                return (int)HEIGHT.pixelValue();
+            }
+
+            @Override
             public HistoryToken historyToken() {
                 return historyToken;
             }
@@ -205,10 +218,10 @@ public final class SpreadsheetViewportComponentTableRowColumnHeadersTest extends
             SpreadsheetMetadataPropertyName.STYLE,
             TextStyle.EMPTY.set(
                 TextStylePropertyName.WIDTH,
-                Length.parse("100px")
+                WIDTH
             ).set(
                 TextStylePropertyName.HEIGHT,
-                Length.parse("50px")
+                HEIGHT
             )
         );
 

@@ -71,6 +71,9 @@ final class SpreadsheetViewportComponentTableRowColumnHeaders extends Spreadshee
             final Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn> oldColumnToHeaders = this.columnToHeaders;
             final Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn> newColumnToHeaders = Maps.sorted();
 
+            double rowWidth = context.viewportGridWidth()
+                - SpreadsheetViewportContext.ROW_HEADER_WIDTH_PIXELS;
+
             // create new column headers as necessary
             for (final SpreadsheetColumnReference column : columns) {
                 SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn columnTableCell = oldColumnToHeaders.get(column);
@@ -82,6 +85,13 @@ final class SpreadsheetViewportComponentTableRowColumnHeaders extends Spreadshee
                 }
                 newColumnToHeaders.put(column, columnTableCell);
                 element.appendChild(columnTableCell);
+
+                rowWidth = rowWidth - columnTableCell.width(context)
+                    .pixelValue();
+
+                if(rowWidth <= 0) {
+                    break; // stop rendering invisible columns
+                }
             }
 
             this.columnToHeaders = newColumnToHeaders;

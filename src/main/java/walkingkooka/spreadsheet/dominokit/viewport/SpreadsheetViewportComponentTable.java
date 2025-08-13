@@ -277,6 +277,9 @@ final class SpreadsheetViewportComponentTable implements HtmlComponent<HTMLTable
             final Map<SpreadsheetRowReference, SpreadsheetViewportComponentTableRowCells> oldRowsToTableRowCells = this.rowsToTableRowCells;
             final Map<SpreadsheetRowReference, SpreadsheetViewportComponentTableRowCells> newRowsToTableRowCells = Maps.sorted();
 
+            double height = context.viewportGridHeight() -
+                SpreadsheetViewportContext.COLUMN_HEADER_HEIGHT_PIXELS;
+
             // create new rows as necessary
             for (final SpreadsheetRowReference row : rows) {
                 SpreadsheetViewportComponentTableRowCells tableRowCells = oldRowsToTableRowCells.get(row);
@@ -291,6 +294,13 @@ final class SpreadsheetViewportComponentTable implements HtmlComponent<HTMLTable
                     tableRowCells
                 );
                 tbody.appendChild(tableRowCells);
+
+                height = height - context.spreadsheetViewportCache()
+                    .rowHeight(row)
+                    .pixelValue();
+                if(height <= 0) {
+                   break;
+                }
             }
 
             this.rowsToTableRowCells = newRowsToTableRowCells;
