@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.label;
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.Cast;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
@@ -32,7 +33,7 @@ import java.util.Optional;
 /**
  * A container that holds a few links DELETE and CELL REFERENCES for a {@link SpreadsheetLabelName}.
  */
-public final class SpreadsheetLabelLinksComponent implements HtmlComponent<HTMLDivElement, SpreadsheetLabelLinksComponent> {
+public final class SpreadsheetLabelLinksComponent implements HtmlComponentDelegator<HTMLDivElement, SpreadsheetLabelLinksComponent> {
 
     public static SpreadsheetLabelLinksComponent empty(final String id,
                                                        final SpreadsheetLabelLinksComponentContext context) {
@@ -85,26 +86,6 @@ public final class SpreadsheetLabelLinksComponent implements HtmlComponent<HTMLD
 
     private final SpreadsheetLabelDeleteAnchorComponent delete;
 
-    // setCssText.......................................................................................................
-
-    @Override
-    public SpreadsheetLabelLinksComponent setCssText(final String css) {
-        this.root.setCssText(css);
-        return this;
-    }
-
-    // setCssProperty...................................................................................................
-
-    @Override
-    public SpreadsheetLabelLinksComponent setCssProperty(final String name,
-                                                         final String value) {
-        this.root.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
-
     // isEditing........................................................................................................
 
     @Override
@@ -112,11 +93,11 @@ public final class SpreadsheetLabelLinksComponent implements HtmlComponent<HTMLD
         return this.root.isEditing();
     }
 
-    // IsElement........................................................................................................
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public HTMLDivElement element() {
-        return this.root.element();
+    public HtmlComponent<HTMLDivElement, ?> htmlComponent() {
+        return this.root;
     }
 
     private final AnchorListComponent root;
