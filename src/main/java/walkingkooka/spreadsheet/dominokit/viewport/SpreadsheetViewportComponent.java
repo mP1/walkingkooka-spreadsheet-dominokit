@@ -167,7 +167,6 @@ public final class SpreadsheetViewportComponent implements HtmlComponent<HTMLDiv
         // link1 badge1  link2 badge2 link3
         root.appendChild(
             HtmlElementComponent.div()
-                .setCssText("position: relative;")
                 .appendChild(this.formula)
                 .appendChild(
                     this.formulaCellLinks.setCssText("position:absolute; bottom: 0px; right: 15px; height: fit-content; display:flex;")
