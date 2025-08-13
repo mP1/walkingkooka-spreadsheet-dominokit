@@ -23,6 +23,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.plugin.PluginSelectorTokenAlternativeLike;
 import walkingkooka.plugin.PluginSelectorTokenLike;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -36,7 +37,8 @@ import java.util.stream.Collectors;
 /**
  * A component which displays links which append possible tokens to the current selector text.
  */
-public final class AppendPluginSelectorTokenComponent<T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> implements HtmlComponent<HTMLDivElement, AppendPluginSelectorTokenComponent<T, A>> {
+public final class AppendPluginSelectorTokenComponent<T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike>
+    implements HtmlComponentDelegator<HTMLDivElement, AppendPluginSelectorTokenComponent<T, A>> {
 
     /**
      * Creates an empty {@link AppendPluginSelectorTokenComponent}.
@@ -117,34 +119,10 @@ public final class AppendPluginSelectorTokenComponent<T extends PluginSelectorTo
      */
     private final String id;
 
-    private final CardComponent root;
-
     /**
      * The parent holding the links.
      */
     private final FlexLayoutComponent flex;
-
-    // setCssText.......................................................................................................
-
-    @Override
-    public AppendPluginSelectorTokenComponent<T, A> setCssText(final String css) {
-        Objects.requireNonNull(css, "css");
-
-        this.root.setCssText(css);
-        return this;
-    }
-
-    // setCssProperty...................................................................................................
-
-    @Override
-    public AppendPluginSelectorTokenComponent<T, A> setCssProperty(final String name,
-                                                                   final String value) {
-        this.root.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
 
     // isEditing........................................................................................................
 
@@ -153,12 +131,14 @@ public final class AppendPluginSelectorTokenComponent<T extends PluginSelectorTo
         return false;
     }
 
-    // IsElement........................................................................................................
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public HTMLDivElement element() {
-        return this.root.element();
+    public HtmlComponent<HTMLDivElement, ?> htmlComponent() {
+        return this.root;
     }
+
+    private final CardComponent root;
 
     // TreePrintable....................................................................................................
 
