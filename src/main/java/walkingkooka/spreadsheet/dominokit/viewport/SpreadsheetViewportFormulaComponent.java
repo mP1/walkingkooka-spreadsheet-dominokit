@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.SpreadsheetError;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
@@ -52,7 +53,7 @@ import java.util.stream.Collectors;
 /**
  * Provides a text box which supports editing of a formula belonging to a cell.
  */
-public final class SpreadsheetViewportFormulaComponent implements HtmlComponent<HTMLFieldSetElement, SpreadsheetViewportFormulaComponent>,
+public final class SpreadsheetViewportFormulaComponent implements HtmlComponentDelegator<HTMLFieldSetElement, SpreadsheetViewportFormulaComponent>,
     HistoryTokenAwareComponentLifecycle,
     NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher,
@@ -135,31 +136,11 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlComponent<
         return this;
     }
 
-    // setCssText.......................................................................................................
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public SpreadsheetViewportFormulaComponent setCssText(final String css) {
-        this.formula.setCssText(css);
-        return this;
-    }
-
-    // setCssProperty...................................................................................................
-
-    @Override
-    public SpreadsheetViewportFormulaComponent setCssProperty(final String name,
-                                                              final String value) {
-        this.formula.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
-
-    // IsElement........................................................................................................
-
-    @Override
-    public HTMLFieldSetElement element() {
-        return this.formula.element();
+    public HtmlComponent<HTMLFieldSetElement, ?> htmlComponent() {
+        return this.formula;
     }
 
     // HistoryTokenAwareComponentLifecycle...............................................................................
