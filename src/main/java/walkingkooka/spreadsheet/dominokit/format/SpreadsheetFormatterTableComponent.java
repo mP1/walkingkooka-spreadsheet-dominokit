@@ -21,6 +21,8 @@ import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.datatable.CellTextAlign;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 import walkingkooka.spreadsheet.dominokit.datatable.DataTableComponent;
 import walkingkooka.spreadsheet.dominokit.value.TableComponent;
@@ -36,7 +38,8 @@ import java.util.Optional;
 /**
  * A table that displays {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterSample} with one per row.
  */
-public final class SpreadsheetFormatterTableComponent implements TableComponent<HTMLDivElement, List<SpreadsheetFormatterSample>, SpreadsheetFormatterTableComponent> {
+public final class SpreadsheetFormatterTableComponent implements TableComponent<HTMLDivElement, List<SpreadsheetFormatterSample>, SpreadsheetFormatterTableComponent>,
+    HtmlComponentDelegator<HTMLDivElement, SpreadsheetFormatterTableComponent> {
 
     /**
      * Creates an empty {@link SpreadsheetFormatterTableComponent}.
@@ -133,31 +136,11 @@ public final class SpreadsheetFormatterTableComponent implements TableComponent<
 
     private final SpreadsheetFormatterTableComponentDataTableComponentCellRenderer cellRenderer;
 
-    // IsElement........................................................................................................
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public HTMLDivElement element() {
-        return this.card.element();
-    }
-
-    // setCssText.......................................................................................................
-
-    @Override
-    public SpreadsheetFormatterTableComponent setCssText(final String css) {
-        this.card.setCssText(css);
-        return this;
-    }
-
-    // setCssProperty...................................................................................................
-
-    @Override
-    public SpreadsheetFormatterTableComponent setCssProperty(final String name,
-                                                             final String value) {
-        this.card.setCssProperty(
-            name,
-            value
-        );
-        return this;
+    public HtmlComponent<HTMLDivElement, ?> htmlComponent() {
+        return this.card;
     }
 
     private final CardComponent card;
