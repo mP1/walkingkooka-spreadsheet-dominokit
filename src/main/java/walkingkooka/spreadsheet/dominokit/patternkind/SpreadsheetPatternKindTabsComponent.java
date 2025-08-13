@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.patternkind;
 
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.tab.SpreadsheetTabsComponent;
@@ -31,7 +32,7 @@ import java.util.Optional;
 /**
  * A tab component that displays tabs for each of the given {@link SpreadsheetPatternKind}.
  */
-public final class SpreadsheetPatternKindTabsComponent implements HtmlComponent<HTMLDivElement, SpreadsheetPatternKindTabsComponent> {
+public final class SpreadsheetPatternKindTabsComponent implements HtmlComponentDelegator<HTMLDivElement, SpreadsheetPatternKindTabsComponent> {
 
     /**
      * Creates an empty {@link SpreadsheetPatternKindTabsComponent}.
@@ -130,32 +131,14 @@ public final class SpreadsheetPatternKindTabsComponent implements HtmlComponent<
 
     private final SpreadsheetPatternKind[] kinds;
 
-    // IsElement........................................................................................................
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public HTMLDivElement element() {
-        return this.tabsComponent.element();
+    public HtmlComponent<HTMLDivElement, ?> htmlComponent() {
+        return this.tabsComponent;
     }
 
-    // setCssText.......................................................................................................
-
-    @Override
-    public SpreadsheetPatternKindTabsComponent setCssText(final String css) {
-        this.tabsComponent.setCssText(css);
-        return this;
-    }
-
-    // setCssProperty...................................................................................................
-
-    @Override
-    public SpreadsheetPatternKindTabsComponent setCssProperty(final String name,
-                                                              final String value) {
-        this.tabsComponent.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
+    private final SpreadsheetTabsComponent tabsComponent;
 
     // isEditing........................................................................................................
 
@@ -175,6 +158,4 @@ public final class SpreadsheetPatternKindTabsComponent implements HtmlComponent<
         }
         printer.outdent();
     }
-
-    private final SpreadsheetTabsComponent tabsComponent;
 }
