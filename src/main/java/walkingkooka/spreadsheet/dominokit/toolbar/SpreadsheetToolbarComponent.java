@@ -23,6 +23,7 @@ import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
@@ -43,7 +44,7 @@ import java.util.Optional;
 /**
  * A toolbar that contains icons that trigger an action.
  */
-public final class SpreadsheetToolbarComponent implements HtmlComponent<HTMLDivElement, SpreadsheetToolbarComponent>,
+public final class SpreadsheetToolbarComponent implements HtmlComponentDelegator<HTMLDivElement, SpreadsheetToolbarComponent>,
     SpreadsheetViewportComponentLifecycle,
     LoadedSpreadsheetMetadataRequired,
     NopFetcherWatcher,
@@ -64,31 +65,11 @@ public final class SpreadsheetToolbarComponent implements HtmlComponent<HTMLDivE
         this.context = context;
     }
 
-    // setCssText.......................................................................................................
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public SpreadsheetToolbarComponent setCssText(final String css) {
-        this.flexLayout.setCssText(css);
-        return this;
-    }
-
-    // setCssProperty...................................................................................................
-
-    @Override
-    public SpreadsheetToolbarComponent setCssProperty(final String name,
-                                                      final String value) {
-        this.flexLayout.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
-
-    // isElement........................................................................................................
-
-    @Override
-    public HTMLDivElement element() {
-        return this.flexLayout.element();
+    public HtmlComponent<HTMLDivElement, ?> htmlComponent() {
+        return this.flexLayout;
     }
 
     private final FlexLayoutComponent flexLayout;
