@@ -313,8 +313,8 @@ abstract public class SpreadsheetViewportScrollbarComponent<R extends Spreadshee
         final boolean columns = this.referenceKind() == SpreadsheetColumnOrRowReferenceKind.COLUMN;
 
         final SpreadsheetViewportScrollbarComponentContext viewportContext = this.context;
-        final int width = (int)viewportContext.viewportGridWidth();
-        final int height = (int)viewportContext.viewportGridHeight();
+        final int width = viewportContext.viewportGridWidth();
+        final int height = viewportContext.viewportGridHeight();
 
         final HistoryToken historyToken = context.historyToken();
 
