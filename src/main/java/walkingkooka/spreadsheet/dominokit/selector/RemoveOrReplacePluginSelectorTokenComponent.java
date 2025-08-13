@@ -23,6 +23,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.plugin.PluginSelectorTokenAlternativeLike;
 import walkingkooka.plugin.PluginSelectorTokenLike;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
@@ -40,7 +41,8 @@ import java.util.stream.Collectors;
 /**
  * A component with links for each {@link PluginSelectorTokenLike}, with context menu items which support replacing the item.
  */
-public final class RemoveOrReplacePluginSelectorTokenComponent<T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> implements HtmlComponent<HTMLDivElement, RemoveOrReplacePluginSelectorTokenComponent<T, A>> {
+public final class RemoveOrReplacePluginSelectorTokenComponent<T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike>
+    implements HtmlComponentDelegator<HTMLDivElement, RemoveOrReplacePluginSelectorTokenComponent<T, A>> {
 
     /**
      * Creates an empty {@link RemoveOrReplacePluginSelectorTokenComponent}.
@@ -178,8 +180,6 @@ public final class RemoveOrReplacePluginSelectorTokenComponent<T extends PluginS
      */
     private final String id;
 
-    private final CardComponent root;
-
     /**
      * The parent holding remove/replace LINKS
      */
@@ -192,34 +192,14 @@ public final class RemoveOrReplacePluginSelectorTokenComponent<T extends PluginS
         return false;
     }
 
-    // setCssText.......................................................................................................
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public RemoveOrReplacePluginSelectorTokenComponent<T, A> setCssText(final String css) {
-        Objects.requireNonNull(css, "css");
-
-        this.root.setCssText(css);
-        return this;
+    public HtmlComponent<HTMLDivElement, ?> htmlComponent() {
+        return this.root;
     }
 
-    // setCssProperty...................................................................................................
-
-    @Override
-    public RemoveOrReplacePluginSelectorTokenComponent<T, A> setCssProperty(final String name,
-                                                                            final String value) {
-        this.root.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
-
-    // IsElement........................................................................................................
-
-    @Override
-    public HTMLDivElement element() {
-        return this.root.element();
-    }
+    private final CardComponent root;
 
     // TreePrintable....................................................................................................
 
