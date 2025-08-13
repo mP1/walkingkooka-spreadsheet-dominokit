@@ -24,6 +24,8 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 import walkingkooka.spreadsheet.dominokit.datatable.DataTableComponent;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
@@ -46,7 +48,8 @@ import java.util.stream.Collectors;
 public final class SpreadsheetDeltaLabelsTableComponent implements TableComponent<HTMLDivElement, SpreadsheetDelta, SpreadsheetDeltaLabelsTableComponent>,
     NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher,
-    SpreadsheetDeltaFetcherWatcher {
+    SpreadsheetDeltaFetcherWatcher,
+    HtmlComponentDelegator<HTMLDivElement, SpreadsheetDeltaLabelsTableComponent> {
 
     final static int DEFAULT_COUNT = 10;
 
@@ -182,33 +185,11 @@ public final class SpreadsheetDeltaLabelsTableComponent implements TableComponen
         );
     }
 
-    // setCssText.......................................................................................................
+    // HtmlComponentDelegator............................................................................................
 
     @Override
-    public SpreadsheetDeltaLabelsTableComponent setCssText(final String css) {
-        Objects.requireNonNull(css, "css");
-
-        this.card.setCssText(css);
-        return this;
-    }
-
-    // setCssProperty...................................................................................................
-
-    @Override
-    public SpreadsheetDeltaLabelsTableComponent setCssProperty(final String name,
-                                                               final String value) {
-        this.card.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
-
-    // HtmlComponent.............................................................................................
-
-    @Override
-    public HTMLDivElement element() {
-        return this.card.element();
+    public HtmlComponent<HTMLDivElement, ?> htmlComponent() {
+        return this.card;
     }
 
     private final CardComponent card;
