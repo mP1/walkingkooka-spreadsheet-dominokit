@@ -21,6 +21,8 @@ import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.datatable.CellTextAlign;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 import walkingkooka.spreadsheet.dominokit.datatable.DataTableComponent;
@@ -37,7 +39,8 @@ import java.util.Optional;
 /**
  * A datatable where each row contains a single spreadsheet, showing various metadata items such as creator, timestamps and links for actions.
  */
-final class SpreadsheetListTableComponent implements TableComponent<HTMLDivElement, List<SpreadsheetMetadata>, SpreadsheetListTableComponent> {
+final class SpreadsheetListTableComponent implements TableComponent<HTMLDivElement, List<SpreadsheetMetadata>, SpreadsheetListTableComponent>,
+    HtmlComponentDelegator<HTMLDivElement, SpreadsheetListTableComponent> {
 
     /**
      * Creates an empty {@link SpreadsheetListTableComponent}.
@@ -148,33 +151,11 @@ final class SpreadsheetListTableComponent implements TableComponent<HTMLDivEleme
         );
     }
 
-    // setCssText.......................................................................................................
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public SpreadsheetListTableComponent setCssText(final String css) {
-        Objects.requireNonNull(css, "css");
-
-        this.card.setCssText(css);
-        return this;
-    }
-
-    // setCssProperty...................................................................................................
-
-    @Override
-    public SpreadsheetListTableComponent setCssProperty(final String name,
-                                                        final String value) {
-        this.card.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
-
-    // HtmlComponent.............................................................................................
-
-    @Override
-    public HTMLDivElement element() {
-        return this.card.element();
+    public HtmlComponent<HTMLDivElement, ?> htmlComponent() {
+        return this.card;
     }
 
     private final CardComponent card;
