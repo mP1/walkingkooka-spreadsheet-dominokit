@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameAndDirection;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -41,7 +42,7 @@ import java.util.stream.Collectors;
  * A container that shows LINKS for each {@link SpreadsheetComparatorName missing from the index {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}
  * from the parent {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}.
  */
-final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent implements HtmlComponent<HTMLDivElement, SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent> {
+final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent implements HtmlComponentDelegator<HTMLDivElement, SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent> {
 
     /**
      * Creates an empty {@link SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent}.
@@ -142,25 +143,10 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirect
 
     private final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> setter;
 
-    // setCssText.......................................................................................................
-
-    @Override
-    public SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent setCssText(final String css) {
-        this.root.setCssText(css);
-        return this;
-    }
-
-    // setCssProperty...................................................................................................
-
-    @Override
-    public SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent setCssProperty(final String name,
-                                                                                                                   final String value) {
-        this.root.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
+    /**
+     * A flex layout that holds the actual links.
+     */
+    private final FlexLayoutComponent flex;
 
     // isEditing........................................................................................................
 
@@ -169,22 +155,17 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirect
         return HtmlComponent.hasFocus(this.element());
     }
 
-    // HtmlComponent.............................................................................................
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public HTMLDivElement element() {
-        return this.root.element();
+    public HtmlComponent<HTMLDivElement, ?> htmlComponent() {
+        return this.root;
     }
 
     /**
      * The parent holding all the current links to remove individual components of a {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}
      */
     private final CardComponent root;
-
-    /**
-     * A flex layout that holds the actual links.
-     */
-    private final FlexLayoutComponent flex;
 
     // TreePrintable....................................................................................................
 
