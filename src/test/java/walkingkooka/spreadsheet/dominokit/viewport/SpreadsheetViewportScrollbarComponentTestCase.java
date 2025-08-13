@@ -73,9 +73,9 @@ public abstract class SpreadsheetViewportScrollbarComponentTestCase<R extends Sp
         super();
     }
 
-    final static double VIEWPORT_WIDTH = 1000;
+    final static int VIEWPORT_WIDTH = 1000;
 
-    final static double VIEWPORT_HEIGHT = 500;
+    final static int VIEWPORT_HEIGHT = 500;
 
     static class TestAppContext extends FakeAppContext {
         TestAppContext(final SpreadsheetCellReference home,
@@ -178,12 +178,12 @@ public abstract class SpreadsheetViewportScrollbarComponentTestCase<R extends Sp
         }
 
         @Override
-        public double viewportGridWidth() {
+        public int viewportGridWidth() {
             return VIEWPORT_WIDTH;
         }
 
         @Override
-        public double viewportGridHeight() {
+        public int viewportGridHeight() {
             return VIEWPORT_HEIGHT;
         }
 
