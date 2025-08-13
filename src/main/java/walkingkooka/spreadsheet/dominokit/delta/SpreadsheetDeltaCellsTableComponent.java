@@ -176,7 +176,7 @@ public final class SpreadsheetDeltaCellsTableComponent implements TableComponent
             Optional.of(delta)
         );
     }
-    
+
     // HtmlComponentDelegator............................................................................................
 
     @Override
