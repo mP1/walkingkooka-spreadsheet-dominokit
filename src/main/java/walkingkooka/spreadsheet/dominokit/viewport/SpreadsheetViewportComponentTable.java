@@ -30,6 +30,7 @@ import walkingkooka.collect.set.SortedSets;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.dom.TBodyComponent;
@@ -52,7 +53,7 @@ import java.util.function.Predicate;
 /**
  * A TABLE which holds all the ROWs that are displayed. It also contains and caches rows.
  */
-final class SpreadsheetViewportComponentTable implements HtmlComponent<HTMLTableElement, SpreadsheetViewportComponentTable> {
+final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<HTMLTableElement, SpreadsheetViewportComponentTable> {
 
     static SpreadsheetViewportComponentTable empty(final SpreadsheetViewportComponentTableContext context) {
         return new SpreadsheetViewportComponentTable(context);
@@ -353,27 +354,11 @@ final class SpreadsheetViewportComponentTable implements HtmlComponent<HTMLTable
         return HtmlComponent.hasFocus(this.element());
     }
 
-    @Override
-    public SpreadsheetViewportComponentTable setCssText(final String css) {
-        this.table.setCssText(css);
-        return this;
-    }
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public SpreadsheetViewportComponentTable setCssProperty(final String name,
-                                                            final String value) {
-        this.table.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
-
-    // IsElement........................................................................................................
-
-    @Override
-    public HTMLTableElement element() {
-        return this.table.element();
+    public HtmlComponent<HTMLTableElement, ?> htmlComponent() {
+        return this.table;
     }
 
     // TreePrintable....................................................................................................
