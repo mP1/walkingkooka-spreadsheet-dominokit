@@ -165,6 +165,12 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         return SpreadsheetToolbarComponentItemAnchorReload.with(context);
     }
 
+    /**
+     * {@see SpreadsheetToolbarComponentItemAnchorMetadataBooleanShowFormulas}
+     */
+    static SpreadsheetToolbarComponentItem<?> showFormulaEditor(final SpreadsheetToolbarComponentContext context) {
+        return SpreadsheetToolbarComponentItemAnchorMetadataBooleanShowFormulaEditor.with(context);
+    }
 
     /**
      * {@see SpreadsheetToolbarComponentItemAnchorMetadataBooleanShowFormulas}

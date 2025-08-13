@@ -176,6 +176,9 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hideZeroValues/save/true] id=toolbar-hide-zero-values-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Zero Values\"\n" +
+                "      mdi-form-textbox \"Show Formula Editor\" [#/1/Spreadsheet123/spreadsheet/showFormulaEditor/save/false] CHECKED id=toolbar-show-formula-editor-Link\n" +
+                "        TooltipComponent\n" +
+                "          \"Show Formula Editor\"\n" +
                 "      mdi-math-integral \"Show Formulas\" [#/1/Spreadsheet123/spreadsheet/showFormulas/save/true] id=toolbar-show-formulas-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Hide Formulas\"\n" +
@@ -285,6 +288,9 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hideZeroValues/save/true] id=toolbar-hide-zero-values-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Zero Values\"\n" +
+                "      mdi-form-textbox \"Show Formula Editor\" [#/1/Spreadsheet123/spreadsheet/showFormulaEditor/save/false] CHECKED id=toolbar-show-formula-editor-Link\n" +
+                "        TooltipComponent\n" +
+                "          \"Show Formula Editor\"\n" +
                 "      mdi-math-integral \"Show Formulas\" [#/1/Spreadsheet123/spreadsheet/showFormulas/save/true] id=toolbar-show-formulas-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Hide Formulas\"\n" +
@@ -337,6 +343,9 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hideZeroValues/save/true] id=toolbar-hide-zero-values-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Zero Values\"\n" +
+                "      mdi-form-textbox \"Show Formula Editor\" [#/1/Spreadsheet123/spreadsheet/showFormulaEditor/save/false] CHECKED id=toolbar-show-formula-editor-Link\n" +
+                "        TooltipComponent\n" +
+                "          \"Show Formula Editor\"\n" +
                 "      mdi-math-integral \"Show Formulas\" [#/1/Spreadsheet123/spreadsheet/showFormulas/save/true] id=toolbar-show-formulas-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Hide Formulas\"\n" +
@@ -389,6 +398,9 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hideZeroValues/save/true] id=toolbar-hide-zero-values-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Zero Values\"\n" +
+                "      mdi-form-textbox \"Show Formula Editor\" [#/1/Spreadsheet123/spreadsheet/showFormulaEditor/save/false] CHECKED id=toolbar-show-formula-editor-Link\n" +
+                "        TooltipComponent\n" +
+                "          \"Show Formula Editor\"\n" +
                 "      mdi-math-integral \"Show Formulas\" [#/1/Spreadsheet123/spreadsheet/showFormulas/save/true] id=toolbar-show-formulas-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Hide Formulas\"\n" +
