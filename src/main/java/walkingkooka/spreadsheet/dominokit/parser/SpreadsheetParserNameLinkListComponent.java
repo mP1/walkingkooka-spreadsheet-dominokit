@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.parser;
 
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.link.CardLinkListComponent;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
@@ -31,7 +32,7 @@ import java.util.stream.Collectors;
 /**
  * A component that list all available {@link SpreadsheetParserName} by querying {@link SpreadsheetParserProvider#spreadsheetParserInfos()}.
  */
-public final class SpreadsheetParserNameLinkListComponent implements HtmlComponent<HTMLDivElement, SpreadsheetParserNameLinkListComponent> {
+public final class SpreadsheetParserNameLinkListComponent implements HtmlComponentDelegator<HTMLDivElement, SpreadsheetParserNameLinkListComponent> {
 
     static SpreadsheetParserNameLinkListComponent empty(final String id) {
         return new SpreadsheetParserNameLinkListComponent(id);
@@ -64,22 +65,6 @@ public final class SpreadsheetParserNameLinkListComponent implements HtmlCompone
             .value();
     }
 
-    @Override
-    public SpreadsheetParserNameLinkListComponent setCssText(final String css) {
-        this.list.setCssText(css);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetParserNameLinkListComponent setCssProperty(final String name,
-                                                                 final String value) {
-        this.list.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
-
     // isEditing........................................................................................................
 
     @Override
@@ -87,9 +72,11 @@ public final class SpreadsheetParserNameLinkListComponent implements HtmlCompone
         return this.list.isEditing();
     }
 
+    // HtmlComponentDelegator...........................................................................................
+
     @Override
-    public HTMLDivElement element() {
-        return this.list.element();
+    public HtmlComponent<HTMLDivElement, ?> htmlComponent() {
+        return this.list.htmlComponent();
     }
 
     private final CardLinkListComponent list;
