@@ -258,6 +258,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.math_integral();
     }
 
+    public static MdiIcon showFormulaEditor() {
+        return Icons.form_textbox();
+    }
+
     public static MdiIcon sort() {
         return Icons.sort();
     }
