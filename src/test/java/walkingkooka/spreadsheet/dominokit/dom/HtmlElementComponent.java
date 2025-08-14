@@ -38,6 +38,7 @@ import walkingkooka.tree.text.TextNode;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -78,6 +79,7 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
 
     HtmlElementComponent(final String tag) {
         this.tag = tag;
+        this.attributes = Maps.sorted(String.CASE_INSENSITIVE_ORDER);
         this.children = Lists.array();
         this.style = Maps.sorted();
         this.text = "";
@@ -87,24 +89,38 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
     public final C setId(final String id) {
         CharSequences.failIfNullOrEmpty(id, "id");
 
-        this.id = id;
-        return (C) this;
+        return this.setAttribute(
+            "id",
+            id
+        );
     }
 
     @Override
     public final String id() {
-        return this.id;
+        return this.attributes.get("id");
     }
-
-    private String id;
 
     @Override
     public final C setTabIndex(final int tabIndex) {
-        this.tabIndex = tabIndex;
-        return (C) this;
+        return this.setAttribute(
+            "tabIndex",
+            String.valueOf(tabIndex)
+        );
     }
 
     private Integer tabIndex;
+
+    @Override
+    public final C setAttribute(final String name,
+                                final String value) {
+        this.attributes.put(
+            name,
+            value
+        );
+        return (C) this;
+    }
+
+    private Map<String, String> attributes;
 
     @Override
     public final C setCssProperty(final String name,
@@ -250,30 +266,37 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
         printer.println(this.tag);
         printer.indent();
         {
-            final List<String> attributes = Lists.array();
+            final List<String> namesAndValues = Lists.array();
 
             {
-                final String id = this.id;
-                if (null != id) {
-                    attributes.add(
-                        "id=\"" + id + "\""
-                    );
+                final Map<String, String> attributes = this.attributes;
+                {
+                    final String id = attributes.get("id");
+                    if (null != id) {
+                        namesAndValues.add(
+                            "id=\"" + id + "\""
+                        );
+                    }
                 }
-            }
 
-            {
-                final Integer tabIndex = this.tabIndex;
-                if (null != tabIndex) {
-                    attributes.add(
-                        "tabIndex=" + tabIndex
-                    );
+                for(final Entry<String, String> attributeNameAndValue : attributes.entrySet()) {
+                    final String name = attributeNameAndValue.getKey();
+                    switch(name.toLowerCase()) {
+                        case "id":
+                            break;
+                        default:
+                            namesAndValues.add(
+                                name + "=" + attributeNameAndValue.getValue()
+                            );
+                            break;
+                    }
                 }
             }
 
             {
                 final Set<CssClass> cssClasses = this.classes;
                 if (false == cssClasses.isEmpty()) {
-                    attributes.add(
+                    namesAndValues.add(
                         "class=\"" +
                             cssClasses.stream()
                                 .map(CssClass::getCssClass)
@@ -286,7 +309,7 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
             {
                 final Map<String, String> style = this.style;
                 if (false == style.isEmpty()) {
-                    attributes.add(
+                    namesAndValues.add(
                         "style=\"" +
                             style.entrySet()
                                 .stream()
@@ -297,9 +320,9 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
                 }
             }
 
-            if (false == attributes.isEmpty()) {
+            if (false == namesAndValues.isEmpty()) {
                 printer.println(
-                    attributes.stream()
+                    namesAndValues.stream()
                         .collect(Collectors.joining(" "))
                 );
                 printer.indent();
@@ -316,7 +339,7 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
 
             this.printTreeChildren(printer);
 
-            if (false == attributes.isEmpty()) {
+            if (false == namesAndValues.isEmpty()) {
                 printer.outdent();
             }
         }

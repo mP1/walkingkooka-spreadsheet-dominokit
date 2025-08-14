@@ -97,6 +97,13 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
     }
 
     @Override
+    public final C setAttribute(final String name,
+                                final String value) {
+        this.element.setAttribute(name, value);
+        return (C) this;
+    }
+
+    @Override
     public final C setCssProperty(final String name,
                                   final String value) {
         this.element.style.setProperty(name, value);
