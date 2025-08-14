@@ -17,9 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.dom;
 
-import elemental2.dom.HTMLTableCellElement;
+import elemental2.dom.HTMLLIElement;
 
-public final class LiComponent extends HtmlElementComponent<HTMLTableCellElement, LiComponent> {
+public final class LiComponent extends HtmlElementComponent<HTMLLIElement, LiComponent> {
 
     LiComponent() {
         super("LI");
