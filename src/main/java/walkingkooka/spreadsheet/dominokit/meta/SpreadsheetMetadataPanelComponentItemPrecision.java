@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.HTMLUListElement;
-import org.dominokit.domino.ui.forms.IntegerBox;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
@@ -26,6 +25,7 @@ import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.dom.UlComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.text.IntegerBoxComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
@@ -53,15 +53,14 @@ final class SpreadsheetMetadataPanelComponentItemPrecision extends SpreadsheetMe
 
         final UlComponent list = this.ul();
 
-        final IntegerBox integerBox = this.integerBox()
-            .setMinValue(0)
-            .setMaxValue(128)
-            .setStep(1);
-        this.integerBox = integerBox;
+        this.integerBox = this.integerBox()
+            .min(0)
+            .max(128)
+            .step(1);
 
         list.appendChild(
             li()
-                .appendChild(integerBox)
+                .appendChild(this.integerBox)
         );
 
         // build links for 0 | 32 | 64 | 128
@@ -99,7 +98,7 @@ final class SpreadsheetMetadataPanelComponentItemPrecision extends SpreadsheetMe
         this.integerBox.focus();
     }
 
-    private final IntegerBox integerBox;
+    private final IntegerBoxComponent integerBox;
 
     // ComponentRefreshable.............................................................................................
 
@@ -109,7 +108,6 @@ final class SpreadsheetMetadataPanelComponentItemPrecision extends SpreadsheetMe
 
         this.integerBox.setValue(
             metadata.getIgnoringDefaults(this.propertyName)
-                .orElse(null)
         );
 
         final SpreadsheetMetadataPropertyName<Integer> propertyName = SpreadsheetMetadataPropertyName.PRECISION;

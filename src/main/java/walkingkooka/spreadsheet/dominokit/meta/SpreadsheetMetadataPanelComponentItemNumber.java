@@ -18,13 +18,15 @@
 package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.HTMLUListElement;
-import org.dominokit.domino.ui.forms.IntegerBox;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.dom.UlComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.text.IntegerBoxComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+
+import java.util.Optional;
 
 /**
  * A {@link SpreadsheetMetadataPanelComponentItem} that displays a number text box.
@@ -56,10 +58,10 @@ final class SpreadsheetMetadataPanelComponentItemNumber extends SpreadsheetMetad
         this.list = this.ul();
 
         this.integerBox = this.integerBox()
-            .setPattern("#")
-            .setMinValue(min)
-            .setMaxValue(max)
-            .setStep(1);
+            .pattern("#")
+            .min(min)
+            .max(max)
+            .step(1);
         this.list.appendChild(
             li()
                 .appendChild(this.integerBox)
@@ -85,8 +87,10 @@ final class SpreadsheetMetadataPanelComponentItemNumber extends SpreadsheetMetad
         final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
 
         this.integerBox.setValue(
-            metadata.getIgnoringDefaults(this.propertyName)
-                .orElse(null)
+            Optional.ofNullable(
+                metadata.getIgnoringDefaults(this.propertyName)
+                    .orElse(null)
+            )
         );
 
         this.refreshDefaultValue(
@@ -98,7 +102,7 @@ final class SpreadsheetMetadataPanelComponentItemNumber extends SpreadsheetMetad
         );
     }
 
-    private final IntegerBox integerBox;
+    private final IntegerBoxComponent integerBox;
 
     private final HistoryTokenAnchorComponent defaultValueAnchor;
 
