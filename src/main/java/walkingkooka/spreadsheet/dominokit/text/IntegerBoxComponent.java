@@ -84,6 +84,17 @@ public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSe
 
     private int step;
 
+    public IntegerBoxComponent pattern(final String pattern) {
+        Objects.requireNonNull(pattern, "pattern");
+
+        this.integerBox.getInputElement()
+            .element()
+            .pattern = pattern;
+        return this;
+    }
+
+    private String pattern;
+
     @Override
     public IntegerBoxComponent addChangeListener(final ChangeListener<Optional<Integer>> listener) {
         this.integerBox.addChangeListener(
