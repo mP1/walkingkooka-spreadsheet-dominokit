@@ -156,6 +156,15 @@ public interface AnchorComponentDelegator<A extends AnchorComponent<A, T>, T> ex
         return (A) this;
     }
 
+    // addXXXListener...................................................................................................
+
+    @Override
+    default A addBlurListener(final EventListener listener) {
+        this.anchorComponent()
+            .addBlurListener(listener);
+        return (A) this;
+    }
+    
     /**
      * Anchors dont fire change listeners, therefore any listener will never receive any events.
      */
@@ -180,6 +189,13 @@ public interface AnchorComponentDelegator<A extends AnchorComponent<A, T>, T> ex
         return (A) this;
     }
 
+    @Override
+    default A addFocusListener(final EventListener listener) {
+        this.anchorComponent()
+            .addFocusListener(listener);
+        return (A) this;
+    }
+    
     @Override
     default A addKeyDownListener(final EventListener listener) {
         this.anchorComponent()
