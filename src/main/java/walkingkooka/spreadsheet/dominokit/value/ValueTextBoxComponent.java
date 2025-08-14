@@ -22,6 +22,8 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.CanBeEmpty;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.validator.SpreadsheetValidators;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -35,7 +37,8 @@ import java.util.function.Function;
  * A text box that supports a typed value using a {@link Function} as a parser. Any thrown exception messages become
  * the validation fail messages. it is possible to replace the default validator mentioned above using {@link #setValidator(Validator)}.
  */
-public final class ValueTextBoxComponent<T> implements FormValueComponent<HTMLFieldSetElement, T, ValueTextBoxComponent<T>> {
+public final class ValueTextBoxComponent<T> implements FormValueComponent<HTMLFieldSetElement, T, ValueTextBoxComponent<T>>,
+    HtmlComponentDelegator<HTMLFieldSetElement, ValueTextBoxComponent<T>> {
 
     /**
      * Creates a new {@link ValueTextBoxComponent}.
@@ -260,31 +263,11 @@ public final class ValueTextBoxComponent<T> implements FormValueComponent<HTMLFi
         return this;
     }
 
-    // setCssText.......................................................................................................
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public ValueTextBoxComponent<T> setCssText(final String css) {
-        this.textBox.setCssText(css);
-        return this;
-    }
-
-    // setCssProperty...................................................................................................
-
-    @Override
-    public ValueTextBoxComponent<T> setCssProperty(final String name,
-                                                   final String value) {
-        this.textBox.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
-
-    // IsElement........................................................................................................
-
-    @Override
-    public HTMLFieldSetElement element() {
-        return this.textBox.element();
+    public HtmlComponent<HTMLFieldSetElement, ?> htmlComponent() {
+        return this.textBox;
     }
 
     // Value............................................................................................................
