@@ -98,13 +98,6 @@ abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlEle
         );
     }
 
-    public final C setPaddingBottom(final String padding) {
-        return this.setCssProperty(
-            TextStylePropertyName.PADDING_BOTTOM,
-            padding
-        );
-    }
-
     public final C setPadding(final String padding) {
         return this.setCssProperty(
             TextStylePropertyName.PADDING_LEFT,
@@ -116,6 +109,13 @@ abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlEle
             TextStylePropertyName.PADDING_TOP,
             padding
         ).setCssProperty(
+            TextStylePropertyName.PADDING_BOTTOM,
+            padding
+        );
+    }
+
+    public final C setPaddingBottom(final String padding) {
+        return this.setCssProperty(
             TextStylePropertyName.PADDING_BOTTOM,
             padding
         );
