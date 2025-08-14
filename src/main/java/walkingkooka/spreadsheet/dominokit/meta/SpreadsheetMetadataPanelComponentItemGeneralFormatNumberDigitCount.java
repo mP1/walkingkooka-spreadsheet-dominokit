@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.meta;
 
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLUListElement;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.dom.UlComponent;
@@ -64,6 +65,12 @@ final class SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount e
         this.defaultValueAnchor = defaultValueAnchor;
 
         this.list = list;
+    }
+
+    @Override //
+    SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount addFocusListener(final EventListener listener) {
+        this.list.addFocusListener(listener);
+        return this;
     }
 
     @Override

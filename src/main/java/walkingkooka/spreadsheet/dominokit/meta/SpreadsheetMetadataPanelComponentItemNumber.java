@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.meta;
 
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLUListElement;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
@@ -73,6 +74,12 @@ final class SpreadsheetMetadataPanelComponentItemNumber extends SpreadsheetMetad
                 .appendChild(defaultValueAnchor)
         );
         this.defaultValueAnchor = defaultValueAnchor;
+    }
+
+    @Override
+    SpreadsheetMetadataPanelComponentItemNumber addFocusListener(final EventListener listener) {
+        this.list.addFocusListener(listener);
+        return this;
     }
 
     @Override

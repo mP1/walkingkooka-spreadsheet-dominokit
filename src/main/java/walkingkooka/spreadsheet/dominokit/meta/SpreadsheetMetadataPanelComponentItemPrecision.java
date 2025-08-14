@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.meta;
 
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLUListElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
@@ -91,6 +92,12 @@ final class SpreadsheetMetadataPanelComponentItemPrecision extends SpreadsheetMe
 
         this.list = list;
         this.valueToAnchors = valueToAnchors;
+    }
+
+    @Override
+    SpreadsheetMetadataPanelComponentItemPrecision addFocusListener(final EventListener listener) {
+        this.list.addFocusListener(listener);
+        return this;
     }
 
     @Override

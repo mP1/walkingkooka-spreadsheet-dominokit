@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.meta;
 
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLUListElement;
 import org.dominokit.domino.ui.forms.DateBox;
 import org.dominokit.domino.ui.icons.lib.Icons;
@@ -143,6 +144,12 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
 
         this.list = list;
         this.valueToAnchors = valueToAnchors;
+    }
+
+    @Override//
+    SpreadsheetMetadataPanelComponentItemDateTimeOffset addFocusListener(final EventListener listener) {
+        this.list.addFocusListener(listener);
+        return this;
     }
 
     @Override

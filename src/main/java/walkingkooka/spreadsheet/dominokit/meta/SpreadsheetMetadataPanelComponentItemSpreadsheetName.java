@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.meta;
 
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLUListElement;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
@@ -61,6 +62,12 @@ final class SpreadsheetMetadataPanelComponentItemSpreadsheetName extends Spreads
                     this.spreadsheetNameComponent
                 )
         );
+    }
+
+    @Override//
+    SpreadsheetMetadataPanelComponentItemSpreadsheetName addFocusListener(final EventListener listener) {
+        this.spreadsheetNameComponent.addFocusListener(listener);
+        return this;
     }
 
     @Override

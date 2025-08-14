@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.meta;
 
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -60,6 +61,12 @@ final class SpreadsheetMetadataPanelComponentItemAnchor<T> extends SpreadsheetMe
                 historyToken.setMetadataPropertyName(propertyName)
             )
         );
+    }
+
+    @Override//
+    SpreadsheetMetadataPanelComponentItemAnchor<T> addFocusListener(final EventListener listener) {
+        this.anchor.addFocusListener(listener);
+        return this;
     }
 
     @Override
