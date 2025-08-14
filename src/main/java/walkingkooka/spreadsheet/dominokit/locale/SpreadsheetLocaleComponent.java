@@ -106,33 +106,6 @@ public final class SpreadsheetLocaleComponent<T> implements SuggestBoxComponentD
         return this;
     }
 
-    // setCssText.......................................................................................................
-
-    @Override
-    public SpreadsheetLocaleComponent<T> setCssText(final String css) {
-        this.suggestBox.setCssText(css);
-        return this;
-    }
-
-    // setCssProperty...................................................................................................
-
-    @Override
-    public SpreadsheetLocaleComponent<T> setCssProperty(final String name,
-                                                        final String value) {
-        this.suggestBox.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
-
-    // IsElement........................................................................................................
-
-    @Override
-    public HTMLFieldSetElement element() {
-        return this.suggestBox.element();
-    }
-
     // Value............................................................................................................
 
     @Override
@@ -153,7 +126,7 @@ public final class SpreadsheetLocaleComponent<T> implements SuggestBoxComponentD
             .map(HasLocale::locale);
     }
 
-    // SuggestBoxComponentDelegator..........................................................................
+    // SuggestBoxComponentDelegator.....................................................................................
 
     @Override
     public SuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<T>> suggestBoxComponent() {
