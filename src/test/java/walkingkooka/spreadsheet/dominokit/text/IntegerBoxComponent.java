@@ -258,6 +258,12 @@ public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSe
 
     private String pattern;
 
+    @Override
+    public IntegerBoxComponent setCssText(final String css) {
+        Objects.requireNonNull(css, "css");
+        return this;
+    }
+
     // FormValueComponentTreePrintable..................................................................................
 
     @Override
