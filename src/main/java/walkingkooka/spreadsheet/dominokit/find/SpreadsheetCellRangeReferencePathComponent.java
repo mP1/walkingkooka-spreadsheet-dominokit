@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.find;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.select.SelectComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
@@ -32,7 +34,8 @@ import java.util.Optional;
 /**
  * A drop down that supports picking an optional {@link SpreadsheetCellRangeReferencePath}.
  */
-public final class SpreadsheetCellRangeReferencePathComponent implements FormValueComponent<HTMLFieldSetElement, SpreadsheetCellRangeReferencePath, SpreadsheetCellRangeReferencePathComponent> {
+public final class SpreadsheetCellRangeReferencePathComponent implements FormValueComponent<HTMLFieldSetElement, SpreadsheetCellRangeReferencePath, SpreadsheetCellRangeReferencePathComponent>,
+    HtmlComponentDelegator<HTMLFieldSetElement, SpreadsheetCellRangeReferencePathComponent> {
 
     public static SpreadsheetCellRangeReferencePathComponent empty() {
         return new SpreadsheetCellRangeReferencePathComponent();
@@ -187,33 +190,6 @@ public final class SpreadsheetCellRangeReferencePathComponent implements FormVal
         return this;
     }
 
-    // setCssText.......................................................................................................
-
-    @Override
-    public SpreadsheetCellRangeReferencePathComponent setCssText(final String css) {
-        this.select.setCssText(css);
-        return this;
-    }
-
-    // setCssProperty...................................................................................................
-
-    @Override
-    public SpreadsheetCellRangeReferencePathComponent setCssProperty(final String name,
-                                                                     final String value) {
-        this.select.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
-
-    // IsElement........................................................................................................
-
-    @Override
-    public HTMLFieldSetElement element() {
-        return this.select.element();
-    }
-
     // Value............................................................................................................
 
     @Override
@@ -232,6 +208,13 @@ public final class SpreadsheetCellRangeReferencePathComponent implements FormVal
     @Override
     public boolean isEditing() {
         return this.select.isEditing();
+    }
+
+    // HtmlComponentDelegator...........................................................................................
+
+    @Override
+    public HtmlComponent<HTMLFieldSetElement, ?> htmlComponent() {
+        return this.select;
     }
 
     private final SelectComponent<SpreadsheetCellRangeReferencePath> select;
