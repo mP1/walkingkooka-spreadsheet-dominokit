@@ -20,6 +20,9 @@ package walkingkooka.spreadsheet.dominokit.suggestbox;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+import walkingkooka.Cast;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 
 import java.util.List;
@@ -28,7 +31,8 @@ import java.util.Optional;
 /**
  * Delegates some but not all {@link SuggestBoxComponent} methods.
  */
-public interface SuggestBoxComponentDelegator<E extends HTMLElement, V, C extends FormValueComponent<E, V, C>> extends FormValueComponent<E, V, C> {
+public interface SuggestBoxComponentDelegator<E extends HTMLElement, V, C extends FormValueComponent<E, V, C>> extends FormValueComponent<E, V, C>,
+    HtmlComponentDelegator<E, C> {
 
     // id...............................................................................................................
 
@@ -189,26 +193,13 @@ public interface SuggestBoxComponentDelegator<E extends HTMLElement, V, C extend
         return (C) this;
     }
 
-    // setCssText.......................................................................................................
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    default C setCssText(final String css) {
-        this.suggestBoxComponent()
-            .setCssText(css);
-        return (C) this;
-    }
-
-    // setCssProperty...................................................................................................
-
-    @Override
-    default C setCssProperty(final String name,
-                             final String value) {
-        this.suggestBoxComponent()
-            .setCssProperty(
-                name, 
-                value
-            );
-        return (C) this;
+    default HtmlComponent<E, ?> htmlComponent() {
+        return Cast.to(
+            this.suggestBoxComponent()
+        );
     }
 
     SuggestBoxComponent<?> suggestBoxComponent();

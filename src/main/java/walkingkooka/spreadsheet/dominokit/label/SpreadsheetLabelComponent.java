@@ -165,34 +165,7 @@ public final class SpreadsheetLabelComponent implements SuggestBoxComponentDeleg
         return this.suggestBox.isEditing();
     }
 
-    // setCssText.......................................................................................................
-
-    @Override
-    public SpreadsheetLabelComponent setCssText(final String css) {
-        this.suggestBox.setCssText(css);
-        return this;
-    }
-
-    // setCssProperty...................................................................................................
-
-    @Override
-    public SpreadsheetLabelComponent setCssProperty(final String name,
-                                                    final String value) {
-        this.suggestBox.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
-
-    // IsElement........................................................................................................
-
-    @Override
-    public HTMLFieldSetElement element() {
-        return this.suggestBox.element();
-    }
-
-    // SuggestBoxComponentDelegator..........................................................................
+    // SuggestBoxComponentDelegator.....................................................................................
 
     @Override
     public SuggestBoxComponent<SpreadsheetLabelName> suggestBoxComponent() {
