@@ -177,6 +177,17 @@ public final class UploadFileComponent extends UploadFileComponentLike {
     }
 
     @Override
+    public UploadFileComponent addBlurListener(final EventListener listener) {
+        Objects.requireNonNull(listener, "listener");
+
+        this.fileUpload.addEventListener(
+            EventType.blur,
+            listener
+        );
+        return this;
+    }
+
+    @Override
     public UploadFileComponent addChangeListener(final ChangeListener<Optional<BrowserFile>> listener) {
         Objects.requireNonNull(listener, "listener");
 

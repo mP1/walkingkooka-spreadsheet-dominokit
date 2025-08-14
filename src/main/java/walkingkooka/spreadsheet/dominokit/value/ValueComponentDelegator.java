@@ -68,6 +68,13 @@ public interface ValueComponentDelegator<E extends HTMLElement, V, C extends Val
     }
 
     @Override
+    default C addBlurListener(final EventListener listener) {
+        this.valueComponent()
+            .addBlurListener(listener);
+        return (C) this;
+    }
+
+    @Override
     default C addChangeListener(final ChangeListener<Optional<V>> listener) {
         this.valueComponent()
             .addChangeListener(listener);

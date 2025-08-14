@@ -174,6 +174,14 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
     }
 
     @Override
+    public SpreadsheetValueTypeComponent addBlurListener(final EventListener listener) {
+        this.select.addBlurListener(
+            listener
+        );
+        return this;
+    }
+    
+    @Override
     public SpreadsheetValueTypeComponent addChangeListener(final ChangeListener<Optional<ValidationValueTypeName>> listener) {
         this.select.addChangeListener(listener);
         return this;

@@ -147,6 +147,11 @@ public final class TextComponent implements FormValueComponent<HTMLDivElement, S
     // events...........................................................................................................
 
     @Override
+    public TextComponent addBlurListener(final EventListener listener) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public TextComponent addChangeListener(final ChangeListener<Optional<String>> listener) {
         throw new UnsupportedOperationException();
     }

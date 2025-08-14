@@ -352,6 +352,14 @@ public final class SuggestBoxComponent<T> implements SuggestBoxComponentLike<T> 
     // events...........................................................................................................
 
     @Override
+    public SuggestBoxComponent<T> addBlurListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.blur,
+            listener
+        );
+    }
+
+    @Override
     public SuggestBoxComponent<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
         Objects.requireNonNull(listener, "listener");
 

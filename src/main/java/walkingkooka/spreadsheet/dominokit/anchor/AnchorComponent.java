@@ -125,6 +125,11 @@ public interface AnchorComponent<A extends AnchorComponent<A, T>, T> extends Val
     // events...........................................................................................................
 
     @Override
+    default A addBlurListener(final EventListener listener) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     default A addFocusListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }

@@ -224,6 +224,11 @@ public final class SliderComponent extends SliderComponentLike
     private boolean disabled;
 
     @Override
+    public SliderComponent addBlurListener(final EventListener listener) {
+        return this;
+    }
+
+    @Override
     public SliderComponent addChangeListener(final ChangeListener<Optional<Double>> listener) {
         return this;
     }

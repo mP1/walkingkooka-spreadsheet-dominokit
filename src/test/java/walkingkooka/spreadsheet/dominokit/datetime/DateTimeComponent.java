@@ -180,6 +180,11 @@ public final class DateTimeComponent implements FormValueComponent<HTMLFieldSetE
     }
 
     @Override
+    public DateTimeComponent addBlurListener(final EventListener listener) {
+        return this;
+    }
+
+    @Override
     public DateTimeComponent addChangeListener(final ChangeListener<Optional<LocalDateTime>> listener) {
         return this;
     }

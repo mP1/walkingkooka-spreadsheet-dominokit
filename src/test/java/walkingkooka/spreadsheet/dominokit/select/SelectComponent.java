@@ -156,6 +156,12 @@ public final class SelectComponent<T> implements FormValueComponent<HTMLFieldSet
         return this;
     }
 
+    @Override
+    public SelectComponent<T> addBlurListener(final EventListener listener) {
+        Objects.requireNonNull(listener, "listener");
+        return this;
+    }
+
     @Override public SelectComponent<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
         Objects.requireNonNull(listener, "listener");
 

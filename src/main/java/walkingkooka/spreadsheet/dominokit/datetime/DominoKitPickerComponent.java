@@ -196,6 +196,11 @@ abstract class DominoKitPickerComponent<V, C extends DominoKitPickerComponent<V,
     }
 
     @Override
+    public final C addBlurListener(final EventListener listener) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public final C addContextMenuListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }

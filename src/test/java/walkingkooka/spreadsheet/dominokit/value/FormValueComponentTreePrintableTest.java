@@ -153,6 +153,11 @@ public final class FormValueComponentTreePrintableTest implements TreePrintableT
             }
 
             @Override
+            public TestValueComponent addBlurListener(final EventListener listener) {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
             public TestValueComponent addChangeListener(final ChangeListener<Optional<String>> listener) {
                 throw new UnsupportedOperationException();
             }

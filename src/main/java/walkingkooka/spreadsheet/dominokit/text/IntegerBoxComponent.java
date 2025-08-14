@@ -96,6 +96,14 @@ public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSe
     private String pattern;
 
     @Override
+    public IntegerBoxComponent addBlurListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.blur,
+            listener
+        );
+    }
+
+    @Override
     public IntegerBoxComponent addChangeListener(final ChangeListener<Optional<Integer>> listener) {
         this.integerBox.addChangeListener(
             IntegerBoxComponentChangeListener.with(listener)

@@ -159,6 +159,13 @@ public interface SuggestBoxComponentDelegator<E extends HTMLElement, V, C extend
     C addChangeListener(final ChangeListener<Optional<V>> listener);
 
     @Override
+    default C addBlurListener(final EventListener listener) {
+        this.suggestBoxComponent()
+            .addBlurListener(listener);
+        return (C) this;
+    }
+    
+    @Override
     default C addClickListener(final EventListener listener) {
         this.suggestBoxComponent()
             .addClickListener(listener);

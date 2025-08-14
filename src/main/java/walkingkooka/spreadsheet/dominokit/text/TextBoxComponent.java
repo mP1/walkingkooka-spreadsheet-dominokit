@@ -60,6 +60,14 @@ public final class TextBoxComponent implements FormValueComponent<HTMLFieldSetEl
     }
 
     @Override
+    public TextBoxComponent addBlurListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.blur,
+            listener
+        );
+    }
+
+    @Override
     public TextBoxComponent addChangeListener(final ChangeListener<Optional<String>> listener) {
         this.textBox.addChangeListener(
             TextBoxComponentChangeListener.with(listener)
