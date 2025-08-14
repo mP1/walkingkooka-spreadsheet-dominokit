@@ -69,7 +69,7 @@ final class SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount e
 
     @Override //
     SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount addFocusListener(final EventListener listener) {
-        this.list.addFocusListener(listener);
+        this.list.addFocusInListener(listener);
         return this;
     }
 
