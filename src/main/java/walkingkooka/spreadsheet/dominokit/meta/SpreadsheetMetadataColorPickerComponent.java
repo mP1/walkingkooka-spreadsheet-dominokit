@@ -18,15 +18,16 @@
 package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.HTMLTableElement;
-import org.dominokit.domino.ui.IsElement;
-import org.dominokit.domino.ui.elements.TBodyElement;
-import org.dominokit.domino.ui.elements.TDElement;
-import org.dominokit.domino.ui.elements.TableElement;
-import org.dominokit.domino.ui.elements.TableRowElement;
-import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
+import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.dom.TBodyComponent;
+import walkingkooka.spreadsheet.dominokit.dom.TableComponent;
+import walkingkooka.spreadsheet.dominokit.dom.TdComponent;
+import walkingkooka.spreadsheet.dominokit.dom.TrComponent;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -34,6 +35,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.format.SpreadsheetColorName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -45,10 +47,10 @@ import java.util.function.Function;
  * If a {@link SpreadsheetColorName} exists that will be used otherwise a name is formed by combining the "color-" and the color number.
  * Each cell will have a link with a {@link HistoryToken} that saves its {@link Color}.
  */
-public final class SpreadsheetMetadataColorPickerComponent implements SpreadsheetMetadataFetcherWatcher,
+public final class SpreadsheetMetadataColorPickerComponent implements HtmlComponentDelegator<HTMLTableElement, SpreadsheetMetadataColorPickerComponent>,
+    SpreadsheetMetadataFetcherWatcher,
     NopFetcherWatcher,
-    NopEmptyResponseFetcherWatcher,
-    IsElement<HTMLTableElement> {
+    NopEmptyResponseFetcherWatcher {
 
     private final static String ID = "color-picker";
 
@@ -65,20 +67,20 @@ public final class SpreadsheetMetadataColorPickerComponent implements Spreadshee
     }
 
     public SpreadsheetMetadataColorPickerComponent(final HistoryToken historyToken) {
-        final TBodyElement tbody = ElementsFactory.elements.tbody();
+        final TBodyComponent tbody = HtmlElementComponent.tbody();
 
         int i = 0;
-        final TDElement[] cells = new TDElement[COLOR_COUNT];
+        final TdComponent[] cells = new TdComponent[COLOR_COUNT];
         final HistoryTokenAnchorComponent[] anchors = new HistoryTokenAnchorComponent[COLOR_COUNT];
 
         // 8x7
         for (int y = 0; y < ROWS; y++) {
-            final TableRowElement tr = ElementsFactory.elements.tr();
+            final TrComponent tr = HtmlElementComponent.tr();
             tbody.appendChild(tr);
 
             for (int x = 0; x < COLUMNS; x++) {
-                final TDElement td = ElementsFactory.elements.td();
-                td.style("width: 64px; height: 32px; border-color: black; border-width: 2px; border-style: solid; text-align: center;");
+                final TdComponent td = HtmlElementComponent.td();
+                td.setCssText("width: 64px; height: 32px; border-color: black; border-width: 2px; border-style: solid; text-align: center;");
                 tr.appendChild(td);
 
                 final HistoryTokenAnchorComponent anchor = HistoryTokenAnchorComponent.empty();
@@ -95,12 +97,12 @@ public final class SpreadsheetMetadataColorPickerComponent implements Spreadshee
         }
 
         // add a row with a single cell with a link CLEAR
-        final TableRowElement tr = ElementsFactory.elements.tr();
+        final TrComponent tr = HtmlElementComponent.tr();
         tbody.appendChild(tr);
 
-        final TDElement td = ElementsFactory.elements.td();
+        final TdComponent td = HtmlElementComponent.td();
         td.setAttribute("colspan", COLUMNS);
-        td.style("width: 100%; height: 32px; text-align: center;");
+        td.setCssText("width: 100%; height: 32px; text-align: center;");
         tr.appendChild(td);
 
         final HistoryTokenAnchorComponent anchor = HistoryTokenAnchorComponent.empty();
@@ -111,12 +113,15 @@ public final class SpreadsheetMetadataColorPickerComponent implements Spreadshee
         td.appendChild(anchor);
 
 
-        final TableElement tableElement = ElementsFactory.elements.table();
-        tableElement.setId(ID);
-        tableElement.appendChild(tbody);
-        tableElement.element().className = "dui dui-menu-item";
+        final TableComponent table = HtmlElementComponent.table();
+        table.setId(ID);
+        table.appendChild(tbody);
+        table.setAttribute(
+            "className",
+            "dui dui-menu-item"
+        );
 
-        this.table = tableElement;
+        this.table = table;
 
         this.cells = cells;
         this.anchors = anchors;
@@ -126,7 +131,7 @@ public final class SpreadsheetMetadataColorPickerComponent implements Spreadshee
 
     public void refreshAll(final HistoryToken token,
                            final SpreadsheetMetadata metadata) {
-        final TDElement[] cells = this.cells;
+        final TdComponent[] cells = this.cells;
         final HistoryTokenAnchorComponent[] anchors = this.anchors;
         final Function<Integer, Optional<Color>> numberToColors = metadata.numberToColor();
         final Function<Integer, Optional<SpreadsheetColorName>> numberToColorNames = metadata.numberToColorName();
@@ -165,16 +170,22 @@ public final class SpreadsheetMetadataColorPickerComponent implements Spreadshee
         );
     }
 
-    // IsElement.......................................................................................................
+    // HtmlComponentDelegator...........................................................................................
+
 
     @Override
-    public HTMLTableElement element() {
-        return this.table.element();
+    public HtmlComponent<HTMLTableElement, ?> htmlComponent() {
+        return this.table;
     }
 
-    private final TableElement table;
+    @Override
+    public boolean isEditing() {
+        return false;
+    }
 
-    private final TDElement[] cells;
+    private final TableComponent table;
+
+    private final TdComponent[] cells;
 
     private final HistoryTokenAnchorComponent[] anchors;
 
@@ -202,5 +213,12 @@ public final class SpreadsheetMetadataColorPickerComponent implements Spreadshee
     @Override
     public String toString() {
         return this.element().toString();
+    }
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        printer.println("metadata color picker");
     }
 }
