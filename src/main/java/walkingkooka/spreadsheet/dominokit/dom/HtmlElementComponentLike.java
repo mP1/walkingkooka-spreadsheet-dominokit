@@ -224,6 +224,12 @@ abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlEle
 
     public abstract C clear();
 
+    /**
+     * Tests if the given {@link IsElement} is a child or ancestor of this element.
+     * {@linkplain <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/contains">Node</a>}
+     */
+    public abstract boolean contains(final IsElement<?> element);
+
     public abstract C appendChild(final TextNode textNode);
 
     public abstract C appendChild(final Node child);
