@@ -79,6 +79,8 @@ abstract class UploadFileComponentLike implements FormValueComponent<HTMLDivElem
         throw new UnsupportedOperationException();
     }
 
+    // addXXXListener...................................................................................................
+
     @Override
     public final UploadFileComponent addClickListener(final EventListener listener) {
         throw new UnsupportedOperationException();
@@ -93,6 +95,8 @@ abstract class UploadFileComponentLike implements FormValueComponent<HTMLDivElem
     public final UploadFileComponent addKeyUpListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }
+
+    // TreePrintable....................................................................................................
 
     @Override
     public final void printTree(final IndentingPrinter printer) {
