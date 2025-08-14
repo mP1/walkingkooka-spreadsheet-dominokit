@@ -17,14 +17,20 @@
 
 package walkingkooka.spreadsheet.dominokit.meta;
 
+import elemental2.dom.Event;
 import elemental2.dom.HTMLUListElement;
-import org.dominokit.domino.ui.forms.TextBox;
+import elemental2.dom.KeyboardEvent;
+import jsinterop.base.Js;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
+import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.dom.UlComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+
+import java.util.Optional;
 
 /**
  * A {@link SpreadsheetMetadataPanelComponentItem} that displays {@link String text}
@@ -67,6 +73,38 @@ final class SpreadsheetMetadataPanelComponentItemText extends SpreadsheetMetadat
         this.defaultValueAnchor = defaultValueAnchor;
     }
 
+    private TextBoxComponent textBox() {
+        final TextBoxComponent textBox = TextBoxComponent.empty();
+
+        textBox.addChangeListener(
+            (final Optional<String> oldValue, final Optional<String> newValue) -> this.saveText(textBox)
+        ).addKeyDownListener(
+            (final Event event) -> {
+                final KeyboardEvent keyboardEvent = Js.cast(event);
+                switch (Key.fromEvent(keyboardEvent)) {
+                    case Enter:
+                        event.preventDefault();
+                        this.saveText(textBox);
+                        break;
+                    default:
+                        // ignore other keys
+                        break;
+                }
+            }
+        ).clear();
+
+        // clear the margin-bottom: 16px
+        return textBox.setCssProperty("width", TEXT_BOX_WIDTH)
+            .setCssProperty("margin-bottom", "0");
+    }
+
+    private void saveText(final TextBoxComponent textBox) {
+        this.save(
+            textBox.value()
+                .orElse("")
+        );
+    }
+
     @Override
     void focus() {
         this.textBox.focus();
@@ -80,7 +118,6 @@ final class SpreadsheetMetadataPanelComponentItemText extends SpreadsheetMetadat
 
         this.textBox.setValue(
             metadata.getIgnoringDefaults(this.propertyName)
-                .orElse(null)
         );
 
         this.refreshDefaultValue(
@@ -92,7 +129,7 @@ final class SpreadsheetMetadataPanelComponentItemText extends SpreadsheetMetadat
         );
     }
 
-    private final TextBox textBox;
+    private final TextBoxComponent textBox;
 
     private final HistoryTokenAnchorComponent defaultValueAnchor;
 
