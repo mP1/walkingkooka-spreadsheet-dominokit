@@ -247,7 +247,15 @@ public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSe
         return this;
     }
 
-    private int step;
+    private Integer step;
+
+    public IntegerBoxComponent pattern(final String pattern) {
+        Objects.requireNonNull(pattern, "pattern");
+        this.pattern = pattern;
+        return this;
+    }
+
+    private String pattern;
 
     // FormValueComponentTreePrintable..................................................................................
 
