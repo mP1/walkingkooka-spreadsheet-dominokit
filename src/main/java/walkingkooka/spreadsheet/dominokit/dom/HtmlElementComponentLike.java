@@ -58,14 +58,14 @@ abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlEle
 
     public final C setBackgroundColor(final String color) {
         return this.setCssProperty(
-            "background-color",
+            TextStylePropertyName.BACKGROUND_COLOR,
             color
         );
     }
 
     public final C setColor(final String color) {
         return this.setCssProperty(
-            "color",
+            TextStylePropertyName.COLOR,
             color
         );
     }
@@ -79,7 +79,7 @@ abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlEle
 
     public final C setHeight(final String height) {
         return this.setCssProperty(
-            "height",
+            TextStylePropertyName.HEIGHT,
             height
         );
     }
@@ -137,7 +137,10 @@ abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlEle
     
     public final C setOverflow(final String overflow) {
         return this.setCssProperty(
-            "overflow",
+            TextStylePropertyName.OVERFLOW_X,
+            overflow
+        ).setCssProperty(
+            TextStylePropertyName.OVERFLOW_Y,
             overflow
         );
     }
@@ -195,7 +198,7 @@ abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlEle
 
     public final C setWidth(final String width) {
         return this.setCssProperty(
-            "width",
+            TextStylePropertyName.WIDTH,
             width
         );
     }

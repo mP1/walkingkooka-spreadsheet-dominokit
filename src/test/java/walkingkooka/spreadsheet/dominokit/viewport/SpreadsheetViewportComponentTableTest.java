@@ -64,7 +64,7 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
                 SpreadsheetSelection.A1.setDefaultAnchor()
             ),
             "TABLE\n" +
-                "  id=\"viewport\" style=\"overflow: hidden;\"\n" +
+                "  id=\"viewport\" style=\"overflow-x: hidden; overflow-y: hidden;\"\n" +
                 "    THEAD\n" +
                 "      SpreadsheetViewportComponentTableRowColumnHeaders\n" +
                 "        TR\n" +
@@ -133,7 +133,7 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
                 SPREADSHEET_NAME
             ),
             "TABLE\n" +
-                "  id=\"viewport\" style=\"overflow: hidden;\"\n" +
+                "  id=\"viewport\" style=\"overflow-x: hidden; overflow-y: hidden;\"\n" +
                 "    THEAD\n" +
                 "      SpreadsheetViewportComponentTableRowColumnHeaders\n" +
                 "        TR\n" +

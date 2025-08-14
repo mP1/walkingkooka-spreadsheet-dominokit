@@ -283,7 +283,7 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                 "        TextBoxComponent\n" +
                 "          [=1+2]\n" +
                 "  TABLE\n" +
-                "    id=\"viewport\" style=\"overflow: hidden;\"\n" +
+                "    id=\"viewport\" style=\"overflow-x: hidden; overflow-y: hidden;\"\n" +
                 "      THEAD\n" +
                 "        SpreadsheetViewportComponentTableRowColumnHeaders\n" +
                 "          TR\n" +
@@ -353,7 +353,7 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                 "        TextBoxComponent\n" +
                 "          [] DISABLED\n" +
                 "  TABLE\n" +
-                "    id=\"viewport\" style=\"overflow: hidden;\"\n" +
+                "    id=\"viewport\" style=\"overflow-x: hidden; overflow-y: hidden;\"\n" +
                 "      THEAD\n" +
                 "        SpreadsheetViewportComponentTableRowColumnHeaders\n" +
                 "          TR\n" +
@@ -423,7 +423,7 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                 "        TextBoxComponent\n" +
                 "          [] DISABLED\n" +
                 "  TABLE\n" +
-                "    id=\"viewport\" style=\"overflow: hidden;\"\n" +
+                "    id=\"viewport\" style=\"overflow-x: hidden; overflow-y: hidden;\"\n" +
                 "      THEAD\n" +
                 "        SpreadsheetViewportComponentTableRowColumnHeaders\n" +
                 "          TR\n" +
