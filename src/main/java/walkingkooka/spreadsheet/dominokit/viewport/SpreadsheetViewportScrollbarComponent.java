@@ -190,12 +190,12 @@ abstract public class SpreadsheetViewportScrollbarComponent<R extends Spreadshee
 
     @Override
     public final SpreadsheetViewportScrollbarComponent<R> addBlurListener(final EventListener listener) {
-        return this;
+       throw new UnsupportedOperationException();
     }
 
     @Override
     public final SpreadsheetViewportScrollbarComponent<R> addClickListener(final EventListener listener) {
-        return this;
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -211,12 +211,12 @@ abstract public class SpreadsheetViewportScrollbarComponent<R extends Spreadshee
 
     @Override
     public final SpreadsheetViewportScrollbarComponent<R> addContextMenuListener(final EventListener listener) {
-        return this;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public final SpreadsheetViewportScrollbarComponent<R> addFocusListener(final EventListener listener) {
-        return this;
+        throw new UnsupportedOperationException();
     }
 
     @Override
