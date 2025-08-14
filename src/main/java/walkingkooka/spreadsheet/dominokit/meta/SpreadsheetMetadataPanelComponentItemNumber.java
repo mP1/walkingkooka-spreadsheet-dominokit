@@ -78,7 +78,7 @@ final class SpreadsheetMetadataPanelComponentItemNumber extends SpreadsheetMetad
 
     @Override
     SpreadsheetMetadataPanelComponentItemNumber addFocusListener(final EventListener listener) {
-        this.list.addFocusListener(listener);
+        this.list.addFocusInListener(listener);
         return this;
     }
 
