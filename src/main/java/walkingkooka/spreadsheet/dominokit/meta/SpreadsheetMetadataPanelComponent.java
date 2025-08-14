@@ -179,6 +179,16 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
                             .appendChild(item)
                     )
             );
+
+            // eg: /1/SpreadsheetName/metadata/SpreadsheetName
+            item.addFocusListener(
+                (e) -> context.pushHistoryToken(
+                    context.historyToken()
+                        .setMetadataPropertyName(
+                            item.propertyName
+                        )
+                )
+            );
         }
 
         this.items = items;
