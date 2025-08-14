@@ -186,6 +186,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.format_clear();
     }
 
+    public static MdiIcon headings() {
+        return Icons.table_large();
+    }
+
     public static MdiIcon hideZeroValues() {
         return Icons.star();
     }

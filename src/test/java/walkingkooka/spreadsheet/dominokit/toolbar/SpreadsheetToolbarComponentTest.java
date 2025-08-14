@@ -179,6 +179,9 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-form-textbox \"Show Formula Editor\" [#/1/Spreadsheet123/spreadsheet/showFormulaEditor/save/false] CHECKED id=toolbar-show-formula-editor-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Formula Editor\"\n" +
+                "      mdi-table-large \"Show Headings\" [#/1/Spreadsheet123/spreadsheet/showHeadings/save/false] CHECKED id=toolbar-show-formulas-Link\n" +
+                "        TooltipComponent\n" +
+                "          \"Show Headings\"\n" +
                 "      mdi-math-integral \"Show Formulas\" [#/1/Spreadsheet123/spreadsheet/showFormulas/save/true] id=toolbar-show-formulas-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Hide Formulas\"\n" +
@@ -291,6 +294,9 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-form-textbox \"Show Formula Editor\" [#/1/Spreadsheet123/spreadsheet/showFormulaEditor/save/false] CHECKED id=toolbar-show-formula-editor-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Formula Editor\"\n" +
+                "      mdi-table-large \"Show Headings\" [#/1/Spreadsheet123/spreadsheet/showHeadings/save/false] CHECKED id=toolbar-show-formulas-Link\n" +
+                "        TooltipComponent\n" +
+                "          \"Show Headings\"\n" +
                 "      mdi-math-integral \"Show Formulas\" [#/1/Spreadsheet123/spreadsheet/showFormulas/save/true] id=toolbar-show-formulas-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Hide Formulas\"\n" +
@@ -346,6 +352,9 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-form-textbox \"Show Formula Editor\" [#/1/Spreadsheet123/spreadsheet/showFormulaEditor/save/false] CHECKED id=toolbar-show-formula-editor-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Formula Editor\"\n" +
+                "      mdi-table-large \"Show Headings\" [#/1/Spreadsheet123/spreadsheet/showHeadings/save/false] CHECKED id=toolbar-show-formulas-Link\n" +
+                "        TooltipComponent\n" +
+                "          \"Show Headings\"\n" +
                 "      mdi-math-integral \"Show Formulas\" [#/1/Spreadsheet123/spreadsheet/showFormulas/save/true] id=toolbar-show-formulas-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Hide Formulas\"\n" +
@@ -401,6 +410,9 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-form-textbox \"Show Formula Editor\" [#/1/Spreadsheet123/spreadsheet/showFormulaEditor/save/false] CHECKED id=toolbar-show-formula-editor-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Formula Editor\"\n" +
+                "      mdi-table-large \"Show Headings\" [#/1/Spreadsheet123/spreadsheet/showHeadings/save/false] CHECKED id=toolbar-show-formulas-Link\n" +
+                "        TooltipComponent\n" +
+                "          \"Show Headings\"\n" +
                 "      mdi-math-integral \"Show Formulas\" [#/1/Spreadsheet123/spreadsheet/showFormulas/save/true] id=toolbar-show-formulas-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Hide Formulas\"\n" +

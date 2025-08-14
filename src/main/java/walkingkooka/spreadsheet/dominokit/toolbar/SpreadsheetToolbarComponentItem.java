@@ -187,6 +187,13 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
     }
 
     /**
+     * {@see SpreadsheetToolbarComponentItemAnchorMetadataBooleanShowHeadings}
+     */
+    static SpreadsheetToolbarComponentItem<?> showHeadings(final SpreadsheetToolbarComponentContext context) {
+        return SpreadsheetToolbarComponentItemAnchorMetadataBooleanShowHeadings.with(context);
+    }
+
+    /**
      * {@link SpreadsheetToolbarComponentItemAnchorSort}
      */
     static SpreadsheetToolbarComponentItem<?> sort(final SpreadsheetToolbarComponentContext context) {
