@@ -157,7 +157,6 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         items.add(this.validationFunctions());
         items.add(this.validationValidators());
 
-        // TODO extract TABLE
         final TBodyComponent tBody = HtmlElementComponent.tbody();
         this.table = HtmlElementComponent.table()
             .appendChild(tBody);
