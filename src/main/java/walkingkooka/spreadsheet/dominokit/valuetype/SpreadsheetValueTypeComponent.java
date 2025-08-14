@@ -21,6 +21,8 @@ import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.select.SelectComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.text.CaseKind;
@@ -36,6 +38,7 @@ import java.util.Optional;
  * A drop down that supports picking an optional {@link ValidationValueTypeName}.
  */
 public final class SpreadsheetValueTypeComponent implements FormValueComponent<HTMLFieldSetElement, ValidationValueTypeName, SpreadsheetValueTypeComponent>,
+    HtmlComponentDelegator<HTMLFieldSetElement, SpreadsheetValueTypeComponent>,
     TreePrintable {
 
     public static SpreadsheetValueTypeComponent empty() {
@@ -212,33 +215,6 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
         return this;
     }
 
-    // setCssText.......................................................................................................
-
-    @Override
-    public SpreadsheetValueTypeComponent setCssText(final String css) {
-        this.select.setCssText(css);
-        return this;
-    }
-
-    // setCssProperty...................................................................................................
-
-    @Override
-    public SpreadsheetValueTypeComponent setCssProperty(final String name,
-                                                        final String value) {
-        this.select.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
-
-    // IsElement........................................................................................................
-
-    @Override
-    public HTMLFieldSetElement element() {
-        return this.select.element();
-    }
-
     // Value............................................................................................................
 
     @Override
@@ -252,6 +228,13 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
     @Override //
     public Optional<ValidationValueTypeName> value() {
         return this.select.value();
+    }
+
+    // HtmlComponentDelegator...........................................................................................
+
+    @Override
+    public HtmlComponent<HTMLFieldSetElement, ?> htmlComponent() {
+        return this.select;
     }
 
     private final SelectComponent<ValidationValueTypeName> select;
