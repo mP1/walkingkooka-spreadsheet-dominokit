@@ -96,7 +96,7 @@ final class SpreadsheetMetadataPanelComponentItemPrecision extends SpreadsheetMe
 
     @Override
     SpreadsheetMetadataPanelComponentItemPrecision addFocusListener(final EventListener listener) {
-        this.list.addFocusListener(listener);
+        this.list.addFocusInListener(listener);
         return this;
     }
 
