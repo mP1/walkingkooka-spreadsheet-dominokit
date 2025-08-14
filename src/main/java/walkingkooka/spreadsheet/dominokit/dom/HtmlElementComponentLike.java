@@ -189,8 +189,6 @@ abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlEle
 
     public abstract C removeChild(final IsElement<?> child);
 
-    public abstract String text();
-
     public abstract C setText(final String text);
 
     public final C addBlurListener(final EventListener listener) {
