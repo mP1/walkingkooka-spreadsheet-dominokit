@@ -216,6 +216,47 @@ public final class HtmlElementComponentTest implements ClassTesting<HtmlElementC
         );
     }
 
+    // setText..........................................................................................................
+
+    @Test
+    public void testSetTextAndTreePrint() {
+        this.treePrintAndCheck(
+            HtmlElementComponent.div()
+                .setText("Hello"),
+            "DIV\n" +
+                "  \"Hello\"\n"
+        );
+    }
+
+    @Test
+    public void testSetTextIncludingAttributesAndTreePrint() {
+        this.treePrintAndCheck(
+            HtmlElementComponent.div()
+                .setId("id123")
+                .setColor("red")
+                .setText("Hello"),
+            "DIV\n" +
+                "  id=\"id123\" style=\"color: red;\"\n" +
+                "    \"Hello\"\n"
+        );
+    }
+
+    @Test
+    public void testSetTextClearsChildrenAndTreePrint() {
+        this.treePrintAndCheck(
+            HtmlElementComponent.div()
+                .appendChild(
+                    HtmlElementComponent.div()
+                        .setId("Lost")
+                        .setColor("red")
+                        .setText("LostText")
+                )
+                .setText("Hello"),
+            "DIV\n" +
+                "  \"Hello\"\n"
+        );
+    }
+
     // TreePrintable....................................................................................................
 
     @Test

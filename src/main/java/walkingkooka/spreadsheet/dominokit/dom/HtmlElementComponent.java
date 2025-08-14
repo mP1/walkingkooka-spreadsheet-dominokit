@@ -30,6 +30,8 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextNode;
 
+import java.util.Objects;
+
 /**
  * Base class for an element {@link HtmlComponent}
  */
@@ -167,6 +169,25 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
         this.element.removeChild(child.element());
         return (C) this;
     }
+
+    // text.............................................................................................................
+
+    @Override
+    public final String text() {
+        return this.element()
+            .textContent;
+    }
+
+    @Override
+    public final C setText(final String text) {
+        Objects.requireNonNull(text, "text");
+
+        this.element()
+            .textContent = text;
+        return (C) this;
+    }
+
+    // IsElement........................................................................................................
 
     @Override
     public C addEventListener(final String type,

@@ -80,6 +80,7 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
         this.tag = tag;
         this.children = Lists.array();
         this.style = Maps.sorted();
+        this.text = "";
     }
 
     @Override
@@ -219,6 +220,24 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
     }
 
     @Override
+    public final String text() {
+        return this.text;
+    }
+
+    @Override
+    public final C setText(final String text) {
+        Objects.requireNonNull(text, "text");
+
+        this.text = text;
+        this.children.clear();
+        return (C) this;
+    }
+
+    private String text;
+
+    // listeners........................................................................................................
+
+    @Override
     public C addEventListener(final String type,
                               final EventListener listener) {
         return (C) this;
@@ -284,6 +303,15 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
                         .collect(Collectors.joining(" "))
                 );
                 printer.indent();
+            }
+
+            {
+                final String text = this.text;
+                if(false == CharSequences.isNullOrEmpty(text)) {
+                    printer.println(
+                        CharSequences.quoteAndEscape(text)
+                    );
+                }
             }
 
             this.printTreeChildren(printer);
