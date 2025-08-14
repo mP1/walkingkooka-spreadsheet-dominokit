@@ -292,6 +292,10 @@ public final class SpreadsheetToolbarComponent implements HtmlComponentDelegator
         return TOOLBAR_ID_PREFIX + "show-formula-editor";
     }
 
+    public static String showGridLinesIds() {
+        return TOOLBAR_ID_PREFIX + "show-grid-lines";
+    }
+
     public static String showHeadingsId() {
         return TOOLBAR_ID_PREFIX + "show-headings";
     }

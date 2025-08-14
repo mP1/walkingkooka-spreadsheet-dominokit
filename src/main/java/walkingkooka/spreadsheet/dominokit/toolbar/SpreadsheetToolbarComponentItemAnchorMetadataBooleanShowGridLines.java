@@ -33,9 +33,9 @@ final class SpreadsheetToolbarComponentItemAnchorMetadataBooleanShowGridLines ex
 
     private SpreadsheetToolbarComponentItemAnchorMetadataBooleanShowGridLines(final SpreadsheetToolbarComponentContext context) {
         super(
-            SpreadsheetToolbarComponent.findHighlightId(),
+            SpreadsheetToolbarComponent.showGridLinesIds(),
             Optional.of(
-                SpreadsheetIcons.highlight()
+                SpreadsheetIcons.gridLines()
             ),
             "Show Grid Lines",
             "Show Grid Lines", // let refresh load tooltip
