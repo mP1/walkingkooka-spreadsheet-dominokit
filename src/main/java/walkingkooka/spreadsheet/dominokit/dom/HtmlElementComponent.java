@@ -153,6 +153,13 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
     }
 
     @Override
+    public boolean contains(final IsElement<?> element) {
+        Objects.requireNonNull(element, "element");
+
+        return this.element.contains(element.element());
+    }
+
+    @Override
     public C appendChild(final TextNode textNode) {
         this.element.appendChild(
             Doms.node(textNode)
