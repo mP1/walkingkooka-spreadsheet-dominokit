@@ -95,6 +95,27 @@ public final class IntegerBoxComponentTest implements FormValueComponentTesting<
         );
     }
 
+    @Test
+    public void testMinMaxStepPatternSetValue() {
+        this.treePrintAndCheck(
+            IntegerBoxComponent.empty()
+                .setId("id123")
+                .min(10)
+                .max(100)
+                .step(20)
+                .pattern("###")
+                .setValue(
+                    Optional.of(
+                        123
+                    )
+                ),
+            "IntegerBoxComponent\n" +
+                "  [123] id=id123\n" +
+                "   min: 10 max: 100 step: 20 pattern: \"###\"\n"
+        );
+    }
+
+
     // ValueComponent...................................................................................................
 
     @Override

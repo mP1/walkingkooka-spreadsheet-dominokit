@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ValidatorHelper;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
+import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
@@ -233,14 +234,14 @@ public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSe
         return this;
     }
 
-    private int max;
+    private Integer max;
 
     public IntegerBoxComponent min(final int value) {
         this.min = value;
         return this;
     }
 
-    private int min;
+    private Integer min;
 
     public IntegerBoxComponent step(final int step) {
         this.step = step;
@@ -261,6 +262,35 @@ public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSe
 
     @Override
     public void treePrintAlternateValues(final IndentingPrinter printer) {
-        // NOP
+        this.printLabelAndValue(
+            "min",
+            this.min,
+            printer
+        );
+        this.printLabelAndValue(
+            "max",
+            this.max,
+            printer
+        );
+        this.printLabelAndValue(
+            "step",
+            this.step,
+            printer
+        );
+        this.printLabelAndValue(
+            "pattern",
+            this.pattern,
+            printer
+        );
+
+        printer.lineStart();
+    }
+
+    private void printLabelAndValue(final String label,
+                                    final Object value,
+                                    final IndentingPrinter printer) {
+        if (null != value) {
+            printer.print(" " + label + ": " + CharSequences.quoteIfChars(value));
+        }
     }
 }
