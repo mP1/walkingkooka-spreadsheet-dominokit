@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.text.HasText;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextNode;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 /**
  * Base class for an element {@link HtmlComponent}
@@ -86,6 +87,34 @@ abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlEle
         );
     }
 
+    public final C setPaddingBottom(final String padding) {
+        return this.setCssProperty(
+            TextStylePropertyName.PADDING_BOTTOM,
+            padding
+        );
+    }
+
+    public final C setPaddingLeft(final String padding) {
+        return this.setCssProperty(
+            TextStylePropertyName.PADDING_LEFT,
+            padding
+        );
+    }
+
+    public final C setPaddingRight(final String padding) {
+        return this.setCssProperty(
+            TextStylePropertyName.PADDING_RIGHT,
+            padding
+        );
+    }
+
+    public final C setPaddingTop(final String overflow) {
+        return this.setCssProperty(
+            TextStylePropertyName.PADDING_TOP,
+            overflow
+        );
+    }
+
     public final C setTop(final String top) {
         return this.setCssProperty(
             "top",
@@ -97,6 +126,14 @@ abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlEle
         return this.setCssProperty(
             "width",
             width
+        );
+    }
+
+    private C setCssProperty(final TextStylePropertyName<?> name,
+                             final String value) {
+        return this.setCssProperty(
+            name.toString(),
+            value
         );
     }
 
