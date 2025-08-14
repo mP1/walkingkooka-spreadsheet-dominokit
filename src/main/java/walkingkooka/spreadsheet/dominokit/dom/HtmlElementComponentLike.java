@@ -91,6 +91,50 @@ abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlEle
         );
     }
 
+    public final C setMargin(final String margin) {
+        return this.setCssProperty(
+            TextStylePropertyName.MARGIN_LEFT,
+            margin
+        ).setCssProperty(
+            TextStylePropertyName.MARGIN_RIGHT,
+            margin
+        ).setCssProperty(
+            TextStylePropertyName.MARGIN_TOP,
+            margin
+        ).setCssProperty(
+            TextStylePropertyName.MARGIN_BOTTOM,
+            margin
+        );
+    }
+
+    public final C setMarginBottom(final String margin) {
+        return this.setCssProperty(
+            TextStylePropertyName.MARGIN_BOTTOM,
+            margin
+        );
+    }
+
+    public final C setMarginLeft(final String margin) {
+        return this.setCssProperty(
+            TextStylePropertyName.MARGIN_LEFT,
+            margin
+        );
+    }
+
+    public final C setMarginRight(final String margin) {
+        return this.setCssProperty(
+            TextStylePropertyName.MARGIN_RIGHT,
+            margin
+        );
+    }
+
+    public final C setMarginTop(final String overflow) {
+        return this.setCssProperty(
+            TextStylePropertyName.MARGIN_TOP,
+            overflow
+        );
+    }
+    
     public final C setOverflow(final String overflow) {
         return this.setCssProperty(
             "overflow",
