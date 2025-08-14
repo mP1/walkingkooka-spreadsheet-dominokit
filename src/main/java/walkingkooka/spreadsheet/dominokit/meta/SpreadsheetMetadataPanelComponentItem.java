@@ -21,14 +21,10 @@ import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.KeyboardEvent;
 import jsinterop.base.Js;
-import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.IntegerBox;
-import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
-import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.spreadsheet.dominokit.ComponentRefreshable;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
-import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.dom.LiComponent;
@@ -261,54 +257,6 @@ abstract class SpreadsheetMetadataPanelComponentItem<T, C extends SpreadsheetMet
                 .map(Object::toString)
                 .orElse("")
         );
-    }
-
-    final TextBox textBox() {
-        final TextBox textBox = new TextBox();
-
-        textBox.addEventListener(
-            EventType.change,
-            (final Event event) -> this.saveText(textBox)
-        ).addEventListener(
-            EventType.keydown,
-            (final Event event) -> {
-                final KeyboardEvent keyboardEvent = Js.cast(event);
-                switch (Key.fromEvent(keyboardEvent)) {
-                    case Enter:
-                        event.preventDefault();
-                        this.saveText(textBox);
-                        break;
-                    default:
-                        // ignore other keys
-                        break;
-                }
-            }
-        ).apply(
-            self ->
-                self.appendChild(
-                    PostfixAddOn.of(
-                        SpreadsheetIcons.close()
-                            .clickable()
-                            .addClickListener((e) -> self.clear())
-                    )
-                )
-        );
-
-        // clear the margin-bottom: 16px
-        return textBox.setWidth(TEXT_BOX_WIDTH)
-            .setMarginBottom("0");
-    }
-
-    private void saveText(final TextBox textBox) {
-        final String saveText;
-
-        if (textBox.isEmpty()) {
-            saveText = "";
-        } else {
-            saveText = String.valueOf(textBox.getValue());
-        }
-
-        this.save(saveText);
     }
 
     final void save(final String saveText) {
