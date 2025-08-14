@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.Event;
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.KeyboardEvent;
 import jsinterop.base.Js;
@@ -172,6 +173,8 @@ abstract class SpreadsheetMetadataPanelComponentItem<T, C extends SpreadsheetMet
             context
         );
     }
+
+    abstract C addFocusListener(final EventListener listener);
 
     /**
      * Give focus to an element so the user can update the value.

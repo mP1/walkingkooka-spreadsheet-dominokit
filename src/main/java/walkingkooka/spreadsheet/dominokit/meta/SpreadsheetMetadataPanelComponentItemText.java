@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.Event;
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLUListElement;
 import elemental2.dom.KeyboardEvent;
 import jsinterop.base.Js;
@@ -103,6 +104,12 @@ final class SpreadsheetMetadataPanelComponentItemText extends SpreadsheetMetadat
             textBox.value()
                 .orElse("")
         );
+    }
+
+    @Override//
+    SpreadsheetMetadataPanelComponentItemText addFocusListener(final EventListener listener) {
+        this.textBox.addFocusListener(listener);
+        return this;
     }
 
     @Override

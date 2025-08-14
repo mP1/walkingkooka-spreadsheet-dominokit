@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.meta;
 
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
@@ -61,6 +62,12 @@ final class SpreadsheetMetadataPanelComponentItemReadOnlyText<T> extends Spreads
         this.div = HtmlElementComponent.div()
             .setPaddingTop("5px")
             .setPaddingBottom("5px");
+    }
+
+    @Override
+    SpreadsheetMetadataPanelComponentItemReadOnlyText<T> addFocusListener(final EventListener listener) {
+        this.div.addFocusListener(listener);
+        return this;
     }
 
     @Override

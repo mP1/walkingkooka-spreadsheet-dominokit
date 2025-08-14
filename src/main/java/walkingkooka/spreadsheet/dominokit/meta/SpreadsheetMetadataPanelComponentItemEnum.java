@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.meta;
 
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLUListElement;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
@@ -97,6 +98,12 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
         this.defaultValueAnchor = defaultValueAnchor;
 
         this.valueToAnchors = valueToAnchors;
+    }
+
+    @Override//
+    SpreadsheetMetadataPanelComponentItemEnum<T> addFocusListener(final EventListener listener) {
+        this.list.addFocusListener(listener);
+        return this;
     }
 
     @Override
