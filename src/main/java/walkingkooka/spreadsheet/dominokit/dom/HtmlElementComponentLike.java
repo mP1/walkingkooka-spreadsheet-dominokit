@@ -24,13 +24,15 @@ import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.style.CssClass;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.text.HasText;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextNode;
 
 /**
  * Base class for an element {@link HtmlComponent}
  */
-abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlElementComponentLike<E, C>> implements HtmlComponent<E, C> {
+abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlElementComponentLike<E, C>> implements HtmlComponent<E, C>,
+    HasText {
 
     HtmlElementComponentLike() {
         super();
@@ -122,6 +124,10 @@ abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlEle
     public abstract C removeChild(final Node child);
 
     public abstract C removeChild(final IsElement<?> child);
+
+    public abstract String text();
+
+    public abstract C setText(final String text);
 
     public final C addBlurListener(final EventListener listener) {
         return this.addEventListener(
