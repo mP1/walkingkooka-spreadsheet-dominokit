@@ -168,6 +168,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         // link1 badge1  link2 badge2 link3
         root.appendChild(
             HtmlElementComponent.div()
+                .setCssText("position: relative;") // without this the formulaCellLinks will be positioned outside the formula editor
                 .appendChild(this.formula)
                 .appendChild(
                     this.formulaCellLinks.setCssText("position:absolute; bottom: 0px; right: 15px; height: fit-content; display:flex;")
