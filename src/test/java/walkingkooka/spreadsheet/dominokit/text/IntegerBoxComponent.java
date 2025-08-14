@@ -242,6 +242,13 @@ public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSe
 
     private int min;
 
+    public IntegerBoxComponent step(final int step) {
+        this.step = step;
+        return this;
+    }
+
+    private int step;
+
     // FormValueComponentTreePrintable..................................................................................
 
     @Override
