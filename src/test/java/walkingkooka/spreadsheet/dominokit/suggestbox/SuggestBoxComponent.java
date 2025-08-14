@@ -272,7 +272,7 @@ public final class SuggestBoxComponent<T extends HasText> implements SuggestBoxC
 
     @Override
     public SuggestBoxComponent<T> addFocusListener(final EventListener listener) {
-
+        Objects.requireNonNull(listener, "listener");
         return this;
     }
 
