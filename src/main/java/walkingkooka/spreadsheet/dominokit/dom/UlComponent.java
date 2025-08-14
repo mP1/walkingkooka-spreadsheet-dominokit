@@ -17,9 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.dom;
 
-import elemental2.dom.HTMLTableCellElement;
+import elemental2.dom.HTMLUListElement;
 
-public final class UlComponent extends HtmlElementComponent<HTMLTableCellElement, UlComponent> {
+public final class UlComponent extends HtmlElementComponent<HTMLUListElement, UlComponent> {
 
     UlComponent() {
         super("UL");
