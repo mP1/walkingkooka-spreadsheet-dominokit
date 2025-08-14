@@ -18,9 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.HTMLTableElement;
-import org.dominokit.domino.ui.elements.TBodyElement;
-import org.dominokit.domino.ui.elements.TableElement;
-import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.convert.provider.ConverterAliasSet;
 import walkingkooka.convert.provider.ConverterSelector;
@@ -32,8 +29,13 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAliasSet;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameList;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetFormComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.dom.TBodyComponent;
+import walkingkooka.spreadsheet.dominokit.dom.TableComponent;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -70,7 +72,8 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     LoadedSpreadsheetMetadataRequired,
     NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher,
-    SpreadsheetMetadataFetcherWatcher {
+    SpreadsheetMetadataFetcherWatcher,
+    HtmlComponentDelegator<HTMLTableElement, SpreadsheetMetadataPanelComponent> {
 
     public static SpreadsheetMetadataPanelComponent with(final SpreadsheetMetadataPanelComponentContext context) {
         return new SpreadsheetMetadataPanelComponent(
@@ -155,23 +158,23 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         items.add(this.validationValidators());
 
         // TODO extract TABLE
-        final TBodyElement tBody = ElementsFactory.elements.tbody();
-        this.table = ElementsFactory.elements.table()
+        final TBodyComponent tBody = HtmlElementComponent.tbody();
+        this.table = HtmlElementComponent.table()
             .appendChild(tBody);
 
         for (final SpreadsheetMetadataPanelComponentItem<?> item : items) {
             tBody.appendChild(
-                ElementsFactory.elements.tr()
+                HtmlElementComponent.tr()
                     .appendChild(
-                        ElementsFactory.elements.td()
+                        HtmlElementComponent.td()
                             .setCssProperty("text-wrap", "nowrap")
                             .setPaddingTop(PADDING_TOP_BOTTOM)
                             .setPaddingBottom(PADDING_TOP_BOTTOM)
-                            .setTextContent(
+                            .setText(
                                 item.label()
                             )
                     ).appendChild(
-                        ElementsFactory.elements.td()
+                        HtmlElementComponent.td()
                             .setPaddingTop(PADDING_TOP_BOTTOM)
                             .setPaddingBottom(PADDING_TOP_BOTTOM)
                             .appendChild(item)
@@ -573,36 +576,14 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
 
     private final SpreadsheetMetadataPanelComponentContext context;
 
-    // setCssText.......................................................................................................
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public SpreadsheetMetadataPanelComponent setCssText(final String css) {
-        Objects.requireNonNull(css, "css");
-
-        this.table.cssText(css);
-        return this;
+    public HtmlComponent<HTMLTableElement, ?> htmlComponent() {
+        return this.table;
     }
 
-    // setCssProperty...................................................................................................
-
-    @Override
-    public SpreadsheetMetadataPanelComponent setCssProperty(final String name,
-                                                            final String value) {
-        this.table.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
-
-    // IsElement........................................................................................................
-
-    @Override
-    public HTMLTableElement element() {
-        return this.table.element();
-    }
-
-    private final TableElement table;
+    private final TableComponent table;
 
     // SpreadsheetFormComponentLifecycle................................................................................
 
