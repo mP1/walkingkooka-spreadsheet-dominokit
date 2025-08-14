@@ -75,6 +75,15 @@ public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSe
         return this;
     }
 
+    public IntegerBoxComponent step(final int step) {
+        this.integerBox.getInputElement()
+            .element()
+            .min = String.valueOf(step);
+        return this;
+    }
+
+    private int step;
+
     @Override
     public IntegerBoxComponent addChangeListener(final ChangeListener<Optional<Integer>> listener) {
         this.integerBox.addChangeListener(
