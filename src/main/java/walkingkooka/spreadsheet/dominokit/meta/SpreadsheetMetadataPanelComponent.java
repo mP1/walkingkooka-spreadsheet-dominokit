@@ -86,7 +86,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
 
         this.context = context;
 
-        final List<SpreadsheetMetadataPanelComponentItem<?>> items = Lists.array();
+        final List<SpreadsheetMetadataPanelComponentItem<?, ?, ?>> items = Lists.array();
         items.add(this.spreadsheetId());
         items.add(this.spreadsheetName());
         items.add(this.createdBy());
@@ -161,7 +161,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         this.table = HtmlElementComponent.table()
             .appendChild(tBody);
 
-        for (final SpreadsheetMetadataPanelComponentItem<?> item : items) {
+        for (final SpreadsheetMetadataPanelComponentItem<?, ?, ?> item : items) {
             tBody.appendChild(
                 HtmlElementComponent.tr()
                     .appendChild(
@@ -188,7 +188,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
 
     // factory methods to create the individual SpreadsheetMetadataPanelComponentItem for a given property.
 
-    private SpreadsheetMetadataPanelComponentItem<?> spreadsheetId() {
+    private SpreadsheetMetadataPanelComponentItem<?, ?, ?> spreadsheetId() {
         return readOnlyText(
             SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
             Optional.empty(), // no label
@@ -196,11 +196,11 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<?> spreadsheetName() {
+    private SpreadsheetMetadataPanelComponentItem<?, ?, ?> spreadsheetName() {
         return this.spreadsheetNameComponent();
     }
 
-    private SpreadsheetMetadataPanelComponentItem<?> createdBy() {
+    private SpreadsheetMetadataPanelComponentItem<?, ?, ?> createdBy() {
         return readOnlyText(
             SpreadsheetMetadataPropertyName.AUDIT_INFO,
             Optional.of("Created by"),
@@ -208,7 +208,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<?> createdTimestamp() {
+    private SpreadsheetMetadataPanelComponentItem<?, ?, ?> createdTimestamp() {
         return readOnlyText(
             SpreadsheetMetadataPropertyName.AUDIT_INFO,
             Optional.of("Create Timestamp"),
@@ -216,7 +216,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<?> modifiedBy() {
+    private SpreadsheetMetadataPanelComponentItem<?, ?, ?> modifiedBy() {
         return readOnlyText(
             SpreadsheetMetadataPropertyName.AUDIT_INFO,
             Optional.of("Modified by"),
@@ -224,7 +224,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<?> modifiedTimestamp() {
+    private SpreadsheetMetadataPanelComponentItem<?, ?, ?> modifiedTimestamp() {
         return readOnlyText(
             SpreadsheetMetadataPropertyName.AUDIT_INFO,
             Optional.of("Modified Timestamp"),
@@ -232,39 +232,39 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<?> locale() {
+    private SpreadsheetMetadataPanelComponentItem<?, ?, ?> locale() {
         return link(
             SpreadsheetMetadataPropertyName.LOCALE
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<?> expressionNumberKind() {
+    private SpreadsheetMetadataPanelComponentItem<?, ?, ?> expressionNumberKind() {
         return this.enumValue(
             SpreadsheetMetadataPropertyName.EXPRESSION_NUMBER_KIND,
             Lists.of(ExpressionNumberKind.values())
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<?> generalFormatNumberDigitCount() {
+    private SpreadsheetMetadataPanelComponentItem<?, ?, ?> generalFormatNumberDigitCount() {
         return SpreadsheetMetadataPanelComponentItem.generalFormatNumberDigitCount(
             this.context
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<?> precision() {
+    private SpreadsheetMetadataPanelComponentItem<?, ?, ?> precision() {
         return SpreadsheetMetadataPanelComponentItem.precision(
             this.context
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<?> roundingMode() {
+    private SpreadsheetMetadataPanelComponentItem<?, ?, ?> roundingMode() {
         return this.enumValue(
             SpreadsheetMetadataPropertyName.ROUNDING_MODE,
             Lists.of(RoundingMode.values())
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<?> valueSeparator() {
+    private SpreadsheetMetadataPanelComponentItem<?, ?, ?> valueSeparator() {
         return readOnlyText(
             SpreadsheetMetadataPropertyName.VALUE_SEPARATOR,
             Optional.empty(),
@@ -272,13 +272,13 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<?> dateTimeOffset() {
+    private SpreadsheetMetadataPanelComponentItem<?, ?, ?> dateTimeOffset() {
         return SpreadsheetMetadataPanelComponentItem.dateTimeOffset(
             this.context
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<?> defaultYear() {
+    private SpreadsheetMetadataPanelComponentItem<?, ?, ?> defaultYear() {
         return number(
             SpreadsheetMetadataPropertyName.DEFAULT_YEAR,
             1800,
@@ -286,7 +286,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<?> twoDigitYear() {
+    private SpreadsheetMetadataPanelComponentItem<?, ?, ?> twoDigitYear() {
         return number(
             SpreadsheetMetadataPropertyName.TWO_DIGIT_YEAR,
             0,
@@ -294,211 +294,211 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<DateTimeSymbols> dateTimeSymbols() {
+    private SpreadsheetMetadataPanelComponentItem<DateTimeSymbols, ?, ?> dateTimeSymbols() {
         return link(
             SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<SpreadsheetFormatterSelector> dateFormatter() {
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetFormatterSelector, ?, ?> dateFormatter() {
         return link(
             SpreadsheetMetadataPropertyName.DATE_FORMATTER
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<SpreadsheetParserSelector> dateParser() {
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetParserSelector, ?, ?> dateParser() {
         return link(
             SpreadsheetMetadataPropertyName.DATE_PARSER
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<SpreadsheetFormatterSelector> dateTimeFormatter() {
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetFormatterSelector, ?, ?> dateTimeFormatter() {
         return link(
             SpreadsheetMetadataPropertyName.DATE_TIME_FORMATTER
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<SpreadsheetParserSelector> dateTimeParser() {
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetParserSelector, ?, ?> dateTimeParser() {
         return link(
             SpreadsheetMetadataPropertyName.DATE_TIME_PARSER
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<DecimalNumberSymbols> decimalNumberSymbols() {
+    private SpreadsheetMetadataPanelComponentItem<DecimalNumberSymbols, ?, ?> decimalNumberSymbols() {
         return link(
             SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_SYMBOLS
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<SpreadsheetFormatterSelector> numberFormatter() {
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetFormatterSelector, ?, ?> numberFormatter() {
         return link(
             SpreadsheetMetadataPropertyName.NUMBER_FORMATTER
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<SpreadsheetParserSelector> numberParser() {
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetParserSelector, ?, ?> numberParser() {
         return link(
             SpreadsheetMetadataPropertyName.NUMBER_PARSER
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<SpreadsheetFormatterSelector> textFormatter() {
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetFormatterSelector, ?, ?> textFormatter() {
         return link(
             SpreadsheetMetadataPropertyName.TEXT_FORMATTER
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<SpreadsheetFormatterSelector> timeFormatter() {
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetFormatterSelector, ?, ?> timeFormatter() {
         return link(
             SpreadsheetMetadataPropertyName.TIME_FORMATTER
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<SpreadsheetParserSelector> timeParser() {
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetParserSelector, ?, ?> timeParser() {
         return link(
             SpreadsheetMetadataPropertyName.TIME_PARSER
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<PluginNameSet> plugins() {
+    private SpreadsheetMetadataPanelComponentItem<PluginNameSet, ?, ?> plugins() {
         return link(
             SpreadsheetMetadataPropertyName.PLUGINS
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<SpreadsheetComparatorAliasSet> comparators() {
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetComparatorAliasSet, ?, ?> comparators() {
         return link(
             SpreadsheetMetadataPropertyName.COMPARATORS
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<ConverterAliasSet> converters() {
+    private SpreadsheetMetadataPanelComponentItem<ConverterAliasSet, ?, ?> converters() {
         return link(
             SpreadsheetMetadataPropertyName.CONVERTERS
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<FormHandlerSelector> defaultFormHandler() {
+    private SpreadsheetMetadataPanelComponentItem<FormHandlerSelector, ?, ?> defaultFormHandler() {
         return link(
             SpreadsheetMetadataPropertyName.DEFAULT_FORM_HANDLER
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<SpreadsheetExporterAliasSet> exporters() {
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetExporterAliasSet, ?, ?> exporters() {
         return link(
             SpreadsheetMetadataPropertyName.EXPORTERS
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<ExpressionFunctionAliasSet> expressionFunctions() {
+    private SpreadsheetMetadataPanelComponentItem<ExpressionFunctionAliasSet, ?, ?> expressionFunctions() {
         return link(
             SpreadsheetMetadataPropertyName.FUNCTIONS
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<ConverterSelector> findConverter() {
+    private SpreadsheetMetadataPanelComponentItem<ConverterSelector, ?, ?> findConverter() {
         return link(
             SpreadsheetMetadataPropertyName.FIND_CONVERTER
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<ExpressionFunctionAliasSet> findFunctions() {
+    private SpreadsheetMetadataPanelComponentItem<ExpressionFunctionAliasSet, ?, ?> findFunctions() {
         return link(
             SpreadsheetMetadataPropertyName.FIND_FUNCTIONS
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<ConverterSelector> formulaConverter() {
+    private SpreadsheetMetadataPanelComponentItem<ConverterSelector, ?, ?> formulaConverter() {
         return link(
             SpreadsheetMetadataPropertyName.FORMULA_CONVERTER
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<ExpressionFunctionAliasSet> formulaFunctions() {
+    private SpreadsheetMetadataPanelComponentItem<ExpressionFunctionAliasSet, ?, ?> formulaFunctions() {
         return link(
             SpreadsheetMetadataPropertyName.FORMULA_FUNCTIONS
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<SpreadsheetFormatterAliasSet> formatters() {
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetFormatterAliasSet, ?, ?> formatters() {
         return link(
             SpreadsheetMetadataPropertyName.FORMATTERS
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<ConverterSelector> formattingConverter() {
+    private SpreadsheetMetadataPanelComponentItem<ConverterSelector, ?, ?> formattingConverter() {
         return link(
             SpreadsheetMetadataPropertyName.FORMATTING_CONVERTER
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<ExpressionFunctionAliasSet> formattingFunctions() {
+    private SpreadsheetMetadataPanelComponentItem<ExpressionFunctionAliasSet, ?, ?> formattingFunctions() {
         return link(
             SpreadsheetMetadataPropertyName.FORMATTING_FUNCTIONS
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<FormHandlerAliasSet> formHandlers() {
+    private SpreadsheetMetadataPanelComponentItem<FormHandlerAliasSet, ?, ?> formHandlers() {
         return link(
             SpreadsheetMetadataPropertyName.FORM_HANDLERS
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<SpreadsheetImporterAliasSet> importers() {
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetImporterAliasSet, ?, ?> importers() {
         return link(
             SpreadsheetMetadataPropertyName.IMPORTERS
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<SpreadsheetParserAliasSet> parsers() {
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetParserAliasSet, ?, ?> parsers() {
         return link(
             SpreadsheetMetadataPropertyName.PARSERS
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<ConverterSelector> scriptingConverter() {
+    private SpreadsheetMetadataPanelComponentItem<ConverterSelector, ?, ?> scriptingConverter() {
         return link(
             SpreadsheetMetadataPropertyName.SCRIPTING_CONVERTER
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<ExpressionFunctionAliasSet> scriptingFunctions() {
+    private SpreadsheetMetadataPanelComponentItem<ExpressionFunctionAliasSet, ?, ?> scriptingFunctions() {
         return link(
             SpreadsheetMetadataPropertyName.SCRIPTING_FUNCTIONS
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<SpreadsheetComparatorNameList> sortComparators() {
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetComparatorNameList, ?, ?> sortComparators() {
         return link(
             SpreadsheetMetadataPropertyName.SORT_COMPARATORS
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<ConverterSelector> sortConverter() {
+    private SpreadsheetMetadataPanelComponentItem<ConverterSelector, ?, ?> sortConverter() {
         return link(
             SpreadsheetMetadataPropertyName.SORT_CONVERTER
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<ValidatorAliasSet> validators() {
+    private SpreadsheetMetadataPanelComponentItem<ValidatorAliasSet, ?, ?> validators() {
         return link(
             SpreadsheetMetadataPropertyName.VALIDATORS
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<ConverterSelector> validationConverter() {
+    private SpreadsheetMetadataPanelComponentItem<ConverterSelector, ?, ?> validationConverter() {
         return link(
             SpreadsheetMetadataPropertyName.VALIDATION_CONVERTER
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<ExpressionFunctionAliasSet> validationFunctions() {
+    private SpreadsheetMetadataPanelComponentItem<ExpressionFunctionAliasSet, ?, ?> validationFunctions() {
         return link(
             SpreadsheetMetadataPropertyName.VALIDATION_FUNCTIONS
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<ValidatorAliasSet> validationValidators() {
+    private SpreadsheetMetadataPanelComponentItem<ValidatorAliasSet, ?, ?> validationValidators() {
         return link(
             SpreadsheetMetadataPropertyName.VALIDATION_VALIDATORS
         );
@@ -519,7 +519,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     /**
      * Factory that creates a link that opens a dialog.
      */
-    private <T> SpreadsheetMetadataPanelComponentItem<T> link(final SpreadsheetMetadataPropertyName<T> propertyName) {
+    private <T> SpreadsheetMetadataPanelComponentItem<T, ?, ?> link(final SpreadsheetMetadataPropertyName<T> propertyName) {
         return SpreadsheetMetadataPanelComponentItem.link(
             propertyName,
             this.context
@@ -529,9 +529,9 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     /**
      * Factory that creates a number text field to edit a integer {@link SpreadsheetMetadataPropertyName} value.
      */
-    private SpreadsheetMetadataPanelComponentItem<?> number(final SpreadsheetMetadataPropertyName<Integer> propertyName,
-                                                            final int min,
-                                                            final int max) {
+    private SpreadsheetMetadataPanelComponentItem<?, ?, ?> number(final SpreadsheetMetadataPropertyName<Integer> propertyName,
+                                                               final int min,
+                                                               final int max) {
         return SpreadsheetMetadataPanelComponentItem.number(
             propertyName,
             min,
@@ -543,9 +543,9 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     /**
      * Factory that creates a single ROW.
      */
-    private <T> SpreadsheetMetadataPanelComponentItem<?> readOnlyText(final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                                      final Optional<String> label,
-                                                                      final Function<T, String> formatter) {
+    private <T> SpreadsheetMetadataPanelComponentItem<?, ?, ?> readOnlyText(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                                         final Optional<String> label,
+                                                                         final Function<T, String> formatter) {
         return SpreadsheetMetadataPanelComponentItem.readOnlyText(
             propertyName,
             label,
@@ -557,7 +557,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     /**
      * Factory that creates a single ROW with a single {@link org.dominokit.domino.ui.forms.TextBox}.
      */
-    private SpreadsheetMetadataPanelComponentItem<?> spreadsheetNameComponent() {
+    private SpreadsheetMetadataPanelComponentItem<?, ?, ?> spreadsheetNameComponent() {
         return SpreadsheetMetadataPanelComponentItem.spreadsheetName(
             this.context
         );
@@ -566,7 +566,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     /**
      * Factory that creates a single ROW with a single {@link org.dominokit.domino.ui.forms.TextBox}.
      */
-    private <T> SpreadsheetMetadataPanelComponentItem<?> text(final SpreadsheetMetadataPropertyName<String> propertyName) {
+    private <T> SpreadsheetMetadataPanelComponentItem<?, ?, ?> text(final SpreadsheetMetadataPropertyName<String> propertyName) {
         return SpreadsheetMetadataPanelComponentItem.text(
             propertyName,
             this.context
@@ -610,7 +610,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
             final SpreadsheetMetadataPropertyName<?> propertyName = token.cast(SpreadsheetMetadataPropertySelectHistoryToken.class)
                 .propertyName();
 
-            final Optional<SpreadsheetMetadataPanelComponentItem<?>> maybeItem = this.items.stream()
+            final Optional<SpreadsheetMetadataPanelComponentItem<?, ?, ?>> maybeItem = this.items.stream()
                 .filter(i -> i.propertyName.equals(propertyName))
                 .findFirst();
 
@@ -637,7 +637,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         }
     }
 
-    private final List<SpreadsheetMetadataPanelComponentItem<?>> items;
+    private final List<SpreadsheetMetadataPanelComponentItem<?, ?, ?>> items;
 
     @Override
     public boolean isEditing() {
@@ -678,8 +678,8 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         printer.println(this.getClass().getSimpleName());
         printer.indent();
         {
-            for (final SpreadsheetMetadataPanelComponentItem<?> item : this.items) {
-                printer.println(item.toString()); // TODO SpreadsheetMetadataPanelComponentItem implements TreePrintable
+            for (final SpreadsheetMetadataPanelComponentItem<?, ?, ?> item : this.items) {
+                item.printTree(printer);
             }
         }
         printer.outdent();

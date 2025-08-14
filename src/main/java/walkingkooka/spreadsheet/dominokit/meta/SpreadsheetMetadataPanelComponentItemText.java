@@ -18,9 +18,10 @@
 package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.HTMLUListElement;
-import org.dominokit.domino.ui.elements.UListElement;
 import org.dominokit.domino.ui.forms.TextBox;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
+import walkingkooka.spreadsheet.dominokit.dom.UlComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -28,7 +29,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 /**
  * A {@link SpreadsheetMetadataPanelComponentItem} that displays {@link String text}
  */
-final class SpreadsheetMetadataPanelComponentItemText extends SpreadsheetMetadataPanelComponentItem<String> {
+final class SpreadsheetMetadataPanelComponentItemText extends SpreadsheetMetadataPanelComponentItem<String, SpreadsheetMetadataPanelComponentItemText, HTMLUListElement> {
 
     static SpreadsheetMetadataPanelComponentItemText with(final SpreadsheetMetadataPropertyName<String> propertyName,
                                                           final SpreadsheetMetadataPanelComponentContext context) {
@@ -45,12 +46,12 @@ final class SpreadsheetMetadataPanelComponentItemText extends SpreadsheetMetadat
             context
         );
 
-        final UListElement list = this.uListElement();
+        final UlComponent list = this.ul();
         this.list = list;
 
         this.textBox = this.textBox();
         list.appendChild(
-            this.liElement()
+            this.li()
                 .appendChild(
                     this.textBox
                 )
@@ -58,7 +59,7 @@ final class SpreadsheetMetadataPanelComponentItemText extends SpreadsheetMetadat
 
         final HistoryTokenAnchorComponent defaultValueAnchor = this.defaultValueAnchor();
         list.appendChild(
-            this.liElement()
+            this.li()
                 .appendChild(
                     defaultValueAnchor
                 )
@@ -95,12 +96,12 @@ final class SpreadsheetMetadataPanelComponentItemText extends SpreadsheetMetadat
 
     private final HistoryTokenAnchorComponent defaultValueAnchor;
 
-    // isElement........................................................................................................
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public HTMLUListElement element() {
-        return this.list.element();
+    public HtmlComponent<HTMLUListElement, ?> htmlComponent() {
+        return this.list;
     }
 
-    private final UListElement list;
+    private final UlComponent list;
 }

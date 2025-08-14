@@ -29,7 +29,7 @@ import java.util.Optional;
 /**
  * A {@link SpreadsheetMetadataPanelComponentItem} that displays a link which probably opens a dialog for editing.
  */
-final class SpreadsheetMetadataPanelComponentItemAnchor<T> extends SpreadsheetMetadataPanelComponentItem<T> {
+final class SpreadsheetMetadataPanelComponentItemAnchor<T> extends SpreadsheetMetadataPanelComponentItem<T, SpreadsheetMetadataPanelComponentItemAnchor<T>, HTMLAnchorElement> {
 
     static <T> SpreadsheetMetadataPanelComponentItemAnchor<T> with(final SpreadsheetMetadataPropertyName<T> propertyName,
                                                                    final SpreadsheetMetadataPanelComponentContext context) {
@@ -79,11 +79,11 @@ final class SpreadsheetMetadataPanelComponentItemAnchor<T> extends SpreadsheetMe
         );
     }
 
-    // isElement........................................................................................................
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public HTMLAnchorElement element() {
-        return this.anchor.element();
+    public HistoryTokenAnchorComponent htmlComponent() {
+        return this.anchor;
     }
 
     private final HistoryTokenAnchorComponent anchor;

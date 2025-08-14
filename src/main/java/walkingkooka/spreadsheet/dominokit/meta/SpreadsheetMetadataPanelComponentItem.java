@@ -17,27 +17,28 @@
 
 package walkingkooka.spreadsheet.dominokit.meta;
 
-import elemental2.dom.Element;
 import elemental2.dom.Event;
+import elemental2.dom.HTMLElement;
 import elemental2.dom.KeyboardEvent;
 import jsinterop.base.Js;
-import org.dominokit.domino.ui.IsElement;
-import org.dominokit.domino.ui.elements.LIElement;
-import org.dominokit.domino.ui.elements.UListElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.IntegerBox;
 import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
-import org.dominokit.domino.ui.utils.ElementsFactory;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.spreadsheet.dominokit.ComponentRefreshable;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
+import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
+import walkingkooka.spreadsheet.dominokit.dom.LiComponent;
+import walkingkooka.spreadsheet.dominokit.dom.UlComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
+import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
 import java.util.Objects;
@@ -48,7 +49,8 @@ import java.util.function.Function;
  * Base class for a item that may be displayed within a {@link SpreadsheetMetadataPanelComponent}. It only
  * implements {@link ComponentRefreshable}, it is assumed it will only be refreshed when the parent panel is open and refreshed.
  */
-abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefreshable, IsElement<Element> {
+abstract class SpreadsheetMetadataPanelComponentItem<T, C extends SpreadsheetMetadataPanelComponentItem<T, C, E>, E extends HTMLElement> implements ComponentRefreshable,
+    HtmlComponentDelegator<E, SpreadsheetMetadataPanelComponentItem<T, C, E>> {
 
     /**
      * {@see SpreadsheetMetadataPanelComponentItemEnum}
@@ -119,10 +121,10 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
     /**
      * {@see SpreadsheetMetadataPanelComponentItemReadOnlyText}
      */
-    static <T> SpreadsheetMetadataPanelComponentItem<T> readOnlyText(final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                                     final Optional<String> label,
-                                                                     final Function<T, String> formatter,
-                                                                     final SpreadsheetMetadataPanelComponentContext context) {
+    static <T> SpreadsheetMetadataPanelComponentItemReadOnlyText<T> readOnlyText(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                                                 final Optional<String> label,
+                                                                                 final Function<T, String> formatter,
+                                                                                 final SpreadsheetMetadataPanelComponentContext context) {
         return SpreadsheetMetadataPanelComponentItemReadOnlyText.with(
             propertyName,
             label,
@@ -329,7 +331,7 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
     }
 
     final void save(final String saveText) {
-        final SpreadsheetMetadataPropertyName<?> propertyName = this.propertyName;
+        final SpreadsheetMetadataPropertyName<T> propertyName = this.propertyName;
         final SpreadsheetMetadataPanelComponentContext context = this.context;
         context.debug(this.getClass().getSimpleName() + ".save " + propertyName + "=" + CharSequences.quoteAndEscape(saveText));
 
@@ -339,9 +341,8 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
         );
     }
 
-    final UListElement uListElement() {
-        final UListElement element = ElementsFactory.elements.ul();
-        element.style()
+    final UlComponent ul() {
+        return HtmlElementComponent.ul()
             .setCssProperty("list-style-type", "none")
             .setDisplay("flex")
             .setCssProperty("flex-wrap", "wrap")
@@ -349,15 +350,12 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
             .setCssProperty("align-items", "center")
             .setMargin("0px")
             .setPaddingLeft("0");
-        return element;
     }
 
-    final LIElement liElement() {
-        final LIElement element = ElementsFactory.elements.li();
-        element.style()
+    final LiComponent li() {
+        return HtmlElementComponent.li()
             .setDisplay("flex")
             .setPadding("0px");
-        return element;
     }
 
     // properties......................................................................................................
@@ -382,6 +380,25 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
      * The parent {@link SpreadsheetMetadataPanelComponentContext} this will be used primarily to save updated values.
      */
     final SpreadsheetMetadataPanelComponentContext context;
+
+    // HtmlComponentDelegator...........................................................................................
+
+    @Override
+    public final boolean isEditing() {
+        return false;
+    }
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public final void printTree(final IndentingPrinter printer) {
+        printer.println(this.getClass().getSimpleName());
+        printer.indent();
+        {
+            this.htmlComponent().printTree(printer);
+        }
+        printer.outdent();
+    }
 
     // Object...........................................................................................................
 
