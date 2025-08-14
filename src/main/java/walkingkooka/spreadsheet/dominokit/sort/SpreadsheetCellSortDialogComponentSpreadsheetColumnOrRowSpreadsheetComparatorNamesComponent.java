@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetCompara
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameAndDirection;
 import walkingkooka.spreadsheet.dominokit.Component;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
@@ -45,7 +46,8 @@ import java.util.function.Function;
  * A {@link Component} that supports editing an individual {@link walkingkooka.spreadsheet.compare.SpreadsheetComparatorName}
  * within a larger {@link SpreadsheetColumnOrRowSpreadsheetComparatorNamesList}.
  */
-final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent implements FormValueComponent<HTMLDivElement, SpreadsheetColumnOrRowSpreadsheetComparatorNames, SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent> {
+final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent implements FormValueComponent<HTMLDivElement, SpreadsheetColumnOrRowSpreadsheetComparatorNames, SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent>,
+    HtmlComponentDelegator<HTMLDivElement, SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent> {
 
     static SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent with(final String id,
                                                                                                             final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, Optional<HistoryToken>> moveUp,
@@ -353,31 +355,11 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetC
         return this;
     }
 
-    // setCssText.......................................................................................................
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent setCssText(final String css) {
-        this.root.setCssText(css);
-        return this;
-    }
-
-    // setCssProperty...................................................................................................
-
-    @Override
-    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent setCssProperty(final String name,
-                                                                                                                      final String value) {
-        this.root.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
-
-    // HtmlComponent.............................................................................................
-
-    @Override
-    public HTMLDivElement element() {
-        return this.root.element();
+    public HtmlComponent<HTMLDivElement, ?> htmlComponent() {
+        return this.root;
     }
 
     private final FlexLayoutComponent root;
