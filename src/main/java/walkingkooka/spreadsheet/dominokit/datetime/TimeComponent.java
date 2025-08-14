@@ -127,12 +127,5 @@ public final class TimeComponent extends DominoKitPickerComponent<LocalTime, Tim
         return this.timePicker.isExpanded();
     }
 
-    // IsElement........................................................................................................
-
-//    @Override
-//    public HTMLDivElement element() {
-//        return this.timePicker.element();
-//    }
-
     private final TimePicker timePicker;
 }
