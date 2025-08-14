@@ -18,9 +18,9 @@
 package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.HTMLDivElement;
-import org.dominokit.domino.ui.elements.DivElement;
-import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
+import walkingkooka.spreadsheet.dominokit.dom.DivComponent;
+import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
@@ -57,7 +57,7 @@ final class SpreadsheetMetadataPanelComponentItemReadOnlyText<T> extends Spreads
         );
         this.formatter = Objects.requireNonNull(formatter, "formatter");
 
-        this.element = ElementsFactory.elements.div()
+        this.element = HtmlElementComponent.div()
             .setPaddingTop("5px")
             .setPaddingBottom("5px");
     }
@@ -77,7 +77,7 @@ final class SpreadsheetMetadataPanelComponentItemReadOnlyText<T> extends Spreads
         final String text = metadata.get(propertyName)
             .map(this.formatter)
             .orElse("");
-        this.element.setTextContent(text);
+        this.element.setText(text);
     }
 
     /**
@@ -92,5 +92,5 @@ final class SpreadsheetMetadataPanelComponentItemReadOnlyText<T> extends Spreads
         return this.element.element();
     }
 
-    private final DivElement element;
+    private final DivComponent element;
 }
