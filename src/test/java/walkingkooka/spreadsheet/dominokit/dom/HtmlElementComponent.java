@@ -53,6 +53,10 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
         return new DivComponent();
     }
 
+    public static LiComponent li() {
+        return new LiComponent();
+    }
+
     public static TableComponent table() {
         return new TableComponent();
     }
