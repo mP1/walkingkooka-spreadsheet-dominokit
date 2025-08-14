@@ -45,6 +45,14 @@ abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlEle
 
     public abstract C setTabIndex(final int tabIndex);
 
+    public final C setAttribute(final String name,
+                                final int value) {
+        return this.setAttribute(
+            name,
+            String.valueOf(value)
+        );
+    }
+
     public abstract C setAttribute(final String name,
                                    final String value);
 
