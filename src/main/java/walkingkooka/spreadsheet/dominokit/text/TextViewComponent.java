@@ -18,8 +18,10 @@
 package walkingkooka.spreadsheet.dominokit.text;
 
 import elemental2.dom.HTMLDivElement;
-import org.dominokit.domino.ui.elements.DivElement;
-import org.dominokit.domino.ui.utils.ElementsFactory;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.dom.DivComponent;
+import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
 import walkingkooka.text.CharSequences;
 
 import java.util.Optional;
@@ -27,7 +29,8 @@ import java.util.Optional;
 /**
  * A barebones component that may be used to display text. Many methods such as support for listeners etc all throw {@link UnsupportedOperationException}.
  */
-public final class TextViewComponent extends TextViewComponentLike {
+public final class TextViewComponent extends TextViewComponentLike
+    implements HtmlComponentDelegator<HTMLDivElement, TextViewComponent> {
 
     public static TextViewComponent empty() {
         return new TextViewComponent();
@@ -35,7 +38,7 @@ public final class TextViewComponent extends TextViewComponentLike {
 
     private TextViewComponent() {
         super();
-        this.element = ElementsFactory.elements.div();
+        this.element = HtmlElementComponent.div();
 
         // https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/4338
         // honour(render) "file" line endings
@@ -53,12 +56,12 @@ public final class TextViewComponent extends TextViewComponentLike {
 
     @Override
     public String id() {
-        return this.element.getId();
+        return this.element.id();
     }
 
     @Override
     public TextViewComponent setValue(final Optional<String> value) {
-        this.element.setTextContent(
+        this.element.setText(
             value.orElse("")
         );
         return this;
@@ -66,7 +69,7 @@ public final class TextViewComponent extends TextViewComponentLike {
 
     @Override
     public Optional<String> value() {
-        final String value = this.element.getTextContent();
+        final String value = this.element.text();
 
         return Optional.ofNullable(
             CharSequences.isNullOrEmpty(value) ?
@@ -75,27 +78,13 @@ public final class TextViewComponent extends TextViewComponentLike {
         );
     }
 
-    @Override
-    public TextViewComponent setCssText(final String css) {
-        this.element.cssText(css);
-        return this;
-    }
+    // HtmlComponentDelegator...........................................................................................
+
 
     @Override
-    public TextViewComponent setCssProperty(final String name,
-                                            final String value) {
-        this.element.style()
-            .setCssProperty(
-                name,
-                value
-            );
-        return this;
+    public HtmlComponent<HTMLDivElement, ?> htmlComponent() {
+        return this.element;
     }
 
-    @Override
-    public HTMLDivElement element() {
-        return this.element.element();
-    }
-
-    private final DivElement element;
+    private final DivComponent element;
 }
