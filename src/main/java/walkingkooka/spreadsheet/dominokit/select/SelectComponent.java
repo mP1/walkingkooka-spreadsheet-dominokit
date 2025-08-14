@@ -204,6 +204,15 @@ public final class SelectComponent<T> implements FormValueComponent<HTMLFieldSet
     // events...........................................................................................................
 
     @Override
+    public SelectComponent<T> addBlurListener(final EventListener listener) {
+        this.select.addEventListener(
+            EventType.blur,
+            listener
+        );
+        return this;
+    }
+
+    @Override
     public SelectComponent<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
         Objects.requireNonNull(listener, "listener");
 

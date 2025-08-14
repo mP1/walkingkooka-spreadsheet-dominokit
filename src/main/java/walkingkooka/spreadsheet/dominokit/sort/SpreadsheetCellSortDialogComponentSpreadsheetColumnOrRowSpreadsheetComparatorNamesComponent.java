@@ -319,6 +319,12 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetC
     }
 
     @Override
+    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addBlurListener(final EventListener listener) {
+        this.names.addBlurListener(listener);
+        return this;
+    }
+
+    @Override
     public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addChangeListener(final ChangeListener<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>> listener) {
         this.names.addChangeListener(listener);
         return this;

@@ -164,6 +164,11 @@ public final class TextBoxComponent implements FormValueComponent<HTMLFieldSetEl
     private boolean disabled;
 
     @Override
+    public TextBoxComponent addBlurListener(final EventListener listener) {
+        return this;
+    }
+
+    @Override
     public TextBoxComponent addChangeListener(final ChangeListener<Optional<String>> listener) {
         return this;
     }

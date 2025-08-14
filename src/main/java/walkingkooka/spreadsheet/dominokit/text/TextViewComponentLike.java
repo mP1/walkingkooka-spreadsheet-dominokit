@@ -93,6 +93,11 @@ abstract class TextViewComponentLike implements FormValueComponent<HTMLDivElemen
     }
 
     @Override
+    public final TextViewComponent addBlurListener(final EventListener listener) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public final TextViewComponent addChangeListener(final ChangeListener<Optional<String>> listener) {
         throw new UnsupportedOperationException();
     }

@@ -151,6 +151,11 @@ public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSe
     private boolean disabled;
 
     @Override
+    public IntegerBoxComponent addBlurListener(final EventListener listener) {
+        return this;
+    }
+
+    @Override
     public IntegerBoxComponent addChangeListener(final ChangeListener<Optional<Integer>> listener) {
         return this;
     }

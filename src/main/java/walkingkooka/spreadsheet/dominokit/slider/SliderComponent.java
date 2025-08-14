@@ -221,6 +221,14 @@ public final class SliderComponent extends SliderComponentLike {
     }
 
     @Override
+    public SliderComponent addBlurListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.blur,
+            listener
+        );
+    }
+
+    @Override
     public SliderComponent addClickListener(final EventListener listener) {
         return this.addEventListener(
             EventType.click,

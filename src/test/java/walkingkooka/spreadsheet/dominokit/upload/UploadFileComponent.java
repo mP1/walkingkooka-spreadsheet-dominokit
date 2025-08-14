@@ -110,6 +110,11 @@ public final class UploadFileComponent extends UploadFileComponentLike
     private boolean disabled = false;
 
     @Override
+    public UploadFileComponent addBlurListener(final EventListener listener) {
+        return this;
+    }
+
+    @Override
     public UploadFileComponent addContextMenuListener(final EventListener listener) {
         return this;
     }

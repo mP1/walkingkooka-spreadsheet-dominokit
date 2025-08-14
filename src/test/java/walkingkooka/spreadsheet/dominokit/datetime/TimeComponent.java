@@ -176,6 +176,11 @@ public final class TimeComponent implements FormValueComponent<HTMLFieldSetEleme
     private boolean disabled;
 
     @Override
+    public TimeComponent addBlurListener(final EventListener listener) {
+        return this;
+    }
+
+    @Override
     public TimeComponent addChangeListener(final ChangeListener<Optional<LocalTime>> listener) {
         return this;
     }

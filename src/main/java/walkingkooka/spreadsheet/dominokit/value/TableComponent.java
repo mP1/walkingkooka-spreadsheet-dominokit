@@ -49,6 +49,11 @@ public interface TableComponent<E extends HTMLElement, V, C extends TableCompone
     }
 
     @Override
+    default C addBlurListener(final EventListener listener) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     default C addChangeListener(final ChangeListener<Optional<V>> listener) {
         throw new UnsupportedOperationException();
     }

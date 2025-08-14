@@ -132,6 +132,13 @@ public interface ValueTextBoxComponentDelegator<C extends ValueTextBoxComponentD
     }
 
     @Override
+    default C addBlurListener(final EventListener listener) {
+        this.valueTextBoxComponent()
+            .addBlurListener(listener);
+        return (C) this;
+    }
+    
+    @Override
     default C addChangeListener(final ChangeListener<Optional<V>> listener) {
         this.valueTextBoxComponent()
             .addChangeListener(listener);

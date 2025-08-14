@@ -155,6 +155,12 @@ public final class SpreadsheetCellRangeReferencePathComponent implements FormVal
     }
 
     @Override
+    public SpreadsheetCellRangeReferencePathComponent addBlurListener(final EventListener listener) {
+        this.select.addBlurListener(listener);
+        return this;
+    }
+
+    @Override
     public SpreadsheetCellRangeReferencePathComponent addClickListener(final EventListener listener) {
         this.select.addClickListener(listener);
         return this;

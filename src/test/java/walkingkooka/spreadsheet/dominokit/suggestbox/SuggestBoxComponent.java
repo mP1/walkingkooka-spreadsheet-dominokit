@@ -244,6 +244,12 @@ public final class SuggestBoxComponent<T extends HasText> implements SuggestBoxC
     // events...........................................................................................................
 
     @Override
+    public SuggestBoxComponent<T> addBlurListener(final EventListener listener) {
+        Objects.requireNonNull(listener, "listener");
+        return this;
+    }
+
+    @Override
     public SuggestBoxComponent<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
         Objects.requireNonNull(listener, "listener");
 
