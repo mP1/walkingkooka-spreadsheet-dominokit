@@ -34,6 +34,7 @@ import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.dom.LiComponent;
 import walkingkooka.spreadsheet.dominokit.dom.UlComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.text.IntegerBoxComponent;
 import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CaseKind;
@@ -230,19 +231,12 @@ abstract class SpreadsheetMetadataPanelComponentItem<T, C extends SpreadsheetMet
     /**
      * Factory that creates an {@link IntegerBox} and fires save when the value changes or ENTER is typed.
      */
-    final IntegerBox integerBox() {
-        final IntegerBox integerBox = new IntegerBox() {
-            @Override
-            public String getType() {
-                return "number";
-            }
-        };
+    final IntegerBoxComponent integerBox() {
+        final IntegerBoxComponent integerBox = IntegerBoxComponent.empty();
 
-        integerBox.addEventListener(
-            EventType.change.getName(),
-            (final Event event) -> this.saveIntegerValue(integerBox)
-        ).addEventListener(
-            EventType.keydown.getName(),
+        integerBox.addChangeListener(
+            (oldValue, newValue) -> this.saveIntegerValue(integerBox)
+        ).addKeyDownListener(
             (final Event event) -> {
                 final KeyboardEvent keyboardEvent = Js.cast(event);
                 switch (Key.fromEvent(keyboardEvent)) {
@@ -255,31 +249,18 @@ abstract class SpreadsheetMetadataPanelComponentItem<T, C extends SpreadsheetMet
                         break;
                 }
             }
-        ).apply(
-            self ->
-                self.appendChild(
-                    PostfixAddOn.of(
-                        SpreadsheetIcons.close()
-                            .clickable()
-                            .addClickListener((e) -> self.clear())
-                    )
-                )
-        );
+        ).clear();
 
-        return integerBox.setWidth(TEXT_BOX_WIDTH)
-            .setMarginBottom("0");
+        return integerBox.setCssProperty("width", TEXT_BOX_WIDTH)
+            .setCssProperty("margin-bottom", "0");
     }
 
-    private void saveIntegerValue(final IntegerBox integerBox) {
-        final String saveText;
-
-        if (integerBox.isEmpty()) {
-            saveText = "";
-        } else {
-            saveText = String.valueOf(integerBox.getValue());
-        }
-
-        this.save(saveText);
+    private void saveIntegerValue(final IntegerBoxComponent integerBox) {
+        this.save(
+            integerBox.value()
+                .map(Object::toString)
+                .orElse("")
+        );
     }
 
     final TextBox textBox() {

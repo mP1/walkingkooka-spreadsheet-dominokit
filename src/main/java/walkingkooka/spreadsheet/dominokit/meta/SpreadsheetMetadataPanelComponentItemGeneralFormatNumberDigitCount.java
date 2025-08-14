@@ -18,12 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.HTMLUListElement;
-import org.dominokit.domino.ui.forms.IntegerBox;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.dom.UlComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.text.IntegerBoxComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+
+import java.util.Optional;
 
 /**
  * A {@link SpreadsheetMetadataPanelComponentItem} for {@link SpreadsheetMetadataPropertyName#PRECISION}
@@ -44,9 +46,9 @@ final class SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount e
 
         final UlComponent list = this.ul();
 
-        final IntegerBox integerBox = this.integerBox()
-            .setMinValue(0)
-            .setStep(1);
+        final IntegerBoxComponent integerBox = this.integerBox()
+            .min(0)
+            .step(1);
         this.integerBox = integerBox;
 
         list.appendChild(
@@ -69,7 +71,7 @@ final class SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount e
         this.integerBox.focus();
     }
 
-    private final IntegerBox integerBox;
+    private final IntegerBoxComponent integerBox;
 
     // ComponentRefreshable.............................................................................................
 
@@ -78,8 +80,10 @@ final class SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount e
         final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
 
         this.integerBox.setValue(
-            metadata.getIgnoringDefaults(this.propertyName)
+            Optional.ofNullable(
+                metadata.getIgnoringDefaults(this.propertyName)
                 .orElse(null)
+            )
         );
 
         this.refreshDefaultValue(
