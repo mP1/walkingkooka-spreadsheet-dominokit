@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.meta;
 import elemental2.dom.HTMLElement;
 import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetFormComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
@@ -37,7 +38,7 @@ import java.util.Objects;
  * A wrapper component that watches {@link HistoryToken} and fires lifecycle events to a given {@link SpreadsheetFormComponentLifecycle}.
  */
 public final class SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E extends HTMLElement> implements HistoryTokenAwareComponentLifecycle,
-    HtmlComponent<E, SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E>> {
+    HtmlComponentDelegator<E, SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E>> {
 
     public static <E extends HTMLElement> SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E> with(final SpreadsheetFormComponentLifecycle<E, ?> form,
                                                                                                          final HistoryContext context) {
@@ -96,8 +97,6 @@ public final class SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E exte
         this.form.close(context);
     }
 
-    private final SpreadsheetFormComponentLifecycle<E, ?> form;
-
     @Override
     public boolean shouldLogLifecycleChanges() {
         return true;
@@ -117,26 +116,14 @@ public final class SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E exte
         return this.form.toString();
     }
 
-    @Override
-    public E element() {
-        return this.form.element();
-    }
+    // HtmlElementComponent.............................................................................................
 
     @Override
-    public SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E> setCssText(final String css) {
-        this.form.setCssText(css);
-        return this;
+    public HtmlComponent<E, ?> htmlComponent() {
+        return this.form;
     }
 
-    @Override
-    public SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E> setCssProperty(final String name,
-                                                                                    final String value) {
-        this.form.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
+    private final SpreadsheetFormComponentLifecycle<E, ?> form;
 
     // TreePrintable....................................................................................................
 
