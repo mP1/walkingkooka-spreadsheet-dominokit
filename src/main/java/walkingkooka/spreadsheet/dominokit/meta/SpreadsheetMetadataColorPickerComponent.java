@@ -219,6 +219,6 @@ public final class SpreadsheetMetadataColorPickerComponent implements HtmlCompon
 
     @Override
     public void printTree(final IndentingPrinter printer) {
-        printer.println("metadata color picker");
+        printer.println(this.getClass().getSimpleName());
     }
 }
