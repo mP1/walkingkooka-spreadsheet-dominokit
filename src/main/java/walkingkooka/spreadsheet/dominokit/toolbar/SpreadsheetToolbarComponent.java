@@ -131,6 +131,7 @@ public final class SpreadsheetToolbarComponent implements HtmlComponentDelegator
             // metadata properties
             SpreadsheetToolbarComponentItem.hideZeroValues(context),
             SpreadsheetToolbarComponentItem.showFormulaEditor(context),
+            SpreadsheetToolbarComponentItem.showHeadings(context),
             SpreadsheetToolbarComponentItem.showFormulas(context),
             SpreadsheetToolbarComponentItem.showGridLines(context),
             // finding/sorting/highlighting
@@ -289,6 +290,10 @@ public final class SpreadsheetToolbarComponent implements HtmlComponentDelegator
 
     public static String showFormulaEditorId() {
         return TOOLBAR_ID_PREFIX + "show-formula-editor";
+    }
+
+    public static String showHeadingsId() {
+        return TOOLBAR_ID_PREFIX + "show-headings";
     }
 
     public static String sortId() {
