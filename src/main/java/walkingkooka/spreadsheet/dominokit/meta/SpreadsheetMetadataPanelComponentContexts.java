@@ -30,6 +30,13 @@ public final class SpreadsheetMetadataPanelComponentContexts implements PublicSt
     }
 
     /**
+     * {@see FakeSpreadsheetMetadataPanelComponentContext}
+     */
+    public static SpreadsheetMetadataPanelComponentContext fake() {
+        return new FakeSpreadsheetMetadataPanelComponentContext();
+    }
+
+    /**
      * Stop creation
      */
     private SpreadsheetMetadataPanelComponentContexts() {
