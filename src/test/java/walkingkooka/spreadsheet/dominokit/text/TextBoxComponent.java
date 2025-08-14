@@ -251,6 +251,14 @@ public final class TextBoxComponent implements FormValueComponent<HTMLFieldSetEl
     }
 
     @Override
+    public TextBoxComponent setCssProperty(final String name,
+                                           final String value) {
+        Objects.requireNonNull(name, "name");
+        Objects.requireNonNull(value, "value");
+        return this;
+    }
+
+    @Override
     public boolean isEditing() {
         return false;
     }
