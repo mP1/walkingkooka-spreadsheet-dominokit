@@ -125,6 +125,12 @@ public final class SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E exte
 
     private final SpreadsheetFormComponentLifecycle<E, ?> form;
 
+    @Override
+    public SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E> removeCssProperty(final String name) {
+        this.form.removeCssProperty(name);
+        return this;
+    }
+
     // TreePrintable....................................................................................................
 
     @Override

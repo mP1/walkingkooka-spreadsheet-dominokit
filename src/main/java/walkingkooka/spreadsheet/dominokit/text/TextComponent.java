@@ -144,6 +144,11 @@ public final class TextComponent implements FormValueComponent<HTMLDivElement, S
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public TextComponent removeCssProperty(final String name) {
+        throw new UnsupportedOperationException();
+    }
+
     // events...........................................................................................................
 
     @Override

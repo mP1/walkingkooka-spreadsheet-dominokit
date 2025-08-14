@@ -256,6 +256,13 @@ public interface ValueTextBoxComponentDelegator<C extends ValueTextBoxComponentD
     }
 
     @Override
+    default C removeCssProperty(final String name) {
+        this.valueTextBoxComponent()
+            .removeCssProperty(name);
+        return (C) this;
+    }
+
+    @Override
     default Node node() {
         return this.valueTextBoxComponent()
             .node();

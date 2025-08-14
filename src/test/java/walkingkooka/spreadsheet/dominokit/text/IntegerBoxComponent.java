@@ -277,6 +277,12 @@ public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSe
         return this;
     }
 
+    @Override
+    public IntegerBoxComponent removeCssProperty(final String name) {
+        Objects.requireNonNull(name, "name");
+        return this;
+    }
+
     // FormValueComponentTreePrintable..................................................................................
 
     @Override

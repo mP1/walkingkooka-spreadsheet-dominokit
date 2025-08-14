@@ -84,6 +84,12 @@ public final class RowComponent implements HtmlComponent<HTMLDivElement, RowComp
         return this;
     }
 
+    @Override
+    public RowComponent removeCssProperty(final String name) {
+        this.row.removeCssProperty(name);
+        return this;
+    }
+
     // isEditing........................................................................................................
 
     @Override

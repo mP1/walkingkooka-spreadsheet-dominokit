@@ -140,6 +140,12 @@ abstract public class SpreadsheetViewportScrollbarComponent<R extends Spreadshee
     }
 
     @Override
+    public final SpreadsheetViewportScrollbarComponent<R> removeCssProperty(final String name) {
+        this.layout.removeCssProperty(name);
+        return this;
+    }
+
+    @Override
     public final HTMLDivElement element() {
         return this.layout.element();
     }

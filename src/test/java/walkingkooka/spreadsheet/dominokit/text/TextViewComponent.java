@@ -74,6 +74,11 @@ public final class TextViewComponent extends TextViewComponentLike {
     }
 
     @Override
+    public TextViewComponent removeCssProperty(final String name) {
+        return this;
+    }
+
+    @Override
     public HTMLDivElement element() {
         throw new UnsupportedOperationException();
     }

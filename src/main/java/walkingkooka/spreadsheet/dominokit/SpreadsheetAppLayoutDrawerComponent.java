@@ -49,6 +49,12 @@ abstract class SpreadsheetAppLayoutDrawerComponent<E extends HTMLElement, T exte
     }
 
     @Override
+    public final T removeCssProperty(final String name) {
+        this.form.removeCssProperty(name);
+        return (T) this;
+    }
+
+    @Override
     public final E element() {
         return this.form.element();
     }

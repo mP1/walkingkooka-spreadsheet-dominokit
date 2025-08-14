@@ -90,6 +90,14 @@ abstract class SpreadsheetToolbarComponentItemAnchor<C extends SpreadsheetToolba
         return (C) this;
     }
 
+    // removeCssProperty................................................................................................
+
+    @Override
+    public final C removeCssProperty(final String name) {
+        this.anchor.removeCssProperty(name);
+        return (C) this;
+    }
+
     // isEditing........................................................................................................
 
     @Override

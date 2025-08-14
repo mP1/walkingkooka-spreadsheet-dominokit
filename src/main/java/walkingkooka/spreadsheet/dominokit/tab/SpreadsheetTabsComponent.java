@@ -150,6 +150,14 @@ public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentL
         return this;
     }
 
+    // removeCssProperty................................................................................................
+
+    @Override
+    public SpreadsheetTabsComponent removeCssProperty(final String name) {
+        this.tabsPanel.removeCssProperty(name);
+        return this;
+    }
+
     // isEditing........................................................................................................
 
     @Override

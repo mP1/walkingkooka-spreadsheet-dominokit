@@ -480,6 +480,14 @@ public final class SuggestBoxComponent<T> implements SuggestBoxComponentLike<T> 
         return this;
     }
 
+    // removeCssProperty................................................................................................
+
+    @Override
+    public SuggestBoxComponent<T> removeCssProperty(final String name) {
+        this.suggestBox.removeCssProperty(name);
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override
