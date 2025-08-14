@@ -45,6 +45,9 @@ abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlEle
 
     public abstract C setTabIndex(final int tabIndex);
 
+    public abstract C setAttribute(final String name,
+                                   final String value);
+
     public final C setBackgroundColor(final String color) {
         return this.setCssProperty(
             "background-color",
