@@ -69,6 +69,10 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
         return new TrComponent();
     }
 
+    public static UlComponent ul() {
+        return new UlComponent();
+    }
+
     HtmlElementComponent(final String tag) {
         this(
             Js.<E>cast(
