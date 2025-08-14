@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.HTMLUListElement;
-import org.dominokit.domino.ui.elements.UListElement;
 import org.dominokit.domino.ui.forms.DateBox;
 import org.dominokit.domino.ui.icons.lib.Icons;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
@@ -29,7 +28,9 @@ import walkingkooka.convert.ConverterContext;
 import walkingkooka.convert.Converters;
 import walkingkooka.convert.FakeConverterContext;
 import walkingkooka.datetime.DateTime;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
+import walkingkooka.spreadsheet.dominokit.dom.UlComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -46,7 +47,7 @@ import java.util.Optional;
 /**
  * A {@link SpreadsheetMetadataPanelComponentItem} for {@link SpreadsheetMetadataPropertyName#DATE_TIME_OFFSET}
  */
-final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends SpreadsheetMetadataPanelComponentItem<Long> {
+final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends SpreadsheetMetadataPanelComponentItem<Long, SpreadsheetMetadataPanelComponentItemDateTimeOffset, HTMLUListElement> {
 
     private final static SpreadsheetMetadataPropertyName<Long> PROPERTY_NAME = SpreadsheetMetadataPropertyName.DATE_TIME_OFFSET;
 
@@ -75,7 +76,7 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
             context
         );
 
-        final UListElement list = this.uListElement();
+        final UlComponent list = this.ul();
 
         final DateBox dateBox = DateBox.create()
             .setId(SpreadsheetMetadataPanelComponent.id(PROPERTY_NAME) + "-DateBox")
@@ -101,7 +102,7 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
             );
 
         list.appendChild(
-            liElement()
+            li()
                 .appendChild(dateBox)
         );
 
@@ -124,7 +125,7 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
             valueToAnchors.put(value, anchor);
 
             list.appendChild(
-                liElement()
+                li()
                     .appendChild(
                         anchor
                     )
@@ -133,7 +134,7 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
 
         final HistoryTokenAnchorComponent defaultValueAnchor = this.defaultValueAnchor();
         list.appendChild(
-            liElement()
+            li()
                 .appendChild(
                     defaultValueAnchor
                 )
@@ -206,15 +207,6 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
 
     private final Map<Long, HistoryTokenAnchorComponent> valueToAnchors;
 
-    // isElement........................................................................................................
-
-    @Override
-    public HTMLUListElement element() {
-        return this.list.element();
-    }
-
-    private final UListElement list;
-
     private String formatValue(final long value) {
         return _1900 == value ? "1900" : "1904";
     }
@@ -257,4 +249,14 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
             return Converters.JAVA_EPOCH_OFFSET;
         }
     };
+
+    // HtmlComponentDelegator...........................................................................................
+
+
+    @Override
+    public HtmlComponent<HTMLUListElement, ?> htmlComponent() {
+        return this.list;
+    }
+
+    private final UlComponent list;
 }

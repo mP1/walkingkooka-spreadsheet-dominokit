@@ -18,9 +18,10 @@
 package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.HTMLUListElement;
-import org.dominokit.domino.ui.elements.UListElement;
 import org.dominokit.domino.ui.forms.IntegerBox;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
+import walkingkooka.spreadsheet.dominokit.dom.UlComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -28,7 +29,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 /**
  * A {@link SpreadsheetMetadataPanelComponentItem} that displays a number text box.
  */
-final class SpreadsheetMetadataPanelComponentItemNumber extends SpreadsheetMetadataPanelComponentItem<Integer> {
+final class SpreadsheetMetadataPanelComponentItemNumber extends SpreadsheetMetadataPanelComponentItem<Integer, SpreadsheetMetadataPanelComponentItemNumber, HTMLUListElement> {
 
     static SpreadsheetMetadataPanelComponentItemNumber with(final SpreadsheetMetadataPropertyName<Integer> propertyName,
                                                             final int min,
@@ -52,7 +53,7 @@ final class SpreadsheetMetadataPanelComponentItemNumber extends SpreadsheetMetad
         );
 
 
-        this.list = this.uListElement();
+        this.list = this.ul();
 
         this.integerBox = this.integerBox()
             .setPattern("#")
@@ -60,13 +61,13 @@ final class SpreadsheetMetadataPanelComponentItemNumber extends SpreadsheetMetad
             .setMaxValue(max)
             .setStep(1);
         this.list.appendChild(
-            liElement()
+            li()
                 .appendChild(this.integerBox)
         );
 
         final HistoryTokenAnchorComponent defaultValueAnchor = this.defaultValueAnchor();
         this.list.appendChild(
-            liElement()
+            li()
                 .appendChild(defaultValueAnchor)
         );
         this.defaultValueAnchor = defaultValueAnchor;
@@ -101,12 +102,12 @@ final class SpreadsheetMetadataPanelComponentItemNumber extends SpreadsheetMetad
 
     private final HistoryTokenAnchorComponent defaultValueAnchor;
 
-    // isElement........................................................................................................
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public HTMLUListElement element() {
-        return this.list.element();
+    public HtmlComponent<HTMLUListElement, ?> htmlComponent() {
+        return this.list;
     }
 
-    private final UListElement list;
+    private final UlComponent list;
 }

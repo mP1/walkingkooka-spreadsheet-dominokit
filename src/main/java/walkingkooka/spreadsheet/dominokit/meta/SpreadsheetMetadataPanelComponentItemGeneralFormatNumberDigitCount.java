@@ -18,9 +18,9 @@
 package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.HTMLUListElement;
-import org.dominokit.domino.ui.elements.UListElement;
 import org.dominokit.domino.ui.forms.IntegerBox;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
+import walkingkooka.spreadsheet.dominokit.dom.UlComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -28,7 +28,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 /**
  * A {@link SpreadsheetMetadataPanelComponentItem} for {@link SpreadsheetMetadataPropertyName#PRECISION}
  */
-final class SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount extends SpreadsheetMetadataPanelComponentItem<Integer> {
+final class SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount extends SpreadsheetMetadataPanelComponentItem<Integer, SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount, HTMLUListElement> {
 
     static SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount with(final SpreadsheetMetadataPanelComponentContext context) {
         return new SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount(
@@ -42,7 +42,7 @@ final class SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount e
             context
         );
 
-        final UListElement list = this.uListElement();
+        final UlComponent list = this.ul();
 
         final IntegerBox integerBox = this.integerBox()
             .setMinValue(0)
@@ -50,13 +50,13 @@ final class SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount e
         this.integerBox = integerBox;
 
         list.appendChild(
-            liElement()
+            li()
                 .appendChild(integerBox)
         );
 
         final HistoryTokenAnchorComponent defaultValueAnchor = this.defaultValueAnchor();
         list.appendChild(
-            liElement()
+            li()
                 .appendChild(defaultValueAnchor)
         );
         this.defaultValueAnchor = defaultValueAnchor;
@@ -93,12 +93,12 @@ final class SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount e
 
     private final HistoryTokenAnchorComponent defaultValueAnchor;
 
-    // isElement........................................................................................................
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public HTMLUListElement element() {
-        return this.list.element();
+    public UlComponent htmlComponent() {
+        return this.list;
     }
 
-    private final UListElement list;
+    private final UlComponent list;
 }

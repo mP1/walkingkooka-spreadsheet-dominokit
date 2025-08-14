@@ -18,16 +18,17 @@
 package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.HTMLUListElement;
-import org.dominokit.domino.ui.elements.UListElement;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
+import walkingkooka.spreadsheet.dominokit.dom.UlComponent;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 /**
  * A {@link SpreadsheetMetadataPanelComponentItem} that displays a {@link SpreadsheetNameComponent}.
  */
-final class SpreadsheetMetadataPanelComponentItemSpreadsheetName extends SpreadsheetMetadataPanelComponentItem<SpreadsheetName> {
+final class SpreadsheetMetadataPanelComponentItemSpreadsheetName extends SpreadsheetMetadataPanelComponentItem<SpreadsheetName, SpreadsheetMetadataPanelComponentItemSpreadsheetName, HTMLUListElement> {
 
     static SpreadsheetMetadataPanelComponentItemSpreadsheetName with(final SpreadsheetMetadataPanelComponentContext context) {
         return new SpreadsheetMetadataPanelComponentItemSpreadsheetName(
@@ -43,7 +44,7 @@ final class SpreadsheetMetadataPanelComponentItemSpreadsheetName extends Spreads
             context
         );
 
-        final UListElement list = this.uListElement();
+        final UlComponent list = this.ul();
         this.list = list;
 
         this.spreadsheetNameComponent = SpreadsheetNameComponent.empty()
@@ -55,7 +56,7 @@ final class SpreadsheetMetadataPanelComponentItemSpreadsheetName extends Spreads
                 )
             );
         list.appendChild(
-            this.liElement()
+            this.li()
                 .appendChild(
                     this.spreadsheetNameComponent
                 )
@@ -79,12 +80,12 @@ final class SpreadsheetMetadataPanelComponentItemSpreadsheetName extends Spreads
 
     private final SpreadsheetNameComponent spreadsheetNameComponent;
 
-    // isElement........................................................................................................
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public HTMLUListElement element() {
-        return this.list.element();
+    public HtmlComponent<HTMLUListElement, ?> htmlComponent() {
+        return this.list;
     }
 
-    private final UListElement list;
+    private final UlComponent list;
 }

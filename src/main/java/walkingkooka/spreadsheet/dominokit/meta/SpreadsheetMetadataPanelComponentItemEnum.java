@@ -18,9 +18,10 @@
 package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.HTMLUListElement;
-import org.dominokit.domino.ui.elements.UListElement;
 import walkingkooka.collect.map.Maps;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
+import walkingkooka.spreadsheet.dominokit.dom.UlComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -36,7 +37,7 @@ import java.util.Optional;
  * A {@link SpreadsheetMetadataPanelComponentItem} that creates multiple links for each enum value. If the enum value is currently
  * selected in the {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadata} that link will be disabled all others are enabled.
  */
-final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends SpreadsheetMetadataPanelComponentItem<T> {
+final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends SpreadsheetMetadataPanelComponentItem<T, SpreadsheetMetadataPanelComponentItemEnum<T>, HTMLUListElement> {
 
     static <T extends Enum<T>> SpreadsheetMetadataPanelComponentItemEnum<T> with(final SpreadsheetMetadataPropertyName<T> propertyName,
                                                                                  final List<T> values,
@@ -58,7 +59,7 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
 
         Objects.requireNonNull(values, "values");
 
-        this.list = this.uListElement();
+        this.list = this.ul();
 
         final HistoryToken token = context.historyToken();
 
@@ -80,14 +81,14 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
             }
 
             this.list.appendChild(
-                liElement()
+                li()
                     .appendChild(anchor)
             );
         }
 
         final HistoryTokenAnchorComponent defaultValueAnchor = this.defaultValueAnchor();
         this.list.appendChild(
-            liElement()
+            li()
                 .appendChild(
                     defaultValueAnchor
                 )
@@ -163,12 +164,12 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
         );
     }
 
-    // isElement........................................................................................................
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public HTMLUListElement element() {
-        return this.list.element();
+    public HtmlComponent<HTMLUListElement, ?> htmlComponent() {
+        return this.list;
     }
 
-    private final UListElement list;
+    private final UlComponent list;
 }

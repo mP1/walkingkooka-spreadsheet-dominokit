@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.HTMLDivElement;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.dom.DivComponent;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
@@ -32,7 +33,7 @@ import java.util.function.Function;
  * A {@link SpreadsheetMetadataPanelComponentItem} that only displays the current property value, formatting it to text
  * using the provided {@link Function} formatter.
  */
-final class SpreadsheetMetadataPanelComponentItemReadOnlyText<T> extends SpreadsheetMetadataPanelComponentItem<T> {
+final class SpreadsheetMetadataPanelComponentItemReadOnlyText<T> extends SpreadsheetMetadataPanelComponentItem<T, SpreadsheetMetadataPanelComponentItemReadOnlyText<T>, HTMLDivElement> {
 
     static <T> SpreadsheetMetadataPanelComponentItemReadOnlyText<T> with(final SpreadsheetMetadataPropertyName<T> propertyName,
                                                                          final Optional<String> label,
@@ -57,7 +58,7 @@ final class SpreadsheetMetadataPanelComponentItemReadOnlyText<T> extends Spreads
         );
         this.formatter = Objects.requireNonNull(formatter, "formatter");
 
-        this.element = HtmlElementComponent.div()
+        this.div = HtmlElementComponent.div()
             .setPaddingTop("5px")
             .setPaddingBottom("5px");
     }
@@ -77,7 +78,7 @@ final class SpreadsheetMetadataPanelComponentItemReadOnlyText<T> extends Spreads
         final String text = metadata.get(propertyName)
             .map(this.formatter)
             .orElse("");
-        this.element.setText(text);
+        this.div.setText(text);
     }
 
     /**
@@ -85,12 +86,12 @@ final class SpreadsheetMetadataPanelComponentItemReadOnlyText<T> extends Spreads
      */
     private final Function<T, String> formatter;
 
-    // isElement........................................................................................................
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public HTMLDivElement element() {
-        return this.element.element();
+    public HtmlComponent<HTMLDivElement, ?> htmlComponent() {
+        return this.div;
     }
 
-    private final DivComponent element;
+    private final DivComponent div;
 }
