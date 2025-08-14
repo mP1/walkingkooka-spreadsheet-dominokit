@@ -35,6 +35,7 @@ import walkingkooka.text.printer.IndentingPrinters;
 import walkingkooka.text.printer.Printers;
 import walkingkooka.text.printer.TreePrintableTesting;
 import walkingkooka.tree.text.TextNode;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
@@ -83,7 +84,7 @@ public final class HtmlElementComponentTest implements ClassTesting<HtmlElementC
             NullPointerException.class,
             () -> HtmlElementComponent.div()
                 .setCssProperty(
-                    null,
+                    (TextStylePropertyName<?>) null,
                     "123"
                 )
         );
