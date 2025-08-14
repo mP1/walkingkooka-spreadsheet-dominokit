@@ -232,6 +232,11 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
     // events..........................................................................................................
 
     @Override
+    public HistoryTokenAnchorComponent addBlurListener(final EventListener listener) {
+        return this;
+    }
+
+    @Override
     public HistoryTokenAnchorComponent addChangeListener(ChangeListener<Optional<HistoryToken>> listener) {
         return this;
     }
