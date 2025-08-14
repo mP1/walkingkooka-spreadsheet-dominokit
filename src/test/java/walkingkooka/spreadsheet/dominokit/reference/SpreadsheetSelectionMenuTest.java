@@ -156,9 +156,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/MIDDLE] id=test-middle-MenuItem\n" +
                 "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/BOTTOM] id=test-bottom-MenuItem\n" +
                 "    (mdi-palette) \"Color\" id=test-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-palette) \"Background color\" id=test-background-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem key=b \n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem key=i \n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem key=s \n" +
@@ -175,7 +175,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Border\" id=test-border-SubMenu\n" +
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-top-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -191,7 +191,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-left-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -207,7 +207,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-right-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -223,7 +223,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-bottom-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -239,7 +239,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-all-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -412,9 +412,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/MIDDLE] id=test-middle-MenuItem\n" +
                 "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/BOTTOM] id=test-bottom-MenuItem\n" +
                 "    (mdi-palette) \"Color\" id=test-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-palette) \"Background color\" id=test-background-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem key=b \n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem key=i \n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem key=s \n" +
@@ -431,7 +431,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Border\" id=test-border-SubMenu\n" +
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-top-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -447,7 +447,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-left-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -463,7 +463,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-right-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -479,7 +479,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-bottom-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -495,7 +495,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-all-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -671,9 +671,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/MIDDLE] id=test-middle-MenuItem\n" +
                 "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/BOTTOM] id=test-bottom-MenuItem\n" +
                 "    (mdi-palette) \"Color\" id=test-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-palette) \"Background color\" id=test-background-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem key=b \n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem key=i \n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem key=s \n" +
@@ -690,7 +690,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Border\" id=test-border-SubMenu\n" +
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-top-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -706,7 +706,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-left-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -722,7 +722,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-right-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -738,7 +738,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-bottom-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -754,7 +754,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-all-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -937,9 +937,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/MIDDLE] id=test-middle-MenuItem\n" +
                 "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/BOTTOM] id=test-bottom-MenuItem\n" +
                 "    (mdi-palette) \"Color\" id=test-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-palette) \"Background color\" id=test-background-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem key=b \n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem key=i \n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem key=s \n" +
@@ -956,7 +956,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Border\" id=test-border-SubMenu\n" +
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-top-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -972,7 +972,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-left-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -988,7 +988,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-right-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -1004,7 +1004,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-bottom-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -1020,7 +1020,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-all-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -1213,9 +1213,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/MIDDLE] id=test-middle-MenuItem\n" +
                 "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/BOTTOM] id=test-bottom-MenuItem\n" +
                 "    (mdi-palette) \"Color\" id=test-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-palette) \"Background color\" id=test-background-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem key=b \n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem key=i \n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem key=s \n" +
@@ -1232,7 +1232,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Border\" id=test-border-SubMenu\n" +
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-top-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -1248,7 +1248,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-left-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -1264,7 +1264,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-right-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -1280,7 +1280,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-bottom-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -1296,7 +1296,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-all-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -1477,9 +1477,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/MIDDLE] id=test-middle-MenuItem\n" +
                 "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/BOTTOM] id=test-bottom-MenuItem\n" +
                 "    (mdi-palette) \"Color\" id=test-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-palette) \"Background color\" id=test-background-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem key=b \n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem key=i \n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem key=s \n" +
@@ -1496,7 +1496,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Border\" id=test-border-SubMenu\n" +
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-top-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -1512,7 +1512,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-left-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -1528,7 +1528,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-right-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -1544,7 +1544,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-bottom-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -1560,7 +1560,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-all-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -1733,9 +1733,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/MIDDLE] id=test-middle-MenuItem\n" +
                 "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/BOTTOM] id=test-bottom-MenuItem\n" +
                 "    (mdi-palette) \"Color\" id=test-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-palette) \"Background color\" id=test-background-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem key=b \n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem key=i \n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem key=s \n" +
@@ -1752,7 +1752,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Border\" id=test-border-SubMenu\n" +
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-top-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -1768,7 +1768,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-left-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -1784,7 +1784,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-right-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -1800,7 +1800,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-bottom-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -1816,7 +1816,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-all-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -1989,9 +1989,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/MIDDLE] id=test-middle-MenuItem\n" +
                 "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/BOTTOM] id=test-bottom-MenuItem\n" +
                 "    (mdi-palette) \"Color\" id=test-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-palette) \"Background color\" id=test-background-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem key=b \n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem key=i \n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem key=s \n" +
@@ -2008,7 +2008,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Border\" id=test-border-SubMenu\n" +
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-top-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -2024,7 +2024,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-left-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -2040,7 +2040,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-right-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -2056,7 +2056,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-bottom-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -2072,7 +2072,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-all-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -2245,9 +2245,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/MIDDLE] id=test-middle-MenuItem\n" +
                 "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/BOTTOM] id=test-bottom-MenuItem\n" +
                 "    (mdi-palette) \"Color\" id=test-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-palette) \"Background color\" id=test-background-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem key=b \n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem key=i \n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem key=s \n" +
@@ -2264,7 +2264,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Border\" id=test-border-SubMenu\n" +
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-top-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -2280,7 +2280,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-left-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -2296,7 +2296,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-right-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -2312,7 +2312,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-bottom-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -2328,7 +2328,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-all-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -2498,9 +2498,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/MIDDLE] id=test-middle-MenuItem\n" +
                 "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/BOTTOM] id=test-bottom-MenuItem\n" +
                 "    (mdi-palette) \"Color\" id=test-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-palette) \"Background color\" id=test-background-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem key=b \n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem key=i \n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem key=s \n" +
@@ -2517,7 +2517,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Border\" id=test-border-SubMenu\n" +
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-top-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -2533,7 +2533,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-left-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -2549,7 +2549,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-right-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -2565,7 +2565,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-bottom-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -2581,7 +2581,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-all-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -2757,9 +2757,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/MIDDLE] id=test-middle-MenuItem\n" +
                 "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/BOTTOM] id=test-bottom-MenuItem\n" +
                 "    (mdi-palette) \"Color\" id=test-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-palette) \"Background color\" id=test-background-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem key=b \n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem key=i \n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem key=s \n" +
@@ -2776,7 +2776,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Border\" id=test-border-SubMenu\n" +
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-top-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -2792,7 +2792,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-left-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -2808,7 +2808,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-right-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -2824,7 +2824,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-bottom-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -2840,7 +2840,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-all-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -3014,9 +3014,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/MIDDLE] id=test-middle-MenuItem\n" +
                 "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/BOTTOM] id=test-bottom-MenuItem\n" +
                 "    (mdi-palette) \"Color\" id=test-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-palette) \"Background color\" id=test-background-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem key=b \n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem key=i \n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem key=s \n" +
@@ -3033,7 +3033,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Border\" id=test-border-SubMenu\n" +
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-top-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -3049,7 +3049,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-left-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -3065,7 +3065,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-right-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -3081,7 +3081,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-bottom-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -3097,7 +3097,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-all-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -3259,9 +3259,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/vertical-align/save/MIDDLE] id=test-middle-MenuItem\n" +
                 "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/vertical-align/save/BOTTOM] id=test-bottom-MenuItem\n" +
                 "    (mdi-palette) \"Color\" id=test-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-palette) \"Background color\" id=test-background-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/font-weight/save/bold] id=test-bold-MenuItem key=b \n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/font-style/save/ITALIC] id=test-italics-MenuItem key=i \n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem key=s \n" +
@@ -3278,7 +3278,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Border\" id=test-border-SubMenu\n" +
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-top-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -3294,7 +3294,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-left-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -3310,7 +3310,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-right-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -3326,7 +3326,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-bottom-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -3342,7 +3342,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-all-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -3600,9 +3600,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/Label123/style/vertical-align/save/MIDDLE] id=test-middle-MenuItem\n" +
                 "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/Label123/style/vertical-align/save/BOTTOM] id=test-bottom-MenuItem\n" +
                 "    (mdi-palette) \"Color\" id=test-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-palette) \"Background color\" id=test-background-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/Label123/style/font-weight/save/bold] id=test-bold-MenuItem key=b \n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/Label123/style/font-style/save/ITALIC] id=test-italics-MenuItem key=i \n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/Label123/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem key=s \n" +
@@ -3619,7 +3619,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Border\" id=test-border-SubMenu\n" +
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-top-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -3635,7 +3635,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-left-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -3651,7 +3651,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-right-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -3667,7 +3667,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-bottom-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -3683,7 +3683,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-all-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/Label123/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -3846,9 +3846,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/vertical-align/save/MIDDLE] id=test-middle-MenuItem\n" +
                 "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/vertical-align/save/BOTTOM] id=test-bottom-MenuItem\n" +
                 "    (mdi-palette) \"Color\" id=test-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-palette) \"Background color\" id=test-background-color-SubMenu\n" +
-                "      metadata color picker\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/font-weight/save/bold] id=test-bold-MenuItem key=b \n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/font-style/save/ITALIC] id=test-italics-MenuItem key=i \n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem key=s \n" +
@@ -3865,7 +3865,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Border\" id=test-border-SubMenu\n" +
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-top-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -3881,7 +3881,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-left-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -3897,7 +3897,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-right-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -3913,7 +3913,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-bottom-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -3929,7 +3929,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Color\" id=test-test-border-all-color-SubMenu\n" +
-                "          metadata color picker\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
