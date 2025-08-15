@@ -21,6 +21,8 @@ import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.Cast;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
@@ -57,7 +59,8 @@ import java.util.Optional;
  */
 abstract public class SpreadsheetViewportScrollbarComponent<R extends SpreadsheetColumnOrRowReference>
     implements ValueComponent<HTMLDivElement, R, SpreadsheetViewportScrollbarComponent<R>>,
-    SpreadsheetViewportComponentLifecycle {
+    SpreadsheetViewportComponentLifecycle,
+    HtmlComponentDelegator<HTMLDivElement, SpreadsheetViewportScrollbarComponent<R>> {
 
     public static SpreadsheetViewportScrollbarComponent<SpreadsheetColumnReference> columns(final SpreadsheetViewportScrollbarComponentContext context) {
         return SpreadsheetViewportScrollbarComponentColumns.with(context);
@@ -123,31 +126,11 @@ abstract public class SpreadsheetViewportScrollbarComponent<R extends Spreadshee
         return false;
     }
 
-    @Override
-    public final SpreadsheetViewportScrollbarComponent<R> setCssText(final String css) {
-        this.layout.setCssText(css);
-        return this;
-    }
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public final SpreadsheetViewportScrollbarComponent<R> setCssProperty(final String name,
-                                                                         final String value) {
-        this.layout.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
-
-    @Override
-    public final SpreadsheetViewportScrollbarComponent<R> removeCssProperty(final String name) {
-        this.layout.removeCssProperty(name);
-        return this;
-    }
-
-    @Override
-    public final HTMLDivElement element() {
-        return this.layout.element();
+    public final HtmlComponent<HTMLDivElement, ?> htmlComponent() {
+        return this.layout;
     }
 
     // ValueComponent...................................................................................................
