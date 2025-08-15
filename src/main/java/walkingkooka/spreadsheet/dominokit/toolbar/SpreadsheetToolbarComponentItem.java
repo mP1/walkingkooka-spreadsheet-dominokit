@@ -383,14 +383,6 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         return false == this.isOpen();
     }
 
-    // IsElement........................................................................................................
-
-    /**
-     * The root {@link HTMLElement}
-     */
-    @Override
-    public abstract HTMLElement element();
-
     // HistoryTokenAwareComponentLifecycle..............................................................................
     @Override
     public final boolean isOpen() {
