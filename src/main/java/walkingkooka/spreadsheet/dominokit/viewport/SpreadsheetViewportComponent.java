@@ -124,6 +124,12 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
 
         this.formula = this.createFormula();
         this.formulaCellLinks = this.formulaCellLinks();
+        this.formulaContainer = HtmlElementComponent.div()
+            .setCssText("position: relative;") // without this the formulaCellLinks will be positioned outside the formula editor
+            .appendChild(this.formula)
+            .appendChild(
+                this.formulaCellLinks.setCssText("position:absolute; bottom: 0px; right: 15px; height: fit-content; display:flex;")
+            );
 
         this.table = this.table(context);
 
@@ -166,14 +172,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         // link1  link2  link3  badge1  badge2
         // rather than
         // link1 badge1  link2 badge2 link3
-        root.appendChild(
-            HtmlElementComponent.div()
-                .setCssText("position: relative;") // without this the formulaCellLinks will be positioned outside the formula editor
-                .appendChild(this.formula)
-                .appendChild(
-                    this.formulaCellLinks.setCssText("position:absolute; bottom: 0px; right: 15px; height: fit-content; display:flex;")
-                )
-        );
+        root.appendChild(this.formulaContainer);
         root.appendChild(this.tableContainer);
 
         root.addMouseOverListener(
@@ -231,6 +230,8 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
     boolean shiftKeyDown;
 
     // formulaComponent.................................................................................................
+
+    private final DivComponent formulaContainer;
 
     /**
      * Factory that creates the {@link SpreadsheetViewportFormulaComponent}
@@ -448,7 +449,14 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
      * Refreshes the width and heights but does not refresh the actual content.
      */
     private void refreshLayout() {
-        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
+        final SpreadsheetViewportComponentContext context = this.context;
+
+        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
+        final HistoryToken historyToken = context.historyToken();
+
+        this.shouldShowFormulaEditor = metadata.get(SpreadsheetMetadataPropertyName.SHOW_FORMULA_EDITOR)
+            .orElse(true) ||
+            (historyToken instanceof SpreadsheetCellFormulaHistoryToken && false == historyToken.isSave());
 
         this.shouldHideZeroValues = metadata.get(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES)
             .orElse(false);
@@ -457,16 +465,19 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         this.shouldShowHeaders = metadata.get(SpreadsheetMetadataPropertyName.SHOW_HEADINGS)
             .orElse(true);
 
-
         final int width = this.width;
         final int height = this.height;
 
         final int viewportGridWidth = width;
         final int viewportGridHeight = height -
             (
-                GWT.isClient() ?
-                this.formula.height() :
-                FORMULA_HEIGHT
+                this.shouldShowFormulaEditor ?
+                    (
+                        GWT.isClient() ?
+                            this.formula.height() :
+                            FORMULA_HEIGHT
+                    ) :
+                    0
             );
 
         this.viewportGridWidth = viewportGridWidth;
@@ -497,6 +508,12 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
     @Override
     public void refresh(final RefreshContext context) {
         this.refreshLayout();
+
+        this.formulaContainer.setDisplay(
+            this.shouldShowFormulaEditor ?
+            "" :
+            "none"
+        );
 
         final HistoryToken historyToken = context.historyToken();
         final Optional<AnchoredSpreadsheetSelection> maybeAnchorSelection = historyToken.anchoredSelectionOrEmpty();
@@ -596,6 +613,8 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
     }
 
     private SpreadsheetMetadata refreshMetadata;
+
+    boolean shouldShowFormulaEditor;
 
     boolean shouldHideZeroValues;
 
