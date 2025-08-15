@@ -399,26 +399,25 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         final SpreadsheetViewportComponentContext context = this.context;
         context.debug("SpreadsheetViewportComponent.setWidthAndHeight " + width + "x" + height + " was " + this.viewportGridWidth + "x" + this.viewportGridHeight + " reload: " + reload);
 
-        this.viewportGridWidth = width;
-        this.viewportGridHeight = height - this.formula.element()
-            .offsetHeight;
-
-        this.tableContainer.setCssProperty(
-            "width",
-            width + "px"
-        ).setCssProperty(
-            "height",
-            height + "px"
-        );
+        this.width = width;
+        this.height = height;
+        this.viewportGridWidth = 0;
+        this.viewportGridHeight = 0;
 
         this.reload = reload;
 
         if(this.isOpen()) {
             this.refresh(context);
+        } else {
+            this.refreshLayout();
         }
 
         this.loadViewportCellsIfNecessary();
     }
+
+    int width;
+
+    int height;
 
     /**
      * The width allocated to the widget.
@@ -430,8 +429,6 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
      */
     int viewportGridHeight;
 
-    private final static int SCROLLBAR_LENGTH = 32;
-
     public SpreadsheetViewport viewport(final Optional<AnchoredSpreadsheetSelection> anchoredSelection) {
         return this.context.home()
             .viewportRectangle(
@@ -440,6 +437,33 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
             ).viewport()
             .setAnchoredSelection(anchoredSelection);
     }
+
+    /**
+     * Refreshes the width and heights but does not refresh the actual content.
+     */
+    private void refreshLayout() {
+        final int width = this.width;
+        final int height = this.height;
+
+        final int viewportGridWidth = width;
+        final int viewportGridHeight = height -
+            (
+                GWT.isClient() ?
+                this.formula.height() :
+                FORMULA_HEIGHT
+            );
+
+        this.viewportGridWidth = viewportGridWidth;
+        this.viewportGridHeight = viewportGridHeight;
+
+        this.tableContainer.setWidth(
+            viewportGridWidth + "px"
+        ).setHeight(
+            viewportGridHeight + "px"
+        );
+    }
+
+    final static int FORMULA_HEIGHT = 64;
 
     // HistoryTokenAwareComponentLifecycle..............................................................................
 
@@ -456,6 +480,8 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
 
     @Override
     public void refresh(final RefreshContext context) {
+        this.refreshLayout();
+
         final HistoryToken historyToken = context.historyToken();
         final Optional<AnchoredSpreadsheetSelection> maybeAnchorSelection = historyToken.anchoredSelectionOrEmpty();
 
@@ -593,6 +619,8 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         this.horizontalScrollbar.refresh(context);
         this.verticalScrollbar.refresh(context);
     }
+
+    private final static int SCROLLBAR_LENGTH = 32;
 
     private void giveViewportSelectionFocus(final AnchoredSpreadsheetSelection selection,
                                             final RefreshContext context) {
