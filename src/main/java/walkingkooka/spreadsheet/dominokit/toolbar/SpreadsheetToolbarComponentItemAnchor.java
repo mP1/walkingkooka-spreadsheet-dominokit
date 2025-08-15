@@ -21,6 +21,9 @@ import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
+import walkingkooka.Cast;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponent;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -31,7 +34,8 @@ import java.util.Optional;
 /**
  * A templated class that displays a link with text and icon.
  */
-abstract class SpreadsheetToolbarComponentItemAnchor<C extends SpreadsheetToolbarComponentItemAnchor<C>> extends SpreadsheetToolbarComponentItem<C> {
+abstract class SpreadsheetToolbarComponentItemAnchor<C extends SpreadsheetToolbarComponentItemAnchor<C>> extends SpreadsheetToolbarComponentItem<C>
+    implements HtmlComponentDelegator<HTMLElement, C> {
 
     SpreadsheetToolbarComponentItemAnchor(final String id,
                                           final Optional<Icon<?>> icon,
@@ -70,34 +74,6 @@ abstract class SpreadsheetToolbarComponentItemAnchor<C extends SpreadsheetToolba
         this.tooltip.setTextContent(text);
     }
 
-    // setCssText.......................................................................................................
-
-    @Override
-    public final C setCssText(final String css) {
-        this.anchor.setCssText(css);
-        return (C) this;
-    }
-
-    // setCssProperty...................................................................................................
-
-    @Override
-    public final C setCssProperty(final String name,
-                                  final String value) {
-        this.anchor.setCssProperty(
-            name,
-            value
-        );
-        return (C) this;
-    }
-
-    // removeCssProperty................................................................................................
-
-    @Override
-    public final C removeCssProperty(final String name) {
-        this.anchor.removeCssProperty(name);
-        return (C) this;
-    }
-
     // isEditing........................................................................................................
 
     @Override
@@ -105,11 +81,11 @@ abstract class SpreadsheetToolbarComponentItemAnchor<C extends SpreadsheetToolba
         return this.anchor.isEditing();
     }
 
-    // IsElement........................................................................................................
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public final HTMLElement element() {
-        return this.anchor.element();
+    public final HtmlComponent<HTMLElement, ?> htmlComponent() {
+        return Cast.to(this.anchor);
     }
 
     final HistoryTokenAnchorComponent anchor;
