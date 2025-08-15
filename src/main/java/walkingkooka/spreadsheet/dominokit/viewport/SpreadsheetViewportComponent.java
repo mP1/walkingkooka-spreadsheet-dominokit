@@ -442,6 +442,13 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
      * Refreshes the width and heights but does not refresh the actual content.
      */
     private void refreshLayout() {
+        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
+
+        this.shouldHideZeroValues = metadata.get(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES)
+            .orElse(false);
+        this.shouldShowFormulas = metadata.get(SpreadsheetMetadataPropertyName.SHOW_FORMULAS)
+            .orElse(false);
+
         final int width = this.width;
         final int height = this.height;
 
@@ -566,8 +573,6 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
                 (false == s.isCellRange() && selectionNotLabel.test(s));
         }
 
-        this.shouldHideZeroValues = metadata.getOrFail(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES);
-        this.shouldShowFormulas = metadata.getOrFail(SpreadsheetMetadataPropertyName.SHOW_FORMULAS);
         this.mustRefresh = metadata.shouldViewRefresh(this.refreshMetadata);
         this.spreadsheetViewport = this.spreadsheetViewport();
 
