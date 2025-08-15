@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.text;
 
 import elemental2.dom.HTMLDivElement;
+import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -25,7 +26,8 @@ import java.util.Optional;
 /**
  * A barebones component that may be used to display text. Many methods such as support for listeners etc all throw {@link UnsupportedOperationException}.
  */
-public final class TextViewComponent extends TextViewComponentLike {
+public final class TextViewComponent extends TextViewComponentLike
+    implements TestHtmlElementComponent<HTMLDivElement, TextViewComponent> {
 
     public static TextViewComponent empty() {
         return new TextViewComponent();
@@ -61,25 +63,4 @@ public final class TextViewComponent extends TextViewComponentLike {
     }
 
     private Optional<String> value;
-
-    @Override
-    public TextViewComponent setCssText(final String css) {
-        return this;
-    }
-
-    @Override
-    public TextViewComponent setCssProperty(final String name,
-                                            final String value) {
-        return this;
-    }
-
-    @Override
-    public TextViewComponent removeCssProperty(final String name) {
-        return this;
-    }
-
-    @Override
-    public HTMLDivElement element() {
-        throw new UnsupportedOperationException();
-    }
 }
