@@ -414,7 +414,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         this.reload = reload;
 
         if(this.isOpen()) {
-            refreshTableScrollbars(context);
+            this.refresh(context);
         }
 
         this.loadViewportCellsIfNecessary();
