@@ -77,10 +77,10 @@ Individual issues that breakdown outstanding tasks will be added.
   - Mouse SHIFT click to extend cell/column/row range *DONE*
   - Support dragging mouse to select/extend a range [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2063)
 - Viewport
-  - Show/Hide formula editor
-  - Show/Hide Column/Row headers
-  - Show/Hide Grid Lines
-  - Show cell formatted output/formula
+  - Show/Hide formula editor *DONE*
+  - Show/Hide Column/Row headers *DONE*
+  - Show/Hide Grid Lines *DONE*
+  - Show cell formatted output/formula *DONE*
 - Cell formatting:
   - Alignment: Left, Center, Right, Justify *DONE*
   - Vertical alignment: Top, Middle, Bottom *DONE*
