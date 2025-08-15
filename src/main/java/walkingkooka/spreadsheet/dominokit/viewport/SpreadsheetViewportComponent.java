@@ -415,17 +415,23 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         this.loadViewportCellsIfNecessary();
     }
 
+    /**
+     * The width for the viewport including the headers.
+     */
     int width;
 
+    /**
+     * The height for the viewport including the headers.
+     */
     int height;
 
     /**
-     * The width allocated to the widget.
+     * The width allocated to the grid, which includes the scrollbars but without the headers.
      */
     int viewportGridWidth;
 
     /**
-     * The height allocated to the widget.
+     * The height allocated to the grid, which includes the scrollbars but without the headers.
      */
     int viewportGridHeight;
 
@@ -448,6 +454,9 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
             .orElse(false);
         this.shouldShowFormulas = metadata.get(SpreadsheetMetadataPropertyName.SHOW_FORMULAS)
             .orElse(false);
+        this.shouldShowHeaders = metadata.get(SpreadsheetMetadataPropertyName.SHOW_HEADINGS)
+            .orElse(true);
+
 
         final int width = this.width;
         final int height = this.height;
@@ -591,6 +600,8 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
     boolean shouldHideZeroValues;
 
     boolean shouldShowFormulas;
+
+    boolean shouldShowHeaders;
 
     boolean mustRefresh;
 

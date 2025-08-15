@@ -50,7 +50,7 @@ public final class SpreadsheetViewportComponentTableRowCellsTest extends Spreads
     private final static Length<?> HEIGHT = Length.parse("50px");
 
     @Test
-    public void testRefresh() {
+    public void testRefreshShouldShowHeadersTrue() {
         final AppContext appContext = new FakeAppContext() {
             @Override
             public void debug(final Object... values) {
@@ -104,6 +104,11 @@ public final class SpreadsheetViewportComponentTableRowCellsTest extends Spreads
             @Override
             public boolean shouldShowFormulas() {
                 return false;
+            }
+
+            @Override
+            public boolean shouldShowHeaders() {
+                return true;
             }
 
             @Override
@@ -203,6 +208,158 @@ public final class SpreadsheetViewportComponentTableRowCellsTest extends Spreads
                 "      TH\n" +
                 "        id=\"viewport-row-1\" style=\"background-color: #111111; box-sizing: border-box; color: #222222; height: 50px; min-height: 50px; min-width: 80px; width: 80px;\"\n" +
                 "          \"1\" [#/1/SpreadsheetName222/row/1] id=viewport-row-1-Link\n" +
+                "    SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "      TD\n" +
+                "        id=\"viewport-cell-A1\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "          Text \"*** 3.0\"\n"
+        );
+    }
+
+    @Test
+    public void testRefreshShouldShowHeadersFalse() {
+        final AppContext appContext = new FakeAppContext() {
+            @Override
+            public void debug(final Object... values) {
+                System.out.println("DEBUG " + Arrays.toString(values));
+            }
+        };
+
+        final SpreadsheetViewportCacheContext cacheContext = new FakeSpreadsheetViewportCacheContext() {
+            @Override
+            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                return null;
+            }
+
+            @Override
+            public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+                return null;
+            }
+
+            @Override
+            public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+                return null;
+            }
+        };
+
+        final SpreadsheetViewportComponentTableContext tableContext = new FakeSpreadsheetViewportComponentTableContext() {
+
+            @Override
+            public HistoryToken historyToken() {
+                return HistoryToken.cellSelect(
+                    SpreadsheetId.with(1),
+                    SpreadsheetName.with("SpreadsheetName222"),
+                    SpreadsheetSelection.A1.setDefaultAnchor()
+                );
+            }
+
+            @Override
+            public int viewportGridWidth() {
+                return (int)WIDTH.pixelValue();
+            }
+
+            @Override
+            public int viewportGridHeight() {
+                return (int)HEIGHT.pixelValue();
+            }
+
+            @Override
+            public boolean shouldHideZeroValues() {
+                return false;
+            }
+
+            @Override
+            public boolean shouldShowFormulas() {
+                return false;
+            }
+
+            @Override
+            public boolean shouldShowHeaders() {
+                return false;
+            }
+
+            @Override
+            public boolean isShiftKeyDown() {
+                return false;
+            }
+
+            @Override
+            public boolean mustRefresh() {
+                return false;
+            }
+
+            @Override
+            public TextStyle cellStyle() {
+                return TextStyle.parse("color: white;");
+            }
+
+            @Override
+            public TextStyle selectedCellStyle(final TextStyle cellStyle) {
+                return cellStyle.set(
+                    TextStylePropertyName.COLOR,
+                    Color.WHITE
+                );
+            }
+
+            @Override
+            public SpreadsheetViewportCache spreadsheetViewportCache() {
+                return this.spreadsheetViewportCache;
+            }
+
+            private final SpreadsheetViewportCache spreadsheetViewportCache = SpreadsheetViewportCache.empty(cacheContext);
+        };
+
+        final SpreadsheetMetadata metadata = SpreadsheetMetadata.EMPTY.set(
+            SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+            SpreadsheetId.with(1)
+        ).set(
+            SpreadsheetMetadataPropertyName.STYLE,
+            TextStyle.EMPTY.set(
+                TextStylePropertyName.WIDTH,
+                Length.parse("100px")
+            ).set(
+                TextStylePropertyName.HEIGHT,
+                Length.parse("50px")
+            )
+        );
+
+        tableContext.spreadsheetViewportCache()
+            .onSpreadsheetMetadata(
+                metadata,
+                appContext
+            );
+
+        tableContext.spreadsheetViewportCache()
+            .onSpreadsheetDelta(
+                HttpMethod.GET,
+                Url.parseRelative("/api/spreadsheet/1/cell/A1"),
+                SpreadsheetDelta.EMPTY.setCells(
+                    Sets.of(
+                        SpreadsheetSelection.A1.setFormula(
+                            SpreadsheetFormula.EMPTY.setText("=1+2")
+                        ).setFormattedValue(
+                            Optional.of(
+                                TextNode.text("*** 3.0")
+                            )
+                        )
+                    )
+                ),
+                appContext
+            );
+
+        final SpreadsheetViewportComponentTableRowCells component = SpreadsheetViewportComponentTableRowCells.empty(
+            SpreadsheetSelection.A1.row(),
+            tableContext
+        );
+        component.refresh(
+            SpreadsheetViewportWindows.parse("A1:A3"),
+            SpreadsheetSelection.A1::equals,
+            tableContext
+        );
+
+        this.treePrintAndCheck(
+            component,
+            "SpreadsheetViewportComponentTableRowCells\n" +
+                "  TR\n" +
                 "    SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
                 "      TD\n" +
                 "        id=\"viewport-cell-A1\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +

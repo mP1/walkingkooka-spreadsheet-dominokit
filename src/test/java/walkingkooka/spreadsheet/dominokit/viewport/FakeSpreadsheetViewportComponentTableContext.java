@@ -50,6 +50,11 @@ public class FakeSpreadsheetViewportComponentTableContext extends FakeSpreadshee
     }
 
     @Override
+    public boolean shouldShowHeaders() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public boolean mustRefresh() {
         throw new UnsupportedOperationException();
     }

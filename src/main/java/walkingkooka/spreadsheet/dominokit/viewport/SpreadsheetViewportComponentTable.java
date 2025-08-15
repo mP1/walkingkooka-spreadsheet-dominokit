@@ -78,13 +78,14 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
         this.columnHeaders = SpreadsheetViewportComponentTableRowColumnHeaders.empty(context);
 
         final THeadComponent thead = HtmlElementComponent.thead();
+        final TBodyComponent tbody = HtmlElementComponent.tbody();
+
         thead.appendChild(this.columnHeaders);
         table.appendChild(thead);
-
-        final TBodyComponent tbody = HtmlElementComponent.tbody();
         table.appendChild(tbody);
 
         this.table = table;
+        this.thead = thead;
         this.tbody = tbody;
 
         this.id = null;
@@ -261,6 +262,24 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
                 .forEach(r -> r.setIdAndName(id, name));
         }
 
+        // column headings
+        final boolean showHeaders = context.shouldShowHeaders();
+        {
+            final THeadComponent thead = this.thead;
+            final SpreadsheetViewportComponentTableRowColumnHeaders columnHeaders = this.columnHeaders;
+
+            if (showHeaders) {
+                if(false == thead.contains(columnHeaders)) {
+                    thead.appendChild(columnHeaders);
+                }
+            } else {
+                if(thead.contains(columnHeaders)) {
+                    thead.removeChild(columnHeaders);
+                }
+            }
+        }
+
+        // rows
         final Set<SpreadsheetRowReference> rows = windows.rows();
         if (false == this.rows.equals(rows)) {
             this.rows = rows;
@@ -278,8 +297,7 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
             final Map<SpreadsheetRowReference, SpreadsheetViewportComponentTableRowCells> oldRowsToTableRowCells = this.rowsToTableRowCells;
             final Map<SpreadsheetRowReference, SpreadsheetViewportComponentTableRowCells> newRowsToTableRowCells = Maps.sorted();
 
-            double height = context.viewportGridHeight() -
-                SpreadsheetViewportContext.COLUMN_HEADER_HEIGHT_PIXELS;
+            double height = context.viewportGridHeight();
 
             // create new rows as necessary
             for (final SpreadsheetRowReference row : rows) {
@@ -369,6 +387,8 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
     }
 
     private final TableComponent table;
+
+    private final THeadComponent thead;
 
     private final TBodyComponent tbody;
 

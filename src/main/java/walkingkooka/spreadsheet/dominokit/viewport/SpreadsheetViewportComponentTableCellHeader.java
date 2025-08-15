@@ -92,27 +92,29 @@ abstract class SpreadsheetViewportComponentTableCellHeader<S extends Spreadsheet
     @Override //
     final void refresh(final Predicate<SpreadsheetSelection> selected,
                        final SpreadsheetViewportComponentTableContext context) {
-        final SpreadsheetSelection selection = this.selection;
+        if(context.shouldShowHeaders()) {
+            final SpreadsheetSelection selection = this.selection;
 
-        this.th.setCssText(
-            setWidthAndHeight(
-                (SpreadsheetSelection.ALL_CELLS.equals(selection) ?
-                    selected.equals(selection) :
-                    selected.test(selection)) ?
-                    this.selectedTextStyle(context) :
-                    this.unselectedTextStyle(context),
-                context
-            )
-        );
+            this.th.setCssText(
+                setWidthAndHeight(
+                    (SpreadsheetSelection.ALL_CELLS.equals(selection) ?
+                        selected.equals(selection) :
+                        selected.test(selection)) ?
+                        this.selectedTextStyle(context) :
+                        this.unselectedTextStyle(context),
+                    context
+                )
+            );
 
-        final Boolean extended = context.isShiftKeyDown();
-        if (false == extended.equals(this.extended)) {
-            if (extended) {
-                this.refreshExtendLink(context);
-            } else {
-                this.refreshNonExtendLink(context);
+            final Boolean extended = context.isShiftKeyDown();
+            if (false == extended.equals(this.extended)) {
+                if (extended) {
+                    this.refreshExtendLink(context);
+                } else {
+                    this.refreshNonExtendLink(context);
+                }
+                this.extended = extended;
             }
-            this.extended = extended;
         }
     }
 

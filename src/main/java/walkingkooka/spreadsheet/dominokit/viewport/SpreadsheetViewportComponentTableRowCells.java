@@ -65,22 +65,25 @@ final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewpor
                  final Predicate<SpreadsheetSelection> selected,
                  final SpreadsheetViewportComponentTableContext context) {
         final Set<SpreadsheetColumnReference> columns = windows.columns();
+        final boolean shouldShowHeaders = context.shouldShowHeaders();
+        final TrComponent tr = this.tr;
+        final SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow rowHeader = this.rowHeader;
 
-        if (false == columns.equals(this.columns)) {
+        if (false == columns.equals(this.columns) || tr.contains(rowHeader) != shouldShowHeaders) {
             this.columns = columns;
 
             final Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellSpreadsheetCell> oldColumnToCells = this.columnToCells;
             final Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellSpreadsheetCell> newColumnToCells = Maps.sorted();
 
-            final TrComponent element = this.tr;
-            element.clear();
+            tr.clear();
 
-            element.appendChild(this.rowHeader);
+            if(shouldShowHeaders) {
+                tr.appendChild(this.rowHeader);
+            }
 
-            final SpreadsheetRowReference row = this.rowHeader.selection;
+            final SpreadsheetRowReference row = rowHeader.selection;
 
-            double rowWidth = context.viewportGridWidth()
-                - SpreadsheetViewportContext.ROW_HEADER_WIDTH_PIXELS;
+            double rowWidth = context.viewportGridWidth();
 
             // create the cells as necessary for this row...
             for (final SpreadsheetColumnReference column : columns) {
@@ -92,7 +95,7 @@ final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewpor
                     );
                 }
                 newColumnToCells.put(column, columnTableCell);
-                element.appendChild(columnTableCell);
+                tr.appendChild(columnTableCell);
 
                 rowWidth = rowWidth - columnTableCell.width(context)
                     .pixelValue();

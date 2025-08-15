@@ -114,6 +114,11 @@ public final class SpreadsheetViewportComponentTableCellHeaderSelectAllTest exte
             }
 
             @Override
+            public boolean shouldShowHeaders() {
+                return true;
+            }
+
+            @Override
             public SpreadsheetViewportCache spreadsheetViewportCache() {
                 return this.spreadsheetViewportCache;
             }
