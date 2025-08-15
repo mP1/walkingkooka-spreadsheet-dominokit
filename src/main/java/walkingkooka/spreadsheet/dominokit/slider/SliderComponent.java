@@ -317,6 +317,22 @@ public final class SliderComponent extends SliderComponentLike {
         throw new UnsupportedOperationException();
     }
 
+    // width............................................................................................................
+
+    @Override
+    public int width() {
+        return this.slider.element()
+            .offsetWidth;
+    }
+
+    // height...........................................................................................................
+
+    @Override
+    public int height() {
+        return this.slider.element()
+            .offsetHeight;
+    }
+
     // setCssText.......................................................................................................
 
     @Override

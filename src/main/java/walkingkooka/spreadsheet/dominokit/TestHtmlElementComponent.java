@@ -38,6 +38,20 @@ public interface TestHtmlElementComponent<E extends HTMLElement, C extends HtmlC
         throw new UnsupportedOperationException();
     }
 
+    // width............................................................................................................
+
+    @Override
+    default int width() {
+        throw new UnsupportedOperationException();
+    }
+
+    // height...........................................................................................................
+
+    @Override
+    default int height() {
+        throw new UnsupportedOperationException();
+    }
+
     // setCssText.......................................................................................................
 
     @Override

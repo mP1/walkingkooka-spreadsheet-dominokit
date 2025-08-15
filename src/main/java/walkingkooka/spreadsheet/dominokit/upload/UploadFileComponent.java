@@ -267,6 +267,20 @@ public final class UploadFileComponent extends UploadFileComponentLike {
         return HtmlComponent.hasFocus(this.element());
     }
 
+    // HtmlComponent....................................................................................................
+
+    @Override
+    public int width() {
+        return this.element()
+            .offsetWidth;
+    }
+
+    @Override
+    public int height() {
+        return this.element()
+            .offsetHeight;
+    }
+
     @Override
     public UploadFileComponent setCssText(final String css) {
         this.element().style.cssText = css;

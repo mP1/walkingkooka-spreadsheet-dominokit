@@ -93,6 +93,22 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
         this.text = "";
     }
 
+    // width............................................................................................................
+
+    @Override
+    public int width() {
+        throw new UnsupportedOperationException();
+    }
+
+    // height...........................................................................................................
+
+    @Override
+    public int height() {
+        throw new UnsupportedOperationException();
+    }
+
+    // id...............................................................................................................
+
     @Override
     public final C setId(final String id) {
         CharSequences.failIfNullOrEmpty(id, "id");

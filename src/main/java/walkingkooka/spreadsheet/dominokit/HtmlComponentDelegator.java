@@ -21,6 +21,24 @@ import elemental2.dom.HTMLElement;
 
 public interface HtmlComponentDelegator<E extends HTMLElement, C extends HtmlComponent<E, C>> extends HtmlComponent<E, C> {
 
+    // width............................................................................................................
+
+    @Override
+    default int width() {
+        return this.htmlComponent()
+            .width();
+    }
+
+    // height...........................................................................................................
+
+    @Override
+    default int height() {
+        return this.htmlComponent()
+            .height();
+    }
+
+    // cssXXX...........................................................................................................
+
     @Override
     default C setCssText(final String css) {
         this.htmlComponent()

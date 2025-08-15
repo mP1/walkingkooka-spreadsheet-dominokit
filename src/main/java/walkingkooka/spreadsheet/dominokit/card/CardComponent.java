@@ -69,6 +69,22 @@ public final class CardComponent implements HtmlComponent<HTMLDivElement, CardCo
         return this;
     }
 
+    // width............................................................................................................
+
+    @Override
+    public int width() {
+        return this.card.element()
+            .offsetWidth;
+    }
+
+    // height...........................................................................................................
+
+    @Override
+    public int height() {
+        return this.card.element()
+            .offsetHeight;
+    }
+
     // setCssText.......................................................................................................
 
     @Override

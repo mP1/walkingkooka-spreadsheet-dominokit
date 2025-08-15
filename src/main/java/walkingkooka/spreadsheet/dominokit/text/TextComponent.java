@@ -206,6 +206,20 @@ public final class TextComponent implements FormValueComponent<HTMLDivElement, S
         return false;
     }
 
+    // width............................................................................................................
+
+    @Override
+    public int width() {
+        throw new UnsupportedOperationException();
+    }
+
+    // height...........................................................................................................
+
+    @Override
+    public int height() {
+        throw new UnsupportedOperationException();
+    }
+
     // IsElement........................................................................................................
 
     @Override

@@ -72,6 +72,20 @@ public final class DateComponent extends DominoKitPickerComponent<LocalDate, Dat
         return this;
     }
 
+    // HtmlComponent....................................................................................................
+
+    @Override
+    public int width() {
+        return this.element()
+            .offsetWidth;
+    }
+
+    @Override
+    public int height() {
+        return this.element()
+            .offsetHeight;
+    }
+
     @Override
     public DateComponent setCssText(final String css) {
         this.calendar.cssText(css);

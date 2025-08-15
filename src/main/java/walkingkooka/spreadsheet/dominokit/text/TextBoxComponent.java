@@ -357,6 +357,22 @@ public final class TextBoxComponent implements FormValueComponent<HTMLFieldSetEl
         return this;
     }
 
+    // width............................................................................................................
+
+    @Override
+    public int width() {
+        return this.textBox.element()
+            .offsetWidth;
+    }
+
+    // height...........................................................................................................
+
+    @Override
+    public int height() {
+        return this.textBox.element()
+            .offsetHeight;
+    }
+
     // setCssText.......................................................................................................
 
     @Override

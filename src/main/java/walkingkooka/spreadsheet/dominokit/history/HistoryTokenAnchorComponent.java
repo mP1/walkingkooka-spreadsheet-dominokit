@@ -78,7 +78,19 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
         this.tooltip = Optional.empty();
     }
 
-    // setCssText.......................................................................................................
+    // HtmlComponent....................................................................................................
+
+    @Override
+    public int width() {
+        return this.element.element()
+            .offsetWidth;
+    }
+
+    @Override
+    public int height() {
+        return this.element.element()
+            .offsetHeight;
+    }
 
     @Override
     public HistoryTokenAnchorComponent setCssText(final String css) {
