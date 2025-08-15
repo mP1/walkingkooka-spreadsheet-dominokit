@@ -24,7 +24,9 @@ import walkingkooka.text.printer.IndentingPrinter;
 /**
  * A {@link SpreadsheetFormComponentLifecycle} for a {@link AppLayout} drawer.
  */
-abstract class SpreadsheetAppLayoutDrawerComponent<E extends HTMLElement, T extends SpreadsheetAppLayoutDrawerComponent<E, T>> implements SpreadsheetFormComponentLifecycle<E, T> {
+abstract class SpreadsheetAppLayoutDrawerComponent<E extends HTMLElement, T extends SpreadsheetAppLayoutDrawerComponent<E, T>>
+    implements SpreadsheetFormComponentLifecycle<E, T>,
+    HtmlComponentDelegator<E, T> {
 
     SpreadsheetAppLayoutDrawerComponent(final AppLayout appLayout,
                                         final SpreadsheetFormComponentLifecycle<E, ?> form) {
@@ -32,31 +34,11 @@ abstract class SpreadsheetAppLayoutDrawerComponent<E extends HTMLElement, T exte
         this.form = form;
     }
 
-    @Override
-    public final T setCssText(final String css) {
-        this.form.setCssText(css);
-        return (T) this;
-    }
+    // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public final T setCssProperty(final String name,
-                                  final String value) {
-        this.form.setCssProperty(
-            name,
-            value
-        );
-        return (T) this;
-    }
-
-    @Override
-    public final T removeCssProperty(final String name) {
-        this.form.removeCssProperty(name);
-        return (T) this;
-    }
-
-    @Override
-    public final E element() {
-        return this.form.element();
+    public final HtmlComponent<E, ?> htmlComponent() {
+        return this.form;
     }
 
     // SpreadsheetFormComponentLifecycle...............................................................................
