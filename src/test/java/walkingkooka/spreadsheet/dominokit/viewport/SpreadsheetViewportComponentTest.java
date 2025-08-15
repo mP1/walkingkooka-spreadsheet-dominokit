@@ -660,6 +660,9 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
             }
         );
 
+        component.width = VIEWPORT_GRID_WIDTH;
+        component.height = VIEWPORT_GRID_HEIGHT + SpreadsheetViewportComponent.FORMULA_HEIGHT;
+
         component.metadata = metadata;
 
         component.spreadsheetFormatterSelectorSelection = SELECTION;
