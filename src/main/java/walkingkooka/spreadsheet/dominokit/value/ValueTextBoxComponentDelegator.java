@@ -19,8 +19,9 @@ package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
-import elemental2.dom.Node;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
@@ -30,7 +31,8 @@ import java.util.Optional;
  * A helper interface that implements delegator methods for a wrapped {@link ValueTextBoxComponent}.
  */
 public interface ValueTextBoxComponentDelegator<C extends ValueTextBoxComponentDelegator<C, V>, V>
-    extends FormValueComponent<HTMLFieldSetElement, V, C> {
+    extends FormValueComponent<HTMLFieldSetElement, V, C>,
+    HtmlComponentDelegator<HTMLFieldSetElement, C> {
 
     @Override
     default C setId(final String id) {
@@ -231,47 +233,17 @@ public interface ValueTextBoxComponentDelegator<C extends ValueTextBoxComponentD
         return (C) this;
     }
 
-    @Override
-    default HTMLFieldSetElement element() {
-        return this.valueTextBoxComponent()
-            .element();
-    }
-
-    @Override
-    default C setCssText(final String css) {
-        this.valueTextBoxComponent()
-            .setCssText(css);
-        return (C) this;
-    }
-
-    @Override
-    default C setCssProperty(final String name,
-                             final String value) {
-        this.valueTextBoxComponent()
-            .setCssProperty(
-                name,
-                value
-            );
-        return (C) this;
-    }
-
-    @Override
-    default C removeCssProperty(final String name) {
-        this.valueTextBoxComponent()
-            .removeCssProperty(name);
-        return (C) this;
-    }
-
-    @Override
-    default Node node() {
-        return this.valueTextBoxComponent()
-            .node();
-    }
-
     /**
      * The wrapped {@link ValueTextBoxComponent}, which is the target of all delegated methods.
      */
     ValueTextBoxComponent<V> valueTextBoxComponent();
+
+    // HtmlComponentDelegator...........................................................................................
+
+    @Override
+    default HtmlComponent<HTMLFieldSetElement, ?> htmlComponent() {
+        return this.valueTextBoxComponent();
+    }
 
     // TreePrintable....................................................................................................
 
