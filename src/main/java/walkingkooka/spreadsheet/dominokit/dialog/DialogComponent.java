@@ -176,6 +176,24 @@ public final class DialogComponent extends DialogComponentLike {
 
     private final DialogComponentContext context;
 
+    // width............................................................................................................
+
+    @Override
+    public int width() {
+        return this.dialog.element()
+            .offsetWidth;
+    }
+
+    // height...........................................................................................................
+
+    @Override
+    public int height() {
+        return this.dialog.element()
+            .offsetHeight;
+    }
+
+    // id...............................................................................................................
+
     @Override
     public String id() {
         return this.dialog.getId();

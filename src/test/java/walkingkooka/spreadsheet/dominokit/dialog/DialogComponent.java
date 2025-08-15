@@ -56,6 +56,20 @@ public final class DialogComponent extends DialogComponentLike
         this.includeClose = includeClose;
     }
 
+    // width............................................................................................................
+
+    @Override
+    public int width() {
+        throw new UnsupportedOperationException();
+    }
+
+    // height...........................................................................................................
+
+    @Override
+    public int height() {
+        throw new UnsupportedOperationException();
+    }
+
     // main/DialogComponent public members...................................................................
 
     @Override

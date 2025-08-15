@@ -166,6 +166,22 @@ public final class DataTableComponent<T> extends DataTableComponentLike<T> {
 
     private final LocalListDataStore<T> dataStore;
 
+    // width............................................................................................................
+
+    @Override
+    public int width() {
+        return this.table.element()
+            .offsetWidth;
+    }
+
+    // height...........................................................................................................
+
+    @Override
+    public int height() {
+        return this.table.element()
+            .offsetHeight;
+    }
+
     // setCssText.......................................................................................................
 
     @Override

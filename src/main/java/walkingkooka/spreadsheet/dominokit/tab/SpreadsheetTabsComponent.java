@@ -128,6 +128,23 @@ public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentL
 
     private final List<Tab> tabs;
 
+
+    // width............................................................................................................
+
+    @Override
+    public int width() {
+        return this.element()
+            .offsetWidth;
+    }
+
+    // height...........................................................................................................
+
+    @Override
+    public int height() {
+        return this.element()
+            .offsetHeight;
+    }
+
     // setCssText.......................................................................................................
 
     @Override

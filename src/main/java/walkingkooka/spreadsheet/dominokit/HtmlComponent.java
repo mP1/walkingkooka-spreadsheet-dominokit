@@ -31,6 +31,16 @@ public interface HtmlComponent<E extends HTMLElement, C extends HtmlComponent<E,
     IsElement<E> {
 
     /**
+     * The width of this component, mostly delegates to offsetWidth
+     */
+    int width();
+
+    /**
+     * The height of this component, mostly delegates to offsetHeight
+     */
+    int height();
+
+    /**
      * Helper that may be used mostly by implementations to test if an element has focus.
      */
     static boolean hasFocus(final Element element) {

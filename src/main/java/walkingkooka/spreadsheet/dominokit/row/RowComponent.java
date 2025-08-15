@@ -53,6 +53,24 @@ public final class RowComponent implements HtmlComponent<HTMLDivElement, RowComp
         this.column = column;
     }
 
+    // width............................................................................................................
+
+    @Override
+    public int width() {
+        return this.element()
+            .offsetWidth;
+    }
+
+    // height...........................................................................................................
+
+    @Override
+    public int height() {
+        return this.element()
+            .offsetHeight;
+    }
+
+    // id...............................................................................................................
+
     public RowComponent appendChild(final HtmlComponent<?, ?> child) {
         Objects.requireNonNull(child, "child");
 

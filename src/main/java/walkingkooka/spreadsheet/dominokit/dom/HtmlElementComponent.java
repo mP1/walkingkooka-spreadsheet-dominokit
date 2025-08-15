@@ -87,6 +87,22 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
         this.element = element;
     }
 
+    // width............................................................................................................
+
+    @Override
+    public int width() {
+        return this.element.offsetWidth;
+    }
+
+    // height...........................................................................................................
+
+    @Override
+    public int height() {
+        return this.element.offsetHeight;
+    }
+
+    // id...............................................................................................................
+
     @Override
     public final C setId(final String id) {
         this.element.id = id;

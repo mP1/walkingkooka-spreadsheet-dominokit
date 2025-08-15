@@ -299,6 +299,20 @@ public final class SelectComponent<T> implements FormValueComponent<HTMLFieldSet
         return this;
     }
 
+    // HtmlComponent....................................................................................................
+
+    @Override
+    public int width() {
+        return this.element()
+            .offsetWidth;
+    }
+
+    @Override
+    public int height() {
+        return this.element()
+            .offsetHeight;
+    }
+
     // setCssText.......................................................................................................
 
     @Override

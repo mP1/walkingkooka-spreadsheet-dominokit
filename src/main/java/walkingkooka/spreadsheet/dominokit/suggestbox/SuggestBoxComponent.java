@@ -458,6 +458,22 @@ public final class SuggestBoxComponent<T> implements SuggestBoxComponentLike<T> 
         return this;
     }
 
+    // width............................................................................................................
+
+    @Override
+    public int width() {
+        return this.element()
+            .offsetWidth;
+    }
+
+    // height...........................................................................................................
+
+    @Override
+    public int height() {
+        return this.element()
+            .offsetHeight;
+    }
+
     // setCssText.......................................................................................................
 
     @Override

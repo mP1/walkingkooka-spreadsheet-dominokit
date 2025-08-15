@@ -204,6 +204,22 @@ final class SpreadsheetAppLayout extends AppLayout implements
         return false;
     }
 
+    // width............................................................................................................
+
+    @Override
+    public int width() {
+        return this.element()
+            .offsetWidth;
+    }
+
+    // height...........................................................................................................
+
+    @Override
+    public int height() {
+        return this.element()
+            .offsetHeight;
+    }
+
     // isEditing........................................................................................................
 
     @Override
