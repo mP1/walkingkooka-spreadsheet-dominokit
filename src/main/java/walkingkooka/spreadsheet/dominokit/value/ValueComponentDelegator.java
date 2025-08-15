@@ -20,13 +20,16 @@ package walkingkooka.spreadsheet.dominokit.value;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 
 import java.util.Optional;
 
 /**
  * A delegator for {@link ValueComponent} that may be within a {@link walkingkooka.spreadsheet.dominokit.Component}.
  */
-public interface ValueComponentDelegator<E extends HTMLElement, V, C extends ValueComponent<E, V, C>> extends ValueComponent<E, V, C> {
+public interface ValueComponentDelegator<E extends HTMLElement, V, C extends ValueComponent<E, V, C>> extends ValueComponent<E, V, C>,
+    HtmlComponentDelegator<E, C> {
 
     @Override
     default C setId(final String id) {
@@ -143,36 +146,12 @@ public interface ValueComponentDelegator<E extends HTMLElement, V, C extends Val
             .isEditing();
     }
 
-    @Override
-    default C setCssText(final String css) {
-        this.valueComponent()
-            .setCssText(css);
-        return (C) this;
-    }
-
-    @Override
-    default C setCssProperty(final String name,
-                             final String value) {
-        this.valueComponent()
-            .setCssProperty(
-                name,
-                value
-            );
-        return (C) this;
-    }
-
-    @Override
-    default C removeCssProperty(final String name) {
-        this.valueComponent()
-            .removeCssProperty(name);
-        return (C) this;
-    }
-
-    @Override
-    default E element() {
-        return this.valueComponent()
-            .element();
-    }
-
     ValueComponent<E, V, ?> valueComponent();
+
+    // HtmlComponentDelegator...........................................................................................
+
+    @Override
+    default HtmlComponent<E, ?> htmlComponent() {
+        return this.valueComponent();
+    }
 }
