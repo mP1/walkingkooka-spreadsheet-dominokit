@@ -84,6 +84,9 @@ final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewpor
             final SpreadsheetRowReference row = rowHeader.selection;
 
             double rowWidth = context.viewportGridWidth();
+            if(context.shouldShowHeaders()) {
+                rowWidth = rowWidth - SpreadsheetViewportContext.ROW_HEADER_WIDTH_PIXELS;
+            }
 
             // create the cells as necessary for this row...
             for (final SpreadsheetColumnReference column : columns) {
