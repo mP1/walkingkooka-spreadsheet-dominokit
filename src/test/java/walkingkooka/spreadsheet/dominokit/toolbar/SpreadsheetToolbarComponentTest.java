@@ -188,6 +188,9 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-grid \"Show Grid Lines\" [#/1/Spreadsheet123/spreadsheet/showGridLines/save/false] CHECKED id=toolbar-show-grid-lines-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Grid Lines\"\n" +
+                "      mdi-arrow-bottom-right \"Auto hide scrollbars\" [#/1/Spreadsheet123/spreadsheet/findHighlighting/save/true] id=toolbar-auto-hide-scrollbars-Link\n" +
+                "        TooltipComponent\n" +
+                "          \"Always show scrollbars\"\n" +
                 "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/find] id=toolbar-find-cells-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Find cells...\"\n" +
@@ -303,6 +306,9 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-grid \"Show Grid Lines\" [#/1/Spreadsheet123/spreadsheet/showGridLines/save/false] CHECKED id=toolbar-show-grid-lines-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Grid Lines\"\n" +
+                "      mdi-arrow-bottom-right \"Auto hide scrollbars\" [#/1/Spreadsheet123/spreadsheet/findHighlighting/save/true] id=toolbar-auto-hide-scrollbars-Link\n" +
+                "        TooltipComponent\n" +
+                "          \"Always show scrollbars\"\n" +
                 "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/find] id=toolbar-find-cells-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Find cells...\"\n" +
@@ -361,6 +367,9 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-grid \"Show Grid Lines\" [#/1/Spreadsheet123/spreadsheet/showGridLines/save/false] CHECKED id=toolbar-show-grid-lines-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Grid Lines\"\n" +
+                "      mdi-arrow-bottom-right \"Auto hide scrollbars\" [#/1/Spreadsheet123/spreadsheet/findHighlighting/save/true] id=toolbar-auto-hide-scrollbars-Link\n" +
+                "        TooltipComponent\n" +
+                "          \"Always show scrollbars\"\n" +
                 "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/find] id=toolbar-find-cells-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Find cells...\"\n" +
@@ -419,6 +428,9 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-grid \"Show Grid Lines\" [#/1/Spreadsheet123/spreadsheet/showGridLines/save/false] CHECKED id=toolbar-show-grid-lines-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Grid Lines\"\n" +
+                "      mdi-arrow-bottom-right \"Auto hide scrollbars\" [#/1/Spreadsheet123/spreadsheet/findHighlighting/save/true] id=toolbar-auto-hide-scrollbars-Link\n" +
+                "        TooltipComponent\n" +
+                "          \"Always show scrollbars\"\n" +
                 "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/find] id=toolbar-find-cells-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Find cells...\"\n" +

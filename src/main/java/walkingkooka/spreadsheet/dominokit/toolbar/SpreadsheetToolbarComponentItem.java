@@ -42,6 +42,13 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
     LoadedSpreadsheetMetadataRequired,
     CanBeEmpty {
 
+    /**
+     * {@see SpreadsheetToolbarComponentItemAnchorMetadataBooleanAutoHideScrollbars}
+     */
+    static SpreadsheetToolbarComponentItem<?> autoHideScrollbars(final SpreadsheetToolbarComponentContext context) {
+        return SpreadsheetToolbarComponentItemAnchorMetadataBooleanAutoHideScrollbars.with(context);
+    }
+
     static SpreadsheetToolbarComponentItem<?> bold(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
             TextStylePropertyName.FONT_WEIGHT,

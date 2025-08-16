@@ -58,6 +58,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.arrow_down();
     }
 
+    public static MdiIcon autoHideScrollbars() {
+        return Icons.arrow_bottom_right();
+    }
+
     public static MdiIcon bold() {
         return Icons.format_bold();
     }
