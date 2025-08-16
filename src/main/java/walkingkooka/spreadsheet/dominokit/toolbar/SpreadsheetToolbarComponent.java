@@ -134,6 +134,7 @@ public final class SpreadsheetToolbarComponent implements HtmlComponentDelegator
             SpreadsheetToolbarComponentItem.showHeadings(context),
             SpreadsheetToolbarComponentItem.showFormulas(context),
             SpreadsheetToolbarComponentItem.showGridLines(context),
+            SpreadsheetToolbarComponentItem.autoHideScrollbars(context),
             // finding/sorting/highlighting
             SpreadsheetToolbarComponentItem.findCells(context),
             SpreadsheetToolbarComponentItem.highlightCells(context),
@@ -238,6 +239,10 @@ public final class SpreadsheetToolbarComponent implements HtmlComponentDelegator
             value.map(
                 v -> '-' + v.toString().toUpperCase()
             ).orElse("");
+    }
+
+    public static String autoHideScrollbarsId() {
+        return TOOLBAR_ID_PREFIX + "auto-hide-scrollbars";
     }
 
     public static String dateTimeSymbolsId() {
