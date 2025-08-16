@@ -23,6 +23,13 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 public final class SpreadsheetNavigateComponentContexts implements PublicStaticHelper {
 
     /**
+     * {@see HistoryTokenSpreadsheetNavigateComponentContextCellNavigate}
+     */
+    public static SpreadsheetNavigateComponentContext cellNavigate(final HistoryContext historyContext) {
+        return HistoryTokenSpreadsheetNavigateComponentContextCellNavigate.with(historyContext);
+    }
+
+    /**
      * {@see HistoryTokenSpreadsheetNavigateComponentContextNavigate}
      */
     public static SpreadsheetNavigateComponentContext navigate(final HistoryContext historyContext) {
