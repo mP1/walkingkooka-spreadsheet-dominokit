@@ -36,4 +36,9 @@ public interface SpreadsheetViewportScrollbarComponentContext extends HasSpreads
      * The height of the viewport in pixels.
      */
     int viewportGridHeight();
+
+    /**
+     * {@link SpreadsheetViewportComponentTableContext#autoHideScrollbars()}
+     */
+    boolean autoHideScrollbars();
 }

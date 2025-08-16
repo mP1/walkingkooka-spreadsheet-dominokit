@@ -456,6 +456,9 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
         final HistoryToken historyToken = context.historyToken();
 
+        this.autoHideScrollbars = metadata.get(SpreadsheetMetadataPropertyName.AUTO_HIDE_SCROLLBARS)
+            .orElse(false);
+
         this.shouldShowFormulaEditor = metadata.get(SpreadsheetMetadataPropertyName.SHOW_FORMULA_EDITOR)
             .orElse(true) ||
             (historyToken instanceof SpreadsheetCellFormulaHistoryToken && false == historyToken.isSave());
@@ -616,6 +619,9 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
 
     private SpreadsheetMetadata refreshMetadata;
 
+    // SpreadsheetViewportComponentSpreadsheetViewportScrollbarComponentContext.autoHideScrollbars()
+    boolean autoHideScrollbars;
+
     boolean shouldShowFormulaEditor;
 
     boolean shouldHideZeroValues;
@@ -644,14 +650,16 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
             contentHeight + "px " + SCROLLBAR_LENGTH + "px"
         );
 
+        final boolean autoHideScrollbars = this.autoHideScrollbars;
+
         this.horizontalScrollbar.setCssProperty(
             "width",
             contentWidth + "px"
-        );
+        ).setAutoHideScrollbars(autoHideScrollbars);
         this.verticalScrollbar.setCssProperty(
             "height",
             contentHeight + "px"
-        );
+        ).setAutoHideScrollbars(autoHideScrollbars);
 
         this.horizontalScrollbar.refresh(context);
         this.verticalScrollbar.refresh(context);

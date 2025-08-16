@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import elemental2.dom.Event;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
@@ -113,13 +114,61 @@ abstract public class SpreadsheetViewportScrollbarComponent<R extends Spreadshee
 
         layout.appendChild(this.before)
             .appendChild(this.slider)
-            .appendChild(this.after);
+            .appendChild(this.after)
+            .addMouseEnter(this::onMouseEnter)
+            .addMouseOut(this::onMouseOut);
     }
 
     /**
      * Factory that creates the slider component, without setting of its min and max
      */
     abstract SliderComponent createSlider();
+
+    private void onMouseEnter(final Event event) {
+        this.mouseEnter = true;
+
+        if (this.context.autoHideScrollbars()) {
+            this.makeOpaque();
+        }
+    }
+
+    private void onMouseOut(final Event event) {
+        this.mouseEnter = false;
+
+        if (this.context.autoHideScrollbars()) {
+            this.makeTransparent();
+        }
+    }
+
+    // SpreadsheetViewportComponent
+    void setAutoHideScrollbars(final boolean autoHideScrollbars) {
+        if (autoHideScrollbars) {
+            if (this.mouseEnter) {
+                this.makeOpaque();
+            } else {
+                this.makeTransparent();
+            }
+        } else {
+            this.makeOpaque();
+        }
+    }
+
+    private boolean mouseEnter;
+
+    private void makeOpaque() {
+        this.setOpacity("1");
+    }
+
+    private void makeTransparent() {
+        this.setOpacity("0");
+    }
+
+    private void setOpacity(final String value) {
+        this.setCssProperty(
+            "opacity",
+            value
+        );
+    }
 
     @Override
     public boolean isEditing() {

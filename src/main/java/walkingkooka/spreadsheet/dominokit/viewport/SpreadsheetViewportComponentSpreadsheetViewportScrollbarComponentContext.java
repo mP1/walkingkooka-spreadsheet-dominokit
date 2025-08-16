@@ -62,6 +62,11 @@ final class SpreadsheetViewportComponentSpreadsheetViewportScrollbarComponentCon
         return this.component.viewportGridHeight;
     }
 
+    @Override
+    public boolean autoHideScrollbars() {
+        return this.component.autoHideScrollbars;
+    }
+
     private final SpreadsheetViewportComponent component;
 
     // HistoryContextDelegator..........................................................................................
