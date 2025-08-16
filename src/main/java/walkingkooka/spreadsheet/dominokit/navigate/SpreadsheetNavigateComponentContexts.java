@@ -30,6 +30,13 @@ public final class SpreadsheetNavigateComponentContexts implements PublicStaticH
     }
 
     /**
+     * {@see HistoryTokenSpreadsheetNavigateComponentContextColumnNavigate}
+     */
+    public static SpreadsheetNavigateComponentContext columnNavigate(final HistoryContext historyContext) {
+        return HistoryTokenSpreadsheetNavigateComponentContextColumnNavigate.with(historyContext);
+    }
+
+    /**
      * {@see HistoryTokenSpreadsheetNavigateComponentContextNavigate}
      */
     public static SpreadsheetNavigateComponentContext navigate(final HistoryContext historyContext) {
