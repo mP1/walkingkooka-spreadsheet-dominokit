@@ -3140,32 +3140,49 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellNavigate() {
         this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/navigate",
+            HistoryToken.cellNavigate(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                Optional.empty()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellNavigateHomeNavigation() {
+        this.parseStringAndCheck(
             "/123/SpreadsheetName456/cell/A1/navigate/Z99/right%20444px",
             HistoryToken.cellNavigate(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                SpreadsheetViewportHomeNavigationList.with(
-                    SpreadsheetSelection.parseCell("Z99")
-                ).setNavigations(
-                    SpreadsheetViewportNavigationList.parse("right 444px")
+                Optional.of(
+                    SpreadsheetViewportHomeNavigationList.with(
+                        SpreadsheetSelection.parseCell("Z99")
+                    ).setNavigations(
+                        SpreadsheetViewportNavigationList.parse("right 444px")
+                    )
                 )
             )
         );
     }
 
     @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellRangeNavigate() {
+    public void testParseSpreadsheetIdSpreadsheetNameCellRangeNavigateHomeNavitations() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/cell/B2:C3/top-left/navigate/Z99/right%20444px",
             HistoryToken.cellNavigate(
                 ID,
                 NAME,
                 CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                SpreadsheetViewportHomeNavigationList.with(
-                    SpreadsheetSelection.parseCell("Z99")
-                ).setNavigations(
-                    SpreadsheetViewportNavigationList.parse("right 444px")
+                Optional.of(
+                    SpreadsheetViewportHomeNavigationList.with(
+                        SpreadsheetSelection.parseCell("Z99")
+                    ).setNavigations(
+                        SpreadsheetViewportNavigationList.parse("right 444px")
+                    )
                 )
             )
         );
@@ -3947,32 +3964,49 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnNavigate() {
         this.parseStringAndCheck(
+            "/123/SpreadsheetName456/column/AA/navigate",
+            HistoryToken.columnNavigate(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor(),
+                Optional.empty()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnNavigateHomeNavigations() {
+        this.parseStringAndCheck(
             "/123/SpreadsheetName456/column/AA/navigate/Z99/right%20444px",
             HistoryToken.columnNavigate(
                 ID,
                 NAME,
                 COLUMN.setDefaultAnchor(),
+                Optional.of(
                 SpreadsheetViewportHomeNavigationList.with(
                     SpreadsheetSelection.parseCell("Z99")
                 ).setNavigations(
                     SpreadsheetViewportNavigationList.parse("right 444px")
+                )
                 )
             )
         );
     }
 
     @Test
-    public void testParseSpreadsheetIdSpreadsheetNameColumnRangeNavigate() {
+    public void testParseSpreadsheetIdSpreadsheetNameColumnRangeNavigateHomeNavigations() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/column/BB:CC/left/navigate/Z99/right%20444px",
             HistoryToken.columnNavigate(
                 ID,
                 NAME,
                 COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.LEFT),
+                Optional.of(
                 SpreadsheetViewportHomeNavigationList.with(
                     SpreadsheetSelection.parseCell("Z99")
                 ).setNavigations(
                     SpreadsheetViewportNavigationList.parse("right 444px")
+                )
                 )
             )
         );
@@ -4473,16 +4507,30 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     // /navigate........................................................................................................
 
     @Test
+    public void testParseSpreadsheetIdSpreadsheetNameNavigateEmpty() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/navigate",
+            HistoryToken.navigate(
+                ID,
+                NAME,
+                Optional.empty()
+            )
+        );
+    }
+
+    @Test
     public void testParseSpreadsheetIdSpreadsheetNameNavigate() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/navigate/Z99/right%20444px",
             HistoryToken.navigate(
                 ID,
                 NAME,
-                SpreadsheetViewportHomeNavigationList.with(
-                    SpreadsheetSelection.parseCell("Z99")
-                ).setNavigations(
-                    SpreadsheetViewportNavigationList.parse("right 444px")
+                Optional.of(
+                    SpreadsheetViewportHomeNavigationList.with(
+                        SpreadsheetSelection.parseCell("Z99")
+                    ).setNavigations(
+                        SpreadsheetViewportNavigationList.parse("right 444px")
+                    )
                 )
             )
         );
@@ -4780,32 +4828,49 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowNavigate() {
         this.parseStringAndCheck(
+            "/123/SpreadsheetName456/row/11/navigate",
+            HistoryToken.rowNavigate(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor(),
+                Optional.empty()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameRowNavigateHomeNavigations() {
+        this.parseStringAndCheck(
             "/123/SpreadsheetName456/row/11/navigate/Z99/down%20444px",
             HistoryToken.rowNavigate(
                 ID,
                 NAME,
                 ROW.setDefaultAnchor(),
-                SpreadsheetViewportHomeNavigationList.with(
-                    SpreadsheetSelection.parseCell("Z99")
-                ).setNavigations(
-                    SpreadsheetViewportNavigationList.parse("down 444px")
+                Optional.of(
+                    SpreadsheetViewportHomeNavigationList.with(
+                        SpreadsheetSelection.parseCell("Z99")
+                    ).setNavigations(
+                        SpreadsheetViewportNavigationList.parse("down 444px")
+                    )
                 )
             )
         );
     }
 
     @Test
-    public void testParseSpreadsheetIdSpreadsheetNameRowRangeNavigate() {
+    public void testParseSpreadsheetIdSpreadsheetNameRowRangeNavigateHomeNavigations() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/row/22:33/bottom/navigate/Z99/down%20444px",
             HistoryToken.rowNavigate(
                 ID,
                 NAME,
                 ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
-                SpreadsheetViewportHomeNavigationList.with(
-                    SpreadsheetSelection.parseCell("Z99")
-                ).setNavigations(
-                    SpreadsheetViewportNavigationList.parse("down 444px")
+                Optional.of(
+                    SpreadsheetViewportHomeNavigationList.with(
+                        SpreadsheetSelection.parseCell("Z99")
+                    ).setNavigations(
+                        SpreadsheetViewportNavigationList.parse("down 444px")
+                    )
                 )
             )
         );

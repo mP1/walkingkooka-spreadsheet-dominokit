@@ -39,7 +39,7 @@ public final class SpreadsheetColumnNavigateHistoryToken extends SpreadsheetColu
     static SpreadsheetColumnNavigateHistoryToken with(final SpreadsheetId id,
                                                       final SpreadsheetName name,
                                                       final AnchoredSpreadsheetSelection anchoredSelection,
-                                                      final SpreadsheetViewportHomeNavigationList navigation) {
+                                                      final Optional<SpreadsheetViewportHomeNavigationList> navigation) {
         return new SpreadsheetColumnNavigateHistoryToken(
             id,
             name,
@@ -51,7 +51,7 @@ public final class SpreadsheetColumnNavigateHistoryToken extends SpreadsheetColu
     private SpreadsheetColumnNavigateHistoryToken(final SpreadsheetId id,
                                                   final SpreadsheetName name,
                                                   final AnchoredSpreadsheetSelection anchoredSelection,
-                                                  final SpreadsheetViewportHomeNavigationList navigation) {
+                                                  final Optional<SpreadsheetViewportHomeNavigationList> navigation) {
         super(
             id,
             name,
@@ -60,18 +60,19 @@ public final class SpreadsheetColumnNavigateHistoryToken extends SpreadsheetColu
         this.navigation = Objects.requireNonNull(navigation, "navigation");
     }
 
-    public SpreadsheetViewportHomeNavigationList navigation() {
+    public Optional<SpreadsheetViewportHomeNavigationList> navigation() {
         return this.navigation;
     }
 
-    private final SpreadsheetViewportHomeNavigationList navigation;
+    private final Optional<SpreadsheetViewportHomeNavigationList> navigation;
 
+    // /1/SpreadsheetName/column/A/navigate
     // /1/SpreadsheetName/column/A/navigate/Z9/right 400
     @Override
     UrlFragment columnUrlFragment() {
-        return NAVIGATE.append(
-            this.navigation.urlFragment()
-        );
+        return this.navigation.map(
+            n-> NAVIGATE.append(n.urlFragment())
+        ).orElse(NAVIGATE);
     }
 
     @Override //
@@ -88,19 +89,22 @@ public final class SpreadsheetColumnNavigateHistoryToken extends SpreadsheetColu
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        // load the cells
-        // http://localhost:12345/api/spreadsheet/1/cell/*/force-recompute?home=A1&width=1568&height=463&includeFrozenColumnsRows=true&selection=F1&selectionType=cell&navigation=right+1567px
-        context.spreadsheetDeltaFetcher()
-            .getCells(
-                this.id(),
-                context.viewport(
-                    this.navigation(),
-                    Optional.of(
-                        this.anchoredSelection
-                    )
-                ).setIncludeFrozenColumnsRows(true)
-            );
+        final SpreadsheetViewportHomeNavigationList navigation = this.navigation.orElse(null);
+        if(null != navigation) {
+            // load the cells
+            // http://localhost:12345/api/spreadsheet/1/cell/*/force-recompute?home=A1&width=1568&height=463&includeFrozenColumnsRows=true&selection=F1&selectionType=cell&navigation=right+1567px
+            context.spreadsheetDeltaFetcher()
+                .getCells(
+                    this.id(),
+                    context.viewport(
+                        navigation,
+                        Optional.of(
+                            this.anchoredSelection
+                        )
+                    ).setIncludeFrozenColumnsRows(true)
+                );
 
-        context.pushHistoryToken(previous);
+            context.pushHistoryToken(previous);
+        }
     }
 }

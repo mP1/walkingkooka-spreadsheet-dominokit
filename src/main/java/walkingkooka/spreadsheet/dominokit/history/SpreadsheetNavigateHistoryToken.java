@@ -39,7 +39,7 @@ public final class SpreadsheetNavigateHistoryToken extends SpreadsheetNameHistor
 
     static SpreadsheetNavigateHistoryToken with(final SpreadsheetId id,
                                                 final SpreadsheetName name,
-                                                final SpreadsheetViewportHomeNavigationList navigation) {
+                                                final Optional<SpreadsheetViewportHomeNavigationList> navigation) {
         return new SpreadsheetNavigateHistoryToken(
             id,
             name,
@@ -49,7 +49,7 @@ public final class SpreadsheetNavigateHistoryToken extends SpreadsheetNameHistor
 
     private SpreadsheetNavigateHistoryToken(final SpreadsheetId id,
                                             final SpreadsheetName name,
-                                            final SpreadsheetViewportHomeNavigationList navigation) {
+                                            final Optional<SpreadsheetViewportHomeNavigationList> navigation) {
         super(
             id,
             name
@@ -57,18 +57,19 @@ public final class SpreadsheetNavigateHistoryToken extends SpreadsheetNameHistor
         this.navigation = Objects.requireNonNull(navigation, "navigation");
     }
 
-    public SpreadsheetViewportHomeNavigationList navigation() {
+    public Optional<SpreadsheetViewportHomeNavigationList> navigation() {
         return this.navigation;
     }
 
-    private final SpreadsheetViewportHomeNavigationList navigation;
+    private final Optional<SpreadsheetViewportHomeNavigationList> navigation;
 
+    // /1/SpreadsheetName/navigate
     // /1/SpreadsheetName/navigate/Z9/right 400
     @Override
     UrlFragment spreadsheetNameUrlFragment() {
-        return NAVIGATE.append(
-            this.navigation.urlFragment()
-        );
+        return this.navigation.map(
+            n-> NAVIGATE.append(n.urlFragment())
+            ).orElse(NAVIGATE);
     }
 
     @Override
@@ -102,17 +103,20 @@ public final class SpreadsheetNavigateHistoryToken extends SpreadsheetNameHistor
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        // load the cells
-        // http://localhost:12345/api/spreadsheet/1/cell/*/force-recompute?home=A1&width=1568&height=463&includeFrozenColumnsRows=true&selection=F1&selectionType=cell&navigation=right+1567px
-        context.spreadsheetDeltaFetcher()
-            .getCells(
-                this.id(),
-                context.viewport(
-                    this.navigation(),
-                    Optional.empty() // selection
-                ).setIncludeFrozenColumnsRows(true)
-            );
+        final SpreadsheetViewportHomeNavigationList navigation = this.navigation.orElse(null);
+        if(null != navigation) {
+            // load the cells
+            // http://localhost:12345/api/spreadsheet/1/cell/*/force-recompute?home=A1&width=1568&height=463&includeFrozenColumnsRows=true&selection=F1&selectionType=cell&navigation=right+1567px
+            context.spreadsheetDeltaFetcher()
+                .getCells(
+                    this.id(),
+                    context.viewport(
+                        navigation,
+                        Optional.empty() // selection
+                    ).setIncludeFrozenColumnsRows(true)
+                );
 
-        context.pushHistoryToken(previous);
+            context.pushHistoryToken(previous);
+        }
     }
 }

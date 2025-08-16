@@ -67,12 +67,16 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
         final TextCursorSavePoint save = cursor.save();
         cursor.end();
 
+        final String text = save.textBetween()
+            .toString();
+
         return this.setNavigation(
-            SpreadsheetViewportHomeNavigationList.fromUrlFragment(
-                UrlFragment.parse(
-                    save.textBetween()
-                        .toString()
-                )
+            Optional.ofNullable(
+                text.isEmpty() ?
+                    null :
+                    SpreadsheetViewportHomeNavigationList.fromUrlFragment(
+                        UrlFragment.parse(text)
+                    )
             )
         );
     }

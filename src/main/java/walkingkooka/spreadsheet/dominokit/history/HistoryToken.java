@@ -706,7 +706,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     public static SpreadsheetCellNavigateHistoryToken cellNavigate(final SpreadsheetId id,
                                                                    final SpreadsheetName name,
                                                                    final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                   final SpreadsheetViewportHomeNavigationList navigation) {
+                                                                   final Optional<SpreadsheetViewportHomeNavigationList> navigation) {
         return SpreadsheetCellNavigateHistoryToken.with(
             id,
             name,
@@ -1250,7 +1250,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     public static SpreadsheetColumnNavigateHistoryToken columnNavigate(final SpreadsheetId id,
                                                                        final SpreadsheetName name,
                                                                        final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                       final SpreadsheetViewportHomeNavigationList navigation) {
+                                                                       final Optional<SpreadsheetViewportHomeNavigationList> navigation) {
         return SpreadsheetColumnNavigateHistoryToken.with(
             id,
             name,
@@ -1501,7 +1501,7 @@ public abstract class HistoryToken implements HasUrlFragment,
      */
     public static SpreadsheetNavigateHistoryToken navigate(final SpreadsheetId id,
                                                            final SpreadsheetName name,
-                                                           final SpreadsheetViewportHomeNavigationList navigation) {
+                                                           final Optional<SpreadsheetViewportHomeNavigationList> navigation) {
         return SpreadsheetNavigateHistoryToken.with(
             id,
             name,
@@ -1682,7 +1682,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     public static SpreadsheetRowNavigateHistoryToken rowNavigate(final SpreadsheetId id,
                                                                  final SpreadsheetName name,
                                                                  final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                 final SpreadsheetViewportHomeNavigationList navigation) {
+                                                                 final Optional<SpreadsheetViewportHomeNavigationList> navigation) {
         return SpreadsheetRowNavigateHistoryToken.with(
             id,
             name,
@@ -3597,7 +3597,7 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     // navigation.......................................................................................................
 
-    public final HistoryToken setNavigation(final SpreadsheetViewportHomeNavigationList navigation) {
+    public final HistoryToken setNavigation(final Optional<SpreadsheetViewportHomeNavigationList> navigation) {
         Objects.requireNonNull(navigation, "navigation");
 
         HistoryToken historyToken = this;
