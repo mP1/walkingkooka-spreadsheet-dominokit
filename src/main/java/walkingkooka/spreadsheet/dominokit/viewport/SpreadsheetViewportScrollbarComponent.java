@@ -315,14 +315,16 @@ abstract public class SpreadsheetViewportScrollbarComponent<R extends Spreadshee
         this.before.setHistoryToken(
             Optional.of(
                 historyToken.setNavigation(
-                    SpreadsheetViewportHomeNavigationList.with(home)
-                        .setNavigations(
-                            SpreadsheetViewportNavigationList.EMPTY.concat(
-                                columns ?
-                                    SpreadsheetViewportNavigation.leftPixel(width) :
-                                    SpreadsheetViewportNavigation.upPixel(height)
+                    Optional.of(
+                        SpreadsheetViewportHomeNavigationList.with(home)
+                            .setNavigations(
+                                SpreadsheetViewportNavigationList.EMPTY.concat(
+                                    columns ?
+                                        SpreadsheetViewportNavigation.leftPixel(width) :
+                                        SpreadsheetViewportNavigation.upPixel(height)
+                                )
                             )
-                        )
+                    )
                 )
             )
         );
@@ -340,14 +342,16 @@ abstract public class SpreadsheetViewportScrollbarComponent<R extends Spreadshee
         this.after.setHistoryToken(
             Optional.of(
                 historyToken.setNavigation(
-                    SpreadsheetViewportHomeNavigationList.with(home)
-                        .setNavigations(
-                            SpreadsheetViewportNavigationList.EMPTY.concat(
-                                columns ?
-                                    SpreadsheetViewportNavigation.rightPixel(width) :
-                                    SpreadsheetViewportNavigation.downPixel(height)
+                    Optional.of(
+                        SpreadsheetViewportHomeNavigationList.with(home)
+                            .setNavigations(
+                                SpreadsheetViewportNavigationList.EMPTY.concat(
+                                    columns ?
+                                        SpreadsheetViewportNavigation.rightPixel(width) :
+                                        SpreadsheetViewportNavigation.downPixel(height)
+                                )
                             )
-                        )
+                    )
                 )
             )
         );

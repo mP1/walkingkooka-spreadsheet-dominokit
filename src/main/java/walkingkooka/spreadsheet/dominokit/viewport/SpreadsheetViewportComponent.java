@@ -385,7 +385,9 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
             context.pushHistoryToken(
                 context.historyToken()
                     .setNavigation(
-                        SpreadsheetViewportHomeNavigationList.with(home)
+                        Optional.of(
+                            SpreadsheetViewportHomeNavigationList.with(home)
+                        )
                     )
             );
         }

@@ -26,6 +26,8 @@ import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigationList;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetCellNavigateHistoryTokenTest extends SpreadsheetCellHistoryTokenTestCase<SpreadsheetCellNavigateHistoryToken> {
@@ -134,7 +136,7 @@ public final class SpreadsheetCellNavigateHistoryTokenTest extends SpreadsheetCe
             id,
             name,
             selection,
-            NAVIGATIONS
+            Optional.of(NAVIGATIONS)
         );
     }
 

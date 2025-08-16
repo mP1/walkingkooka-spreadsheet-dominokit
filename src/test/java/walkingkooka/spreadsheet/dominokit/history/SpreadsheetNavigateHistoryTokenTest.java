@@ -24,6 +24,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigationList;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetNavigateHistoryTokenTest extends SpreadsheetNameHistoryTokenTestCase<SpreadsheetNavigateHistoryToken> {
@@ -109,7 +111,7 @@ public final class SpreadsheetNavigateHistoryTokenTest extends SpreadsheetNameHi
         return SpreadsheetNavigateHistoryToken.with(
             id,
             name,
-            NAVIGATIONS
+            Optional.of(NAVIGATIONS)
         );
     }
 
