@@ -50,6 +50,8 @@ import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingListDialo
 import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingListDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleDialogComponent;
 import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.navigate.SpreadsheetNavigateDialogComponent;
+import walkingkooka.spreadsheet.dominokit.navigate.SpreadsheetNavigateDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.plugin.JarEntryInfoListDialogComponent;
@@ -106,6 +108,8 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
         label(context);
 
         locale(context);
+
+        navigate(context);
 
         sort(context);
     }
@@ -331,6 +335,24 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
         );
         PluginAliasSetLikeDialogComponent.with(
             PluginAliasSetLikeDialogComponentContexts.validatorValidators(context)
+        );
+    }
+
+    private static void navigate(final AppContext context) {
+        SpreadsheetNavigateDialogComponent.with(
+            SpreadsheetNavigateDialogComponentContexts.cellNavigate(context)
+        );
+
+        SpreadsheetNavigateDialogComponent.with(
+            SpreadsheetNavigateDialogComponentContexts.columnNavigate(context)
+        );
+
+        SpreadsheetNavigateDialogComponent.with(
+            SpreadsheetNavigateDialogComponentContexts.navigate(context)
+        );
+
+        SpreadsheetNavigateDialogComponent.with(
+            SpreadsheetNavigateDialogComponentContexts.rowNavigate(context)
         );
     }
 
