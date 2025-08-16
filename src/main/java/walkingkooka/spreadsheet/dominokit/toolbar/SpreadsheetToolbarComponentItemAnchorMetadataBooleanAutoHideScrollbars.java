@@ -45,7 +45,7 @@ final class SpreadsheetToolbarComponentItemAnchorMetadataBooleanAutoHideScrollba
 
     @Override
     SpreadsheetMetadataPropertyName<Boolean> propertyName() {
-        return SpreadsheetMetadataPropertyName.FIND_HIGHLIGHTING;
+        return SpreadsheetMetadataPropertyName.AUTO_HIDE_SCROLLBARS;
     }
 
     @Override
