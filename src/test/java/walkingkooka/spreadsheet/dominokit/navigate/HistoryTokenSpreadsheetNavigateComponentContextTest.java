@@ -17,22 +17,20 @@
 
 package walkingkooka.spreadsheet.dominokit.navigate;
 
-import walkingkooka.reflect.PublicStaticHelper;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.reflect.ClassTesting;
+import walkingkooka.reflect.JavaVisibility;
 
-public final class SpreadsheetNavigateComponentContexts implements PublicStaticHelper {
+public final class HistoryTokenSpreadsheetNavigateComponentContextTest implements ClassTesting<HistoryTokenSpreadsheetNavigateComponentContext> {
 
-    /**
-     * {@see HistoryTokenSpreadsheetNavigateComponentContextNavigate}
-     */
-    public static SpreadsheetNavigateComponentContext navigate(final HistoryContext historyContext) {
-        return HistoryTokenSpreadsheetNavigateComponentContextNavigate.with(historyContext);
+    // class............................................................................................................
+
+    @Override
+    public Class<HistoryTokenSpreadsheetNavigateComponentContext> type() {
+        return HistoryTokenSpreadsheetNavigateComponentContext.class;
     }
 
-    /**
-     * Stop creation
-     */
-    private SpreadsheetNavigateComponentContexts() {
-        throw new UnsupportedOperationException();
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }
