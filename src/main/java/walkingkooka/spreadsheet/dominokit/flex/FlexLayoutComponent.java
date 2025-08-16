@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.flex;
 
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.style.CssClass;
@@ -126,6 +127,16 @@ public class FlexLayoutComponent implements HtmlComponentDelegator<HTMLDivElemen
      * Holds all added child components.
      */
     private final List<IsElement<?>> children;
+
+    public FlexLayoutComponent addMouseEnter(final EventListener listener) {
+        this.div.addMouseEnterListener(listener);
+        return this;
+    }
+
+    public FlexLayoutComponent addMouseOut(final EventListener listener) {
+        this.div.addMouseLeaveListener(listener);
+        return this;
+    }
 
     // isEditing........................................................................................................
 
