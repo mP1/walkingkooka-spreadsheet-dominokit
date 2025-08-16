@@ -40,6 +40,11 @@ public class FakeSpreadsheetViewportComponentTableContext extends FakeSpreadshee
     }
 
     @Override
+    public boolean autoHideScrollbars() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public boolean shouldHideZeroValues() {
         throw new UnsupportedOperationException();
     }

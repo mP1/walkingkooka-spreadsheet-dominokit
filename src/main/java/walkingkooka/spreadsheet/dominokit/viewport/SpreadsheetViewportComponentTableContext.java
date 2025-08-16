@@ -44,6 +44,11 @@ interface SpreadsheetViewportComponentTableContext extends HistoryContext,
     int viewportGridHeight();
 
     /**
+     * When true indicates that the scrollbars will be hidden and only shown when the mouse hovers over them.
+     */
+    boolean autoHideScrollbars();
+
+    /**
      * When true indicates that hide zero values is active, and cells should add extra styling to show this.
      */
     boolean shouldHideZeroValues();

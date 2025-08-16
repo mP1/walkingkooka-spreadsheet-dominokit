@@ -67,6 +67,11 @@ final class SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext
     }
 
     @Override
+    public boolean autoHideScrollbars() {
+        return this.spreadsheetViewportComponent.autoHideScrollbars;
+    }
+
+    @Override
     public boolean shouldHideZeroValues() {
         return this.spreadsheetViewportComponent.shouldHideZeroValues;
     }

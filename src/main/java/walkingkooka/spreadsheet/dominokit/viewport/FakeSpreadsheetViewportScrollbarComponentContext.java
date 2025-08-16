@@ -37,6 +37,11 @@ public class FakeSpreadsheetViewportScrollbarComponentContext extends FakeHistor
     }
 
     @Override
+    public boolean autoHideScrollbars() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public SpreadsheetMetadata spreadsheetMetadata() {
         throw new UnsupportedOperationException();
     }
