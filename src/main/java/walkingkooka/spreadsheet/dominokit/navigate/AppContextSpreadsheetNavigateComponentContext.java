@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.navigate;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -34,6 +35,11 @@ abstract class AppContextSpreadsheetNavigateComponentContext implements Spreadsh
     AppContextSpreadsheetNavigateComponentContext(final AppContext context) {
         super();
         this.context = Objects.requireNonNull(context, "context");
+    }
+
+    @Override
+    public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+        return this.context.addSpreadsheetMetadataFetcherWatcher(watcher);
     }
 
     // ComponentLifecycleMatcher........................................................................................

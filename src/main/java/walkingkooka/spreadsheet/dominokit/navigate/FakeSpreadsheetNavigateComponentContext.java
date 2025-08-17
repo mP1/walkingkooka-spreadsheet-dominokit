@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.navigate;
 
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -30,6 +31,11 @@ public class FakeSpreadsheetNavigateComponentContext extends FakeHistoryContext
 
     @Override
     public String dialogTitle() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 
