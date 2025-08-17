@@ -86,6 +86,14 @@ public final class DialogComponentContextTest implements ClassTesting<DialogComp
     // selectionDialogTitle.............................................................................................
 
     @Test
+    public void testSelectionDialogTitleWithoutSelection() {
+        this.selectionDialogTitleAndCheck(
+            "Action123",
+            "Action123"
+        );
+    }
+
+    @Test
     public void testSelectionDialogTitleWithCell() {
         this.selectionDialogTitleAndCheck(
             SpreadsheetSelection.A1,
@@ -112,7 +120,26 @@ public final class DialogComponentContextTest implements ClassTesting<DialogComp
         );
     }
 
+    private void selectionDialogTitleAndCheck(final String action,
+                                              final String expected) {
+        this.selectionDialogTitleAndCheck(
+            Optional.empty(),
+            action,
+            expected
+        );
+    }
+
     private void selectionDialogTitleAndCheck(final SpreadsheetSelection selection,
+                                              final String action,
+                                              final String expected) {
+        this.selectionDialogTitleAndCheck(
+            Optional.of(selection),
+            action,
+            expected
+        );
+    }
+
+    private void selectionDialogTitleAndCheck(final Optional<SpreadsheetSelection> selection,
                                               final String action,
                                               final String expected) {
         this.checkEquals(
@@ -121,11 +148,17 @@ public final class DialogComponentContextTest implements ClassTesting<DialogComp
 
                 @Override
                 public HistoryToken historyToken() {
-                    return HistoryToken.cellSelect(
-                        ID,
-                        NAME,
-                        selection.setDefaultAnchor()
-                    );
+                    return selection.isPresent() ?
+                        HistoryToken.cellSelect(
+                            ID,
+                            NAME,
+                            selection.get()
+                                .setDefaultAnchor()
+                        ) :
+                        HistoryToken.spreadsheetSelect(
+                            ID,
+                            NAME
+                        );
                 }
             }.selectionDialogTitle(action),
             () -> "selection: " + selection + " action: " + action
