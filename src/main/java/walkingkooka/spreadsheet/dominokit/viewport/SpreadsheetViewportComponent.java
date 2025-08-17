@@ -40,6 +40,7 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellLinksComponent;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuTargets;
@@ -66,6 +67,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnSelectHistory
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContext;
+import walkingkooka.spreadsheet.dominokit.navigate.SpreadsheetNavigateLinkComponent;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetSelectionMenu;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterAliasSet;
@@ -140,6 +142,8 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
             );
             this.horizontalScrollbar = this.horizontalScrollbar(spreadsheetViewportScrollbarComponentContext);
             this.verticalScrollbar = this.verticalScrollbar(spreadsheetViewportScrollbarComponentContext);
+            this.navigateLink = SpreadsheetNavigateLinkComponent.with(context)
+                .setId(ID_PREFIX + "navigate" + SpreadsheetElementIds.LINK);
         }
 
         this.tableContainer = this.tableContainer();
@@ -307,6 +311,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         container.appendChild(this.table);
         container.appendChild(this.verticalScrollbar);
         container.appendChild(this.horizontalScrollbar);
+        container.appendChild(this.navigateLink);
         // bottom/right navigate to link https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/5903
 
         return container;
@@ -392,6 +397,8 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
             );
         }
     }
+
+    private final SpreadsheetNavigateLinkComponent navigateLink;
 
     // misc.............................................................................................................
 
@@ -1169,6 +1176,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
             this.table.printTree(printer);
             this.verticalScrollbar.printTree(printer);
             this.horizontalScrollbar.printTree(printer);
+            this.navigateLink.printTree(printer);
         }
 
         printer.outdent();

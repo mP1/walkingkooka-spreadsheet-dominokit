@@ -332,7 +332,9 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                 "            SliderComponent\n" +
                 "              HORIZONTAL\n" +
                 "                [0.0] min=1.0 max=16383.0 id=viewport-horizontal-scrollbar-value-Slider\n" +
-                "            [#/1/SpreadsheetName111/cell/A1/navigate/A1/right%2099px] mdi-arrow-right id=viewport-horizontal-scrollbar-right-Link\n"
+                "            [#/1/SpreadsheetName111/cell/A1/navigate/A1/right%2099px] mdi-arrow-right id=viewport-horizontal-scrollbar-right-Link\n" +
+                "      SpreadsheetNavigateLinkComponent\n" +
+                "        \"Navigate\" [#/1/SpreadsheetName111/cell/A1/navigate] id=viewport-navigate-Link"
         );
     }
 
@@ -402,7 +404,9 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                 "            SliderComponent\n" +
                 "              HORIZONTAL\n" +
                 "                [0.0] min=1.0 max=16383.0 id=viewport-horizontal-scrollbar-value-Slider\n" +
-                "            [#/1/SpreadsheetName111/column/A/navigate/A1/right%2099px] mdi-arrow-right id=viewport-horizontal-scrollbar-right-Link\n"
+                "            [#/1/SpreadsheetName111/column/A/navigate/A1/right%2099px] mdi-arrow-right id=viewport-horizontal-scrollbar-right-Link\n" +
+                "      SpreadsheetNavigateLinkComponent\n" +
+                "        \"Navigate\" [#/1/SpreadsheetName111/column/A/navigate] id=viewport-navigate-Link"
         );
     }
 
@@ -472,7 +476,9 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                 "            SliderComponent\n" +
                 "              HORIZONTAL\n" +
                 "                [0.0] min=1.0 max=16383.0 id=viewport-horizontal-scrollbar-value-Slider\n" +
-                "            [#/1/SpreadsheetName111/row/1/navigate/A1/right%2099px] mdi-arrow-right id=viewport-horizontal-scrollbar-right-Link\n"
+                "            [#/1/SpreadsheetName111/row/1/navigate/A1/right%2099px] mdi-arrow-right id=viewport-horizontal-scrollbar-right-Link\n" +
+                "      SpreadsheetNavigateLinkComponent\n" +
+                "        \"Navigate\" [#/1/SpreadsheetName111/row/1/navigate] id=viewport-navigate-Link"
         );
     }
 
