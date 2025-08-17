@@ -20,15 +20,20 @@ package walkingkooka.spreadsheet.dominokit.navigate;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+
+import java.util.function.Supplier;
 
 public final class SpreadsheetNavigateComponentContexts implements PublicStaticHelper {
 
     /**
      * {@see BasicSpreadsheetNavigateComponentContextCellNavigate}
      */
-    public static SpreadsheetNavigateComponentContext cellNavigate(final HistoryContext historyContext,
+    public static SpreadsheetNavigateComponentContext cellNavigate(final Supplier<SpreadsheetMetadata> metadata,
+                                                                   final HistoryContext historyContext,
                                                                    final LoggingContext loggingContext) {
         return BasicSpreadsheetNavigateComponentContextCellNavigate.with(
+            metadata,
             historyContext,
             loggingContext
         );
@@ -37,9 +42,11 @@ public final class SpreadsheetNavigateComponentContexts implements PublicStaticH
     /**
      * {@see BasicSpreadsheetNavigateComponentContextColumnNavigate}
      */
-    public static SpreadsheetNavigateComponentContext columnNavigate(final HistoryContext historyContext,
+    public static SpreadsheetNavigateComponentContext columnNavigate(final Supplier<SpreadsheetMetadata> metadata,
+                                                                     final HistoryContext historyContext,
                                                                      final LoggingContext loggingContext) {
         return BasicSpreadsheetNavigateComponentContextColumnNavigate.with(
+            metadata,
             historyContext,
             loggingContext
         );
@@ -55,9 +62,11 @@ public final class SpreadsheetNavigateComponentContexts implements PublicStaticH
     /**
      * {@see BasicSpreadsheetNavigateComponentContextNavigate}
      */
-    public static SpreadsheetNavigateComponentContext navigate(final HistoryContext historyContext,
+    public static SpreadsheetNavigateComponentContext navigate(final Supplier<SpreadsheetMetadata> metadata,
+                                                               final HistoryContext historyContext,
                                                                final LoggingContext loggingContext) {
         return BasicSpreadsheetNavigateComponentContextNavigate.with(
+            metadata,
             historyContext,
             loggingContext
         );
@@ -66,9 +75,11 @@ public final class SpreadsheetNavigateComponentContexts implements PublicStaticH
     /**
      * {@see BasicSpreadsheetNavigateComponentContextRowNavigate}
      */
-    public static SpreadsheetNavigateComponentContext rowNavigate(final HistoryContext historyContext,
+    public static SpreadsheetNavigateComponentContext rowNavigate(final Supplier<SpreadsheetMetadata> metadata,
+                                                                  final HistoryContext historyContext,
                                                                   final LoggingContext loggingContext) {
         return BasicSpreadsheetNavigateComponentContextRowNavigate.with(
+            metadata,
             historyContext,
             loggingContext
         );

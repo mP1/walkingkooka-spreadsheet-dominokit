@@ -19,7 +19,9 @@ package walkingkooka.spreadsheet.dominokit.navigate;
 
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 
 public interface SpreadsheetNavigateComponentContext extends DialogComponentContext,
-    ComponentLifecycleMatcher {
+    ComponentLifecycleMatcher,
+    HasSpreadsheetMetadata {
 }
