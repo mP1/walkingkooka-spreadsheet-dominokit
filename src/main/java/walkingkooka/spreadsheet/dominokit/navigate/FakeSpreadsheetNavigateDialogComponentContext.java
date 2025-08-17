@@ -22,10 +22,10 @@ import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
-public class FakeSpreadsheetNavigateComponentContext extends FakeHistoryContext
-    implements SpreadsheetNavigateComponentContext {
+public class FakeSpreadsheetNavigateDialogComponentContext extends FakeHistoryContext
+    implements SpreadsheetNavigateDialogComponentContext {
 
-    public FakeSpreadsheetNavigateComponentContext() {
+    public FakeSpreadsheetNavigateDialogComponentContext() {
         super();
     }
 

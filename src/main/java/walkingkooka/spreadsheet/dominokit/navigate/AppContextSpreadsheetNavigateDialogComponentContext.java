@@ -28,11 +28,11 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.util.Objects;
 
-abstract class AppContextSpreadsheetNavigateComponentContext implements SpreadsheetNavigateComponentContext,
+abstract class AppContextSpreadsheetNavigateDialogComponentContext implements SpreadsheetNavigateDialogComponentContext,
     HistoryContextDelegator,
     LoggingContextDelegator {
 
-    AppContextSpreadsheetNavigateComponentContext(final AppContext context) {
+    AppContextSpreadsheetNavigateDialogComponentContext(final AppContext context) {
         super();
         this.context = Objects.requireNonNull(context, "context");
     }

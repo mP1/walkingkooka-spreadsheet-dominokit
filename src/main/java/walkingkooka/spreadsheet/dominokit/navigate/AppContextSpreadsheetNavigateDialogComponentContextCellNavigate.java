@@ -21,13 +21,13 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellNavigateHistoryToken;
 
-final class AppContextSpreadsheetNavigateComponentContextCellNavigate extends AppContextSpreadsheetNavigateComponentContext {
+final class AppContextSpreadsheetNavigateDialogComponentContextCellNavigate extends AppContextSpreadsheetNavigateDialogComponentContext {
 
-    static AppContextSpreadsheetNavigateComponentContextCellNavigate with(final AppContext context) {
-        return new AppContextSpreadsheetNavigateComponentContextCellNavigate(context);
+    static AppContextSpreadsheetNavigateDialogComponentContextCellNavigate with(final AppContext context) {
+        return new AppContextSpreadsheetNavigateDialogComponentContextCellNavigate(context);
     }
 
-    private AppContextSpreadsheetNavigateComponentContextCellNavigate(final AppContext context) {
+    private AppContextSpreadsheetNavigateDialogComponentContextCellNavigate(final AppContext context) {
         super(context);
     }
 
