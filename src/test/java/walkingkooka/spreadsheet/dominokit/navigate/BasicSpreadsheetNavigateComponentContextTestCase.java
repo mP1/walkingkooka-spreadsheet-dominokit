@@ -101,9 +101,8 @@ public abstract class BasicSpreadsheetNavigateComponentContextTestCase<C extends
         );
     }
 
-    public C createContext(final HistoryToken historyToken) {
+    public final C createContext(final HistoryToken historyToken) {
         return this.createContext(
-            SPREADSHEET_METADATA_GETTER,
             new FakeHistoryContext() {
                 @Override
                 public HistoryToken historyToken() {
@@ -127,8 +126,7 @@ public abstract class BasicSpreadsheetNavigateComponentContextTestCase<C extends
                     Objects.requireNonNull(token, "token");
                     throw new UnsupportedOperationException();
                 }
-            },
-            LoggingContexts.fake()
+            }
         );
     }
 
