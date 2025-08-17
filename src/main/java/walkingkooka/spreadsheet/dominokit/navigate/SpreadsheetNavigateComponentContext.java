@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.navigate;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 
-public interface SpreadsheetNavigateComponentContext extends HistoryContext {
+public interface SpreadsheetNavigateComponentContext extends DialogComponentContext {
 }

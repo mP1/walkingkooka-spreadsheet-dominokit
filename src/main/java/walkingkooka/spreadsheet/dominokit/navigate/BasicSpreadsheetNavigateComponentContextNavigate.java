@@ -20,15 +20,29 @@ package walkingkooka.spreadsheet.dominokit.navigate;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNavigateHistoryToken;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 
-final class HistoryTokenSpreadsheetNavigateComponentContextNavigate extends HistoryTokenSpreadsheetNavigateComponentContext {
+final class BasicSpreadsheetNavigateComponentContextNavigate extends BasicSpreadsheetNavigateComponentContext {
 
-    static HistoryTokenSpreadsheetNavigateComponentContextNavigate with(final HistoryContext historyContext) {
-        return new HistoryTokenSpreadsheetNavigateComponentContextNavigate(historyContext);
+    static BasicSpreadsheetNavigateComponentContextNavigate with(final HistoryContext historyContext,
+                                                                 final LoggingContext loggingContext) {
+        return new BasicSpreadsheetNavigateComponentContextNavigate(
+            historyContext,
+            loggingContext
+        );
     }
 
-    private HistoryTokenSpreadsheetNavigateComponentContextNavigate(final HistoryContext historyContext) {
-        super(historyContext);
+    private BasicSpreadsheetNavigateComponentContextNavigate(final HistoryContext historyContext,
+                                                             final LoggingContext loggingContext) {
+        super(
+            historyContext,
+            loggingContext
+        );
+    }
+
+    @Override
+    public String dialogTitle() {
+        return spreadsheetDialogTitle("Navigate");
     }
 
     // ComponentLifecycleMatcher........................................................................................

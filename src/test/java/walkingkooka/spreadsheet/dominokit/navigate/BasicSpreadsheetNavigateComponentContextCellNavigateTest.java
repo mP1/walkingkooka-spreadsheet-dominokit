@@ -20,11 +20,12 @@ package walkingkooka.spreadsheet.dominokit.navigate;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
-public final class HistoryTokenSpreadsheetNavigateComponentContextRowNavigateTest extends HistoryTokenSpreadsheetNavigateComponentContextTestCase<HistoryTokenSpreadsheetNavigateComponentContextRowNavigate> {
+public final class BasicSpreadsheetNavigateComponentContextCellNavigateTest extends BasicSpreadsheetNavigateComponentContextTestCase<BasicSpreadsheetNavigateComponentContextCellNavigate> {
 
     @Test
     public void testIsMatchNavigate() {
@@ -51,7 +52,7 @@ public final class HistoryTokenSpreadsheetNavigateComponentContextRowNavigateTes
         this.isMatchAndCheck(
             this.createContext(historyToken),
             historyToken,
-            false
+            true
         );
     }
 
@@ -83,17 +84,21 @@ public final class HistoryTokenSpreadsheetNavigateComponentContextRowNavigateTes
         this.isMatchAndCheck(
             this.createContext(historyToken),
             historyToken,
-            true
+            false
         );
     }
 
     @Override
-    HistoryTokenSpreadsheetNavigateComponentContextRowNavigate createContext(final HistoryContext historyContext) {
-        return HistoryTokenSpreadsheetNavigateComponentContextRowNavigate.with(historyContext);
+    BasicSpreadsheetNavigateComponentContextCellNavigate createContext(final HistoryContext historyContext,
+                                                                       final LoggingContext loggingContext) {
+        return BasicSpreadsheetNavigateComponentContextCellNavigate.with(
+            historyContext,
+            loggingContext
+        );
     }
 
     @Override
-    public Class<HistoryTokenSpreadsheetNavigateComponentContextRowNavigate> type() {
-        return HistoryTokenSpreadsheetNavigateComponentContextRowNavigate.class;
+    public Class<BasicSpreadsheetNavigateComponentContextCellNavigate> type() {
+        return BasicSpreadsheetNavigateComponentContextCellNavigate.class;
     }
 }
