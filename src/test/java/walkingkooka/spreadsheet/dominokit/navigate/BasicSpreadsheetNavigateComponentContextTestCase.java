@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.navigate;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
@@ -32,8 +31,7 @@ import java.util.Objects;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public abstract class BasicSpreadsheetNavigateComponentContextTestCase<C extends BasicSpreadsheetNavigateComponentContext>
-    implements SpreadsheetNavigateComponentContextTesting<C>,
-    ComponentLifecycleMatcherTesting {
+    implements SpreadsheetNavigateComponentContextTesting<C> {
 
     @Test
     public final void testWithNullHistoryContextFails() {

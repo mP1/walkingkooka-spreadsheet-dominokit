@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.navigate;
 
-import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -28,8 +27,7 @@ import java.util.Objects;
 
 abstract class BasicSpreadsheetNavigateComponentContext implements SpreadsheetNavigateComponentContext,
     HistoryContextDelegator,
-    LoggingContextDelegator,
-    ComponentLifecycleMatcher {
+    LoggingContextDelegator {
 
     BasicSpreadsheetNavigateComponentContext(final HistoryContext historyContext,
                                              final LoggingContext loggingContext) {

@@ -17,8 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.navigate;
 
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextTesting;
 
 public interface SpreadsheetNavigateComponentContextTesting<C extends SpreadsheetNavigateComponentContext>
-    extends HistoryContextTesting<C> {
+    extends HistoryContextTesting<C>,
+    ComponentLifecycleMatcherTesting {
 }
