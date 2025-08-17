@@ -19,8 +19,6 @@ package walkingkooka.spreadsheet.dominokit.insert;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
@@ -36,21 +34,17 @@ import java.util.OptionalInt;
 public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetColumnRowInsertCountDialogComponent>,
     SpreadsheetMetadataTesting {
 
-    private final static SpreadsheetId ID = SpreadsheetId.with(1);
-
-    private final static SpreadsheetName NAME = SpreadsheetName.with("spreadsheetName123");
-
     private final static HistoryToken COLUMN_HISTORY_TOKEN = HistoryToken.columnInsertAfter(
-        ID,
-        NAME,
+        SPREADSHEET_ID,
+        SPREADSHEET_NAME,
         SpreadsheetSelection.parseColumnRange("A:B")
             .setDefaultAnchor(),
         OptionalInt.empty()
     );
 
     private final static HistoryToken ROW_HISTORY_TOKEN = HistoryToken.rowInsertAfter(
-        ID,
-        NAME,
+        SPREADSHEET_ID,
+        SPREADSHEET_NAME,
         SpreadsheetSelection.parseRowRange("1:23")
             .setDefaultAnchor(),
         OptionalInt.empty()
@@ -72,8 +66,8 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
 
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
-                return SpreadsheetMetadataTesting.METADATA_EN_AU.set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, ID)
-                    .set(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME, NAME);
+                return SpreadsheetMetadataTesting.METADATA_EN_AU.set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, SPREADSHEET_ID)
+                    .set(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME, SPREADSHEET_NAME);
             }
 
             @Override
@@ -125,8 +119,8 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Insert\" [#/1/spreadsheetName123/column/A:B/right/insertAfter/1] id=columnRowInsert-insert-Link\n" +
-                "            \"Close\" [#/1/spreadsheetName123/column/A:B/right] id=columnRowInsert-close-Link\n"
+                "            \"Insert\" [#/1/SpreadsheetName1/column/A:B/right/insertAfter/1] id=columnRowInsert-insert-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName1/column/A:B/right] id=columnRowInsert-close-Link\n"
         );
     }
 
@@ -146,8 +140,8 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
 
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
-                return SpreadsheetMetadataTesting.METADATA_EN_AU.set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, ID)
-                    .set(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME, NAME);
+                return SpreadsheetMetadataTesting.METADATA_EN_AU.set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, SPREADSHEET_ID)
+                    .set(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME, SPREADSHEET_NAME);
             }
 
             @Override
@@ -199,8 +193,8 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Insert\" [#/1/spreadsheetName123/row/1:23/bottom/insertAfter/1] id=columnRowInsert-insert-Link\n" +
-                "            \"Close\" [#/1/spreadsheetName123/row/1:23/bottom] id=columnRowInsert-close-Link\n"
+                "            \"Insert\" [#/1/SpreadsheetName1/row/1:23/bottom/insertAfter/1] id=columnRowInsert-insert-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName1/row/1:23/bottom] id=columnRowInsert-close-Link\n"
         );
     }
 
