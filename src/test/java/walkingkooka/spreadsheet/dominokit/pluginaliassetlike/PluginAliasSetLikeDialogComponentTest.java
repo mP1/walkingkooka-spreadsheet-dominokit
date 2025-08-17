@@ -21,7 +21,6 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.set.SortedSets;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
@@ -314,7 +313,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements DialogCompon
             public SpreadsheetMetadata spreadsheetMetadata() {
                 return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
                     SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                    SpreadsheetId.with(1)
+                    SPREADSHEET_ID
                 ).setOrRemove(
                     SpreadsheetMetadataPropertyName.FORMULA_FUNCTIONS,
                     infos

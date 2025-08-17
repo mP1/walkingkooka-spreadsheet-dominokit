@@ -22,8 +22,6 @@ import walkingkooka.collect.set.Sets;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
@@ -427,10 +425,10 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
             public SpreadsheetMetadata spreadsheetMetadata() {
                 return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
                     SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                    SpreadsheetId.with(1)
+                    SPREADSHEET_ID
                 ).set(
                     SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
-                    SpreadsheetName.with("SpreadsheetName111")
+                    SPREADSHEET_NAME
                 );
             }
 

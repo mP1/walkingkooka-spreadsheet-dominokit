@@ -64,7 +64,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
 
     private final static SpreadsheetMetadata METADATA = SpreadsheetMetadataTesting.METADATA_EN_AU.set(
         SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-        SpreadsheetId.with(1)
+        SPREADSHEET_ID
     );
 
     // onHistoryTokenChange.............................................................................................

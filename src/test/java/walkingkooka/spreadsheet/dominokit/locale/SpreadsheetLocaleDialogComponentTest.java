@@ -22,7 +22,6 @@ import walkingkooka.collect.set.Sets;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
@@ -51,7 +50,7 @@ public final class SpreadsheetLocaleDialogComponentTest implements DialogCompone
 
     private final static SpreadsheetMetadata METADATA = METADATA_EN_AU.set(
         SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-        SpreadsheetId.with(1)
+        SPREADSHEET_ID
     );
 
     // onHistoryToken...................................................................................................

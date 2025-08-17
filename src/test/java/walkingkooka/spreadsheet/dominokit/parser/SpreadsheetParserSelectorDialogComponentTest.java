@@ -27,7 +27,6 @@ import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetCell;
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.convert.SpreadsheetConverterContext;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
@@ -1396,7 +1395,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
             public SpreadsheetMetadata spreadsheetMetadata() {
                 return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
                     SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                    SpreadsheetId.with(1)
+                    SPREADSHEET_ID
                 );
             }
 
