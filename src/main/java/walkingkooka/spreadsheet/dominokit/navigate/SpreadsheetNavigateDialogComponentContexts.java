@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.navigate;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
-public final class SpreadsheetNavigateComponentContexts implements PublicStaticHelper {
+public final class SpreadsheetNavigateDialogComponentContexts implements PublicStaticHelper {
 
     /**
      * {@see AppContextSpreadsheetNavigateComponentContextCellNavigate}
@@ -60,7 +60,7 @@ public final class SpreadsheetNavigateComponentContexts implements PublicStaticH
     /**
      * Stop creation
      */
-    private SpreadsheetNavigateComponentContexts() {
+    private SpreadsheetNavigateDialogComponentContexts() {
         throw new UnsupportedOperationException();
     }
 }

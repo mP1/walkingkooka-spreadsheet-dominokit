@@ -22,11 +22,11 @@ import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
 
-public final class SpreadsheetNavigateComponentContextsTest implements PublicStaticHelperTesting<SpreadsheetNavigateComponentContexts> {
+public final class SpreadsheetNavigateDialogComponentContextsTest implements PublicStaticHelperTesting<SpreadsheetNavigateDialogComponentContexts> {
 
     @Override
-    public Class<SpreadsheetNavigateComponentContexts> type() {
-        return SpreadsheetNavigateComponentContexts.class;
+    public Class<SpreadsheetNavigateDialogComponentContexts> type() {
+        return SpreadsheetNavigateDialogComponentContexts.class;
     }
 
     @Override
