@@ -2358,6 +2358,13 @@ public abstract class HistoryToken implements HasUrlFragment,
                     );
                 }
 
+                if (this instanceof SpreadsheetNavigateHistoryToken) {
+                    closed = spreadsheetSelect(
+                        id,
+                        name
+                    );
+                }
+
                 if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
                     if (this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken ||
                         this instanceof SpreadsheetCellDecimalNumberSymbolsHistoryToken ||
@@ -2367,6 +2374,9 @@ public abstract class HistoryToken implements HasUrlFragment,
                         this instanceof SpreadsheetCellLabelHistoryToken ||
                         this instanceof SpreadsheetCellLabelListHistoryToken ||
                         this instanceof SpreadsheetCellLocaleHistoryToken ||
+                        this instanceof SpreadsheetCellNavigateHistoryToken ||
+                        this instanceof SpreadsheetColumnNavigateHistoryToken ||
+                        this instanceof SpreadsheetRowNavigateHistoryToken ||
                         this instanceof SpreadsheetCellParserHistoryToken ||
                         this instanceof SpreadsheetCellReferenceListHistoryToken ||
                         this instanceof SpreadsheetCellSortHistoryToken ||

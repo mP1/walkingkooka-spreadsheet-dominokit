@@ -92,6 +92,20 @@ public final class SpreadsheetColumnNavigateHistoryTokenTest extends Spreadsheet
         );
     }
 
+    // close............................................................................................................
+
+    @Test
+    public void testClose() {
+        this.closeAndCheck(
+            this.createHistoryToken(),
+            HistoryToken.columnSelect(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor()
+            )
+        );
+    }
+
     // delete...........................................................................................................
 
     @Test
