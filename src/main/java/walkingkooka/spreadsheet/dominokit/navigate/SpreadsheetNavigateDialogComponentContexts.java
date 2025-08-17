@@ -23,38 +23,38 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 public final class SpreadsheetNavigateDialogComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see AppContextSpreadsheetNavigateComponentContextCellNavigate}
+     * {@see AppContextSpreadsheetNavigateDialogComponentContextCellNavigate}
      */
-    public static SpreadsheetNavigateComponentContext cellNavigate(AppContext context) {
-        return AppContextSpreadsheetNavigateComponentContextCellNavigate.with(context);
+    public static SpreadsheetNavigateDialogComponentContext cellNavigate(AppContext context) {
+        return AppContextSpreadsheetNavigateDialogComponentContextCellNavigate.with(context);
     }
 
     /**
-     * {@see AppContextSpreadsheetNavigateComponentContextColumnNavigate}
+     * {@see AppContextSpreadsheetNavigateDialogComponentContextColumnNavigate}
      */
-    public static SpreadsheetNavigateComponentContext columnNavigate(final AppContext context) {
-        return AppContextSpreadsheetNavigateComponentContextColumnNavigate.with(context);
+    public static SpreadsheetNavigateDialogComponentContext columnNavigate(final AppContext context) {
+        return AppContextSpreadsheetNavigateDialogComponentContextColumnNavigate.with(context);
     }
 
     /**
-     * {@see FakeSpreadsheetNavigateComponentContext}
+     * {@see FakeSpreadsheetNavigateDialogComponentContext}
      */
-    public static SpreadsheetNavigateComponentContext fake() {
-        return new FakeSpreadsheetNavigateComponentContext();
+    public static SpreadsheetNavigateDialogComponentContext fake() {
+        return new FakeSpreadsheetNavigateDialogComponentContext();
     }
 
     /**
-     * {@see AppContextSpreadsheetNavigateComponentContextNavigate}
+     * {@see AppContextSpreadsheetNavigateDialogComponentContextNavigate}
      */
-    public static SpreadsheetNavigateComponentContext navigate(final AppContext context) {
-        return AppContextSpreadsheetNavigateComponentContextNavigate.with(context);
+    public static SpreadsheetNavigateDialogComponentContext navigate(final AppContext context) {
+        return AppContextSpreadsheetNavigateDialogComponentContextNavigate.with(context);
     }
 
     /**
-     * {@see AppContextSpreadsheetNavigateComponentContextRowNavigate}
+     * {@see AppContextSpreadsheetNavigateDialogComponentContextRowNavigate}
      */
-    public static SpreadsheetNavigateComponentContext rowNavigate(final AppContext context) {
-        return AppContextSpreadsheetNavigateComponentContextRowNavigate.with(context);
+    public static SpreadsheetNavigateDialogComponentContext rowNavigate(final AppContext context) {
+        return AppContextSpreadsheetNavigateDialogComponentContextRowNavigate.with(context);
     }
 
     /**

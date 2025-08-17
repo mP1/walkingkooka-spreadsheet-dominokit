@@ -19,15 +19,15 @@ package walkingkooka.spreadsheet.dominokit.navigate;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnNavigateHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowNavigateHistoryToken;
 
-final class AppContextSpreadsheetNavigateComponentContextColumnNavigate extends AppContextSpreadsheetNavigateComponentContext {
+final class AppContextSpreadsheetNavigateDialogComponentContextRowNavigate extends AppContextSpreadsheetNavigateDialogComponentContext {
 
-    static AppContextSpreadsheetNavigateComponentContextColumnNavigate with(final AppContext context) {
-        return new AppContextSpreadsheetNavigateComponentContextColumnNavigate(context);
+    static AppContextSpreadsheetNavigateDialogComponentContextRowNavigate with(final AppContext context) {
+        return new AppContextSpreadsheetNavigateDialogComponentContextRowNavigate(context);
     }
 
-    private AppContextSpreadsheetNavigateComponentContextColumnNavigate(final AppContext context) {
+    private AppContextSpreadsheetNavigateDialogComponentContextRowNavigate(final AppContext context) {
         super(context);
     }
 
@@ -40,6 +40,6 @@ final class AppContextSpreadsheetNavigateComponentContextColumnNavigate extends 
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return token instanceof SpreadsheetColumnNavigateHistoryToken;
+        return token instanceof SpreadsheetRowNavigateHistoryToken;
     }
 }

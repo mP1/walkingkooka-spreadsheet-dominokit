@@ -34,8 +34,8 @@ import java.util.function.Supplier;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public abstract class AppContextSpreadsheetNavigateComponentContextTestCase<C extends AppContextSpreadsheetNavigateComponentContext>
-    implements SpreadsheetNavigateComponentContextTesting<C> {
+public abstract class AppContextSpreadsheetNavigateDialogComponentContextTestCase<C extends AppContextSpreadsheetNavigateDialogComponentContext>
+    implements SpreadsheetNavigateDialogComponentContextTesting<C> {
 
     final static SpreadsheetCellReference HOME = SpreadsheetSelection.A1;
 
@@ -105,7 +105,7 @@ public abstract class AppContextSpreadsheetNavigateComponentContextTestCase<C ex
 
     @Override
     public final String typeNamePrefix() {
-        return AppContextSpreadsheetNavigateComponentContext.class.getSimpleName();
+        return AppContextSpreadsheetNavigateDialogComponentContext.class.getSimpleName();
     }
 
     @Override

@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
-public final class AppContextSpreadsheetNavigateComponentContextCellNavigateTest extends AppContextSpreadsheetNavigateComponentContextTestCase<AppContextSpreadsheetNavigateComponentContextCellNavigate> {
+public final class AppContextSpreadsheetNavigateDialogComponentContextRowNavigateTest extends AppContextSpreadsheetNavigateDialogComponentContextTestCase<AppContextSpreadsheetNavigateDialogComponentContextRowNavigate> {
 
     @Test
     public void testIsMatchNavigate() {
@@ -51,7 +51,7 @@ public final class AppContextSpreadsheetNavigateComponentContextCellNavigateTest
         this.isMatchAndCheck(
             this.createContext(historyToken),
             historyToken,
-            true
+            false
         );
     }
 
@@ -83,17 +83,17 @@ public final class AppContextSpreadsheetNavigateComponentContextCellNavigateTest
         this.isMatchAndCheck(
             this.createContext(historyToken),
             historyToken,
-            false
+            true
         );
     }
 
     @Override
-    AppContextSpreadsheetNavigateComponentContextCellNavigate createContext(final AppContext context) {
-        return AppContextSpreadsheetNavigateComponentContextCellNavigate.with(context);
+    AppContextSpreadsheetNavigateDialogComponentContextRowNavigate createContext(final AppContext context) {
+        return AppContextSpreadsheetNavigateDialogComponentContextRowNavigate.with(context);
     }
 
     @Override
-    public Class<AppContextSpreadsheetNavigateComponentContextCellNavigate> type() {
-        return AppContextSpreadsheetNavigateComponentContextCellNavigate.class;
+    public Class<AppContextSpreadsheetNavigateDialogComponentContextRowNavigate> type() {
+        return AppContextSpreadsheetNavigateDialogComponentContextRowNavigate.class;
     }
 }

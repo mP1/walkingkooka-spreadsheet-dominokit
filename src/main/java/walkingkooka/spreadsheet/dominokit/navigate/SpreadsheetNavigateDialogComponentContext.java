@@ -17,10 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.navigate;
 
-import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContextTesting;
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 
-public interface SpreadsheetNavigateComponentContextTesting<C extends SpreadsheetNavigateComponentContext>
-    extends HistoryContextTesting<C>,
-    ComponentLifecycleMatcherTesting {
+public interface SpreadsheetNavigateDialogComponentContext extends DialogComponentContext,
+    ComponentLifecycleMatcher,
+    HasSpreadsheetMetadata {
+
+    Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher);
 }

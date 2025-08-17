@@ -17,14 +17,20 @@
 
 package walkingkooka.spreadsheet.dominokit.navigate;
 
-import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
-import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
+import walkingkooka.reflect.ClassTesting;
+import walkingkooka.reflect.JavaVisibility;
 
-public interface SpreadsheetNavigateComponentContext extends DialogComponentContext,
-    ComponentLifecycleMatcher,
-    HasSpreadsheetMetadata {
+public final class AppContextSpreadsheetNavigateDialogComponentContextTest implements ClassTesting<AppContextSpreadsheetNavigateDialogComponentContext> {
 
-    Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher);
+    // class............................................................................................................
+
+    @Override
+    public Class<AppContextSpreadsheetNavigateDialogComponentContext> type() {
+        return AppContextSpreadsheetNavigateDialogComponentContext.class;
+    }
+
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PACKAGE_PRIVATE;
+    }
 }
