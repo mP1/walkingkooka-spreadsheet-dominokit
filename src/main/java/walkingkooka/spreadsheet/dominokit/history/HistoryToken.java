@@ -2359,70 +2359,24 @@ public abstract class HistoryToken implements HasUrlFragment,
                 }
 
                 if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
-                    final SpreadsheetAnchoredSelectionHistoryToken anchoredSelectionHistoryToken = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
-
-                    if (this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken) {
-                        closed = anchoredSelectionHistoryToken.selectionSelect();
-                    }
-
-                    if (this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken) {
-                        closed = anchoredSelectionHistoryToken.selectionSelect();
-                    }
-
-                    if (this instanceof SpreadsheetCellDecimalNumberSymbolsHistoryToken) {
-                        closed = anchoredSelectionHistoryToken.selectionSelect();
-                    }
-
-                    if (this instanceof SpreadsheetCellFindHistoryToken) {
-                        closed = anchoredSelectionHistoryToken.selectionSelect();
-                    }
-
-                    if (this instanceof SpreadsheetCellFormHistoryToken) {
-                        closed = anchoredSelectionHistoryToken.selectionSelect();
-                    }
-
-                    if (this instanceof SpreadsheetCellFormatterHistoryToken) {
-                        closed = anchoredSelectionHistoryToken.selectionSelect();
-                    }
-
-                    if (this instanceof SpreadsheetCellLabelHistoryToken) {
-                        closed = anchoredSelectionHistoryToken.selectionSelect();
-                    }
-
-                    if (this instanceof SpreadsheetCellLabelListHistoryToken) {
-                        closed = anchoredSelectionHistoryToken.selectionSelect();
-                    }
-
-                    if (this instanceof SpreadsheetCellLocaleHistoryToken) {
-                        closed = anchoredSelectionHistoryToken.selectionSelect();
-                    }
-
-                    if (this instanceof SpreadsheetCellParserHistoryToken) {
-                        closed = anchoredSelectionHistoryToken.selectionSelect();
-                    }
-
-                    if (this instanceof SpreadsheetCellReferenceListHistoryToken) {
-                        closed = anchoredSelectionHistoryToken.selectionSelect();
-                    }
-
-                    if (this instanceof SpreadsheetCellSortHistoryToken || this instanceof SpreadsheetColumnSortHistoryToken || this instanceof SpreadsheetRowSortHistoryToken) {
-                        closed = anchoredSelectionHistoryToken.selectionSelect();
-                    }
-
-                    if (this instanceof SpreadsheetCellValidatorHistoryToken) {
-                        closed = anchoredSelectionHistoryToken.selectionSelect();
-                    }
-
-                    if (this instanceof SpreadsheetCellValueHistoryToken) {
-                        closed = anchoredSelectionHistoryToken.selectionSelect();
-                    }
-
-                    if (this instanceof SpreadsheetCellValueTypeHistoryToken) {
-                        closed = anchoredSelectionHistoryToken.selectionSelect();
-                    }
-
-                    if (this instanceof SpreadsheetCellValueTypeHistoryToken) {
-                        closed = anchoredSelectionHistoryToken.selectionSelect();
+                    if (this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken ||
+                        this instanceof SpreadsheetCellDecimalNumberSymbolsHistoryToken ||
+                        this instanceof SpreadsheetCellFindHistoryToken ||
+                        this instanceof SpreadsheetCellFormHistoryToken ||
+                        this instanceof SpreadsheetCellFormatterHistoryToken ||
+                        this instanceof SpreadsheetCellLabelHistoryToken ||
+                        this instanceof SpreadsheetCellLabelListHistoryToken ||
+                        this instanceof SpreadsheetCellLocaleHistoryToken ||
+                        this instanceof SpreadsheetCellParserHistoryToken ||
+                        this instanceof SpreadsheetCellReferenceListHistoryToken ||
+                        this instanceof SpreadsheetCellSortHistoryToken ||
+                        this instanceof SpreadsheetColumnSortHistoryToken ||
+                        this instanceof SpreadsheetRowSortHistoryToken ||
+                        this instanceof SpreadsheetCellValidatorHistoryToken ||
+                        this instanceof SpreadsheetCellValueHistoryToken ||
+                        this instanceof SpreadsheetCellValueTypeHistoryToken) {
+                        closed = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
+                            .selectionSelect();
                     }
                 } else {
                     if (this instanceof SpreadsheetMetadataPropertyHistoryToken) {
