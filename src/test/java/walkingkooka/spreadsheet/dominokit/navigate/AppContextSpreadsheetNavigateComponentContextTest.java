@@ -20,13 +20,13 @@ package walkingkooka.spreadsheet.dominokit.navigate;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class BasicSpreadsheetNavigateComponentContextTest implements ClassTesting<BasicSpreadsheetNavigateComponentContext> {
+public final class AppContextSpreadsheetNavigateComponentContextTest implements ClassTesting<AppContextSpreadsheetNavigateComponentContext> {
 
     // class............................................................................................................
 
     @Override
-    public Class<BasicSpreadsheetNavigateComponentContext> type() {
-        return BasicSpreadsheetNavigateComponentContext.class;
+    public Class<AppContextSpreadsheetNavigateComponentContext> type() {
+        return AppContextSpreadsheetNavigateComponentContext.class;
     }
 
     @Override

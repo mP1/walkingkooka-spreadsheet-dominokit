@@ -18,16 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.navigate;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
-import java.util.function.Supplier;
 
-public final class BasicSpreadsheetNavigateComponentContextNavigateTest extends BasicSpreadsheetNavigateComponentContextTestCase<BasicSpreadsheetNavigateComponentContextNavigate> {
+public final class AppContextSpreadsheetNavigateComponentContextRowNavigateTest extends AppContextSpreadsheetNavigateComponentContextTestCase<AppContextSpreadsheetNavigateComponentContextRowNavigate> {
 
     @Test
     public void testIsMatchNavigate() {
@@ -39,7 +36,7 @@ public final class BasicSpreadsheetNavigateComponentContextNavigateTest extends 
         this.isMatchAndCheck(
             this.createContext(historyToken),
             historyToken,
-            true
+            false
         );
     }
 
@@ -86,23 +83,17 @@ public final class BasicSpreadsheetNavigateComponentContextNavigateTest extends 
         this.isMatchAndCheck(
             this.createContext(historyToken),
             historyToken,
-            false
+            true
         );
     }
 
     @Override
-    BasicSpreadsheetNavigateComponentContextNavigate createContext(final Supplier<SpreadsheetMetadata> metadata,
-                                                                   final HistoryContext historyContext,
-                                                                   final LoggingContext loggingContext) {
-        return BasicSpreadsheetNavigateComponentContextNavigate.with(
-            metadata,
-            historyContext,
-            loggingContext
-        );
+    AppContextSpreadsheetNavigateComponentContextRowNavigate createContext(final AppContext context) {
+        return AppContextSpreadsheetNavigateComponentContextRowNavigate.with(context);
     }
 
     @Override
-    public Class<BasicSpreadsheetNavigateComponentContextNavigate> type() {
-        return BasicSpreadsheetNavigateComponentContextNavigate.class;
+    public Class<AppContextSpreadsheetNavigateComponentContextRowNavigate> type() {
+        return AppContextSpreadsheetNavigateComponentContextRowNavigate.class;
     }
 }
