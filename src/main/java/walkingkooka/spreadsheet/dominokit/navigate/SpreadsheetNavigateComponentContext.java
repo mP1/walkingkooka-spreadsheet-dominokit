@@ -19,9 +19,12 @@ package walkingkooka.spreadsheet.dominokit.navigate;
 
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 
 public interface SpreadsheetNavigateComponentContext extends DialogComponentContext,
     ComponentLifecycleMatcher,
     HasSpreadsheetMetadata {
+
+    Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher);
 }
