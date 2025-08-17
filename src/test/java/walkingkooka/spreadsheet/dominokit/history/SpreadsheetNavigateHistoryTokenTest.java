@@ -92,6 +92,19 @@ public final class SpreadsheetNavigateHistoryTokenTest extends SpreadsheetNameHi
         );
     }
 
+    // close............................................................................................................
+
+    @Test
+    public void testClose() {
+        this.closeAndCheck(
+            this.createHistoryToken(),
+            HistoryToken.spreadsheetSelect(
+                ID,
+                NAME
+            )
+        );
+    }
+
     // delete...........................................................................................................
 
     @Test

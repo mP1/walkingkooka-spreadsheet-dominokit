@@ -114,6 +114,20 @@ public final class SpreadsheetCellNavigateHistoryTokenTest extends SpreadsheetCe
         );
     }
 
+    // closeAction......................................................................................................
+
+    @Test
+    public void testClose() {
+        this.closeAndCheck(
+            this.createHistoryToken(),
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
     // delete...........................................................................................................
 
     @Test

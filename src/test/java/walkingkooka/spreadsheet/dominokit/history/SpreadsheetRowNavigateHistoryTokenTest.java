@@ -92,6 +92,20 @@ public final class SpreadsheetRowNavigateHistoryTokenTest extends SpreadsheetRow
         );
     }
 
+    // close............................................................................................................
+
+    @Test
+    public void testClose() {
+        this.closeAndCheck(
+            this.createHistoryToken(),
+            HistoryToken.rowSelect(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
+        );
+    }
+
     // delete...........................................................................................................
 
     @Test
