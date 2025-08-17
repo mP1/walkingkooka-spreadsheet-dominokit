@@ -56,8 +56,9 @@ public interface DialogComponentContext extends HistoryContext,
 
         return this.historyToken()
             .selection()
-            .get()
-            .text() + ": " + action;
+            .map(s -> s.text() + ": ")
+            .orElse("")
+            .concat(action);
     }
 
     /**
