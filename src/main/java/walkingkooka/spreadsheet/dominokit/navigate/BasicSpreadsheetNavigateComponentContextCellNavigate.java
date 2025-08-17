@@ -21,20 +21,27 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellNavigateHistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+
+import java.util.function.Supplier;
 
 final class BasicSpreadsheetNavigateComponentContextCellNavigate extends BasicSpreadsheetNavigateComponentContext {
 
-    static BasicSpreadsheetNavigateComponentContextCellNavigate with(final HistoryContext historyContext,
+    static BasicSpreadsheetNavigateComponentContextCellNavigate with(final Supplier<SpreadsheetMetadata> spreadsheetMetadata,
+                                                                     final HistoryContext historyContext,
                                                                      final LoggingContext loggingContext) {
         return new BasicSpreadsheetNavigateComponentContextCellNavigate(
+            spreadsheetMetadata,
             historyContext,
             loggingContext
         );
     }
 
-    private BasicSpreadsheetNavigateComponentContextCellNavigate(final HistoryContext historyContext,
+    private BasicSpreadsheetNavigateComponentContextCellNavigate(final Supplier<SpreadsheetMetadata> spreadsheetMetadata,
+                                                                 final HistoryContext historyContext,
                                                                  final LoggingContext loggingContext) {
         super(
+            spreadsheetMetadata,
             historyContext,
             loggingContext
         );

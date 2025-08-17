@@ -25,19 +25,54 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewport;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportRectangle;
 
 import java.util.Objects;
+import java.util.function.Supplier;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public abstract class BasicSpreadsheetNavigateComponentContextTestCase<C extends BasicSpreadsheetNavigateComponentContext>
     implements SpreadsheetNavigateComponentContextTesting<C> {
 
+    final static SpreadsheetCellReference HOME = SpreadsheetSelection.A1;
+
+    final static SpreadsheetMetadata SPREADSHEET_METADATA = SpreadsheetMetadata.EMPTY.set(
+        SpreadsheetMetadataPropertyName.VIEWPORT,
+        SpreadsheetViewport.with(
+            SpreadsheetViewportRectangle.with(
+                HOME,
+                100,
+                200
+            )
+        )
+    );
+
+    final static Supplier<SpreadsheetMetadata> SPREADSHEET_METADATA_GETTER = () -> SPREADSHEET_METADATA;
+
+    @Test
+    public final void testWithNullSpreadsheetMetadataFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createContext(
+                null,
+                HistoryContexts.fake(),
+                LoggingContexts.fake()
+            )
+        );
+    }
+
     @Test
     public final void testWithNullHistoryContextFails() {
         assertThrows(
             NullPointerException.class,
             () -> this.createContext(
+                SPREADSHEET_METADATA_GETTER,
                 null,
                 LoggingContexts.fake()
             )
@@ -49,6 +84,7 @@ public abstract class BasicSpreadsheetNavigateComponentContextTestCase<C extends
         assertThrows(
             NullPointerException.class,
             () -> this.createContext(
+                SPREADSHEET_METADATA_GETTER,
                 HistoryContexts.fake(),
                 null
             )
@@ -67,6 +103,7 @@ public abstract class BasicSpreadsheetNavigateComponentContextTestCase<C extends
 
     public C createContext(final HistoryToken historyToken) {
         return this.createContext(
+            SPREADSHEET_METADATA_GETTER,
             new FakeHistoryContext() {
                 @Override
                 public HistoryToken historyToken() {
@@ -97,12 +134,14 @@ public abstract class BasicSpreadsheetNavigateComponentContextTestCase<C extends
 
     final C createContext(final HistoryContext historyContext) {
         return this.createContext(
+            SPREADSHEET_METADATA_GETTER,
             historyContext,
             LoggingContexts.fake()
         );
     }
 
-    abstract C createContext(final HistoryContext historyContext,
+    abstract C createContext(final Supplier<SpreadsheetMetadata> spreadsheetMetadata,
+                             final HistoryContext historyContext,
                              final LoggingContext loggingContext);
 
     @Override

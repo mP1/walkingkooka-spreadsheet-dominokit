@@ -21,9 +21,11 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
+import java.util.function.Supplier;
 
 public final class BasicSpreadsheetNavigateComponentContextCellNavigateTest extends BasicSpreadsheetNavigateComponentContextTestCase<BasicSpreadsheetNavigateComponentContextCellNavigate> {
 
@@ -89,9 +91,11 @@ public final class BasicSpreadsheetNavigateComponentContextCellNavigateTest exte
     }
 
     @Override
-    BasicSpreadsheetNavigateComponentContextCellNavigate createContext(final HistoryContext historyContext,
+    BasicSpreadsheetNavigateComponentContextCellNavigate createContext(final Supplier<SpreadsheetMetadata> metadata,
+                                                                       final HistoryContext historyContext,
                                                                        final LoggingContext loggingContext) {
         return BasicSpreadsheetNavigateComponentContextCellNavigate.with(
+            metadata,
             historyContext,
             loggingContext
         );

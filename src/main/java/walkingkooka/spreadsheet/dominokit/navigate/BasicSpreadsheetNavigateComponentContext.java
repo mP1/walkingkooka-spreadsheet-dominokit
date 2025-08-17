@@ -22,16 +22,20 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.util.Objects;
+import java.util.function.Supplier;
 
 abstract class BasicSpreadsheetNavigateComponentContext implements SpreadsheetNavigateComponentContext,
     HistoryContextDelegator,
     LoggingContextDelegator {
 
-    BasicSpreadsheetNavigateComponentContext(final HistoryContext historyContext,
+    BasicSpreadsheetNavigateComponentContext(final Supplier<SpreadsheetMetadata> spreadsheetMetadata,
+                                             final HistoryContext historyContext,
                                              final LoggingContext loggingContext) {
         super();
+        this.spreadsheetMetadata = Objects.requireNonNull(spreadsheetMetadata, "spreadsheetMetadata");
         this.historyContext = Objects.requireNonNull(historyContext, "historyContext");
         this.loggingContext = Objects.requireNonNull(loggingContext, "loggingContext");
     }
@@ -42,6 +46,15 @@ abstract class BasicSpreadsheetNavigateComponentContext implements SpreadsheetNa
     public final boolean shouldIgnore(final HistoryToken token) {
         return token.isSave();
     }
+
+    // HasSpreadsheetMetadata...........................................................................................
+
+    @Override
+    public SpreadsheetMetadata spreadsheetMetadata() {
+        return this.spreadsheetMetadata.get();
+    }
+
+    private final Supplier<SpreadsheetMetadata> spreadsheetMetadata;
 
     // HistoryContextDelegator..........................................................................................
 
