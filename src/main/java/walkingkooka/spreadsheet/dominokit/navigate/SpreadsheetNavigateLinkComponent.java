@@ -47,6 +47,17 @@ public final class SpreadsheetNavigateLinkComponent implements HtmlComponentDele
             .setTextContent("Navigate");
     }
 
+    // id...............................................................................................................
+
+    public String id() {
+        return this.anchor.id();
+    }
+
+    public SpreadsheetNavigateLinkComponent setId(final String id) {
+        this.anchor.setId(id);
+        return this;
+    }
+
     // HtmlComponentDelegator...........................................................................................
 
     @Override
