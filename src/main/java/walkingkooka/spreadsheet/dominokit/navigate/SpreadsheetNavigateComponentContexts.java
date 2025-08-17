@@ -46,6 +46,13 @@ public final class SpreadsheetNavigateComponentContexts implements PublicStaticH
     }
 
     /**
+     * {@see FakeSpreadsheetNavigateComponentContext}
+     */
+    public static SpreadsheetNavigateComponentContext fake() {
+        return new FakeSpreadsheetNavigateComponentContext();
+    }
+
+    /**
      * {@see BasicSpreadsheetNavigateComponentContextNavigate}
      */
     public static SpreadsheetNavigateComponentContext navigate(final HistoryContext historyContext,
