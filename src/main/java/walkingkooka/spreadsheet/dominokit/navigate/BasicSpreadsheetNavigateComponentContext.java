@@ -21,16 +21,21 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 
 import java.util.Objects;
 
-abstract class HistoryTokenSpreadsheetNavigateComponentContext implements SpreadsheetNavigateComponentContext,
+abstract class BasicSpreadsheetNavigateComponentContext implements SpreadsheetNavigateComponentContext,
     HistoryContextDelegator,
+    LoggingContextDelegator,
     ComponentLifecycleMatcher {
 
-    HistoryTokenSpreadsheetNavigateComponentContext(final HistoryContext historyContext) {
+    BasicSpreadsheetNavigateComponentContext(final HistoryContext historyContext,
+                                             final LoggingContext loggingContext) {
         super();
         this.historyContext = Objects.requireNonNull(historyContext, "historyContext");
+        this.loggingContext = Objects.requireNonNull(loggingContext, "loggingContext");
     }
 
     // ComponentLifecycleMatcher........................................................................................
@@ -49,10 +54,19 @@ abstract class HistoryTokenSpreadsheetNavigateComponentContext implements Spread
 
     private final HistoryContext historyContext;
 
+    // LoggingContextDelegator..........................................................................................
+
+    @Override
+    public final LoggingContext loggingContext() {
+        return this.loggingContext;
+    }
+
+    private final LoggingContext loggingContext;
+
     // toString.........................................................................................................
 
     @Override
     public String toString() {
-        return this.historyContext.toString();
+        return this.historyContext + " " + this.loggingContext;
     }
 }

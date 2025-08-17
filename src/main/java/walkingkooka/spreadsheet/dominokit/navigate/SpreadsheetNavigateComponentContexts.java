@@ -19,35 +19,52 @@ package walkingkooka.spreadsheet.dominokit.navigate;
 
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 
 public final class SpreadsheetNavigateComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see HistoryTokenSpreadsheetNavigateComponentContextCellNavigate}
+     * {@see BasicSpreadsheetNavigateComponentContextCellNavigate}
      */
-    public static SpreadsheetNavigateComponentContext cellNavigate(final HistoryContext historyContext) {
-        return HistoryTokenSpreadsheetNavigateComponentContextCellNavigate.with(historyContext);
+    public static SpreadsheetNavigateComponentContext cellNavigate(final HistoryContext historyContext,
+                                                                   final LoggingContext loggingContext) {
+        return BasicSpreadsheetNavigateComponentContextCellNavigate.with(
+            historyContext,
+            loggingContext
+        );
     }
 
     /**
-     * {@see HistoryTokenSpreadsheetNavigateComponentContextColumnNavigate}
+     * {@see BasicSpreadsheetNavigateComponentContextColumnNavigate}
      */
-    public static SpreadsheetNavigateComponentContext columnNavigate(final HistoryContext historyContext) {
-        return HistoryTokenSpreadsheetNavigateComponentContextColumnNavigate.with(historyContext);
+    public static SpreadsheetNavigateComponentContext columnNavigate(final HistoryContext historyContext,
+                                                                     final LoggingContext loggingContext) {
+        return BasicSpreadsheetNavigateComponentContextColumnNavigate.with(
+            historyContext,
+            loggingContext
+        );
     }
 
     /**
-     * {@see HistoryTokenSpreadsheetNavigateComponentContextNavigate}
+     * {@see BasicSpreadsheetNavigateComponentContextNavigate}
      */
-    public static SpreadsheetNavigateComponentContext navigate(final HistoryContext historyContext) {
-        return HistoryTokenSpreadsheetNavigateComponentContextNavigate.with(historyContext);
+    public static SpreadsheetNavigateComponentContext navigate(final HistoryContext historyContext,
+                                                               final LoggingContext loggingContext) {
+        return BasicSpreadsheetNavigateComponentContextNavigate.with(
+            historyContext,
+            loggingContext
+        );
     }
 
     /**
-     * {@see HistoryTokenSpreadsheetNavigateComponentContextRowNavigate}
+     * {@see BasicSpreadsheetNavigateComponentContextRowNavigate}
      */
-    public static SpreadsheetNavigateComponentContext rowNavigate(final HistoryContext historyContext) {
-        return HistoryTokenSpreadsheetNavigateComponentContextRowNavigate.with(historyContext);
+    public static SpreadsheetNavigateComponentContext rowNavigate(final HistoryContext historyContext,
+                                                                  final LoggingContext loggingContext) {
+        return BasicSpreadsheetNavigateComponentContextRowNavigate.with(
+            historyContext,
+            loggingContext
+        );
     }
 
     /**
