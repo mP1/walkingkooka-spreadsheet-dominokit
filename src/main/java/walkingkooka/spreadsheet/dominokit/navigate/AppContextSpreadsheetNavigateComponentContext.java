@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.navigate;
 
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -25,19 +26,14 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.util.Objects;
-import java.util.function.Supplier;
 
-abstract class BasicSpreadsheetNavigateComponentContext implements SpreadsheetNavigateComponentContext,
+abstract class AppContextSpreadsheetNavigateComponentContext implements SpreadsheetNavigateComponentContext,
     HistoryContextDelegator,
     LoggingContextDelegator {
 
-    BasicSpreadsheetNavigateComponentContext(final Supplier<SpreadsheetMetadata> spreadsheetMetadata,
-                                             final HistoryContext historyContext,
-                                             final LoggingContext loggingContext) {
+    AppContextSpreadsheetNavigateComponentContext(final AppContext context) {
         super();
-        this.spreadsheetMetadata = Objects.requireNonNull(spreadsheetMetadata, "spreadsheetMetadata");
-        this.historyContext = Objects.requireNonNull(historyContext, "historyContext");
-        this.loggingContext = Objects.requireNonNull(loggingContext, "loggingContext");
+        this.context = Objects.requireNonNull(context, "context");
     }
 
     // ComponentLifecycleMatcher........................................................................................
@@ -51,33 +47,29 @@ abstract class BasicSpreadsheetNavigateComponentContext implements SpreadsheetNa
 
     @Override
     public SpreadsheetMetadata spreadsheetMetadata() {
-        return this.spreadsheetMetadata.get();
+        return this.context.spreadsheetMetadata();
     }
-
-    private final Supplier<SpreadsheetMetadata> spreadsheetMetadata;
 
     // HistoryContextDelegator..........................................................................................
 
     @Override
     public final HistoryContext historyContext() {
-        return this.historyContext;
+        return this.context;
     }
-
-    private final HistoryContext historyContext;
 
     // LoggingContextDelegator..........................................................................................
 
     @Override
     public final LoggingContext loggingContext() {
-        return this.loggingContext;
+        return this.context;
     }
 
-    private final LoggingContext loggingContext;
+    private final AppContext context;
 
     // toString.........................................................................................................
 
     @Override
     public String toString() {
-        return this.historyContext + " " + this.loggingContext;
+        return this.context.toString();
     }
 }

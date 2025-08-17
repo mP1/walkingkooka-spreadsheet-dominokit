@@ -18,16 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.navigate;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
-import java.util.function.Supplier;
 
-public final class BasicSpreadsheetNavigateComponentContextColumnNavigateTest extends BasicSpreadsheetNavigateComponentContextTestCase<BasicSpreadsheetNavigateComponentContextColumnNavigate> {
+public final class AppContextSpreadsheetNavigateComponentContextNavigateTest extends AppContextSpreadsheetNavigateComponentContextTestCase<AppContextSpreadsheetNavigateComponentContextNavigate> {
 
     @Test
     public void testIsMatchNavigate() {
@@ -39,7 +36,7 @@ public final class BasicSpreadsheetNavigateComponentContextColumnNavigateTest ex
         this.isMatchAndCheck(
             this.createContext(historyToken),
             historyToken,
-            false
+            true
         );
     }
 
@@ -70,7 +67,7 @@ public final class BasicSpreadsheetNavigateComponentContextColumnNavigateTest ex
         this.isMatchAndCheck(
             this.createContext(historyToken),
             historyToken,
-            true
+            false
         );
     }
 
@@ -91,18 +88,12 @@ public final class BasicSpreadsheetNavigateComponentContextColumnNavigateTest ex
     }
 
     @Override
-    BasicSpreadsheetNavigateComponentContextColumnNavigate createContext(final Supplier<SpreadsheetMetadata> metadata,
-                                                                         final HistoryContext historyContext,
-                                                                         final LoggingContext loggingContext) {
-        return BasicSpreadsheetNavigateComponentContextColumnNavigate.with(
-            metadata,
-            historyContext,
-            loggingContext
-        );
+    AppContextSpreadsheetNavigateComponentContextNavigate createContext(final AppContext context) {
+        return AppContextSpreadsheetNavigateComponentContextNavigate.with(context);
     }
 
     @Override
-    public Class<BasicSpreadsheetNavigateComponentContextColumnNavigate> type() {
-        return BasicSpreadsheetNavigateComponentContextColumnNavigate.class;
+    public Class<AppContextSpreadsheetNavigateComponentContextNavigate> type() {
+        return AppContextSpreadsheetNavigateComponentContextNavigate.class;
     }
 }
