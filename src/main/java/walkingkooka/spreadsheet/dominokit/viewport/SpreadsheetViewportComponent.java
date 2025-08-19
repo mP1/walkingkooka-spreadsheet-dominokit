@@ -494,6 +494,12 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         final int width = this.width;
         final int height = this.height;
 
+        this.formulaContainer.setDisplay(
+            shouldShowFormulaEditor ?
+                "" :
+                "none"
+        );
+
         final int viewportGridWidth = width;
         final int viewportGridHeight = height -
             (
@@ -546,12 +552,6 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
     @Override
     public void refresh(final RefreshContext context) {
         this.refreshLayout();
-
-        this.formulaContainer.setDisplay(
-            this.shouldShowFormulaEditor ?
-            "" :
-            "none"
-        );
 
         final HistoryToken historyToken = context.historyToken();
         final Optional<AnchoredSpreadsheetSelection> maybeAnchorSelection = historyToken.anchoredSelectionOrEmpty();
