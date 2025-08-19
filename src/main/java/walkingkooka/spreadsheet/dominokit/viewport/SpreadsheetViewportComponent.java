@@ -566,6 +566,8 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
             this.spreadsheetFormatterSelectorMenus = spreadsheetFormatterSelectorMenus;
         }
 
+        this.formulaCellLinksRefresh();
+        this.refreshTableScrollbars(context);
         this.refreshTable(maybeAnchorSelection);
 
         if (historyToken instanceof SpreadsheetCellSelectHistoryToken ||
@@ -587,10 +589,50 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
                 context
             );
         }
-
-        this.formulaCellLinksRefresh();
-        this.refreshTableScrollbars(context);
     }
+
+    private void refreshTableScrollbars(final RefreshContext context) {
+        final int contentWidth = this.viewportGridWidth - SCROLLBAR_LENGTH;
+        final int contentHeight = this.viewportGridHeight - SCROLLBAR_LENGTH;
+
+        this.tableContainer.setCssProperty(
+            "grid-template-columns",
+            contentWidth + "px " + SCROLLBAR_LENGTH + "px"
+        );
+        this.tableContainer.setCssProperty(
+            "grid-template-rows",
+            contentHeight + "px " + SCROLLBAR_LENGTH + "px"
+        );
+
+        final boolean autoHideScrollbars = this.autoHideScrollbars;
+
+        this.horizontalScrollbar.setCssProperty(
+            "width",
+            contentWidth + "px"
+        ).setAutoHideScrollbars(autoHideScrollbars);
+        this.verticalScrollbar.setCssProperty(
+            "height",
+            contentHeight + "px"
+        ).setAutoHideScrollbars(autoHideScrollbars);
+
+        this.horizontalScrollbar.refresh(context);
+        this.verticalScrollbar.refresh(context);
+    }
+
+    // SpreadsheetViewportComponentSpreadsheetViewportScrollbarComponentContext.autoHideScrollbars()
+    boolean autoHideScrollbars;
+
+    boolean shouldShowFormulaEditor;
+
+    boolean shouldHideZeroValues;
+
+    boolean shouldShowFormulas;
+
+    boolean shouldShowHeaders;
+
+    boolean mustRefresh;
+
+    private final static int SCROLLBAR_LENGTH = 32;
 
     private void refreshTable(final Optional<AnchoredSpreadsheetSelection> maybeAnchorSelection) {
         final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
@@ -626,53 +668,10 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
 
     private SpreadsheetMetadata refreshMetadata;
 
-    // SpreadsheetViewportComponentSpreadsheetViewportScrollbarComponentContext.autoHideScrollbars()
-    boolean autoHideScrollbars;
-
-    boolean shouldShowFormulaEditor;
-
-    boolean shouldHideZeroValues;
-
-    boolean shouldShowFormulas;
-
-    boolean shouldShowHeaders;
-
-    boolean mustRefresh;
-
     /**
      * Cached {@link SpreadsheetViewport} shared by {@link SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext}.
      */
     SpreadsheetViewport spreadsheetViewport;
-
-    private void refreshTableScrollbars(final RefreshContext context) {
-        final int contentWidth = this.viewportGridWidth - SCROLLBAR_LENGTH;
-        final int contentHeight = this.viewportGridHeight - SCROLLBAR_LENGTH;
-
-        this.tableContainer.setCssProperty(
-            "grid-template-columns",
-            contentWidth + "px " + SCROLLBAR_LENGTH + "px"
-        );
-        this.tableContainer.setCssProperty(
-            "grid-template-rows",
-            contentHeight + "px " + SCROLLBAR_LENGTH + "px"
-        );
-
-        final boolean autoHideScrollbars = this.autoHideScrollbars;
-
-        this.horizontalScrollbar.setCssProperty(
-            "width",
-            contentWidth + "px"
-        ).setAutoHideScrollbars(autoHideScrollbars);
-        this.verticalScrollbar.setCssProperty(
-            "height",
-            contentHeight + "px"
-        ).setAutoHideScrollbars(autoHideScrollbars);
-
-        this.horizontalScrollbar.refresh(context);
-        this.verticalScrollbar.refresh(context);
-    }
-
-    private final static int SCROLLBAR_LENGTH = 32;
 
     private void giveViewportSelectionFocus(final AnchoredSpreadsheetSelection selection,
                                             final RefreshContext context) {
