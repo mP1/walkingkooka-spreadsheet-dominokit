@@ -71,8 +71,10 @@ final class SpreadsheetViewportComponentTableRowColumnHeaders extends Spreadshee
             final Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn> oldColumnToHeaders = this.columnToHeaders;
             final Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn> newColumnToHeaders = Maps.sorted();
 
-            double rowWidth = context.viewportGridWidth()
-                - SpreadsheetViewportContext.ROW_HEADER_WIDTH_PIXELS;
+            double rowWidth = context.viewportGridWidth();
+            if(context.shouldShowHeaders()) {
+                rowWidth = rowWidth - SpreadsheetViewportContext.ROW_HEADER_WIDTH_PIXELS;
+            }
 
             // create new column headers as necessary
             for (final SpreadsheetColumnReference column : columns) {
