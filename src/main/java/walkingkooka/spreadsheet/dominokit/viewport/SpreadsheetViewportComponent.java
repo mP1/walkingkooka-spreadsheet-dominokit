@@ -310,13 +310,11 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
     private DivComponent gridContainer() {
         final DivComponent container = HtmlElementComponent.div()
             .setCssText("position: relative; border: none; margin: 0px; padding: 0px;");
-            //.setCssText("display: grid; border: none; margin: 0px; padding: 0px; grid-column-gap: 0px; grid-row-gap: 0px;");
 
         container.appendChild(this.table);
         container.appendChild(this.verticalScrollbar);
         container.appendChild(this.horizontalScrollbar);
         container.appendChild(this.navigateLink);
-        // bottom/right navigate to link https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/5903
 
         return container;
     }
