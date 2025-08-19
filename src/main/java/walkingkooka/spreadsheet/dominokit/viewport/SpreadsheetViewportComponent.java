@@ -54,6 +54,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetFormatterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
@@ -143,10 +144,14 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
             this.horizontalScrollbar = this.horizontalScrollbar(spreadsheetViewportScrollbarComponentContext);
             this.verticalScrollbar = this.verticalScrollbar(spreadsheetViewportScrollbarComponentContext);
             this.navigateLink = SpreadsheetNavigateLinkComponent.with(context)
-                .setId(ID_PREFIX + "navigate" + SpreadsheetElementIds.LINK)
+                .setId(ID_PREFIX + "navigate" + SpreadsheetElementIds.LINK);
+            this.bottom = FlexLayoutComponent.row()
                 .setCssProperty("position", "absolute")
-                .setCssProperty("right", "0")
-                .setCssProperty("bottom", "0");
+                .setCssProperty("left", "0")
+                .setCssProperty("bottom", "0")
+                .setCssProperty("z-index", "1")
+                .appendChild(this.horizontalScrollbar)
+                .appendChild(this.navigateLink);
         }
 
         this.gridContainer = this.gridContainer();
@@ -313,13 +318,17 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
 
         container.appendChild(this.table);
         container.appendChild(this.verticalScrollbar);
-        container.appendChild(this.horizontalScrollbar);
-        container.appendChild(this.navigateLink);
+        container.appendChild(this.bottom);
 
         return container;
     }
 
     private final DivComponent gridContainer;
+
+    /**
+     * Container that holds the {@link #horizontalScrollbar} and {@link #navigateLink}.
+     */
+    private final FlexLayoutComponent bottom;
 
     // table............................................................................................................
 
@@ -341,10 +350,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
 
     SpreadsheetViewportScrollbarComponent<SpreadsheetColumnReference> horizontalScrollbar(final SpreadsheetViewportScrollbarComponentContext context) {
         return SpreadsheetViewportScrollbarComponent.columns(context)
-            .setCssProperty("position", "absolute")
-            .setCssProperty("left", "0px")
-            .setCssProperty("bottom", "0px")
-            .setCssProperty("z-index", "1")
+            .setCssProperty("flex-grow", "2")
             .setCssProperty("height", SCROLLBAR_LENGTH + "px")
             .setCssProperty("border-color", SpreadsheetDominoKitColor.VIEWPORT_LINES_COLOR.toString())
             .setCssProperty("border-style", "solid")
@@ -522,14 +528,13 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         final int contentWidth = viewportGridWidth - SCROLLBAR_LENGTH;
         final int contentHeight = viewportGridHeight - SCROLLBAR_LENGTH;
 
-        this.horizontalScrollbar.setCssProperty(
-            "width",
-            contentWidth + "px"
-        ).setAutoHideScrollbars(autoHideScrollbars);
+        this.horizontalScrollbar.setAutoHideScrollbars(autoHideScrollbars);
         this.verticalScrollbar.setCssProperty(
             "height",
             contentHeight + "px"
         ).setAutoHideScrollbars(autoHideScrollbars);
+
+        this.bottom.setCssProperty("width", width + "px");
     }
 
     final static int FORMULA_HEIGHT = 64;
