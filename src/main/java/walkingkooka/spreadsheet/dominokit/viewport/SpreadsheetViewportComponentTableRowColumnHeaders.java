@@ -60,6 +60,11 @@ final class SpreadsheetViewportComponentTableRowColumnHeaders extends Spreadshee
                  final SpreadsheetViewportComponentTableContext context) {
         final Set<SpreadsheetColumnReference> columns = windows.columns();
 
+        double rowWidth = context.viewportGridWidth();
+        if (context.shouldShowHeaders()) {
+            rowWidth = rowWidth - SpreadsheetViewportContext.ROW_HEADER_WIDTH_PIXELS;
+        }
+
         if (false == columns.equals(this.columns)) {
             this.columns = columns;
 
@@ -71,10 +76,7 @@ final class SpreadsheetViewportComponentTableRowColumnHeaders extends Spreadshee
             final Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn> oldColumnToHeaders = this.columnToHeaders;
             final Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn> newColumnToHeaders = Maps.sorted();
 
-            double rowWidth = context.viewportGridWidth();
-            if(context.shouldShowHeaders()) {
-                rowWidth = rowWidth - SpreadsheetViewportContext.ROW_HEADER_WIDTH_PIXELS;
-            }
+            double width = rowWidth;
 
             // create new column headers as necessary
             for (final SpreadsheetColumnReference column : columns) {
@@ -88,10 +90,10 @@ final class SpreadsheetViewportComponentTableRowColumnHeaders extends Spreadshee
                 newColumnToHeaders.put(column, columnTableCell);
                 element.appendChild(columnTableCell);
 
-                rowWidth = rowWidth - columnTableCell.width(context)
+                width = width - columnTableCell.width(context)
                     .pixelValue();
 
-                if(rowWidth <= 0) {
+                if (width <= 0) {
                     break; // stop rendering invisible columns
                 }
             }
@@ -104,14 +106,23 @@ final class SpreadsheetViewportComponentTableRowColumnHeaders extends Spreadshee
             context
         );
 
-        // column headers will clear/selection
-        this.columnToHeaders.values()
-            .forEach(
-                c -> c.refresh(
+        {
+            double width = rowWidth;
+
+            for (final SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn columnTableCell : this.columnToHeaders.values()) {
+                columnTableCell.refresh(
                     selected,
                     context
-                )
-            );
+                );
+
+                width = width - columnTableCell.width(context)
+                    .pixelValue();
+
+                if (width <= 0) {
+                    break; // stop rendering invisible columns
+                }
+            }
+        }
     }
 
     private final SpreadsheetViewportComponentTableCellHeaderSelectAll selectAll;
