@@ -423,7 +423,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         final boolean reload = width > this.viewportGridWidth || height > this.viewportGridHeight;
 
         final SpreadsheetViewportComponentContext context = this.context;
-        context.debug("SpreadsheetViewportComponent.setWidthAndHeight " + width + "x" + height + " was " + this.viewportGridWidth + "x" + this.viewportGridHeight + " reload: " + reload);
+        context.debug(this.getClass().getSimpleName() + ".setWidthAndHeight " + width + "x" + height + " was " + this.viewportGridWidth + "x" + this.viewportGridHeight + " reload: " + reload);
 
         this.width = width;
         this.height = height;
@@ -707,11 +707,11 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
                         element = element.firstElementChild;
                     }
 
-                    context.debug("SpreadsheetViewportComponent.giveViewportSelectionFocus " + spreadsheetSelection + " focus element " + element);
+                    context.debug(this.getClass().getSimpleName() + ".giveViewportSelectionFocus " + spreadsheetSelection + " focus element " + element);
                     element.focus();
                 }
             } else {
-                context.debug("SpreadsheetViewportComponent.giveViewportSelectionFocus " + spreadsheetSelection + " element not found!");
+                context.debug(this.getClass().getSimpleName() + ".giveViewportSelectionFocus " + spreadsheetSelection + " element not found!");
             }
         }
     }
@@ -1008,12 +1008,12 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
             final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
             if (reload && width > 0 && height > 0 && metadata.isNotEmpty()) {
                 if (metadata.isEmpty()) {
-                    context.debug("SpreadsheetViewportComponent.loadViewportCellsIfNecessary waiting for metadata");
+                    context.debug(this.getClass().getSimpleName() + ".loadViewportCellsIfNecessary waiting for metadata");
                 } else {
                     this.loadViewportCells();
                 }
             } else {
-                context.debug("SpreadsheetViewportComponent.loadViewportCellsIfNecessary not ready, reload: " + reload + " width: " + width + " height: " + height + " metadata.isEmpty: " + metadata.isEmpty() + " open " + this.open);
+                context.debug(this.getClass().getSimpleName() + ".loadViewportCellsIfNecessary not ready, reload: " + reload + " width: " + width + " height: " + height + " metadata.isEmpty: " + metadata.isEmpty() + " open " + this.open);
             }
         }
     }
@@ -1030,7 +1030,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         final SpreadsheetViewport viewport = this.spreadsheetViewport()
             .setNavigations(this.navigations);
 
-        context.debug("SpreadsheetViewportComponent.loadViewportCells id: " + id + " viewport: " + viewport);
+        context.debug(this.getClass().getSimpleName() + ".loadViewportCells id: " + id + " viewport: " + viewport);
 
         this.reload = false;
         this.navigations = SpreadsheetViewportNavigationList.EMPTY;
