@@ -39,6 +39,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
 
 import java.net.URLEncoder;
 import java.util.Arrays;
@@ -615,6 +616,31 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
                 name
             ),
             () -> token + " name=" + name
+        );
+    }
+
+    // navigation.......................................................................................................
+
+    final void navigationAndCheck(final HistoryToken token) {
+        this.navigationAndCheck(
+            token,
+            Optional.empty()
+        );
+    }
+
+    final void navigationAndCheck(final HistoryToken token,
+                                  final SpreadsheetViewportHomeNavigationList expected) {
+        this.navigationAndCheck(
+            token,
+            Optional.of(expected)
+        );
+    }
+
+    final void navigationAndCheck(final HistoryToken token,
+                                  final Optional<SpreadsheetViewportHomeNavigationList> expected) {
+        this.checkEquals(
+            expected,
+            token.navigation()
         );
     }
 

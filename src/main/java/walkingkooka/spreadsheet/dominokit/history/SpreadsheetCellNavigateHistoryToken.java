@@ -60,11 +60,7 @@ public final class SpreadsheetCellNavigateHistoryToken extends SpreadsheetCellHi
         this.navigation = Objects.requireNonNull(navigation, "navigation");
     }
 
-    public Optional<SpreadsheetViewportHomeNavigationList> navigation() {
-        return this.navigation;
-    }
-
-    private final Optional<SpreadsheetViewportHomeNavigationList> navigation;
+    final Optional<SpreadsheetViewportHomeNavigationList> navigation;
 
     // /1/SpreadsheetName/cell/A1/navigate
     // /1/SpreadsheetName/cell/A1/navigate/Z9/right 400

@@ -36,6 +36,15 @@ public abstract class SpreadsheetCellStyleHistoryTokenTestCase<T extends Spreads
         super();
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public final void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // patternKind......................................................................................................
 
     @Test

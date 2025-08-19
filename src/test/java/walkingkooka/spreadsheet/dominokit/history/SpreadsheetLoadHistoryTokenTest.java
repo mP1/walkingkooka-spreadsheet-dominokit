@@ -87,6 +87,15 @@ public final class SpreadsheetLoadHistoryTokenTest extends SpreadsheetIdHistoryT
         );
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     @Test
     public void testPatternKind() {
         this.patternKindAndCheck(

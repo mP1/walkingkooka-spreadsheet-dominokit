@@ -142,6 +142,16 @@ public final class SpreadsheetCellNavigateHistoryTokenTest extends SpreadsheetCe
         );
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken(),
+            NAVIGATIONS
+        );
+    }
+
     @Override
     SpreadsheetCellNavigateHistoryToken createHistoryToken(final SpreadsheetId id,
                                                            final SpreadsheetName name,

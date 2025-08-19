@@ -28,6 +28,15 @@ public abstract class SpreadsheetCellParserHistoryTokenTestCase<T extends Spread
         super();
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public final void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // setSaveValue.....................................................................................................
 
     @Test

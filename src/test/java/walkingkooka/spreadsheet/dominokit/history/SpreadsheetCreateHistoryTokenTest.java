@@ -115,6 +115,15 @@ public final class SpreadsheetCreateHistoryTokenTest extends SpreadsheetHistoryT
         );
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     @Test
     public void testPatternKind() {
         this.patternKindAndCheck(

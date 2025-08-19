@@ -53,6 +53,15 @@ public abstract class SpreadsheetColumnSortHistoryTokenTestCase<T extends Spread
         );
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public final void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // setSaveValue.....................................................................................................
 
     @Test

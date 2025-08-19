@@ -27,6 +27,15 @@ public abstract class SpreadsheetCellFormulaHistoryTokenTestCase<T extends Sprea
         super();
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public final void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // patternKind......................................................................................................
 
     @Test

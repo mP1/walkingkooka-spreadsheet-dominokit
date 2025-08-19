@@ -50,6 +50,15 @@ public final class SpreadsheetRowDeleteHistoryTokenTest extends SpreadsheetRowHi
         );
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     @Override
     SpreadsheetRowDeleteHistoryToken createHistoryToken(final SpreadsheetId id,
                                                         final SpreadsheetName name,

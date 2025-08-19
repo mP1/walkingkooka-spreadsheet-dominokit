@@ -57,11 +57,7 @@ public final class SpreadsheetNavigateHistoryToken extends SpreadsheetNameHistor
         this.navigation = Objects.requireNonNull(navigation, "navigation");
     }
 
-    public Optional<SpreadsheetViewportHomeNavigationList> navigation() {
-        return this.navigation;
-    }
-
-    private final Optional<SpreadsheetViewportHomeNavigationList> navigation;
+    final Optional<SpreadsheetViewportHomeNavigationList> navigation;
 
     // /1/SpreadsheetName/navigate
     // /1/SpreadsheetName/navigate/Z9/right 400

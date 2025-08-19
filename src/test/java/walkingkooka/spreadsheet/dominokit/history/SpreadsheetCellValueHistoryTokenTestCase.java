@@ -30,6 +30,15 @@ public abstract class SpreadsheetCellValueHistoryTokenTestCase<T extends Spreads
         super();
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public final void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     @Test
     public final void testSetValueWithEmpty() {
         this.setValueAndCheck(

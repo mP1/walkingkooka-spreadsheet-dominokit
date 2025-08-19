@@ -60,11 +60,7 @@ public final class SpreadsheetRowNavigateHistoryToken extends SpreadsheetRowHist
         this.navigation = Objects.requireNonNull(navigation, "navigation");
     }
 
-    public Optional<SpreadsheetViewportHomeNavigationList> navigation() {
-        return this.navigation;
-    }
-
-    private final Optional<SpreadsheetViewportHomeNavigationList> navigation;
+    final Optional<SpreadsheetViewportHomeNavigationList> navigation;
 
     // /1/SpreadsheetName/row/1/navigate
     // /1/SpreadsheetName/row/1/navigate/Z9/down 400

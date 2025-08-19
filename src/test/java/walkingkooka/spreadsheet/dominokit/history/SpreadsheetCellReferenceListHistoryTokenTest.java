@@ -113,6 +113,15 @@ public final class SpreadsheetCellReferenceListHistoryTokenTest extends Spreadsh
         );
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // offset...........................................................................................................
 
     @Test

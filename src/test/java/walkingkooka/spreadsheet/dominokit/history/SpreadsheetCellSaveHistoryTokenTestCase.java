@@ -36,6 +36,15 @@ public abstract class SpreadsheetCellSaveHistoryTokenTestCase<T extends Spreadsh
 
     final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
 
+    // navigation.......................................................................................................
+
+    @Test
+    public final void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // patternKind......................................................................................................
 
     @Test

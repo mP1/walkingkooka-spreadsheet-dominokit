@@ -194,6 +194,15 @@ public final class SpreadsheetColumnInsertAfterHistoryTokenTest extends Spreadsh
         );
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     @Override
     SpreadsheetColumnInsertAfterHistoryToken createHistoryToken(final SpreadsheetId id,
                                                                 final SpreadsheetName name,

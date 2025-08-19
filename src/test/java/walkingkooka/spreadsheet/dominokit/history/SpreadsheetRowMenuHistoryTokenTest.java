@@ -50,6 +50,15 @@ public final class SpreadsheetRowMenuHistoryTokenTest extends SpreadsheetRowHist
         );
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     @Override
     SpreadsheetRowMenuHistoryToken createHistoryToken(final SpreadsheetId id,
                                                       final SpreadsheetName name,

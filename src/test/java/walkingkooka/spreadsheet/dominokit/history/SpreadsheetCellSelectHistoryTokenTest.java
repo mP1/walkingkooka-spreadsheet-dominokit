@@ -172,6 +172,15 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
         );
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // setSaveValue.....................................................................................................
 
     @Test
