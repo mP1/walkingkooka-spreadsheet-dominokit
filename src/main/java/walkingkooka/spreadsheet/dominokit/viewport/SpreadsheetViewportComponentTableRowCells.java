@@ -90,17 +90,17 @@ final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewpor
 
             // create the cells as necessary for this row...
             for (final SpreadsheetColumnReference column : columns) {
-                SpreadsheetViewportComponentTableCellSpreadsheetCell columnTableCell = oldColumnToCells.get(column);
-                if (null == columnTableCell) {
-                    columnTableCell = SpreadsheetViewportComponentTableCellSpreadsheetCell.empty(
+                SpreadsheetViewportComponentTableCellSpreadsheetCell td = oldColumnToCells.get(column);
+                if (null == td) {
+                    td = SpreadsheetViewportComponentTableCellSpreadsheetCell.empty(
                         column.setRow(row),
                         context
                     );
                 }
-                newColumnToCells.put(column, columnTableCell);
-                tr.appendChild(columnTableCell);
+                newColumnToCells.put(column, td);
+                tr.appendChild(td);
 
-                rowWidth = rowWidth - columnTableCell.width(context)
+                rowWidth = rowWidth - td.width(context)
                     .pixelValue();
                 if(rowWidth <= 0) {
                     break;
