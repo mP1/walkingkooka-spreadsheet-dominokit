@@ -43,12 +43,26 @@ public final class SpreadsheetViewportComponentTableRowColumnHeadersTest extends
     private final static Length<?> HEIGHT = Length.parse("50px");
 
     @Test
-    public void testRefreshNothingSelected() {
+    public void testRefreshNothingSelectedShouldShowHeadersFalse() {
         this.treePrintAndCheck2(
             HistoryToken.spreadsheetSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME
             ),
+            false, // shouldShowHeaders
+            "SpreadsheetViewportComponentTableRowColumnHeaders\n" +
+                "  TR\n"
+        );
+    }
+
+    @Test
+    public void testRefreshNothingSelectedAndShouldShowHeadersTrue() {
+        this.treePrintAndCheck2(
+            HistoryToken.spreadsheetSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
+            ),
+            true, // shouldShowHeaders
             "SpreadsheetViewportComponentTableRowColumnHeaders\n" +
                 "  TR\n" +
                 "    SpreadsheetViewportComponentTableCellHeaderSelectAll\n" +
@@ -63,7 +77,7 @@ public final class SpreadsheetViewportComponentTableRowColumnHeadersTest extends
     }
 
     @Test
-    public void testRefreshDifferentCellSelected() {
+    public void testRefreshDifferentCellSelectedAndShouldShowHeadersTrue() {
         this.treePrintAndCheck2(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
@@ -71,6 +85,7 @@ public final class SpreadsheetViewportComponentTableRowColumnHeadersTest extends
                 SpreadsheetSelection.parseCell("B2")
                     .setDefaultAnchor()
             ),
+            true, // shouldShowHeaders
             "SpreadsheetViewportComponentTableRowColumnHeaders\n" +
                 "  TR\n" +
                 "    SpreadsheetViewportComponentTableCellHeaderSelectAll\n" +
@@ -85,13 +100,14 @@ public final class SpreadsheetViewportComponentTableRowColumnHeadersTest extends
     }
 
     @Test
-    public void testRefreshColumnSelected() {
+    public void testRefreshColumnSelectedAndShouldShowHeadersTrue() {
         this.treePrintAndCheck2(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor()
             ),
+            true, // shouldShowHeaders
             "SpreadsheetViewportComponentTableRowColumnHeaders\n" +
                 "  TR\n" +
                 "    SpreadsheetViewportComponentTableCellHeaderSelectAll\n" +
@@ -106,7 +122,7 @@ public final class SpreadsheetViewportComponentTableRowColumnHeadersTest extends
     }
 
     @Test
-    public void testRefreshRowSelected() {
+    public void testRefreshRowSelectedAndShouldShowHeadersTrue() {
         this.treePrintAndCheck2(
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
@@ -114,6 +130,7 @@ public final class SpreadsheetViewportComponentTableRowColumnHeadersTest extends
                 SpreadsheetSelection.parseRow("2")
                     .setDefaultAnchor()
             ),
+            true, // shouldShowHeaders
             "SpreadsheetViewportComponentTableRowColumnHeaders\n" +
                 "  TR\n" +
                 "    SpreadsheetViewportComponentTableCellHeaderSelectAll\n" +
@@ -129,6 +146,7 @@ public final class SpreadsheetViewportComponentTableRowColumnHeadersTest extends
 
 
     private void treePrintAndCheck2(final HistoryToken historyToken,
+                                    final boolean shouldShowHeaders,
                                     final String expected) {
         final AppContext appContext = new FakeAppContext() {
             @Override
@@ -178,7 +196,7 @@ public final class SpreadsheetViewportComponentTableRowColumnHeadersTest extends
 
             @Override
             public boolean shouldShowHeaders() {
-                return true;
+                return shouldShowHeaders;
             }
 
             @Override

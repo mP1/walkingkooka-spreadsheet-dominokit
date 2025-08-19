@@ -42,8 +42,6 @@ final class SpreadsheetViewportComponentTableRowColumnHeaders extends Spreadshee
         this.selectAll = SpreadsheetViewportComponentTableCellHeaderSelectAll.empty(context);
         this.columns = null;
         this.columnToHeaders = Maps.sorted();
-
-        this.tr.appendChild(this.selectAll);
     }
 
     @Override
@@ -58,70 +56,73 @@ final class SpreadsheetViewportComponentTableRowColumnHeaders extends Spreadshee
     void refresh(final SpreadsheetViewportWindows windows,
                  final Predicate<SpreadsheetSelection> selected,
                  final SpreadsheetViewportComponentTableContext context) {
-        final Set<SpreadsheetColumnReference> columns = windows.columns();
-
-        double rowWidth = context.viewportGridWidth();
         if (context.shouldShowHeaders()) {
-            rowWidth = rowWidth - SpreadsheetViewportContext.ROW_HEADER_WIDTH_PIXELS;
-        }
+            double rowWidth = context.viewportGridWidth() -
+                SpreadsheetViewportContext.ROW_HEADER_WIDTH_PIXELS;
 
-        if (false == columns.equals(this.columns)) {
-            this.columns = columns;
+            final Set<SpreadsheetColumnReference> columns = windows.columns();
 
-            final TrComponent element = this.tr;
-            element.clear();
+            if (false == columns.equals(this.columns)) {
+                this.columns = columns;
 
-            element.appendChild(this.selectAll);
+                final TrComponent element = this.tr;
+                element.clear();
 
-            final Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn> oldColumnToHeaders = this.columnToHeaders;
-            final Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn> newColumnToHeaders = Maps.sorted();
+                element.appendChild(this.selectAll);
 
-            double width = rowWidth;
+                final Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn> oldColumnToHeaders = this.columnToHeaders;
+                final Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn> newColumnToHeaders = Maps.sorted();
 
-            // create new column headers as necessary
-            for (final SpreadsheetColumnReference column : columns) {
-                SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn columnTableCell = oldColumnToHeaders.get(column);
-                if (null == columnTableCell) {
-                    columnTableCell = SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn.empty(
-                        column,
+                double width = rowWidth;
+
+                // create new column headers as necessary
+                for (final SpreadsheetColumnReference column : columns) {
+                    SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn columnTableCell = oldColumnToHeaders.get(column);
+                    if (null == columnTableCell) {
+                        columnTableCell = SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn.empty(
+                            column,
+                            context
+                        );
+                    }
+                    newColumnToHeaders.put(column, columnTableCell);
+                    element.appendChild(columnTableCell);
+
+                    width = width - columnTableCell.width(context)
+                        .pixelValue();
+
+                    if (width <= 0) {
+                        break; // stop rendering invisible columns
+                    }
+                }
+
+                this.columnToHeaders = newColumnToHeaders;
+            }
+
+            this.selectAll.refresh(
+                selected,
+                context
+            );
+
+            {
+                double width = rowWidth;
+
+                for (final SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn columnTableCell : this.columnToHeaders.values()) {
+                    columnTableCell.refresh(
+                        selected,
                         context
                     );
-                }
-                newColumnToHeaders.put(column, columnTableCell);
-                element.appendChild(columnTableCell);
 
-                width = width - columnTableCell.width(context)
-                    .pixelValue();
+                    width = width - columnTableCell.width(context)
+                        .pixelValue();
 
-                if (width <= 0) {
-                    break; // stop rendering invisible columns
+                    if (width <= 0) {
+                        break; // stop rendering invisible columns
+                    }
                 }
             }
-
-            this.columnToHeaders = newColumnToHeaders;
-        }
-
-        this.selectAll.refresh(
-            selected,
-            context
-        );
-
-        {
-            double width = rowWidth;
-
-            for (final SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn columnTableCell : this.columnToHeaders.values()) {
-                columnTableCell.refresh(
-                    selected,
-                    context
-                );
-
-                width = width - columnTableCell.width(context)
-                    .pixelValue();
-
-                if (width <= 0) {
-                    break; // stop rendering invisible columns
-                }
-            }
+        } else {
+            this.tr.clear();
+            this.columns = null;
         }
     }
 
