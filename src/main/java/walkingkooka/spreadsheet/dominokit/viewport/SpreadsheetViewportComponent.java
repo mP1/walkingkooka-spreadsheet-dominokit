@@ -558,6 +558,31 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         final HistoryToken historyToken = context.historyToken();
         final Optional<AnchoredSpreadsheetSelection> maybeAnchorSelection = historyToken.anchoredSelectionOrEmpty();
 
+        this.formulaCellLinksRefresh();
+        this.refreshTable(maybeAnchorSelection);
+        this.horizontalScrollbar.refresh(context);
+        this.verticalScrollbar.refresh(context);
+
+        if (historyToken instanceof SpreadsheetCellSelectHistoryToken ||
+            historyToken instanceof SpreadsheetColumnSelectHistoryToken ||
+            historyToken instanceof SpreadsheetRowSelectHistoryToken) {
+
+            this.giveViewportSelectionFocus(
+                maybeAnchorSelection.get(),
+                context
+            );
+        }
+
+        if (historyToken instanceof SpreadsheetCellMenuHistoryToken ||
+            historyToken instanceof SpreadsheetCellFormulaMenuHistoryToken ||
+            historyToken instanceof SpreadsheetColumnMenuHistoryToken ||
+            historyToken instanceof SpreadsheetRowMenuHistoryToken) {
+            this.renderContextMenu(
+                historyToken.cast(SpreadsheetAnchoredSelectionHistoryToken.class),
+                context
+            );
+        }
+
         // if selection changes, fetch the new formatter menus
         {
             SpreadsheetExpressionReference spreadsheetFormatterSelectorSelection = this.spreadsheetFormatterSelectorSelection;
@@ -592,31 +617,6 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
 
             this.spreadsheetFormatterSelectorSelection = spreadsheetFormatterSelectorSelection;
             this.spreadsheetFormatterSelectorMenus = spreadsheetFormatterSelectorMenus;
-        }
-
-        this.formulaCellLinksRefresh();
-        this.refreshTable(maybeAnchorSelection);
-        this.horizontalScrollbar.refresh(context);
-        this.verticalScrollbar.refresh(context);
-
-        if (historyToken instanceof SpreadsheetCellSelectHistoryToken ||
-            historyToken instanceof SpreadsheetColumnSelectHistoryToken ||
-            historyToken instanceof SpreadsheetRowSelectHistoryToken) {
-
-            this.giveViewportSelectionFocus(
-                maybeAnchorSelection.get(),
-                context
-            );
-        }
-
-        if (historyToken instanceof SpreadsheetCellMenuHistoryToken ||
-            historyToken instanceof SpreadsheetCellFormulaMenuHistoryToken ||
-            historyToken instanceof SpreadsheetColumnMenuHistoryToken ||
-            historyToken instanceof SpreadsheetRowMenuHistoryToken) {
-            this.renderContextMenu(
-                historyToken.cast(SpreadsheetAnchoredSelectionHistoryToken.class),
-                context
-            );
         }
     }
 
