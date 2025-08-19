@@ -143,10 +143,13 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
             this.horizontalScrollbar = this.horizontalScrollbar(spreadsheetViewportScrollbarComponentContext);
             this.verticalScrollbar = this.verticalScrollbar(spreadsheetViewportScrollbarComponentContext);
             this.navigateLink = SpreadsheetNavigateLinkComponent.with(context)
-                .setId(ID_PREFIX + "navigate" + SpreadsheetElementIds.LINK);
+                .setId(ID_PREFIX + "navigate" + SpreadsheetElementIds.LINK)
+                .setCssProperty("position", "absolute")
+                .setCssProperty("right", "0")
+                .setCssProperty("bottom", "0");
         }
 
-        this.tableContainer = this.tableContainer();
+        this.gridContainer = this.gridContainer();
         this.refreshMetadata = SpreadsheetMetadata.EMPTY;
 
         this.root = this.root();
@@ -177,7 +180,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         // rather than
         // link1 badge1  link2 badge2 link3
         root.appendChild(this.formulaContainer);
-        root.appendChild(this.tableContainer);
+        root.appendChild(this.gridContainer);
 
         root.addMouseOverListener(
             e -> this.onMouseEvent(
@@ -304,9 +307,10 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
 
     // table container..................................................................................................
 
-    private DivComponent tableContainer() {
+    private DivComponent gridContainer() {
         final DivComponent container = HtmlElementComponent.div()
-            .setCssText("display: grid; border: none; margin: 0px; padding: 0px; grid-column-gap: 0px; grid-row-gap: 0px;");
+            .setCssText("position: relative; border: none; margin: 0px; padding: 0px;");
+            //.setCssText("display: grid; border: none; margin: 0px; padding: 0px; grid-column-gap: 0px; grid-row-gap: 0px;");
 
         container.appendChild(this.table);
         container.appendChild(this.verticalScrollbar);
@@ -317,7 +321,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         return container;
     }
 
-    private final DivComponent tableContainer;
+    private final DivComponent gridContainer;
 
     // table............................................................................................................
 
@@ -339,6 +343,10 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
 
     SpreadsheetViewportScrollbarComponent<SpreadsheetColumnReference> horizontalScrollbar(final SpreadsheetViewportScrollbarComponentContext context) {
         return SpreadsheetViewportScrollbarComponent.columns(context)
+            .setCssProperty("position", "absolute")
+            .setCssProperty("left", "0px")
+            .setCssProperty("bottom", "0px")
+            .setCssProperty("z-index", "1")
             .setCssProperty("height", SCROLLBAR_LENGTH + "px")
             .setCssProperty("border-color", SpreadsheetDominoKitColor.VIEWPORT_LINES_COLOR.toString())
             .setCssProperty("border-style", "solid")
@@ -357,6 +365,10 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
 
     SpreadsheetViewportScrollbarComponent<SpreadsheetRowReference> verticalScrollbar(final SpreadsheetViewportScrollbarComponentContext context) {
         return SpreadsheetViewportScrollbarComponent.rows(context)
+            .setCssProperty("position", "absolute")
+            .setCssProperty("top", "0")
+            .setCssProperty("right", "0")
+            .setCssProperty("z-index", "1")
             .setCssProperty("width", SCROLLBAR_LENGTH + "px")
             .setCssProperty("border-color", SpreadsheetDominoKitColor.VIEWPORT_LINES_COLOR.toString())
             .setCssProperty("border-style", "solid")
@@ -463,12 +475,14 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
         final HistoryToken historyToken = context.historyToken();
 
-        this.autoHideScrollbars = metadata.get(SpreadsheetMetadataPropertyName.AUTO_HIDE_SCROLLBARS)
+        final boolean autoHideScrollbars = metadata.get(SpreadsheetMetadataPropertyName.AUTO_HIDE_SCROLLBARS)
             .orElse(false);
+        this.autoHideScrollbars = autoHideScrollbars;
 
-        this.shouldShowFormulaEditor = metadata.get(SpreadsheetMetadataPropertyName.SHOW_FORMULA_EDITOR)
+        final boolean shouldShowFormulaEditor = metadata.get(SpreadsheetMetadataPropertyName.SHOW_FORMULA_EDITOR)
             .orElse(true) ||
             (historyToken instanceof SpreadsheetCellFormulaHistoryToken && false == historyToken.isSave());
+        this.shouldShowFormulaEditor = shouldShowFormulaEditor;
 
         this.shouldHideZeroValues = metadata.get(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES)
             .orElse(false);
@@ -483,7 +497,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         final int viewportGridWidth = width;
         final int viewportGridHeight = height -
             (
-                this.shouldShowFormulaEditor ?
+                shouldShowFormulaEditor ?
                     (
                         GWT.isClient() ?
                             this.formula.height() :
@@ -495,11 +509,23 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         this.viewportGridWidth = viewportGridWidth;
         this.viewportGridHeight = viewportGridHeight;
 
-        this.tableContainer.setWidth(
+        this.gridContainer.setWidth(
             viewportGridWidth + "px"
         ).setHeight(
             viewportGridHeight + "px"
         );
+
+        final int contentWidth = viewportGridWidth - SCROLLBAR_LENGTH;
+        final int contentHeight = viewportGridHeight - SCROLLBAR_LENGTH;
+
+        this.horizontalScrollbar.setCssProperty(
+            "width",
+            contentWidth + "px"
+        ).setAutoHideScrollbars(autoHideScrollbars);
+        this.verticalScrollbar.setCssProperty(
+            "height",
+            contentHeight + "px"
+        ).setAutoHideScrollbars(autoHideScrollbars);
     }
 
     final static int FORMULA_HEIGHT = 64;
@@ -567,8 +593,9 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         }
 
         this.formulaCellLinksRefresh();
-        this.refreshTableScrollbars(context);
         this.refreshTable(maybeAnchorSelection);
+        this.horizontalScrollbar.refresh(context);
+        this.verticalScrollbar.refresh(context);
 
         if (historyToken instanceof SpreadsheetCellSelectHistoryToken ||
             historyToken instanceof SpreadsheetColumnSelectHistoryToken ||
@@ -589,34 +616,6 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
                 context
             );
         }
-    }
-
-    private void refreshTableScrollbars(final RefreshContext context) {
-        final int contentWidth = this.viewportGridWidth - SCROLLBAR_LENGTH;
-        final int contentHeight = this.viewportGridHeight - SCROLLBAR_LENGTH;
-
-        this.tableContainer.setCssProperty(
-            "grid-template-columns",
-            contentWidth + "px " + SCROLLBAR_LENGTH + "px"
-        );
-        this.tableContainer.setCssProperty(
-            "grid-template-rows",
-            contentHeight + "px " + SCROLLBAR_LENGTH + "px"
-        );
-
-        final boolean autoHideScrollbars = this.autoHideScrollbars;
-
-        this.horizontalScrollbar.setCssProperty(
-            "width",
-            contentWidth + "px"
-        ).setAutoHideScrollbars(autoHideScrollbars);
-        this.verticalScrollbar.setCssProperty(
-            "height",
-            contentHeight + "px"
-        ).setAutoHideScrollbars(autoHideScrollbars);
-
-        this.horizontalScrollbar.refresh(context);
-        this.verticalScrollbar.refresh(context);
     }
 
     // SpreadsheetViewportComponentSpreadsheetViewportScrollbarComponentContext.autoHideScrollbars()
