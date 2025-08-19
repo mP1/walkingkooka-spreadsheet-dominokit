@@ -56,7 +56,7 @@ public final class AppContextSpreadsheetNavigateDialogComponentContextColumnNavi
     }
 
     @Test
-    public void testIsMatchColumnNavigate() {
+    public void testIsMatchColumnNavigateMissingNavigation() {
         final HistoryToken historyToken = HistoryToken.columnNavigate(
             SPREADSHEET_ID,
             SPREADSHEET_NAME,
@@ -68,6 +68,22 @@ public final class AppContextSpreadsheetNavigateDialogComponentContextColumnNavi
             this.createContext(historyToken),
             historyToken,
             true
+        );
+    }
+
+    @Test
+    public void testIsMatchColumnNavigateWithNavigation() {
+        final HistoryToken historyToken = HistoryToken.columnNavigate(
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
+            SpreadsheetSelection.A1.column()
+                .setDefaultAnchor(),
+            Optional.of(NAVIGATION_LIST)
+        );
+        this.isMatchAndCheck(
+            this.createContext(historyToken),
+            historyToken,
+            false
         );
     }
 

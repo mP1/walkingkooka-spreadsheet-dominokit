@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewport;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportRectangle;
 
 import java.util.Optional;
@@ -86,13 +87,15 @@ public final class SpreadsheetNavigateDialogComponentTest implements DialogCompo
         );
     }
 
+    private final static Optional<SpreadsheetViewportHomeNavigationList> MISSING_NAVIGATION_LIST = Optional.empty();
+
     @Test
     public void testOnHistoryTokenWithSpreadsheetNavigate() {
         final TestAppContext context = new TestAppContext(
             HistoryToken.navigate(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                Optional.empty()
+                MISSING_NAVIGATION_LIST
             )
         );
 
@@ -131,7 +134,7 @@ public final class SpreadsheetNavigateDialogComponentTest implements DialogCompo
                 SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCell("B2")
                     .setDefaultAnchor(),
-                Optional.empty()
+                MISSING_NAVIGATION_LIST
             )
         );
 
@@ -170,7 +173,7 @@ public final class SpreadsheetNavigateDialogComponentTest implements DialogCompo
                 SPREADSHEET_NAME,
                 SpreadsheetSelection.parseColumn("C")
                     .setDefaultAnchor(),
-                Optional.empty()
+                MISSING_NAVIGATION_LIST
             )
         );
 
@@ -209,7 +212,7 @@ public final class SpreadsheetNavigateDialogComponentTest implements DialogCompo
                 SPREADSHEET_NAME,
                 SpreadsheetSelection.parseRow("99")
                     .setDefaultAnchor(),
-                Optional.empty()
+                MISSING_NAVIGATION_LIST
             )
         );
 

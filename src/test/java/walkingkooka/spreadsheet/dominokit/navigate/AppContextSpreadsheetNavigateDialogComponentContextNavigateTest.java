@@ -27,7 +27,7 @@ import java.util.Optional;
 public final class AppContextSpreadsheetNavigateDialogComponentContextNavigateTest extends AppContextSpreadsheetNavigateDialogComponentContextTestCase<AppContextSpreadsheetNavigateDialogComponentContextNavigate> {
 
     @Test
-    public void testIsMatchNavigate() {
+    public void testIsMatchNavigateMissingNavigation() {
         final HistoryToken historyToken = HistoryToken.navigate(
             SPREADSHEET_ID,
             SPREADSHEET_NAME,
@@ -37,6 +37,20 @@ public final class AppContextSpreadsheetNavigateDialogComponentContextNavigateTe
             this.createContext(historyToken),
             historyToken,
             true
+        );
+    }
+
+    @Test
+    public void testIsMatchNavigatWithNavigation() {
+        final HistoryToken historyToken = HistoryToken.navigate(
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
+            Optional.of(NAVIGATION_LIST)
+        );
+        this.isMatchAndCheck(
+            this.createContext(historyToken),
+            historyToken,
+            false
         );
     }
 

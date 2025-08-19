@@ -41,7 +41,7 @@ public final class AppContextSpreadsheetNavigateDialogComponentContextCellNaviga
     }
 
     @Test
-    public void testIsMatchCellNavigate() {
+    public void testIsMatchCellNavigateMissingNavigation() {
         final HistoryToken historyToken = HistoryToken.cellNavigate(
             SPREADSHEET_ID,
             SPREADSHEET_NAME,
@@ -52,6 +52,21 @@ public final class AppContextSpreadsheetNavigateDialogComponentContextCellNaviga
             this.createContext(historyToken),
             historyToken,
             true
+        );
+    }
+
+    @Test
+    public void testIsMatchCellNavigateWithNavigation() {
+        final HistoryToken historyToken = HistoryToken.cellNavigate(
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
+            SpreadsheetSelection.A1.setDefaultAnchor(),
+            Optional.of(NAVIGATION_LIST)
+        );
+        this.isMatchAndCheck(
+            this.createContext(historyToken),
+            historyToken,
+            false
         );
     }
 
