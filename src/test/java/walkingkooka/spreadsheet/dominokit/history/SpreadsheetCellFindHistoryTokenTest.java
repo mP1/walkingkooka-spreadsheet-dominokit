@@ -113,6 +113,15 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
         );
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // patternKind......................................................................................................
 
     @Test

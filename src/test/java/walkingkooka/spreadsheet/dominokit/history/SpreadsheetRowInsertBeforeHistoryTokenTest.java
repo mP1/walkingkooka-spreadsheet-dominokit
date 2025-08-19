@@ -185,6 +185,15 @@ public final class SpreadsheetRowInsertBeforeHistoryTokenTest extends Spreadshee
         );
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     @Override
     SpreadsheetRowInsertBeforeHistoryToken createHistoryToken(final SpreadsheetId id,
                                                               final SpreadsheetName name,

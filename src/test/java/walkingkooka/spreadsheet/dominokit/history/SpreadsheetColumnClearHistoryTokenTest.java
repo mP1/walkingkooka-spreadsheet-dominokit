@@ -49,6 +49,15 @@ public final class SpreadsheetColumnClearHistoryTokenTest extends SpreadsheetCol
         );
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // menu(Selection)..................................................................................................
 
     @Override

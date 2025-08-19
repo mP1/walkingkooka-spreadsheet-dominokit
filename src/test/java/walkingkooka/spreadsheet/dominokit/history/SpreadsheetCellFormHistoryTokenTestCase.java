@@ -96,6 +96,15 @@ public abstract class SpreadsheetCellFormHistoryTokenTestCase<T extends Spreadsh
         );
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public final void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // HistoryToken.....................................................................................................
 
     @Override //

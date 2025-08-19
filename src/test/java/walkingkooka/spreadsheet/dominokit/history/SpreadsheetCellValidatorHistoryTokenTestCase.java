@@ -44,6 +44,15 @@ public abstract class SpreadsheetCellValidatorHistoryTokenTestCase<T extends Spr
         );
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public final void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // setSaveValue.....................................................................................................
 
     @Test

@@ -44,6 +44,15 @@ public abstract class SpreadsheetCellDateTimeSymbolsHistoryTokenTestCase<T exten
         );
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public final void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // setSaveValue.....................................................................................................
 
     @Test

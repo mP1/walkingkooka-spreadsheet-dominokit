@@ -83,6 +83,15 @@ public final class SpreadsheetListDeleteHistoryTokenTest extends SpreadsheetIdHi
         );
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     @Test
     public void testPatternKind() {
         this.patternKindAndCheck(

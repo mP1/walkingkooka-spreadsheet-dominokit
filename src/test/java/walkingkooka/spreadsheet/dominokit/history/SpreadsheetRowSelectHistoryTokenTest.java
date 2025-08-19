@@ -75,6 +75,15 @@ public final class SpreadsheetRowSelectHistoryTokenTest extends SpreadsheetRowHi
         this.menuWithRowAndCheck();
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // unfreezeOrEmpty..................................................................................................
 
     @Test

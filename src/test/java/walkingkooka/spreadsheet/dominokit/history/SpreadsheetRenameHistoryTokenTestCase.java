@@ -85,6 +85,15 @@ public abstract class SpreadsheetRenameHistoryTokenTestCase<T extends Spreadshee
         );
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public final void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     @Test
     public final void testPatternKind() {
         this.patternKindAndCheck(

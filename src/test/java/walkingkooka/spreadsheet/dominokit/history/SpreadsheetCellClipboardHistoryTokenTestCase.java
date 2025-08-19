@@ -47,6 +47,15 @@ public abstract class SpreadsheetCellClipboardHistoryTokenTestCase<T extends Spr
         );
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public final void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     @Override //
     final T createHistoryToken(final SpreadsheetId id,
                                final SpreadsheetName name,

@@ -142,6 +142,15 @@ public abstract class SpreadsheetCellLabelHistoryTokenTestCase<T extends Spreads
     abstract void setLabelMappingReferenceAndCheck(final SpreadsheetExpressionReference selection,
                                                    final SpreadsheetExpressionReference target);
 
+    // navigation.......................................................................................................
+
+    @Test
+    public final void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // setSaveValue.....................................................................................................
 
     @Test

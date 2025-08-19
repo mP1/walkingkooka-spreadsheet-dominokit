@@ -89,6 +89,15 @@ public final class SpreadsheetCellFreezeHistoryTokenTest extends SpreadsheetCell
         );
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public final void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // patternKind......................................................................................................
 
     @Test

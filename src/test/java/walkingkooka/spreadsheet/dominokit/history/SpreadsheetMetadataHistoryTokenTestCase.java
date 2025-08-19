@@ -77,6 +77,15 @@ public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends Spreadsh
         this.menuWithRowAndCheck();
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public final void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // rename...........................................................................................................
 
     @Test

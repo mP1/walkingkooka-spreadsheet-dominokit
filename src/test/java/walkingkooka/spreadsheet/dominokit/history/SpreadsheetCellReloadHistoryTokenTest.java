@@ -76,6 +76,15 @@ public final class SpreadsheetCellReloadHistoryTokenTest extends SpreadsheetCell
         this.menuWithCellAndCheck();
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // patternKind......................................................................................................
 
     @Test

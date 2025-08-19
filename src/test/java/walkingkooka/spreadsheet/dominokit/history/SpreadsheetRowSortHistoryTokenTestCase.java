@@ -53,6 +53,15 @@ public abstract class SpreadsheetRowSortHistoryTokenTestCase<T extends Spreadshe
         );
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public final void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // setSaveValue.....................................................................................................
 
     @Test

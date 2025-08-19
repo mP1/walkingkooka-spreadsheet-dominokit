@@ -83,6 +83,15 @@ public final class SpreadsheetCellMenuHistoryTokenTest extends SpreadsheetCellHi
         );
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public final void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // ClassTesting....................................................................................................
 
     @Override

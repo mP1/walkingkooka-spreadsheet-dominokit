@@ -44,6 +44,15 @@ public abstract class SpreadsheetCellLocaleHistoryTokenTestCase<T extends Spread
         );
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public final void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // setSaveStringValue.....................................................................................................
 
     @Test

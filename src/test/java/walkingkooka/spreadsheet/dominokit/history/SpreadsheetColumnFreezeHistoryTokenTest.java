@@ -54,6 +54,15 @@ public final class SpreadsheetColumnFreezeHistoryTokenTest extends SpreadsheetCo
         );
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // menu(Selection)..................................................................................................
 
     @Override

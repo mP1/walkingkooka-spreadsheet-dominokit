@@ -120,6 +120,16 @@ public final class SpreadsheetColumnNavigateHistoryTokenTest extends Spreadsheet
         );
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken(),
+            NAVIGATIONS
+        );
+    }
+
     @Override
     SpreadsheetColumnNavigateHistoryToken createHistoryToken(final SpreadsheetId id,
                                                              final SpreadsheetName name,

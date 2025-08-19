@@ -104,6 +104,15 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
         );
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // patternKind......................................................................................................
 
     @Test

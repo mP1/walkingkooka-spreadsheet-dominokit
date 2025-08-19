@@ -55,6 +55,15 @@ public final class SpreadsheetRowUnfreezeHistoryTokenTest extends SpreadsheetRow
         );
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     @Override
     SpreadsheetRowUnfreezeHistoryToken createHistoryToken(final SpreadsheetId id,
                                                           final SpreadsheetName name,

@@ -3561,6 +3561,37 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     // navigation.......................................................................................................
 
+    /**
+     * Getter that returns any present {@link SpreadsheetViewportHomeNavigationList}.
+     */
+    public final Optional<SpreadsheetViewportHomeNavigationList> navigation() {
+        Optional<SpreadsheetViewportHomeNavigationList> navigation;
+
+        if (this instanceof SpreadsheetNavigateHistoryToken) {
+            navigation = this.cast(SpreadsheetNavigateHistoryToken.class)
+                .navigation;
+        } else {
+            if (this instanceof SpreadsheetCellNavigateHistoryToken) {
+                navigation = this.cast(SpreadsheetCellNavigateHistoryToken.class)
+                    .navigation;
+            } else {
+                if (this instanceof SpreadsheetColumnNavigateHistoryToken) {
+                    navigation = this.cast(SpreadsheetColumnNavigateHistoryToken.class)
+                        .navigation;
+                } else {
+                    if (this instanceof SpreadsheetRowNavigateHistoryToken) {
+                        navigation = this.cast(SpreadsheetRowNavigateHistoryToken.class)
+                            .navigation;
+                    } else {
+                        navigation = Optional.empty();
+                    }
+                }
+            }
+        }
+
+        return navigation;
+    }
+
     public final HistoryToken setNavigation(final Optional<SpreadsheetViewportHomeNavigationList> navigation) {
         Objects.requireNonNull(navigation, "navigation");
 

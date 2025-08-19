@@ -259,6 +259,15 @@ public final class SpreadsheetCellLabelListHistoryTokenTest extends SpreadsheetC
         );
     }
 
+    // navigation.......................................................................................................
+
+    @Test
+    public void testNavigation() {
+        this.navigationAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // setSaveStringValue.....................................................................................................
 
     @Test
