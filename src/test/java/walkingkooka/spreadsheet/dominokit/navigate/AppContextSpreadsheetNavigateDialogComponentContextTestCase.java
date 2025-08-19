@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewport;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportRectangle;
 
 import java.util.Objects;
@@ -51,6 +52,10 @@ public abstract class AppContextSpreadsheetNavigateDialogComponentContextTestCas
     );
 
     final static Supplier<SpreadsheetMetadata> SPREADSHEET_METADATA_GETTER = () -> SPREADSHEET_METADATA;
+
+    final static SpreadsheetViewportHomeNavigationList NAVIGATION_LIST = SpreadsheetViewportHomeNavigationList.with(
+        SpreadsheetSelection.parseCell("Z99")
+    );
 
     @Test
     public final void testWithNullContextFails() {

@@ -40,6 +40,8 @@ final class AppContextSpreadsheetNavigateDialogComponentContextColumnNavigate ex
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return token instanceof SpreadsheetColumnNavigateHistoryToken;
+        return token instanceof SpreadsheetColumnNavigateHistoryToken &&
+            token.navigation()
+                .isEmpty();
     }
 }
