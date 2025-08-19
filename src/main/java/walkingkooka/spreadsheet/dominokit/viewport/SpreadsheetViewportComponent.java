@@ -525,7 +525,6 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
             viewportGridHeight + "px"
         );
 
-        final int contentWidth = viewportGridWidth - SCROLLBAR_LENGTH;
         final int contentHeight = viewportGridHeight - SCROLLBAR_LENGTH;
 
         this.horizontalScrollbar.setAutoHideScrollbars(autoHideScrollbars);
