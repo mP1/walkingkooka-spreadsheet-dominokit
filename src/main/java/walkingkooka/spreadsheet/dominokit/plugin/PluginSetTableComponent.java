@@ -144,14 +144,9 @@ final class PluginSetTableComponent implements TableComponent<HTMLDivElement, Pl
     }
 
     PluginSetTableComponent refresh(final PluginListHistoryToken historyToken) {
-        this.dataTable.refreshPreviousNextLinks(
-            historyToken,
-            DEFAULT_COUNT
-        );
+        this.dataTable.refreshPreviousNextLinks(historyToken);
         return this;
     }
-
-    private final static int DEFAULT_COUNT = 10;
 
     // HtmlComponentDelegator...........................................................................................
 

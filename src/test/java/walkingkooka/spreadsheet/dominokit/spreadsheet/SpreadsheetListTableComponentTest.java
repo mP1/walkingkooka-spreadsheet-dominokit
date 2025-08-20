@@ -147,7 +147,7 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
                 "              mdi-arrow-left \"previous\" DISABLED id=Table123-previous-Link\n" +
-                "              \"next\" DISABLED mdi-arrow-right id=Table123-next-Link\n" +
+                "              \"next\" [#/*/offset/2] mdi-arrow-right id=Table123-next-Link\n" +
                 "        PLUGINS\n" +
                 "          EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n"
         );

@@ -745,7 +745,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=cellFind-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=cellFind-next-Link\n" +
+                "                    \"next\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] mdi-arrow-right id=cellFind-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );

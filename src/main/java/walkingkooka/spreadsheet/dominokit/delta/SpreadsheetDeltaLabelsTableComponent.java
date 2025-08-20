@@ -51,8 +51,6 @@ public final class SpreadsheetDeltaLabelsTableComponent implements TableComponen
     SpreadsheetDeltaFetcherWatcher,
     HtmlComponentDelegator<HTMLDivElement, SpreadsheetDeltaLabelsTableComponent> {
 
-    final static int DEFAULT_COUNT = 10;
-
     public static SpreadsheetDeltaLabelsTableComponent with(final String id,
                                                             final SpreadsheetDeltaLabelsTableComponentContext context) {
         return new SpreadsheetDeltaLabelsTableComponent(
@@ -163,10 +161,7 @@ public final class SpreadsheetDeltaLabelsTableComponent implements TableComponen
     // refresh..........................................................................................................
 
     public SpreadsheetDeltaLabelsTableComponent refresh(final HistoryToken token) {
-        this.dataTable.refreshPreviousNextLinks(
-            token,
-            DEFAULT_COUNT
-        );
+        this.dataTable.refreshPreviousNextLinks(token);
         return this;
     }
 

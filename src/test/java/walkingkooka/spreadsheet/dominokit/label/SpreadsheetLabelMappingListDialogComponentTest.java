@@ -284,7 +284,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" [#/1/SpreadsheetName1/label/*/offset/0] id=labels-previous-Link\n" +
+                "                    mdi-arrow-left \"previous\" [#/1/SpreadsheetName1/label/*/offset/2] id=labels-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=labels-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
@@ -360,7 +360,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" [#/1/SpreadsheetName1/label/*/offset/0] id=labels-previous-Link\n" +
+                "                    mdi-arrow-left \"previous\" [#/1/SpreadsheetName1/label/*/offset/2] id=labels-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=labels-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +

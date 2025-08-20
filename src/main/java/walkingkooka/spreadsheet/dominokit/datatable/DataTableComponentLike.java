@@ -62,6 +62,11 @@ abstract class DataTableComponentLike<T> implements TableComponent<HTMLDivElemen
         return false; // always NO
     }
 
+    /**
+     * Getter that returns the number of visible rows in the table.
+     */
+    public abstract int rowCount();
+
     // prev/next links..................................................................................................
 
     public abstract DataTableComponent<T> previousNextLinks(final String idPrefix);
@@ -96,18 +101,20 @@ abstract class DataTableComponentLike<T> implements TableComponent<HTMLDivElemen
      * Updates the previous and next links using the history token to fetch the offset and count.
      * Note the next link will include the last row of the current view, and the previous link will include the first row of the current view.
      */
-    public final DataTableComponent<T> refreshPreviousNextLinks(final HistoryToken historyToken,
-                                                                final int defaultCount) {
+    public final DataTableComponent<T> refreshPreviousNextLinks(final HistoryToken historyToken) {
         final HistoryTokenOffsetAndCount offsetAndCount = historyToken.offsetAndCount();
         final int offset = offsetAndCount.offset()
             .orElse(0);
         final int count = offsetAndCount.count()
-            .orElse(defaultCount);
+            .orElse(this.rowCount());
 
         final boolean previousDisabled = 0 == offset;
-        final boolean nextDisabled = this.value()
+
+        final int valueCount = this.value()
             .map(Collection::size)
-            .orElse(0) < count;
+            .orElse(0);
+
+        final boolean nextDisabled = valueCount <= 0 || valueCount < count;
 
         this.setPrevious(
             Optional.ofNullable(
