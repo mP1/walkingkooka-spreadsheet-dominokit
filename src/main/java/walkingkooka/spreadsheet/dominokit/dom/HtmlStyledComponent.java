@@ -45,6 +45,13 @@ public interface HtmlStyledComponent<C extends HtmlStyledComponent<C>> {
         );
     }
 
+    default C setFlex(final String value) {
+        return this.setCssProperty(
+            "flex",
+            value
+        );
+    }
+
     default C setFlexDirection(final String value) {
         return this.setCssProperty(
             "flex-direction",
