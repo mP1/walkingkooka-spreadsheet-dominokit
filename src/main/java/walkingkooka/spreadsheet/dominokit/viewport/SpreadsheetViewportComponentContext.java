@@ -61,8 +61,6 @@ public interface SpreadsheetViewportComponentContext extends HistoryContext,
      */
     default SpreadsheetCellReference home() {
         return this.spreadsheetMetadata()
-            .getOrFail(SpreadsheetMetadataPropertyName.VIEWPORT)
-            .rectangle()
-            .home();
+            .getOrFail(SpreadsheetMetadataPropertyName.VIEWPORT_HOME);
     }
 }

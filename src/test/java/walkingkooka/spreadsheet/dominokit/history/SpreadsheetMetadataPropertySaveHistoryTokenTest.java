@@ -34,8 +34,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.viewport.SpreadsheetViewport;
-import walkingkooka.spreadsheet.viewport.SpreadsheetViewportRectangle;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.form.provider.FormHandlerAliasSet;
@@ -352,8 +350,12 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
             SpreadsheetMetadataPropertyName.PLUGINS,
             PluginNameSet.parse("plugins5")
         ).set(
-            SpreadsheetMetadataPropertyName.VIEWPORT,
-            SpreadsheetViewport.with(SpreadsheetViewportRectangle.parse("A1:100:200"))
+            SpreadsheetMetadataPropertyName.VIEWPORT_HOME,
+            SpreadsheetSelection.A1
+        ).set(
+            SpreadsheetMetadataPropertyName.VIEWPORT_SELECTION,
+            SpreadsheetSelection.parseColumnRange("B:C")
+                .setDefaultAnchor()
         );
 
         // verify that SpreadsheetMetadata has all properties
@@ -368,6 +370,9 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
                 continue;
             }
             if (SpreadsheetMetadataPropertyName.STYLE == propertyName) {
+                continue;
+            }
+            if (SpreadsheetMetadataPropertyName.VIEWPORT_SELECTION == propertyName) {
                 continue;
             }
 
@@ -392,9 +397,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
                 );
             }
             System.out.println(propertyName);
-if(propertyName.equals(SpreadsheetMetadataPropertyName.VIEWPORT)) {
-    int z = 0;
-}
+
             String urlFragment = HistoryToken.saveUrlFragmentValue(value)
                 .toString();
             if (false == urlFragment.startsWith("/")) {

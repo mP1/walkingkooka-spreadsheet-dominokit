@@ -158,17 +158,15 @@ public final class SpreadsheetNavigateDialogComponent implements DialogComponent
 
     @Override
     public void openGiveFocus(final RefreshContext context) {
-        final SpreadsheetCellReference home = this.context.spreadsheetMetadata()
-            .getOrFail(SpreadsheetMetadataPropertyName.VIEWPORT)
-            .rectangle()
-            .home();
-
         this.undo.setValue(
             Optional.of(
                 context.historyToken()
                     .setNavigation(
                         Optional.of(
-                            SpreadsheetViewportHomeNavigationList.with(home)
+                            SpreadsheetViewportHomeNavigationList.with(
+                                this.context.spreadsheetMetadata()
+                                    .getOrFail(SpreadsheetMetadataPropertyName.VIEWPORT_HOME)
+                            )
                         )
                     )
             )

@@ -29,9 +29,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.viewport.SpreadsheetViewport;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
-import walkingkooka.spreadsheet.viewport.SpreadsheetViewportRectangle;
 
 import java.util.Optional;
 
@@ -277,15 +275,9 @@ public final class SpreadsheetNavigateDialogComponentTest implements DialogCompo
                 SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
                 SPREADSHEET_NAME
             ).set(
-                SpreadsheetMetadataPropertyName.VIEWPORT,
-                SpreadsheetViewport.with(
-                    SpreadsheetViewportRectangle.with(
-                        SpreadsheetSelection.A1,
-                        100, // width
-                        200 // height
-                    )
-                )
-            );
+                SpreadsheetMetadataPropertyName.VIEWPORT_HOME,
+                SpreadsheetSelection.A1
+            ).remove(SpreadsheetMetadataPropertyName.VIEWPORT_SELECTION);
         }
 
         @Override

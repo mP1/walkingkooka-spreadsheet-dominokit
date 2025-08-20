@@ -343,9 +343,7 @@ abstract public class SpreadsheetViewportScrollbarComponent<R extends Spreadshee
     @Override
     public void refresh(final RefreshContext context) {
         final SpreadsheetCellReference home = this.spreadsheetMetadata()
-            .getOrFail(SpreadsheetMetadataPropertyName.VIEWPORT)
-            .rectangle()
-            .home();
+            .getOrFail(SpreadsheetMetadataPropertyName.VIEWPORT_HOME);
 
         final boolean columns = this.referenceKind() == SpreadsheetColumnOrRowReferenceKind.COLUMN;
 
