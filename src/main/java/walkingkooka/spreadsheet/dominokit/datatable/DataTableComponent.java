@@ -162,6 +162,15 @@ public final class DataTableComponent<T> extends DataTableComponentLike<T> {
         return this;
     }
 
+    /**
+     * Returns the number of visible or rendered rows, currently in the table.
+     */
+    @Override
+    public int rowCount() {
+        return this.table.getData()
+            .size();
+    }
+
     private final DataTable<T> table;
 
     private final LocalListDataStore<T> dataStore;

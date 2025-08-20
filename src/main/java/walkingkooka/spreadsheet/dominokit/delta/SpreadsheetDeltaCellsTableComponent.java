@@ -152,13 +152,8 @@ public final class SpreadsheetDeltaCellsTableComponent implements TableComponent
 
     // refresh..........................................................................................................
 
-    final static int DEFAULT_COUNT = 10;
-
     public SpreadsheetDeltaCellsTableComponent refresh(final HistoryToken token) {
-        this.dataTable.refreshPreviousNextLinks(
-            token,
-            DEFAULT_COUNT
-        );
+        this.dataTable.refreshPreviousNextLinks(token);
         return this;
     }
 

@@ -53,8 +53,6 @@ final class SpreadsheetListTableComponent implements TableComponent<HTMLDivEleme
         );
     }
 
-    final static int DEFAULT_COUNT = 10;
-
     private SpreadsheetListTableComponent(final String id,
                                           final SpreadsheetListDialogComponentContext context) {
         this.card = CardComponent.empty();
@@ -145,10 +143,7 @@ final class SpreadsheetListTableComponent implements TableComponent<HTMLDivEleme
     }
 
     void refresh(final SpreadsheetListHistoryToken historyToken) {
-        this.dataTable.refreshPreviousNextLinks(
-            historyToken,
-            DEFAULT_COUNT
-        );
+        this.dataTable.refreshPreviousNextLinks(historyToken);
     }
 
     // HtmlComponentDelegator...........................................................................................

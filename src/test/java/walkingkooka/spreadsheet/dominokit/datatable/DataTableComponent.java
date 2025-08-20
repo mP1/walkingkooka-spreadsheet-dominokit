@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -56,6 +57,14 @@ public class DataTableComponent<T> extends DataTableComponentLike<T>
         this.plugins = Lists.array();
 
         this.id = id;
+    }
+
+    // report the value size
+    @Override
+    public int rowCount() {
+        return this.value()
+            .map(Collection::size)
+            .orElse(0);
     }
 
     // id...............................................................................................................

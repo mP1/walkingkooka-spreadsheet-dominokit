@@ -511,8 +511,7 @@ public final class DataTableComponentTest implements ClassTesting<DataTableCompo
                             OptionalInt.of(0), // offset
                             OptionalInt.of(5) // count
                         )
-                    ),
-                    100
+                    )
                 ),
             "DataTableComponent\n" +
                 "  id=tableId123-Table\n" +
@@ -597,8 +596,7 @@ public final class DataTableComponentTest implements ClassTesting<DataTableCompo
                             OptionalInt.of(16), // offset
                             OptionalInt.of(5) // count
                         )
-                    ),
-                    100
+                    )
                 ),
             "DataTableComponent\n" +
                 "  id=tableId123-Table\n" +
@@ -671,8 +669,7 @@ public final class DataTableComponentTest implements ClassTesting<DataTableCompo
                             OptionalInt.of(16), // offset
                             OptionalInt.of(5) // count
                         )
-                    ),
-                    100
+                    )
                 ),
             "DataTableComponent\n" +
                 "  id=tableId123-Table\n" +
