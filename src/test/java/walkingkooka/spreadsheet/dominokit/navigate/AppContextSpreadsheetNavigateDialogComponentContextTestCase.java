@@ -22,28 +22,15 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
 
 import java.util.Objects;
-import java.util.function.Supplier;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public abstract class AppContextSpreadsheetNavigateDialogComponentContextTestCase<C extends AppContextSpreadsheetNavigateDialogComponentContext>
     implements SpreadsheetNavigateDialogComponentContextTesting<C> {
-
-    final static SpreadsheetCellReference HOME = SpreadsheetSelection.A1;
-
-    final static SpreadsheetMetadata SPREADSHEET_METADATA = SpreadsheetMetadata.EMPTY.set(
-        SpreadsheetMetadataPropertyName.VIEWPORT_HOME,
-        HOME
-    );
-
-    final static Supplier<SpreadsheetMetadata> SPREADSHEET_METADATA_GETTER = () -> SPREADSHEET_METADATA;
 
     final static SpreadsheetViewportHomeNavigationList NAVIGATION_LIST = SpreadsheetViewportHomeNavigationList.with(
         SpreadsheetSelection.parseCell("Z99")
