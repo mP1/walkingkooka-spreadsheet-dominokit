@@ -45,6 +45,20 @@ public interface HtmlStyledComponent<C extends HtmlStyledComponent<C>> {
         );
     }
 
+    default C setFlexDirection(final String value) {
+        return this.setCssProperty(
+            "flex-direction",
+            value
+        );
+    }
+
+    default C setFloat(final String value) {
+        return this.setCssProperty(
+            "float",
+            value
+        );
+    }
+
     default C setHeight(final String height) {
         return this.setCssProperty(
             TextStylePropertyName.HEIGHT,
@@ -103,6 +117,22 @@ public interface HtmlStyledComponent<C extends HtmlStyledComponent<C>> {
         );
     }
 
+    default void makeOpaque() {
+        this.setOpacity("1");
+    }
+
+    default void makeTransparent() {
+        this.setOpacity("0");
+    }
+
+    default C setOpacity(final String value) {
+        return this.setCssProperty(
+            TextStylePropertyName.OPACITY,
+            value
+        );
+    }
+
+
     default C setOverflow(final String overflow) {
         return this.setCssProperty(
             TextStylePropertyName.OVERFLOW_X,
@@ -157,6 +187,13 @@ public interface HtmlStyledComponent<C extends HtmlStyledComponent<C>> {
         );
     }
 
+    default C setTextWrap(final String top) {
+        return this.setCssProperty(
+            "text-wrap",
+            top
+        );
+    }
+
     default C setTop(final String top) {
         return this.setCssProperty(
             "top",
@@ -164,9 +201,23 @@ public interface HtmlStyledComponent<C extends HtmlStyledComponent<C>> {
         );
     }
 
+    default C setWhitespace(final String top) {
+        return this.setCssProperty(
+            TextStylePropertyName.WHITE_SPACE,
+            top
+        );
+    }
+
     default C setWidth(final String width) {
         return this.setCssProperty(
             TextStylePropertyName.WIDTH,
+            width
+        );
+    }
+
+    default C setWritingMode(final String width) {
+        return this.setCssProperty(
+            "writing-mode",
             width
         );
     }
