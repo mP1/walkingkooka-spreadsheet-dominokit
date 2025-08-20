@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
+import walkingkooka.spreadsheet.dominokit.dom.HtmlStyledComponent;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -61,7 +62,8 @@ import java.util.Optional;
 abstract public class SpreadsheetViewportScrollbarComponent<R extends SpreadsheetColumnOrRowReference>
     implements ValueComponent<HTMLDivElement, R, SpreadsheetViewportScrollbarComponent<R>>,
     SpreadsheetViewportComponentLifecycle,
-    HtmlComponentDelegator<HTMLDivElement, SpreadsheetViewportScrollbarComponent<R>> {
+    HtmlComponentDelegator<HTMLDivElement, SpreadsheetViewportScrollbarComponent<R>>,
+    HtmlStyledComponent<SpreadsheetViewportScrollbarComponent<R>> {
 
     public static SpreadsheetViewportScrollbarComponent<SpreadsheetColumnReference> columns(final SpreadsheetViewportScrollbarComponentContext context) {
         return SpreadsheetViewportScrollbarComponentColumns.with(context);
@@ -97,11 +99,11 @@ abstract public class SpreadsheetViewportScrollbarComponent<R extends Spreadshee
             );
         this.slider = this.createSlider()
             .setId(idPrefix + "-value" + SpreadsheetElementIds.SLIDER)
-            .setCssProperty("flex", "1")
-            .setCssProperty("margin", "0");
+            .setFlex("1")
+            .setMargin("0");
 
         if(this instanceof SpreadsheetViewportScrollbarComponentColumns) {
-            this.slider.setCssProperty("margin-top", "-7px");
+            this.slider.setMarginTop("-7px");
         }
 
         this.after = HistoryTokenAnchorComponent.empty()
@@ -155,21 +157,6 @@ abstract public class SpreadsheetViewportScrollbarComponent<R extends Spreadshee
 
     private boolean mouseEnter;
 
-    private void makeOpaque() {
-        this.setOpacity("1");
-    }
-
-    private void makeTransparent() {
-        this.setOpacity("0");
-    }
-
-    private void setOpacity(final String value) {
-        this.setCssProperty(
-            "opacity",
-            value
-        );
-    }
-
     @Override
     public boolean isEditing() {
         return false;
@@ -180,6 +167,13 @@ abstract public class SpreadsheetViewportScrollbarComponent<R extends Spreadshee
     @Override
     public final HtmlComponent<HTMLDivElement, ?> htmlComponent() {
         return this.layout;
+    }
+
+    @Override
+    public final SpreadsheetViewportScrollbarComponent<R> setCssProperty(final String name,
+                                                                         final String value) {
+        this.layout.setCssProperty(name, value);
+        return this;
     }
 
     // ValueComponent...................................................................................................
