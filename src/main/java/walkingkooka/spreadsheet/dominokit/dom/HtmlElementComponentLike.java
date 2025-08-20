@@ -27,12 +27,12 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.text.HasText;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextNode;
-import walkingkooka.tree.text.TextStylePropertyName;
 
 /**
  * Base class for an element {@link HtmlComponent}
  */
-abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlElementComponentLike<E, C>> implements HtmlComponent<E, C>,
+abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlElementComponent<E, C>> implements HtmlComponent<E, C>,
+    HtmlStyledComponent<C>,
     HasText {
 
     HtmlElementComponentLike() {
@@ -55,161 +55,6 @@ abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlEle
 
     public abstract C setAttribute(final String name,
                                    final String value);
-
-    public final C setBackgroundColor(final String color) {
-        return this.setCssProperty(
-            TextStylePropertyName.BACKGROUND_COLOR,
-            color
-        );
-    }
-
-    public final C setColor(final String color) {
-        return this.setCssProperty(
-            TextStylePropertyName.COLOR,
-            color
-        );
-    }
-    
-    public final C setDisplay(final String display) {
-        return this.setCssProperty(
-            "display",
-            display
-        );
-    }
-
-    public final C setHeight(final String height) {
-        return this.setCssProperty(
-            TextStylePropertyName.HEIGHT,
-            height
-        );
-    }
-    
-    public final C setLeft(final String left) {
-        return this.setCssProperty(
-            "left",
-            left
-        );
-    }
-
-    public final C setMargin(final String margin) {
-        return this.setCssProperty(
-            TextStylePropertyName.MARGIN_LEFT,
-            margin
-        ).setCssProperty(
-            TextStylePropertyName.MARGIN_RIGHT,
-            margin
-        ).setCssProperty(
-            TextStylePropertyName.MARGIN_TOP,
-            margin
-        ).setCssProperty(
-            TextStylePropertyName.MARGIN_BOTTOM,
-            margin
-        );
-    }
-
-    public final C setMarginBottom(final String margin) {
-        return this.setCssProperty(
-            TextStylePropertyName.MARGIN_BOTTOM,
-            margin
-        );
-    }
-
-    public final C setMarginLeft(final String margin) {
-        return this.setCssProperty(
-            TextStylePropertyName.MARGIN_LEFT,
-            margin
-        );
-    }
-
-    public final C setMarginRight(final String margin) {
-        return this.setCssProperty(
-            TextStylePropertyName.MARGIN_RIGHT,
-            margin
-        );
-    }
-
-    public final C setMarginTop(final String overflow) {
-        return this.setCssProperty(
-            TextStylePropertyName.MARGIN_TOP,
-            overflow
-        );
-    }
-    
-    public final C setOverflow(final String overflow) {
-        return this.setCssProperty(
-            TextStylePropertyName.OVERFLOW_X,
-            overflow
-        ).setCssProperty(
-            TextStylePropertyName.OVERFLOW_Y,
-            overflow
-        );
-    }
-
-    public final C setPadding(final String padding) {
-        return this.setCssProperty(
-            TextStylePropertyName.PADDING_LEFT,
-            padding
-        ).setCssProperty(
-            TextStylePropertyName.PADDING_RIGHT,
-            padding
-        ).setCssProperty(
-            TextStylePropertyName.PADDING_TOP,
-            padding
-        ).setCssProperty(
-            TextStylePropertyName.PADDING_BOTTOM,
-            padding
-        );
-    }
-
-    public final C setPaddingBottom(final String padding) {
-        return this.setCssProperty(
-            TextStylePropertyName.PADDING_BOTTOM,
-            padding
-        );
-    }
-
-    public final C setPaddingLeft(final String padding) {
-        return this.setCssProperty(
-            TextStylePropertyName.PADDING_LEFT,
-            padding
-        );
-    }
-
-    public final C setPaddingRight(final String padding) {
-        return this.setCssProperty(
-            TextStylePropertyName.PADDING_RIGHT,
-            padding
-        );
-    }
-
-    public final C setPaddingTop(final String overflow) {
-        return this.setCssProperty(
-            TextStylePropertyName.PADDING_TOP,
-            overflow
-        );
-    }
-
-    public final C setTop(final String top) {
-        return this.setCssProperty(
-            "top",
-            top
-        );
-    }
-
-    public final C setWidth(final String width) {
-        return this.setCssProperty(
-            TextStylePropertyName.WIDTH,
-            width
-        );
-    }
-
-    final C setCssProperty(final TextStylePropertyName<?> name,
-                           final String value) {
-        return this.setCssProperty(
-            name.toString(),
-            value
-        );
-    }
 
     @Override
     public abstract C setCssProperty(final String name,
