@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.slider;
 
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.dominokit.dom.HtmlStyledComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -27,6 +28,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 abstract class SliderComponentLike implements FormValueComponent<HTMLDivElement, Double, SliderComponent>,
+    HtmlStyledComponent<SliderComponent>,
     TreePrintable {
 
     SliderComponentLike() {
@@ -34,8 +36,7 @@ abstract class SliderComponentLike implements FormValueComponent<HTMLDivElement,
     }
 
     final SliderComponent setVertical() {
-        return this.setCssProperty(
-            "writing-mode",
+        return this.setWritingMode(
             "vertical-lr"
         );
     }
