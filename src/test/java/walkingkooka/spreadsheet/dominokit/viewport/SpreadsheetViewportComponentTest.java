@@ -42,7 +42,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.viewport.SpreadsheetViewportRectangle;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportWindows;
 import walkingkooka.test.ParseStringTesting;
 import walkingkooka.tree.text.Length;
@@ -259,13 +258,9 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
             Color.WHITE
         )
     ).set(
-        SpreadsheetMetadataPropertyName.VIEWPORT,
-        SpreadsheetViewportRectangle.with(
-            SpreadsheetSelection.A1,
-            VIEWPORT_GRID_WIDTH,
-            VIEWPORT_GRID_HEIGHT
-        ).viewport()
-    );
+        SpreadsheetMetadataPropertyName.VIEWPORT_HOME,
+        SpreadsheetSelection.A1
+    ).remove(SpreadsheetMetadataPropertyName.VIEWPORT_SELECTION);
 
     @Test
     public void testOnHistoryTokenSpreadsheetCellSelectWithFormulaHeadersScrollbar() {

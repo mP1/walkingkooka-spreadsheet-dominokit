@@ -37,7 +37,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.viewport.SpreadsheetViewportRectangle;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportWindows;
 
 import java.util.Arrays;
@@ -84,12 +83,10 @@ public abstract class SpreadsheetViewportScrollbarComponentTestCase<R extends Sp
                 SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                 ID
             ).set(
-                SpreadsheetMetadataPropertyName.VIEWPORT,
-                SpreadsheetViewportRectangle.with(
-                    home,
-                    VIEWPORT_WIDTH,
-                    VIEWPORT_HEIGHT
-                ).viewport()
+                SpreadsheetMetadataPropertyName.VIEWPORT_HOME,
+                home
+            ).remove(
+                SpreadsheetMetadataPropertyName.VIEWPORT_SELECTION
             );
             this.historyToken = historyToken;
 

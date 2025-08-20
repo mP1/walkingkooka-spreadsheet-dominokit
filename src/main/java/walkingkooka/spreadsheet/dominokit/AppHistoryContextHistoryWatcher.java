@@ -33,7 +33,6 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
-import walkingkooka.spreadsheet.viewport.SpreadsheetViewport;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -196,26 +195,22 @@ final class AppHistoryContextHistoryWatcher implements HistoryContext,
             final Optional<AnchoredSpreadsheetSelection> selection = historyToken.anchoredSelectionOrEmpty();
 
             final Optional<AnchoredSpreadsheetSelection> previousSelection = context.spreadsheetMetadata()
-                .get(SpreadsheetMetadataPropertyName.VIEWPORT)
-                .flatMap(SpreadsheetViewport::anchoredSelection);
+                .get(SpreadsheetMetadataPropertyName.VIEWPORT_SELECTION);
             if (false == selection.equals(previousSelection)) {
 
                 context.debug(AppHistoryContextHistoryWatcher.class.getSimpleName() + ".patchMetadataIfSelectionChanged selection changed from " + previousSelection.orElse(null) + " TO " + selection.orElse(null) + " will update Metadata");
 
                 // initially metadata will be empty because it has not yet loaded, context.viewport below will fail.
                 if (context.spreadsheetMetadata()
-                    .get(SpreadsheetMetadataPropertyName.VIEWPORT)
+                    .get(SpreadsheetMetadataPropertyName.VIEWPORT_SELECTION)
                     .isPresent()) {
+
                     final SpreadsheetIdHistoryToken spreadsheetIdHistoryToken = (SpreadsheetIdHistoryToken) historyToken;
                     context.spreadsheetMetadataFetcher()
                         .patchMetadata(
                             spreadsheetIdHistoryToken.id(),
-                            SpreadsheetMetadataPropertyName.VIEWPORT.patch(
-                                selection.map(
-                                    s -> context.viewport(
-                                        Optional.of(s)
-                                    )
-                                ).orElse(null)
+                            SpreadsheetMetadataPropertyName.VIEWPORT_SELECTION.patch(
+                                selection.orElse(null)
                             )
                         );
                 }

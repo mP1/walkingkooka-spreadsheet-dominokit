@@ -589,15 +589,13 @@ public class App implements EntryPoint,
                 final SpreadsheetName name = maybeName.get();
 
                 final HistoryToken historyToken = context.historyToken();
-                final Optional<SpreadsheetViewport> viewport = metadata.get(SpreadsheetMetadataPropertyName.VIEWPORT);
+                final Optional<AnchoredSpreadsheetSelection> anchoredSpreadsheetSelection = metadata.get(SpreadsheetMetadataPropertyName.VIEWPORT_SELECTION);
 
                 final HistoryToken idNameSelectionHistoryToken = historyToken
                     .setIdAndName(
                         id,
                         name
-                    ).setAnchoredSelection(
-                        viewport.flatMap(SpreadsheetViewport::anchoredSelection)
-                    );
+                    ).setAnchoredSelection(anchoredSpreadsheetSelection);
 
                 if (false == historyToken.equals(idNameSelectionHistoryToken)) {
                     context.debug("App.onSpreadsheetMetadata from " + historyToken + " to different id/name/anchoredSelection " + idNameSelectionHistoryToken, metadata);
@@ -694,14 +692,13 @@ public class App implements EntryPoint,
             .ifPresent(
                 newV -> {
                     final SpreadsheetMetadata metadata = this.spreadsheetMetadata;
-                    this.spreadsheetMetadata = metadata.setOrRemove(
-                        SpreadsheetMetadataPropertyName.VIEWPORT,
-                        metadata.get(SpreadsheetMetadataPropertyName.VIEWPORT)
-                            .map(
-                                oldV -> oldV.setAnchoredSelection(
-                                    newV.anchoredSelection()
-                                )
-                            ).orElse(null)
+                    this.spreadsheetMetadata = metadata.set(
+                        SpreadsheetMetadataPropertyName.VIEWPORT_HOME,
+                        newV.rectangle().home()
+                    ).setOrRemove(
+                        SpreadsheetMetadataPropertyName.VIEWPORT_SELECTION,
+                        newV.anchoredSelection()
+                            .orElse(null)
                     );
                 }
             );
