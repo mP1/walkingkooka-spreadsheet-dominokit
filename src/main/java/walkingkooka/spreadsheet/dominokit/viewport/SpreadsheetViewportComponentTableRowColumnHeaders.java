@@ -57,8 +57,7 @@ final class SpreadsheetViewportComponentTableRowColumnHeaders extends Spreadshee
                  final Predicate<SpreadsheetSelection> selected,
                  final SpreadsheetViewportComponentTableContext context) {
         if (context.shouldShowHeaders()) {
-            double rowWidth = context.viewportGridWidth() -
-                SpreadsheetViewportContext.ROW_HEADER_WIDTH_PIXELS;
+            double rowWidth = context.viewportGridWidth();
 
             final Set<SpreadsheetColumnReference> columns = windows.columns();
 

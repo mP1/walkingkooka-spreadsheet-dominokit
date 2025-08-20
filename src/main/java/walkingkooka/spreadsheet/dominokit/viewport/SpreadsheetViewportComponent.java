@@ -90,7 +90,6 @@ import walkingkooka.spreadsheet.viewport.SpreadsheetViewport;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigation;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigationList;
-import walkingkooka.spreadsheet.viewport.SpreadsheetViewportRectangle;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportWindows;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextStyleProperty;
@@ -447,7 +446,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
     int width;
 
     /**
-     * The height for the viewport including the headers.
+     * The height for the viewport including the headers and formula editor
      */
     int height;
 
@@ -460,6 +459,21 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
      * The height allocated to the grid, which includes the scrollbars but without the headers.
      */
     int viewportGridHeight;
+
+    /**
+     * A snapshot of the {@link SpreadsheetMetadata} at the last refresh.
+     */
+    private SpreadsheetMetadata refreshMetadata;
+
+    /**
+     * Creates a {@link SpreadsheetViewport} using the current selection.
+     */
+    SpreadsheetViewport viewport() {
+        return this.viewport(
+            this.context.historyToken()
+                .anchoredSelectionOrEmpty()
+        );
+    }
 
     public SpreadsheetViewport viewport(final Optional<AnchoredSpreadsheetSelection> anchoredSelection) {
         return this.context.home()
@@ -477,6 +491,10 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         final SpreadsheetViewportComponentContext context = this.context;
 
         final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
+
+        this.mustRefresh = metadata.shouldViewRefresh(this.refreshMetadata);
+        this.refreshMetadata = metadata;
+
         final HistoryToken historyToken = context.historyToken();
 
         final boolean autoHideScrollbars = metadata.get(SpreadsheetMetadataPropertyName.AUTO_HIDE_SCROLLBARS)
@@ -504,37 +522,58 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
                 "none"
         );
 
-        final int viewportGridWidth = width;
-        final int viewportGridHeight = height -
-            (
-                shouldShowFormulaEditor ?
-                    (
-                        GWT.isClient() ?
-                            this.formula.height() :
-                            FORMULA_HEIGHT
-                    ) :
-                    0
-            );
+        int gridWidth = width;
+        int gridHeight = height;
+
+        if(shouldShowFormulaEditor) {
+            gridHeight = gridHeight -
+                (
+                    GWT.isClient() ?
+                    this.formula.height() :
+                    FORMULA_HEIGHT
+                );
+        }
+
+        this.gridContainer.setWidth(
+            gridWidth + "px"
+        ).setHeight(
+            gridHeight + "px"
+        );
+
+        int viewportGridWidth = gridWidth;
+        int viewportGridHeight = gridHeight;
+
+        if(this.shouldShowHeaders) {
+            viewportGridWidth = viewportGridWidth - SpreadsheetViewportContext.ROW_HEADER_WIDTH_PIXELS;
+            viewportGridHeight = viewportGridHeight - SpreadsheetViewportContext.COLUMN_HEADER_HEIGHT_PIXELS;
+        }
 
         this.viewportGridWidth = viewportGridWidth;
         this.viewportGridHeight = viewportGridHeight;
 
-        this.gridContainer.setWidth(
-            viewportGridWidth + "px"
-        ).setHeight(
-            viewportGridHeight + "px"
-        );
-
-        final int contentHeight = viewportGridHeight - SCROLLBAR_LENGTH;
-
         this.horizontalScrollbar.setAutoHideScrollbars(autoHideScrollbars);
         this.verticalScrollbar.setCssProperty(
             "height",
-            contentHeight + "px"
+            (viewportGridHeight - SCROLLBAR_LENGTH) + "px"
         ).setAutoHideScrollbars(autoHideScrollbars);
 
         this.bottom.setCssProperty("width", width + "px");
     }
+
+    // SpreadsheetViewportComponentSpreadsheetViewportScrollbarComponentContext.autoHideScrollbars()
+    boolean autoHideScrollbars;
+
+    boolean shouldShowFormulaEditor;
+
+    boolean shouldHideZeroValues;
+
+    boolean shouldShowFormulas;
+
+    boolean shouldShowHeaders;
+
+    boolean mustRefresh;
+
+    private final static int SCROLLBAR_LENGTH = 32;
 
     final static int FORMULA_HEIGHT = 64;
 
@@ -620,23 +659,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         }
     }
 
-    // SpreadsheetViewportComponentSpreadsheetViewportScrollbarComponentContext.autoHideScrollbars()
-    boolean autoHideScrollbars;
-
-    boolean shouldShowFormulaEditor;
-
-    boolean shouldHideZeroValues;
-
-    boolean shouldShowFormulas;
-
-    boolean shouldShowHeaders;
-
-    boolean mustRefresh;
-
-    private final static int SCROLLBAR_LENGTH = 32;
-
     private void refreshTable(final Optional<AnchoredSpreadsheetSelection> maybeAnchorSelection) {
-        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
         final SpreadsheetViewportCache cache = this.context.spreadsheetViewportCache();
         final SpreadsheetViewportWindows windows = cache.windows();
 
@@ -654,8 +677,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
                 (false == s.isCellRange() && selectionNotLabel.test(s));
         }
 
-        this.mustRefresh = metadata.shouldViewRefresh(this.refreshMetadata);
-        this.spreadsheetViewport = this.spreadsheetViewport();
+        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
 
         this.table.refresh(
             metadata.id()
@@ -664,15 +686,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
             windows,
             selected
         );
-        this.refreshMetadata = metadata;
     }
-
-    private SpreadsheetMetadata refreshMetadata;
-
-    /**
-     * Cached {@link SpreadsheetViewport} shared by {@link SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext}.
-     */
-    SpreadsheetViewport spreadsheetViewport;
 
     private void giveViewportSelectionFocus(final AnchoredSpreadsheetSelection selection,
                                             final RefreshContext context) {
@@ -973,8 +987,6 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         }
         this.metadata = metadata;
 
-        this.loadViewportCellsIfNecessary();
-
         // the returned metadata isnt any different from the current metadata skip rendering again.
         if (this.reload) {
             this.componentLifecycleHistoryTokenQuery(context);
@@ -986,6 +998,11 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         }
 
         this.refreshIfOpen(context);
+        if(false == this.isOpen()) {
+            this.refreshLayout();
+        }
+
+        this.loadViewportCellsIfNecessary();
     }
 
     /**
@@ -1027,7 +1044,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         final SpreadsheetId id = context.spreadsheetMetadata()
             .getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID);
 
-        final SpreadsheetViewport viewport = this.spreadsheetViewport()
+        final SpreadsheetViewport viewport = this.viewport()
             .setNavigations(this.navigations);
 
         context.debug(this.getClass().getSimpleName() + ".loadViewportCells id: " + id + " viewport: " + viewport);
@@ -1040,22 +1057,6 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
                 id,
                 viewport
             );
-    }
-
-    /**
-     * Returns a {@link SpreadsheetViewport} with the currently active HOME and width/height.
-     */
-    private SpreadsheetViewport spreadsheetViewport() {
-        SpreadsheetViewport viewport = this.context.spreadsheetMetadata()
-            .getOrFail(SpreadsheetMetadataPropertyName.VIEWPORT);
-        final SpreadsheetViewportRectangle rectangle = viewport.rectangle();
-        return viewport.setRectangle(
-            rectangle.setWidth(
-                this.viewportGridWidth
-            ).setHeight(
-                this.viewportGridHeight
-            )
-        );
     }
 
     /**

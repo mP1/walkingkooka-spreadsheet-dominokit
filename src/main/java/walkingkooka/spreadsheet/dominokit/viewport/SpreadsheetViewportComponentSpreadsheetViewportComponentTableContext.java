@@ -112,7 +112,7 @@ final class SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext
 
     private AnchoredSpreadsheetSelection update(final SpreadsheetViewportNavigation navigation) {
         return navigation.update(
-                this.spreadsheetViewportComponent.spreadsheetViewport,
+                this.spreadsheetViewportComponent.viewport(),
                 this.navigationContext
             ).anchoredSelection()
             .get();

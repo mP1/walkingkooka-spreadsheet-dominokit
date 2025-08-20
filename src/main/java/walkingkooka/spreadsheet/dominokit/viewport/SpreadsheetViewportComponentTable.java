@@ -298,9 +298,6 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
             final Map<SpreadsheetRowReference, SpreadsheetViewportComponentTableRowCells> newRowsToTableRowCells = Maps.sorted();
 
             double height = context.viewportGridHeight();
-            if(context.shouldShowHeaders()) {
-                height = height - SpreadsheetViewportContext.COLUMN_HEADER_HEIGHT_PIXELS;
-            }
 
             // create new rows as necessary
             for (final SpreadsheetRowReference row : rows) {

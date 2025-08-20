@@ -319,20 +319,20 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                 "    FlexLayoutComponent\n" +
                 "      COLUMN\n" +
                 "        id=viewport-vertical-scrollbar-Layout\n" +
-                "          mdi-arrow-up [#/1/SpreadsheetName111/cell/A1/navigate/A1/up%2099px] id=viewport-vertical-scrollbar-up-Link\n" +
+                "          mdi-arrow-up [#/1/SpreadsheetName111/cell/A1/navigate/A1/up%2069px] id=viewport-vertical-scrollbar-up-Link\n" +
                 "          SliderComponent\n" +
                 "            VERTICAL\n" +
                 "              [0.0] min=1.0 max=1048575.0 id=viewport-vertical-scrollbar-value-Slider\n" +
-                "          [#/1/SpreadsheetName111/cell/A1/navigate/A1/down%2099px] mdi-arrow-down id=viewport-vertical-scrollbar-down-Link\n" +
+                "          [#/1/SpreadsheetName111/cell/A1/navigate/A1/down%2069px] mdi-arrow-down id=viewport-vertical-scrollbar-down-Link\n" +
                 "    SpreadsheetViewportScrollbarComponentColumns\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          id=viewport-horizontal-scrollbar-Layout\n" +
-                "            mdi-arrow-left [#/1/SpreadsheetName111/cell/A1/navigate/A1/left%2099px] id=viewport-horizontal-scrollbar-left-Link\n" +
+                "            mdi-arrow-left [#/1/SpreadsheetName111/cell/A1/navigate/A1/left%2019px] id=viewport-horizontal-scrollbar-left-Link\n" +
                 "            SliderComponent\n" +
                 "              HORIZONTAL\n" +
                 "                [0.0] min=1.0 max=16383.0 id=viewport-horizontal-scrollbar-value-Slider\n" +
-                "            [#/1/SpreadsheetName111/cell/A1/navigate/A1/right%2099px] mdi-arrow-right id=viewport-horizontal-scrollbar-right-Link\n" +
+                "            [#/1/SpreadsheetName111/cell/A1/navigate/A1/right%2019px] mdi-arrow-right id=viewport-horizontal-scrollbar-right-Link\n" +
                 "      SpreadsheetNavigateLinkComponent\n" +
                 "        \"Navigate\" [#/1/SpreadsheetName111/cell/A1/navigate] id=viewport-navigate-Link"
         );
@@ -391,20 +391,20 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                 "    FlexLayoutComponent\n" +
                 "      COLUMN\n" +
                 "        id=viewport-vertical-scrollbar-Layout\n" +
-                "          mdi-arrow-up [#/1/SpreadsheetName111/column/A/navigate/A1/up%2099px] id=viewport-vertical-scrollbar-up-Link\n" +
+                "          mdi-arrow-up [#/1/SpreadsheetName111/column/A/navigate/A1/up%2069px] id=viewport-vertical-scrollbar-up-Link\n" +
                 "          SliderComponent\n" +
                 "            VERTICAL\n" +
                 "              [0.0] min=1.0 max=1048575.0 id=viewport-vertical-scrollbar-value-Slider\n" +
-                "          [#/1/SpreadsheetName111/column/A/navigate/A1/down%2099px] mdi-arrow-down id=viewport-vertical-scrollbar-down-Link\n" +
+                "          [#/1/SpreadsheetName111/column/A/navigate/A1/down%2069px] mdi-arrow-down id=viewport-vertical-scrollbar-down-Link\n" +
                 "    SpreadsheetViewportScrollbarComponentColumns\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          id=viewport-horizontal-scrollbar-Layout\n" +
-                "            mdi-arrow-left [#/1/SpreadsheetName111/column/A/navigate/A1/left%2099px] id=viewport-horizontal-scrollbar-left-Link\n" +
+                "            mdi-arrow-left [#/1/SpreadsheetName111/column/A/navigate/A1/left%2019px] id=viewport-horizontal-scrollbar-left-Link\n" +
                 "            SliderComponent\n" +
                 "              HORIZONTAL\n" +
                 "                [0.0] min=1.0 max=16383.0 id=viewport-horizontal-scrollbar-value-Slider\n" +
-                "            [#/1/SpreadsheetName111/column/A/navigate/A1/right%2099px] mdi-arrow-right id=viewport-horizontal-scrollbar-right-Link\n" +
+                "            [#/1/SpreadsheetName111/column/A/navigate/A1/right%2019px] mdi-arrow-right id=viewport-horizontal-scrollbar-right-Link\n" +
                 "      SpreadsheetNavigateLinkComponent\n" +
                 "        \"Navigate\" [#/1/SpreadsheetName111/column/A/navigate] id=viewport-navigate-Link"
         );
@@ -463,20 +463,20 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                 "    FlexLayoutComponent\n" +
                 "      COLUMN\n" +
                 "        id=viewport-vertical-scrollbar-Layout\n" +
-                "          mdi-arrow-up [#/1/SpreadsheetName111/row/1/navigate/A1/up%2099px] id=viewport-vertical-scrollbar-up-Link\n" +
+                "          mdi-arrow-up [#/1/SpreadsheetName111/row/1/navigate/A1/up%2069px] id=viewport-vertical-scrollbar-up-Link\n" +
                 "          SliderComponent\n" +
                 "            VERTICAL\n" +
                 "              [0.0] min=1.0 max=1048575.0 id=viewport-vertical-scrollbar-value-Slider\n" +
-                "          [#/1/SpreadsheetName111/row/1/navigate/A1/down%2099px] mdi-arrow-down id=viewport-vertical-scrollbar-down-Link\n" +
+                "          [#/1/SpreadsheetName111/row/1/navigate/A1/down%2069px] mdi-arrow-down id=viewport-vertical-scrollbar-down-Link\n" +
                 "    SpreadsheetViewportScrollbarComponentColumns\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          id=viewport-horizontal-scrollbar-Layout\n" +
-                "            mdi-arrow-left [#/1/SpreadsheetName111/row/1/navigate/A1/left%2099px] id=viewport-horizontal-scrollbar-left-Link\n" +
+                "            mdi-arrow-left [#/1/SpreadsheetName111/row/1/navigate/A1/left%2019px] id=viewport-horizontal-scrollbar-left-Link\n" +
                 "            SliderComponent\n" +
                 "              HORIZONTAL\n" +
                 "                [0.0] min=1.0 max=16383.0 id=viewport-horizontal-scrollbar-value-Slider\n" +
-                "            [#/1/SpreadsheetName111/row/1/navigate/A1/right%2099px] mdi-arrow-right id=viewport-horizontal-scrollbar-right-Link\n" +
+                "            [#/1/SpreadsheetName111/row/1/navigate/A1/right%2019px] mdi-arrow-right id=viewport-horizontal-scrollbar-right-Link\n" +
                 "      SpreadsheetNavigateLinkComponent\n" +
                 "        \"Navigate\" [#/1/SpreadsheetName111/row/1/navigate] id=viewport-navigate-Link"
         );
