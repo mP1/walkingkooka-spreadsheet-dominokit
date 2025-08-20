@@ -38,10 +38,19 @@ public interface HistoryTokenAwareComponentLifecycle extends HistoryTokenWatcher
         // https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/1468
 
         final boolean open = this.isOpen();
-        final boolean match = this.isMatch(context.historyToken());
+
+        final HistoryToken historyToken = context.historyToken();
+        final boolean match = this.isMatch(historyToken);
 
         if (this.shouldLogLifecycleChanges()) {
-            context.debug(this.getClass().getSimpleName() + ".refreshIfOpen isOpen: " + open + " isMatch: " + match);
+            context.debug(
+                this.getClass().getSimpleName() + ".refreshIfOpen " +
+                    (open ? "OPEN" : "CLOSED") +
+                    " isMatch: " +
+                    (match ? "MATCH" : "NOT MATCHED") +
+                    " " +
+                    historyToken
+            );
         }
 
         if (open & match) {
