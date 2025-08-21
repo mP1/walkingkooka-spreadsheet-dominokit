@@ -39,7 +39,7 @@ public final class TextStyleComponentTest implements FormValueComponentTesting<H
             "TextStyleComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [color: rgb(17, 17, 17); text-align: left;]\n"
+                "      [color: #111111; text-align: left;]\n"
         );
     }
 
