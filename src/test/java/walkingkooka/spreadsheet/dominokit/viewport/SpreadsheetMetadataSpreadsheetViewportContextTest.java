@@ -128,16 +128,16 @@ public final class SpreadsheetMetadataSpreadsheetViewportContextTest implements 
             cellStyle,
             "TextStyle\n" +
                 "  background-color=green (walkingkooka.color.OpaqueRgbColor)\n" +
-                "  border-bottom-color=#888888 (walkingkooka.color.OpaqueRgbColor)\n" +
+                "  border-bottom-color=#888 (walkingkooka.color.OpaqueRgbColor)\n" +
                 "  border-bottom-style=SOLID (walkingkooka.tree.text.BorderStyle)\n" +
                 "  border-bottom-width=1px (walkingkooka.tree.text.PixelLength)\n" +
-                "  border-left-color=#888888 (walkingkooka.color.OpaqueRgbColor)\n" +
+                "  border-left-color=#888 (walkingkooka.color.OpaqueRgbColor)\n" +
                 "  border-left-style=SOLID (walkingkooka.tree.text.BorderStyle)\n" +
                 "  border-left-width=1px (walkingkooka.tree.text.PixelLength)\n" +
-                "  border-right-color=#888888 (walkingkooka.color.OpaqueRgbColor)\n" +
+                "  border-right-color=#888 (walkingkooka.color.OpaqueRgbColor)\n" +
                 "  border-right-style=SOLID (walkingkooka.tree.text.BorderStyle)\n" +
                 "  border-right-width=1px (walkingkooka.tree.text.PixelLength)\n" +
-                "  border-top-color=#888888 (walkingkooka.color.OpaqueRgbColor)\n" +
+                "  border-top-color=#888 (walkingkooka.color.OpaqueRgbColor)\n" +
                 "  border-top-style=SOLID (walkingkooka.tree.text.BorderStyle)\n" +
                 "  border-top-width=1px (walkingkooka.tree.text.PixelLength)\n" +
                 "  font-size=11 (walkingkooka.tree.text.FontSize)\n" +
@@ -328,16 +328,16 @@ public final class SpreadsheetMetadataSpreadsheetViewportContextTest implements 
             ),
             "TextStyle\n" +
                 "  background-color=#2f8f2f (walkingkooka.color.OpaqueRgbColor)\n" +
-                "  border-bottom-color=#888888 (walkingkooka.color.OpaqueRgbColor)\n" +
+                "  border-bottom-color=#888 (walkingkooka.color.OpaqueRgbColor)\n" +
                 "  border-bottom-style=SOLID (walkingkooka.tree.text.BorderStyle)\n" +
                 "  border-bottom-width=1px (walkingkooka.tree.text.PixelLength)\n" +
-                "  border-left-color=#888888 (walkingkooka.color.OpaqueRgbColor)\n" +
+                "  border-left-color=#888 (walkingkooka.color.OpaqueRgbColor)\n" +
                 "  border-left-style=SOLID (walkingkooka.tree.text.BorderStyle)\n" +
                 "  border-left-width=1px (walkingkooka.tree.text.PixelLength)\n" +
-                "  border-right-color=#888888 (walkingkooka.color.OpaqueRgbColor)\n" +
+                "  border-right-color=#888 (walkingkooka.color.OpaqueRgbColor)\n" +
                 "  border-right-style=SOLID (walkingkooka.tree.text.BorderStyle)\n" +
                 "  border-right-width=1px (walkingkooka.tree.text.PixelLength)\n" +
-                "  border-top-color=#888888 (walkingkooka.color.OpaqueRgbColor)\n" +
+                "  border-top-color=#888 (walkingkooka.color.OpaqueRgbColor)\n" +
                 "  border-top-style=SOLID (walkingkooka.tree.text.BorderStyle)\n" +
                 "  border-top-width=1px (walkingkooka.tree.text.PixelLength)\n" +
                 "  color=purple (walkingkooka.color.OpaqueRgbColor)\n" +
