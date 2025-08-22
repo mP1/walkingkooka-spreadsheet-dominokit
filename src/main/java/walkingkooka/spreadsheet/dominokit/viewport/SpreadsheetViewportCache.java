@@ -131,10 +131,12 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     }
 
     public Optional<SpreadsheetCell> cell(final SpreadsheetSelection selection) {
-        return this.resolveIfLabel(selection)
-            .flatMap(
-                (SpreadsheetSelection notLabel) -> this.cell(notLabel.toCell())
-            );
+        return selection.isExternalReference() ?
+            this.resolveIfLabel(selection)
+                .flatMap(
+                    (SpreadsheetSelection notLabel) -> this.cell(notLabel.toCell())
+                ) :
+            Optional.empty();
     }
 
     public Optional<SpreadsheetCell> cell(final SpreadsheetCellReference cell) {
