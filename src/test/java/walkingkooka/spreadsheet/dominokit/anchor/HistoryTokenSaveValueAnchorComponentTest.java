@@ -25,7 +25,9 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.ValidationValueTypeName;
@@ -35,6 +37,9 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorComponentTesting<HistoryTokenSaveValueAnchorComponent<Color>, Color> {
+
+    private final static SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1);
+    private final static SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("SpreadsheetName1");
 
     @Test
     public void testWithNullIdFails() {
@@ -59,7 +64,7 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
     }
 
     @Test
-    public void testSetValue() {
+    public void testSetValueWithColor() {
         this.treePrintAndCheck(
             this.createComponent()
                 .setValue(
@@ -72,12 +77,34 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
     }
 
     @Test
+    public void testSetValueWithSpreadsheetFormatterSelectorWithDollarSignAndHashes() {
+        final Optional<SpreadsheetFormatterSelector> value = Optional.of(
+            SpreadsheetFormatterSelector.parse("number-format-pattern $###.00")
+        );
+
+        this.treePrintAndCheck(
+            HistoryTokenSaveValueAnchorComponent.<SpreadsheetFormatterSelector>with(
+                "id123",
+                this.createContext(
+                    HistoryToken.cellFormatterSave(
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME,
+                        SpreadsheetSelection.A1.setDefaultAnchor(),
+                        value
+                    )
+                )
+            ).setValue(value),
+            "\"Save\" [#/1/SpreadsheetName1/cell/A1/formatter/save/number-format-pattern%20$%23%23%23.00] id=id123"
+        );
+    }
+
+    @Test
     public void testSetValueWithEmptyString() {
         this.treePrintAndCheck(
             this.createComponent(
                 HistoryToken.cellValueSave(
-                    SpreadsheetId.with(1),
-                    SpreadsheetName.with("SpreadsheetName1"),
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
                     SpreadsheetSelection.A1.setDefaultAnchor(),
                     ValidationValueTypeName.TEXT,
                     ""
@@ -206,13 +233,17 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
     private <T> HistoryTokenSaveValueAnchorComponent<T> createComponent(final HistoryToken historyToken) {
         return HistoryTokenSaveValueAnchorComponent.with(
             "HistoryTokenSaveValueAnchorComponent" + SpreadsheetElementIds.LINK,
-            new FakeHistoryContext() {
-                @Override
-                public HistoryToken historyToken() {
-                    return historyToken;
-                }
-            }
+            this.createContext(historyToken)
         );
+    }
+
+    private HistoryContext createContext(final HistoryToken historyToken) {
+        return new FakeHistoryContext() {
+            @Override
+            public HistoryToken historyToken() {
+                return historyToken;
+            }
+        };
     }
 
     // ClassTesting.....................................................................................................
