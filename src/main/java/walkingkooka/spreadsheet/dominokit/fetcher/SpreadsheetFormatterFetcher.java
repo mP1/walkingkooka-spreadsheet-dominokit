@@ -107,7 +107,7 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
             selector.isEmpty() ?
                 FORMATTER_EDIT :
                 FORMATTER_EDIT.append(
-                    UrlPathName.with(selector)
+                    UrlPath.parse(selector)
                 )
         );
     }
