@@ -54,7 +54,7 @@ public final class SpreadsheetCellReferenceComponentTest implements FormValueCom
                 "    TextBoxComponent\n" +
                 "      [] id=cell-id\n" +
                 "      Errors\n" +
-                "        End of text at (1,1) expected CELL\n"
+                "        End of text, expected CELL\n"
         );
     }
 

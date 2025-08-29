@@ -75,7 +75,7 @@ public final class SpreadsheetNavigateDialogComponentTest implements DialogCompo
                 "          TextBoxComponent\n" +
                 "            [] id=navigate-home-TextBox\n" +
                 "            Errors\n" +
-                "              End of text at (1,1) expected CELL\n" +
+                "              End of text, expected CELL\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -114,7 +114,7 @@ public final class SpreadsheetNavigateDialogComponentTest implements DialogCompo
                 "          TextBoxComponent\n" +
                 "            [] id=navigate-home-TextBox\n" +
                 "            Errors\n" +
-                "              End of text at (1,1) expected CELL\n" +
+                "              End of text, expected CELL\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -153,7 +153,7 @@ public final class SpreadsheetNavigateDialogComponentTest implements DialogCompo
                 "          TextBoxComponent\n" +
                 "            [] id=navigate-home-TextBox\n" +
                 "            Errors\n" +
-                "              End of text at (1,1) expected CELL\n" +
+                "              End of text, expected CELL\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -192,7 +192,7 @@ public final class SpreadsheetNavigateDialogComponentTest implements DialogCompo
                 "          TextBoxComponent\n" +
                 "            [] id=navigate-home-TextBox\n" +
                 "            Errors\n" +
-                "              End of text at (1,1) expected CELL\n" +
+                "              End of text, expected CELL\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -231,7 +231,7 @@ public final class SpreadsheetNavigateDialogComponentTest implements DialogCompo
                 "          TextBoxComponent\n" +
                 "            [] id=navigate-home-TextBox\n" +
                 "            Errors\n" +
-                "              End of text at (1,1) expected CELL\n" +
+                "              End of text, expected CELL\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
