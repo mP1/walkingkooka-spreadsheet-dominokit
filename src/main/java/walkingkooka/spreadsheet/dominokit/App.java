@@ -1455,6 +1455,11 @@ public class App implements EntryPoint,
                 ConverterInfoSet.EMPTY
             ),
             SpreadsheetConvertersConverterProviders.spreadsheetConverters(
+                (ProviderContext p) -> metadata.dateTimeConverter(
+                    spreadsheetFormatterProvider,
+                    spreadsheetParserProvider,
+                    p
+                ),
                 (ProviderContext p) -> metadata.generalConverter(
                     spreadsheetFormatterProvider,
                     spreadsheetParserProvider,
