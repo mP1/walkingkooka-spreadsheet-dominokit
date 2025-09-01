@@ -56,7 +56,7 @@ public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentL
         CharSequences.failIfNullOrEmpty(id, "id");
         CharSequences.failIfNullOrEmpty(title, "title");
 
-        final Tab tab = Tab.create(title);
+        final Tab tab = Tab.create((String)null);
         this.tabs.add(tab);
 
         final HistoryTokenAnchorComponent anchor = HistoryTokenAnchorComponent.with(
