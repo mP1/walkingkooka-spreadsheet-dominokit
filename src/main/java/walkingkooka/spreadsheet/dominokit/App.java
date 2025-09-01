@@ -1459,11 +1459,6 @@ public class App implements EntryPoint,
                     spreadsheetFormatterProvider,
                     spreadsheetParserProvider,
                     p
-                ),
-                (ProviderContext p) -> metadata.generalConverter(
-                    spreadsheetFormatterProvider,
-                    spreadsheetParserProvider,
-                    p
                 )
             )
         );
