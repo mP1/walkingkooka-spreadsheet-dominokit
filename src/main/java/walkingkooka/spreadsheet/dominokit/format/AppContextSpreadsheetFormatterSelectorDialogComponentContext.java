@@ -37,6 +37,8 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContextPreProcessor;
 
 import java.time.LocalDateTime;
+import java.util.Locale;
+import java.util.Objects;
 
 /**
  * An base class capturing most of the requirements for {@link SpreadsheetFormatterSelectorDialogComponentContext}
@@ -64,6 +66,12 @@ abstract class AppContextSpreadsheetFormatterSelectorDialogComponentContext impl
     @Override
     public final SpreadsheetFormatterContext spreadsheetFormatterContext() {
         return this.context;
+    }
+
+    @Override
+    public AppContext setLocale(final Locale locale) {
+        Objects.requireNonNull(locale, "locale");
+        throw new UnsupportedOperationException();
     }
 
     @Override

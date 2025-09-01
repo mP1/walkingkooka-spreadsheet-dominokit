@@ -436,6 +436,12 @@ public class FakeAppContext extends FakeSpreadsheetProvider
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public AppContext setLocale(final Locale locale) {
+        Objects.requireNonNull(locale, "locale");
+        throw new UnsupportedOperationException();
+    }
+
     // json.............................................................................................................
 
     @Override

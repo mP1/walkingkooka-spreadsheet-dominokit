@@ -102,6 +102,11 @@ public class FakeSpreadsheetLocaleDialogComponentContext extends FakeDialogCompo
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public SpreadsheetLocaleDialogComponentContext setLocale(final Locale locale) {
+        throw new UnsupportedOperationException();
+    }
+
     // LifeCycleMatcher.................................................................................................
 
     @Override
