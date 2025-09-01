@@ -44,6 +44,8 @@ import walkingkooka.text.cursor.parser.Parser;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContextPreProcessor;
 
 import java.time.LocalDateTime;
+import java.util.Locale;
+import java.util.Objects;
 
 /**
  * A mostly complete {@link SpreadsheetParserSelectorDialogComponent}.
@@ -68,6 +70,12 @@ abstract class AppContextSpreadsheetParserSelectorDialogComponentContext impleme
     @Override
     public final SpreadsheetFormatterContext spreadsheetFormatterContext() {
         return this.context;
+    }
+
+    @Override
+    public SpreadsheetParserSelectorDialogComponentContext setLocale(final Locale locale) {
+        Objects.requireNonNull(locale, "locale");
+        throw new UnsupportedOperationException();
     }
 
     @Override

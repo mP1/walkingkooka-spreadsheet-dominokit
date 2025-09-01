@@ -68,6 +68,7 @@ import walkingkooka.tree.json.marshall.JsonNodeMarshallUnmarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContextPreProcessor;
 import walkingkooka.util.HasLocale;
 
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
@@ -266,6 +267,11 @@ public interface AppContext extends CanGiveFocus,
     @Override
     default <T> AppContext setEnvironmentValue(final EnvironmentValueName<T> name,
                                                final T value) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default AppContext setLocale(final Locale locale) {
         throw new UnsupportedOperationException();
     }
 
