@@ -30,6 +30,8 @@ import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 
+import java.util.Locale;
+
 /**
  * The {@link walkingkooka.Context} accompanying a {@link SpreadsheetCellFindDialogComponent}.
  */
@@ -48,6 +50,11 @@ public interface SpreadsheetCellFindDialogComponentContext extends HistoryContex
     void findCells(final SpreadsheetId id,
                    final SpreadsheetCellRangeReference cells,
                    final SpreadsheetCellFindQuery find);
+
+    @Override
+    default SpreadsheetCellFindDialogComponentContext setLocale(final Locale locale) {
+        throw new UnsupportedOperationException();
+    }
 
     @Override
     default <T> SpreadsheetCellFindDialogComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,

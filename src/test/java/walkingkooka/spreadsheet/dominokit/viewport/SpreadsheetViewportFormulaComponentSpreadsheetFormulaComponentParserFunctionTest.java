@@ -48,6 +48,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursors;
 import walkingkooka.util.FunctionTesting;
 
+import java.util.Locale;
 import java.util.Optional;
 
 public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunctionTest implements FunctionTesting<SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction, String, SpreadsheetFormula>,
@@ -424,6 +425,11 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
         }
 
         private final SpreadsheetViewportCache viewportCache = SpreadsheetViewportCache.empty(this);
+
+        @Override
+        public TestSpreadsheetViewportFormulaComponentContext setLocale(final Locale locale) {
+            throw new UnsupportedOperationException();
+        }
 
         @Override
         public <T> TestSpreadsheetViewportFormulaComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,

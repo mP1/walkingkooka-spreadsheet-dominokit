@@ -49,6 +49,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -180,6 +181,12 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
     private final AppContext context;
 
     // EnvironmentContext...............................................................................................
+
+    @Override
+    public SpreadsheetViewportComponentContext setLocale(final Locale locale) {
+        this.context.setLocale(locale);
+        return this;
+    }
 
     @Override
     public <T> SpreadsheetViewportComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,

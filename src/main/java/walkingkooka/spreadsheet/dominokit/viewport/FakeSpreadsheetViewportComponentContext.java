@@ -80,6 +80,11 @@ public class FakeSpreadsheetViewportComponentContext extends FakeHistoryContext 
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public SpreadsheetViewportComponentContext setLocale(final Locale locale) {
+        throw new UnsupportedOperationException();
+    }
+
     @Override 
     public <T> Optional<T> environmentValue(final EnvironmentValueName<T> name) {
         throw new UnsupportedOperationException();

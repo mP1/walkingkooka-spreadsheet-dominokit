@@ -26,6 +26,9 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
 
+import java.util.Locale;
+import java.util.Objects;
+
 public interface SpreadsheetViewportFormulaComponentContext extends HistoryContext,
     LoggingContext,
     HasSpreadsheetDeltaFetcher,
@@ -34,6 +37,12 @@ public interface SpreadsheetViewportFormulaComponentContext extends HistoryConte
     HasSpreadsheetMetadataFetcher,
     SpreadsheetParserProvider,
     ProviderContext {
+
+    @Override
+    default SpreadsheetViewportFormulaComponentContext setLocale(final Locale locale) {
+        Objects.requireNonNull(locale, "locale");
+        throw new UnsupportedOperationException();
+    }
 
     @Override
     default <T> SpreadsheetViewportFormulaComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,
