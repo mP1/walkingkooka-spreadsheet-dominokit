@@ -46,6 +46,7 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
 
 import java.util.Arrays;
+import java.util.Locale;
 
 public final class SpreadsheetViewportFormulaComponentTest implements HtmlComponentTesting<SpreadsheetViewportFormulaComponent, HTMLFieldSetElement>,
     ComponentLifecycleMatcherTesting,
@@ -242,6 +243,11 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
         @Override
         public void warn(final Object... values) {
             System.out.println(Arrays.toString(values));
+        }
+
+        @Override
+        public TestSpreadsheetViewportFormulaComponentContext setLocale(final Locale locale) {
+            throw new UnsupportedOperationException();
         }
 
         @Override

@@ -33,6 +33,8 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
 
+import java.util.Locale;
+
 public interface SpreadsheetViewportComponentContext extends HistoryContext,
     LoggingContext,
     HasSpreadsheetDeltaFetcher,
@@ -48,6 +50,9 @@ public interface SpreadsheetViewportComponentContext extends HistoryContext,
     SpreadsheetCellLinksComponentContext,
     RecentValueSavesContext,
     SpreadsheetViewportContext {
+
+    @Override
+    SpreadsheetViewportComponentContext setLocale(final Locale locale);
 
     @Override
     <T> SpreadsheetViewportComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,

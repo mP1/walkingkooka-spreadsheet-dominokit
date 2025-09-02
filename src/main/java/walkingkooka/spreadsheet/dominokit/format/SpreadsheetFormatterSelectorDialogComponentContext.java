@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEditContext;
 
+import java.util.Locale;
 import java.util.Optional;
 
 /**
@@ -76,6 +77,11 @@ public interface SpreadsheetFormatterSelectorDialogComponentContext extends CanG
      * Adds a {@link SpreadsheetMetadataFetcherWatcher}.
      */
     Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher);
+
+    @Override
+    default SpreadsheetFormatterSelectorDialogComponentContext setLocale(final Locale locale) {
+        throw new UnsupportedOperationException();
+    }
 
     @Override
     default <T> SpreadsheetFormatterSelectorDialogComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,
