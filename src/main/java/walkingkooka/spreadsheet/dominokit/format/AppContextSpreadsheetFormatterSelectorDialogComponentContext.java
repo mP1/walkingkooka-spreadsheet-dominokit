@@ -69,6 +69,11 @@ abstract class AppContextSpreadsheetFormatterSelectorDialogComponentContext impl
     }
 
     @Override
+    public Locale locale() {
+        return this.context.locale();
+    }
+
+    @Override
     public AppContext setLocale(final Locale locale) {
         Objects.requireNonNull(locale, "locale");
         throw new UnsupportedOperationException();

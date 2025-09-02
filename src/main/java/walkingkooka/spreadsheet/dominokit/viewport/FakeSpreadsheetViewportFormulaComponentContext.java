@@ -37,6 +37,7 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserSelectorToken;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
 
@@ -48,6 +49,11 @@ public class FakeSpreadsheetViewportFormulaComponentContext extends FakeHistoryC
 
     @Override
     public PluginStore pluginStore() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Locale locale() {
         throw new UnsupportedOperationException();
     }
 

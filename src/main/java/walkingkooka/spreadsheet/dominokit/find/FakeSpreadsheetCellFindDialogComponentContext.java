@@ -41,6 +41,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
 
@@ -111,6 +112,11 @@ public class FakeSpreadsheetCellFindDialogComponentContext extends FakeDialogCom
     @Override
     public <T> Either<T, String> convert(final Object value,
                                          final Class<T> type) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Locale locale() {
         throw new UnsupportedOperationException();
     }
 
