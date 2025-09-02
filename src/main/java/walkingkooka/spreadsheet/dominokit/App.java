@@ -411,6 +411,7 @@ public class App implements EntryPoint,
             this.jsonNodeMarshallUnmarshallContext(),
             this.spreadsheetMetadata.environmentContext(
                 EnvironmentContexts.empty(
+                    this.locale(),
                     this,
                     EnvironmentContext.ANONYMOUS // will be replaced when the metadata loads
                 )
@@ -567,6 +568,7 @@ public class App implements EntryPoint,
 
             final EnvironmentContext environmentContext = metadata.environmentContext(
                 EnvironmentContexts.empty(
+                    metadata.locale(),
                     this,
                     Optional.of(
                         EmailAddress.parse("user123@example.com")
