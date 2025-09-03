@@ -1504,9 +1504,8 @@ public class App implements EntryPoint,
                     throw new UnsupportedOperationException();
                 },
                 this.viewportCache, // SpreadsheetLabelNameResolver
-                converterProvider,// ConverterProvider
-                spreadsheetFormatterProvider, // SpreadsheetFormatterProvider
                 this, // LocaleContext
+                this.systemSpreadsheetProvider,
                 this.providerContext // ProviderContext
             );
         } catch (final RuntimeException cause) {
