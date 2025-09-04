@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.format;
 
-import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetFormatterFetcherWatchers;
@@ -80,17 +79,6 @@ public interface SpreadsheetFormatterSelectorDialogComponentContext extends CanG
 
     @Override
     default SpreadsheetFormatterSelectorDialogComponentContext setLocale(final Locale locale) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default <T> SpreadsheetFormatterSelectorDialogComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,
-                                                                                       final T value) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default SpreadsheetFormatterSelectorDialogComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
         throw new UnsupportedOperationException();
     }
 }
