@@ -18,10 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.parser;
 
 import walkingkooka.InvalidCharacterException;
-import walkingkooka.convert.CanConvert;
-import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.plugin.ProviderContext;
-import walkingkooka.plugin.ProviderContextDelegator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextDelegator;
@@ -43,9 +40,7 @@ import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.parser.Parser;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContextPreProcessor;
 
-import java.time.LocalDateTime;
 import java.util.Locale;
-import java.util.Objects;
 
 /**
  * A mostly complete {@link SpreadsheetParserSelectorDialogComponent}.
@@ -55,8 +50,7 @@ abstract class AppContextSpreadsheetParserSelectorDialogComponentContext impleme
     SpreadsheetFormatterContextDelegator,
     SpreadsheetFormatterProviderDelegator,
     SpreadsheetParserProviderDelegator,
-    HasSpreadsheetParserFetcherWatchersDelegator,
-    ProviderContextDelegator {
+    HasSpreadsheetParserFetcherWatchersDelegator {
 
     AppContextSpreadsheetParserSelectorDialogComponentContext(final AppContext context) {
         super();
@@ -79,8 +73,8 @@ abstract class AppContextSpreadsheetParserSelectorDialogComponentContext impleme
 
     @Override
     public SpreadsheetParserSelectorDialogComponentContext setLocale(final Locale locale) {
-        Objects.requireNonNull(locale, "locale");
-        throw new UnsupportedOperationException();
+        this.context.setLocale(locale);
+        return this;
     }
 
     @Override
@@ -102,6 +96,13 @@ abstract class AppContextSpreadsheetParserSelectorDialogComponentContext impleme
     @Override
     public char valueSeparator() {
         return this.context.valueSeparator();
+    }
+
+    // HasProviderContext...............................................................................................
+
+    @Override
+    public final ProviderContext providerContext() {
+        return this.context;
     }
 
     // SpreadsheetFormatterProvider........................................................................................
@@ -169,39 +170,6 @@ abstract class AppContextSpreadsheetParserSelectorDialogComponentContext impleme
      * Used to throttle calls to /formatter/STAR/edit
      */
     private final Throttler throttler;
-
-    // ProviderContext..................................................................................................
-
-    @Override
-    public final CanConvert canConvert() {
-        return this.context;
-    }
-
-    @Override
-    public final <T> SpreadsheetParserSelectorDialogComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,
-                                                                       final T value) {
-        this.context.setEnvironmentValue(
-            name,
-            value
-        );
-        return this;
-    }
-
-    @Override
-    public final SpreadsheetParserSelectorDialogComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
-        this.context.removeEnvironmentValue(name);
-        return this;
-    }
-
-    @Override
-    public final ProviderContext providerContext() {
-        return this.context;
-    }
-
-    @Override
-    public final LocalDateTime now() {
-        return this.context.now();
-    }
 
     // DialogComponentContext...........................................................................................
 
