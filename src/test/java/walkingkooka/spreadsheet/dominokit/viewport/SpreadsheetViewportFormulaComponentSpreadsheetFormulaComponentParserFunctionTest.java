@@ -427,6 +427,11 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
         private final SpreadsheetViewportCache viewportCache = SpreadsheetViewportCache.empty(this);
 
         @Override
+        public TestSpreadsheetViewportFormulaComponentContext cloneEnvironment() {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
         public TestSpreadsheetViewportFormulaComponentContext setLocale(final Locale locale) {
             throw new UnsupportedOperationException();
         }

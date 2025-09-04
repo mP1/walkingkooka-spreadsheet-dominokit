@@ -39,6 +39,11 @@ public interface SpreadsheetViewportFormulaComponentContext extends HistoryConte
     ProviderContext {
 
     @Override
+    default SpreadsheetViewportFormulaComponentContext cloneEnvironment() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     default SpreadsheetViewportFormulaComponentContext setLocale(final Locale locale) {
         Objects.requireNonNull(locale, "locale");
         throw new UnsupportedOperationException();

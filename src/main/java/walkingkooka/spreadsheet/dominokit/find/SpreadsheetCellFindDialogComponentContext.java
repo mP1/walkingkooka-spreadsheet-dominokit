@@ -52,6 +52,11 @@ public interface SpreadsheetCellFindDialogComponentContext extends HistoryContex
                    final SpreadsheetCellFindQuery find);
 
     @Override
+    default SpreadsheetCellFindDialogComponentContext cloneEnvironment() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     default SpreadsheetCellFindDialogComponentContext setLocale(final Locale locale) {
         throw new UnsupportedOperationException();
     }

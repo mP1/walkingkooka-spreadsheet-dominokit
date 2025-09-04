@@ -52,6 +52,11 @@ public interface SpreadsheetViewportComponentContext extends HistoryContext,
     SpreadsheetViewportContext {
 
     @Override
+    default SpreadsheetViewportComponentContext cloneEnvironment() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     SpreadsheetViewportComponentContext setLocale(final Locale locale);
 
     @Override

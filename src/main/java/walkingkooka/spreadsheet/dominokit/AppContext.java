@@ -264,6 +264,13 @@ public interface AppContext extends CanGiveFocus,
      */
     SpreadsheetProvider systemSpreadsheetProvider();
 
+    // EnvironmentContext...............................................................................................
+
+    @Override
+    default AppContext cloneEnvironment() {
+        throw new UnsupportedOperationException();
+    }
+
     @Override
     default <T> AppContext setEnvironmentValue(final EnvironmentValueName<T> name,
                                                final T value) {
