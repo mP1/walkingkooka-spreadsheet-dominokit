@@ -17,10 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.format;
 
-import walkingkooka.convert.CanConvert;
-import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.plugin.ProviderContext;
-import walkingkooka.plugin.ProviderContextDelegator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextDelegator;
@@ -36,7 +33,6 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviderDelegator;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContextPreProcessor;
 
-import java.time.LocalDateTime;
 import java.util.Locale;
 
 /**
@@ -45,8 +41,7 @@ import java.util.Locale;
 abstract class AppContextSpreadsheetFormatterSelectorDialogComponentContext implements SpreadsheetFormatterSelectorDialogComponentContext,
     DialogComponentContextDelegator,
     SpreadsheetFormatterContextDelegator,
-    SpreadsheetFormatterProviderDelegator,
-    ProviderContextDelegator {
+    SpreadsheetFormatterProviderDelegator {
 
     AppContextSpreadsheetFormatterSelectorDialogComponentContext(final AppContext context) {
         super();
@@ -82,23 +77,6 @@ abstract class AppContextSpreadsheetFormatterSelectorDialogComponentContext impl
     @Override
     public final SpreadsheetFormatterProvider spreadsheetFormatterProvider() {
         return this.context;
-    }
-
-    // ProviderContext..................................................................................................
-
-    @Override
-    public final CanConvert canConvert() {
-        return this.context;
-    }
-
-    @Override
-    public final ProviderContext providerContext() {
-        return this.context;
-    }
-
-    @Override
-    public final LocalDateTime now() {
-        return this.context.now();
     }
 
     // misc.............................................................................................................
@@ -143,27 +121,11 @@ abstract class AppContextSpreadsheetFormatterSelectorDialogComponentContext impl
         );
     }
 
-    // EnvironmentContext...............................................................................................
+    // HasProviderContext...............................................................................................
 
     @Override
-    public final SpreadsheetFormatterSelectorDialogComponentContext cloneEnvironment() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final <T> SpreadsheetFormatterSelectorDialogComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,
-                                                                                            final T value) {
-        this.context.setEnvironmentValue(
-            name,
-            value
-        );
-        return this;
-    }
-
-    @Override
-    public final SpreadsheetFormatterSelectorDialogComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
-        this.context.removeEnvironmentValue(name);
-        return this;
+    public final ProviderContext providerContext() {
+        return this.context;
     }
 
     // Object..........................................................................................................
