@@ -246,6 +246,11 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
         }
 
         @Override
+        public TestSpreadsheetViewportFormulaComponentContext cloneEnvironment() {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
         public TestSpreadsheetViewportFormulaComponentContext setLocale(final Locale locale) {
             throw new UnsupportedOperationException();
         }
