@@ -85,6 +85,11 @@ abstract class AppContextSpreadsheetParserSelectorDialogComponentContext impleme
     // SpreadsheetParserContext.........................................................................................
 
     @Override
+    public boolean isGroupSeparatorWithinNumbersSupported() {
+        return this.context.isGroupSeparatorWithinNumbersSupported();
+    }
+
+    @Override
     public InvalidCharacterException invalidCharacterException(final Parser<?> parser,
                                                                final TextCursor cursor) {
         return this.context.invalidCharacterException(
