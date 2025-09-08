@@ -760,6 +760,11 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     // SpreadsheetListDialogComponent...................................................................................
 
     @Override
+    public boolean isGroupSeparatorWithinNumbersSupported() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public OptionalInt spreadsheetListDialogComponentDefaultCount() {
         throw new UnsupportedOperationException();
     }
