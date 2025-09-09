@@ -1339,8 +1339,8 @@ public class App implements EntryPoint,
     // SpreadsheetParserContext.........................................................................................
 
     @Override
-    public boolean isGroupSeparatorWithinNumbersSupported() {
-        return this.parserContext.isGroupSeparatorWithinNumbersSupported();
+    public boolean canNumbersHaveGroupSeparator() {
+        return this.parserContext.canNumbersHaveGroupSeparator();
     }
 
     @Override
