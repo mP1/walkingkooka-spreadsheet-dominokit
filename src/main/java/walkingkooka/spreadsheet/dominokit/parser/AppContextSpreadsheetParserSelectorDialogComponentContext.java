@@ -85,8 +85,8 @@ abstract class AppContextSpreadsheetParserSelectorDialogComponentContext impleme
     // SpreadsheetParserContext.........................................................................................
 
     @Override
-    public boolean isGroupSeparatorWithinNumbersSupported() {
-        return this.context.isGroupSeparatorWithinNumbersSupported();
+    public boolean canNumbersHaveGroupSeparator() {
+        return this.context.canNumbersHaveGroupSeparator();
     }
 
     @Override
