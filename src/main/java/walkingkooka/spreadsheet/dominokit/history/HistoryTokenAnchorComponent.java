@@ -511,18 +511,18 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
     // SpreadsheetContextMenuTarget.....................................................................................
 
     @Override
-    public void setSpreadsheetContextMenu(final SpreadsheetContextMenu menu) {
+    public void setSpreadsheetContextMenu(final SpreadsheetContextMenu<Void> menu) {
         Objects.requireNonNull(menu, "menu");
 
         this.menu = menu;
     }
 
     @Override
-    public Optional<SpreadsheetContextMenu> spreadsheetContextMenu() {
+    public Optional<SpreadsheetContextMenu<Void>> spreadsheetContextMenu() {
         return Optional.ofNullable(this.menu);
     }
 
-    private SpreadsheetContextMenu menu;
+    private SpreadsheetContextMenu<Void> menu;
 
     // TooltipComponentTarget................................................................................
 
