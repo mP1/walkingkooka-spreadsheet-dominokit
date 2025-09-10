@@ -19,13 +19,13 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.HTMLTableCellElement;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
-import org.dominokit.domino.ui.popover.Tooltip;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetError;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.dom.TdComponent;
+import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponent;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -170,10 +170,11 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
             }
 
             if (false == newTooltipMessage.isEmpty()) {
-                this.tooltip = Tooltip.create(
+                this.tooltip = TooltipComponent.attach(
                     this.td,
-                    newTooltipMessage
-                ).setPosition(DropDirection.BOTTOM_MIDDLE);
+                    newTooltipMessage,
+                    DropDirection.BOTTOM_MIDDLE
+                );
             }
 
             this.tooltipMessage = newTooltipMessage;
@@ -182,7 +183,7 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
 
     private String tooltipMessage;
 
-    private Tooltip tooltip;
+    private TooltipComponent tooltip;
 
     @Override //
     Length<?> width(final SpreadsheetViewportComponentTableContext context) {
