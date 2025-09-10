@@ -24,6 +24,7 @@ import walkingkooka.color.Color;
 import walkingkooka.color.WebColorName;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
+import walkingkooka.spreadsheet.SpreadsheetErrorKind;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
@@ -61,6 +62,84 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
                 "  TD\n" +
                 "    id=\"viewport-cell-A1\" tabIndex=0 style=\"background-color: black; box-sizing: border-box; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
                 "      Text \"123\"\n"
+        );
+    }
+
+    @Test
+    public void testTreePrintSpreadsheetCellWithErrorWithMessage() {
+        this.treePrintAndCheck2(
+            HistoryToken.spreadsheetSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
+            ),
+            false, // shouldHideZeroValues
+            false, // shouldShowFormulas
+            SpreadsheetErrorKind.DIV0.setMessage("Divide by zero is bad!"), // value
+            "SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "  TD\n" +
+                "    id=\"viewport-cell-A1\" tabIndex=0 style=\"background-color: black; box-sizing: border-box; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "      (Divide by zero is bad!)\n" +
+                "      Text \"#DIV/0! \\\"Divide by zero is bad!\\\"\"\n"
+        );
+    }
+
+    @Test
+    public void testTreePrintSpreadsheetCellWithBadge() {
+        this.treePrintAndCheck2(
+            HistoryToken.spreadsheetSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
+            ),
+            false, // shouldHideZeroValues
+            false, // shouldShowFormulas
+            123, // value
+            Optional.of(
+                TextNode.badge(
+                    "BadgeText111"
+                ).appendChild(
+                    TextNode.text(
+                        String.valueOf(123)
+                    )
+                )
+            ),
+            "SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "  TD\n" +
+                "    id=\"viewport-cell-A1\" tabIndex=0 style=\"background-color: black; box-sizing: border-box; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "      (BadgeText111)\n" +
+                "      Badge\n" +
+                "        badgeText\n" +
+                "          \"BadgeText111\"\n" +
+                "        Text \"123\"\n"
+        );
+    }
+
+    @Test
+    public void testTreePrintSpreadsheetCellWithBadgeIgnoresError() {
+        this.treePrintAndCheck2(
+            HistoryToken.spreadsheetSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
+            ),
+            false, // shouldHideZeroValues
+            false, // shouldShowFormulas
+            SpreadsheetErrorKind.DIV0.setMessage("Divide by zero is really bad!!!"), // value
+            Optional.of(
+                TextNode.badge(
+                    "BadgeText111"
+                ).appendChild(
+                    TextNode.text(
+                        String.valueOf(123)
+                    )
+                )
+            ),
+            "SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "  TD\n" +
+                "    id=\"viewport-cell-A1\" tabIndex=0 style=\"background-color: black; box-sizing: border-box; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "      (BadgeText111)\n" +
+                "      Badge\n" +
+                "        badgeText\n" +
+                "          \"BadgeText111\"\n" +
+                "        Text \"123\"\n"
         );
     }
 
@@ -157,6 +236,28 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
                                     final boolean shouldHideZeroValues,
                                     final boolean shouldShowFormulas,
                                     final Object value,
+                                    final String expected) {
+        this.treePrintAndCheck2(
+            historyToken,
+            shouldHideZeroValues,
+            shouldShowFormulas,
+            value,
+            Optional.ofNullable(
+                null != value ?
+                    TextNode.text(
+                        value.toString()
+                    ) :
+                    null
+            ),
+            expected
+        );
+    }
+
+    private void treePrintAndCheck2(final HistoryToken historyToken,
+                                    final boolean shouldHideZeroValues,
+                                    final boolean shouldShowFormulas,
+                                    final Object value,
+                                    final Optional<TextNode> formatted,
                                     final String expected) {
         final SpreadsheetViewportCacheContext cacheContext = new FakeSpreadsheetViewportCacheContext() {
             @Override
@@ -288,15 +389,7 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
                                 .setValue(
                                     Optional.ofNullable(value)
                                 )
-                        ).setFormattedValue(
-                            Optional.ofNullable(
-                                null != value ?
-                                    TextNode.text(
-                                        value.toString()
-                                    ) :
-                                    null
-                            )
-                        )
+                        ).setFormattedValue(formatted)
                     )
                 ),
                 appContext
