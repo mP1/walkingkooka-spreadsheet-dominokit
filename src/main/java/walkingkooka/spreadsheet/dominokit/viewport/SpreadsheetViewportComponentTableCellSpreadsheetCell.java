@@ -29,9 +29,11 @@ import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponent;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.text.CharSequences;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.ExpressionNumberSign;
+import walkingkooka.tree.text.Badge;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
@@ -93,6 +95,7 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
             ) :
             context.cellStyle();
 
+        String tooltipText = null;
         Optional<SpreadsheetError> maybeError = Optional.empty();
         final boolean shouldHideZeroValues = context.shouldHideZeroValues();
         final boolean showFormulas = context.shouldShowFormulas();
@@ -124,15 +127,34 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
                 );
 
                 if (false == zeroValue) {
-                    final TextNode formatted = cell.formattedValue()
+                    TextNode formatted = cell.formattedValue()
                         .orElse(null);
                     if (null != formatted) {
-                        td.appendChild(formatted);
+                        if (formatted.isBadge()) {
+                            formatted.firstChild()
+                                .orElse(null);
+                            tooltipText = ((Badge) formatted)
+                                .badgeText();
+                        }
+
+                        if (null != formatted) {
+                            td.appendChild(formatted);
+                        }
                     }
                 }
             }
 
-            maybeError = formula.error();
+            if (null == tooltipText) {
+                tooltipText = formula.error()
+                    .map(e -> {
+                            final String errorMessage = e.message();
+                            return errorMessage.isEmpty() ?
+                                e.toString() :
+                                errorMessage;
+
+                        }
+                    ).orElse("");
+            }
         }
         if (zeroValue) {
             style = context.hideZeroStyle(style);
@@ -145,22 +167,15 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
             )
         );
 
-        this.tooltipRefresh(maybeError);
+        this.tooltipRefresh(
+            CharSequences.nullToEmpty(tooltipText)
+                .toString()
+        );
     }
 
     private final SpreadsheetCellReference cellReference;
 
-    private void tooltipRefresh(final Optional<SpreadsheetError> error) {
-        final String newTooltipMessage = error.map(
-            e -> {
-                final String errorMessage = e.message();
-                return errorMessage.isEmpty() ?
-                    e.toString() :
-                    errorMessage;
-
-            }
-        ).orElse("");
-
+    private void tooltipRefresh(final String newTooltipMessage) {
         final String oldTooltipMessage = this.tooltipMessage;
 
         if (false == newTooltipMessage.equals(oldTooltipMessage)) {
