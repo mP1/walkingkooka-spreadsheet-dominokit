@@ -49,7 +49,7 @@ final class SpreadsheetContextMenuNative {
     /**
      * Factory that builds a {@link SpreadsheetContextMenu}.
      */
-    static <T> SpreadsheetContextMenu<T> empty(final SpreadsheetContextMenuTarget<? extends Element> target,
+    static <T> SpreadsheetContextMenu<T> empty(final SpreadsheetContextMenuTarget<? extends Element, T> target,
                                                final HistoryContext context) {
         final Element element = target.element();
         final Menu<T> menu = Menu.<T>create()
@@ -69,7 +69,7 @@ final class SpreadsheetContextMenuNative {
                                   final String text,
                                   final Optional<Icon<?>> icon,
                                   final Optional<String> badge,
-                                  final SpreadsheetContextMenu menu) {
+                                  final SpreadsheetContextMenu<T> menu) {
         final Menu<T> subMenu = Menu.create();
 
         AbstractMenuItem<T> menuItem = MenuItem.<T>create(text)

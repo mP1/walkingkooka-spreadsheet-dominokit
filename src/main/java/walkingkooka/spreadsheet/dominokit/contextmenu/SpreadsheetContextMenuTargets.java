@@ -25,7 +25,7 @@ public final class SpreadsheetContextMenuTargets implements PublicStaticHelper {
     /**
      * {@see ElementSpreadsheetContextMenuTarget}
      */
-    public static SpreadsheetContextMenuTarget<Element> element(final Element element) {
+    public static <T> SpreadsheetContextMenuTarget<Element, T> element(final Element element) {
         return ElementSpreadsheetContextMenuTarget.with(element);
     }
 

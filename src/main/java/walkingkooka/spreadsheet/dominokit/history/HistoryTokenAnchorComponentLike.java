@@ -36,7 +36,7 @@ import java.util.Optional;
  * Defines the public methods for a {@link HistoryTokenAnchorComponent}.
  */
 abstract class HistoryTokenAnchorComponentLike implements AnchorComponent<HistoryTokenAnchorComponent, HistoryToken>,
-    SpreadsheetContextMenuTarget<HTMLAnchorElement>,
+    SpreadsheetContextMenuTarget<HTMLAnchorElement, Void>,
     TooltipComponentTarget<HTMLAnchorElement, HistoryTokenAnchorComponent> {
 
     HistoryTokenAnchorComponentLike() {
@@ -129,7 +129,7 @@ abstract class HistoryTokenAnchorComponentLike implements AnchorComponent<Histor
         }
 
         // print any attached context menu
-        final Optional<SpreadsheetContextMenu> menu = this.spreadsheetContextMenu();
+        final Optional<SpreadsheetContextMenu<Void>> menu = this.spreadsheetContextMenu();
         if (menu.isPresent()) {
             printer.indent();
             {
