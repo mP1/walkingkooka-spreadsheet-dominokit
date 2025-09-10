@@ -24,19 +24,26 @@ import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.style.CssClass;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponent;
+import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponentTarget;
 import walkingkooka.text.HasText;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextNode;
+
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Base class for an element {@link HtmlComponent}
  */
 abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlElementComponent<E, C>> implements HtmlComponent<E, C>,
     HtmlStyledComponent<C>,
-    HasText {
+    HasText,
+    TooltipComponentTarget<E, C> {
 
     HtmlElementComponentLike() {
         super();
+        this.tooltip = Optional.empty();
     }
 
     public abstract C setId(final String id);
@@ -210,6 +217,22 @@ abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlEle
 
     public abstract C addEventListener(final String type,
                                        final EventListener listener);
+
+    // TooltipComponentTarget................................................................................
+
+    @Override
+    public final void tooltipAttached(final TooltipComponent tooltip) {
+        Objects.requireNonNull(tooltip, "tooltip");
+
+        this.tooltip = Optional.of(tooltip);
+    }
+
+    @Override
+    public final void tooltipDetached() {
+        this.tooltip = Optional.empty();
+    }
+
+    Optional<TooltipComponent> tooltip;
 
     // TreePrintable....................................................................................................
 

@@ -31,6 +31,7 @@ import walkingkooka.color.RgbColor;
 import walkingkooka.color.WebColorName;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -372,6 +373,16 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
                 if(false == CharSequences.isNullOrEmpty(text)) {
                     printer.println(
                         CharSequences.quoteAndEscape(text)
+                    );
+                }
+            }
+
+            {
+                String tooltipText = this.tooltip.map(TooltipComponent::textContent)
+                    .orElse("");
+                if (false == tooltipText.isEmpty()) {
+                    printer.println(
+                        "(" + tooltipText + ")"
                     );
                 }
             }
