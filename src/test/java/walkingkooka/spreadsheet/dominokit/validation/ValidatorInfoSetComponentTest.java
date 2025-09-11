@@ -53,7 +53,7 @@ public final class ValidatorInfoSetComponentTest implements FormValueComponentTe
             "ValidatorInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://github.com/mP1/walkingkooka-validation/Validator/collection collection,https://github.com/mP1/walkingkooka-validation/Validator/expression expression,https://github.com/mP1/walkingkooka-validation/Validator/non-null non-null,https://github.com/mP1/walkingkooka-validation/Validator/text-length text-length]\n"
+                "      [https://github.com/mP1/walkingkooka-validation/Validator/collection collection,https://github.com/mP1/walkingkooka-validation/Validator/email-address email-address,https://github.com/mP1/walkingkooka-validation/Validator/expression expression,https://github.com/mP1/walkingkooka-validation/Validator/non-null non-null,https://github.com/mP1/walkingkooka-validation/Validator/text-length text-length]\n"
         );
     }
 
