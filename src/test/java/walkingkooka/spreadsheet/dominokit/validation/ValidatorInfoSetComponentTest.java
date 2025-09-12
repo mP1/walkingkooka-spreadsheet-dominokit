@@ -53,7 +53,7 @@ public final class ValidatorInfoSetComponentTest implements FormValueComponentTe
             "ValidatorInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://github.com/mP1/walkingkooka-validation/Validator/absolute-url absolute-url,https://github.com/mP1/walkingkooka-validation/Validator/collection collection,https://github.com/mP1/walkingkooka-validation/Validator/email-address email-address,https://github.com/mP1/walkingkooka-validation/Validator/expression expression,https://github.com/mP1/walkingkooka-validation/Validator/non-null non-null,https://github.com/mP1/walkingkooka-validation/Validator/text-length text-length,https://github.com/mP1/walkingkooka-validation/Validator/text-mask text-mask]\n"
+                "      [https://github.com/mP1/walkingkooka-validation/Validator/absolute-url absolute-url,https://github.com/mP1/walkingkooka-validation/Validator/collection collection,https://github.com/mP1/walkingkooka-validation/Validator/email-address email-address,https://github.com/mP1/walkingkooka-validation/Validator/expression expression,https://github.com/mP1/walkingkooka-validation/Validator/non-null non-null,https://github.com/mP1/walkingkooka-validation/Validator/text-length text-length,https://github.com/mP1/walkingkooka-validation/Validator/text-mask text-mask,https://github.com/mP1/walkingkooka-validation/Validator/validation-choice-list-expression validation-choice-list-expression]\n"
         );
     }
 
