@@ -228,7 +228,7 @@ public final class JarEntryInfoListDialogComponentTest implements DialogComponen
         dialog.onJarEntryInfoList(
             PLUGIN_NAME,
             Optional.of(
-                JarEntryInfoList.with(
+                JarEntryInfoList.EMPTY.setElements(
                     Lists.of(
                         JarEntryInfo.with(
                             JarEntryInfoName.with("/META-INF/MANIFEST.MF"), // filename
@@ -341,7 +341,7 @@ public final class JarEntryInfoListDialogComponentTest implements DialogComponen
         dialog.onJarEntryInfoList(
             PLUGIN_NAME,
             Optional.of(
-                JarEntryInfoList.with(
+                JarEntryInfoList.EMPTY.setElements(
                     Lists.of(
                         JarEntryInfo.with(
                             JarEntryInfoName.with("/META-INF/MANIFEST.MF"), // filename
@@ -417,7 +417,7 @@ public final class JarEntryInfoListDialogComponentTest implements DialogComponen
         dialog.onJarEntryInfoList(
             differentPluginName,
             Optional.of(
-                JarEntryInfoList.with(
+                JarEntryInfoList.EMPTY.setElements(
                     Lists.of(
                         JarEntryInfo.with(
                             JarEntryInfoName.with("/META-INF/MANIFEST.MF"), // filename

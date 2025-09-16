@@ -68,7 +68,7 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
             this.createComponent()
                 .setValue(
                     Optional.of(
-                        JarEntryInfoList.with(
+                        JarEntryInfoList.EMPTY.setElements(
                             Lists.of(
                                 this.jarEntryInfo(
                                     "/META/MANIFEST.MF", // filename
@@ -125,7 +125,7 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
             this.createComponent()
                 .setValue(
                     Optional.of(
-                        JarEntryInfoList.with(
+                        JarEntryInfoList.EMPTY.setElements(
                             Lists.of(
                                 this.jarEntryInfo(
                                     "/dir1/file2.txt", // filename
@@ -182,7 +182,7 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
             this.createComponent()
                 .setValue(
                     Optional.of(
-                        JarEntryInfoList.with(
+                        JarEntryInfoList.EMPTY.setElements(
                             Lists.of(
                                 this.jarEntryInfo(
                                     "/META/MANIFEST.MF", // filename
