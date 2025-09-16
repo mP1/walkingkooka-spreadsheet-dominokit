@@ -47,16 +47,17 @@ public class SpreadsheetFormatterNameLinkListComponentTest implements HtmlCompon
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Automatic\" [#/1/SpreadsheetName123/cell/A1/formatter/save/automatic] id=ID123-0-Link\n" +
-                "            \"Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/collection] id=ID123-1-Link\n" +
-                "            \"Date Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/date-format-pattern] id=ID123-2-Link\n" +
-                "            \"Date Time Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/date-time-format-pattern] id=ID123-3-Link\n" +
-                "            \"Default Text\" [#/1/SpreadsheetName123/cell/A1/formatter/save/default-text] id=ID123-4-Link\n" +
-                "            \"Expression\" [#/1/SpreadsheetName123/cell/A1/formatter/save/expression] id=ID123-5-Link\n" +
-                "            \"General\" [#/1/SpreadsheetName123/cell/A1/formatter/save/general] id=ID123-6-Link\n" +
-                "            \"Number Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/number-format-pattern] id=ID123-7-Link\n" +
-                "            \"Spreadsheet Pattern Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/spreadsheet-pattern-collection] id=ID123-8-Link\n" +
-                "            \"Text Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/text-format-pattern] id=ID123-9-Link\n" +
-                "            \"Time Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/time-format-pattern] id=ID123-10-Link\n"
+                "            \"Badge Error\" [#/1/SpreadsheetName123/cell/A1/formatter/save/badge-error] id=ID123-1-Link\n" +
+                "            \"Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/collection] id=ID123-2-Link\n" +
+                "            \"Date Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/date-format-pattern] id=ID123-3-Link\n" +
+                "            \"Date Time Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/date-time-format-pattern] id=ID123-4-Link\n" +
+                "            \"Default Text\" [#/1/SpreadsheetName123/cell/A1/formatter/save/default-text] id=ID123-5-Link\n" +
+                "            \"Expression\" [#/1/SpreadsheetName123/cell/A1/formatter/save/expression] id=ID123-6-Link\n" +
+                "            \"General\" [#/1/SpreadsheetName123/cell/A1/formatter/save/general] id=ID123-7-Link\n" +
+                "            \"Number Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/number-format-pattern] id=ID123-8-Link\n" +
+                "            \"Spreadsheet Pattern Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/spreadsheet-pattern-collection] id=ID123-9-Link\n" +
+                "            \"Text Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/text-format-pattern] id=ID123-10-Link\n" +
+                "            \"Time Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/time-format-pattern] id=ID123-11-Link\n"
         );
     }
 
@@ -73,16 +74,17 @@ public class SpreadsheetFormatterNameLinkListComponentTest implements HtmlCompon
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Automatic\" [#/1/SpreadsheetName123/cell/A1/formatter/save/automatic] id=ID123-0-Link\n" +
-                "            \"Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/collection] id=ID123-1-Link\n" +
-                "            \"Date Format Pattern\" DISABLED id=ID123-2-Link\n" +
-                "            \"Date Time Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/date-time-format-pattern] id=ID123-3-Link\n" +
-                "            \"Default Text\" [#/1/SpreadsheetName123/cell/A1/formatter/save/default-text] id=ID123-4-Link\n" +
-                "            \"Expression\" [#/1/SpreadsheetName123/cell/A1/formatter/save/expression] id=ID123-5-Link\n" +
-                "            \"General\" [#/1/SpreadsheetName123/cell/A1/formatter/save/general] id=ID123-6-Link\n" +
-                "            \"Number Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/number-format-pattern] id=ID123-7-Link\n" +
-                "            \"Spreadsheet Pattern Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/spreadsheet-pattern-collection] id=ID123-8-Link\n" +
-                "            \"Text Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/text-format-pattern] id=ID123-9-Link\n" +
-                "            \"Time Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/time-format-pattern] id=ID123-10-Link\n"
+                "            \"Badge Error\" [#/1/SpreadsheetName123/cell/A1/formatter/save/badge-error] id=ID123-1-Link\n" +
+                "            \"Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/collection] id=ID123-2-Link\n" +
+                "            \"Date Format Pattern\" DISABLED id=ID123-3-Link\n" +
+                "            \"Date Time Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/date-time-format-pattern] id=ID123-4-Link\n" +
+                "            \"Default Text\" [#/1/SpreadsheetName123/cell/A1/formatter/save/default-text] id=ID123-5-Link\n" +
+                "            \"Expression\" [#/1/SpreadsheetName123/cell/A1/formatter/save/expression] id=ID123-6-Link\n" +
+                "            \"General\" [#/1/SpreadsheetName123/cell/A1/formatter/save/general] id=ID123-7-Link\n" +
+                "            \"Number Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/number-format-pattern] id=ID123-8-Link\n" +
+                "            \"Spreadsheet Pattern Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/spreadsheet-pattern-collection] id=ID123-9-Link\n" +
+                "            \"Text Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/text-format-pattern] id=ID123-10-Link\n" +
+                "            \"Time Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/time-format-pattern] id=ID123-11-Link\n"
         );
     }
 
