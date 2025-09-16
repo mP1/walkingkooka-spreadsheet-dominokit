@@ -133,7 +133,7 @@ final class JarEntryInfoListTableComponent implements TableComponent<HTMLDivElem
     @Override
     public Optional<JarEntryInfoList> value() {
         return this.table.value()
-            .map(JarEntryInfoList::with);
+            .map(JarEntryInfoList.EMPTY::setElements);
     }
 
     @Override
