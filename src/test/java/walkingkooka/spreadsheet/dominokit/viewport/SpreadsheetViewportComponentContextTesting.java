@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviderTesting;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorProviderTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolverTesting;
 
 public interface SpreadsheetViewportComponentContextTesting<C extends SpreadsheetViewportComponentContext>

@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.sort;
 
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.viewport.HasSpreadsheetViewportCache;
 

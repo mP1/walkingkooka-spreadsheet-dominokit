@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.reference;
 
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorDirection;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuItem;

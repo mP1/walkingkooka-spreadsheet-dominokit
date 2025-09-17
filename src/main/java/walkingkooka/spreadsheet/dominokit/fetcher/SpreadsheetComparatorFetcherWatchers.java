@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
 public final class SpreadsheetComparatorFetcherWatchers extends FetcherWatchers<SpreadsheetComparatorFetcherWatcher>
