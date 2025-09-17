@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.importer.SpreadsheetImporterAliasSet;
+import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterAliasSet;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 final class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetImporterAliasSetImporters extends AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetImporterAliasSet {
