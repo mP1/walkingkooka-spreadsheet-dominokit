@@ -20,9 +20,9 @@ package walkingkooka.spreadsheet.dominokit.sort;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
-import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameAndDirection;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorNameAndDirection;
 import walkingkooka.spreadsheet.dominokit.Component;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
@@ -43,7 +43,7 @@ import java.util.Optional;
 import java.util.function.Function;
 
 /**
- * A {@link Component} that supports editing an individual {@link walkingkooka.spreadsheet.compare.SpreadsheetComparatorName}
+ * A {@link Component} that supports editing an individual {@link walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName}
  * within a larger {@link SpreadsheetColumnOrRowSpreadsheetComparatorNamesList}.
  */
 final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent implements FormValueComponent<HTMLDivElement, SpreadsheetColumnOrRowSpreadsheetComparatorNames, SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent>,

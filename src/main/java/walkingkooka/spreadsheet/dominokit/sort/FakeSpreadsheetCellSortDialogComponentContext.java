@@ -19,9 +19,9 @@ package walkingkooka.spreadsheet.dominokit.sort;
 
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorSelector;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorInfoSet;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorSelector;
 import walkingkooka.spreadsheet.dominokit.dialog.FakeDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 

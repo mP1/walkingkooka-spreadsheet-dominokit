@@ -19,12 +19,12 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.collect.set.Sets;
 import walkingkooka.spreadsheet.SpreadsheetCell;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAlias;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAliasSet;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameList;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviderDelegator;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorAlias;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorAliasSet;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorNameList;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorProvider;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorProviderDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetSelectionMenuContext;

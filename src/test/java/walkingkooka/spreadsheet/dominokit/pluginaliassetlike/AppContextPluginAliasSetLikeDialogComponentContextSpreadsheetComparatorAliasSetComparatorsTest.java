@@ -18,12 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAlias;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAliasSet;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorSelector;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorAlias;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorAliasSet;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorInfo;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorInfoSet;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorSelector;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
