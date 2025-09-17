@@ -37,7 +37,7 @@ import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.test.ParseStringTesting;
 import walkingkooka.text.CharSequences;

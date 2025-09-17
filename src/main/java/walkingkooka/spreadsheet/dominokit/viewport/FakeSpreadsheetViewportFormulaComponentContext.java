@@ -30,10 +30,10 @@ import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserSelectorToken;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserInfoSet;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserName;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelectorToken;
 
 import java.time.LocalDateTime;
 import java.util.List;

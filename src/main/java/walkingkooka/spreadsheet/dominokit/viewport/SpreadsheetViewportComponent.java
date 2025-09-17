@@ -75,7 +75,7 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterAliasSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;

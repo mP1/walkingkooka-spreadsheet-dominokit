@@ -42,8 +42,8 @@ import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContext
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserProviderDelegator;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProvider;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProviderDelegator;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;

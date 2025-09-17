@@ -21,7 +21,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorTokenComponentContext;
 import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorTokenComponentContext;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserName;
 
 final class SpreadsheetParserSelectorAppendPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext implements AppendPluginSelectorTokenComponentContext,
     RemoveOrReplacePluginSelectorTokenComponentContext,

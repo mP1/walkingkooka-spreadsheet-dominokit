@@ -21,7 +21,7 @@ import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterTableCompon
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 
 final class SpreadsheetParserSelectorDialogComponentSpreadsheetFormatterTableComponentContext implements SpreadsheetFormatterTableComponentContext,
     HistoryContextDelegator {

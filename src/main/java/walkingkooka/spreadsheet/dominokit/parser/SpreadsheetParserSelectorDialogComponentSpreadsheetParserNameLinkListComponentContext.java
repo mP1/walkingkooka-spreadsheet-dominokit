@@ -19,9 +19,9 @@ package walkingkooka.spreadsheet.dominokit.parser;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserProviderDelegator;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserName;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProvider;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProviderDelegator;
 
 import java.util.Optional;
 

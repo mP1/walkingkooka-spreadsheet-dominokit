@@ -22,12 +22,12 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserAlias;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserAliasSet;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserAlias;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserAliasSet;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserInfo;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserInfoSet;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserName;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 
 public final class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetParserAliasSetParsersTest implements PluginAliasSetLikeDialogComponentContextTesting<AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetParserAliasSetParsers,
     SpreadsheetParserName,

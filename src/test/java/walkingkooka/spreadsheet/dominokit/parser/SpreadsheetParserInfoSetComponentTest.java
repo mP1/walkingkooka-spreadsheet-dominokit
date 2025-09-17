@@ -22,7 +22,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserInfoSet;
 
 import java.util.Optional;
 

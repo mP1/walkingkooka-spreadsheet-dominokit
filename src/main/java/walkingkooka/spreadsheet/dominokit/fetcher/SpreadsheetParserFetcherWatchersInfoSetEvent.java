@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserInfoSet;
 
 /**
  * The event payload used by {@link SpreadsheetParserFetcherWatchers}.
