@@ -49,7 +49,7 @@ final class DomsNodeTextNodeVisitor extends TextNodeVisitor {
     private static Node toNode0(final TextNode textNode) {
         final DomsNodeTextNodeVisitor visitor = new DomsNodeTextNodeVisitor();
         visitor.accept(textNode);
-        return visitor.parent.firstElementChild;
+        return visitor.parent.firstChild; // $textNode might be Text
     }
 
     private static HTMLElement createSpan() {
