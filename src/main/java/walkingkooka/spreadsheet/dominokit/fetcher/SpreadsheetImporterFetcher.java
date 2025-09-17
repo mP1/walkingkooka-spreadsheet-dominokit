@@ -23,8 +23,8 @@ import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.importer.SpreadsheetImporter;
-import walkingkooka.spreadsheet.importer.SpreadsheetImporterInfoSet;
-import walkingkooka.spreadsheet.importer.SpreadsheetImporterName;
+import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterInfoSet;
+import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterName;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.text.CharSequences;
 

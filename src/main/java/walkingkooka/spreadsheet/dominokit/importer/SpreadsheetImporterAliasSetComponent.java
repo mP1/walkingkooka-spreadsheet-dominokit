@@ -19,8 +19,7 @@ package walkingkooka.spreadsheet.dominokit.importer;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
-import walkingkooka.spreadsheet.importer.SpreadsheetImporterAliasSet;
-
+import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterAliasSet;
 public final class SpreadsheetImporterAliasSetComponent implements ValueTextBoxComponentDelegator<SpreadsheetImporterAliasSetComponent, SpreadsheetImporterAliasSet> {
 
     public static SpreadsheetImporterAliasSetComponent empty() {
