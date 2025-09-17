@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProvider;
 
 import java.util.Locale;
 import java.util.Objects;

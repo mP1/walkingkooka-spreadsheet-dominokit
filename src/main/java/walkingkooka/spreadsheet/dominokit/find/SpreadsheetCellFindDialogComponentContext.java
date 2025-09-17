@@ -27,7 +27,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatc
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProvider;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 
 import java.util.Locale;

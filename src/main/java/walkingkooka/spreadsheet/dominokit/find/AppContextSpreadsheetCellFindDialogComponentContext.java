@@ -30,8 +30,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatc
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchersDelegator;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserProviderDelegator;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProvider;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProviderDelegator;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;

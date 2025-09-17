@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.parser;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserAliasSet;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserAliasSet;
 
 public final class SpreadsheetParserAliasSetComponent implements ValueTextBoxComponentDelegator<SpreadsheetParserAliasSetComponent, SpreadsheetParserAliasSet> {
 

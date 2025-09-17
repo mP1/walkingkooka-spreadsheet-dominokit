@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.parser;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.link.CardLinkListComponentContext;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserName;
 
 import java.util.Optional;
 

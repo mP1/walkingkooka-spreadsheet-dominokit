@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellParserSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellParserSelectHistoryToken;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 
 import java.util.Objects;
 import java.util.Optional;

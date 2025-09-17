@@ -21,9 +21,9 @@ import elemental2.dom.HTMLDivElement;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.link.CardLinkListComponent;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserInfo;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserName;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProvider;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.printer.IndentingPrinter;
 
