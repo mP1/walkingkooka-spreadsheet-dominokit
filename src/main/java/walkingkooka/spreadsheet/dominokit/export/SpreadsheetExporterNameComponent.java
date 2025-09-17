@@ -21,7 +21,7 @@ package walkingkooka.spreadsheet.dominokit.export;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
-import walkingkooka.spreadsheet.export.SpreadsheetExporterName;
+import walkingkooka.spreadsheet.export.provider.SpreadsheetExporterName;
 
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetExporterName}.
