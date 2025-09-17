@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.export.SpreadsheetExporterInfoSet;
+import walkingkooka.spreadsheet.export.provider.SpreadsheetExporterInfoSet;
 
 /**
  * The event payload used by {@link SpreadsheetExporterFetcherWatchers}.

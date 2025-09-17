@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.export.SpreadsheetExporter;
-import walkingkooka.spreadsheet.export.SpreadsheetExporterInfoSet;
+import walkingkooka.spreadsheet.export.provider.SpreadsheetExporterInfoSet;
 
 /**
  * A watcher that receives all {@link SpreadsheetExporter} response events.
