@@ -131,10 +131,11 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
                         .orElse(null);
                     if (null != formatted) {
                         if (formatted.isBadge()) {
-                            formatted.firstChild()
-                                .orElse(null);
                             tooltipText = ((Badge) formatted)
                                 .badgeText();
+
+                            formatted.firstChild()
+                                .orElse(null);
                         }
 
                         if (null != formatted) {
