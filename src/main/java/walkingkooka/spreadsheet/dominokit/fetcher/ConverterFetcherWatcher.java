@@ -21,7 +21,7 @@ import walkingkooka.convert.Converter;
 import walkingkooka.convert.provider.ConverterInfoSet;
 import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.convert.MissingConverter;
+import walkingkooka.spreadsheet.convert.provider.MissingConverter;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
