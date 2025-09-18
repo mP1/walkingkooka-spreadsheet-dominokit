@@ -21,7 +21,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterAliasSet;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterAliasSet;
 
 import java.util.Optional;
 

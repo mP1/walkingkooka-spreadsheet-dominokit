@@ -20,12 +20,12 @@ package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterAlias;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterAliasSet;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterAlias;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterAliasSet;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterInfo;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterInfoSet;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterName;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 public final class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetFormatterAliasSetFormattersTest implements PluginAliasSetLikeDialogComponentContextTesting<AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetFormatterAliasSetFormatters,

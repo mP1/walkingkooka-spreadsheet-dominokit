@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.format;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 
 /**
  * The {@link HistoryContext} for {@link SpreadsheetFormatterTableComponent}.

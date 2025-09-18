@@ -25,8 +25,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetFormatterFetcherWat
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.focus.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.patternkind.SpreadsheetPatternKindTabsComponentContext;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterProvider;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEditContext;
 
 import java.util.Locale;

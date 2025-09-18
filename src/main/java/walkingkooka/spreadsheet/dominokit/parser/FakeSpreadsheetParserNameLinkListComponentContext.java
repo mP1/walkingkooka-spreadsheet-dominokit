@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.parser;
 
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserInfoSet;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserName;

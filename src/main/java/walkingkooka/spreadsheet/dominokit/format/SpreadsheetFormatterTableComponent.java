@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 import walkingkooka.spreadsheet.dominokit.datatable.DataTableComponent;
 import walkingkooka.spreadsheet.dominokit.value.TableComponent;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSample;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSample;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextAlign;
@@ -36,7 +36,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * A table that displays {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterSample} with one per row.
+ * A table that displays {@link walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSample} with one per row.
  */
 public final class SpreadsheetFormatterTableComponent implements TableComponent<HTMLDivElement, List<SpreadsheetFormatterSample>, SpreadsheetFormatterTableComponent>,
     HtmlComponentDelegator<HTMLDivElement, SpreadsheetFormatterTableComponent> {

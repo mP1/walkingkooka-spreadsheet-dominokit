@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.parser;
 import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterTableComponentContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 
 final class SpreadsheetParserSelectorDialogComponentSpreadsheetFormatterTableComponentContext implements SpreadsheetFormatterTableComponentContext,

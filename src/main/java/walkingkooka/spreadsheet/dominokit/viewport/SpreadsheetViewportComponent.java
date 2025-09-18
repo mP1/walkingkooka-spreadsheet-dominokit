@@ -71,8 +71,8 @@ import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContext
 import walkingkooka.spreadsheet.dominokit.navigate.SpreadsheetNavigateLinkComponent;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetSelectionMenu;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterAliasSet;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterAliasSet;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
