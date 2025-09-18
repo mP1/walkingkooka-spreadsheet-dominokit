@@ -29,6 +29,7 @@ import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetMediaTypes;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellClipboardHistoryToken;
@@ -72,6 +73,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
      */
     CELL(
         SpreadsheetCell.class,
+        SpreadsheetMediaTypes.JSON_CELL,
         (c) -> c, // returns the entire cell
         "cell"
     ) {
@@ -139,6 +141,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
      */
     FORMULA(
         SpreadsheetFormula.class,
+        SpreadsheetMediaTypes.JSON_FORMULA,
         SpreadsheetCell::formula,
         "formula"
     ) {
@@ -199,6 +202,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
      */
     DATE_TIME_SYMBOLS(
         DateTimeSymbols.class,
+        SpreadsheetMediaTypes.JSON_DATE_TIME_SYMBOLS,
         SpreadsheetCell::dateTimeSymbols,
         "dateTimeSymbols"
     ) {
@@ -248,6 +252,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
      */
     DECIMAL_NUMBER_SYMBOLS(
         DecimalNumberSymbols.class,
+        SpreadsheetMediaTypes.JSON_DECIMAL_NUMBER_SYMBOLS,
         SpreadsheetCell::decimalNumberSymbols,
         "decimalNumberSymbols"
     ) {
@@ -297,6 +302,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
      */
     LOCALE(
         Locale.class,
+        SpreadsheetMediaTypes.JSON_LOCALE,
         SpreadsheetCell::locale,
         "locale"
     ) {
@@ -346,6 +352,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
      */
     FORMATTER(
         SpreadsheetFormatterSelector.class,
+        SpreadsheetMediaTypes.JSON_FORMATTER,
         SpreadsheetCell::formatter,
         "formatter"
     ) {
@@ -395,6 +402,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
      */
     PARSER(
         SpreadsheetParserSelector.class,
+        SpreadsheetMediaTypes.JSON_PARSER,
         SpreadsheetCell::parser,
         "parser"
     ) {
@@ -444,6 +452,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
      */
     STYLE(
         TextStyle.class,
+        SpreadsheetMediaTypes.JSON_STYLE,
         SpreadsheetCell::style,
         "style"
     ) {
@@ -490,6 +499,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
      */
     FORMATTED_VALUE(
         TextNode.class,
+        SpreadsheetMediaTypes.JSON_FORMATTED_VALUE,
         SpreadsheetCell::formattedValue,
         "formatted-value"
     ) {
@@ -529,6 +539,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
      */
     VALUE(
         Object.class,
+        SpreadsheetMediaTypes.JSON_VALUE,
         (SpreadsheetCell cell) -> cell.formula()
             .value(),
         "value"
@@ -578,6 +589,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
      */
     VALUE_TYPE(
         ValidationValueTypeName.class,
+        SpreadsheetMediaTypes.JSON_VALUE_TYPE,
         (SpreadsheetCell cell) -> cell.formula()
             .valueType(),
         "value-type"
@@ -630,6 +642,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
      */
     VALIDATOR(
         ValidatorSelector.class,
+        SpreadsheetMediaTypes.JSON_VALIDATOR,
         SpreadsheetCell::validator,
         "validator"
     ) {
@@ -697,14 +710,11 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
     }
 
     SpreadsheetCellClipboardKind(final Class<?> type,
+                                 final MediaType mediaType,
                                  final Function<SpreadsheetCell, Object> valueExtractor,
                                  final String urlFragment) {
-        this.mediaType = MediaType.APPLICATION_JSON.setSuffix(
-            Optional.of(
-                type.getName()
-            )
-        );
         this.mediaTypeClass = type;
+        this.mediaType = mediaType;
 
         this.valueExtractor = valueExtractor;
 
