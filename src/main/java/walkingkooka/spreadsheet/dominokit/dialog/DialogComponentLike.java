@@ -21,6 +21,7 @@ import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.dialogs.DialogSize;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 
@@ -50,7 +51,7 @@ abstract class DialogComponentLike implements HtmlComponent<HTMLDivElement, Dial
     }
 
     /**
-     * A dialog box with a small number of few components such as editing a {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector}.
+     * A dialog box with a small number of few components such as editing a {@link SpreadsheetFormatterSelector}.
      */
     public static DialogComponent smallEdit(final String id,
                                             final boolean includeClose,
@@ -65,7 +66,7 @@ abstract class DialogComponentLike implements HtmlComponent<HTMLDivElement, Dial
     }
 
     /**
-     * A dialog box with quite a few components such as editing a {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector}.
+     * A dialog box with quite a few components such as editing a {@link SpreadsheetFormatterSelector}.
      */
     public static DialogComponent largeEdit(final String id,
                                             final boolean includeClose,

@@ -18,6 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.link;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterName;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 
 /**
  * Context for {@link CardLinkListComponent}.
@@ -27,8 +29,8 @@ public interface CardLinkListComponentContext extends HistoryContext {
     /**
      * Called during a render to test if a text item is disabled.
      * <br>
-     * This supports a UI to enter a {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector} consisting of
-     * links(this component) and a textbox where user may have entered a {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterName}
+     * This supports a UI to enter a {@link SpreadsheetFormatterSelector} consisting of
+     * links(this component) and a textbox where user may have entered a {@link SpreadsheetFormatterName}
      * and the link holding that formatter name should  be disabled.
      */
     boolean isDisabled(final String text);

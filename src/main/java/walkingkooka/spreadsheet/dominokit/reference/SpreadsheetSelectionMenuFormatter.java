@@ -37,7 +37,7 @@ import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 /**
- * Creates a sub menu for each {@link SpreadsheetFormatterName} in the {@link SpreadsheetSelectionMenuContext#spreadsheetFormatterSelectorsMenus()},
+ * Creates a sub menu for each {@link SpreadsheetFormatterName} in the {@link SpreadsheetSelectionMenuContext#spreadsheetFormatterMenus()},
  * with items for each {@link SpreadsheetFormatterMenu} using the labels and {@link SpreadsheetFormatterSelector}.
  * <pre>
  * Formatter

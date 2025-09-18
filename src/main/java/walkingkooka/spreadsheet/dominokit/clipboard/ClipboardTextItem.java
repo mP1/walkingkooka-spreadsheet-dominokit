@@ -24,6 +24,7 @@ import walkingkooka.net.header.MediaType;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
@@ -79,10 +80,10 @@ import java.util.stream.Collectors;
  *   }
  * }
  * </pre>
- * JSON holding {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector}
+ * JSON holding {@link SpreadsheetFormatterSelector}
  * <pre>
  * {
- *   "mediaType": "application/json+walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector",
+ *   "mediaType": "application/json+walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector",
  *   "cell-range": "A1:B2",
  *   "value": {
  *     "A1": "date-format-pattern dd/mm/yyyy",

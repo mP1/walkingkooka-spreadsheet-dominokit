@@ -22,6 +22,7 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.link.CardLinkListComponent;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterInfo;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterProvider;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -29,7 +30,7 @@ import walkingkooka.text.printer.IndentingPrinter;
 import java.util.stream.Collectors;
 
 /**
- * A component that list all available {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterName} by querying {@link SpreadsheetFormatterProvider#spreadsheetFormatterInfos()}.
+ * A component that list all available {@link SpreadsheetFormatterName} by querying {@link SpreadsheetFormatterProvider#spreadsheetFormatterInfos()}.
  */
 public final class SpreadsheetFormatterNameLinkListComponent implements HtmlComponentDelegator<HTMLDivElement, SpreadsheetFormatterNameLinkListComponent> {
 
