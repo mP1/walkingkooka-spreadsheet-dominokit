@@ -15,17 +15,17 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.patternkind;
+package walkingkooka.spreadsheet.dominokit.meta;
 
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
 
-public final class SpreadsheetPatternKindTabsComponentContextsTest implements PublicStaticHelperTesting<SpreadsheetPatternKindTabsComponentContexts> {
+public final class SpreadsheetMetadataPropertyNameTabsComponentContextsTest implements PublicStaticHelperTesting<SpreadsheetMetadataPropertyNameTabsComponentContexts> {
     @Override
-    public Class<SpreadsheetPatternKindTabsComponentContexts> type() {
-        return SpreadsheetPatternKindTabsComponentContexts.class;
+    public Class<SpreadsheetMetadataPropertyNameTabsComponentContexts> type() {
+        return SpreadsheetMetadataPropertyNameTabsComponentContexts.class;
     }
 
     @Override

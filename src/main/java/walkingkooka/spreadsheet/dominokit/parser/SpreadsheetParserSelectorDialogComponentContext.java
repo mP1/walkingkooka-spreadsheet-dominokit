@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetParserFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.focus.CanGiveFocus;
-import walkingkooka.spreadsheet.dominokit.patternkind.SpreadsheetPatternKindTabsComponentContext;
+import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPropertyNameTabsComponentContext;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProvider;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEditContext;
@@ -39,7 +39,7 @@ public interface SpreadsheetParserSelectorDialogComponentContext extends CanGive
     HasSpreadsheetParserFetcherWatchers,
     DialogComponentContext,
     SpreadsheetParserProvider,
-    SpreadsheetPatternKindTabsComponentContext,
+    SpreadsheetMetadataPropertyNameTabsComponentContext,
     SpreadsheetParserSelectorEditContext {
 
     /**

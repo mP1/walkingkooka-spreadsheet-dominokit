@@ -15,24 +15,24 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.patternkind;
+package walkingkooka.spreadsheet.dominokit.meta;
 
 import walkingkooka.reflect.PublicStaticHelper;
 
-public final class SpreadsheetPatternKindTabsComponentContexts implements PublicStaticHelper {
+public final class SpreadsheetMetadataPropertyNameTabsComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see FakeSpreadsheetPatternKindTabsComponentContext}
+     * {@see FakeSpreadsheetMetadataPropertyNameTabsComponentContext}
      */
-    public static SpreadsheetPatternKindTabsComponentContext fake() {
-        return new FakeSpreadsheetPatternKindTabsComponentContext();
+    public static SpreadsheetMetadataPropertyNameTabsComponentContext fake() {
+        return new FakeSpreadsheetMetadataPropertyNameTabsComponentContext();
     }
 
 
     /**
      * Stop creation
      */
-    private SpreadsheetPatternKindTabsComponentContexts() {
+    private SpreadsheetMetadataPropertyNameTabsComponentContexts() {
         throw new UnsupportedOperationException();
     }
 }

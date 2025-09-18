@@ -73,9 +73,8 @@ final class AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata
 
     private SpreadsheetMetadataPropertyName<?> spreadsheetMetadataPropertyName() {
         return this.historyToken()
-            .patternKind()
-            .get()
-            .spreadsheetMetadataPropertyName();
+            .metadataPropertyName()
+            .orElseThrow(() -> new IllegalStateException("Missing " + SpreadsheetMetadataPropertyName.class.getSimpleName()));
     }
 
     @Override
@@ -109,6 +108,9 @@ final class AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return token.isMetadataFormatter();
+        return token.metadataPropertyName()
+            .map(SpreadsheetMetadataPropertyName::isSpreadsheetFormatterSelector)
+            .orElse(false) &&
+            false == token.isSave();
     }
 }

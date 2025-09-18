@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.parser;
 
+import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
@@ -40,7 +41,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.patternkind.SpreadsheetPatternKindTabsComponent;
+import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPropertyNameTabsComponent;
 import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorTokenComponent;
 import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorTokenComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -48,6 +49,7 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSample;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserName;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelectorToken;
@@ -90,9 +92,11 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
         context.addSpreadsheetMetadataFetcherWatcher(this);
 
         this.tabs = context.shouldShowTabs() ?
-            SpreadsheetPatternKindTabsComponent.empty(
+            SpreadsheetMetadataPropertyNameTabsComponent.empty(
                 ID + SpreadsheetElementIds.TABS + "-",
-                SpreadsheetPatternKind.parseValues(),
+                Cast.to(
+                    SpreadsheetMetadataPropertyName.parsers()
+                ),
                 context
             ) :
             null;
@@ -172,7 +176,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
     /**
      * This will be null when editing a cell formatter.
      */
-    private final SpreadsheetPatternKindTabsComponent tabs;
+    private final SpreadsheetMetadataPropertyNameTabsComponent tabs;
 
     // tabs............................................................................................................
 

@@ -779,18 +779,20 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "  DialogComponent\n" +
                 "    Spreadsheet: Date Formatter (dateFormatter)\n" +
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
-                "      SpreadsheetPatternKindTabsComponent\n" +
+                "      SpreadsheetMetadataPropertyNameTabsComponent\n" +
                 "        SpreadsheetTabsComponent\n" +
                 "          TAB 0 SELECTED\n" +
-                "            \"Date\" DISABLED id=spreadsheetFormatterSelector-Tabs-date-format\n" +
+                "            \"Date\" DISABLED id=spreadsheetFormatterSelector-Tabs-dateFormatter\n" +
                 "          TAB 1\n" +
-                "            \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter] id=spreadsheetFormatterSelector-Tabs-date-time-format\n" +
+                "            \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter] id=spreadsheetFormatterSelector-Tabs-dateTimeFormatter\n" +
                 "          TAB 2\n" +
-                "            \"Number\" [#/1/Spreadsheet1/spreadsheet/numberFormatter] id=spreadsheetFormatterSelector-Tabs-number-format\n" +
+                "            \"Error\" [#/1/Spreadsheet1/spreadsheet/errorFormatter] id=spreadsheetFormatterSelector-Tabs-errorFormatter\n" +
                 "          TAB 3\n" +
-                "            \"Text\" [#/1/Spreadsheet1/spreadsheet/textFormatter] id=spreadsheetFormatterSelector-Tabs-text-format\n" +
+                "            \"Number\" [#/1/Spreadsheet1/spreadsheet/numberFormatter] id=spreadsheetFormatterSelector-Tabs-numberFormatter\n" +
                 "          TAB 4\n" +
-                "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter] id=spreadsheetFormatterSelector-Tabs-time-format\n" +
+                "            \"Text\" [#/1/Spreadsheet1/spreadsheet/textFormatter] id=spreadsheetFormatterSelector-Tabs-textFormatter\n" +
+                "          TAB 5\n" +
+                "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter] id=spreadsheetFormatterSelector-Tabs-timeFormatter\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
@@ -911,18 +913,20 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "  DialogComponent\n" +
                 "    Spreadsheet: Date Time Formatter (dateTimeFormatter)\n" +
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
-                "      SpreadsheetPatternKindTabsComponent\n" +
+                "      SpreadsheetMetadataPropertyNameTabsComponent\n" +
                 "        SpreadsheetTabsComponent\n" +
                 "          TAB 0\n" +
-                "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter] id=spreadsheetFormatterSelector-Tabs-date-format\n" +
+                "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter] id=spreadsheetFormatterSelector-Tabs-dateFormatter\n" +
                 "          TAB 1 SELECTED\n" +
-                "            \"Date Time\" DISABLED id=spreadsheetFormatterSelector-Tabs-date-time-format\n" +
+                "            \"Date Time\" DISABLED id=spreadsheetFormatterSelector-Tabs-dateTimeFormatter\n" +
                 "          TAB 2\n" +
-                "            \"Number\" [#/1/Spreadsheet1/spreadsheet/numberFormatter] id=spreadsheetFormatterSelector-Tabs-number-format\n" +
+                "            \"Error\" [#/1/Spreadsheet1/spreadsheet/errorFormatter] id=spreadsheetFormatterSelector-Tabs-errorFormatter\n" +
                 "          TAB 3\n" +
-                "            \"Text\" [#/1/Spreadsheet1/spreadsheet/textFormatter] id=spreadsheetFormatterSelector-Tabs-text-format\n" +
+                "            \"Number\" [#/1/Spreadsheet1/spreadsheet/numberFormatter] id=spreadsheetFormatterSelector-Tabs-numberFormatter\n" +
                 "          TAB 4\n" +
-                "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter] id=spreadsheetFormatterSelector-Tabs-time-format\n" +
+                "            \"Text\" [#/1/Spreadsheet1/spreadsheet/textFormatter] id=spreadsheetFormatterSelector-Tabs-textFormatter\n" +
+                "          TAB 5\n" +
+                "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter] id=spreadsheetFormatterSelector-Tabs-timeFormatter\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
@@ -1044,6 +1048,180 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
         );
     }
 
+    // metadata / error.................................................................................................
+
+    @Test
+    public void testOnHistoryTokenChangeMetadataError() {
+        final AppContext context = this.appContext(
+            HistoryToken.parseString("/1/Spreadsheet1/spreadsheet/errorFormatter")
+        );
+
+        this.onHistoryTokenChangeAndSetTextAndCheck(
+            SpreadsheetFormatterSelectorDialogComponent.with(
+                AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata.with(context)
+            ),
+            SpreadsheetFormatterName.NUMBER_FORMAT_PATTERN + " $#0.00",
+            context,
+            "SpreadsheetFormatterSelectorDialogComponent\n" +
+                "  DialogComponent\n" +
+                "    Spreadsheet: Error Formatter (errorFormatter)\n" +
+                "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
+                "      SpreadsheetMetadataPropertyNameTabsComponent\n" +
+                "        SpreadsheetTabsComponent\n" +
+                "          TAB 0\n" +
+                "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter] id=spreadsheetFormatterSelector-Tabs-dateFormatter\n" +
+                "          TAB 1\n" +
+                "            \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter] id=spreadsheetFormatterSelector-Tabs-dateTimeFormatter\n" +
+                "          TAB 2 SELECTED\n" +
+                "            \"Error\" DISABLED id=spreadsheetFormatterSelector-Tabs-errorFormatter\n" +
+                "          TAB 3\n" +
+                "            \"Number\" [#/1/Spreadsheet1/spreadsheet/numberFormatter] id=spreadsheetFormatterSelector-Tabs-numberFormatter\n" +
+                "          TAB 4\n" +
+                "            \"Text\" [#/1/Spreadsheet1/spreadsheet/textFormatter] id=spreadsheetFormatterSelector-Tabs-textFormatter\n" +
+                "          TAB 5\n" +
+                "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter] id=spreadsheetFormatterSelector-Tabs-timeFormatter\n" +
+                "      SpreadsheetFormatterNameLinkListComponent\n" +
+                "        CardLinkListComponent\n" +
+                "          CardComponent\n" +
+                "            Card\n" +
+                "              FlexLayoutComponent\n" +
+                "                ROW\n" +
+                "                  \"Automatic\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
+                "                  \"Badge Error\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
+                "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
+                "                  \"Date Format Pattern\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/date-format-pattern] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
+                "                  \"Date Time Format Pattern\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/date-time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
+                "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
+                "                  \"Number Format Pattern\" DISABLED id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
+                "                  \"Text Format Pattern\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"Time Format Pattern\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "      SpreadsheetFormatterTableComponent\n" +
+                "        CardComponent\n" +
+                "          Card\n" +
+                "            DataTableComponent\n" +
+                "              id=spreadsheetFormatterSelector-Table\n" +
+                "              ROW(S)\n" +
+                "                ROW 0\n" +
+                "                  TextNodeComponent\n" +
+                "                    Number\n" +
+                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
+                "                  TextNodeComponent\n" +
+                "                    123.5\n" +
+                "                ROW 1\n" +
+                "                  TextNodeComponent\n" +
+                "                    Number\n" +
+                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
+                "                  TextNodeComponent\n" +
+                "                    -123.5\n" +
+                "                ROW 2\n" +
+                "                  TextNodeComponent\n" +
+                "                    Number\n" +
+                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
+                "                  TextNodeComponent\n" +
+                "                    0.\n" +
+                "                ROW 3\n" +
+                "                  TextNodeComponent\n" +
+                "                    Integer\n" +
+                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
+                "                  TextNodeComponent\n" +
+                "                    124\n" +
+                "                ROW 4\n" +
+                "                  TextNodeComponent\n" +
+                "                    Integer\n" +
+                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
+                "                  TextNodeComponent\n" +
+                "                    -124\n" +
+                "                ROW 5\n" +
+                "                  TextNodeComponent\n" +
+                "                    Integer\n" +
+                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
+                "                  TextNodeComponent\n" +
+                "                    0\n" +
+                "                ROW 6\n" +
+                "                  TextNodeComponent\n" +
+                "                    Percent\n" +
+                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
+                "                  TextNodeComponent\n" +
+                "                    12,350%\n" +
+                "                ROW 7\n" +
+                "                  TextNodeComponent\n" +
+                "                    Percent\n" +
+                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
+                "                  TextNodeComponent\n" +
+                "                    -12,350%\n" +
+                "                ROW 8\n" +
+                "                  TextNodeComponent\n" +
+                "                    Percent\n" +
+                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
+                "                  TextNodeComponent\n" +
+                "                    0%\n" +
+                "                ROW 9\n" +
+                "                  TextNodeComponent\n" +
+                "                    Currency\n" +
+                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
+                "                  TextNodeComponent\n" +
+                "                    $123*50\n" +
+                "                ROW 10\n" +
+                "                  TextNodeComponent\n" +
+                "                    Currency\n" +
+                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
+                "                  TextNodeComponent\n" +
+                "                    $-123*50\n" +
+                "                ROW 11\n" +
+                "                  TextNodeComponent\n" +
+                "                    Currency\n" +
+                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
+                "                  TextNodeComponent\n" +
+                "                    $0*00\n" +
+                "                ROW 12\n" +
+                "                  TextNodeComponent\n" +
+                "                    Sample\n" +
+                "                  \"$#0.00\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%230.00] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  TextNodeComponent\n" +
+                "                    $1234*50\n" +
+                "      AppendPluginSelectorTokenComponent\n" +
+                "        CardComponent\n" +
+                "          Card\n" +
+                "            Append component(s)\n" +
+                "              FlexLayoutComponent\n" +
+                "                ROW\n" +
+                "                  \"#\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%230.00%23] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
+                "                  \"$\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%230.00$] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
+                "                  \"%\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%230.00%25] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
+                "                  \",\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%230.00,] id=spreadsheetFormatterSelector-appender-append-3-Link\n" +
+                "                  \".\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%230.00.] id=spreadsheetFormatterSelector-appender-append-4-Link\n" +
+                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%230.00/] id=spreadsheetFormatterSelector-appender-append-5-Link\n" +
+                "                  \"?\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%230.00?] id=spreadsheetFormatterSelector-appender-append-6-Link\n" +
+                "                  \"E\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%230.00E] id=spreadsheetFormatterSelector-appender-append-7-Link\n" +
+                "      RemoveOrReplacePluginSelectorTokenComponent\n" +
+                "        CardComponent\n" +
+                "          Card\n" +
+                "            Remove / Replace component(s)\n" +
+                "              FlexLayoutComponent\n" +
+                "                ROW\n" +
+                "                  \"$\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20%230.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
+                "                  \"#\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$0.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%23.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
+                "                  \".\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%23000] id=spreadsheetFormatterSelector-removeOrReplace-remove-3-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%230.0] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%230.0] id=spreadsheetFormatterSelector-removeOrReplace-remove-5-Link\n" +
+                "      SpreadsheetFormatterSelectorComponent\n" +
+                "        ValueTextBoxComponent\n" +
+                "          TextBoxComponent\n" +
+                "            [number-format-pattern $#0.00] id=spreadsheetFormatterSelector-TextBox\n" +
+                "      AnchorListComponent\n" +
+                "        FlexLayoutComponent\n" +
+                "          ROW\n" +
+                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%230.00] id=spreadsheetFormatterSelector-save-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/badge-error%20text-format-pattern%20@] id=spreadsheetFormatterSelector-undo-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=spreadsheetFormatterSelector-close-Link\n"
+        );
+    }
+
     // metadata / number................................................................................................
 
     @Test
@@ -1062,18 +1240,20 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "  DialogComponent\n" +
                 "    Spreadsheet: Number Formatter (numberFormatter)\n" +
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
-                "      SpreadsheetPatternKindTabsComponent\n" +
+                "      SpreadsheetMetadataPropertyNameTabsComponent\n" +
                 "        SpreadsheetTabsComponent\n" +
                 "          TAB 0\n" +
-                "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter] id=spreadsheetFormatterSelector-Tabs-date-format\n" +
+                "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter] id=spreadsheetFormatterSelector-Tabs-dateFormatter\n" +
                 "          TAB 1\n" +
-                "            \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter] id=spreadsheetFormatterSelector-Tabs-date-time-format\n" +
-                "          TAB 2 SELECTED\n" +
-                "            \"Number\" DISABLED id=spreadsheetFormatterSelector-Tabs-number-format\n" +
-                "          TAB 3\n" +
-                "            \"Text\" [#/1/Spreadsheet1/spreadsheet/textFormatter] id=spreadsheetFormatterSelector-Tabs-text-format\n" +
+                "            \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter] id=spreadsheetFormatterSelector-Tabs-dateTimeFormatter\n" +
+                "          TAB 2\n" +
+                "            \"Error\" [#/1/Spreadsheet1/spreadsheet/errorFormatter] id=spreadsheetFormatterSelector-Tabs-errorFormatter\n" +
+                "          TAB 3 SELECTED\n" +
+                "            \"Number\" DISABLED id=spreadsheetFormatterSelector-Tabs-numberFormatter\n" +
                 "          TAB 4\n" +
-                "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter] id=spreadsheetFormatterSelector-Tabs-time-format\n" +
+                "            \"Text\" [#/1/Spreadsheet1/spreadsheet/textFormatter] id=spreadsheetFormatterSelector-Tabs-textFormatter\n" +
+                "          TAB 5\n" +
+                "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter] id=spreadsheetFormatterSelector-Tabs-timeFormatter\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
@@ -1234,18 +1414,20 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "  DialogComponent\n" +
                 "    Spreadsheet: Text Formatter (textFormatter)\n" +
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
-                "      SpreadsheetPatternKindTabsComponent\n" +
+                "      SpreadsheetMetadataPropertyNameTabsComponent\n" +
                 "        SpreadsheetTabsComponent\n" +
                 "          TAB 0\n" +
-                "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter] id=spreadsheetFormatterSelector-Tabs-date-format\n" +
+                "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter] id=spreadsheetFormatterSelector-Tabs-dateFormatter\n" +
                 "          TAB 1\n" +
-                "            \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter] id=spreadsheetFormatterSelector-Tabs-date-time-format\n" +
+                "            \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter] id=spreadsheetFormatterSelector-Tabs-dateTimeFormatter\n" +
                 "          TAB 2\n" +
-                "            \"Number\" [#/1/Spreadsheet1/spreadsheet/numberFormatter] id=spreadsheetFormatterSelector-Tabs-number-format\n" +
-                "          TAB 3 SELECTED\n" +
-                "            \"Text\" DISABLED id=spreadsheetFormatterSelector-Tabs-text-format\n" +
-                "          TAB 4\n" +
-                "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter] id=spreadsheetFormatterSelector-Tabs-time-format\n" +
+                "            \"Error\" [#/1/Spreadsheet1/spreadsheet/errorFormatter] id=spreadsheetFormatterSelector-Tabs-errorFormatter\n" +
+                "          TAB 3\n" +
+                "            \"Number\" [#/1/Spreadsheet1/spreadsheet/numberFormatter] id=spreadsheetFormatterSelector-Tabs-numberFormatter\n" +
+                "          TAB 4 SELECTED\n" +
+                "            \"Text\" DISABLED id=spreadsheetFormatterSelector-Tabs-textFormatter\n" +
+                "          TAB 5\n" +
+                "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter] id=spreadsheetFormatterSelector-Tabs-timeFormatter\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
@@ -1332,18 +1514,20 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "  DialogComponent\n" +
                 "    Spreadsheet: Time Formatter (timeFormatter)\n" +
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
-                "      SpreadsheetPatternKindTabsComponent\n" +
+                "      SpreadsheetMetadataPropertyNameTabsComponent\n" +
                 "        SpreadsheetTabsComponent\n" +
                 "          TAB 0\n" +
-                "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter] id=spreadsheetFormatterSelector-Tabs-date-format\n" +
+                "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter] id=spreadsheetFormatterSelector-Tabs-dateFormatter\n" +
                 "          TAB 1\n" +
-                "            \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter] id=spreadsheetFormatterSelector-Tabs-date-time-format\n" +
+                "            \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter] id=spreadsheetFormatterSelector-Tabs-dateTimeFormatter\n" +
                 "          TAB 2\n" +
-                "            \"Number\" [#/1/Spreadsheet1/spreadsheet/numberFormatter] id=spreadsheetFormatterSelector-Tabs-number-format\n" +
+                "            \"Error\" [#/1/Spreadsheet1/spreadsheet/errorFormatter] id=spreadsheetFormatterSelector-Tabs-errorFormatter\n" +
                 "          TAB 3\n" +
-                "            \"Text\" [#/1/Spreadsheet1/spreadsheet/textFormatter] id=spreadsheetFormatterSelector-Tabs-text-format\n" +
-                "          TAB 4 SELECTED\n" +
-                "            \"Time\" DISABLED id=spreadsheetFormatterSelector-Tabs-time-format\n" +
+                "            \"Number\" [#/1/Spreadsheet1/spreadsheet/numberFormatter] id=spreadsheetFormatterSelector-Tabs-numberFormatter\n" +
+                "          TAB 4\n" +
+                "            \"Text\" [#/1/Spreadsheet1/spreadsheet/textFormatter] id=spreadsheetFormatterSelector-Tabs-textFormatter\n" +
+                "          TAB 5 SELECTED\n" +
+                "            \"Time\" DISABLED id=spreadsheetFormatterSelector-Tabs-timeFormatter\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
