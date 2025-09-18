@@ -30,7 +30,7 @@ public final class ElementSpreadsheetContextMenuTarget<T> implements Spreadsheet
     static <T> ElementSpreadsheetContextMenuTarget<T> with(final Element element) {
         Objects.requireNonNull(element, "element");
 
-        return new ElementSpreadsheetContextMenuTarget<T>(element);
+        return new ElementSpreadsheetContextMenuTarget<>(element);
     }
 
     private ElementSpreadsheetContextMenuTarget(final Element element) {
