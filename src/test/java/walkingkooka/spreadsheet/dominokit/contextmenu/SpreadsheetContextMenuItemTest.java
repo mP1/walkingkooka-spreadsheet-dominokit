@@ -31,9 +31,9 @@ import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;
 
-public class SpreadsheetContextMenuItemTest implements ClassTesting<SpreadsheetContextMenuItem<Void>>,
+public class SpreadsheetContextMenuItemTest implements ClassTesting<SpreadsheetContextMenuItem>,
     TreePrintableTesting,
-    ToStringTesting<SpreadsheetContextMenuItem<Void>> {
+    ToStringTesting<SpreadsheetContextMenuItem> {
 
     // TreePrintable....................................................................................................
 
@@ -192,7 +192,7 @@ public class SpreadsheetContextMenuItemTest implements ClassTesting<SpreadsheetC
     }
 
     @Override
-    public Class<SpreadsheetContextMenuItem<Void>> type() {
+    public Class<SpreadsheetContextMenuItem> type() {
         return Cast.to(SpreadsheetContextMenuItem.class);
     }
 

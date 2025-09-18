@@ -53,7 +53,7 @@ public class SpreadsheetContextMenuNative {
         return subMenu;
     }
 
-    static <T> void menuAppendChildSpreadsheetContextMenuItem(final SpreadsheetContextMenuItem<T> item,
+    static <T> void menuAppendChildSpreadsheetContextMenuItem(final SpreadsheetContextMenuItem item,
                                                               final SpreadsheetContextMenu menu) {
         menu.menu.appendChild(item);
     }
