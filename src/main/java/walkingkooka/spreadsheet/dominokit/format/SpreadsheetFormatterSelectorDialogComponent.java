@@ -44,7 +44,6 @@ import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPropertyNameTa
 import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorTokenComponent;
 import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorTokenComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSample;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
@@ -420,7 +419,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
     }
 
     /**
-     * Refreshes the widget, typically done when the {@link SpreadsheetPatternKind} changes etc.
+     * Refreshes the widget, typically done when the {@link SpreadsheetMetadataPropertyName} changes etc.
      */
     @Override
     public void refresh(final RefreshContext context) {
