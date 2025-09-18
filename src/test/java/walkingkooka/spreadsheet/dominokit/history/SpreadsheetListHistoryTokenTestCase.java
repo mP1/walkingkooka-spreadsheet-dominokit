@@ -138,13 +138,6 @@ public abstract class SpreadsheetListHistoryTokenTestCase<T extends SpreadsheetL
     }
 
     @Test
-    public final void testPatternKind() {
-        this.patternKindAndCheck(
-            this.createHistoryToken()
-        );
-    }
-
-    @Test
     public final void testSetSelectionWithCell() {
         this.setSelectionAndCheck(
             this.createHistoryToken(),

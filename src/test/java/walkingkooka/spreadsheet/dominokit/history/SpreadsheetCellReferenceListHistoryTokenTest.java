@@ -464,15 +464,6 @@ public final class SpreadsheetCellReferenceListHistoryTokenTest extends Spreadsh
         );
     }
 
-    // patternKind......................................................................................................
-
-    @Test
-    public void testPatternKind() {
-        this.patternKindAndCheck(
-            this.createHistoryToken()
-        );
-    }
-
     // save.........................................................................................................
 
     @Test

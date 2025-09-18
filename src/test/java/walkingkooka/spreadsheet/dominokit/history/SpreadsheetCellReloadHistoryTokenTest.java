@@ -85,15 +85,6 @@ public final class SpreadsheetCellReloadHistoryTokenTest extends SpreadsheetCell
         );
     }
 
-    // patternKind......................................................................................................
-
-    @Test
-    public void testPatternKind() {
-        this.patternKindAndCheck(
-            this.createHistoryToken()
-        );
-    }
-
     @Override
     SpreadsheetCellReloadHistoryToken createHistoryToken(final SpreadsheetId id,
                                                          final SpreadsheetName name,

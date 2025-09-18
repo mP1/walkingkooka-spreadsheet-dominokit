@@ -39,8 +39,6 @@ import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToValueMap;
 import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellSet;
-import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKind;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -87,7 +85,6 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.Set;
-import java.util.function.BiFunction;
 import java.util.function.Function;
 
 /**
@@ -121,8 +118,7 @@ import java.util.function.Function;
  * </pre>
  * This architecture makes it possible to program a macro system, manipulating a browser by simply sending new hash tokens.
  */
-public abstract class HistoryToken implements HasUrlFragment,
-    HasSpreadsheetPatternKind {
+public abstract class HistoryToken implements HasUrlFragment {
 
     private final static int MAX_LENGTH = 8192;
 
@@ -3814,45 +3810,6 @@ public abstract class HistoryToken implements HasUrlFragment,
         }
 
         return urlFragment;
-    }
-
-    // HasSpreadsheetPatternKind........................................................................................
-
-    @Override
-    public final Optional<SpreadsheetPatternKind> patternKind() {
-        return this.metadataPropertyName()
-            .flatMap(SpreadsheetMetadataPropertyName::patternKind);
-    }
-
-    /**
-     * Tries to clear any present {@link SpreadsheetPatternKind}.
-     */
-    public final HistoryToken clearPatternKind() {
-        return this.setPatternKind(Optional.empty());
-    }
-
-    /**
-     * if possible creates a {@link HistoryToken} with the {@link SpreadsheetPatternKind}.
-     */
-    public final HistoryToken setPatternKind(final Optional<SpreadsheetPatternKind> kind) {
-        Objects.requireNonNull(kind, "kind");
-
-        HistoryToken historyToken = this;
-        if (false == this.patternKind().equals(kind)) {
-
-            if (this instanceof SpreadsheetNameHistoryToken) {
-                historyToken = ((BiFunction<SpreadsheetNameHistoryToken, Optional<SpreadsheetPatternKind>, HistoryToken>) SpreadsheetNameHistoryToken::replacePatternKind).apply(
-                    this.cast(SpreadsheetNameHistoryToken.class),
-                    kind
-                );
-
-                if (historyToken.equals(this)) {
-                    historyToken = this;
-                }
-            }
-        }
-
-        return historyToken;
     }
 
     // PARSER...........................................................................................................

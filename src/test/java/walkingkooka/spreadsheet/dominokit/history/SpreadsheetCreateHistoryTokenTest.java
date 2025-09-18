@@ -124,13 +124,6 @@ public final class SpreadsheetCreateHistoryTokenTest extends SpreadsheetHistoryT
         );
     }
 
-    @Test
-    public void testPatternKind() {
-        this.patternKindAndCheck(
-            this.createHistoryToken()
-        );
-    }
-
     @Override
     SpreadsheetCreateHistoryToken createHistoryToken() {
         return SpreadsheetCreateHistoryToken.with();

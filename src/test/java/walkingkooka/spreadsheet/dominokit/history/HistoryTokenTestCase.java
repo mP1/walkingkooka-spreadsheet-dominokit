@@ -33,7 +33,6 @@ import walkingkooka.reflect.MethodAttributes;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
@@ -692,90 +691,6 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         this.checkEquals(
             expected,
             set
-        );
-    }
-
-    // patternKind......................................................................................................
-
-    final void patternKindAndCheck(final HistoryToken token) {
-        this.patternKindAndCheck(
-            token,
-            Optional.empty()
-        );
-    }
-
-    final void patternKindAndCheck(final HistoryToken token,
-                                   final SpreadsheetPatternKind expected) {
-        this.patternKindAndCheck(
-            token,
-            Optional.of(expected)
-        );
-    }
-
-    final void patternKindAndCheck(final HistoryToken token,
-                                   final Optional<SpreadsheetPatternKind> expected) {
-        this.checkEquals(
-            expected,
-            token.patternKind(),
-            token::toString
-        );
-    }
-
-    // setPatternKind...................................................................................................
-
-    @Test
-    public final void testSetPatternKindNullFails() {
-        final T token = this.createHistoryToken();
-        assertThrows(
-            NullPointerException.class,
-            () -> token.setPatternKind(null)
-        );
-    }
-
-    final void setPatternKindAndCheck(final HistoryToken token,
-                                      final HistoryToken expected) {
-        this.setPatternKindAndCheck(
-            token,
-            Optional.empty(),
-            expected
-        );
-    }
-
-    final void setPatternKindAndCheck(final SpreadsheetPatternKind patternKind) {
-        this.setPatternKindAndCheck(
-            this.createHistoryToken(),
-            patternKind
-        );
-    }
-
-    final void setPatternKindAndCheck(final HistoryToken token,
-                                      final SpreadsheetPatternKind patternKind) {
-        assertSame(
-            token,
-            token.setPatternKind(
-                Optional.of(patternKind)
-            ),
-            () -> token + " setPatternKind " + patternKind
-        );
-    }
-
-    final void setPatternKindAndCheck(final HistoryToken token,
-                                      final SpreadsheetPatternKind patternKind,
-                                      final HistoryToken expected) {
-        this.setPatternKindAndCheck(
-            token,
-            Optional.of(patternKind),
-            expected
-        );
-    }
-
-    final void setPatternKindAndCheck(final HistoryToken token,
-                                      final Optional<SpreadsheetPatternKind> patternKind,
-                                      final HistoryToken expected) {
-        this.checkEquals(
-            expected,
-            token.setPatternKind(patternKind),
-            () -> token + " setPatternKind " + patternKind
         );
     }
 

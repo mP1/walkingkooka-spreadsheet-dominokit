@@ -22,52 +22,12 @@ import walkingkooka.Cast;
 import walkingkooka.convert.Converters;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertSame;
-
 public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends SpreadsheetMetadataPropertyHistoryTokenTestCase<SpreadsheetMetadataPropertySelectHistoryToken<ExpressionNumberKind>, ExpressionNumberKind> {
-
-    // HasSpreadsheetPatternKind........................................................................................
-
-    @Test
-    public void testHasSpreadsheetPatternKindColor1() {
-        this.hasSpreadsheetPatternKindAndCheck(
-            SpreadsheetMetadataPropertySelectHistoryToken.with(
-                ID,
-                NAME,
-                SpreadsheetMetadataPropertyName.numberedColor(1)
-            )
-        );
-    }
-
-    @Test
-    public void testHasSpreadsheetPatternKindDateFormatter() {
-        this.hasSpreadsheetPatternKindAndCheck(
-            SpreadsheetMetadataPropertySelectHistoryToken.with(
-                ID,
-                NAME,
-                SpreadsheetMetadataPropertyName.DATE_FORMATTER
-            ),
-            SpreadsheetPatternKind.DATE_FORMAT_PATTERN
-        );
-    }
-
-    @Test
-    public void testHasSpreadsheetPatternKindDateTimeParser() {
-        this.hasSpreadsheetPatternKindAndCheck(
-            SpreadsheetMetadataPropertySelectHistoryToken.with(
-                ID,
-                NAME,
-                SpreadsheetMetadataPropertyName.DATE_TIME_PARSER
-            ),
-            SpreadsheetPatternKind.DATE_TIME_PARSE_PATTERN
-        );
-    }
 
     // UrlFragment......................................................................................................
 
@@ -204,75 +164,6 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
             )
         );
     }
-
-    // setPatternKind...................................................................................................
-
-    @Test
-    public void testSetPatternKindSame() {
-        final SpreadsheetMetadataPropertySelectHistoryToken<?> token = SpreadsheetMetadataPropertySelectHistoryToken.with(
-            ID,
-            NAME,
-            SpreadsheetMetadataPropertyName.DATE_FORMATTER
-        );
-        assertSame(
-            token,
-            token.setPatternKind(
-                Optional.of(
-                    SpreadsheetPatternKind.DATE_FORMAT_PATTERN
-                )
-            )
-        );
-    }
-
-    @Test
-    public void testSetPatternKindDifferent() {
-        this.setPatternKindAndCheck(
-            SpreadsheetMetadataPropertySelectHistoryToken.with(
-                ID,
-                NAME,
-                SpreadsheetMetadataPropertyName.TEXT_FORMATTER
-            ),
-            SpreadsheetPatternKind.DATE_FORMAT_PATTERN,
-            SpreadsheetMetadataPropertySelectHistoryToken.with(
-                ID,
-                NAME,
-                SpreadsheetMetadataPropertyName.DATE_FORMATTER
-            )
-        );
-    }
-
-    @Test
-    public void testSetPatternKindDifferent2() {
-        this.setPatternKindAndCheck(
-            SpreadsheetMetadataPropertySelectHistoryToken.with(
-                ID,
-                NAME,
-                SpreadsheetMetadataPropertyName.TEXT_FORMATTER
-            ),
-            SpreadsheetPatternKind.DATE_TIME_PARSE_PATTERN,
-            SpreadsheetMetadataPropertySelectHistoryToken.with(
-                ID,
-                NAME,
-                SpreadsheetMetadataPropertyName.DATE_TIME_PARSER
-            )
-        );
-    }
-
-    @Test
-    public void testSetPatternKindEmpty() {
-        this.setPatternKindAndCheck(
-            SpreadsheetMetadataPropertySelectHistoryToken.with(
-                ID,
-                NAME,
-                SpreadsheetMetadataPropertyName.TEXT_FORMATTER
-            ),
-            HistoryToken.metadataSelect(
-                ID,
-                NAME
-            )
-        );
-    }
-
     // saveValue........................................................................................................
 
     @Test

@@ -94,13 +94,6 @@ public abstract class SpreadsheetRenameHistoryTokenTestCase<T extends Spreadshee
         );
     }
 
-    @Test
-    public final void testPatternKind() {
-        this.patternKindAndCheck(
-            this.createHistoryToken()
-        );
-    }
-
     // setSelection.....................................................................................................
 
     @Test
