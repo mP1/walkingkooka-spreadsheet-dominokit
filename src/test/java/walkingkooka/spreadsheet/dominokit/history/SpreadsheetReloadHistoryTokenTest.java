@@ -100,13 +100,6 @@ public final class SpreadsheetReloadHistoryTokenTest extends SpreadsheetNameHist
         );
     }
 
-    @Test
-    public void testPatternKind() {
-        this.patternKindAndCheck(
-            this.createHistoryToken()
-        );
-    }
-
     // rename...........................................................................................................
 
     @Test

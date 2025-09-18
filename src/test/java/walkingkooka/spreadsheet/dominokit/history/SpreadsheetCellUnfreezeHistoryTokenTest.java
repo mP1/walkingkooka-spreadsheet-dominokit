@@ -98,15 +98,6 @@ public final class SpreadsheetCellUnfreezeHistoryTokenTest extends SpreadsheetCe
         );
     }
 
-    // patternKind......................................................................................................
-
-    @Test
-    public void testPatternKind() {
-        this.patternKindAndCheck(
-            this.createHistoryToken()
-        );
-    }
-
     @Override
     SpreadsheetCellUnfreezeHistoryToken createHistoryToken(final SpreadsheetId id,
                                                            final SpreadsheetName name,

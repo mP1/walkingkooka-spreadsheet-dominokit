@@ -36,15 +36,6 @@ public abstract class SpreadsheetCellFormulaHistoryTokenTestCase<T extends Sprea
         );
     }
 
-    // patternKind......................................................................................................
-
-    @Test
-    public final void testPatternKind() {
-        this.patternKindAndCheck(
-            this.createHistoryToken()
-        );
-    }
-
     // setSaveStringValue.....................................................................................................
 
     @Test

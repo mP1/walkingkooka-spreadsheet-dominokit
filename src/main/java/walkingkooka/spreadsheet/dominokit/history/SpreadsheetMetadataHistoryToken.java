@@ -20,10 +20,8 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.cursor.TextCursor;
-
-import java.util.Optional;
 
 public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHistoryToken {
 
@@ -58,11 +56,9 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
                 result = this.parseStyle(cursor);
                 break;
             default:
-                for (final SpreadsheetPatternKind kind : SpreadsheetPatternKind.values()) {
-                    if (kind.urlFragment().value().equals(component)) {
-                        result = this.setPatternKind(
-                            Optional.of(kind)
-                        );
+                for (final SpreadsheetMetadataPropertyName<?> propertyName : SpreadsheetMetadataPropertyName.ALL) {
+                    if (propertyName.value().equals(component)) {
+                        result = this.setMetadataPropertyName(propertyName);
                         break Switch;
                     }
                 }

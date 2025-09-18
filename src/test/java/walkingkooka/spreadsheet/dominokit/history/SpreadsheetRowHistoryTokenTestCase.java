@@ -273,15 +273,6 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
         );
     }
 
-    // patternKind......................................................................................................
-
-    @Test
-    public void testPatternKind() {
-        this.patternKindAndCheck(
-            this.createHistoryToken()
-        );
-    }
-
     // setSelection.....................................................................................................
 
     @Test

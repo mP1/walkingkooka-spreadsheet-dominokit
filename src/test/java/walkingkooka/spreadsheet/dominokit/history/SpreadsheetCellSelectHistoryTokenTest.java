@@ -307,15 +307,6 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
         );
     }
 
-    // patternKind......................................................................................................
-
-    @Test
-    public void testPatternKind() {
-        this.patternKindAndCheck(
-            this.createHistoryToken()
-        );
-    }
-
     // save.........................................................................................................
 
     @Test

@@ -32,7 +32,6 @@ import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToValueMap;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
@@ -1560,61 +1559,6 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                 NAME,
                 CELL.setDefaultAnchor()
             ).setMetadataPropertyName(metadataProperty)
-        );
-    }
-
-    // HasSpreadsheetPatternKind........................................................................................
-
-    @Test
-    public void testPatternKindWithSpreadsheetCreateHistoryToken() {
-        this.patternKindAndCheck(
-            HistoryToken.spreadsheetCreate()
-        );
-    }
-
-    @Test
-    public void testPatternKindWithSpreadsheetLoadHistoryToken() {
-        this.patternKindAndCheck(
-            HistoryToken.spreadsheetLoad(
-                SpreadsheetId.with(1)
-            )
-        );
-    }
-
-    private void patternKindAndCheck(final HistoryToken token) {
-        this.checkEquals(
-            Optional.empty(),
-            token.patternKind(),
-            token::toString
-        );
-    }
-
-    // setPatternKind..........................................................................................................
-
-    @Test
-    public void testSetPatternKindWithNotSpreadsheetNameHistoryTokenSubclass() {
-        final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
-
-        assertSame(
-            historyToken.setPatternKind(
-                Optional.of(
-                    SpreadsheetPatternKind.TIME_PARSE_PATTERN)
-            ),
-            historyToken
-        );
-    }
-
-    @Test
-    public void testSetPatternKindCell() {
-        final AnchoredSpreadsheetSelection viewport = CELL.setDefaultAnchor();
-        final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
-        final HistoryToken historyToken = HistoryToken.cellSelect(ID, NAME, viewport);
-
-        assertSame(
-            historyToken,
-            historyToken.setPatternKind(
-                Optional.of(kind)
-            )
         );
     }
 

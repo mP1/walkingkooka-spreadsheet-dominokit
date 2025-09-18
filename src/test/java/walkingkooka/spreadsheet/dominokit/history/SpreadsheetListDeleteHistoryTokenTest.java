@@ -93,13 +93,6 @@ public final class SpreadsheetListDeleteHistoryTokenTest extends SpreadsheetIdHi
     }
 
     @Test
-    public void testPatternKind() {
-        this.patternKindAndCheck(
-            this.createHistoryToken()
-        );
-    }
-
-    @Test
     public void testSetSelectionWithCell() {
         this.setSelectionAndCheck(
             this.createHistoryToken(),

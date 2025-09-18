@@ -268,15 +268,6 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
         this.menuWithRowAndCheck();
     }
 
-    // patternKind......................................................................................................
-
-    @Test
-    public final void testPatternKind() {
-        this.patternKindAndCheck(
-            this.createHistoryToken()
-        );
-    }
-
     // setSelection.....................................................................................................
 
     @Test

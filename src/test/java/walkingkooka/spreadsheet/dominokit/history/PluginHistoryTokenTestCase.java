@@ -61,15 +61,6 @@ public abstract class PluginHistoryTokenTestCase<T extends PluginHistoryToken> e
         );
     }
 
-    // pattern..........................................................................................................
-
-    @Test
-    public final void testPatternKind() {
-        this.patternKindAndCheck(
-            this.createHistoryToken()
-        );
-    }
-
     // navigation.......................................................................................................
 
     @Test
