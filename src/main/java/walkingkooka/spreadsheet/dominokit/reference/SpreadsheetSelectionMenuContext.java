@@ -68,7 +68,7 @@ public interface SpreadsheetSelectionMenuContext extends Context,
     Set<SpreadsheetExpressionReference> references(final SpreadsheetSelection selection);
 
     /**
-     * Returns the {@link List<SpreadsheetFormatterMenu>} for the current {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector}.
+     * Returns the {@link List<SpreadsheetFormatterMenu>} for the current {@link SpreadsheetFormatterSelector}.
      */
     List<SpreadsheetFormatterMenu> spreadsheetFormatterMenus();
 
