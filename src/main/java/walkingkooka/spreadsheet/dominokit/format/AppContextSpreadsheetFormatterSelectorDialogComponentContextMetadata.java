@@ -23,7 +23,6 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
@@ -58,8 +57,7 @@ final class AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata
     }
 
     /**
-     * Retrieves the {@link SpreadsheetPatternKind} from the history token,
-     * and then reads the value for its {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName}.
+     * Retrieves the {@link SpreadsheetMetadataPropertyName} from the history token and reads the value from the {@link SpreadsheetMetadataPropertyName}.
      */
     @Override
     public Optional<SpreadsheetFormatterSelector> undo() {
