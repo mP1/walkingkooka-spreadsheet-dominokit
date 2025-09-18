@@ -49,8 +49,8 @@ final class SpreadsheetContextMenuNative {
     /**
      * Factory that builds a {@link SpreadsheetContextMenu}.
      */
-    static <T> SpreadsheetContextMenu<T> empty(final SpreadsheetContextMenuTarget<? extends Element, T> target,
-                                               final HistoryContext context) {
+    static <T> SpreadsheetContextMenu empty(final SpreadsheetContextMenuTarget<? extends Element> target,
+                                            final HistoryContext context) {
         final Element element = target.element();
         final Menu<T> menu = Menu.<T>create()
             .setContextMenu(true)
@@ -69,7 +69,7 @@ final class SpreadsheetContextMenuNative {
                                   final String text,
                                   final Optional<Icon<?>> icon,
                                   final Optional<String> badge,
-                                  final SpreadsheetContextMenu<T> menu) {
+                                  final SpreadsheetContextMenu menu) {
         final Menu<T> subMenu = Menu.create();
 
         AbstractMenuItem<T> menuItem = MenuItem.<T>create(text)
@@ -107,7 +107,7 @@ final class SpreadsheetContextMenuNative {
     }
 
     static <T> void menuAppendChildSpreadsheetContextMenuItem(final SpreadsheetContextMenuItem<T> item,
-                                                              final SpreadsheetContextMenu<T> menu) {
+                                                              final SpreadsheetContextMenu menu) {
         HistoryTokenMenuItem menuItem = menu.context.menuItem(
             item.id,
             item.text,
@@ -146,17 +146,17 @@ final class SpreadsheetContextMenuNative {
     }
 
     static void menuAppendChildIsElement(final IsElement<?> isElement,
-                                         final SpreadsheetContextMenu<?> menu) {
+                                         final SpreadsheetContextMenu menu) {
         menu.menu.appendChild(
             isElement.element()
         );
     }
 
-    static void menuAppendChildSeparator(final SpreadsheetContextMenu<?> menu) {
+    static void menuAppendChildSeparator(final SpreadsheetContextMenu menu) {
         menu.menu.appendChild(new Separator());
     }
 
-    static void menuDisable(final SpreadsheetContextMenu<?> menu) {
+    static void menuDisable(final SpreadsheetContextMenu menu) {
         menu.menu.disable();
     }
 }
