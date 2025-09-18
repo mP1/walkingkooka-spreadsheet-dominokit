@@ -32,8 +32,8 @@ import java.util.Optional;
 @GwtIncompatible
 public class SpreadsheetContextMenuNative {
 
-    static <T> SpreadsheetContextMenu empty(final SpreadsheetContextMenuTarget<? extends Element> target,
-                                            final HistoryContext context) {
+    static SpreadsheetContextMenu empty(final SpreadsheetContextMenuTarget<? extends Element> target,
+                                        final HistoryContext context) {
         final SpreadsheetContextMenu contextMenu = SpreadsheetContextMenu.with(
             Menu.empty(),
             context
@@ -53,8 +53,8 @@ public class SpreadsheetContextMenuNative {
         return subMenu;
     }
 
-    static <T> void menuAppendChildSpreadsheetContextMenuItem(final SpreadsheetContextMenuItem item,
-                                                              final SpreadsheetContextMenu menu) {
+    static void menuAppendChildSpreadsheetContextMenuItem(final SpreadsheetContextMenuItem item,
+                                                          final SpreadsheetContextMenu menu) {
         menu.menu.appendChild(item);
     }
 
