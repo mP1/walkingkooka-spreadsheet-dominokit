@@ -25,7 +25,7 @@ import org.dominokit.domino.ui.menu.AbstractMenuItem;
 import org.dominokit.domino.ui.menu.Menu;
 import org.dominokit.domino.ui.menu.MenuItem;
 import org.dominokit.domino.ui.menu.direction.MouseBestFitDirection;
-import org.dominokit.domino.ui.utils.DominoElement;
+import org.dominokit.domino.ui.utils.DominoWrapper;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import org.dominokit.domino.ui.utils.PrefixAddOn;
 import org.dominokit.domino.ui.utils.Separator;
@@ -56,7 +56,7 @@ final class SpreadsheetContextMenuNative {
             .setContextMenu(true)
             .setDropDirection(new MouseBestFitDirection())
             .setTargetElement(element);
-        new DominoElement<>(element)
+        DominoWrapper.wrap(element, false) // false=addDuiRootCss
             .setDropMenu(menu);
 
         return SpreadsheetContextMenu.with(
