@@ -56,6 +56,6 @@ abstract public class SpreadsheetCellStyleHistoryToken<T> extends SpreadsheetCel
 
     @Override
     public final HistoryToken clearAction() {
-        return this.style(this.propertyName());
+        return this.setStylePropertyName(this.propertyName());
     }
 }

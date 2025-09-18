@@ -88,7 +88,7 @@ final class SpreadsheetToolbarComponentItemAnchorTextStyleProperty<T> extends Sp
         context.historyToken()
             .anchoredSelectionHistoryTokenOrEmpty()
             .map(
-                t -> t.style(this.propertyName)
+                t -> t.setStylePropertyName(this.propertyName)
             ).ifPresent(context::pushHistoryToken);
     }
 
@@ -110,7 +110,7 @@ final class SpreadsheetToolbarComponentItemAnchorTextStyleProperty<T> extends Sp
             context.historyToken()
                 .anchoredSelectionHistoryTokenOrEmpty()
                 .map(
-                    t -> t.style(propertyName)
+                    t -> t.setStylePropertyName(propertyName)
                         .setSaveStringValue(
                             save(
                                 selected ?

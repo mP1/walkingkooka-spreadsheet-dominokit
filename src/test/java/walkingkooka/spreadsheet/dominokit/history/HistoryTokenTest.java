@@ -2008,23 +2008,23 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     // style............................................................................................................
 
     @Test
-    public void testStyleWithNotSpreadsheetNameHistoryTokenSubclass() {
+    public void testSetStylePropertyNameWithNotSpreadsheetNameHistoryTokenSubclass() {
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-            historyToken.style(TextStylePropertyName.COLOR),
+            historyToken.setStylePropertyName(TextStylePropertyName.COLOR),
             historyToken
         );
     }
 
     @Test
-    public void testStyleCell() {
+    public void testSetStylePropertyNameCell() {
         final AnchoredSpreadsheetSelection viewport = CELL.setDefaultAnchor();
         final TextStylePropertyName<Color> property = TextStylePropertyName.COLOR;
         final HistoryToken historyToken = HistoryToken.cellSelect(ID, NAME, viewport);
 
         this.checkEquals(
-            historyToken.style(property),
+            historyToken.setStylePropertyName(property),
             HistoryToken.cellStyle(
                 ID,
                 NAME,
@@ -2035,13 +2035,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     }
 
     @Test
-    public void testStyleCell2() {
+    public void testSetStylePropertyNameCell2() {
         final AnchoredSpreadsheetSelection viewport = CELL.setDefaultAnchor();
         final TextStylePropertyName<Color> property = TextStylePropertyName.OUTLINE_COLOR;
         final HistoryToken historyToken = HistoryToken.cellSelect(ID, NAME, viewport);
 
         this.checkEquals(
-            historyToken.style(property),
+            historyToken.setStylePropertyName(property),
             HistoryToken.cellStyle(
                 ID,
                 NAME,
@@ -2052,25 +2052,25 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     }
 
     @Test
-    public void testStyleColumn() {
+    public void testSetStylePropertyNameColumn() {
         final AnchoredSpreadsheetSelection viewport = COLUMN.setDefaultAnchor();
         final TextStylePropertyName<Color> property = TextStylePropertyName.COLOR;
         final HistoryToken historyToken = HistoryToken.columnSelect(ID, NAME, viewport);
 
         assertSame(
-            historyToken.style(property),
+            historyToken.setStylePropertyName(property),
             historyToken
         );
     }
 
     @Test
-    public void testStyleRow() {
+    public void testSetStylePropertyNameRow() {
         final AnchoredSpreadsheetSelection viewport = ROW.setDefaultAnchor();
         final TextStylePropertyName<Color> property = TextStylePropertyName.COLOR;
         final HistoryToken historyToken = HistoryToken.rowSelect(ID, NAME, viewport);
 
         assertSame(
-            historyToken.style(property),
+            historyToken.setStylePropertyName(property),
             historyToken
         );
     }
