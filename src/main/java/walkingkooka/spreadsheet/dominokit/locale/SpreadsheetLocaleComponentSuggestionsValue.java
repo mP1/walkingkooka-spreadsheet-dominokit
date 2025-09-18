@@ -60,7 +60,7 @@ public final class SpreadsheetLocaleComponentSuggestionsValue<T> implements HasL
     static <T> SpreadsheetLocaleComponentSuggestionsValue<T> with(final Locale locale,
                                                                   final String text,
                                                                   final T value) {
-        return new SpreadsheetLocaleComponentSuggestionsValue(
+        return new SpreadsheetLocaleComponentSuggestionsValue<>(
             Objects.requireNonNull(locale, "locale"),
             CharSequences.failIfNullOrEmpty(text, "text"),
             Objects.requireNonNull(value, "value")
@@ -110,10 +110,10 @@ public final class SpreadsheetLocaleComponentSuggestionsValue<T> implements HasL
     @Override
     public boolean equals(final Object other) {
         return this == other ||
-            (other instanceof SpreadsheetLocaleComponentSuggestionsValue && this.equals0((SpreadsheetLocaleComponentSuggestionsValue) other));
+            (other instanceof SpreadsheetLocaleComponentSuggestionsValue && this.equals0((SpreadsheetLocaleComponentSuggestionsValue<?>) other));
     }
 
-    private boolean equals0(final SpreadsheetLocaleComponentSuggestionsValue other) {
+    private boolean equals0(final SpreadsheetLocaleComponentSuggestionsValue<?> other) {
         return this.locale.equals(other.locale) &&
             this.text.equals(other.text) &&
             this.value.equals(other.value);

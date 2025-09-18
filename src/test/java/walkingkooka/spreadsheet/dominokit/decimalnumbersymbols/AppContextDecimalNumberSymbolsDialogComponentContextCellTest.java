@@ -37,7 +37,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
-public final class AppContextDecimalNumberSymbolsDialogComponentContextCellTest extends AppContextDecimalNumberSymbolsDialogComponentContextTestCase {
+public final class AppContextDecimalNumberSymbolsDialogComponentContextCellTest extends AppContextDecimalNumberSymbolsDialogComponentContextTestCase<AppContextDecimalNumberSymbolsDialogComponentContextCell> {
 
     @Test
     public void testIsMatchWhenSpreadsheetCellDecimalNumberSymbolsSaveHistoryToken() {
