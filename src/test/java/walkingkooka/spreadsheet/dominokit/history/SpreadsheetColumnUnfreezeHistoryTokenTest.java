@@ -57,7 +57,7 @@ public final class SpreadsheetColumnUnfreezeHistoryTokenTest extends Spreadsheet
     // navigation.......................................................................................................
 
     @Test
-    public final void testNavigation() {
+    public void testNavigation() {
         this.navigationAndCheck(
             this.createHistoryToken()
         );
