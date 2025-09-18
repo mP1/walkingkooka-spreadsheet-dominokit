@@ -184,7 +184,7 @@ public final class SpreadsheetContextMenu implements TreePrintable {
     /**
      * Adds the given {@link SpreadsheetContextMenuItem} to this menu.
      */
-    public SpreadsheetContextMenu item(final SpreadsheetContextMenuItem<Object> item) {
+    public SpreadsheetContextMenu item(final SpreadsheetContextMenuItem item) {
         Objects.requireNonNull(item, "item");
 
         this.addSeparatorIfNecessary();
