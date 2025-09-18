@@ -57,12 +57,12 @@ public interface HistoryContext extends Context {
      * Creates an ANCHOR with the given text and if a {@link HistoryToken} is passed, it will be pushed that if this
      * menu item clicked or selected with ENTER.
      */
-    default HistoryTokenMenuItem menuItem(final String id,
-                                          final String text,
-                                          final Optional<HistoryToken> historyToken) {
+    default <T> HistoryTokenMenuItem<T> menuItem(final String id,
+                                                 final String text,
+                                                 final Optional<HistoryToken> historyToken) {
         Objects.requireNonNull(historyToken, "historyToken");
 
-        final HistoryTokenMenuItem menu = new HistoryTokenMenuItem(
+        final HistoryTokenMenuItem<T> menu = new HistoryTokenMenuItem<>(
             HistoryTokenAnchorComponent.empty()
                 .setId(id)
                 .setHistoryToken(historyToken)
