@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.validation.form.FormName;
 
@@ -80,8 +79,4 @@ public abstract class SpreadsheetFormHistoryToken extends SpreadsheetNameHistory
         return historyToken;
     }
 
-    @Override
-    HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
-        return this;
-    }
 }
