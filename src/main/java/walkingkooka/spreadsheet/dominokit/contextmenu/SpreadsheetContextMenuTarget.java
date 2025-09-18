@@ -25,16 +25,16 @@ import java.util.Optional;
 /**
  * The parent component for a {@link SpreadsheetContextMenu}
  */
-public interface SpreadsheetContextMenuTarget<E extends Element, T> extends IsElement<E> {
+public interface SpreadsheetContextMenuTarget<E extends Element> extends IsElement<E> {
 
     /**
      * Called by the {@link SpreadsheetContextMenu} when given this target.
      */
-    void setSpreadsheetContextMenu(final SpreadsheetContextMenu<T> menu);
+    void setSpreadsheetContextMenu(final SpreadsheetContextMenu menu);
 
 
     /**
      * Getter that returns any present {@link SpreadsheetContextMenu}
      */
-    Optional<SpreadsheetContextMenu<T>> spreadsheetContextMenu();
+    Optional<SpreadsheetContextMenu> spreadsheetContextMenu();
 }

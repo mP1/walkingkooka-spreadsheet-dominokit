@@ -25,7 +25,7 @@ import java.util.Optional;
 /**
  * A {@link SpreadsheetContextMenuTarget} that wraps an {@link Element}.
  */
-public final class ElementSpreadsheetContextMenuTarget<T> implements SpreadsheetContextMenuTarget<Element, T> {
+public final class ElementSpreadsheetContextMenuTarget<T> implements SpreadsheetContextMenuTarget<Element> {
 
     static <T> ElementSpreadsheetContextMenuTarget<T> with(final Element element) {
         Objects.requireNonNull(element, "element");
@@ -40,16 +40,16 @@ public final class ElementSpreadsheetContextMenuTarget<T> implements Spreadsheet
     // SpreadsheetContextMenuTarget.....................................................................................
 
     @Override
-    public void setSpreadsheetContextMenu(final SpreadsheetContextMenu<T> menu) {
+    public void setSpreadsheetContextMenu(final SpreadsheetContextMenu menu) {
         this.menu = menu;
     }
 
     @Override
-    public Optional<SpreadsheetContextMenu<T>> spreadsheetContextMenu() {
+    public Optional<SpreadsheetContextMenu> spreadsheetContextMenu() {
         return Optional.ofNullable(this.menu);
     }
 
-    private SpreadsheetContextMenu<T> menu;
+    private SpreadsheetContextMenu menu;
 
     // IsElement........................................................................................................
 

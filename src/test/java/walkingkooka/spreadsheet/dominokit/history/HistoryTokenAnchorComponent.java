@@ -291,18 +291,18 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
      * Potentially some anchors could have a context menu attached to them.
      */
     @Override
-    public void setSpreadsheetContextMenu(final SpreadsheetContextMenu<Void> menu) {
+    public void setSpreadsheetContextMenu(final SpreadsheetContextMenu menu) {
         Objects.requireNonNull(menu, "menu");
 
         this.menu = menu;
     }
 
     @Override
-    public Optional<SpreadsheetContextMenu<Void>> spreadsheetContextMenu() {
+    public Optional<SpreadsheetContextMenu> spreadsheetContextMenu() {
         return Optional.ofNullable(this.menu);
     }
 
-    private SpreadsheetContextMenu<Void> menu;
+    private SpreadsheetContextMenu menu;
 
     // TooltipComponentTarget................................................................................
 

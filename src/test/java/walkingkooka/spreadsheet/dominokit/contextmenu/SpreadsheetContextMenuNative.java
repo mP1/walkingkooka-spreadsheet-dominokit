@@ -32,9 +32,9 @@ import java.util.Optional;
 @GwtIncompatible
 public class SpreadsheetContextMenuNative {
 
-    static <T> SpreadsheetContextMenu<T> empty(final SpreadsheetContextMenuTarget<? extends Element, T> target,
-                                               final HistoryContext context) {
-        final SpreadsheetContextMenu<T> contextMenu = SpreadsheetContextMenu.with(
+    static <T> SpreadsheetContextMenu empty(final SpreadsheetContextMenuTarget<? extends Element> target,
+                                            final HistoryContext context) {
+        final SpreadsheetContextMenu contextMenu = SpreadsheetContextMenu.with(
             Menu.empty(),
             context
         );
@@ -46,7 +46,7 @@ public class SpreadsheetContextMenuNative {
                                   final String text,
                                   final Optional<Icon<?>> icon,
                                   final Optional<String> badge,
-                                  final SpreadsheetContextMenu<T> menu) {
+                                  final SpreadsheetContextMenu menu) {
 
         final Menu<T> subMenu = Menu.create(id, text, icon, badge);
         menu.menu.appendChild(subMenu);
@@ -54,20 +54,20 @@ public class SpreadsheetContextMenuNative {
     }
 
     static <T> void menuAppendChildSpreadsheetContextMenuItem(final SpreadsheetContextMenuItem<T> item,
-                                                              final SpreadsheetContextMenu<T> menu) {
+                                                              final SpreadsheetContextMenu menu) {
         menu.menu.appendChild(item);
     }
 
     static void menuAppendChildIsElement(final IsElement<?> isElement,
-                                         final SpreadsheetContextMenu<?> menu) {
+                                         final SpreadsheetContextMenu menu) {
         menu.menu.appendChild(isElement);
     }
 
-    static void menuAppendChildSeparator(final SpreadsheetContextMenu<?> menu) {
+    static void menuAppendChildSeparator(final SpreadsheetContextMenu menu) {
         menu.menu.appendChild(SpreadsheetContextMenuNativeSeparator.INSTANCE);
     }
 
-    static void menuDisable(final SpreadsheetContextMenu<?> menu) {
+    static void menuDisable(final SpreadsheetContextMenu menu) {
         menu.menu.disabled = true;
     }
 }

@@ -22,8 +22,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 
 public final class SpreadsheetContextMenuFactory {
 
-    public static <T> SpreadsheetContextMenu<T> with(final Menu<T> menu,
-                                                     final HistoryContext context) {
+    public static <T> SpreadsheetContextMenu with(final Menu<T> menu,
+                                                  final HistoryContext context) {
         return SpreadsheetContextMenu.with(
             menu,
             context
