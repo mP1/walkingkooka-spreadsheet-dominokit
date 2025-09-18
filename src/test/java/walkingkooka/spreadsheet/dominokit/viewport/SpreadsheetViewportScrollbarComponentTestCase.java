@@ -106,7 +106,7 @@ public abstract class SpreadsheetViewportScrollbarComponentTestCase<R extends Sp
             return null;
         }
 
-        private HistoryTokenWatchers historyTokenWatchers = HistoryTokenWatchers.empty();
+        private final HistoryTokenWatchers historyTokenWatchers = HistoryTokenWatchers.empty();
 
         @Override
         public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
