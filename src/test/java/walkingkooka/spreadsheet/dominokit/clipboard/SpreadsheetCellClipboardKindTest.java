@@ -347,11 +347,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     public void testMediaTypeCell() {
         this.mediaTypeAndCheck(
             SpreadsheetCellClipboardKind.CELL,
-            MediaType.APPLICATION_JSON.setSuffix(
-                Optional.of(
-                    SpreadsheetCell.class.getName()
-                )
-            )
+            MediaType.parse("application/json+walkingkooka.spreadsheet.SpreadsheetCell")
         );
     }
 
@@ -359,11 +355,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     public void testMediaTypeFormula() {
         this.mediaTypeAndCheck(
             SpreadsheetCellClipboardKind.FORMULA,
-            MediaType.APPLICATION_JSON.setSuffix(
-                Optional.of(
-                    SpreadsheetFormula.class.getName()
-                )
-            )
+            MediaType.parse("application/json+walkingkooka.spreadsheet.formula.SpreadsheetFormula")
         );
     }
 
