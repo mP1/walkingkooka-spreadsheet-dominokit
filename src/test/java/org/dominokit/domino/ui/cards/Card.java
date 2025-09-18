@@ -27,13 +27,14 @@ import walkingkooka.text.printer.TreePrintable;
 
 import java.util.List;
 
-public class Card implements IsElement<Element>,
+public class Card extends BaseCard<Card> implements IsElement<Element>,
     TreePrintable {
 
     public static Card create() {
         return new Card();
     }
 
+    @Override
     public Card setTitle(final String title) {
         this.title = title;
         return this;
@@ -59,6 +60,7 @@ public class Card implements IsElement<Element>,
         return this;
     }
 
+    @Override
     public Card withHeader(final ChildHandler<Card, CardHeader> handler) {
         // nop
 
