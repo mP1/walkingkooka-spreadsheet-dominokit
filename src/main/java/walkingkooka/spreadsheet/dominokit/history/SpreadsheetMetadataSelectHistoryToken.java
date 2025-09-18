@@ -21,9 +21,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
-
-import java.util.Optional;
 
 public final class SpreadsheetMetadataSelectHistoryToken extends SpreadsheetMetadataHistoryToken {
 
@@ -61,17 +58,6 @@ public final class SpreadsheetMetadataSelectHistoryToken extends SpreadsheetMeta
             id,
             name
         );
-    }
-
-    @Override //
-    HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
-        return patternKind.map(
-            k -> HistoryToken.metadataPropertySelect(
-                this.id(),
-                this.name(),
-                k.spreadsheetMetadataPropertyName()
-            ).cast(HistoryToken.class)
-        ).orElse(this);
     }
 
     @Override

@@ -20,9 +20,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
-
-import java.util.Optional;
 
 abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHistoryToken {
 
@@ -43,9 +40,4 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
 
     abstract UrlFragment selectionUrlFragment();
 
-    // pattern kind......................................................................................................
-    @Override //
-    final HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
-        return this;
-    }
 }
