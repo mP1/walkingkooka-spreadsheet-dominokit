@@ -49,10 +49,10 @@ final class SpreadsheetContextMenuNative {
     /**
      * Factory that builds a {@link SpreadsheetContextMenu}.
      */
-    static <T> SpreadsheetContextMenu empty(final SpreadsheetContextMenuTarget<? extends Element> target,
-                                            final HistoryContext context) {
+    static SpreadsheetContextMenu empty(final SpreadsheetContextMenuTarget<? extends Element> target,
+                                        final HistoryContext context) {
         final Element element = target.element();
-        final Menu<T> menu = Menu.<T>create()
+        final Menu<?> menu = Menu.create()
             .setContextMenu(true)
             .setDropDirection(new MouseBestFitDirection())
             .setTargetElement(element);
@@ -106,9 +106,9 @@ final class SpreadsheetContextMenuNative {
         return subMenu;
     }
 
-    static <T> void menuAppendChildSpreadsheetContextMenuItem(final SpreadsheetContextMenuItem item,
-                                                              final SpreadsheetContextMenu menu) {
-        HistoryTokenMenuItem menuItem = menu.context.menuItem(
+    static void menuAppendChildSpreadsheetContextMenuItem(final SpreadsheetContextMenuItem item,
+                                                          final SpreadsheetContextMenu menu) {
+        HistoryTokenMenuItem<?> menuItem = menu.context.menuItem(
             item.id,
             item.text,
             item.historyToken
