@@ -29,8 +29,8 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviders;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterProviders;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
@@ -405,7 +405,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
             ClipboardTextItem.with(
                 TYPES,
                 "{\n" +
-                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector\",\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector\",\n" +
                     "  \"cell-range\": \"A1\",\n" +
                     "  \"value\": {}\n" +
                     "}"
@@ -424,7 +424,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
             ClipboardTextItem.with(
                 TYPES,
                 "{\n" +
-                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector\",\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector\",\n" +
                     "  \"cell-range\": \"A1:B2\",\n" +
                     "  \"value\": {\n" +
                     "    \"A1\": null\n" +
@@ -452,7 +452,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
             ClipboardTextItem.with(
                 TYPES,
                 "{\n" +
-                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector\",\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector\",\n" +
                     "  \"cell-range\": \"A1:B2\",\n" +
                     "  \"value\": {\n" +
                     "    \"A1\": null,\n" +
@@ -487,7 +487,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
             ClipboardTextItem.with(
                 TYPES,
                 "{\n" +
-                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector\",\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector\",\n" +
                     "  \"cell-range\": \"A1:B2\",\n" +
                     "  \"value\": {\n" +
                     "    \"A1\": \"text-format-pattern @\",\n" +
