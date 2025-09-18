@@ -17,14 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
+import walkingkooka.Cast;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class BasicSpreadsheetCellValueDialogComponentContextTest implements ClassTesting<BasicSpreadsheetCellValueDialogComponentContext> {
+public final class BasicSpreadsheetCellValueDialogComponentContextTest implements ClassTesting<BasicSpreadsheetCellValueDialogComponentContext<?>> {
 
     @Override
-    public Class<BasicSpreadsheetCellValueDialogComponentContext> type() {
-        return BasicSpreadsheetCellValueDialogComponentContext.class;
+    public Class<BasicSpreadsheetCellValueDialogComponentContext<?>> type() {
+        return Cast.to(BasicSpreadsheetCellValueDialogComponentContext.class);
     }
 
     @Override

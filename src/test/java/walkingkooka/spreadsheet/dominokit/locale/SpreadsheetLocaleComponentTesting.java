@@ -19,5 +19,5 @@ package walkingkooka.spreadsheet.dominokit.locale;
 
 import walkingkooka.ContextTesting;
 
-public interface SpreadsheetLocaleComponentTesting<C extends SpreadsheetLocaleComponentContext> extends ContextTesting<C> {
+public interface SpreadsheetLocaleComponentTesting<C extends SpreadsheetLocaleComponentContext<C>> extends ContextTesting<C> {
 }

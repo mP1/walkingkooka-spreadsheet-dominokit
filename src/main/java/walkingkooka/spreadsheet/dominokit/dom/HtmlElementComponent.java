@@ -158,7 +158,7 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
         return (C) this;
     }
 
-    private Style style() {
+    private Style<?> style() {
         return Style.of(this.element);
     }
 

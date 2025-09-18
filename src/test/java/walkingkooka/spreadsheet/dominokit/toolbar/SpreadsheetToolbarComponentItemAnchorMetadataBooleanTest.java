@@ -17,16 +17,17 @@
 
 package walkingkooka.spreadsheet.dominokit.toolbar;
 
+import walkingkooka.Cast;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class SpreadsheetToolbarComponentItemAnchorMetadataBooleanTest implements ClassTesting<SpreadsheetToolbarComponentItemAnchorMetadataBoolean> {
+public final class SpreadsheetToolbarComponentItemAnchorMetadataBooleanTest implements ClassTesting<SpreadsheetToolbarComponentItemAnchorMetadataBoolean<?>> {
 
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetToolbarComponentItemAnchorMetadataBoolean> type() {
-        return SpreadsheetToolbarComponentItemAnchorMetadataBoolean.class;
+    public Class<SpreadsheetToolbarComponentItemAnchorMetadataBoolean<?>> type() {
+        return Cast.to(SpreadsheetToolbarComponentItemAnchorMetadataBoolean.class);
     }
 
     @Override

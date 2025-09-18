@@ -34,7 +34,7 @@ final class SpreadsheetRequiredValidator<T> implements Validator<Optional<T>> {
     /**
      * Singleton
      */
-    private final static SpreadsheetRequiredValidator INSTANCE = new SpreadsheetRequiredValidator();
+    private final static SpreadsheetRequiredValidator INSTANCE = new SpreadsheetRequiredValidator<>();
 
     private SpreadsheetRequiredValidator() {
         super();
