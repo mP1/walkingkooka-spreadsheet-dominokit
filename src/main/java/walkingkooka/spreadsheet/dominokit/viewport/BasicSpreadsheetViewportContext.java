@@ -139,14 +139,14 @@ final class BasicSpreadsheetViewportContext implements SpreadsheetViewportContex
         return this.hideZeroStyle.apply(style);
     }
 
-    private Function<TextStyle, TextStyle> hideZeroStyle;
+    private final Function<TextStyle, TextStyle> hideZeroStyle;
 
     @Override
     public TextStyle showFormulasStyle(final TextStyle style) {
         return this.showFormulasStyle.apply(style);
     }
 
-    private Function<TextStyle, TextStyle> showFormulasStyle;
+    private final Function<TextStyle, TextStyle> showFormulasStyle;
 
     // Object...........................................................................................................
 

@@ -145,7 +145,7 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
         return (C) this;
     }
 
-    private Map<String, String> attributes;
+    private final Map<String, String> attributes;
 
     @Override
     public final C setCssProperty(final String name,
@@ -190,7 +190,7 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
         return (C) this;
     }
 
-    private Map<String, String> style;
+    private final Map<String, String> style;
 
     @Override
     public final C addCssClasses(final CssClass...cssClass) {
