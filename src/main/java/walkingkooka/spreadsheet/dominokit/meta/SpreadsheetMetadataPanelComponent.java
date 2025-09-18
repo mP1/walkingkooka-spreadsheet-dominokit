@@ -617,8 +617,8 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     public void openGiveFocus(final RefreshContext context) {
         final HistoryToken token = context.historyToken();
         if (token instanceof SpreadsheetMetadataPropertySelectHistoryToken) {
-            final SpreadsheetMetadataPropertyName<?> propertyName = token.cast(SpreadsheetMetadataPropertySelectHistoryToken.class)
-                .propertyName();
+            final SpreadsheetMetadataPropertyName<?> propertyName = token.metadataPropertyName()
+                .orElse(null);
 
             final Optional<SpreadsheetMetadataPanelComponentItem<?, ?, ?>> maybeItem = this.items.stream()
                 .filter(i -> i.propertyName.equals(propertyName))

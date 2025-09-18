@@ -67,9 +67,10 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContext<N extends Name
     @Override
     public final boolean isMatch(final HistoryToken token) {
         return token instanceof SpreadsheetMetadataPropertySelectHistoryToken &&
-            token.cast(SpreadsheetMetadataPropertySelectHistoryToken.class)
-                .propertyName()
-                .equals(this.metadataPropertyName());
+            this.metadataPropertyName()
+                .equals(
+                    token.metadataPropertyName().orElse(null)
+                );
     }
 
     @Override

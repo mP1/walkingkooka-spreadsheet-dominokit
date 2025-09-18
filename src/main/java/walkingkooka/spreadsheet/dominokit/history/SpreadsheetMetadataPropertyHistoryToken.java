@@ -37,18 +37,13 @@ public abstract class SpreadsheetMetadataPropertyHistoryToken<T> extends Spreads
         this.propertyName = Objects.requireNonNull(propertyName, "propertyName");
     }
 
-    public final SpreadsheetMetadataPropertyName<T> propertyName() {
-        return this.propertyName;
-    }
-
-    private final SpreadsheetMetadataPropertyName<T> propertyName;
+    final SpreadsheetMetadataPropertyName<T> propertyName;
 
     // HasUrlFragment...................................................................................................
 
     @Override //
     final UrlFragment metadataUrlFragment() {
-        return this.propertyName()
-            .urlFragment()
+        return this.propertyName.urlFragment()
             .appendSlashThen(
                 this.metadataPropertyUrlFragment()
             );

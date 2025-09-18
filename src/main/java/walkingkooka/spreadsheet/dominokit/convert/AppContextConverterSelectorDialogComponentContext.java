@@ -61,9 +61,10 @@ final class AppContextConverterSelectorDialogComponentContext implements Convert
     @Override
     public boolean isMatch(final HistoryToken token) {
         return token instanceof SpreadsheetMetadataPropertySelectHistoryToken &&
-            token.cast(SpreadsheetMetadataPropertySelectHistoryToken.class)
-                .propertyName()
-                .equals(this.propertyName);
+            this.propertyName.equals(
+                token.metadataPropertyName()
+                    .orElse(null)
+            );
     }
 
     @Override

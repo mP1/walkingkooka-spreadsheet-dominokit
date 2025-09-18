@@ -21,7 +21,6 @@ import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
@@ -81,7 +80,9 @@ public class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataP
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return token instanceof SpreadsheetMetadataPropertySelectHistoryToken &&
-            token.cast(SpreadsheetMetadataPropertySelectHistoryToken.class).propertyName() == SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS;
+        return SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS.equals(
+            token.metadataPropertyName()
+            .orElse(null)
+        );
     }
 }
