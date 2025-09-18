@@ -80,9 +80,10 @@ final class AppContextSpreadsheetLocaleDialogComponentContextMetadataLocale exte
     public boolean shouldIgnore(final HistoryToken token) {
         return (
             token instanceof SpreadsheetMetadataPropertySelectHistoryToken &&
-                false == token.cast(SpreadsheetMetadataPropertySelectHistoryToken.class)
-                    .propertyName()
-                    .equals(PROPERTY_NAME)
+                false == PROPERTY_NAME.equals(
+                    token.metadataPropertyName()
+                        .orElse(null)
+                )
         ) ||
             token instanceof SpreadsheetMetadataPropertySaveHistoryToken;
     }
@@ -91,8 +92,9 @@ final class AppContextSpreadsheetLocaleDialogComponentContextMetadataLocale exte
     @Override
     public boolean isMatch(HistoryToken token) {
         return token instanceof SpreadsheetMetadataPropertySelectHistoryToken &&
-            token.cast(SpreadsheetMetadataPropertySelectHistoryToken.class)
-                .propertyName()
-                .equals(PROPERTY_NAME);
+            PROPERTY_NAME.equals(
+                token.metadataPropertyName()
+                    .orElse(null)
+                );
     }
 }

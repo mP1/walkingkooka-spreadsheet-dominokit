@@ -75,7 +75,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
         return HistoryToken.metadataPropertySelect(
             this.id(),
             this.name(),
-            this.propertyName()
+            this.propertyName
         );
     }
 
@@ -86,7 +86,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
         return with(
             id,
             name,
-            this.propertyName(),
+            this.propertyName,
             this.value()
         );
     }
@@ -100,7 +100,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
         final SpreadsheetId id = this.id();
-        final SpreadsheetMetadataPropertyName<T> propertyName = this.propertyName();
+        final SpreadsheetMetadataPropertyName<T> propertyName = this.propertyName;
 
         context.pushHistoryToken(previous);
 

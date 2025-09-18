@@ -229,9 +229,10 @@ public final class PluginAliasSetLikeDialogComponentTest implements DialogCompon
             @Override
             public boolean isMatch(final HistoryToken token) {
                 return token instanceof SpreadsheetMetadataPropertySelectHistoryToken &&
-                    token.cast(SpreadsheetMetadataPropertySelectHistoryToken.class)
-                        .propertyName()
-                        .equals(SpreadsheetMetadataPropertyName.FORMULA_FUNCTIONS);
+                    SpreadsheetMetadataPropertyName.FORMULA_FUNCTIONS.equals(
+                        token.metadataPropertyName()
+                            .orElse(null)
+                    );
             }
 
             @Override

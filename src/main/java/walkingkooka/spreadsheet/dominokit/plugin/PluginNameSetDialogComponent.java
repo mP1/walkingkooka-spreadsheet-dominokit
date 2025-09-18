@@ -303,8 +303,10 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
         boolean match = false;
 
         if (token instanceof SpreadsheetMetadataPropertySelectHistoryToken) {
-            final SpreadsheetMetadataPropertySelectHistoryToken<?> metadataPropertySelect = token.cast(SpreadsheetMetadataPropertySelectHistoryToken.class);
-            match = SpreadsheetMetadataPropertyName.PLUGINS.equals(metadataPropertySelect.propertyName());
+            match = SpreadsheetMetadataPropertyName.PLUGINS.equals(
+                token.metadataPropertyName()
+                    .orElse(null)
+            );
         }
 
         return match;

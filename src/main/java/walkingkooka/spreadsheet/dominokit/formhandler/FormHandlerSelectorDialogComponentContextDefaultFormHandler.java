@@ -54,9 +54,10 @@ final class FormHandlerSelectorDialogComponentContextDefaultFormHandler implemen
     @Override
     public boolean isMatch(final HistoryToken token) {
         return token instanceof SpreadsheetMetadataPropertySelectHistoryToken &&
-            token.cast(SpreadsheetMetadataPropertySelectHistoryToken.class)
-                .propertyName()
-                .equals(PROPERTY_NAME);
+            PROPERTY_NAME.equals(
+                token.metadataPropertyName()
+                    .orElse(null)
+            );
     }
 
     @Override

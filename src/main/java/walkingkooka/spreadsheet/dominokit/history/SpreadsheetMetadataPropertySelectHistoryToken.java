@@ -65,7 +65,7 @@ public final class SpreadsheetMetadataPropertySelectHistoryToken<T> extends Spre
         return with(
             id,
             name,
-            this.propertyName()
+            this.propertyName
         );
     }
 

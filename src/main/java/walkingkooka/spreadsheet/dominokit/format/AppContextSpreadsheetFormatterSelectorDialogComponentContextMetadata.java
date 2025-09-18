@@ -91,7 +91,8 @@ final class AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata
                     .getMetadataFormatterEdit(
                         spreadsheetMetadataPropertyHistoryToken.id(), // id
                         Cast.to(
-                            spreadsheetMetadataPropertyHistoryToken.propertyName()
+                            spreadsheetMetadataPropertyHistoryToken.metadataPropertyName()
+                                .orElse(null)
                         ),
                         text
                     )

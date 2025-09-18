@@ -78,6 +78,9 @@ public class AppContextDecimalNumberSymbolsDialogComponentContextSpreadsheetMeta
     @Override
     public boolean isMatch(final HistoryToken token) {
         return token instanceof SpreadsheetMetadataPropertySelectHistoryToken &&
-            token.cast(SpreadsheetMetadataPropertySelectHistoryToken.class).propertyName() == SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_SYMBOLS;
+            SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_SYMBOLS.equals(
+                token.metadataPropertyName()
+                    .orElse(null)
+            );
     }
 }

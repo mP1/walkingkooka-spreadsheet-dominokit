@@ -86,8 +86,11 @@ abstract class SpreadsheetToolbarComponentItemAnchorMetadataBoolean<T extends Sp
         boolean ignore = false;
 
         if (token instanceof SpreadsheetMetadataPropertyHistoryToken) {
-            final SpreadsheetMetadataPropertyHistoryToken<?> metadata = token.cast(SpreadsheetMetadataPropertyHistoryToken.class);
-            ignore = false == this.propertyName().equals(metadata.propertyName());
+            ignore = false == this.propertyName()
+                .equals(
+                    token.metadataPropertyName()
+                        .orElse(null)
+                );
         }
 
         return ignore;
