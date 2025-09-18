@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.patternkind;
+package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
@@ -23,58 +23,54 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.tab.SpreadsheetTabsComponent;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.printer.IndentingPrinter;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
- * A tab component that displays tabs for each of the given {@link SpreadsheetPatternKind}.
+ * A tab component that displays tabs for each of the given {@link SpreadsheetMetadataPropertyName}.
  */
-public final class SpreadsheetPatternKindTabsComponent implements HtmlComponentDelegator<HTMLDivElement, SpreadsheetPatternKindTabsComponent> {
+public final class SpreadsheetMetadataPropertyNameTabsComponent implements HtmlComponentDelegator<HTMLDivElement, SpreadsheetMetadataPropertyNameTabsComponent> {
 
     /**
-     * Creates an empty {@link SpreadsheetPatternKindTabsComponent}.
+     * Creates an empty {@link SpreadsheetMetadataPropertyNameTabsComponent}.
      */
-    public static SpreadsheetPatternKindTabsComponent empty(final String id,
-                                                            final SpreadsheetPatternKind[] kinds,
-                                                            final SpreadsheetPatternKindTabsComponentContext context) {
-        return new SpreadsheetPatternKindTabsComponent(
+    public static SpreadsheetMetadataPropertyNameTabsComponent empty(final String id,
+                                                                     final List<SpreadsheetMetadataPropertyName<?>> propertyNames,
+                                                                     final SpreadsheetMetadataPropertyNameTabsComponentContext context) {
+        return new SpreadsheetMetadataPropertyNameTabsComponent(
             id,
-            kinds,
+            propertyNames,
             context
         );
     }
 
-    private SpreadsheetPatternKindTabsComponent(final String id,
-                                                final SpreadsheetPatternKind[] kinds,
-                                                final SpreadsheetPatternKindTabsComponentContext context) {
+    private SpreadsheetMetadataPropertyNameTabsComponent(final String id,
+                                                         final List<SpreadsheetMetadataPropertyName<?>> propertyNames,
+                                                         final SpreadsheetMetadataPropertyNameTabsComponentContext context) {
         this.tabsComponent = this.tabsComponentCreate(
             id,
-            kinds,
+            propertyNames,
             context
         );
 
-        this.kinds = kinds;
+        this.propertyNames = propertyNames;
     }
 
     // SpreadsheetTabsComponent.........................................................................................
 
     private SpreadsheetTabsComponent tabsComponentCreate(final String id,
-                                                         final SpreadsheetPatternKind[] kinds,
-                                                         final SpreadsheetPatternKindTabsComponentContext context) {
+                                                         final List<SpreadsheetMetadataPropertyName<?>> propertyNames,
+                                                         final SpreadsheetMetadataPropertyNameTabsComponentContext context) {
         final SpreadsheetTabsComponent tabs = SpreadsheetTabsComponent.with(context);
 
-        for (final SpreadsheetPatternKind kind : kinds) {
+        for (final SpreadsheetMetadataPropertyName<?> propertyName : propertyNames) {
             tabs.appendTab(
-                id +
-                    CaseKind.SNAKE.change(
-                        kind.name()
-                            .toLowerCase(),
-                        CaseKind.KEBAB
-                    ).replace("-pattern", ""),
-                tabTitle(kind)
+                id + propertyName.value(),
+                tabTitle(propertyName)
             );
         }
 
@@ -82,16 +78,16 @@ public final class SpreadsheetPatternKindTabsComponent implements HtmlComponentD
     }
 
     /**
-     * Returns the text that will appear on a tab that when clicked switches to the given {@link SpreadsheetPatternKind}.
+     * Returns the text that will appear on a tab that when clicked switches to the given {@link SpreadsheetMetadataPropertyName}.
      * <pre>
-     * SpreadsheetPatternKind.TEXT_FORMAT -> Text Format
+     * SpreadsheetMetadataPropertyName.TEXT_FORMATTER -> Text Formatter
      * </pre>
      */
-    private static String tabTitle(final SpreadsheetPatternKind kind) {
-        return CaseKind.SNAKE.change(
-            kind.name()
-                .replace("FORMAT_PATTERN", "")
-                .replace("PARSE_PATTERN", ""),
+    private static String tabTitle(final SpreadsheetMetadataPropertyName<?> propertyName) {
+        return CaseKind.CAMEL.change(
+            propertyName.value()
+                .replace("Formatter", "")
+                .replace("Parser", ""),
             CaseKind.TITLE
         ).trim();
     }
@@ -101,27 +97,27 @@ public final class SpreadsheetPatternKindTabsComponent implements HtmlComponentD
     /**
      * Iterates over the links in each tab updating the link, disabling and activating as necessary.
      */
-    public void refresh(final SpreadsheetPatternKindTabsComponentContext context) {
+    public void refresh(final SpreadsheetMetadataPropertyNameTabsComponentContext context) {
         final SpreadsheetTabsComponent tabs = this.tabsComponent;
-        final SpreadsheetPatternKind kind = context.historyToken().patternKind()
+        final SpreadsheetMetadataPropertyName<?> propertyName = context.historyToken()
+            .metadataPropertyName()
             .orElse(null);
 
         int i = 0;
-        for (final SpreadsheetPatternKind possible : this.kinds) {
+        for (final SpreadsheetMetadataPropertyName<?> possible : this.propertyNames) {
             final HistoryTokenAnchorComponent anchor = tabs.anchor(i);
 
-            final boolean match = possible.equals(kind);
+            final boolean match = possible.equals(propertyName);
             anchor.setDisabled(match);
 
             if (match) {
                 tabs.setTab(i);
             } else {
                 final HistoryToken historyToken = context.historyToken();
-                final HistoryToken historyTokenWithPatternKind = historyToken.setPatternKind(
-                    Optional.of(possible)
-                );
                 anchor.setHistoryToken(
-                    Optional.of(historyTokenWithPatternKind)
+                    Optional.of(
+                        historyToken.setMetadataPropertyName(possible)
+                    )
                 );
             }
 
@@ -129,7 +125,7 @@ public final class SpreadsheetPatternKindTabsComponent implements HtmlComponentD
         }
     }
 
-    private final SpreadsheetPatternKind[] kinds;
+    private final List<SpreadsheetMetadataPropertyName<?>> propertyNames;
 
     // HtmlComponentDelegator...........................................................................................
 

@@ -71,9 +71,8 @@ final class AppContextSpreadsheetParserSelectorDialogComponentContextMetadata ex
 
     private SpreadsheetMetadataPropertyName<?> propertyName() {
         return this.historyToken()
-            .patternKind()
-            .get()
-            .spreadsheetMetadataPropertyName();
+            .metadataPropertyName()
+            .orElseThrow(() -> new IllegalStateException("Missing " + SpreadsheetMetadataPropertyName.class.getSimpleName()));
     }
 
     // ComponentLifecycleMatcher........................................................................................
@@ -85,6 +84,9 @@ final class AppContextSpreadsheetParserSelectorDialogComponentContextMetadata ex
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return token.isMetadataParser();
+        return token.metadataPropertyName()
+            .map(SpreadsheetMetadataPropertyName::isSpreadsheetParserSelector)
+            .orElse(false) &&
+            false == token.isSave();
     }
 }

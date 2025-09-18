@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetFormatterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.focus.CanGiveFocus;
-import walkingkooka.spreadsheet.dominokit.patternkind.SpreadsheetPatternKindTabsComponentContext;
+import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPropertyNameTabsComponentContext;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterProvider;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEditContext;
@@ -40,7 +40,7 @@ public interface SpreadsheetFormatterSelectorDialogComponentContext extends CanG
     HasSpreadsheetFormatterFetcherWatchers,
     DialogComponentContext,
     SpreadsheetFormatterProvider,
-    SpreadsheetPatternKindTabsComponentContext,
+    SpreadsheetMetadataPropertyNameTabsComponentContext,
     SpreadsheetFormatterSelectorEditContext,
     SpreadsheetFormatterTableComponentContext {
 
