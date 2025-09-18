@@ -604,7 +604,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         colorItem(
             "color",
             "Color",
-            historyToken.style(TextStylePropertyName.COLOR),
+            historyToken.setStylePropertyName(TextStylePropertyName.COLOR),
             menu,
             context
         );
@@ -616,7 +616,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         colorItem(
             "background-color",
             "Background color",
-            historyToken.style(TextStylePropertyName.BACKGROUND_COLOR),
+            historyToken.setStylePropertyName(TextStylePropertyName.BACKGROUND_COLOR),
             menu,
             context
         );
@@ -646,7 +646,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                    final SpreadsheetContextMenu menu,
                                    final SpreadsheetSelectionMenuContext context) {
         menu.item(
-            historyToken.style(TextStylePropertyName.WILDCARD)
+            historyToken.setStylePropertyName(TextStylePropertyName.WILDCARD)
                 .clearSaveValue()
                 .contextMenuItem(
                     context.idPrefix() + "clear-style" + SpreadsheetElementIds.MENU_ITEM,
@@ -676,7 +676,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             );
 
             menu.item(
-                historyToken.style(name)
+                historyToken.setStylePropertyName(name)
                     .setSaveValue(value)
                     .contextMenuItem(
                         idPrefix + "-" + i + SpreadsheetElementIds.MENU_ITEM,
@@ -790,7 +790,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             context.idPrefix() + "text-case" + SpreadsheetElementIds.SUB_MENU,
             "Text case"
         ).item(
-            historyToken.style(TextStylePropertyName.TEXT_TRANSFORM)
+            historyToken.setStylePropertyName(TextStylePropertyName.TEXT_TRANSFORM)
                 .clearSaveValue()
                 .contextMenuItem(
                     context.idPrefix() + "normal" + SpreadsheetElementIds.MENU_ITEM,
@@ -941,7 +941,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         colorItem(
             idPrefix + "color",
             "Color",
-            historyToken.style(boxEdge.borderColorPropertyName()), // token
+            historyToken.setStylePropertyName(boxEdge.borderColorPropertyName()), // token
             menu,
             context
         );
@@ -995,7 +995,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         // clear
         styleSubMenu.item(
             context.historyToken()
-                .style(propertyName)
+                .setStylePropertyName(propertyName)
                 .clearSaveValue()
                 .contextMenuItem(
                     idPrefix + "-clear" + SpreadsheetElementIds.MENU_ITEM, // id
@@ -1051,7 +1051,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         // clear
         borderWidthSubMenu.item(
             context.historyToken()
-                .style(propertyName)
+                .setStylePropertyName(propertyName)
                 .clearSaveValue()
                 .contextMenuItem(
                     idPrefix + "-clear" + SpreadsheetElementIds.MENU_ITEM, // id

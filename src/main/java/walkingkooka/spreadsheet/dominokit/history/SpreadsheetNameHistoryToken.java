@@ -86,7 +86,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
 
         final Optional<String> style = parseComponent(cursor);
         if (style.isPresent()) {
-            result = this.style(
+            result = this.setStylePropertyName(
                 TextStylePropertyName.with(
                     style.get()
                 )

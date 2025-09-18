@@ -165,7 +165,7 @@ public final class SpreadsheetContextMenu<T> implements TreePrintable {
         );
         return this.item(
             this.context.historyToken()
-                .style(stylePropertyName)
+                .setStylePropertyName(stylePropertyName)
                 .setSaveValue(
                     Optional.ofNullable(
                         set ?
