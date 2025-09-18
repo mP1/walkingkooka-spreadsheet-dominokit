@@ -21,11 +21,9 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKind;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Objects;
-import java.util.Optional;
 
 public abstract class SpreadsheetMetadataPropertyHistoryToken<T> extends SpreadsheetMetadataHistoryToken
     implements HasSpreadsheetPatternKind {
@@ -46,10 +44,6 @@ public abstract class SpreadsheetMetadataPropertyHistoryToken<T> extends Spreads
     }
 
     private final SpreadsheetMetadataPropertyName<T> propertyName;
-
-    final Optional<SpreadsheetPatternKind> patternKind0() {
-        return this.propertyName.patternKind();
-    }
 
     // HasUrlFragment...................................................................................................
 
