@@ -161,7 +161,7 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
                         Optional.of(
                             SpreadsheetText.with("Hello").setColor(
                                 Optional.of(Color.parse("blue"))
-                            ).toTextNode()
+                            ).textNode()
                         )
                     )
                 )
@@ -216,7 +216,7 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
                         Optional.of(
                             SpreadsheetText.with("Hello").setColor(
                                 Optional.of(Color.parse("blue"))
-                            ).toTextNode()
+                            ).textNode()
                         )
                     )
                 )
