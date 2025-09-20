@@ -74,6 +74,12 @@ final class SpreadsheetContextMenuNative {
 
         AbstractMenuItem<T> menuItem = MenuItem.<T>create(text)
             .setId(id);
+
+        menuItem.setCssProperty(
+            "list-style",
+            "none"
+        );
+
         if (icon.isPresent()) {
             menuItem = menuItem.appendChild(
                 PrefixAddOn.of(
