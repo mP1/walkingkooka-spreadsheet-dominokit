@@ -28,6 +28,11 @@ public final class HistoryTokenMenuItem<T> extends MenuItem<T> {
 
     public HistoryTokenMenuItem(final HistoryTokenAnchorComponent anchor) {
         super(null); // no text
+
+        this.root.setCssProperty(
+            "list-style",
+            "none"
+        );
         this.anchor = anchor;
 
         this.appendChild(anchor);
