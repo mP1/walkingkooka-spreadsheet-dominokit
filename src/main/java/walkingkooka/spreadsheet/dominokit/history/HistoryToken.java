@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.Cast;
 import walkingkooka.Value;
-import walkingkooka.color.Color;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.HasUrlFragment;
@@ -5499,8 +5498,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                                 value instanceof Locale ?
                                     // toLanguageTag = EN-AU while Locale#toString EN_AU
                                     ((Locale) value).toLanguageTag() :
-                                    // need to avoid Color#text which returns rgb function and not #rgb
-                                    false == value instanceof Color && value instanceof HasText ?
+                                    value instanceof HasText ?
                                         ((HasText) value).text() :
                                         value
                             )
