@@ -29,6 +29,7 @@ import org.dominokit.domino.ui.utils.DominoWrapper;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import org.dominokit.domino.ui.utils.PrefixAddOn;
 import org.dominokit.domino.ui.utils.Separator;
+import walkingkooka.Cast;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
@@ -53,6 +54,7 @@ final class SpreadsheetContextMenuNative {
                                         final HistoryContext context) {
         final Element element = target.element();
         final Menu<?> menu = Menu.create()
+            .setAutoClose(true)
             .setContextMenu(true)
             .setDropDirection(new MouseBestFitDirection())
             .setTargetElement(element);
@@ -65,14 +67,15 @@ final class SpreadsheetContextMenuNative {
         );
     }
 
-    static <T> Menu<T> addSubMenu(final String id,
-                                  final String text,
-                                  final Optional<Icon<?>> icon,
-                                  final Optional<String> badge,
-                                  final SpreadsheetContextMenu menu) {
-        final Menu<T> subMenu = Menu.create();
+    static Menu<?> addSubMenu(final String id,
+                              final String text,
+                              final Optional<Icon<?>> icon,
+                              final Optional<String> badge,
+                              final SpreadsheetContextMenu menu) {
+        final Menu<?> subMenu = Menu.create()
+            .setAutoClose(true);
 
-        AbstractMenuItem<T> menuItem = MenuItem.<T>create(text)
+        AbstractMenuItem<?> menuItem = MenuItem.create(text)
             .setId(id);
 
         menuItem.setCssProperty(
@@ -105,8 +108,11 @@ final class SpreadsheetContextMenuNative {
             );
         }
 
+        // NOTE: Cast to raw type needed so compiler selects appendChild(AbstractMenuItem) and not appendChild(Node)
         menu.menu.appendChild(
-            menuItem.setMenu(subMenu)
+            (AbstractMenuItem) menuItem.setMenu(
+                Cast.to(subMenu)
+            )
         );
 
         return subMenu;
@@ -148,7 +154,8 @@ final class SpreadsheetContextMenuNative {
 
         menuItem.setDisabled(false == item.enabled);
 
-        menu.menu.appendChild(menuItem);
+        // NOTE: Cast to raw type needed so compiler selects appendChild(AbstractMenuItem) and not appendChild(Node)
+        menu.menu.appendChild((AbstractMenuItem)menuItem);
     }
 
     static void menuAppendChildIsElement(final IsElement<?> isElement,

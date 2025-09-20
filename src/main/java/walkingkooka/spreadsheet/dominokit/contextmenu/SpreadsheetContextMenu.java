@@ -133,7 +133,7 @@ public final class SpreadsheetContextMenu implements TreePrintable {
 
         this.addSeparatorIfNecessary();
 
-        final Menu<Object> subMenu = SpreadsheetContextMenuNative.addSubMenu(
+        final Menu<?> subMenu = SpreadsheetContextMenuNative.addSubMenu(
             id,
             text,
             icon,
