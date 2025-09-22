@@ -170,14 +170,10 @@ public final class ClipboardTextItem implements HasText,
         final JsonObject envelope = JsonNode.object()
             .set(
                 MEDIA_TYPE_PROPERTY_NAME,
-                JsonNode.string(
-                    mediaType.value()
-                )
+                mediaType.value()
             ).set(
                 CELL_RANGE_PROPERTY_NAME,
-                JsonNode.string(
-                    rangeReference.toStringMaybeStar()
-                )
+                rangeReference.toStringMaybeStar()
             ).set(
                 VALUE_PROPERTY_NAME,
                 JsonNode.object()
