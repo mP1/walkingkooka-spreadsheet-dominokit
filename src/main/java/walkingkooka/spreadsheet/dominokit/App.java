@@ -1369,6 +1369,11 @@ public class App implements EntryPoint,
     // EnvironmentContext...............................................................................................
 
     @Override
+    public App setUser(final Optional<EmailAddress> user) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public <T> AppContext setEnvironmentValue(final EnvironmentValueName<T> name,
                                               final T value) {
         this.providerContext.setEnvironmentValue(

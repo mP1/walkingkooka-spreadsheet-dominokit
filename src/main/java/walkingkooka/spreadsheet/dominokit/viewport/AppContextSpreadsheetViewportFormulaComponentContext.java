@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.environment.EnvironmentValueName;
+import walkingkooka.net.email.EmailAddress;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.ProviderContextDelegator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -35,6 +36,7 @@ import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProvider;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProviderDelegator;
 
 import java.util.Objects;
+import java.util.Optional;
 
 final class AppContextSpreadsheetViewportFormulaComponentContext implements SpreadsheetViewportFormulaComponentContext,
     HistoryContextDelegator,
@@ -76,6 +78,12 @@ final class AppContextSpreadsheetViewportFormulaComponentContext implements Spre
     }
 
     // EnvironmentContext...............................................................................................
+
+    @Override
+    public SpreadsheetViewportFormulaComponentContext setUser(final Optional<EmailAddress> user) {
+        this.context.setUser(user);
+        return this;
+    }
 
     @Override
     public <T> SpreadsheetViewportFormulaComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,

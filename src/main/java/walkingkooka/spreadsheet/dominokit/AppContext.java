@@ -25,6 +25,7 @@ import walkingkooka.locale.LocaleContext;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlQueryString;
+import walkingkooka.net.email.EmailAddress;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.plugin.ProviderContext;
@@ -279,6 +280,11 @@ public interface AppContext extends CanGiveFocus,
 
     @Override
     default AppContext setLocale(final Locale locale) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default AppContext setUser(final Optional<EmailAddress> user) {
         throw new UnsupportedOperationException();
     }
 
