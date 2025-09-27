@@ -22,6 +22,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.net.Url;
+import walkingkooka.net.email.EmailAddress;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
@@ -47,6 +48,7 @@ import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
 
 import java.util.Arrays;
 import java.util.Locale;
+import java.util.Optional;
 
 public final class SpreadsheetViewportFormulaComponentTest implements HtmlComponentTesting<SpreadsheetViewportFormulaComponent, HTMLFieldSetElement>,
     ComponentLifecycleMatcherTesting,
@@ -252,6 +254,11 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
 
         @Override
         public TestSpreadsheetViewportFormulaComponentContext setLocale(final Locale locale) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public TestSpreadsheetViewportFormulaComponentContext setUser(final Optional<EmailAddress> user) {
             throw new UnsupportedOperationException();
         }
 

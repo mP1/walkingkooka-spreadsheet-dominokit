@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.find;
 
 import walkingkooka.environment.EnvironmentValueName;
+import walkingkooka.net.email.EmailAddress;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.ProviderContextDelegator;
 import walkingkooka.spreadsheet.SpreadsheetCell;
@@ -147,6 +148,11 @@ final class AppContextSpreadsheetCellFindDialogComponentContext implements Sprea
     }
 
     // EnvironmentContext...............................................................................................
+
+    @Override
+    public SpreadsheetCellFindDialogComponentContext setUser(final Optional<EmailAddress> user) {
+        throw new UnsupportedOperationException();
+    }
 
     @Override
     public <T> SpreadsheetCellFindDialogComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,

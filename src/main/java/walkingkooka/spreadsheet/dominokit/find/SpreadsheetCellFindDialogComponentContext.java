@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.find;
 
 import walkingkooka.datetime.HasNow;
 import walkingkooka.environment.EnvironmentValueName;
+import walkingkooka.net.email.EmailAddress;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaCellsTableComponentContext;
@@ -31,6 +32,7 @@ import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProvider;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 
 import java.util.Locale;
+import java.util.Optional;
 
 /**
  * The {@link walkingkooka.Context} accompanying a {@link SpreadsheetCellFindDialogComponent}.
@@ -58,6 +60,11 @@ public interface SpreadsheetCellFindDialogComponentContext extends HistoryContex
 
     @Override
     default SpreadsheetCellFindDialogComponentContext setLocale(final Locale locale) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default SpreadsheetCellFindDialogComponentContext setUser(final Optional<EmailAddress> user) {
         throw new UnsupportedOperationException();
     }
 

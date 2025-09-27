@@ -83,6 +83,11 @@ public final class AppContextSpreadsheetViewportFormulaComponentContextTest impl
     }
 
     @Override
+    public void testSetUserWithNullFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public AppContextSpreadsheetViewportFormulaComponentContext createContext() {
         return AppContextSpreadsheetViewportFormulaComponentContext.with(AppContexts.fake());
     }

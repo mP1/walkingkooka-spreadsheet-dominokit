@@ -22,6 +22,7 @@ import walkingkooka.collect.set.Sets;
 import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
+import walkingkooka.net.email.EmailAddress;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.SpreadsheetErrorKind;
@@ -433,6 +434,11 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
 
         @Override
         public TestSpreadsheetViewportFormulaComponentContext setLocale(final Locale locale) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public TestSpreadsheetViewportFormulaComponentContext setUser(final Optional<EmailAddress> user) {
             throw new UnsupportedOperationException();
         }
 

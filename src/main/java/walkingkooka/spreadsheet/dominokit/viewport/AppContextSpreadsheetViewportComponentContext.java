@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.environment.EnvironmentValueName;
+import walkingkooka.net.email.EmailAddress;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.ProviderContextDelegator;
 import walkingkooka.spreadsheet.SpreadsheetCell;
@@ -185,6 +186,12 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
     @Override
     public SpreadsheetViewportComponentContext setLocale(final Locale locale) {
         this.context.setLocale(locale);
+        return this;
+    }
+
+    @Override
+    public SpreadsheetViewportComponentContext setUser(final Optional<EmailAddress> user) {
+        this.context.setUser(user);
         return this;
     }
 

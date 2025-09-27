@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.environment.EnvironmentValueName;
+import walkingkooka.net.email.EmailAddress;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellLinksComponentContext;
@@ -34,6 +35,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
 
 import java.util.Locale;
+import java.util.Optional;
 
 public interface SpreadsheetViewportComponentContext extends HistoryContext,
     LoggingContext,
@@ -58,6 +60,11 @@ public interface SpreadsheetViewportComponentContext extends HistoryContext,
 
     @Override
     SpreadsheetViewportComponentContext setLocale(final Locale locale);
+
+    @Override
+    default SpreadsheetViewportComponentContext setUser(final Optional<EmailAddress> user) {
+        throw new UnsupportedOperationException();
+    }
 
     @Override
     <T> SpreadsheetViewportComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,
