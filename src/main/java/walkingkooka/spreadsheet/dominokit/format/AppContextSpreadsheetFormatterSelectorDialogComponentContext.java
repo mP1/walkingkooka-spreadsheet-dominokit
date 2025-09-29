@@ -31,6 +31,7 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterContextDelegator;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterProvider;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterProviderDelegator;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
+import walkingkooka.tree.json.marshall.JsonNodeMarshallContextObjectPostProcessor;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContextPreProcessor;
 
 import java.util.Locale;
@@ -65,6 +66,11 @@ abstract class AppContextSpreadsheetFormatterSelectorDialogComponentContext impl
     @Override
     public Locale locale() {
         return this.context.locale();
+    }
+
+    @Override
+    public SpreadsheetFormatterSelectorDialogComponentContext setObjectPostProcessor(final JsonNodeMarshallContextObjectPostProcessor processor) {
+        throw new UnsupportedOperationException();
     }
 
     @Override
