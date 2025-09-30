@@ -73,6 +73,8 @@ import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListDialogCompo
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponent;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
+import walkingkooka.spreadsheet.dominokit.validator.ValidatorSelectorDialogComponent;
+import walkingkooka.spreadsheet.dominokit.validator.ValidatorSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.time.LocalDate;
@@ -112,6 +114,8 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
         navigate(context);
 
         sort(context);
+
+        validator(context);
     }
 
     private static void cellReferences(final AppContext context) {
@@ -402,6 +406,12 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
 
         SpreadsheetNameDialogComponent.with(
             SpreadsheetNameDialogComponentContexts.spreadsheetRename(context)
+        );
+    }
+
+    private static void validator(final AppContext context) {
+        ValidatorSelectorDialogComponent.with(
+            ValidatorSelectorDialogComponentContexts.appContext(context)
         );
     }
 
