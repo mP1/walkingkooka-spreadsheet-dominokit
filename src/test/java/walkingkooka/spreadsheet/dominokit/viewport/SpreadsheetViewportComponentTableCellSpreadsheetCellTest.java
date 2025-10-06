@@ -166,7 +166,7 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
             "SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
                 "  TD\n" +
                 "    id=\"viewport-cell-A1\" tabIndex=0 style=\"background-color: black; box-sizing: border-box; font-style: italic; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
-                "      Text \"=1+2\"\n"
+                "      \"=1+2\"\n"
         );
     }
 
