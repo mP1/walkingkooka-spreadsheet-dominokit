@@ -54,7 +54,7 @@ abstract class SpreadsheetViewportComponentTableCell<E extends HTMLElement, C ex
         );
     }
 
-    abstract void refresh(final Predicate<SpreadsheetSelection> selected,
+    abstract void refresh(final Predicate<SpreadsheetSelection> selectionTester,
                           final SpreadsheetViewportComponentTableContext context);
 
     abstract TextStyle selectedTextStyle(final SpreadsheetViewportComponentTableContext context);
