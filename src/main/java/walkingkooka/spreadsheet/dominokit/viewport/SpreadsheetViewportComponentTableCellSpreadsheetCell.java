@@ -94,19 +94,21 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
             context.cellStyle();
 
         String tooltipText = null;
-
-        final boolean shouldHideZeroValues = context.shouldHideZeroValues();
-        final boolean showFormulas = context.shouldShowFormulas();
-
         boolean zeroValue = false;
+
         if (null != cell) {
+            final boolean shouldHideZeroValues = context.shouldHideZeroValues();
+            final boolean showFormulas = context.shouldShowFormulas();
+
             final SpreadsheetFormula formula = cell.formula();
             if (false == showFormulas && shouldHideZeroValues) {
                 final Object value = formula.errorOrValue()
                     .orElse(null);
 
                 if (ExpressionNumber.is(value) &&
-                    ExpressionNumberSign.ZERO == ExpressionNumberKind.DEFAULT.create((Number) value).sign()) {
+                    ExpressionNumberSign.ZERO == ExpressionNumberKind.DEFAULT.create(
+                            (Number) value)
+                        .sign()) {
                     zeroValue = true;
                 }
             }
