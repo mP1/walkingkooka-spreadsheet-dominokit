@@ -228,12 +228,5 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
         return this.td;
     }
 
-    // IsElement........................................................................................................
-
-    @Override
-    public HTMLTableCellElement element() {
-        return this.td.element();
-    }
-
     private final TdComponent td;
 }
