@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 import elemental2.dom.HTMLTableCellElement;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import walkingkooka.spreadsheet.SpreadsheetCell;
-import walkingkooka.spreadsheet.SpreadsheetError;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
@@ -38,7 +37,6 @@ import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
 
-import java.util.Optional;
 import java.util.function.Predicate;
 
 /**
@@ -96,7 +94,7 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
             context.cellStyle();
 
         String tooltipText = null;
-        Optional<SpreadsheetError> maybeError = Optional.empty();
+
         final boolean shouldHideZeroValues = context.shouldHideZeroValues();
         final boolean showFormulas = context.shouldShowFormulas();
 
