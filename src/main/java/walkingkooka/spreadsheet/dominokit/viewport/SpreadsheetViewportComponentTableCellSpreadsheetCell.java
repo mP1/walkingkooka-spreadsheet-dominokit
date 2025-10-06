@@ -73,7 +73,7 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
     }
 
     @Override
-    void refresh(final Predicate<SpreadsheetSelection> selected,
+    void refresh(final Predicate<SpreadsheetSelection> selectionTester,
                  final SpreadsheetViewportComponentTableContext context) {
 
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
@@ -85,7 +85,7 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
         final TdComponent td = this.td;
         td.clear();
 
-        TextStyle style = selected.test(cellReference) ?
+        TextStyle style = selectionTester.test(cellReference) ?
             context.selectedCellStyle(
                 null != cell ?
                     cell.style() :

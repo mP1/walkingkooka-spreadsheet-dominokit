@@ -90,7 +90,7 @@ abstract class SpreadsheetViewportComponentTableCellHeader<S extends Spreadsheet
     private final HistoryTokenAnchorComponent anchor;
 
     @Override //
-    final void refresh(final Predicate<SpreadsheetSelection> selected,
+    final void refresh(final Predicate<SpreadsheetSelection> selectionTester,
                        final SpreadsheetViewportComponentTableContext context) {
         if(context.shouldShowHeaders()) {
             final SpreadsheetSelection selection = this.selection;
@@ -98,8 +98,8 @@ abstract class SpreadsheetViewportComponentTableCellHeader<S extends Spreadsheet
             this.th.setCssText(
                 setWidthAndHeight(
                     (SpreadsheetSelection.ALL_CELLS.equals(selection) ?
-                        selected.equals(selection) :
-                        selected.test(selection)) ?
+                        selectionTester.equals(selection) :
+                        selectionTester.test(selection)) ?
                         this.selectedTextStyle(context) :
                         this.unselectedTextStyle(context),
                     context
