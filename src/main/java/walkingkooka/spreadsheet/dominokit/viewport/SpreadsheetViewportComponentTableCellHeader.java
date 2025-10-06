@@ -141,7 +141,7 @@ abstract class SpreadsheetViewportComponentTableCellHeader<S extends Spreadsheet
     // HtmlComponentDelegator...........................................................................................
 
     @Override
-    public HtmlElementComponent<HTMLTableCellElement, ?> htmlComponent() {
+    public final HtmlElementComponent<HTMLTableCellElement, ?> htmlComponent() {
         return this.th;
     }
 
