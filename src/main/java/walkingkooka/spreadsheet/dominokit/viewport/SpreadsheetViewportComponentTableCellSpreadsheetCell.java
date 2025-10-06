@@ -29,9 +29,6 @@ import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CharSequences;
-import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.ExpressionNumberKind;
-import walkingkooka.tree.expression.ExpressionNumberSign;
 import walkingkooka.tree.text.Badge;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextNode;
@@ -102,15 +99,7 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
 
             final SpreadsheetFormula formula = cell.formula();
             if (false == showFormulas && shouldHideZeroValues) {
-                final Object value = formula.errorOrValue()
-                    .orElse(null);
-
-                if (ExpressionNumber.is(value) &&
-                    ExpressionNumberSign.ZERO == ExpressionNumberKind.DEFAULT.create(
-                            (Number) value)
-                        .sign()) {
-                    zeroValue = true;
-                }
+                zeroValue = formula.isZeroValue();
             }
 
             final String formulaText = formula.text();
