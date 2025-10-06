@@ -106,10 +106,7 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
                 "  TD\n" +
                 "    id=\"viewport-cell-A1\" tabIndex=0 style=\"background-color: black; box-sizing: border-box; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
                 "      (BadgeText111)\n" +
-                "      Badge\n" +
-                "        badgeText\n" +
-                "          \"BadgeText111\"\n" +
-                "        Text \"123\"\n"
+                "      Text \"123\"\n"
         );
     }
 
@@ -136,10 +133,7 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
                 "  TD\n" +
                 "    id=\"viewport-cell-A1\" tabIndex=0 style=\"background-color: black; box-sizing: border-box; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
                 "      (BadgeText111)\n" +
-                "      Badge\n" +
-                "        badgeText\n" +
-                "          \"BadgeText111\"\n" +
-                "        Text \"123\"\n"
+                "      Text \"123\"\n"
         );
     }
 

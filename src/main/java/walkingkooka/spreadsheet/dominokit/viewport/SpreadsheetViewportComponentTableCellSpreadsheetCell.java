@@ -132,7 +132,7 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
                             tooltipText = ((Badge) formatted)
                                 .badgeText();
 
-                            formatted.firstChild()
+                            formatted = formatted.firstChild()
                                 .orElse(null);
                         }
 
