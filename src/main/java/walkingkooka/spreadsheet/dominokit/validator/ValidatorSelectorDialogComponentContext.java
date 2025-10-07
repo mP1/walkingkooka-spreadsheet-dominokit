@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.validator;
 
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Optional;
@@ -28,6 +29,8 @@ import java.util.Optional;
  */
 public interface ValidatorSelectorDialogComponentContext extends ComponentLifecycleMatcher,
     DialogComponentContext {
+
+    Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher);
 
     /**
      * Provides the UNDO text.

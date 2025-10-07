@@ -22,6 +22,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextDelegator;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValidatorSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValidatorSelectHistoryToken;
@@ -74,6 +75,11 @@ final class AppContextValidatorSelectorDialogComponentContext implements Validat
         }
 
         return selector;
+    }
+
+    @Override
+    public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+        return this.context.addSpreadsheetDeltaFetcherWatcher(watcher);
     }
 
     // DialogComponentContext...........................................................................................
