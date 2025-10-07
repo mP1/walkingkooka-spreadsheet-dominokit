@@ -17,6 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.validator;
 
+import walkingkooka.net.AbsoluteOrRelativeUrl;
+import walkingkooka.net.http.HttpMethod;
+import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.SpreadsheetError;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
@@ -24,21 +29,30 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
+import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * A modal dialog that supports editing a {@link ValidatorSelector}.
  */
 public final class ValidatorSelectorDialogComponent implements DialogComponentLifecycle,
     LoadedSpreadsheetMetadataRequired,
-    ComponentLifecycleMatcherDelegator {
+    ComponentLifecycleMatcherDelegator,
+    SpreadsheetDeltaFetcherWatcher,
+    NopFetcherWatcher,
+    NopEmptyResponseFetcherWatcher {
 
     /**
      * Creates a new {@link ValidatorSelectorDialogComponent}.
@@ -52,6 +66,7 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
     private ValidatorSelectorDialogComponent(final ValidatorSelectorDialogComponentContext context) {
         this.context = context;
         context.addHistoryTokenWatcher(this);
+        context.addSpreadsheetDeltaFetcherWatcher(this);
 
         this.selector = this.selector();
 
@@ -198,5 +213,36 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
                 historyToken.close()
             )
         );
+    }
+
+    // SpreadsheetDeltaFetcherWatcher...................................................................................
+
+    @Override
+    public void onSpreadsheetDelta(final HttpMethod method,
+                                   final AbsoluteOrRelativeUrl url,
+                                   final SpreadsheetDelta delta,
+                                   final AppContext context) {
+        if (this.isOpen()) {
+            final SpreadsheetSelection selection = context.historyToken()
+                .selection()
+                .orElse(null);
+            if (null != selection) {
+                final SpreadsheetCell cell = context.spreadsheetViewportCache()
+                    .cell(selection)
+                    .orElse(null);
+                if (null != cell) {
+
+                    // copy ERRORS from SpreadsheetDelta#cell
+                    this.selector.setErrors(
+                        cell.formula()
+                            .error()
+                            .map(SpreadsheetError::message)
+                            .stream()
+                            .collect(Collectors.toList())
+                    );
+                }
+            }
+
+        }
     }
 }

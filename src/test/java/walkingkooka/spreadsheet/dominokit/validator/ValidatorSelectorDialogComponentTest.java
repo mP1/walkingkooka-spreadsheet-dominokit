@@ -18,15 +18,34 @@
 package walkingkooka.spreadsheet.dominokit.validator;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.list.Lists;
+import walkingkooka.collect.set.Sets;
+import walkingkooka.net.Url;
+import walkingkooka.net.http.HttpMethod;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.SpreadsheetError;
+import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValidatorSelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
+import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.validation.form.SpreadsheetForms;
 import walkingkooka.validation.provider.ValidatorSelector;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 public final class ValidatorSelectorDialogComponentTest implements DialogComponentLifecycleTesting<ValidatorSelectorDialogComponent>,
@@ -34,12 +53,10 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
 
     @Test
     public void testOnHistoryTokenChange() {
-        final AppContext context = this.appContext(
-            "/1/Spreadsheet123/cell/A1/validator"
-        );
+        final TestAppContext context = new TestAppContext("/1/Spreadsheet123/cell/A1/validator");
 
         final ValidatorSelectorDialogComponent dialog = ValidatorSelectorDialogComponent.with(
-            new TestValidatorSelectorDialogComponentContext() {
+            new TestValidatorSelectorDialogComponentContext(context) {
                 @Override
                 public HistoryToken historyToken() {
                     return context.historyToken();
@@ -76,7 +93,94 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
         );
     }
 
+    @Test
+    public void testOnSpreadsheetDeltaWhenCellWithError() {
+        final TestAppContext context = new TestAppContext("/1/Spreadsheet123/cell/A1/validator");
+
+        context.metadataWatchers.onSpreadsheetMetadata(
+            context.spreadsheetMetadata(),
+            context
+        );
+
+        final ValidatorSelectorDialogComponent dialog = ValidatorSelectorDialogComponent.with(
+            new TestValidatorSelectorDialogComponentContext(context) {
+                @Override
+                public HistoryToken historyToken() {
+                    return context.historyToken();
+                }
+
+                @Override
+                public boolean shouldIgnore(final HistoryToken token) {
+                    return false;
+                }
+
+                @Override
+                public boolean isMatch(final HistoryToken token) {
+                    return token instanceof SpreadsheetCellValidatorSelectHistoryToken;
+                }
+
+                @Override
+                public Optional<ValidatorSelector> undo() {
+                    return Optional.of(
+                        ValidatorSelector.parse("hello-validator")
+                    );
+                }
+            }
+        );
+
+        dialog.onHistoryTokenChange(
+            HistoryToken.parseString("/1/Spreadsheet123"),
+            context
+        );
+        dialog.refresh(context);
+
+        context.deltaWatchers.onSpreadsheetDelta(
+            HttpMethod.GET,
+            Url.parseRelative("/api/spreadsheet/1/cell/A1"),
+            SpreadsheetDelta.EMPTY.setCells(
+                Sets.of(
+                    SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY.setError(
+                            SpreadsheetError.validationErrors(
+                                Lists.of(
+                                    SpreadsheetForms.error(SpreadsheetSelection.A1)
+                                        .setMessage("Validator Fail Message 123")
+                                )
+                            )
+                        )
+                    )
+                )
+            ),
+            context
+        );
+
+        this.treePrintAndCheck(
+            dialog,
+            "ValidatorSelectorDialogComponent\n" +
+                "  DialogComponent\n" +
+                "    Validator Title123\n" +
+                "    id=selector-Dialog includeClose=true\n" +
+                "      ValidatorSelectorComponent\n" +
+                "        ValueTextBoxComponent\n" +
+                "          TextBoxComponent\n" +
+                "            [hello-validator] id=selector-TextBox\n" +
+                "            Errors\n" +
+                "              Validator Fail Message 123\n" +
+                "      AnchorListComponent\n" +
+                "        FlexLayoutComponent\n" +
+                "          ROW\n" +
+                "            \"Save\" [#/1/Spreadsheet123/cell/A1/validator/save/hello-validator] id=selector-save-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet123/cell/A1/validator/save/] id=selector-clear-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/cell/A1/validator/save/hello-validator] id=selector-undo-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/cell/A1] id=selector-close-Link\n"
+        );
+    }
+
     private static class TestValidatorSelectorDialogComponentContext extends FakeValidatorSelectorDialogComponentContext {
+
+        TestValidatorSelectorDialogComponentContext(final AppContext context) {
+            this.context = context;
+        }
 
         @Override
         public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
@@ -85,30 +189,92 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
         }
 
         @Override
+        public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+            return this.context.addSpreadsheetDeltaFetcherWatcher(watcher);
+        }
+
+        private final AppContext context;
+
+        @Override
         public String dialogTitle() {
             return "Validator Title123";
         }
     }
 
-    private AppContext appContext(final String historyToken) {
-        return new FakeAppContext() {
-            @Override
-            public HistoryToken historyToken() {
-                return HistoryToken.parseString(historyToken);
-            }
+    final static class TestAppContext extends FakeAppContext {
 
-            @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                return null;
-            }
-        };
+        TestAppContext(final String historyToken) {
+            this(
+                HistoryToken.parseString(historyToken)
+            );
+        }
+
+        TestAppContext(final HistoryToken historyToken) {
+            this.historyToken = historyToken;
+        }
+
+        @Override
+        public HistoryToken historyToken() {
+            return this.historyToken;
+        }
+
+        private final HistoryToken historyToken;
+
+        @Override
+        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+            return null;
+        }
+
+        @Override
+        public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+            return this.deltaWatchers.addSpreadsheetDeltaFetcherWatcher(watcher);
+        }
+
+        final SpreadsheetDeltaFetcherWatchers deltaWatchers = SpreadsheetDeltaFetcherWatchers.empty();
+
+        @Override
+        public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+            return this.metadataWatchers.addSpreadsheetMetadataFetcherWatcher(watcher);
+        }
+
+        final SpreadsheetMetadataFetcherWatchers metadataWatchers = SpreadsheetMetadataFetcherWatchers.empty();
+
+        @Override
+        public SpreadsheetMetadata spreadsheetMetadata() {
+            return METADATA_EN_AU.set(
+                SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                SpreadsheetId.with(1)
+            );
+        }
+
+        @Override
+        public void giveFocus(final Runnable focus) {
+            // NOP
+        }
+
+        @Override
+        public SpreadsheetViewportCache spreadsheetViewportCache() {
+            return this.cache;
+        }
+
+        private final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty(this);
+
+        @Override
+        public void debug(final Object... values) {
+            System.out.println("DEBUG: " + Arrays.toString(values));
+        }
+
+        @Override
+        public void error(final Object... values) {
+            System.out.println("ERROR: " + Arrays.toString(values));
+        }
     }
 
     @Override
     public ValidatorSelectorDialogComponent createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
         return ValidatorSelectorDialogComponent.with(
             ValidatorSelectorDialogComponentContexts.appContext(
-                this.appContext(historyToken.toString())
+                new TestAppContext(historyToken)
             )
         );
     }
