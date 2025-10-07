@@ -22,6 +22,7 @@ import org.dominokit.domino.ui.menu.direction.DropDirection;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.choicelist.ValidationChoiceListComponent;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.dom.TdComponent;
 import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponent;
@@ -33,7 +34,9 @@ import walkingkooka.tree.text.Badge;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
+import walkingkooka.validation.ValidationChoiceList;
 
+import java.util.Optional;
 import java.util.function.Predicate;
 
 /**
@@ -82,7 +85,9 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
         final TdComponent td = this.td;
         td.clear();
 
-        TextStyle style = selectionTester.test(cellReference) ?
+        final boolean selected = selectionTester.test(cellReference);
+
+        TextStyle style = selected ?
             context.selectedCellStyle(
                 null != cell ?
                     cell.style() :
@@ -94,39 +99,56 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
         boolean zeroValue = false;
 
         if (null != cell) {
-            final boolean shouldHideZeroValues = context.shouldHideZeroValues();
-            final boolean showFormulas = context.shouldShowFormulas();
-
             final SpreadsheetFormula formula = cell.formula();
-            if (false == showFormulas && shouldHideZeroValues) {
-                zeroValue = formula.isZeroValue();
-            }
-
-            final String formulaText = formula.text();
-            if (showFormulas) {
-                if (false == formulaText.trim().isEmpty()) {
-                    td.appendText(formulaText);
-                    style = context.showFormulasStyle(style);
-                }
-            } else {
-                style = style.merge(
-                    cell.style()
+            final ValidationChoiceList choices = cell.validationChoiceList()
+                .orElse(null);
+            if (selected && null != choices) {
+                td.appendChild(
+                    ValidationChoiceListComponent.empty()
+                        .setValue(
+                            formula.value()
+                        ).setValidationChoiceList(choices)
+                        .addChangeListener(
+                            (Optional<Object> oldValue, Optional<Object> newValue) -> context.pushHistoryToken(
+                                context.historyToken()
+                                    .setSaveValue(newValue)
+                            )
+                        )
                 );
+            } else {
+                final boolean shouldHideZeroValues = context.shouldHideZeroValues();
+                final boolean showFormulas = context.shouldShowFormulas();
 
-                if (false == zeroValue) {
-                    TextNode formatted = cell.formattedValue()
-                        .orElse(null);
-                    if (null != formatted) {
-                        if (formatted.isBadge()) {
-                            tooltipText = ((Badge) formatted)
-                                .badgeText();
+                if (false == showFormulas && shouldHideZeroValues) {
+                    zeroValue = formula.isZeroValue();
+                }
 
-                            formatted = formatted.firstChild()
-                                .orElse(null);
-                        }
+                final String formulaText = formula.text();
+                if (showFormulas) {
+                    if (false == formulaText.trim().isEmpty()) {
+                        td.appendText(formulaText);
+                        style = context.showFormulasStyle(style);
+                    }
+                } else {
+                    style = style.merge(
+                        cell.style()
+                    );
 
+                    if (false == zeroValue) {
+                        TextNode formatted = cell.formattedValue()
+                            .orElse(null);
                         if (null != formatted) {
-                            td.appendChild(formatted);
+                            if (formatted.isBadge()) {
+                                tooltipText = ((Badge) formatted)
+                                    .badgeText();
+
+                                formatted = formatted.firstChild()
+                                    .orElse(null);
+                            }
+
+                            if (null != formatted) {
+                                td.appendChild(formatted);
+                            }
                         }
                     }
                 }
