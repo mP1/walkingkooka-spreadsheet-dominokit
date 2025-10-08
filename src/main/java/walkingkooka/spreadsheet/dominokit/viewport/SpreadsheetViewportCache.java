@@ -102,6 +102,8 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
         context.addSpreadsheetDeltaFetcherWatcher(this);
         context.addSpreadsheetMetadataFetcherWatcher(this);
 
+        this.context = context;
+
         this.spreadsheetId = null;
         this.selectionSummary = null;
     }
@@ -129,6 +131,18 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
         this.windows = SpreadsheetViewportWindows.EMPTY;
     }
+
+    /**
+     * Getter that returns the {@link SpreadsheetCell} using the {@link SpreadsheetSelection} found in the current
+     * {@link HistoryToken}.
+     */
+    public Optional<SpreadsheetCell> historyTokenCell() {
+        return this.context.historyToken()
+            .selection()
+            .flatMap(this::cell);
+    }
+
+    private final SpreadsheetViewportCacheContext context;
 
     public Optional<SpreadsheetCell> cell(final SpreadsheetSelection selection) {
         return selection.isExternalReference() ?
