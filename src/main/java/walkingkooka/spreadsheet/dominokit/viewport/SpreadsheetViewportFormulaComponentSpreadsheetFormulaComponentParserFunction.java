@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 import walkingkooka.locale.LocaleContexts;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.SpreadsheetCell;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParsers;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -57,13 +56,8 @@ final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParser
         final SpreadsheetViewportFormulaComponentContext context = this.context;
         final SpreadsheetViewportCache viewportCache = context.spreadsheetViewportCache();
 
-        final Optional<SpreadsheetCell> maybeCell = viewportCache.cell(
-            context.historyToken()
-                .cast(SpreadsheetAnchoredSelectionHistoryToken.class)
-                .anchoredSelection()
-                .selection()
+        final Optional<SpreadsheetCell> maybeCell = viewportCache.historyTokenCell();
 
-        );
         if (maybeCell.isPresent()) {
             final SpreadsheetCell cell = maybeCell.get();
             parser = cell.parser()

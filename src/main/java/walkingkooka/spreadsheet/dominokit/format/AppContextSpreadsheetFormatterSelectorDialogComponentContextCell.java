@@ -56,20 +56,9 @@ final class AppContextSpreadsheetFormatterSelectorDialogComponentContextCell ext
 
     @Override
     public Optional<SpreadsheetFormatterSelector> undo() {
-        Optional<SpreadsheetFormatterSelector> selector = Optional.empty();
-
-        final Optional<SpreadsheetCell> maybeCell = this.context.spreadsheetViewportCache()
-            .cell(
-                this.historyToken()
-                    .selection()
-                    .get()
-            );
-        if (maybeCell.isPresent()) {
-            selector = maybeCell.get()
-                .formatter();
-        }
-
-        return selector;
+        return this.context.spreadsheetViewportCache()
+            .historyTokenCell()
+            .flatMap(SpreadsheetCell::formatter);
     }
 
     @Override

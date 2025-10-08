@@ -17,9 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.validator;
 
+import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetError;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
@@ -37,7 +37,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Objects;
@@ -153,27 +152,16 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
      * Copy any error messages for the {@link ValidatorSelector}.
      */
     private void copySelectorErrorMessages() {
-        final ValidatorSelectorDialogComponentContext context = this.context;
-
-        final SpreadsheetSelection selection = context.historyToken()
-            .selection()
-            .orElse(null);
-        if (null != selection) {
-            final SpreadsheetCell cell = context.spreadsheetViewportCache()
-                .cell(selection)
-                .orElse(null);
-            if (null != cell) {
-
-                // copy ERRORS from SpreadsheetDelta#cell
-                this.selector.setErrors(
-                    cell.formula()
-                        .error()
-                        .map(SpreadsheetError::message)
-                        .stream()
-                        .collect(Collectors.toList())
-                );
-            }
-        }
+        this.selector.setErrors(
+            this.context.spreadsheetViewportCache()
+                .historyTokenCell()
+                .map(c -> c.formula()
+                    .error()
+                    .map(SpreadsheetError::message)
+                    .stream()
+                    .collect(Collectors.toList())
+                ).orElse(Lists.empty())
+        );
     }
 
     // dialog links.....................................................................................................
