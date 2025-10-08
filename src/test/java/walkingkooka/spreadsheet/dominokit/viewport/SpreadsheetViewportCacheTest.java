@@ -4647,6 +4647,146 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
     }
 
+    // historyTokenCell.................................................................................................
+
+    private final static SpreadsheetId ID = SpreadsheetId.with(1);
+
+    @Test
+    public void testHistoryTokenCellWhenHistoryTokenMissingCell() {
+        final TestAppContext context = new TestAppContext();
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty(context);
+
+        context.pushHistoryToken(
+            HistoryToken.spreadsheetSelect(
+                ID,
+                NAME
+            )
+        );
+
+        this.historyTokenCellAndCheck(cache);
+    }
+
+    @Test
+    public void testHistoryTokenCellWhenHistoryTokenColumn() {
+        final TestAppContext context = new TestAppContext();
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty(context);
+
+        context.pushHistoryToken(
+            HistoryToken.columnSelect(
+                ID,
+                NAME,
+                SpreadsheetSelection.A1.column()
+                    .setDefaultAnchor()
+            )
+        );
+
+        this.historyTokenCellAndCheck(cache);
+    }
+
+    @Test
+    public void testHistoryTokenCellWhenHistoryTokenRow() {
+        final TestAppContext context = new TestAppContext();
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty(context);
+
+        context.pushHistoryToken(
+            HistoryToken.columnSelect(
+                ID,
+                NAME,
+                SpreadsheetSelection.A1.column()
+                    .setDefaultAnchor()
+            )
+        );
+
+        this.historyTokenCellAndCheck(cache);
+    }
+
+    @Test
+    public void testHistoryTokenCellWhenHistoryTokenCellMissing() {
+        final TestAppContext context = new TestAppContext();
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty(context);
+
+        context.pushHistoryToken(
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            )
+        );
+
+        this.historyTokenCellAndCheck(cache);
+    }
+
+    @Test
+    public void testHistoryTokenCellWhenHistoryTokenLabelMissing() {
+        final TestAppContext context = new TestAppContext();
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty(context);
+
+        context.pushHistoryToken(
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                SpreadsheetSelection.labelName("LabelMissing123")
+                    .setDefaultAnchor()
+            )
+        );
+
+        this.historyTokenCellAndCheck(cache);
+    }
+
+    @Test
+    public void testHistoryTokenCellWhenHistoryTokenCellPresent() {
+        final TestAppContext context = new TestAppContext();
+        final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty(context);
+
+        context.pushHistoryToken(
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            )
+        );
+
+        cache.onSpreadsheetDelta(
+            HttpMethod.GET,
+            Url.parseRelative("/api/spreadsheet/1/cell/A1"),
+            SpreadsheetDelta.EMPTY.setCells(
+                Sets.of(
+                    A1_CELL
+                )
+            ),
+            context
+        );
+
+        this.historyTokenCellAndCheck(
+            cache,
+            A1_CELL
+        );
+    }
+
+    private void historyTokenCellAndCheck(final SpreadsheetViewportCache cache) {
+        this.historyTokenCellAndCheck(
+            cache,
+            Optional.empty()
+        );
+    }
+
+    private void historyTokenCellAndCheck(final SpreadsheetViewportCache cache,
+                                          final SpreadsheetCell expected) {
+        this.historyTokenCellAndCheck(
+            cache,
+            Optional.of(expected)
+        );
+    }
+
+    private void historyTokenCellAndCheck(final SpreadsheetViewportCache cache,
+                                          final Optional<SpreadsheetCell> expected) {
+        this.checkEquals(
+            expected,
+            cache.historyTokenCell(),
+            cache::toString
+        );
+    }
+
     // SpreadsheetLabelNameResolver.....................................................................................
 
     @Override
