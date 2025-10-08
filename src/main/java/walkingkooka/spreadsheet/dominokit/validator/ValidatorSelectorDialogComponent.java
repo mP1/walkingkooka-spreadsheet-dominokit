@@ -141,6 +141,15 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
     private final ValidatorSelectorComponent selector;
 
     /**
+     * Refreshes the {@link #selector} with the latest value.
+     */
+    private void refreshSelectorValue() {
+        this.selector.setValue(
+            this.context.undo()
+        );
+    }
+
+    /**
      * Copy any error messages for the {@link ValidatorSelector}.
      */
     private void copySelectorErrorMessages() {
@@ -221,9 +230,9 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
 
     @Override
     public void refresh(final RefreshContext context) {
-        final Optional<ValidatorSelector> undo = this.context.undo();
-        this.selector.setValue(undo);
+        this.refreshSelectorValue();
 
+        final Optional<ValidatorSelector> undo = this.context.undo();
         this.refreshSaveLink(undo);
         this.undo.setValue(undo);
 
@@ -253,6 +262,8 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
                                    final SpreadsheetDelta delta,
                                    final AppContext context) {
         if (this.isOpen()) {
+            // must copy errors after refreshing value, because setValue clears #errors
+            this.refreshSelectorValue();
             this.copySelectorErrorMessages();
         }
     }
