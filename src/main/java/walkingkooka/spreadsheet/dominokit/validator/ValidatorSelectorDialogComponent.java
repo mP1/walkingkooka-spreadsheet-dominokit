@@ -140,6 +140,33 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
      */
     private final ValidatorSelectorComponent selector;
 
+    /**
+     * Copy any error messages for the {@link ValidatorSelector}.
+     */
+    private void copySelectorErrorMessages() {
+        final ValidatorSelectorDialogComponentContext context = this.context;
+
+        final SpreadsheetSelection selection = context.historyToken()
+            .selection()
+            .orElse(null);
+        if (null != selection) {
+            final SpreadsheetCell cell = context.spreadsheetViewportCache()
+                .cell(selection)
+                .orElse(null);
+            if (null != cell) {
+
+                // copy ERRORS from SpreadsheetDelta#cell
+                this.selector.setErrors(
+                    cell.formula()
+                        .error()
+                        .map(SpreadsheetError::message)
+                        .stream()
+                        .collect(Collectors.toList())
+                );
+            }
+        }
+    }
+
     // dialog links.....................................................................................................
 
     void refreshSaveLink(final Optional<ValidatorSelector> list) {
@@ -185,6 +212,8 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
 
     @Override
     public void openGiveFocus(final RefreshContext context) {
+        this.copySelectorErrorMessages();
+
         context.giveFocus(
             this.selector::focus
         );
@@ -194,6 +223,7 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
     public void refresh(final RefreshContext context) {
         final Optional<ValidatorSelector> undo = this.context.undo();
         this.selector.setValue(undo);
+
         this.refreshSaveLink(undo);
         this.undo.setValue(undo);
 
@@ -223,26 +253,7 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
                                    final SpreadsheetDelta delta,
                                    final AppContext context) {
         if (this.isOpen()) {
-            final SpreadsheetSelection selection = context.historyToken()
-                .selection()
-                .orElse(null);
-            if (null != selection) {
-                final SpreadsheetCell cell = context.spreadsheetViewportCache()
-                    .cell(selection)
-                    .orElse(null);
-                if (null != cell) {
-
-                    // copy ERRORS from SpreadsheetDelta#cell
-                    this.selector.setErrors(
-                        cell.formula()
-                            .error()
-                            .map(SpreadsheetError::message)
-                            .stream()
-                            .collect(Collectors.toList())
-                    );
-                }
-            }
-
+            this.copySelectorErrorMessages();
         }
     }
 }
