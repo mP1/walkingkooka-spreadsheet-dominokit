@@ -57,11 +57,8 @@ final class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCell exten
         final AppContext context = this.context;
 
         return context.spreadsheetViewportCache()
-            .cell(
-                context.historyToken()
-                    .selection()
-                    .get()
-            ).flatMap(SpreadsheetCell::dateTimeSymbols);
+            .historyTokenCell()
+            .flatMap(SpreadsheetCell::dateTimeSymbols);
     }
 
     @Override

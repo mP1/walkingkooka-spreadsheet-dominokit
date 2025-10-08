@@ -26,7 +26,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleUnselectHistoryToken;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Locale;
 import java.util.Optional;
@@ -49,20 +48,9 @@ final class AppContextLocaleDialogComponentContextCellLocale extends AppContextS
 
     @Override
     public Optional<Locale> undoLocale() {
-        Locale locale = null;
-
-        final AppContext context = this.context;
-        final SpreadsheetSelection cell = context.historyToken()
-            .selection()
-            .orElse(null);
-        if (null != cell) {
-            locale = context.spreadsheetViewportCache()
-                .cell(cell)
-                .flatMap(SpreadsheetCell::locale)
-                .orElse(null);
-        }
-
-        return Optional.ofNullable(locale);
+        return this.context.spreadsheetViewportCache()
+            .historyTokenCell()
+            .flatMap(SpreadsheetCell::locale);
     }
 
     // HasSpreadsheetDelta..............................................................................................

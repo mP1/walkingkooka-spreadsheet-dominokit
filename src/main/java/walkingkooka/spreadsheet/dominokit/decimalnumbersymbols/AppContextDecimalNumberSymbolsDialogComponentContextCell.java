@@ -57,11 +57,8 @@ final class AppContextDecimalNumberSymbolsDialogComponentContextCell extends App
         final AppContext context = this.context;
 
         return context.spreadsheetViewportCache()
-            .cell(
-                context.historyToken()
-                    .selection()
-                    .get()
-            ).flatMap(SpreadsheetCell::decimalNumberSymbols);
+            .historyTokenCell()
+            .flatMap(SpreadsheetCell::decimalNumberSymbols);
     }
 
     @Override

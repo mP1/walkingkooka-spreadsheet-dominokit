@@ -62,20 +62,9 @@ final class AppContextValidatorSelectorDialogComponentContext implements Validat
 
     @Override
     public Optional<ValidatorSelector> undo() {
-        Optional<ValidatorSelector> selector = Optional.empty();
-
-        final Optional<SpreadsheetCell> maybeCell = this.context.spreadsheetViewportCache()
-            .cell(
-                this.historyToken()
-                    .selection()
-                    .get()
-            );
-        if (maybeCell.isPresent()) {
-            selector = maybeCell.get()
-                .validatorSelector();
-        }
-
-        return selector;
+        return this.context.spreadsheetViewportCache()
+            .historyTokenCell()
+            .flatMap(SpreadsheetCell::validator);
     }
 
     @Override

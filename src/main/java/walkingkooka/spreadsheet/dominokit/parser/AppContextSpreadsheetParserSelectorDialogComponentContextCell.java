@@ -54,20 +54,9 @@ final class AppContextSpreadsheetParserSelectorDialogComponentContextCell extend
 
     @Override
     public Optional<SpreadsheetParserSelector> undo() {
-        Optional<SpreadsheetParserSelector> selector = Optional.empty();
-
-        final Optional<SpreadsheetCell> maybeCell = this.context.spreadsheetViewportCache()
-            .cell(
-                this.historyToken()
-                    .selection()
-                    .get()
-            );
-        if (maybeCell.isPresent()) {
-            selector = maybeCell.get()
-                .parser();
-        }
-
-        return selector;
+        return this.context.spreadsheetViewportCache()
+            .historyTokenCell()
+            .flatMap(SpreadsheetCell::parser);
     }
 
     // ComponentLifecycleMatcher........................................................................................
