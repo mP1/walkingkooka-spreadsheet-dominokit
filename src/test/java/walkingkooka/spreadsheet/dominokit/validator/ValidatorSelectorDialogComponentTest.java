@@ -125,6 +125,11 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                         ValidatorSelector.parse("hello-validator")
                     );
                 }
+
+                @Override
+                public SpreadsheetViewportCache spreadsheetViewportCache() {
+                    return context.spreadsheetViewportCache();
+                }
             }
         );
 

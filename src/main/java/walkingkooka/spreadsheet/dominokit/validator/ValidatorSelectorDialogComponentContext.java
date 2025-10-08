@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.validator;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.viewport.HasSpreadsheetViewportCache;
 import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Optional;
@@ -28,7 +29,8 @@ import java.util.Optional;
  * A {@link walkingkooka.Context} tht accompanies a {@link ValidatorSelectorDialogComponent} provided various inputs.
  */
 public interface ValidatorSelectorDialogComponentContext extends ComponentLifecycleMatcher,
-    DialogComponentContext {
+    DialogComponentContext,
+    HasSpreadsheetViewportCache {
 
     Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher);
 
