@@ -246,7 +246,9 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlComponentD
         final Optional<SpreadsheetCell> cell = cache.cell(cellReference);
         final Optional<String> text = cell.map((c) -> c.formula().text());
 
-        context.debug("SpreadsheetViewportFormulaComponent.refreshFormula " + cellReference + " text=" + text);
+        if(SPREADSHEET_VIEWPORT_FORMULA_COMPONENT) {
+            context.debug("SpreadsheetViewportFormulaComponent.refreshFormula " + cellReference + " text=" + text);
+        }
 
         final SpreadsheetFormulaComponent formula = this.formula;
         formula.setStringValue(text);
