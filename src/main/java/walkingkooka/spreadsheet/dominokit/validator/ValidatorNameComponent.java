@@ -16,7 +16,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.validation;
+package walkingkooka.spreadsheet.dominokit.validator;
 
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;

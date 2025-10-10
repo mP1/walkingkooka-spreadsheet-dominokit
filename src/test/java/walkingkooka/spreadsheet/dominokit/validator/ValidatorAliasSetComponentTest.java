@@ -15,64 +15,74 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.validation;
+package walkingkooka.spreadsheet.dominokit.validator;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
-import walkingkooka.validation.provider.ValidatorSelector;
+import walkingkooka.validation.provider.ValidatorAliasSet;
 
 import java.util.Optional;
 
-public final class ValidatorSelectorComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, ValidatorSelector, ValidatorSelectorComponent> {
+public final class ValidatorAliasSetComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, ValidatorAliasSet, ValidatorAliasSetComponent> {
+
+    @Test
+    public void testParseAndText() {
+        final ValidatorAliasSet alias = ValidatorAliasSet.parse("alias1 plugin1, plugin2");
+
+        this.checkEquals(
+            alias,
+            ValidatorAliasSet.parse(alias.text())
+        );
+    }
 
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-            ValidatorSelectorComponent.empty()
+            ValidatorAliasSetComponent.empty()
                 .setStringValue(
                     Optional.of(
-                        "Hello"
+                        "alias1 validator1, validator2"
                     )
                 ),
-            "ValidatorSelectorComponent\n" +
+            "ValidatorAliasSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [Hello]\n"
+                "      [alias1 validator1, validator2]\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-            ValidatorSelectorComponent.empty()
+            ValidatorAliasSetComponent.empty()
                 .setStringValue(
                     Optional.of(
-                        "Invalid123!"
+                        "alias1 validator1, 9"
                     )
                 ),
-            "ValidatorSelectorComponent\n" +
+            "ValidatorAliasSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [Invalid123!]\n" +
+                "      [alias1 validator1, 9]\n" +
                 "      Errors\n" +
-                "        Invalid character '!' at 10\n"
+                "        Invalid character '9' at 19\n"
         );
     }
 
     // ValueComponent...................................................................................................
 
     @Override
-    public ValidatorSelectorComponent createComponent() {
-        return ValidatorSelectorComponent.empty();
+    public ValidatorAliasSetComponent createComponent() {
+        return ValidatorAliasSetComponent.empty();
     }
 
     // class............................................................................................................
 
     @Override
-    public Class<ValidatorSelectorComponent> type() {
-        return ValidatorSelectorComponent.class;
+    public Class<ValidatorAliasSetComponent> type() {
+        return ValidatorAliasSetComponent.class;
     }
 
     @Override

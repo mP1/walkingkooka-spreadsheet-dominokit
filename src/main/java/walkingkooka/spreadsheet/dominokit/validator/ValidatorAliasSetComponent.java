@@ -1,4 +1,3 @@
-
 /*
  * Copyright 2023 Miroslav Pokorny (github.com/mP1)
  *
@@ -16,37 +15,33 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.validation;
+package walkingkooka.spreadsheet.dominokit.validator;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
-import walkingkooka.text.HasText;
-import walkingkooka.validation.provider.ValidatorSelector;
+import walkingkooka.validation.provider.ValidatorAliasSet;
 
-/**
- * A text box that accepts entry and validates it as a {@link ValidatorSelector}.
- */
-public final class ValidatorSelectorComponent implements ValueTextBoxComponentDelegator<ValidatorSelectorComponent, ValidatorSelector> {
+public final class ValidatorAliasSetComponent implements ValueTextBoxComponentDelegator<ValidatorAliasSetComponent, ValidatorAliasSet> {
 
-    public static ValidatorSelectorComponent empty() {
-        return new ValidatorSelectorComponent();
+    public static ValidatorAliasSetComponent empty() {
+        return new ValidatorAliasSetComponent();
     }
 
-    private ValidatorSelectorComponent() {
+    private ValidatorAliasSetComponent() {
         this.textBox = ValueTextBoxComponent.with(
-            ValidatorSelector::parse,
-            HasText::text
+            ValidatorAliasSet::parse,
+            ValidatorAliasSet::text
         );
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
-    public ValueTextBoxComponent<ValidatorSelector> valueTextBoxComponent() {
+    public ValueTextBoxComponent<ValidatorAliasSet> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueTextBoxComponent<ValidatorSelector> textBox;
+    private final ValueTextBoxComponent<ValidatorAliasSet> textBox;
 
     // Object...........................................................................................................
 
