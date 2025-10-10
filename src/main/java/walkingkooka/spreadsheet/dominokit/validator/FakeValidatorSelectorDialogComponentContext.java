@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.validator;
 
 import walkingkooka.spreadsheet.dominokit.dialog.FakeDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.validation.provider.ValidatorSelector;
 
@@ -29,16 +28,6 @@ public class FakeValidatorSelectorDialogComponentContext extends FakeDialogCompo
 
     public FakeValidatorSelectorDialogComponentContext() {
         super();
-    }
-
-    @Override
-    public boolean shouldIgnore(final HistoryToken token) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public boolean isMatch(final HistoryToken token) {
-        throw new UnsupportedOperationException();
     }
 
     @Override

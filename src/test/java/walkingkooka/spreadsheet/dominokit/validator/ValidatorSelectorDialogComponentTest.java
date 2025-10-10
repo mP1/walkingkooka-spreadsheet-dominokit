@@ -34,7 +34,6 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValidatorSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
@@ -107,16 +106,6 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                 @Override
                 public HistoryToken historyToken() {
                     return context.historyToken();
-                }
-
-                @Override
-                public boolean shouldIgnore(final HistoryToken token) {
-                    return false;
-                }
-
-                @Override
-                public boolean isMatch(final HistoryToken token) {
-                    return token instanceof SpreadsheetCellValidatorSelectHistoryToken;
                 }
 
                 @Override
