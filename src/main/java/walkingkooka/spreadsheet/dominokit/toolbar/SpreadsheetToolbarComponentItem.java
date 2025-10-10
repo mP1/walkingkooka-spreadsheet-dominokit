@@ -412,6 +412,6 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
 
     @Override
     public final boolean shouldLogLifecycleChanges() {
-        return false;
+        return SPREADSHEET_TOOLBAR_COMPONENT_ITEM;
     }
 }

@@ -229,4 +229,9 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Dialo
             )
         );
     }
+
+    @Override
+    public boolean shouldLogLifecycleChanges() {
+        return SPREADSHEET_COMPARATOR_NAME_LIST_DIALOG_COMPONENT;
+    }
 }

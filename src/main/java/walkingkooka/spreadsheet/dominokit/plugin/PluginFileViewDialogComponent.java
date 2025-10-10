@@ -262,4 +262,9 @@ public final class PluginFileViewDialogComponent implements DialogComponentLifec
         this.refreshDownload();
         this.refreshClose(context);
     }
+
+    @Override
+    public  boolean shouldLogLifecycleChanges() {
+        return PLUGIN_FILE_VIEW_DIALOG_COMPONENT;
+    }
 }

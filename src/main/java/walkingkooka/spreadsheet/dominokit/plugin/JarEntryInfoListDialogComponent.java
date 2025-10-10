@@ -245,4 +245,9 @@ public final class JarEntryInfoListDialogComponent implements DialogComponentLif
     private PluginName pluginName;
 
     private JarEntryInfoList list;
+
+    @Override
+    public  boolean shouldLogLifecycleChanges() {
+        return JAR_ENTRY_INFO_LIST_DIALOG_COMPONENT;
+    }
 }

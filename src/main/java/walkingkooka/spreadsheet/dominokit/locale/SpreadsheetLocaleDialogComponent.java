@@ -268,6 +268,11 @@ public final class SpreadsheetLocaleDialogComponent implements DialogComponentLi
         this.refreshClose();
     }
 
+    @Override
+    public boolean shouldLogLifecycleChanges() {
+        return SPREADSHEET_LOCALE_COMPONENT_LIFECYCLE;
+    }
+
     // SpreadsheetDeltaFetcherWatcher...................................................................................
 
     @Override

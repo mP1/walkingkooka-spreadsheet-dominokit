@@ -233,6 +233,11 @@ public final class DialogComponentLifecycleTestingTest implements DialogComponen
         public String idPrefix() {
             return "id123-";
         }
+
+        @Override
+        public boolean shouldLogLifecycleChanges() {
+            return false;
+        }
     }
 
     @Override

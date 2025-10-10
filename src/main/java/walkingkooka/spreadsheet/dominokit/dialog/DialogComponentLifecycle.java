@@ -130,11 +130,6 @@ public interface DialogComponentLifecycle extends HistoryTokenAwareComponentLife
         this.dialogReset();
     }
 
-    @Override
-    default boolean shouldLogLifecycleChanges() {
-        return false; // no need to log, dialog will disappear/appear is enough
-    }
-
     /**
      * Callback that is called as the first step when a dialog is opened and closed.
      * This should be used to reset state.

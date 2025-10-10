@@ -240,4 +240,9 @@ public final class SpreadsheetListDialogComponent implements DialogComponentLife
 
         this.table.refresh(historyToken);
     }
+
+    @Override
+    public boolean shouldLogLifecycleChanges() {
+        return SPREADSHEET_LIST_COMPONENT_LIFECYCLE;
+    }
 }

@@ -460,4 +460,9 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
     }
 
     private Optional<SpreadsheetFormatterName> formatterName;
+
+    @Override
+    public boolean shouldLogLifecycleChanges() {
+        return SPREADSHEET_FORMATTER_SELECTOR_DIALOG_COMPONENT;
+    }
 }

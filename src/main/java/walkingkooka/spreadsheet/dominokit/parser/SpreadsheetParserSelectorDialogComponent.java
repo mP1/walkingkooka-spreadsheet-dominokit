@@ -449,4 +449,9 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
     }
 
     private Optional<SpreadsheetParserName> parserName;
+
+    @Override
+    public boolean shouldLogLifecycleChanges() {
+        return SPREADSHEET_PARSER_SELECTOR_DIALOG_COMPONENT;
+    }
 }

@@ -175,6 +175,11 @@ public final class SpreadsheetCellReferencesDialogComponent implements DialogCom
         );
     }
 
+    @Override
+    public  boolean shouldLogLifecycleChanges() {
+        return SPREADSHEET_CELL_REFERENCES_DIALOG_COMPONENT;
+    }
+
     // UI...............................................................................................................
 
     private final static String ID = "cellReferences";

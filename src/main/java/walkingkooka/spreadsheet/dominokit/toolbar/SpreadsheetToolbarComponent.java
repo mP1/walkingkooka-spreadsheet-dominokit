@@ -214,7 +214,7 @@ public final class SpreadsheetToolbarComponent implements HtmlComponentDelegator
 
     @Override
     public boolean shouldLogLifecycleChanges() {
-        return false; // child items return false
+        return SPREADSHEET_TOOLBAR_COMPONENT; // child items return false
     }
 
     // TreePrintable....................................................................................................
