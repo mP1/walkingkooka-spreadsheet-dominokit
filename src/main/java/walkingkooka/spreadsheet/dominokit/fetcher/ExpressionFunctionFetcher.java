@@ -23,7 +23,6 @@ import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.text.CharSequences;
-import walkingkooka.tree.expression.ExpressionFunctionName;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 
@@ -33,10 +32,6 @@ import java.util.Optional;
  * Fetcher for {@link ExpressionFunction} end points.
  */
 public final class ExpressionFunctionFetcher extends Fetcher<ExpressionFunctionFetcherWatcher> {
-
-    static {
-        ExpressionFunctionName.DEFAULT_CASE_SENSITIVITY.toString(); // force json unmarshaller to register
-    }
 
     public static ExpressionFunctionFetcher with(final ExpressionFunctionFetcherWatcher watcher,
                                                  final AppContext context) {

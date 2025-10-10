@@ -36,11 +36,6 @@ import java.util.Optional;
  */
 public final class FormHandlerFetcher extends Fetcher<FormHandlerFetcherWatcher> {
 
-    static {
-        FormHandlerName.CASE_SENSITIVITY.toString(); // force json unmarshaller to register
-        FormHandlerInfoSet.EMPTY.toString();
-    }
-
     public static FormHandlerFetcher with(final FormHandlerFetcherWatcher watcher,
                                           final AppContext context) {
         return new FormHandlerFetcher(

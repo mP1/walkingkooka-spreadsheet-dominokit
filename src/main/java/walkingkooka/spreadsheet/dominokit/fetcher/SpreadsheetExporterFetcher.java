@@ -24,7 +24,6 @@ import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.export.SpreadsheetExporter;
 import walkingkooka.spreadsheet.export.provider.SpreadsheetExporterInfoSet;
-import walkingkooka.spreadsheet.export.provider.SpreadsheetExporterName;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.text.CharSequences;
 
@@ -34,10 +33,6 @@ import java.util.Optional;
  * Fetcher for {@link SpreadsheetExporter} end points.
  */
 public final class SpreadsheetExporterFetcher extends Fetcher<SpreadsheetExporterFetcherWatcher> {
-
-    static {
-        SpreadsheetExporterName.CASE_SENSITIVITY.toString(); // force json unmarshaller to register
-    }
 
     public static SpreadsheetExporterFetcher with(final SpreadsheetExporterFetcherWatcher watcher,
                                                   final AppContext context) {

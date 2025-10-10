@@ -36,11 +36,6 @@ import java.util.Optional;
  */
 public final class ValidatorFetcher extends Fetcher<ValidatorFetcherWatcher> {
 
-    static {
-        ValidatorName.CASE_SENSITIVITY.toString(); // force json unmarshaller to register
-        ValidatorInfoSet.EMPTY.toString();
-    }
-
     public static ValidatorFetcher with(final ValidatorFetcherWatcher watcher,
                                         final AppContext context) {
         return new ValidatorFetcher(

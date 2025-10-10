@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
@@ -35,7 +34,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
-import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenu;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenuList;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
 import walkingkooka.text.CharSequences;
@@ -47,27 +45,6 @@ import java.util.Optional;
  * Fetcher for {@link SpreadsheetFormatterSelector} end points.
  */
 public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormatterFetcherWatcher> {
-
-    static {
-        try {
-            SpreadsheetFormatterSelectorEdit.parse(
-                null,
-                null
-            );
-        } catch (final NullPointerException ignore) {
-            // nop
-        }
-
-        // force json unmarshaller to register
-        SpreadsheetFormatterMenuList.with(
-            Lists.of(
-                SpreadsheetFormatterMenu.with(
-                    "Label",
-                    SpreadsheetFormatterSelector.DEFAULT_TEXT_FORMAT
-                )
-            )
-        ); // force JSON registry
-    }
 
     public static SpreadsheetFormatterFetcher with(final SpreadsheetFormatterFetcherWatcher watcher,
                                                    final AppContext context) {

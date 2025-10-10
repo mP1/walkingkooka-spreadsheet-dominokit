@@ -49,12 +49,6 @@ import java.util.OptionalInt;
  */
 public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
 
-    // force static initializers to register json marshaller/unmarshallers.
-    static {
-        Plugin.HATEOS_RESOURCE_NAME.toString();
-        PluginSet.EMPTY.isEmpty();
-    }
-
     public static PluginFetcher with(final PluginFetcherWatcher watcher,
                                      final AppContext context) {
         return new PluginFetcher(
