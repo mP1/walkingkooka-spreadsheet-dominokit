@@ -25,7 +25,7 @@ import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
 import walkingkooka.spreadsheet.dominokit.fetcher.ValidatorFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.validation.ValidatorAliasSetComponent;
+import walkingkooka.spreadsheet.dominokit.validator.ValidatorAliasSetComponent;
 import walkingkooka.validation.provider.ValidatorAlias;
 import walkingkooka.validation.provider.ValidatorAliasSet;
 import walkingkooka.validation.provider.ValidatorInfo;
