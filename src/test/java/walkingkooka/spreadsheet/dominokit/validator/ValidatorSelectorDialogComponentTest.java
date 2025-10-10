@@ -52,7 +52,13 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
 
     @Test
     public void testOnHistoryTokenChange() {
-        final TestAppContext context = new TestAppContext("/1/Spreadsheet123/cell/A1/validator");
+        final TestAppContext context = new TestAppContext(
+            HistoryToken.cellValidatorSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            )
+        );
 
         final ValidatorSelectorDialogComponent dialog = ValidatorSelectorDialogComponent.with(
             new TestValidatorSelectorDialogComponentContext(context) {
@@ -76,7 +82,10 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
         );
 
         dialog.onHistoryTokenChange(
-            HistoryToken.parseString("/1/Spreadsheet123"),
+            HistoryToken.spreadsheetSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
+            ),
             context
         );
         dialog.refresh(context);
@@ -94,16 +103,22 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet123/cell/A1/validator/save/hello-validator] id=selector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet123/cell/A1/validator/save/] id=selector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet123/cell/A1/validator/save/hello-validator] id=selector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet123/cell/A1] id=selector-close-Link\n"
+                "            \"Save\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=selector-save-Link\n" +
+                "            \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=selector-clear-Link\n" +
+                "            \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=selector-undo-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName1/cell/A1] id=selector-close-Link\n"
         );
     }
 
     @Test
     public void testOnSpreadsheetDeltaWhenCellWithError() {
-        final TestAppContext context = new TestAppContext("/1/Spreadsheet123/cell/A1/validator");
+        final TestAppContext context = new TestAppContext(
+            HistoryToken.cellValidatorSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            )
+        );
 
         context.metadataWatchers.onSpreadsheetMetadata(
             context.spreadsheetMetadata(),
@@ -132,7 +147,10 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
         );
 
         dialog.onHistoryTokenChange(
-            HistoryToken.parseString("/1/Spreadsheet123"),
+            HistoryToken.spreadsheetSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
+            ),
             context
         );
         dialog.refresh(context);
@@ -172,10 +190,10 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet123/cell/A1/validator/save/hello-validator] id=selector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet123/cell/A1/validator/save/] id=selector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet123/cell/A1/validator/save/hello-validator] id=selector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet123/cell/A1] id=selector-close-Link\n"
+                "            \"Save\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=selector-save-Link\n" +
+                "            \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=selector-clear-Link\n" +
+                "            \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=selector-undo-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName1/cell/A1] id=selector-close-Link\n"
         );
     }
 
@@ -205,12 +223,6 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
     }
 
     final static class TestAppContext extends FakeAppContext {
-
-        TestAppContext(final String historyToken) {
-            this(
-                HistoryToken.parseString(historyToken)
-            );
-        }
 
         TestAppContext(final HistoryToken historyToken) {
             this.historyToken = historyToken;
