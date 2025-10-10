@@ -80,6 +80,8 @@ public interface Logging {
 
     boolean SPREADSHEET_VIEWPORT_COMPONENT = false;
 
+    boolean SPREADSHEET_VIEWPORT_COMPONENT_TABLE = false;
+
     boolean SPREADSHEET_VIEWPORT_FORMULA_COMPONENT = false;
 
     boolean SPREADSHEET_VIEWPORT_SCROLLBAR_COMPONENT = false;
