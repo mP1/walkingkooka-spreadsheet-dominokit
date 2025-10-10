@@ -212,6 +212,11 @@ public final class SpreadsheetNavigateDialogComponent implements DialogComponent
         );
     }
 
+    @Override
+    public boolean shouldLogLifecycleChanges() {
+        return SPREADSHEET_NAVIGATE_COMPONENT_LIFECYCLE;
+    }
+
     // SpreadsheetMetadataFetcherWatcher................................................................................
 
     @Override

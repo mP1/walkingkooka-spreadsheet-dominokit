@@ -29,6 +29,72 @@ public interface HistoryTokenAwareComponentLifecycle extends HistoryTokenWatcher
     ComponentLifecycleMatcher,
     ComponentLifecycle {
 
+    // centralised switches to turn on/off debugging in each of the components.
+
+    boolean CONVERTER_SELECTOR_DIALOG_COMPONENT = false;
+
+    boolean DATE_TIME_SYMBOLS_DIALOG_COMPONENT = false;
+
+    boolean DECIMAL_NUMBER_SYMBOLS_DIALOG_COMPONENT = false;
+
+    boolean FORM_HANDLER_SELECTOR_DIALOG_COMPONENT = false;
+
+    boolean JAR_ENTRY_INFO_LIST_DIALOG_COMPONENT = false;
+
+    boolean PLUGIN_ALIAS_SET_LIKE_SELECTOR_DIALOG_COMPONENT = false;
+
+    boolean PLUGIN_FILE_VIEW_DIALOG_COMPONENT = false;
+
+    boolean PLUGIN_NAME_SET_DIALOG_COMPONENT = false;
+
+    boolean PLUGIN_SET_DIALOG_COMPONENT = false;
+
+    boolean PLUGIN_UPLOAD_DIALOG_COMPONENT = false;
+
+    boolean SPREADSHEET_APP_LAYOUT = false;
+
+    boolean SPREADSHEET_CELL_FIND_DIALOG_COMPONENT = false;
+
+    boolean SPREADSHEET_CELL_REFERENCES_DIALOG_COMPONENT = false;
+
+    boolean SPREADSHEET_CELL_SORT_DIALOG_COMPONENT = false;
+
+    boolean SPREADSHEET_CELL_VALUE_DIALOG_COMPONENT = false;
+
+    boolean SPREADSHEET_COLUMN_ROW_INSERT_COUNT_DIALOG_COMPONENT = false;
+
+    boolean SPREADSHEET_COMPARATOR_NAME_LIST_DIALOG_COMPONENT = false;
+
+    boolean SPREADSHEET_FORMATTER_SELECTOR_DIALOG_COMPONENT = false;
+
+    boolean SPREADSHEET_LABEL_MAPPING_COMPONENT_LIFECYCLE = false;
+
+    boolean SPREADSHEET_LABEL_MAPPING_LIST_COMPONENT_LIFECYCLE = false;
+
+    boolean SPREADSHEET_LIST_COMPONENT_LIFECYCLE = false;
+
+    boolean SPREADSHEET_LOCALE_COMPONENT_LIFECYCLE = false;
+
+    boolean SPREADSHEET_METADATA_HISTORY_TOKEN_AWARE_COMPONENT_LIFECYCLE = false;
+
+    boolean SPREADSHEET_NAME_COMPONENT_LIFECYCLE = false;
+
+    boolean SPREADSHEET_NAVIGATE_COMPONENT_LIFECYCLE = false;
+
+    boolean SPREADSHEET_PARSER_SELECTOR_DIALOG_COMPONENT = false;
+
+    boolean SPREADSHEET_TOOLBAR_COMPONENT = false;
+
+    boolean SPREADSHEET_TOOLBAR_COMPONENT_ITEM = false;
+
+    boolean SPREADSHEET_VIEWPORT_COMPONENT = false;
+
+    boolean SPREADSHEET_VIEWPORT_FORMULA_COMPONENT = false;
+
+    boolean SPREADSHEET_VIEWPORT_SCROLLBAR_COMPONENT = false;
+
+    boolean VALIDATOR_SELECTOR_DIALOG_COMPONENT = false;
+
     /**
      * Conditionally calls {@link #refresh(RefreshContext)} if this ui is {@link #isOpen()}.
      */

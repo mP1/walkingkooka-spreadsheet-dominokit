@@ -552,6 +552,11 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
         this.refreshClose();
     }
 
+    @Override
+    public  boolean shouldLogLifecycleChanges() {
+        return DATE_TIME_SYMBOLS_DIALOG_COMPONENT;
+    }
+
     // DateTimeSymbolsFetcherWatcher....................................................................................
 
     @Override

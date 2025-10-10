@@ -294,7 +294,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlComponentD
 
     @Override
     public boolean shouldLogLifecycleChanges() {
-        return false;
+        return SPREADSHEET_VIEWPORT_FORMULA_COMPONENT;
     }
 
     // SpreadsheetDeltaFetcherWatcher...................................................................................

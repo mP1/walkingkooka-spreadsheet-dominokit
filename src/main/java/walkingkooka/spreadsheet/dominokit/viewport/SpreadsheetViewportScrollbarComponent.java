@@ -410,7 +410,7 @@ abstract public class SpreadsheetViewportScrollbarComponent<R extends Spreadshee
 
     @Override
     public boolean shouldLogLifecycleChanges() {
-        return false;
+        return SPREADSHEET_VIEWPORT_SCROLLBAR_COMPONENT;
     }
 
     private final SpreadsheetViewportScrollbarComponentContext context;

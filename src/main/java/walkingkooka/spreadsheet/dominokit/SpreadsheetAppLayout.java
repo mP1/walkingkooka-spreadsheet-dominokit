@@ -201,7 +201,7 @@ final class SpreadsheetAppLayout extends AppLayout implements
 
     @Override
     public boolean shouldLogLifecycleChanges() {
-        return false;
+        return SPREADSHEET_APP_LAYOUT;
     }
 
     // width............................................................................................................

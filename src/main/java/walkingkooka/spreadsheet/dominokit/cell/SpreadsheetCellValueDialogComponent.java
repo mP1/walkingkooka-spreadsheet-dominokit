@@ -323,6 +323,11 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
         this.refreshClose();
     }
 
+    @Override
+    public  boolean shouldLogLifecycleChanges() {
+        return SPREADSHEET_CELL_VALUE_DIALOG_COMPONENT;
+    }
+
     // SpreadsheetDeltaFetcherWatcher...................................................................................
 
     @Override

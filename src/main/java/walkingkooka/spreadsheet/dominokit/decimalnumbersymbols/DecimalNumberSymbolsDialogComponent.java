@@ -740,6 +740,11 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
         this.refreshClose();
     }
 
+    @Override
+    public  boolean shouldLogLifecycleChanges() {
+        return DECIMAL_NUMBER_SYMBOLS_DIALOG_COMPONENT;
+    }
+
     // DecimalNumberSymbolsFetcherWatcher...............................................................................
 
     @Override

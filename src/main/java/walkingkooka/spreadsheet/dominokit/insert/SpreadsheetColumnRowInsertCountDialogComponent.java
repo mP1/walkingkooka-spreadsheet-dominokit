@@ -178,6 +178,11 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Dia
         this.refreshClose();
     }
 
+    @Override
+    public  boolean shouldLogLifecycleChanges() {
+        return SPREADSHEET_COLUMN_ROW_INSERT_COUNT_DIALOG_COMPONENT;
+    }
+
     // Object..........................................................................................................
 
     @Override

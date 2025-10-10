@@ -448,6 +448,11 @@ public final class SpreadsheetLabelMappingDialogComponent implements DialogCompo
      */
     private boolean forceLabelNameLabelMappingReference;
 
+    @Override
+    public boolean shouldLogLifecycleChanges() {
+        return SPREADSHEET_LABEL_MAPPING_COMPONENT_LIFECYCLE;
+    }
+
     // SpreadsheetDeltaFetcherWatcher...................................................................................
 
     @Override

@@ -356,4 +356,9 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
     }
 
     private final PluginAliasSetLikeDialogComponentContext<N, I, IS, S, A, AS> context;
+
+    @Override
+    public  boolean shouldLogLifecycleChanges() {
+        return PLUGIN_ALIAS_SET_LIKE_SELECTOR_DIALOG_COMPONENT;
+    }
 }

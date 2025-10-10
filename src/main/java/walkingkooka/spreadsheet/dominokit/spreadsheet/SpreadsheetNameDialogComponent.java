@@ -205,6 +205,11 @@ public final class SpreadsheetNameDialogComponent implements DialogComponentLife
 
     private final SpreadsheetNameDialogComponentContext context;
 
+    @Override
+    public boolean shouldLogLifecycleChanges() {
+        return SPREADSHEET_NAME_COMPONENT_LIFECYCLE;
+    }
+
     // SpreadsheetMetadataFetcherWatcher................................................................................
 
     @Override

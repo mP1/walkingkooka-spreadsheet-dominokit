@@ -179,6 +179,11 @@ public final class SpreadsheetLabelMappingListDialogComponent implements DialogC
         );
     }
 
+    @Override
+    public boolean shouldLogLifecycleChanges() {
+        return SPREADSHEET_LABEL_MAPPING_LIST_COMPONENT_LIFECYCLE;
+    }
+
     // UI...............................................................................................................
 
     private final static String ID = "labels";

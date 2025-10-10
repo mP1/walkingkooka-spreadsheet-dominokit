@@ -404,4 +404,9 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
     }
 
     private final PluginNameSetDialogComponentContext context;
+
+    @Override
+    public  boolean shouldLogLifecycleChanges() {
+        return PLUGIN_NAME_SET_DIALOG_COMPONENT;
+    }
 }

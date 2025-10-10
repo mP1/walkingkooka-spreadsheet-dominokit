@@ -211,4 +211,9 @@ public final class PluginSetDialogComponent implements DialogComponentLifecycle,
         this.refreshUploadAnchor(context);
         this.refreshClose(context);
     }
+
+    @Override
+    public  boolean shouldLogLifecycleChanges() {
+        return PLUGIN_SET_DIALOG_COMPONENT;
+    }
 }

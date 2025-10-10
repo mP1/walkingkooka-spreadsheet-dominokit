@@ -658,6 +658,11 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
         );
     }
 
+    @Override
+    public  boolean shouldLogLifecycleChanges() {
+        return SPREADSHEET_CELL_FIND_DIALOG_COMPONENT;
+    }
+
     // UI...............................................................................................................
 
     private final static String ID = "cellFind";

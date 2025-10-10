@@ -242,6 +242,11 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
         );
     }
 
+    @Override
+    public boolean shouldLogLifecycleChanges() {
+        return VALIDATOR_SELECTOR_DIALOG_COMPONENT;
+    }
+
     // SpreadsheetDeltaFetcherWatcher...................................................................................
 
     @Override

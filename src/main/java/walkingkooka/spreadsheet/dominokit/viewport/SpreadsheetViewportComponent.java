@@ -810,7 +810,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
 
     @Override
     public boolean shouldLogLifecycleChanges() {
-        return false;
+        return SPREADSHEET_VIEWPORT_COMPONENT;
     }
 
     // isEditing........................................................................................................

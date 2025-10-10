@@ -619,7 +619,7 @@ public final class SpreadsheetCellSortDialogComponent implements DialogComponent
      */
     private final SpreadsheetCellSortDialogComponentContext context;
 
-    // DialogComponentLifecycle..............................................................................
+    // DialogComponentLifecycle.........................................................................................
 
     @Override
     public boolean shouldIgnore(final HistoryToken token) {
@@ -638,6 +638,11 @@ public final class SpreadsheetCellSortDialogComponent implements DialogComponent
     @Override
     public void dialogReset() {
         // NOP
+    }
+
+    @Override
+    public  boolean shouldLogLifecycleChanges() {
+        return SPREADSHEET_CELL_SORT_DIALOG_COMPONENT;
     }
 
     // id...............................................................................................................
