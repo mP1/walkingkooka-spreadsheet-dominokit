@@ -22,8 +22,6 @@ import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetError;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
-import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
@@ -35,6 +33,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValidatorSaveHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValidatorSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.validation.provider.ValidatorSelector;
@@ -48,7 +48,6 @@ import java.util.stream.Collectors;
  */
 public final class ValidatorSelectorDialogComponent implements DialogComponentLifecycle,
     LoadedSpreadsheetMetadataRequired,
-    ComponentLifecycleMatcherDelegator,
     SpreadsheetDeltaFetcherWatcher,
     NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher {
@@ -198,8 +197,13 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
     // HistoryTokenAwareComponentLifecycle..............................................................................
 
     @Override
-    public ComponentLifecycleMatcher componentLifecycleMatcher() {
-        return this.context;
+    public boolean shouldIgnore(final HistoryToken token) {
+        return token instanceof SpreadsheetCellValidatorSaveHistoryToken;
+    }
+
+    @Override
+    public boolean isMatch(final HistoryToken token) {
+        return token instanceof SpreadsheetCellValidatorSelectHistoryToken;
     }
 
     @Override
