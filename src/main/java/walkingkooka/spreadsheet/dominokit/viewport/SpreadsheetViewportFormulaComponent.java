@@ -207,7 +207,9 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlComponentD
                     cell = null;
                 }
 
-                context.debug("SpreadsheetViewportFormulaComponent.refresh formula cell: " + cell);
+                if(this.shouldLogLifecycleChanges()) {
+                    context.debug(this.getClass().getSimpleName() + ".refresh formula cell: " + cell);
+                }
                 if (null != cell) {
                     this.refreshFormula(
                         selectedCell,
@@ -217,7 +219,9 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlComponentD
             }
 
             if (token instanceof SpreadsheetCellFormulaHistoryToken & false == this.previousHistoryToken instanceof SpreadsheetCellFormulaHistoryToken) {
-                context.debug("SpreadsheetViewportFormulaComponent.refresh giving focus");
+                if(this.shouldLogLifecycleChanges()) {
+                    context.debug(this.getClass().getSimpleName() + ".refresh giving focus");
+                }
                 context.giveFocus(formula::focus);
             }
 
