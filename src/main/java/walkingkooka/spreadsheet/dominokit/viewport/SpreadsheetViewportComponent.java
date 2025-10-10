@@ -422,7 +422,9 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         final boolean reload = width > this.viewportGridWidth || height > this.viewportGridHeight;
 
         final SpreadsheetViewportComponentContext context = this.context;
-        context.debug(this.getClass().getSimpleName() + ".setWidthAndHeight " + width + "x" + height + " was " + this.viewportGridWidth + "x" + this.viewportGridHeight + " reload: " + reload);
+        if(SPREADSHEET_VIEWPORT_COMPONENT) {
+            context.debug(this.getClass().getSimpleName() + ".setWidthAndHeight " + width + "x" + height + " was " + this.viewportGridWidth + "x" + this.viewportGridHeight + " reload: " + reload);
+        }
 
         this.width = width;
         this.height = height;
@@ -721,11 +723,15 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
                         element = element.firstElementChild;
                     }
 
-                    context.debug(this.getClass().getSimpleName() + ".giveViewportSelectionFocus " + spreadsheetSelection + " focus element " + element);
+                    if(SPREADSHEET_VIEWPORT_COMPONENT) {
+                        context.debug(this.getClass().getSimpleName() + ".giveViewportSelectionFocus " + spreadsheetSelection + " focus element " + element);
+                    }
                     element.focus();
                 }
             } else {
-                context.debug(this.getClass().getSimpleName() + ".giveViewportSelectionFocus " + spreadsheetSelection + " element not found!");
+                if(SPREADSHEET_VIEWPORT_COMPONENT) {
+                    context.debug(this.getClass().getSimpleName() + ".giveViewportSelectionFocus " + spreadsheetSelection + " element not found!");
+                }
             }
         }
     }
@@ -906,11 +912,13 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
                     viewport.anchoredSelection()
                 );
 
-            context.debug(
-                this.getClass().getSimpleName() +
-                    ".synchronizeHistoryToken different selection from history token @" +
-                    withSelection
-            );
+            if(SPREADSHEET_VIEWPORT_COMPONENT) {
+                context.debug(
+                    this.getClass().getSimpleName() +
+                        ".synchronizeHistoryToken different selection from history token @" +
+                        withSelection
+                );
+            }
             context.pushHistoryToken(withSelection);
         }
     }
@@ -1021,12 +1029,16 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
             final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
             if (reload && width > 0 && height > 0 && metadata.isNotEmpty()) {
                 if (metadata.isEmpty()) {
-                    context.debug(this.getClass().getSimpleName() + ".loadViewportCellsIfNecessary waiting for metadata");
+                    if(SPREADSHEET_VIEWPORT_COMPONENT) {
+                        context.debug(this.getClass().getSimpleName() + ".loadViewportCellsIfNecessary waiting for metadata");
+                    }
                 } else {
                     this.loadViewportCells();
                 }
             } else {
-                context.debug(this.getClass().getSimpleName() + ".loadViewportCellsIfNecessary not ready, reload: " + reload + " width: " + width + " height: " + height + " metadata.isEmpty: " + metadata.isEmpty() + " open " + this.open);
+                if(SPREADSHEET_VIEWPORT_COMPONENT) {
+                    context.debug(this.getClass().getSimpleName() + ".loadViewportCellsIfNecessary not ready, reload: " + reload + " width: " + width + " height: " + height + " metadata.isEmpty: " + metadata.isEmpty() + " open " + this.open);
+                }
             }
         }
     }
@@ -1043,7 +1055,9 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         final SpreadsheetViewport viewport = this.viewport()
             .setNavigations(this.navigations);
 
-        context.debug(this.getClass().getSimpleName() + ".loadViewportCells id: " + id + " viewport: " + viewport);
+        if(SPREADSHEET_VIEWPORT_COMPONENT) {
+            context.debug(this.getClass().getSimpleName() + ".loadViewportCells id: " + id + " viewport: " + viewport);
+        }
 
         this.reload = false;
         this.navigations = SpreadsheetViewportNavigationList.EMPTY;
