@@ -18,12 +18,14 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.Node;
+import walkingkooka.spreadsheet.dominokit.log.Logging;
 import walkingkooka.text.printer.TreePrintable;
 
 /**
  * A component
  */
-public interface Component extends TreePrintable {
+public interface Component extends Logging,
+    TreePrintable {
 
     Node node();
 }
