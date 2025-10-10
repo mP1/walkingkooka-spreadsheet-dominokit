@@ -213,6 +213,7 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
 
     @Override
     public void openGiveFocus(final RefreshContext context) {
+        this.refreshSelectorValue();
         this.copySelectorErrorMessages();
 
         context.giveFocus(
@@ -222,8 +223,6 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
 
     @Override
     public void refresh(final RefreshContext context) {
-        this.refreshSelectorValue();
-
         final Optional<ValidatorSelector> undo = this.context.undo();
         this.refreshSaveLink(undo);
         this.undo.setValue(undo);
