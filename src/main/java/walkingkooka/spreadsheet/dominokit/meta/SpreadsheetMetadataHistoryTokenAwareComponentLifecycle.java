@@ -99,7 +99,7 @@ public final class SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E exte
 
     @Override
     public boolean shouldLogLifecycleChanges() {
-        return true;
+        return false;
     }
 
     // isEditing........................................................................................................
