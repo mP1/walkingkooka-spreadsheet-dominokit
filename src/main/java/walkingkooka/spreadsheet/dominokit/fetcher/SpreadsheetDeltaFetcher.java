@@ -100,10 +100,6 @@ import java.util.Set;
  */
 public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetcherWatcher> {
 
-    static {
-        SpreadsheetDelta.EMPTY.toString(); // force json unmarshaller to register
-    }
-
     /**
      * Returns true if the URL is a GET all cells
      */

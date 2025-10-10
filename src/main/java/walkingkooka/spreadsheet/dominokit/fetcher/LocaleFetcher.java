@@ -39,10 +39,6 @@ import java.util.Optional;
  */
 public final class LocaleFetcher extends Fetcher<LocaleFetcherWatcher> {
 
-    static {
-        LocaleHateosResourceSet.EMPTY.toString(); // force json unmarshaller to register
-    }
-
     // Fetcher..........................................................................................................
 
     public static LocaleFetcher with(final LocaleFetcherWatcher watcher,

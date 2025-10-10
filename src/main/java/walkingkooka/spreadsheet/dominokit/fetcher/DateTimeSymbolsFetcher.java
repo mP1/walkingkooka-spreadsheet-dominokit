@@ -41,10 +41,6 @@ import java.util.Optional;
  */
 public final class DateTimeSymbolsFetcher extends Fetcher<DateTimeSymbolsFetcherWatcher> {
 
-    static {
-        DateTimeSymbolsHateosResourceSet.EMPTY.toString(); // force json unmarshaller to register
-    }
-
     // Fetcher..........................................................................................................
 
     public static DateTimeSymbolsFetcher with(final DateTimeSymbolsFetcherWatcher watcher,

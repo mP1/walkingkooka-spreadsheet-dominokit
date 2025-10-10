@@ -41,10 +41,6 @@ import java.util.Optional;
  */
 public final class DecimalNumberSymbolsFetcher extends Fetcher<DecimalNumberSymbolsFetcherWatcher> {
 
-    static {
-        DecimalNumberSymbolsHateosResourceSet.EMPTY.toString(); // force json unmarshaller to register
-    }
-
     // Fetcher..........................................................................................................
 
     public static DecimalNumberSymbolsFetcher with(final DecimalNumberSymbolsFetcherWatcher watcher,

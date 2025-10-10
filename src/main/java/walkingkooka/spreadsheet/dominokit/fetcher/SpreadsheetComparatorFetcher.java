@@ -23,7 +23,6 @@ import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorInfoSet;
-import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.text.CharSequences;
@@ -34,10 +33,6 @@ import java.util.Optional;
  * Fetcher for {@link SpreadsheetComparator} end points.
  */
 public final class SpreadsheetComparatorFetcher extends Fetcher<SpreadsheetComparatorFetcherWatcher> {
-
-    static {
-        SpreadsheetComparatorName.CASE_SENSITIVITY.toString(); // force json unmarshaller to register
-    }
 
     // Fetcher..........................................................................................................
 

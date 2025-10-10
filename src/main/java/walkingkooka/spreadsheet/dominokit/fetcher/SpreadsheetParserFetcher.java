@@ -39,19 +39,6 @@ import java.util.Optional;
  */
 public final class SpreadsheetParserFetcher extends Fetcher<SpreadsheetParserFetcherWatcher> {
 
-    static {
-        SpreadsheetParserName.DATE_PARSER_PATTERN.setValueText("yyyy"); // force json unmarshaller to register
-
-        try {
-            SpreadsheetParserSelectorEdit.parse(
-                null,
-                null
-            );
-        } catch (final NullPointerException ignore) {
-            // nop
-        }
-    }
-
     public static SpreadsheetParserFetcher with(final SpreadsheetParserFetcherWatcher watcher,
                                                 final AppContext context) {
         return new SpreadsheetParserFetcher(

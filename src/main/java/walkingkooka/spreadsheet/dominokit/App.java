@@ -158,6 +158,7 @@ import walkingkooka.spreadsheet.provider.SpreadsheetProviderContexts;
 import walkingkooka.spreadsheet.provider.SpreadsheetProviderDelegator;
 import walkingkooka.spreadsheet.provider.SpreadsheetProviders;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+import walkingkooka.spreadsheet.server.SpreadsheetServerStartup;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResourceSet;
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResource;
@@ -244,7 +245,7 @@ public class App implements EntryPoint,
     public final static long SLOW_HISTORY_TOKEN_CHANGE = 150;
 
     public App() {
-        SpreadsheetDelta.EMPTY.toString(); // force json register.
+        SpreadsheetServerStartup.init();
 
         this.addWindowResizeListener(this::onWindowResize);
 

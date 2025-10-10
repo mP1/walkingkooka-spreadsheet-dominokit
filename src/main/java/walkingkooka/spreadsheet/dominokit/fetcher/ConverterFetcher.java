@@ -21,7 +21,6 @@ import walkingkooka.Cast;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.convert.Converter;
 import walkingkooka.convert.provider.ConverterInfoSet;
-import walkingkooka.convert.provider.ConverterName;
 import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
@@ -44,10 +43,6 @@ import java.util.Optional;
  * Fetcher for {@link Converter} end points.
  */
 public final class ConverterFetcher extends Fetcher<ConverterFetcherWatcher> {
-
-    static {
-        ConverterName.CASE_SENSITIVITY.toString(); // force json unmarshaller to register
-    }
 
     public static ConverterFetcher with(final ConverterFetcherWatcher watcher,
                                         final AppContext context) {

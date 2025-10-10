@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.collect.set.Sets;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
@@ -66,12 +65,6 @@ import java.util.OptionalInt;
  * </br>
  */
 public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadataFetcherWatcher> {
-
-    static {
-        SpreadsheetMetadataSet.with(
-            Sets.empty()
-        ); // JSON register
-    }
 
     private final static RelativeUrl API_BASE = Url.EMPTY_RELATIVE_URL.appendPath(SpreadsheetHttpServer.API_SPREADSHEET);
 
