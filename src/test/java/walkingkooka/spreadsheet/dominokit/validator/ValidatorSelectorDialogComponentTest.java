@@ -67,9 +67,18 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                         ValidatorSelector.parse("hello-validator")
                     );
                 }
+
+                @Override
+                public SpreadsheetViewportCache spreadsheetViewportCache() {
+                    return context.spreadsheetViewportCache();
+                }
             }
         );
 
+        dialog.onHistoryTokenChange(
+            HistoryToken.parseString("/1/Spreadsheet123"),
+            context
+        );
         dialog.refresh(context);
 
         this.treePrintAndCheck(
@@ -77,7 +86,7 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
             "ValidatorSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Validator Title123\n" +
-                "    id=selector-Dialog includeClose=true CLOSED\n" +
+                "    id=selector-Dialog includeClose=true\n" +
                 "      ValidatorSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
