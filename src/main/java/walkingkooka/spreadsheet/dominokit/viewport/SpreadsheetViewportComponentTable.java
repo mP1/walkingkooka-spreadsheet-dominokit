@@ -351,7 +351,9 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
             timings.add(String.valueOf(ended - tableRowCellsStart));
         }
 
-        context.debug(this.getClass().getSimpleName() + ".refresh " + (ended - started) + "ms, row rendering timings: " + String.join(", ", timings));
+        if(SPREADSHEET_VIEWPORT_COMPONENT_TABLE) {
+            context.debug(this.getClass().getSimpleName() + ".refresh " + (ended - started) + "ms, row rendering timings: " + String.join(", ", timings));
+        }
     }
 
     private SpreadsheetId id;
