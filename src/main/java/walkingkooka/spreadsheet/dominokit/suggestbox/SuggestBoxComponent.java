@@ -168,7 +168,7 @@ public final class SuggestBoxComponent<T> implements SuggestBoxComponentLike<T> 
         return new SuggestOption<>(
             this.suggestionsProvider.menuItemKey(option),
             option, // value
-            (String k, T v) -> span().textContent(v.toString()), // ignored
+            (String k, T v) -> span(), // ignored
             (String k, T v) -> this.menuItemCreator.apply(v)
         );
     }
