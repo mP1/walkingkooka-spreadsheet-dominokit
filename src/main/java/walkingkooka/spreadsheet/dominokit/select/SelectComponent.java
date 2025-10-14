@@ -265,7 +265,7 @@ public final class SelectComponent<T> implements FormValueComponent<HTMLFieldSet
     }
 
     private SelectComponent<T> addEventListener(final EventType type,
-                                           final EventListener listener) {
+                                                final EventListener listener) {
         this.select.addEventListener(
             type,
             Objects.requireNonNull(listener, "listener")
