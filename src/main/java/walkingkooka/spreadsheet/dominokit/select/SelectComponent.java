@@ -205,11 +205,10 @@ public final class SelectComponent<T> implements FormValueComponent<HTMLFieldSet
 
     @Override
     public SelectComponent<T> addBlurListener(final EventListener listener) {
-        this.select.addEventListener(
+        return this.addEventListener(
             EventType.blur,
             listener
         );
-        return this;
     }
 
     @Override
@@ -227,49 +226,49 @@ public final class SelectComponent<T> implements FormValueComponent<HTMLFieldSet
 
     @Override
     public SelectComponent<T> addClickListener(final EventListener listener) {
-        this.select.addEventListener(
+        return this.addEventListener(
             EventType.click,
             listener
         );
-        return this;
     }
 
     @Override
     public SelectComponent<T> addContextMenuListener(final EventListener listener) {
-        this.select.addEventListener(
+        return this.addEventListener(
             EventType.contextmenu,
             listener
         );
-        return this;
     }
 
     @Override
     public SelectComponent<T> addFocusListener(final EventListener listener) {
-        this.select.addEventListener(
+        return this.addEventListener(
             EventType.focus,
             listener
         );
-        return this;
     }
 
     @Override
     public SelectComponent<T> addKeyDownListener(final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        this.select.addEventListener(
+        return this.addEventListener(
             EventType.keydown,
             listener
         );
-        return this;
     }
 
     @Override
     public SelectComponent<T> addKeyUpListener(final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        this.select.addEventListener(
+        return this.addEventListener(
             EventType.keyup,
             listener
+        );
+    }
+
+    private SelectComponent<T> addEventListener(final EventType type,
+                                           final EventListener listener) {
+        this.select.addEventListener(
+            type,
+            Objects.requireNonNull(listener, "listener")
         );
         return this;
     }
