@@ -55,7 +55,7 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
 
         for (final ValidationValueTypeName typeName : SpreadsheetValueType.ALL_CELL_TYPES) {
             select.appendOption(
-                CaseKind.PASCAL.change(
+                CaseKind.KEBAB.change(
                     typeName.text(),
                     CaseKind.TITLE
                 ),

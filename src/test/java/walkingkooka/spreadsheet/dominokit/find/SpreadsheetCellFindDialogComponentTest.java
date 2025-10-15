@@ -128,7 +128,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
-                "              Date Time=dateTime\n" +
+                "              Date Time=date-time\n" +
                 "              Error=error\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
@@ -249,7 +249,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
-                "              Date Time=dateTime\n" +
+                "              Date Time=date-time\n" +
                 "              Error=error\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
@@ -370,7 +370,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
-                "              Date Time=dateTime\n" +
+                "              Date Time=date-time\n" +
                 "              Error=error\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
@@ -489,7 +489,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
-                "              Date Time=dateTime\n" +
+                "              Date Time=date-time\n" +
                 "              Error=error\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
@@ -644,7 +644,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
-                "              Date Time=dateTime\n" +
+                "              Date Time=date-time\n" +
                 "              Error=error\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
@@ -794,7 +794,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
-                "              Date Time=dateTime\n" +
+                "              Date Time=date-time\n" +
                 "              Error=error\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
@@ -913,7 +913,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
-                "              Date Time=dateTime\n" +
+                "              Date Time=date-time\n" +
                 "              Error=error\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
@@ -1032,7 +1032,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
-                "              Date Time=dateTime\n" +
+                "              Date Time=date-time\n" +
                 "              Error=error\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
@@ -1151,7 +1151,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
-                "              Date Time=dateTime\n" +
+                "              Date Time=date-time\n" +
                 "              Error=error\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
@@ -1270,7 +1270,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
-                "              Date Time=dateTime\n" +
+                "              Date Time=date-time\n" +
                 "              Error=error\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
@@ -1389,7 +1389,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
-                "              Date Time=dateTime\n" +
+                "              Date Time=date-time\n" +
                 "              Error=error\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
@@ -1508,7 +1508,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
-                "              Date Time=dateTime\n" +
+                "              Date Time=date-time\n" +
                 "              Error=error\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
@@ -1627,7 +1627,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
-                "              Date Time=dateTime\n" +
+                "              Date Time=date-time\n" +
                 "              Error=error\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
@@ -1746,7 +1746,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
-                "              Date Time=dateTime\n" +
+                "              Date Time=date-time\n" +
                 "              Error=error\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
@@ -1865,7 +1865,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
-                "              Date Time=dateTime\n" +
+                "              Date Time=date-time\n" +
                 "              Error=error\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
@@ -1984,7 +1984,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
-                "              Date Time=dateTime\n" +
+                "              Date Time=date-time\n" +
                 "              Error=error\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
@@ -2103,7 +2103,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
-                "              Date Time=dateTime\n" +
+                "              Date Time=date-time\n" +
                 "              Error=error\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
@@ -2222,7 +2222,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Any=*\n" +
                 "              Boolean=boolean\n" +
                 "              Date=date\n" +
-                "              Date Time=dateTime\n" +
+                "              Date Time=date-time\n" +
                 "              Error=error\n" +
                 "              Number=number\n" +
                 "              Text=text\n" +
