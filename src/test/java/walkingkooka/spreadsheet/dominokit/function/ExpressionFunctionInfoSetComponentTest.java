@@ -82,13 +82,13 @@ public final class ExpressionFunctionInfoSetComponentTest implements FormValueCo
             ExpressionFunctionInfoSetComponent.empty()
                 .setStringValue(
                     Optional.of(
-                        "https://www.example.com/Good Good, https://www.example.com/Bad Bad!"
+                        "https://www.example.com/Good Good, https://www.example.com/Bad bad!"
                     )
                 ),
             "ExpressionFunctionInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://www.example.com/Good Good, https://www.example.com/Bad Bad!]\n" +
+                "      [https://www.example.com/Good Good, https://www.example.com/Bad bad!]\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 66\n"
         );

@@ -40,7 +40,7 @@ import java.util.OptionalLong;
 
 public final class JarEntryInfoListDialogComponentTest implements DialogComponentLifecycleTesting<JarEntryInfoListDialogComponent> {
 
-    private final static PluginName PLUGIN_NAME = PluginName.with("TestPluginName111");
+    private final static PluginName PLUGIN_NAME = PluginName.with("test-plugin-name-111");
 
     // isMatch..........................................................................................................
 
@@ -159,7 +159,7 @@ public final class JarEntryInfoListDialogComponentTest implements DialogComponen
             context,
             "JarEntryInfoListDialogComponent\n" +
                 "  DialogComponent\n" +
-                "    TestPluginName111\n" +
+                "    test-plugin-name-111\n" +
                 "    id=plugin-Dialog includeClose=true\n" +
                 "      JarEntryInfoListTableComponent\n" +
                 "        CardComponent\n" +
@@ -179,8 +179,8 @@ public final class JarEntryInfoListDialogComponentTest implements DialogComponen
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Delete\" [#/plugin/TestPluginName111/delete] id=plugin-delete-Link\n" +
-                "            \"Download\" [/api/plugin/TestPluginName111/download] id=plugin-download-Link\n" +
+                "            \"Delete\" [#/plugin/test-plugin-name-111/delete] id=plugin-delete-Link\n" +
+                "            \"Download\" [/api/plugin/test-plugin-name-111/download] id=plugin-download-Link\n" +
                 "            \"Close\" [#/plugin] id=plugin-close-Link\n"
         );
     }
@@ -255,7 +255,7 @@ public final class JarEntryInfoListDialogComponentTest implements DialogComponen
             context,
             "JarEntryInfoListDialogComponent\n" +
                 "  DialogComponent\n" +
-                "    TestPluginName111\n" +
+                "    test-plugin-name-111\n" +
                 "    id=plugin-Dialog includeClose=true\n" +
                 "      JarEntryInfoListTableComponent\n" +
                 "        CardComponent\n" +
@@ -286,15 +286,15 @@ public final class JarEntryInfoListDialogComponentTest implements DialogComponen
                 "                    \"2/1/00, 12:58 pm\"\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
-                "                      \"Download\" [/api/plugin/TestPluginName111/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
-                "                      \"View\" [#/plugin/TestPluginName111/file/META-INF/MANIFEST.MF] id=plugin-view-Link\n" +
+                "                      \"Download\" [/api/plugin/test-plugin-name-111/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
+                "                      \"View\" [#/plugin/test-plugin-name-111/file/META-INF/MANIFEST.MF] id=plugin-view-Link\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Delete\" [#/plugin/TestPluginName111/delete] id=plugin-delete-Link\n" +
-                "            \"Download\" [/api/plugin/TestPluginName111/download] id=plugin-download-Link\n" +
+                "            \"Delete\" [#/plugin/test-plugin-name-111/delete] id=plugin-delete-Link\n" +
+                "            \"Download\" [/api/plugin/test-plugin-name-111/download] id=plugin-download-Link\n" +
                 "            \"Close\" [#/plugin] id=plugin-close-Link\n"
         );
     }
@@ -368,7 +368,7 @@ public final class JarEntryInfoListDialogComponentTest implements DialogComponen
             context,
             "JarEntryInfoListDialogComponent\n" +
                 "  DialogComponent\n" +
-                "    TestPluginName111\n" +
+                "    test-plugin-name-111\n" +
                 "    id=plugin-Dialog includeClose=true\n" +
                 "      JarEntryInfoListTableComponent\n" +
                 "        CardComponent\n" +
@@ -399,19 +399,19 @@ public final class JarEntryInfoListDialogComponentTest implements DialogComponen
                 "                    \"1/1/00, 1:01 am\"\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
-                "                      \"Download\" [/api/plugin/TestPluginName111/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
-                "                      \"View\" [#/plugin/TestPluginName111/file/META-INF/MANIFEST.MF] id=plugin-view-Link\n" +
+                "                      \"Download\" [/api/plugin/test-plugin-name-111/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
+                "                      \"View\" [#/plugin/test-plugin-name-111/file/META-INF/MANIFEST.MF] id=plugin-view-Link\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Delete\" [#/plugin/TestPluginName111/delete] id=plugin-delete-Link\n" +
-                "            \"Download\" [/api/plugin/TestPluginName111/download] id=plugin-download-Link\n" +
+                "            \"Delete\" [#/plugin/test-plugin-name-111/delete] id=plugin-delete-Link\n" +
+                "            \"Download\" [/api/plugin/test-plugin-name-111/download] id=plugin-download-Link\n" +
                 "            \"Close\" [#/plugin] id=plugin-close-Link\n"
         );
 
-        final PluginName differentPluginName = PluginName.with("differentPlugin222");
+        final PluginName differentPluginName = PluginName.with("different-plugin-222");
         context.historyToken = "/plugin/" + differentPluginName;
 
         dialog.onJarEntryInfoList(
@@ -444,7 +444,7 @@ public final class JarEntryInfoListDialogComponentTest implements DialogComponen
             context,
             "JarEntryInfoListDialogComponent\n" +
                 "  DialogComponent\n" +
-                "    differentPlugin222\n" +
+                "    different-plugin-222\n" +
                 "    id=plugin-Dialog includeClose=true\n" +
                 "      JarEntryInfoListTableComponent\n" +
                 "        CardComponent\n" +
@@ -475,15 +475,15 @@ public final class JarEntryInfoListDialogComponentTest implements DialogComponen
                 "                    \"2/2/00, 2:02 am\"\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
-                "                      \"Download\" [/api/plugin/TestPluginName111/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
-                "                      \"View\" [#/plugin/TestPluginName111/file/META-INF/MANIFEST.MF] id=plugin-view-Link\n" +
+                "                      \"Download\" [/api/plugin/test-plugin-name-111/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
+                "                      \"View\" [#/plugin/test-plugin-name-111/file/META-INF/MANIFEST.MF] id=plugin-view-Link\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Delete\" [#/plugin/differentPlugin222/delete] id=plugin-delete-Link\n" +
-                "            \"Download\" [/api/plugin/differentPlugin222/download] id=plugin-download-Link\n" +
+                "            \"Delete\" [#/plugin/different-plugin-222/delete] id=plugin-delete-Link\n" +
+                "            \"Download\" [/api/plugin/different-plugin-222/download] id=plugin-download-Link\n" +
                 "            \"Close\" [#/plugin] id=plugin-close-Link\n"
         );
     }

@@ -63,13 +63,13 @@ public final class SpreadsheetFormatterInfoSetComponentTest implements FormValue
             SpreadsheetFormatterInfoSetComponent.empty()
                 .setStringValue(
                     Optional.of(
-                        "https://www.example.com/Hello !"
+                        "https://www.example.com/hello !"
                     )
                 ),
             "SpreadsheetFormatterInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://www.example.com/Hello !]\n" +
+                "      [https://www.example.com/hello !]\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 30\n"
         );
@@ -81,13 +81,13 @@ public final class SpreadsheetFormatterInfoSetComponentTest implements FormValue
             SpreadsheetFormatterInfoSetComponent.empty()
                 .setStringValue(
                     Optional.of(
-                        "https://www.example.com/Hello Hello, bad://www.example.com Hello2"
+                        "https://www.example.com/hello hello, bad://www.example.com hello2"
                     )
                 ),
             "SpreadsheetFormatterInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://www.example.com/Hello Hello, bad://www.example.com Hello2]\n" +
+                "      [https://www.example.com/hello hello, bad://www.example.com hello2]\n" +
                 "      Errors\n" +
                 "        unknown protocol: bad\n"
         );
@@ -99,13 +99,13 @@ public final class SpreadsheetFormatterInfoSetComponentTest implements FormValue
             SpreadsheetFormatterInfoSetComponent.empty()
                 .setStringValue(
                     Optional.of(
-                        "https://www.example.com/Hello Good, https://www.example.com Bad!"
+                        "https://www.example.com/hello good, https://www.example.com bad!"
                     )
                 ),
             "SpreadsheetFormatterInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://www.example.com/Hello Good, https://www.example.com Bad!]\n" +
+                "      [https://www.example.com/hello good, https://www.example.com bad!]\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 63\n"
         );

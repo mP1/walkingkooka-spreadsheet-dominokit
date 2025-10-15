@@ -37,7 +37,7 @@ public final class PluginDeleteAnchorComponentTest implements AnchorComponentTes
 
     @Test
     public void testSetValue() {
-        final PluginName pluginName = PluginName.with("PluginName456");
+        final PluginName pluginName = PluginName.with("plugin-name-456");
 
         this.treePrintAndCheck(
             PluginDeleteAnchorComponent.empty("plugin-delete-anchor-id")
@@ -47,7 +47,7 @@ public final class PluginDeleteAnchorComponentTest implements AnchorComponentTes
                         pluginName
                     )
                 ),
-            "\"View456!\" [#/plugin/PluginName456/delete] id=plugin-delete-anchor-id"
+            "\"View456!\" [#/plugin/plugin-name-456/delete] id=plugin-delete-anchor-id"
         );
     }
 

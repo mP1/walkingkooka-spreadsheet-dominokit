@@ -51,7 +51,7 @@ public final class PluginUploadDialogComponentTest implements DialogComponentLif
     @Test
     public void testIsMatchWithPluginSelectHistoryToken() {
         final PluginSelectHistoryToken historyToken = HistoryToken.pluginSelect(
-            PluginName.with("HelloPlugin")
+            PluginName.with("hello-plugin")
         );
 
         final PluginUploadDialogComponent dialog = PluginUploadDialogComponent.with(
@@ -174,7 +174,7 @@ public final class PluginUploadDialogComponentTest implements DialogComponentLif
         dialog.uploadFile.setValue(
             Optional.of(
                 BrowserFile.base64(
-                    "TestPluginName" + 0,
+                    "test-plugin-name-" + 0,
                     Base64.getEncoder()
                         .encodeToString(
                             pluginBinary()
@@ -195,12 +195,12 @@ public final class PluginUploadDialogComponentTest implements DialogComponentLif
                 "        id=pluginUpload-UploadFile\n" +
                 "        label=Drop files here or click to upload.\n" +
                 "          BrowserFileBase64\n" +
-                "            \"TestPluginName0\"\n" +
+                "            \"test-plugin-name-0\"\n" +
                 "              UEsDBBQACAgIAEB/IigAAAAAAAAAAAAAAAAUAA0ATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAkABdjabjhYqGw44+UCAFBLBwishaIUBAAAAAIAAABQSwECFAAUAAgICABAfyIorIWiFAQAAAACAAAAFAAJAAAAAAAAAAAAAAAAAAAATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAUABdjabjhQSwUGAAAAAAEAAQBLAAAAUwAAAAAA\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Upload\" [#/plugin-upload/save/base64/TestPluginName0/UEsDBBQACAgIAEB/IigAAAAAAAAAAAAAAAAUAA0ATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAkABdjabjhYqGw44+UCAFBLBwishaIUBAAAAAIAAABQSwECFAAUAAgICABAfyIorIWiFAQAAAACAAAAFAAJAAAAAAAAAAAAAAAAAAAATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAUABdjabjhQSwUGAAAAAAEAAQBLAAAAUwAAAAAA] id=pluginUpload-upload-Link\n" +
+                "            \"Upload\" [#/plugin-upload/save/base64/test-plugin-name-0/UEsDBBQACAgIAEB/IigAAAAAAAAAAAAAAAAUAA0ATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAkABdjabjhYqGw44+UCAFBLBwishaIUBAAAAAIAAABQSwECFAAUAAgICABAfyIorIWiFAQAAAACAAAAFAAJAAAAAAAAAAAAAAAAAAAATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAUABdjabjhQSwUGAAAAAAEAAQBLAAAAUwAAAAAA] id=pluginUpload-upload-Link\n" +
                 "            \"Close\" [#/plugin] id=pluginUpload-close-Link\n"
         );
     }
@@ -259,7 +259,7 @@ public final class PluginUploadDialogComponentTest implements DialogComponentLif
 
     private static Plugin plugin(final int i) {
         return Plugin.with(
-            PluginName.with("TestPluginName" + i),
+            PluginName.with("test-plugin-name-" + i),
             "filename" + i + ".jar",
             pluginBinary(),
             USER,

@@ -42,10 +42,10 @@ public final class PluginSelectAnchorComponentTest implements AnchorComponentTes
                 .setTextContent("View456!")
                 .setValue(
                     Optional.of(
-                        PluginName.with("PluginName456")
+                        PluginName.with("plugin-name-456")
                     )
                 ),
-            "\"View456!\" [#/plugin/PluginName456] id=plugin-select-anchor-id"
+            "\"View456!\" [#/plugin/plugin-name-456] id=plugin-select-anchor-id"
         );
     }
 

@@ -34,7 +34,7 @@ import java.util.Optional;
 
 public final class PluginFileViewDialogComponentTest implements DialogComponentLifecycleTesting<PluginFileViewDialogComponent> {
 
-    private final static PluginName PLUGIN_NAME = PluginName.with("TestPluginName111");
+    private final static PluginName PLUGIN_NAME = PluginName.with("test-plugin-name-111");
 
     private final static JarEntryInfoName EMPTY_FILENAME = JarEntryInfoName.with("/empty-file.txt");
 
@@ -57,8 +57,8 @@ public final class PluginFileViewDialogComponentTest implements DialogComponentL
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Download\" [/api/plugin/TestPluginName111/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
-                "            \"Close\" [#/plugin/TestPluginName111] id=pluginFileView-close-Link\n"
+                "            \"Download\" [/api/plugin/test-plugin-name-111/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
+                "            \"Close\" [#/plugin/test-plugin-name-111] id=pluginFileView-close-Link\n"
         );
     }
 
@@ -84,8 +84,8 @@ public final class PluginFileViewDialogComponentTest implements DialogComponentL
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Download\" [/api/plugin/TestPluginName111/download/empty-file.txt] id=plugin-download-Link\n" +
-                "            \"Close\" [#/plugin/TestPluginName111] id=pluginFileView-close-Link\n"
+                "            \"Download\" [/api/plugin/test-plugin-name-111/download/empty-file.txt] id=plugin-download-Link\n" +
+                "            \"Close\" [#/plugin/test-plugin-name-111] id=pluginFileView-close-Link\n"
         );
     }
 
@@ -109,8 +109,8 @@ public final class PluginFileViewDialogComponentTest implements DialogComponentL
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Download\" [/api/plugin/TestPluginName111/download/non-empty-file.txt] id=plugin-download-Link\n" +
-                "            \"Close\" [#/plugin/TestPluginName111] id=pluginFileView-close-Link\n"
+                "            \"Download\" [/api/plugin/test-plugin-name-111/download/non-empty-file.txt] id=plugin-download-Link\n" +
+                "            \"Close\" [#/plugin/test-plugin-name-111] id=pluginFileView-close-Link\n"
         );
     }
 
@@ -136,8 +136,8 @@ public final class PluginFileViewDialogComponentTest implements DialogComponentL
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Download\" [/api/plugin/TestPluginName111/download/empty-file.txt] id=plugin-download-Link\n" +
-                "            \"Close\" [#/plugin/TestPluginName111] id=pluginFileView-close-Link\n"
+                "            \"Download\" [/api/plugin/test-plugin-name-111/download/empty-file.txt] id=plugin-download-Link\n" +
+                "            \"Close\" [#/plugin/test-plugin-name-111] id=pluginFileView-close-Link\n"
         );
 
         context.pushHistoryToken(
@@ -159,8 +159,8 @@ public final class PluginFileViewDialogComponentTest implements DialogComponentL
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Download\" [/api/plugin/TestPluginName111/download/non-empty-file.txt] id=plugin-download-Link\n" +
-                "            \"Close\" [#/plugin/TestPluginName111] id=pluginFileView-close-Link\n"
+                "            \"Download\" [/api/plugin/test-plugin-name-111/download/non-empty-file.txt] id=plugin-download-Link\n" +
+                "            \"Close\" [#/plugin/test-plugin-name-111] id=pluginFileView-close-Link\n"
         );
     }
 

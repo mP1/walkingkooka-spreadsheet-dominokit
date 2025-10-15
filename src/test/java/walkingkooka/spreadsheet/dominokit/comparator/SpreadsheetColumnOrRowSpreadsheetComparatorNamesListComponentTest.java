@@ -80,12 +80,12 @@ public class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponentTest i
         this.treePrintAndCheck(
             SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent.empty()
                 .setStringValue(
-                    Optional.of("A=GOOD;!B=BAD")
+                    Optional.of("A=good;!B=bad")
                 ),
             "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [A=GOOD;!B=BAD]\n" +
+                "      [A=good;!B=bad]\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 7\n"
         );
@@ -96,12 +96,12 @@ public class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponentTest i
         this.treePrintAndCheck(
             SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent.empty()
                 .setStringValue(
-                    Optional.of("A=GOOD;B=BAD!")
+                    Optional.of("A=good;B=bad!")
                 ),
             "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [A=GOOD;B=BAD!]\n" +
+                "      [A=good;B=bad!]\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 12\n"
         );

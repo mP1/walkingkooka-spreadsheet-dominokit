@@ -48,7 +48,7 @@ public final class PluginFileViewHistoryTokenTest extends PluginNameHistoryToken
     @Test
     public void testParseWithFile() {
         this.parseAndCheck(
-            "/plugin/TestPluginName123/file/dir1/file2.txt",
+            "/plugin/test-plugin-name-123/file/dir1/file2.txt",
             this.createHistoryToken()
         );
     }
@@ -56,7 +56,7 @@ public final class PluginFileViewHistoryTokenTest extends PluginNameHistoryToken
     @Test
     public void testParseWithoutFile() {
         this.parseAndCheck(
-            "/plugin/TestPluginName123/file",
+            "/plugin/test-plugin-name-123/file",
             PluginFileViewHistoryToken.with(
                 PLUGIN_NAME,
                 Optional.empty()
@@ -69,7 +69,7 @@ public final class PluginFileViewHistoryTokenTest extends PluginNameHistoryToken
     @Test
     public void testUrlFragmentWithFile() {
         this.urlFragmentAndCheck(
-            "/plugin/TestPluginName123/file/dir1/file2.txt"
+            "/plugin/test-plugin-name-123/file/dir1/file2.txt"
         );
     }
 
@@ -80,7 +80,7 @@ public final class PluginFileViewHistoryTokenTest extends PluginNameHistoryToken
                 PLUGIN_NAME,
                 Optional.empty()
             ),
-            "/plugin/TestPluginName123/file");
+            "/plugin/test-plugin-name-123/file");
     }
 
     // clearAction.....................................................................................................

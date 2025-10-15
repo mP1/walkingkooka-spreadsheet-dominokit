@@ -21,12 +21,12 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToValidationValueTypeNameMap;
+import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToValueTypeNameMap;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
-import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.ValueTypeName;
 
 import java.util.Map;
 import java.util.Optional;
@@ -36,7 +36,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends SpreadsheetCellSaveMapHistoryTokenTestCase<SpreadsheetCellSaveValueTypeHistoryToken>
     implements SpreadsheetMetadataTesting {
 
-    private final static ValidationValueTypeName VALUE_TYPE = ValidationValueTypeName.with("hello-value-type");
+    private final static ValueTypeName VALUE_TYPE = ValueTypeName.with("hello-value-type");
 
     @Test
     public void testWithSaveFormulasOutsideRangeFails() {
@@ -106,7 +106,7 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
     // }
     @Test
     public void testParseOneCell() {
-        final Map<SpreadsheetCellReference, Optional<ValidationValueTypeName>> map = Maps.of(
+        final Map<SpreadsheetCellReference, Optional<ValueTypeName>> map = Maps.of(
             SpreadsheetSelection.A1,
             Optional.of(VALUE_TYPE)
         );
@@ -128,7 +128,7 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
     // }
     @Test
     public void testParseSeveralCells() {
-        final Map<SpreadsheetCellReference, Optional<ValidationValueTypeName>> map = Maps.of(
+        final Map<SpreadsheetCellReference, Optional<ValueTypeName>> map = Maps.of(
             SpreadsheetSelection.A1,
             Optional.of(VALUE_TYPE),
             SpreadsheetSelection.parseCell("A2"),
@@ -152,7 +152,7 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
     // }
     @Test
     public void testParseOneCellWithoutSymbols() {
-        final Map<SpreadsheetCellReference, Optional<ValidationValueTypeName>> map = Maps.of(
+        final Map<SpreadsheetCellReference, Optional<ValueTypeName>> map = Maps.of(
             SpreadsheetSelection.A1,
             Optional.empty()
         );
@@ -169,11 +169,11 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
     }
 
     // {
-    //   "A1": ValidationValueTypeName
+    //   "A1": ValueTypeName
     // }
     @Test
     public void testUrlFragment() {
-        final Map<SpreadsheetCellReference, Optional<ValidationValueTypeName>> cellToValidationValueTypeName = Maps.of(
+        final Map<SpreadsheetCellReference, Optional<ValueTypeName>> cellToValueTypeName = Maps.of(
             SpreadsheetSelection.A1,
             Optional.of(VALUE_TYPE)
         );
@@ -182,16 +182,16 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
                 ID,
                 NAME,
                 SELECTION,
-                cellToValidationValueTypeName
+                cellToValueTypeName
             ),
             "/123/SpreadsheetName456/cell/A1/save/valueType/" +
-                marshallMap(cellToValidationValueTypeName)
+                marshallMap(cellToValueTypeName)
         );
     }
 
     @Test
     public void testUrlFragment2() {
-        final Map<SpreadsheetCellReference, Optional<ValidationValueTypeName>> cellToValidationValueTypeName = Maps.of(
+        final Map<SpreadsheetCellReference, Optional<ValueTypeName>> cellToValueTypeName = Maps.of(
             SpreadsheetSelection.A1,
             Optional.of(VALUE_TYPE)
         );
@@ -201,23 +201,23 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
                 ID,
                 NAME,
                 SELECTION,
-                cellToValidationValueTypeName
+                cellToValueTypeName
             ),
             "/123/SpreadsheetName456/cell/A1/save/valueType/" +
-                marshallMap(cellToValidationValueTypeName)
+                marshallMap(cellToValueTypeName)
         );
     }
 
     @Test
     public void testUrlFragmentWithMultipleCells() {
-        final Map<SpreadsheetCellReference, Optional<ValidationValueTypeName>> cellToValueType = Maps.of(
+        final Map<SpreadsheetCellReference, Optional<ValueTypeName>> cellToValueType = Maps.of(
             SpreadsheetSelection.A1,
             Optional.of(VALUE_TYPE),
             SpreadsheetSelection.parseCell("A2"),
             Optional.of(VALUE_TYPE),
             SpreadsheetSelection.parseCell("A3"),
             Optional.of(
-                ValidationValueTypeName.with("different-value-type")
+                ValueTypeName.with("different-value-type")
             )
         );
 
@@ -235,8 +235,8 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
     }
 
     @Test
-    public void testUrlFragmentWithNoValidationValueTypeName() {
-        final Map<SpreadsheetCellReference, Optional<ValidationValueTypeName>> cellToValueType = Maps.of(
+    public void testUrlFragmentWithNoValueTypeName() {
+        final Map<SpreadsheetCellReference, Optional<ValueTypeName>> cellToValueType = Maps.of(
             SpreadsheetSelection.A1,
             Optional.empty()
         );
@@ -254,20 +254,20 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
         );
     }
 
-    private static String marshallMap(final Map<SpreadsheetCellReference, Optional<ValidationValueTypeName>> map) {
+    private static String marshallMap(final Map<SpreadsheetCellReference, Optional<ValueTypeName>> map) {
         return marshall(
-            SpreadsheetCellReferenceToValidationValueTypeNameMap.with(map)
+            SpreadsheetCellReferenceToValueTypeNameMap.with(map)
         );
     }
 
     // setSaveStringValue.....................................................................................................
 
     @Test
-    public void testSetSaveValueWithDifferentValidationValueTypeName() {
-        final Map<SpreadsheetCellReference, Optional<ValidationValueTypeName>> value = Maps.of(
+    public void testSetSaveValueWithDifferentValueTypeName() {
+        final Map<SpreadsheetCellReference, Optional<ValueTypeName>> value = Maps.of(
             CELL,
             Optional.of(
-                ValidationValueTypeName.with("different")
+                ValueTypeName.with("different")
             )
         );
 

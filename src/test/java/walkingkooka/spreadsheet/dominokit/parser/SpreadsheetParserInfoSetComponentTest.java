@@ -80,13 +80,13 @@ public final class SpreadsheetParserInfoSetComponentTest implements FormValueCom
             SpreadsheetParserInfoSetComponent.empty()
                 .setStringValue(
                     Optional.of(
-                        "https://www.example.com/Hello Hello, bad://example.com/2"
+                        "https://www.example.com/hello hello, bad://example.com/2"
                     )
                 ),
             "SpreadsheetParserInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://www.example.com/Hello Hello, bad://example.com/2]\n" +
+                "      [https://www.example.com/hello hello, bad://example.com/2]\n" +
                 "      Errors\n" +
                 "        unknown protocol: bad\n"
         );
@@ -98,13 +98,13 @@ public final class SpreadsheetParserInfoSetComponentTest implements FormValueCom
             SpreadsheetParserInfoSetComponent.empty()
                 .setStringValue(
                     Optional.of(
-                        "https://www.example.com/1 Good, https://example.com/2 Bad!"
+                        "https://www.example.com/1 good, https://example.com/2 bad!"
                     )
                 ),
             "SpreadsheetParserInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://www.example.com/1 Good, https://example.com/2 Bad!]\n" +
+                "      [https://www.example.com/1 good, https://example.com/2 bad!]\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 57\n"
         );

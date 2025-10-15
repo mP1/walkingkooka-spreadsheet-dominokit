@@ -42,13 +42,13 @@ public final class PluginDownloadTest implements ClassTesting<PluginDownload> {
     public void testExtract() {
         this.checkEquals(
             PluginDownload.with(
-                PluginName.with("TestPlugin123"),
+                PluginName.with("test-plugin-123"),
                 Optional.of(
                     JarEntryInfoName.MANIFEST_MF
                 )
             ),
             PluginDownload.extract(
-                UrlPath.parse("/api/plugin/TestPlugin123/download/META-INF/MANIFEST.MF")
+                UrlPath.parse("/api/plugin/test-plugin-123/download/META-INF/MANIFEST.MF")
             )
         );
     }

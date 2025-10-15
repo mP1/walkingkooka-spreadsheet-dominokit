@@ -55,7 +55,7 @@ import walkingkooka.tree.text.TextStyleProperty;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.tree.text.TextTransform;
 import walkingkooka.tree.text.VerticalAlign;
-import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.ValueTypeName;
 
 import java.util.List;
 import java.util.Map;
@@ -476,7 +476,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         final SpreadsheetCell summary = context.selectionSummary()
             .orElse(null);
 
-        for (final ValidationValueTypeName type : SpreadsheetValueType.ALL) {
+        for (final ValueTypeName type : SpreadsheetValueType.ALL) {
             final String typeMenuId = idPrefix + type.value();
 
             subMenu.item(
@@ -524,7 +524,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             .orElse(null);
 
         // compute valueType to check once and test within loop below.
-        ValidationValueTypeName checked = null;
+        ValueTypeName checked = null;
         if (null != summary) {
             final Object value = summary.formula()
                 .value()
@@ -536,7 +536,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             }
         }
 
-        for (final ValidationValueTypeName valueType : SpreadsheetValueType.ALL) {
+        for (final ValueTypeName valueType : SpreadsheetValueType.ALL) {
             final String typeMenuId = idPrefix + valueType.value();
 
             subMenu.item(

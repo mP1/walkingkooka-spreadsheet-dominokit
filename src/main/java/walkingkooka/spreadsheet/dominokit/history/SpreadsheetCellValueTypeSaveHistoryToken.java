@@ -23,16 +23,16 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
-import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.ValueTypeName;
 
 import java.util.Optional;
 
-public final class SpreadsheetCellValueTypeSaveHistoryToken extends SpreadsheetCellValueTypeHistoryToken implements Value<Optional<ValidationValueTypeName>> {
+public final class SpreadsheetCellValueTypeSaveHistoryToken extends SpreadsheetCellValueTypeHistoryToken implements Value<Optional<ValueTypeName>> {
 
     static SpreadsheetCellValueTypeSaveHistoryToken with(final SpreadsheetId id,
                                                          final SpreadsheetName name,
                                                          final AnchoredSpreadsheetSelection anchoredSelection,
-                                                         final Optional<ValidationValueTypeName> valueType) {
+                                                         final Optional<ValueTypeName> valueType) {
         return new SpreadsheetCellValueTypeSaveHistoryToken(
             id,
             name,
@@ -44,7 +44,7 @@ public final class SpreadsheetCellValueTypeSaveHistoryToken extends SpreadsheetC
     private SpreadsheetCellValueTypeSaveHistoryToken(final SpreadsheetId id,
                                                      final SpreadsheetName name,
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
-                                                     final Optional<ValidationValueTypeName> valueType) {
+                                                     final Optional<ValueTypeName> valueType) {
         super(
             id,
             name,
@@ -54,7 +54,7 @@ public final class SpreadsheetCellValueTypeSaveHistoryToken extends SpreadsheetC
     }
 
     @Override
-    public Optional<ValidationValueTypeName> value() {
+    public Optional<ValueTypeName> value() {
         return this.valueType;
     }
 
@@ -79,7 +79,7 @@ public final class SpreadsheetCellValueTypeSaveHistoryToken extends SpreadsheetC
         );
     }
 
-    // cell/A1/valueType/save/ValidationValueTypeName
+    // cell/A1/valueType/save/ValueTypeName
     @Override
     UrlFragment valueTypeUrlFragment() {
         return saveUrlFragment(this.value());

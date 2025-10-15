@@ -30,7 +30,7 @@ import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.ValueTypeName;
 
 import java.util.Optional;
 import java.util.Set;
@@ -87,7 +87,7 @@ public final class SpreadsheetCellLinksComponentTest implements HtmlComponentTes
                         return Optional.of(
                             selection.toCell().setFormula(
                                 SpreadsheetFormula.EMPTY.setValueType(
-                                    Optional.of(ValidationValueTypeName.TEXT)
+                                    Optional.of(ValueTypeName.TEXT)
                                 )
                             )
                         );

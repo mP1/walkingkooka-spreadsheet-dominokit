@@ -54,7 +54,7 @@ import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigationList;
 import walkingkooka.test.ParseStringTesting;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.text.TextStylePropertyName;
-import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.ValueTypeName;
 import walkingkooka.validation.form.Form;
 import walkingkooka.validation.form.FormName;
 import walkingkooka.validation.provider.ValidatorSelector;
@@ -2335,9 +2335,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testParsePluginPluginNameSave() {
         this.parseStringAndCheck(
-            "/plugin/TestPluginName123/save/text123",
+            "/plugin/test-plugin-name-123/save/text123",
             HistoryToken.pluginSave(
-                PluginName.with("TestPluginName123"),
+                PluginName.with("test-plugin-name-123"),
                 "text123"
             )
         );
@@ -2379,7 +2379,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testParsePluginNameInvalid() {
         this.parseStringAndCheck(
-            "/plugin/!TestPluginName123",
+            "/plugin/!test-plugin-name-123",
             HistoryToken.pluginListSelect(
                 HistoryTokenOffsetAndCount.EMPTY
             )
@@ -2389,9 +2389,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testParsePluginName() {
         this.parseStringAndCheck(
-            "/plugin/TestPluginName123",
+            "/plugin/test-plugin-name-123",
             HistoryToken.pluginSelect(
-                PluginName.with("TestPluginName123")
+                PluginName.with("test-plugin-name-123")
             )
         );
     }
@@ -3526,7 +3526,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                ValidationValueTypeName.TEXT
+                ValueTypeName.TEXT
             )
         );
     }
@@ -3540,7 +3540,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                 NAME,
                 SpreadsheetSelection.parseCellRange("A1:A2")
                     .setDefaultAnchor(),
-                ValidationValueTypeName.TEXT
+                ValueTypeName.TEXT
             )
         );
     }
@@ -3555,7 +3555,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                 NAME,
                 SpreadsheetSelection.labelName("Label123")
                     .setDefaultAnchor(),
-                ValidationValueTypeName.TEXT
+                ValueTypeName.TEXT
             )
         );
     }
@@ -3601,7 +3601,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellValueTypeSave() {
-        final ValidationValueTypeName valueType = ValidationValueTypeName.with("hello-value-type");
+        final ValueTypeName valueType = ValueTypeName.with("hello-value-type");
 
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/cell/A1/valueType/save/" + urlEncode(valueType.value()),

@@ -33,13 +33,13 @@ public final class FormHandlerSelectorComponentTest implements FormValueComponen
             FormHandlerSelectorComponent.empty()
                 .setStringValue(
                     Optional.of(
-                        "Hello"
+                        "hello"
                     )
                 ),
             "FormHandlerSelectorComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [Hello]\n"
+                "      [hello]\n"
         );
     }
 
@@ -49,13 +49,13 @@ public final class FormHandlerSelectorComponentTest implements FormValueComponen
             FormHandlerSelectorComponent.empty()
                 .setStringValue(
                     Optional.of(
-                        "Invalid123!"
+                        "invalid123!"
                     )
                 ),
             "FormHandlerSelectorComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [Invalid123!]\n" +
+                "      [invalid123!]\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 10\n"
         );

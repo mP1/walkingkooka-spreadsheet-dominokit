@@ -28,7 +28,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
-import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.ValueTypeName;
 
 import java.util.Optional;
 import java.util.OptionalInt;
@@ -410,7 +410,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
                                 final Optional<SpreadsheetCellRangeReferencePath> path,
                                 final OptionalInt offset,
                                 final OptionalInt count,
-                                final Optional<ValidationValueTypeName> valueType,
+                                final Optional<ValueTypeName> valueType,
                                 final Optional<SpreadsheetCellQuery> query) {
         this.parseAndCheck(
             url,

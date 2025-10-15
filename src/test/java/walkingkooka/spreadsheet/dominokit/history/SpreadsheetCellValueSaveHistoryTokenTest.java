@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
 import walkingkooka.tree.expression.ExpressionNumberKind;
-import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.ValueTypeName;
 
 import java.time.LocalTime;
 import java.util.Optional;
@@ -34,7 +34,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetCellValueHistoryTokenTestCase<SpreadsheetCellValueSaveHistoryToken> {
 
-    private final static ValidationValueTypeName VALUE_TYPE = ValidationValueTypeName.with("number");
+    private final static ValueTypeName VALUE_TYPE = ValueTypeName.with("number");
 
     private final static String VALUE = JSON_NODE_MARSHALL_CONTEXT.marshall(
         ExpressionNumberKind.BIG_DECIMAL.create(123.5)
@@ -77,7 +77,7 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                ValidationValueTypeName.DATE,
+                ValueTypeName.DATE,
                 "Previous"
             ),
             Optional.empty(),
@@ -85,7 +85,7 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                ValidationValueTypeName.DATE,
+                ValueTypeName.DATE,
                 ""
             )
         );
@@ -98,7 +98,7 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                ValidationValueTypeName.DATE,
+                ValueTypeName.DATE,
                 "Previous"
             ),
             Optional.of(
@@ -108,7 +108,7 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                ValidationValueTypeName.DATE,
+                ValueTypeName.DATE,
                 "\"1999,12,31\""
             )
         );
@@ -121,7 +121,7 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                ValidationValueTypeName.TIME,
+                ValueTypeName.TIME,
                 "Previous"
             ),
             Optional.of(
@@ -131,7 +131,7 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                ValidationValueTypeName.TIME,
+                ValueTypeName.TIME,
                 "\"12:58:59\""
             )
         );
@@ -146,7 +146,7 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                ValidationValueTypeName.DATE,
+                ValueTypeName.DATE,
                 "Previous"
             ),
             Optional.empty(),
@@ -154,7 +154,7 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                ValidationValueTypeName.DATE,
+                ValueTypeName.DATE,
                 ""
             )
         );
@@ -169,7 +169,7 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                ValidationValueTypeName.DATE,
+                ValueTypeName.DATE,
                 "Previous"
             ),
             value,
@@ -177,7 +177,7 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                ValidationValueTypeName.DATE,
+                ValueTypeName.DATE,
                 value
             )
         );
@@ -194,7 +194,7 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                ValidationValueTypeName.TIME,
+                ValueTypeName.TIME,
                 "Previous"
             ),
             value,
@@ -202,7 +202,7 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                ValidationValueTypeName.TIME,
+                ValueTypeName.TIME,
                 value
             )
         );
@@ -222,7 +222,7 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
 
     @Test
     public void testSetValueDifferent() {
-        final ValidationValueTypeName valueType = ValidationValueTypeName.DATE;
+        final ValueTypeName valueType = ValueTypeName.DATE;
 
         this.setValueAndCheck(
             this.createHistoryToken(),

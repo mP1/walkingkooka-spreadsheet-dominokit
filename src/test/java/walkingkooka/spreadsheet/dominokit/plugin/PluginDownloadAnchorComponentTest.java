@@ -44,12 +44,12 @@ public final class PluginDownloadAnchorComponentTest implements AnchorComponentT
                 .setValue(
                     Optional.of(
                         PluginDownload.with(
-                            PluginName.with("PluginName456"),
+                            PluginName.with("plugin-name-456"),
                             Optional.empty()
                         )
                     )
                 ),
-            "\"Download456!\" [/api/plugin/PluginName456/download] id=Download456"
+            "\"Download456!\" [/api/plugin/plugin-name-456/download] id=Download456"
         );
     }
 
@@ -61,14 +61,14 @@ public final class PluginDownloadAnchorComponentTest implements AnchorComponentT
                 .setValue(
                     Optional.of(
                         PluginDownload.with(
-                            PluginName.with("PluginName789"),
+                            PluginName.with("plugin-name-789"),
                             Optional.of(
                                 JarEntryInfoName.MANIFEST_MF
                             )
                         )
                     )
                 ),
-            "\"Download789!\" [/api/plugin/PluginName789/download/META-INF/MANIFEST.MF] id=Download789"
+            "\"Download789!\" [/api/plugin/plugin-name-789/download/META-INF/MANIFEST.MF] id=Download789"
         );
     }
 

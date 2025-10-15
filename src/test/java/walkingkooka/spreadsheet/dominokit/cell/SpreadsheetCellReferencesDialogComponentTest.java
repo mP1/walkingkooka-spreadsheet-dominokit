@@ -47,7 +47,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.ValueTypeName;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -178,7 +178,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Dialo
                     SpreadsheetSelection.A1.setFormula(
                         SpreadsheetFormula.EMPTY.setText("=1+2")
                             .setValueType(
-                                Optional.of(ValidationValueTypeName.TEXT)
+                                Optional.of(ValueTypeName.TEXT)
                             )
                     )
                 )

@@ -24,21 +24,21 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
-import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.ValueTypeName;
 
 import java.util.Objects;
 import java.util.Optional;
 
 /**
  * A {@link HistoryToken} that contains a {@link SpreadsheetFormula#value()} encoded as JSON.
- * The {@link ValidationValueTypeName} will contain the value type.
+ * The {@link ValueTypeName} will contain the value type.
  */
 public final class SpreadsheetCellValueSaveHistoryToken extends SpreadsheetCellValueHistoryToken implements Value<String> {
 
     static SpreadsheetCellValueSaveHistoryToken with(final SpreadsheetId id,
                                                      final SpreadsheetName name,
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
-                                                     final ValidationValueTypeName valueType,
+                                                     final ValueTypeName valueType,
                                                      final String value) {
         return new SpreadsheetCellValueSaveHistoryToken(
             id,
@@ -52,7 +52,7 @@ public final class SpreadsheetCellValueSaveHistoryToken extends SpreadsheetCellV
     private SpreadsheetCellValueSaveHistoryToken(final SpreadsheetId id,
                                                  final SpreadsheetName name,
                                                  final AnchoredSpreadsheetSelection anchoredSelection,
-                                                 final ValidationValueTypeName valueType,
+                                                 final ValueTypeName valueType,
                                                  final String value) {
         super(
             id,

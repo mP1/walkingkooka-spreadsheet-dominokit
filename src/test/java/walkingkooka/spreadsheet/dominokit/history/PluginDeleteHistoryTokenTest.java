@@ -24,7 +24,7 @@ public final class PluginDeleteHistoryTokenTest extends PluginNameHistoryTokenTe
 
     @Test
     public void testUrlFragment() {
-        this.urlFragmentAndCheck("/plugin/TestPluginName123/delete");
+        this.urlFragmentAndCheck("/plugin/test-plugin-name-123/delete");
     }
 
     // clearAction.....................................................................................................

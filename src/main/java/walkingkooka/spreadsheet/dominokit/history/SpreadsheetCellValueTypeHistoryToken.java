@@ -21,7 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
-import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.ValueTypeName;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -31,12 +31,12 @@ public abstract class SpreadsheetCellValueTypeHistoryToken extends SpreadsheetCe
     SpreadsheetCellValueTypeHistoryToken(final SpreadsheetId id,
                                          final SpreadsheetName name,
                                          final AnchoredSpreadsheetSelection anchoredSelection,
-                                         final Optional<ValidationValueTypeName> valueType) {
+                                         final Optional<ValueTypeName> valueType) {
         super(id, name, anchoredSelection);
         this.valueType = Objects.requireNonNull(valueType, "valueType");
     }
 
-    final Optional<ValidationValueTypeName> valueType;
+    final Optional<ValueTypeName> valueType;
 
     @Override // /cell/A1/valueType
     final UrlFragment cellUrlFragment() {

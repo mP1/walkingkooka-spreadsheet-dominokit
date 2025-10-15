@@ -22,11 +22,11 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
-import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.ValueTypeName;
 
 import java.util.Optional;
 
-public final class SpreadsheetValueTypeComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, ValidationValueTypeName, SpreadsheetValueTypeComponent> {
+public final class SpreadsheetValueTypeComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, ValueTypeName, SpreadsheetValueTypeComponent> {
 
     @Test
     public void testTreePrintWithoutValue() {

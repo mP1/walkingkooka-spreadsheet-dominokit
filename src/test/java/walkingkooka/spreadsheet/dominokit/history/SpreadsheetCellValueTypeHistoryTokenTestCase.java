@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
-import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.ValueTypeName;
 
 import java.util.Optional;
 
@@ -64,7 +64,7 @@ public abstract class SpreadsheetCellValueTypeHistoryTokenTestCase<T extends Spr
 
     @Test
     public final void testSetSaveValueWithEmpty() {
-        final Optional<ValidationValueTypeName> value = Optional.empty();
+        final Optional<ValueTypeName> value = Optional.empty();
 
         this.setSaveValueAndCheck(
             this.createHistoryToken(),
@@ -80,8 +80,8 @@ public abstract class SpreadsheetCellValueTypeHistoryTokenTestCase<T extends Spr
 
     @Test
     public final void testSetSaveValueWithNonEmpty() {
-        final Optional<ValidationValueTypeName> value = Optional.of(
-            ValidationValueTypeName.with("hello-type-name")
+        final Optional<ValueTypeName> value = Optional.of(
+            ValueTypeName.with("hello-type-name")
         );
 
         this.setSaveValueAndCheck(

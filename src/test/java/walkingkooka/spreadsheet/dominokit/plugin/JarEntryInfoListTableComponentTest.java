@@ -112,8 +112,8 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
                 "              \"2/1/00, 12:58 pm\"\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
-                "                \"Download\" [/api/plugin/TestPlugin123/download/META/MANIFEST.MF] id=Table123-download-Link\n" +
-                "                \"View\" [#/plugin/TestPlugin123/file/META/MANIFEST.MF] id=Table123-view-Link\n" +
+                "                \"Download\" [/api/plugin/test-plugin-123/download/META/MANIFEST.MF] id=Table123-download-Link\n" +
+                "                \"View\" [#/plugin/test-plugin-123/file/META/MANIFEST.MF] id=Table123-view-Link\n" +
                 "        PLUGINS\n" +
                 "          EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n"
         );
@@ -169,8 +169,8 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
                 "              \"\"\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
-                "                \"Download\" [/api/plugin/TestPlugin123/download/dir1/file2.txt] id=Table123-download-Link\n" +
-                "                \"View\" [#/plugin/TestPlugin123/file/dir1/file2.txt] id=Table123-view-Link\n" +
+                "                \"Download\" [/api/plugin/test-plugin-123/download/dir1/file2.txt] id=Table123-download-Link\n" +
+                "                \"View\" [#/plugin/test-plugin-123/file/dir1/file2.txt] id=Table123-view-Link\n" +
                 "        PLUGINS\n" +
                 "          EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n"
         );
@@ -235,8 +235,8 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
                 "              \"2/1/00, 12:58 pm\"\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
-                "                \"Download\" [/api/plugin/TestPlugin123/download/META/MANIFEST.MF] id=Table123-download-Link\n" +
-                "                \"View\" [#/plugin/TestPlugin123/file/META/MANIFEST.MF] id=Table123-view-Link\n" +
+                "                \"Download\" [/api/plugin/test-plugin-123/download/META/MANIFEST.MF] id=Table123-download-Link\n" +
+                "                \"View\" [#/plugin/test-plugin-123/file/META/MANIFEST.MF] id=Table123-view-Link\n" +
                 "          ROW 1\n" +
                 "            TextComponent\n" +
                 "              \"/dir1/file2.txt\"\n" +
@@ -252,8 +252,8 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
                 "              \"\"\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
-                "                \"Download\" [/api/plugin/TestPlugin123/download/dir1/file2.txt] id=Table123-download-Link\n" +
-                "                \"View\" [#/plugin/TestPlugin123/file/dir1/file2.txt] id=Table123-view-Link\n" +
+                "                \"Download\" [/api/plugin/test-plugin-123/download/dir1/file2.txt] id=Table123-download-Link\n" +
+                "                \"View\" [#/plugin/test-plugin-123/file/dir1/file2.txt] id=Table123-view-Link\n" +
                 "        PLUGINS\n" +
                 "          EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n"
         );
@@ -271,11 +271,11 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
         return new FakeJarEntryInfoListTableComponentContext() {
             @Override
             public HistoryToken historyToken() {
-                return HistoryToken.parseString("/plugin/TestPlugin123");
+                return HistoryToken.parseString("/plugin/test-plugin-123");
             }
 
             @Override public PluginName pluginName() {
-                return PluginName.with("TestPlugin123");
+                return PluginName.with("test-plugin-123");
             }
 
             @Override

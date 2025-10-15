@@ -28,7 +28,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
-import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.ValueTypeName;
 import walkingkooka.validation.form.FormName;
 
 import java.util.Optional;
@@ -255,7 +255,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             Optional.ofNullable(
                 null == valueTypeString ?
                     null :
-                    ValidationValueTypeName.with(valueTypeString)
+                    ValueTypeName.with(valueTypeString)
             )
         );
     }

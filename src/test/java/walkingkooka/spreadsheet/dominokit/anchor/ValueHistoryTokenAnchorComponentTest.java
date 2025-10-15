@@ -37,7 +37,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class ValueHistoryTokenAnchorComponentTest implements ValueComponentTesting<HTMLAnchorElement, JarEntryInfoName, ValueHistoryTokenAnchorComponent<JarEntryInfoName>> {
 
-    private final static PluginName PLUGIN_NAME = PluginName.with("TestPluginName123");
+    private final static PluginName PLUGIN_NAME = PluginName.with("test-plugin-name-123");
 
     private final static Function<HistoryTokenAnchorComponent, Optional<JarEntryInfoName>> GETTER = (a) -> {
         final RelativeUrl url = (RelativeUrl) a.href();
@@ -177,7 +177,7 @@ public final class ValueHistoryTokenAnchorComponentTest implements ValueComponen
                         JarEntryInfoName.MANIFEST_MF
                     )
                 ),
-            "[/api/plugin/TestPluginName123/download/META-INF/MANIFEST.MF]"
+            "[/api/plugin/test-plugin-name-123/download/META-INF/MANIFEST.MF]"
         );
     }
 
