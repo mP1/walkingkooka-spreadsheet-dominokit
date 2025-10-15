@@ -46,12 +46,12 @@ public final class ConverterNameComponentTest implements FormValueComponentTesti
         this.treePrintAndCheck(
             ConverterNameComponent.empty()
                 .setStringValue(
-                    Optional.of("Hello!")
+                    Optional.of("hello!")
                 ),
             "ConverterNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [Hello!]\n" +
+                "      [hello!]\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 5\n"
         );
@@ -62,12 +62,12 @@ public final class ConverterNameComponentTest implements FormValueComponentTesti
         this.treePrintAndCheck(
             ConverterNameComponent.empty()
                 .setStringValue(
-                    Optional.of(" Hello!")
+                    Optional.of(" hello!")
                 ),
             "ConverterNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [ Hello!]\n" +
+                "      [ hello!]\n" +
                 "      Errors\n" +
                 "        Invalid character ' ' at 0\n"
         );

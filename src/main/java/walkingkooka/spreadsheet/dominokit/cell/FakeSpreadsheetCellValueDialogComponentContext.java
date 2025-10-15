@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.cell;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
-import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.ValueTypeName;
 
 import java.util.Optional;
 
@@ -41,7 +41,7 @@ public class FakeSpreadsheetCellValueDialogComponentContext<T> extends FakeHisto
     }
 
     @Override
-    public ValidationValueTypeName valueType() {
+    public ValueTypeName valueType() {
         throw new UnsupportedOperationException();
     }
 

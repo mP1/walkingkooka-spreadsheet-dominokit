@@ -68,7 +68,7 @@ public final class PluginSetDialogComponentTest implements DialogComponentLifecy
     @Test
     public void testIsMatchWithPluginNameHistoryToken() {
         final PluginSelectHistoryToken historyToken = HistoryToken.pluginSelect(
-            PluginName.with("Hello")
+            PluginName.with("hello")
         );
 
         final PluginSetDialogComponent dialog = PluginSetDialogComponent.with(
@@ -193,7 +193,7 @@ public final class PluginSetDialogComponentTest implements DialogComponentLifecy
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
                 "                  TextComponent\n" +
-                "                    \"TestPluginName1\"\n" +
+                "                    \"test-plugin-name-1\"\n" +
                 "                  TextComponent\n" +
                 "                    \"filename1.jar\"\n" +
                 "                  TextComponent\n" +
@@ -202,12 +202,12 @@ public final class PluginSetDialogComponentTest implements DialogComponentLifecy
                 "                    \"31/12/99, 12:58 pm\"\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
-                "                      \"Delete\" [#/plugin/TestPluginName1/delete] id=pluginList-delete-Link\n" +
-                "                      \"Download\" [/api/plugin/TestPluginName1/download] id=pluginList-download-Link\n" +
-                "                      \"View\" [#/plugin/TestPluginName1] id=pluginList-view-Link\n" +
+                "                      \"Delete\" [#/plugin/test-plugin-name-1/delete] id=pluginList-delete-Link\n" +
+                "                      \"Download\" [/api/plugin/test-plugin-name-1/download] id=pluginList-download-Link\n" +
+                "                      \"View\" [#/plugin/test-plugin-name-1] id=pluginList-view-Link\n" +
                 "                ROW 1\n" +
                 "                  TextComponent\n" +
-                "                    \"TestPluginName2\"\n" +
+                "                    \"test-plugin-name-2\"\n" +
                 "                  TextComponent\n" +
                 "                    \"filename2.jar\"\n" +
                 "                  TextComponent\n" +
@@ -216,12 +216,12 @@ public final class PluginSetDialogComponentTest implements DialogComponentLifecy
                 "                    \"31/12/99, 12:58 pm\"\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
-                "                      \"Delete\" [#/plugin/TestPluginName2/delete] id=pluginList-delete-Link\n" +
-                "                      \"Download\" [/api/plugin/TestPluginName2/download] id=pluginList-download-Link\n" +
-                "                      \"View\" [#/plugin/TestPluginName2] id=pluginList-view-Link\n" +
+                "                      \"Delete\" [#/plugin/test-plugin-name-2/delete] id=pluginList-delete-Link\n" +
+                "                      \"Download\" [/api/plugin/test-plugin-name-2/download] id=pluginList-download-Link\n" +
+                "                      \"View\" [#/plugin/test-plugin-name-2] id=pluginList-view-Link\n" +
                 "                ROW 2\n" +
                 "                  TextComponent\n" +
-                "                    \"TestPluginName3\"\n" +
+                "                    \"test-plugin-name-3\"\n" +
                 "                  TextComponent\n" +
                 "                    \"filename3.jar\"\n" +
                 "                  TextComponent\n" +
@@ -230,9 +230,9 @@ public final class PluginSetDialogComponentTest implements DialogComponentLifecy
                 "                    \"31/12/99, 12:58 pm\"\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
-                "                      \"Delete\" [#/plugin/TestPluginName3/delete] id=pluginList-delete-Link\n" +
-                "                      \"Download\" [/api/plugin/TestPluginName3/download] id=pluginList-download-Link\n" +
-                "                      \"View\" [#/plugin/TestPluginName3] id=pluginList-view-Link\n" +
+                "                      \"Delete\" [#/plugin/test-plugin-name-3/delete] id=pluginList-delete-Link\n" +
+                "                      \"Download\" [/api/plugin/test-plugin-name-3/download] id=pluginList-download-Link\n" +
+                "                      \"View\" [#/plugin/test-plugin-name-3] id=pluginList-view-Link\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
@@ -339,7 +339,7 @@ public final class PluginSetDialogComponentTest implements DialogComponentLifecy
 
                 this.pluginStore.save(
                     Plugin.with(
-                        PluginName.with("TestPluginName" + j),
+                        PluginName.with("test-plugin-name-" + j),
                         "filename" + j + ".jar",
                         Binary.with(
                             JarFileTesting.jarFile(

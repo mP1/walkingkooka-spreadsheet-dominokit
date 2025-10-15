@@ -47,7 +47,7 @@ import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
-import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.ValueTypeName;
 import walkingkooka.validation.form.FormName;
 
 import java.math.MathContext;
@@ -404,7 +404,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
                                           final Optional<Object> value,
                                           final String expected) {
         this.patchValuePatchAndCheck2(
-            ValidationValueTypeName.with(valueType),
+            ValueTypeName.with(valueType),
             JsonNodeMarshallContexts.basic()
                 .marshallOptional(value)
                 .toString(),
@@ -412,7 +412,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
         );
     }
 
-    private void patchValuePatchAndCheck2(final ValidationValueTypeName valueType,
+    private void patchValuePatchAndCheck2(final ValueTypeName valueType,
                                           final String value,
                                           final JsonNode expected) {
         this.checkEquals(
@@ -904,7 +904,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
 
     private final static OptionalInt COUNT = OptionalInt.of(34);
 
-    private final static Optional<ValidationValueTypeName> VALUE_TYPE = Optional.of(
+    private final static Optional<ValueTypeName> VALUE_TYPE = Optional.of(
         SpreadsheetValueType.DATE
     );
 
@@ -1215,7 +1215,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     @Test
     public void testPatchValuePatchWithTextAndEmptyString() {
         this.patchValuePatchAndCheck(
-            ValidationValueTypeName.TEXT,
+            ValueTypeName.TEXT,
             "",
             "{\n" +
                 "  \"formula\": {\n" +
@@ -1228,7 +1228,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     @Test
     public void testPatchValuePatchWithTextAndNotEmptyString() {
         this.patchValuePatchAndCheck(
-            ValidationValueTypeName.TEXT,
+            ValueTypeName.TEXT,
             "\"Hello\"",
             "{\n" +
                 "  \"formula\": {\n" +
@@ -1241,7 +1241,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     @Test
     public void testPatchValuePatchWithDateAndNow() {
         this.patchValuePatchAndCheck(
-            ValidationValueTypeName.DATE,
+            ValueTypeName.DATE,
             "today",
             "{\n" +
                 "  \"formula\": {\n" +
@@ -1257,7 +1257,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     @Test
     public void testPatchValuePatchWithDate() {
         this.patchValuePatchAndCheck(
-            ValidationValueTypeName.DATE,
+            ValueTypeName.DATE,
             "\"1999-12-31\"",
             "{\n" +
                 "  \"formula\": {\n" +
@@ -1273,7 +1273,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     @Test
     public void testPatchValuePatchWithDateTimeAndNow() {
         this.patchValuePatchAndCheck(
-            ValidationValueTypeName.DATE_TIME,
+            ValueTypeName.DATE_TIME,
             "now",
             "{\n" +
                 "  \"formula\": {\n" +
@@ -1289,7 +1289,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     @Test
     public void testPatchValuePatchWithDateTime() {
         this.patchValuePatchAndCheck(
-            ValidationValueTypeName.DATE_TIME,
+            ValueTypeName.DATE_TIME,
             "\"1999-12-31T12:58:59\"",
             "{\n" +
                 "  \"formula\": {\n" +
@@ -1305,7 +1305,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     @Test
     public void testPatchValuePatchWithTimeAndNow() {
         this.patchValuePatchAndCheck(
-            ValidationValueTypeName.TIME,
+            ValueTypeName.TIME,
             "now",
             "{\n" +
                 "  \"formula\": {\n" +
@@ -1321,7 +1321,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     @Test
     public void testPatchValuePatchWithTime() {
         this.patchValuePatchAndCheck(
-            ValidationValueTypeName.TIME,
+            ValueTypeName.TIME,
             "\"12:58:59\"",
             "{\n" +
                 "  \"formula\": {\n" +
@@ -1334,7 +1334,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
         );
     }
 
-    private void patchValuePatchAndCheck(final ValidationValueTypeName valueType,
+    private void patchValuePatchAndCheck(final ValueTypeName valueType,
                                          final String value,
                                          final String expected) {
         this.patchValuePatchAndCheck(
@@ -1344,7 +1344,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
         );
     }
 
-    private void patchValuePatchAndCheck(final ValidationValueTypeName valueType,
+    private void patchValuePatchAndCheck(final ValueTypeName valueType,
                                          final String value,
                                          final JsonNode expected) {
         this.checkEquals(

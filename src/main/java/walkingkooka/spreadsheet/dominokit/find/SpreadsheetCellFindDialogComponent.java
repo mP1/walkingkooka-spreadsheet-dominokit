@@ -47,7 +47,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.text.CaseKind;
 import walkingkooka.tree.expression.Expression;
-import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.ValueTypeName;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -296,8 +296,8 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
             .addChangeListener(this::onValueTypeChange);
     }
 
-    private void onValueTypeChange(final Optional<ValidationValueTypeName> oldValue,
-                                   final Optional<ValidationValueTypeName> newValue) {
+    private void onValueTypeChange(final Optional<ValueTypeName> oldValue,
+                                   final Optional<ValueTypeName> newValue) {
         this.setAndRefresh(
             t -> t.setQuery(
                 t.query()

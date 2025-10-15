@@ -73,7 +73,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
 
     private final static Optional<SpreadsheetCell> NO_SUMMARY = Optional.empty();
 
-    private static final ValidatorSelector VALIDATOR1 = ValidatorSelector.parse("Hello-validator-1");
+    private static final ValidatorSelector VALIDATOR1 = ValidatorSelector.parse("hello-validator-1");
 
     @Test
     public void testCell() {
@@ -275,9 +275,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-value-time-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-1] id=test-validator-Hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-2] id=test-validator-Hello-validator-2-MenuItem\n" +
-                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-3] id=test-validator-Hello-validator-3-MenuItem\n" +
+                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
+                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
+                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-3] id=test-validator-hello-validator-3-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
@@ -535,9 +535,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-value-time-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-1] id=test-validator-Hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-2] id=test-validator-Hello-validator-2-MenuItem\n" +
-                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-3] id=test-validator-Hello-validator-3-MenuItem\n" +
+                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
+                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
+                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-3] id=test-validator-hello-validator-3-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
@@ -790,9 +790,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-value-time-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-1] id=test-validator-Hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-2] id=test-validator-Hello-validator-2-MenuItem\n" +
-                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-3] id=test-validator-Hello-validator-3-MenuItem\n" +
+                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
+                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
+                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-3] id=test-validator-hello-validator-3-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
@@ -1060,9 +1060,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-value-time-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-1] id=test-validator-Hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-2] id=test-validator-Hello-validator-2-MenuItem\n" +
-                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-3] id=test-validator-Hello-validator-3-MenuItem\n" +
+                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
+                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
+                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-3] id=test-validator-hello-validator-3-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
@@ -1340,9 +1340,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-value-time-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-1] id=test-validator-Hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-2] id=test-validator-Hello-validator-2-MenuItem\n" +
-                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-3] id=test-validator-Hello-validator-3-MenuItem\n" +
+                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
+                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
+                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-3] id=test-validator-hello-validator-3-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
@@ -1596,9 +1596,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-value-time-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-1] id=test-validator-Hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-2] id=test-validator-Hello-validator-2-MenuItem\n" +
-                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-3] id=test-validator-Hello-validator-3-MenuItem\n" +
+                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
+                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
+                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-3] id=test-validator-hello-validator-3-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
@@ -1852,9 +1852,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-value-time-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-1] id=test-validator-Hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-2] id=test-validator-Hello-validator-2-MenuItem\n" +
-                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-3] id=test-validator-Hello-validator-3-MenuItem\n" +
+                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
+                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
+                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-3] id=test-validator-hello-validator-3-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
@@ -2108,9 +2108,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-value-time-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-1] id=test-validator-Hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-2] id=test-validator-Hello-validator-2-MenuItem\n" +
-                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-3] id=test-validator-Hello-validator-3-MenuItem\n" +
+                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
+                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
+                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-3] id=test-validator-hello-validator-3-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
@@ -2364,9 +2364,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-value-time-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-1] CHECKED id=test-validator-Hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-2] id=test-validator-Hello-validator-2-MenuItem\n" +
-                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-3] id=test-validator-Hello-validator-3-MenuItem\n" +
+                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] CHECKED id=test-validator-hello-validator-1-MenuItem\n" +
+                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
+                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-3] id=test-validator-hello-validator-3-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
@@ -2617,9 +2617,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-value-time-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-1] id=test-validator-Hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-2] id=test-validator-Hello-validator-2-MenuItem\n" +
-                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-3] id=test-validator-Hello-validator-3-MenuItem\n" +
+                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
+                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
+                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-3] id=test-validator-hello-validator-3-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
@@ -2876,9 +2876,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-value-time-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-1] id=test-validator-Hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-2] id=test-validator-Hello-validator-2-MenuItem\n" +
-                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-3] id=test-validator-Hello-validator-3-MenuItem\n" +
+                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
+                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
+                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-3] id=test-validator-hello-validator-3-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
@@ -3133,9 +3133,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] CHECKED id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-value-time-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-1] id=test-validator-Hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-2] id=test-validator-Hello-validator-2-MenuItem\n" +
-                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/A1/validator/save/Hello-validator-3] id=test-validator-Hello-validator-3-MenuItem\n" +
+                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
+                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
+                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-3] id=test-validator-hello-validator-3-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
@@ -3378,9 +3378,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/time] id=test-value-time-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator/save/Hello-validator-1] id=test-validator-Hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator/save/Hello-validator-2] id=test-validator-Hello-validator-2-MenuItem\n" +
-                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator/save/Hello-validator-3] id=test-validator-Hello-validator-3-MenuItem\n" +
+                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
+                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
+                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator/save/hello-validator-3] id=test-validator-hello-validator-3-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
@@ -3719,9 +3719,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/Label123/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/Label123/value/time] id=test-value-time-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/Label123/validator/save/Hello-validator-1] id=test-validator-Hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/Label123/validator/save/Hello-validator-2] id=test-validator-Hello-validator-2-MenuItem\n" +
-                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/Label123/validator/save/Hello-validator-3] id=test-validator-Hello-validator-3-MenuItem\n" +
+                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/Label123/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
+                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/Label123/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
+                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/Label123/validator/save/hello-validator-3] id=test-validator-hello-validator-3-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
@@ -3965,9 +3965,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/time] id=test-value-time-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/Hello-validator-1] id=test-validator-Hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/Hello-validator-2] id=test-validator-Hello-validator-2-MenuItem\n" +
-                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/Hello-validator-3] id=test-validator-Hello-validator-3-MenuItem\n" +
+                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
+                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
+                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/hello-validator-3] id=test-validator-hello-validator-3-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
@@ -4665,8 +4665,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             public List<ValidatorSelector> validatorSelectors() {
                 return Lists.of(
                     VALIDATOR1,
-                    ValidatorSelector.parse("Hello-validator-3"),
-                    ValidatorSelector.parse("Hello-validator-2")
+                    ValidatorSelector.parse("hello-validator-3"),
+                    ValidatorSelector.parse("hello-validator-2")
                 );
             }
 

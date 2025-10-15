@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import java.util.Optional;
 
 /**
- * This {@link HistoryToken} selects the toolbar {@link walkingkooka.validation.ValidationValueTypeName}
+ * This {@link HistoryToken} selects the toolbar {@link walkingkooka.validation.ValueTypeName}
  */
 public final class SpreadsheetCellValueTypeUnselectHistoryToken extends SpreadsheetCellValueTypeHistoryToken {
 

@@ -63,7 +63,7 @@ import walkingkooka.tree.json.JsonNode;
 import walkingkooka.tree.json.JsonPropertyName;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
-import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.ValueTypeName;
 import walkingkooka.validation.form.Form;
 import walkingkooka.validation.form.FormName;
 import walkingkooka.validation.provider.ValidatorSelector;
@@ -838,7 +838,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
 
     public void patchCellsValueType(final SpreadsheetId id,
                                     final SpreadsheetSelection selection,
-                                    final Map<SpreadsheetCellReference, Optional<ValidationValueTypeName>> cellToValueTypes) {
+                                    final Map<SpreadsheetCellReference, Optional<ValueTypeName>> cellToValueTypes) {
         this.patchDeltaWithViewportAndWindowQueryString(
             id,
             selection,
@@ -969,7 +969,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
      */
     public void patchValue(final SpreadsheetId id,
                            final SpreadsheetSelection selection,
-                           final ValidationValueTypeName valueType,
+                           final ValueTypeName valueType,
                            final String value) {
         this.patchDeltaWithViewportAndWindowQueryString(
             id,
@@ -982,7 +982,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     }
 
     // @VisibleForTesting
-    JsonNode patchValuePatch(final ValidationValueTypeName valueType,
+    JsonNode patchValuePatch(final ValueTypeName valueType,
                              final String value) {
         final AppContext context = this.context;
 
@@ -1030,7 +1030,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
 
     public void patchValueType(final SpreadsheetId id,
                                final SpreadsheetSelection selection,
-                               final Optional<ValidationValueTypeName> valueType) {
+                               final Optional<ValueTypeName> valueType) {
         this.patchDeltaWithViewportAndWindowQueryString(
             id,
             selection,

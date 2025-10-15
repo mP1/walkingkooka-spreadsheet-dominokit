@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
-import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.ValueTypeName;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -59,7 +59,7 @@ final class BasicSpreadsheetCellValueDialogComponentContextDateTime extends Basi
     private final static String ID = "cellValueDateTime";
 
     @Override
-    public ValidationValueTypeName valueType() {
-        return ValidationValueTypeName.DATE_TIME;
+    public ValueTypeName valueType() {
+        return ValueTypeName.DATE_TIME;
     }
 }

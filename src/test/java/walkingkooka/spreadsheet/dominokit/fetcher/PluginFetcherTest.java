@@ -46,9 +46,9 @@ public final class PluginFetcherTest implements ClassTesting<PluginFetcher> {
     @Test
     public void testUrl() {
         this.checkEquals(
-            Url.parseRelative("/api/plugin/TestPluginName123"),
+            Url.parseRelative("/api/plugin/test-plugin-name-123"),
             PluginFetcher.url(
-                PluginName.with("TestPluginName123")
+                PluginName.with("test-plugin-name-123")
             )
         );
     }
@@ -71,7 +71,7 @@ public final class PluginFetcherTest implements ClassTesting<PluginFetcher> {
         assertThrows(
             NullPointerException.class,
             () -> PluginFetcher.downloadUrl(
-                PluginName.with("TestPlugin123"),
+                PluginName.with("test-plugin-123"),
                 null
             )
         );
@@ -80,31 +80,31 @@ public final class PluginFetcherTest implements ClassTesting<PluginFetcher> {
     @Test
     public void testDownloadUrlMissingFile() {
         this.downloadUrlAndCheck(
-            "TestPluginName123",
+            "test-plugin-name-123",
             Optional.empty(),
-            "/api/plugin/TestPluginName123/download"
+            "/api/plugin/test-plugin-name-123/download"
         );
     }
 
     @Test
     public void testDownloadUrlWithFilename() {
         this.downloadUrlAndCheck(
-            "TestPluginName123",
+            "test-plugin-name-123",
             Optional.of(
                 JarEntryInfoName.MANIFEST_MF
             ),
-            "/api/plugin/TestPluginName123/download/META-INF/MANIFEST.MF"
+            "/api/plugin/test-plugin-name-123/download/META-INF/MANIFEST.MF"
         );
     }
 
     @Test
     public void testDownloadUrlWithFilename2() {
         this.downloadUrlAndCheck(
-            "TestPluginName123",
+            "test-plugin-name-123",
             Optional.of(
                 JarEntryInfoName.with("/dir111/file222.txt")
             ),
-            "/api/plugin/TestPluginName123/download/dir111/file222.txt"
+            "/api/plugin/test-plugin-name-123/download/dir111/file222.txt"
         );
     }
 

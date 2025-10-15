@@ -21,41 +21,41 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToValidationValueTypeNameMap;
+import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToValueTypeNameMap;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
-import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.ValueTypeName;
 
 import java.util.Map;
 import java.util.Optional;
 
 /**
- * This {@link HistoryToken} is used by to paste a {@link ValidationValueTypeName} for many cells over another range.
+ * This {@link HistoryToken} is used by to paste a {@link ValueTypeName} for many cells over another range.
  * <pre>
  * /123/SpreadsheetName456/cell/A1/save/valueType/XYZ
  *
- * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/save/valueType/{@link ValidationValueTypeName} for each selected cell.
+ * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/save/valueType/{@link ValueTypeName} for each selected cell.
  * </pre>
  */
-public final class SpreadsheetCellSaveValueTypeHistoryToken extends SpreadsheetCellSaveMapHistoryToken<Optional<ValidationValueTypeName>> {
+public final class SpreadsheetCellSaveValueTypeHistoryToken extends SpreadsheetCellSaveMapHistoryToken<Optional<ValueTypeName>> {
 
     static SpreadsheetCellSaveValueTypeHistoryToken with(final SpreadsheetId id,
                                                          final SpreadsheetName name,
                                                          final AnchoredSpreadsheetSelection anchoredSelection,
-                                                         final Map<SpreadsheetCellReference, Optional<ValidationValueTypeName>> value) {
+                                                         final Map<SpreadsheetCellReference, Optional<ValueTypeName>> value) {
         return new SpreadsheetCellSaveValueTypeHistoryToken(
             id,
             name,
             anchoredSelection,
-            SpreadsheetCellReferenceToValidationValueTypeNameMap.with(value)
+            SpreadsheetCellReferenceToValueTypeNameMap.with(value)
         );
     }
 
     private SpreadsheetCellSaveValueTypeHistoryToken(final SpreadsheetId id,
                                                      final SpreadsheetName name,
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
-                                                     final SpreadsheetCellReferenceToValidationValueTypeNameMap value) {
+                                                     final SpreadsheetCellReferenceToValueTypeNameMap value) {
         super(
             id,
             name,
@@ -68,20 +68,20 @@ public final class SpreadsheetCellSaveValueTypeHistoryToken extends SpreadsheetC
     SpreadsheetCellSaveValueTypeHistoryToken replace(final SpreadsheetId id,
                                                      final SpreadsheetName name,
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
-                                                     final Map<SpreadsheetCellReference, Optional<ValidationValueTypeName>> value) {
+                                                     final Map<SpreadsheetCellReference, Optional<ValueTypeName>> value) {
         return new SpreadsheetCellSaveValueTypeHistoryToken(
             id,
             name,
             anchoredSelection,
-            SpreadsheetCellReferenceToValidationValueTypeNameMap.with(value)
+            SpreadsheetCellReferenceToValueTypeNameMap.with(value)
         );
     }
 
     @Override
-    SpreadsheetCellReferenceToValidationValueTypeNameMap parseSaveValue(final TextCursor cursor) {
+    SpreadsheetCellReferenceToValueTypeNameMap parseSaveValue(final TextCursor cursor) {
         return parseJson(
             cursor,
-            SpreadsheetCellReferenceToValidationValueTypeNameMap.class
+            SpreadsheetCellReferenceToValueTypeNameMap.class
         );
     }
 

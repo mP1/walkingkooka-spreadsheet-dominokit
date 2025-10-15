@@ -26,7 +26,7 @@ public final class PluginSelectHistoryTokenTest extends PluginNameHistoryTokenTe
 
     @Test
     public void testUrlFragment() {
-        this.urlFragmentAndCheck("/plugin/TestPluginName123");
+        this.urlFragmentAndCheck("/plugin/test-plugin-name-123");
     }
 
     // clearAction.....................................................................................................

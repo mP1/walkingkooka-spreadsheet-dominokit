@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
-import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.ValueTypeName;
 
 import java.util.Optional;
 
@@ -53,7 +53,7 @@ public abstract class SpreadsheetCellValueHistoryTokenTestCase<T extends Spreads
     }
 
     final void setValueAndCheck(final SpreadsheetCellValueHistoryToken historyToken,
-                                final Optional<ValidationValueTypeName> valueType,
+                                final Optional<ValueTypeName> valueType,
                                 final HistoryToken expected) {
         this.checkEquals(
             expected,

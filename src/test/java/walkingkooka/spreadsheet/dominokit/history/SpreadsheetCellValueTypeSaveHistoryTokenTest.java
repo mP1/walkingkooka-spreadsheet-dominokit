@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
-import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.ValueTypeName;
 
 import java.util.Optional;
 
@@ -31,8 +31,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetCellValueTypeSaveHistoryTokenTest extends SpreadsheetCellValueTypeHistoryTokenTestCase<SpreadsheetCellValueTypeSaveHistoryToken> {
 
-    private final static Optional<ValidationValueTypeName> VALUE_TYPE = Optional.of(
-        ValidationValueTypeName.with("hello-value-type")
+    private final static Optional<ValueTypeName> VALUE_TYPE = Optional.of(
+        ValueTypeName.with("hello-value-type")
     );
 
     @Test

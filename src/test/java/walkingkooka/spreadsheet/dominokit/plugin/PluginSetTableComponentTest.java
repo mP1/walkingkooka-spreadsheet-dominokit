@@ -76,13 +76,13 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
                         PluginSet.with(
                             SortedSets.of(
                                 this.plugin(
-                                    "TestPlugin111",
+                                    "test-plugin-111",
                                     "filename111.jar",
                                     "user111@example.com",
                                     "1999-12-31T12:58:59"
                                 ),
                                 this.plugin(
-                                    "TestPlugin222",
+                                    "test-plugin-222",
                                     "filename222.jar",
                                     "user222@example.com",
                                     "2000-01-01T12:58:59"
@@ -105,7 +105,7 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
                 "        ROW(S)\n" +
                 "          ROW 0\n" +
                 "            TextComponent\n" +
-                "              \"TestPlugin111\"\n" +
+                "              \"test-plugin-111\"\n" +
                 "            TextComponent\n" +
                 "              \"filename111.jar\"\n" +
                 "            TextComponent\n" +
@@ -114,12 +114,12 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
                 "              \"31/12/99, 12:58 pm\"\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
-                "                \"Delete\" [#/plugin/TestPlugin111/delete] id=Table123-delete-Link\n" +
-                "                \"Download\" [/api/plugin/TestPlugin111/download] id=Table123-download-Link\n" +
-                "                \"View\" [#/plugin/TestPlugin111] id=Table123-view-Link\n" +
+                "                \"Delete\" [#/plugin/test-plugin-111/delete] id=Table123-delete-Link\n" +
+                "                \"Download\" [/api/plugin/test-plugin-111/download] id=Table123-download-Link\n" +
+                "                \"View\" [#/plugin/test-plugin-111] id=Table123-view-Link\n" +
                 "          ROW 1\n" +
                 "            TextComponent\n" +
-                "              \"TestPlugin222\"\n" +
+                "              \"test-plugin-222\"\n" +
                 "            TextComponent\n" +
                 "              \"filename222.jar\"\n" +
                 "            TextComponent\n" +
@@ -128,9 +128,9 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
                 "              \"1/1/00, 12:58 pm\"\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
-                "                \"Delete\" [#/plugin/TestPlugin222/delete] id=Table123-delete-Link\n" +
-                "                \"Download\" [/api/plugin/TestPlugin222/download] id=Table123-download-Link\n" +
-                "                \"View\" [#/plugin/TestPlugin222] id=Table123-view-Link\n" +
+                "                \"Delete\" [#/plugin/test-plugin-222/delete] id=Table123-delete-Link\n" +
+                "                \"Download\" [/api/plugin/test-plugin-222/download] id=Table123-download-Link\n" +
+                "                \"View\" [#/plugin/test-plugin-222] id=Table123-view-Link\n" +
                 "        CHILDREN\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
@@ -150,25 +150,25 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
                         PluginSet.with(
                             SortedSets.of(
                                 this.plugin(
-                                    "TestPlugin111",
+                                    "test-plugin-111",
                                     "filename111.jar",
                                     "user111@example.com",
                                     "2000-01-01T12:58:59"
                                 ),
                                 this.plugin(
-                                    "TestPlugin222",
+                                    "test-plugin-222",
                                     "filename222.jar",
                                     "user222@example.com",
                                     "2000-01-02T12:58:59"
                                 ),
                                 this.plugin(
-                                    "TestPlugin333",
+                                    "test-plugin-333",
                                     "filename333.jar",
                                     "user333@example.com",
                                     "2000-03-03T12:58:59"
                                 ),
                                 this.plugin(
-                                    "TestPlugin444",
+                                    "test-plugin-444",
                                     "filename444.jar",
                                     "user444@example.com",
                                     "2000-04-04T12:58:59"
@@ -198,7 +198,7 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
                 "        ROW(S)\n" +
                 "          ROW 0\n" +
                 "            TextComponent\n" +
-                "              \"TestPlugin111\"\n" +
+                "              \"test-plugin-111\"\n" +
                 "            TextComponent\n" +
                 "              \"filename111.jar\"\n" +
                 "            TextComponent\n" +
@@ -207,12 +207,12 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
                 "              \"1/1/00, 12:58 pm\"\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
-                "                \"Delete\" [#/plugin/TestPlugin111/delete] id=Table123-delete-Link\n" +
-                "                \"Download\" [/api/plugin/TestPlugin111/download] id=Table123-download-Link\n" +
-                "                \"View\" [#/plugin/TestPlugin111] id=Table123-view-Link\n" +
+                "                \"Delete\" [#/plugin/test-plugin-111/delete] id=Table123-delete-Link\n" +
+                "                \"Download\" [/api/plugin/test-plugin-111/download] id=Table123-download-Link\n" +
+                "                \"View\" [#/plugin/test-plugin-111] id=Table123-view-Link\n" +
                 "          ROW 1\n" +
                 "            TextComponent\n" +
-                "              \"TestPlugin222\"\n" +
+                "              \"test-plugin-222\"\n" +
                 "            TextComponent\n" +
                 "              \"filename222.jar\"\n" +
                 "            TextComponent\n" +
@@ -221,12 +221,12 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
                 "              \"2/1/00, 12:58 pm\"\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
-                "                \"Delete\" [#/plugin/TestPlugin222/delete] id=Table123-delete-Link\n" +
-                "                \"Download\" [/api/plugin/TestPlugin222/download] id=Table123-download-Link\n" +
-                "                \"View\" [#/plugin/TestPlugin222] id=Table123-view-Link\n" +
+                "                \"Delete\" [#/plugin/test-plugin-222/delete] id=Table123-delete-Link\n" +
+                "                \"Download\" [/api/plugin/test-plugin-222/download] id=Table123-download-Link\n" +
+                "                \"View\" [#/plugin/test-plugin-222] id=Table123-view-Link\n" +
                 "          ROW 2\n" +
                 "            TextComponent\n" +
-                "              \"TestPlugin333\"\n" +
+                "              \"test-plugin-333\"\n" +
                 "            TextComponent\n" +
                 "              \"filename333.jar\"\n" +
                 "            TextComponent\n" +
@@ -235,12 +235,12 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
                 "              \"3/3/00, 12:58 pm\"\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
-                "                \"Delete\" [#/plugin/TestPlugin333/delete] id=Table123-delete-Link\n" +
-                "                \"Download\" [/api/plugin/TestPlugin333/download] id=Table123-download-Link\n" +
-                "                \"View\" [#/plugin/TestPlugin333] id=Table123-view-Link\n" +
+                "                \"Delete\" [#/plugin/test-plugin-333/delete] id=Table123-delete-Link\n" +
+                "                \"Download\" [/api/plugin/test-plugin-333/download] id=Table123-download-Link\n" +
+                "                \"View\" [#/plugin/test-plugin-333] id=Table123-view-Link\n" +
                 "          ROW 3\n" +
                 "            TextComponent\n" +
-                "              \"TestPlugin444\"\n" +
+                "              \"test-plugin-444\"\n" +
                 "            TextComponent\n" +
                 "              \"filename444.jar\"\n" +
                 "            TextComponent\n" +
@@ -249,9 +249,9 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
                 "              \"4/4/00, 12:58 pm\"\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
-                "                \"Delete\" [#/plugin/TestPlugin444/delete] id=Table123-delete-Link\n" +
-                "                \"Download\" [/api/plugin/TestPlugin444/download] id=Table123-download-Link\n" +
-                "                \"View\" [#/plugin/TestPlugin444] id=Table123-view-Link\n" +
+                "                \"Delete\" [#/plugin/test-plugin-444/delete] id=Table123-delete-Link\n" +
+                "                \"Download\" [/api/plugin/test-plugin-444/download] id=Table123-download-Link\n" +
+                "                \"View\" [#/plugin/test-plugin-444] id=Table123-view-Link\n" +
                 "        CHILDREN\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
@@ -274,11 +274,11 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
         return new FakePluginSetTableComponentContext() {
             @Override
             public HistoryToken historyToken() {
-                return HistoryToken.parseString("/plugin/TestPlugin123");
+                return HistoryToken.parseString("/plugin/test-plugin-123");
             }
 
             public PluginName pluginName() {
-                return PluginName.with("TestPlugin123");
+                return PluginName.with("test-plugin-123");
             }
 
             @Override

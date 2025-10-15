@@ -81,13 +81,13 @@ public final class SpreadsheetImporterInfoSetComponentTest implements FormValueC
             SpreadsheetImporterInfoSetComponent.empty()
                 .setStringValue(
                     Optional.of(
-                        "https://www.example.com/Hello Hello, bad://example.com"
+                        "https://www.example.com/hello hello, bad://example.com"
                     )
                 ),
             "SpreadsheetImporterInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://www.example.com/Hello Hello, bad://example.com]\n" +
+                "      [https://www.example.com/hello hello, bad://example.com]\n" +
                 "      Errors\n" +
                 "        unknown protocol: bad\n"
         );
@@ -99,13 +99,13 @@ public final class SpreadsheetImporterInfoSetComponentTest implements FormValueC
             SpreadsheetImporterInfoSetComponent.empty()
                 .setStringValue(
                     Optional.of(
-                        "https://www.example.com/1 Good, https://example.com/2 Bad!"
+                        "https://www.example.com/1 good, https://example.com/2 bad!"
                     )
                 ),
             "SpreadsheetImporterInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://www.example.com/1 Good, https://example.com/2 Bad!]\n" +
+                "      [https://www.example.com/1 good, https://example.com/2 bad!]\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 57\n"
         );

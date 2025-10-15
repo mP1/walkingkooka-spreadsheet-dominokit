@@ -58,10 +58,10 @@ public final class DialogComponentContextTest implements ClassTesting<DialogComp
     public void testPluginDialogTitleWithPluginName() {
         this.pluginDialogTitleAndCheck(
             Optional.of(
-                PluginName.with("HelloPlugin")
+                PluginName.with("hello-plugin")
             ),
             "Action456",
-            "Plugin HelloPlugin: Action456"
+            "Plugin hello-plugin: Action456"
         );
     }
 

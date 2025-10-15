@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.ValueTypeName;
 
 import java.util.Optional;
 
@@ -118,7 +118,7 @@ public final class SpreadsheetCellValueAnchorComponentTest implements AnchorComp
                     SpreadsheetSelection.A1.setFormula(
                         SpreadsheetFormula.EMPTY.setText("=1")
                             .setValueType(
-                                Optional.of(ValidationValueTypeName.DATE)
+                                Optional.of(ValueTypeName.DATE)
                             ).setValue(
                                 Optional.of("text123")
                             )
@@ -141,7 +141,7 @@ public final class SpreadsheetCellValueAnchorComponentTest implements AnchorComp
                         SpreadsheetFormula.EMPTY.setText("=1")
                             .setValueType(
                                 Optional.of(
-                                    ValidationValueTypeName.TEXT
+                                    ValueTypeName.TEXT
                                 )
                             )
                     )
@@ -175,7 +175,7 @@ public final class SpreadsheetCellValueAnchorComponentTest implements AnchorComp
                 SpreadsheetSelection.A1.setFormula(
                     SpreadsheetFormula.EMPTY.setValueType(
                         Optional.of(
-                            ValidationValueTypeName.TEXT
+                            ValueTypeName.TEXT
                         )
                     )
                 )
@@ -195,7 +195,7 @@ public final class SpreadsheetCellValueAnchorComponentTest implements AnchorComp
                 SpreadsheetSelection.A1.setFormula(
                     SpreadsheetFormula.EMPTY.setValueType(
                         Optional.of(
-                            ValidationValueTypeName.TEXT
+                            ValueTypeName.TEXT
                         )
                     )
                 )

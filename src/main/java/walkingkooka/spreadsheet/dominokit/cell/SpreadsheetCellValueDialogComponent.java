@@ -42,7 +42,7 @@ import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.text.CaseKind;
-import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.ValueTypeName;
 
 import java.util.List;
 import java.util.Objects;
@@ -96,14 +96,14 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
             .autoDisableWhenMissingValue();
 
         String nowOrToday;
-        ValidationValueTypeName valueTypeName = context.valueType();
-        if (ValidationValueTypeName.DATE.equals(valueTypeName)) {
+        ValueTypeName valueTypeName = context.valueType();
+        if (ValueTypeName.DATE.equals(valueTypeName)) {
             nowOrToday = TODAY_TEXT;
         } else {
-            if (ValidationValueTypeName.DATE_TIME.equals(valueTypeName)) {
+            if (ValueTypeName.DATE_TIME.equals(valueTypeName)) {
                 nowOrToday = NOW_TEXT;
             } else {
-                if (ValidationValueTypeName.TIME.equals(valueTypeName)) {
+                if (ValueTypeName.TIME.equals(valueTypeName)) {
                     nowOrToday = NOW_TEXT;
                 } else {
                     nowOrToday = "";
@@ -147,10 +147,10 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
             .appendChild(this.save)
             .appendChild(this.clear);
 
-        final ValidationValueTypeName valueType = context.valueType();
-        if (ValidationValueTypeName.DATE.equals(valueType) ||
-            ValidationValueTypeName.DATE_TIME.equals(valueType) ||
-            ValidationValueTypeName.TIME.equals(valueType)) {
+        final ValueTypeName valueType = context.valueType();
+        if (ValueTypeName.DATE.equals(valueType) ||
+            ValueTypeName.DATE_TIME.equals(valueType) ||
+            ValueTypeName.TIME.equals(valueType)) {
             links.appendChild(this.nowOrToday);
         }
 
@@ -224,7 +224,7 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
 
         this.nowOrToday.setValue(
             Optional.of(
-                ValidationValueTypeName.DATE == context.valueType() ?
+                ValueTypeName.DATE == context.valueType() ?
                     "today" :
                     "now"
             )
@@ -291,7 +291,7 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        final ValidationValueTypeName valueType = token.valueType()
+        final ValueTypeName valueType = token.valueType()
             .orElse(null);
         return null != valueType &&
             token instanceof SpreadsheetCellValueSelectHistoryToken &&

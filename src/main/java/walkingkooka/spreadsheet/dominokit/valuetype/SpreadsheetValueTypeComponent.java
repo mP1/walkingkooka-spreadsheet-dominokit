@@ -28,16 +28,16 @@ import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
-import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.ValueTypeName;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
 /**
- * A drop down that supports picking an optional {@link ValidationValueTypeName}.
+ * A drop down that supports picking an optional {@link ValueTypeName}.
  */
-public final class SpreadsheetValueTypeComponent implements FormValueComponent<HTMLFieldSetElement, ValidationValueTypeName, SpreadsheetValueTypeComponent>,
+public final class SpreadsheetValueTypeComponent implements FormValueComponent<HTMLFieldSetElement, ValueTypeName, SpreadsheetValueTypeComponent>,
     HtmlComponentDelegator<HTMLFieldSetElement, SpreadsheetValueTypeComponent>,
     TreePrintable {
 
@@ -46,14 +46,14 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
     }
 
     private SpreadsheetValueTypeComponent() {
-        final SelectComponent<ValidationValueTypeName> select = SelectComponent.empty();
+        final SelectComponent<ValueTypeName> select = SelectComponent.empty();
 
         select.appendOption(
             "Any",
             SpreadsheetValueType.ANY
         );
 
-        for (final ValidationValueTypeName typeName : SpreadsheetValueType.ALL_CELL_TYPES) {
+        for (final ValueTypeName typeName : SpreadsheetValueType.ALL_CELL_TYPES) {
             select.appendOption(
                 CaseKind.KEBAB.change(
                     typeName.text(),
@@ -182,7 +182,7 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
     }
     
     @Override
-    public SpreadsheetValueTypeComponent addChangeListener(final ChangeListener<Optional<ValidationValueTypeName>> listener) {
+    public SpreadsheetValueTypeComponent addChangeListener(final ChangeListener<Optional<ValueTypeName>> listener) {
         this.select.addChangeListener(listener);
         return this;
     }
@@ -226,7 +226,7 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
     // Value............................................................................................................
 
     @Override
-    public SpreadsheetValueTypeComponent setValue(final Optional<ValidationValueTypeName> valueType) {
+    public SpreadsheetValueTypeComponent setValue(final Optional<ValueTypeName> valueType) {
         Objects.requireNonNull(valueType, "valueType");
 
         this.select.setValue(valueType);
@@ -234,7 +234,7 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
     }
 
     @Override //
-    public Optional<ValidationValueTypeName> value() {
+    public Optional<ValueTypeName> value() {
         return this.select.value();
     }
 
@@ -245,7 +245,7 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
         return this.select;
     }
 
-    private final SelectComponent<ValidationValueTypeName> select;
+    private final SelectComponent<ValueTypeName> select;
 
     // Object...........................................................................................................
 

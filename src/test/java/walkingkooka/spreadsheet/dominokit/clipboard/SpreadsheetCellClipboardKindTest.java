@@ -51,7 +51,7 @@ import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
-import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.ValueTypeName;
 
 import java.util.Locale;
 import java.util.Optional;
@@ -71,7 +71,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     private final static SpreadsheetCell CELL = SpreadsheetSelection.A1.setFormula(
         SpreadsheetFormula.EMPTY.setText("=1+2")
             .setValueType(
-                Optional.of(ValidationValueTypeName.with("HelloValueType"))
+                Optional.of(ValueTypeName.with("hello-value-type"))
             )
     ).setLocale(
         Optional.of(Locale.ENGLISH)

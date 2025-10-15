@@ -62,12 +62,12 @@ public final class ConverterSelectorComponentTest implements FormValueComponentT
         this.treePrintAndCheck(
             ConverterSelectorComponent.empty()
                 .setStringValue(
-                    Optional.of("Hello!")
+                    Optional.of("hello!")
                 ),
             "ConverterSelectorComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [Hello!]\n" +
+                "      [hello!]\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 5\n"
         );

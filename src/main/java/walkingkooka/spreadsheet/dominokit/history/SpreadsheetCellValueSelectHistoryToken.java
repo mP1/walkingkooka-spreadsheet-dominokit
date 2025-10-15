@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
-import walkingkooka.validation.ValidationValueTypeName;
+import walkingkooka.validation.ValueTypeName;
 
 import java.util.Optional;
 
@@ -31,7 +31,7 @@ public final class SpreadsheetCellValueSelectHistoryToken extends SpreadsheetCel
     static SpreadsheetCellValueSelectHistoryToken with(final SpreadsheetId id,
                                                        final SpreadsheetName name,
                                                        final AnchoredSpreadsheetSelection anchoredSelection,
-                                                       final ValidationValueTypeName valueType) {
+                                                       final ValueTypeName valueType) {
         return new SpreadsheetCellValueSelectHistoryToken(
             id,
             name,
@@ -43,12 +43,12 @@ public final class SpreadsheetCellValueSelectHistoryToken extends SpreadsheetCel
     private SpreadsheetCellValueSelectHistoryToken(final SpreadsheetId id,
                                                    final SpreadsheetName name,
                                                    final AnchoredSpreadsheetSelection anchoredSelection,
-                                                   final ValidationValueTypeName valueType) {
+                                                   final ValueTypeName valueType) {
         super(
             id,
             name,
             anchoredSelection,
-            Optional.of(valueType) // ValidationValueTypeName
+            Optional.of(valueType) // ValueTypeName
         );
     }
 
@@ -69,7 +69,7 @@ public final class SpreadsheetCellValueSelectHistoryToken extends SpreadsheetCel
         );
     }
 
-    // cell/A1/value/ValidationValueTypeName
+    // cell/A1/value/ValueTypeName
     @Override
     UrlFragment valueTypeUrlFragment() {
         return this.valueType.get()

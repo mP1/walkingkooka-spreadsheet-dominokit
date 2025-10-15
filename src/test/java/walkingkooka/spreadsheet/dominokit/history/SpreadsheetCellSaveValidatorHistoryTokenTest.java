@@ -46,7 +46,7 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
                 Maps.of(
                     SpreadsheetSelection.parseCell("A2"),
                     Optional.of(
-                        ValidatorSelector.parse("HelloValidator")
+                        ValidatorSelector.parse("hello-validator-1")
                     )
                 )
             )
@@ -70,15 +70,15 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
                 Maps.of(
                     SpreadsheetSelection.A1,
                     Optional.of(
-                        ValidatorSelector.parse("HelloValidator1")
+                        ValidatorSelector.parse("hello-validator-1")
                     ),
                     SpreadsheetSelection.parseCell("A3"),
                     Optional.of(
-                        ValidatorSelector.parse("HelloValidator2")
+                        ValidatorSelector.parse("hello-validator-2")
                     ),
                     SpreadsheetSelection.parseCell("A4"),
                     Optional.of(
-                        ValidatorSelector.parse("HelloValidator3")
+                        ValidatorSelector.parse("hello-validator-3")
                     )
                 )
             )
@@ -106,12 +106,12 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
     }
 
     // {
-    //   "A1": "HelloValidator"
+    //   "A1": "hello-validator-"
     // }
     @Test
     public void testParseOneCell() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/save/validator/" + JsonNode.parse("{\"A1\":\"HelloValidator\"}"),
+            "/123/SpreadsheetName456/cell/A1/save/validator/" + JsonNode.parse("{\"A1\":\"hello-validator-\"}"),
             SpreadsheetCellSaveValidatorHistoryToken.with(
                 ID,
                 NAME,
@@ -119,7 +119,7 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
                 Maps.of(
                     SpreadsheetSelection.A1,
                     Optional.of(
-                        ValidatorSelector.parse("HelloValidator")
+                        ValidatorSelector.parse("hello-validator-")
                     )
                 )
             )
@@ -127,13 +127,13 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
     }
 
     // {
-    //   "A1": "HelloValidator",
+    //   "A1": "hello-validator-",
     //   "A2": null
     // }
     @Test
     public void testParseSeveralCells() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/validator/" + JsonNode.parse("{\"A1\":\"HelloValidator1\",\"A2\":null}"),
+            "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/validator/" + JsonNode.parse("{\"A1\":\"hello-validator-1\",\"A2\":null}"),
             SpreadsheetCellSaveValidatorHistoryToken.with(
                 ID,
                 NAME,
@@ -142,7 +142,7 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
                 Maps.of(
                     SpreadsheetSelection.A1,
                     Optional.of(
-                        ValidatorSelector.parse("HelloValidator1")
+                        ValidatorSelector.parse("hello-validator-1")
                     ),
                     SpreadsheetSelection.parseCell("A2"),
                     Optional.empty()
@@ -179,7 +179,7 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
         final Map<SpreadsheetCellReference, Optional<ValidatorSelector>> cellToValidator = Maps.of(
             SpreadsheetSelection.A1,
             Optional.of(
-                ValidatorSelector.parse("HelloValidator")
+                ValidatorSelector.parse("hello-validator-")
             )
         );
         this.urlFragmentAndCheck(
@@ -199,7 +199,7 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
         final Map<SpreadsheetCellReference, Optional<ValidatorSelector>> cellToValidator = Maps.of(
             SpreadsheetSelection.A1,
             Optional.of(
-                ValidatorSelector.parse("HelloValidator1")
+                ValidatorSelector.parse("hello-validator-1")
             )
         );
 
@@ -220,15 +220,15 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
         final Map<SpreadsheetCellReference, Optional<ValidatorSelector>> cellToValidator = Maps.of(
             SpreadsheetSelection.A1,
             Optional.of(
-                ValidatorSelector.parse("HelloValidator1")
+                ValidatorSelector.parse("hello-validator-1")
             ),
             SpreadsheetSelection.parseCell("A2"),
             Optional.of(
-                ValidatorSelector.parse("HelloValidator2")
+                ValidatorSelector.parse("hello-validator-2")
             ),
             SpreadsheetSelection.parseCell("A3"),
             Optional.of(
-                ValidatorSelector.parse("HelloValidator3")
+                ValidatorSelector.parse("hello-validator-3")
             )
         );
 
@@ -305,7 +305,7 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
             Maps.of(
                 SpreadsheetSelection.A1,
                 Optional.of(
-                    ValidatorSelector.parse("HelloValidator")
+                    ValidatorSelector.parse("hello-validator-")
                 )
             )
         );
