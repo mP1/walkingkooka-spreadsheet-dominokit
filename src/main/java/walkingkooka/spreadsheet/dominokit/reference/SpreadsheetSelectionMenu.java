@@ -482,7 +482,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             subMenu.item(
                 SpreadsheetContextMenuItem.with(
                     typeMenuId + SpreadsheetElementIds.MENU_ITEM,
-                    CaseKind.CAMEL.change(
+                    CaseKind.KEBAB.change(
                         type.text(),
                         CaseKind.TITLE
                     )
@@ -542,7 +542,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             subMenu.item(
                 SpreadsheetContextMenuItem.with(
                     typeMenuId + SpreadsheetElementIds.MENU_ITEM,
-                    CaseKind.CAMEL.change(
+                    CaseKind.KEBAB.change(
                         valueType.text(),
                         CaseKind.TITLE
                     )
