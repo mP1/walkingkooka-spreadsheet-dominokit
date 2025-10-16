@@ -271,8 +271,8 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
         return this.elseIfDifferent(historyToken);
     }
 
-    final HistoryToken setSaveValueCell(final Object valueOrNull) {
-        HistoryToken historyToken = this;
+    private HistoryToken setSaveValueCell(final Object valueOrNull) {
+        HistoryToken historyToken = null;
 
         if (valueOrNull instanceof Set) {
             historyToken = HistoryToken.cellSaveCell(
