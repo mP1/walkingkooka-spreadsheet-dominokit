@@ -91,7 +91,7 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
     public HistoryToken clearAction() {
         return HistoryToken.labelMappingSelect(
             this.id,
-            this.name(),
+            this.name,
             this.mapping.label()
         );
     }

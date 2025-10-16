@@ -62,7 +62,7 @@ public final class SpreadsheetCellValueTypeSaveHistoryToken extends SpreadsheetC
     public HistoryToken clearAction() {
         return HistoryToken.cellValueTypeSelect(
             this.id,
-            this.name(),
+            this.name,
             this.anchoredSelection()
         );
     }

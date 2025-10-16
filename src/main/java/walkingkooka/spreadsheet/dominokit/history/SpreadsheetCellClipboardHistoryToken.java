@@ -53,7 +53,7 @@ public abstract class SpreadsheetCellClipboardHistoryToken extends SpreadsheetCe
     public final HistoryToken clearAction() {
         return cellSelect(
             this.id,
-            this.name(),
+            this.name,
             this.anchoredSelection()
         );
     }

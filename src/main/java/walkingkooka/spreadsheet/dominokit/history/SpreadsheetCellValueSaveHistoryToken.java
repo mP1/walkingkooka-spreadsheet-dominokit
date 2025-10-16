@@ -75,7 +75,7 @@ public final class SpreadsheetCellValueSaveHistoryToken extends SpreadsheetCellV
     public HistoryToken clearAction() {
         return HistoryToken.cellValueSelect(
             this.id,
-            this.name(),
+            this.name,
             this.anchoredSelection(),
             this.valueType.get()
         );

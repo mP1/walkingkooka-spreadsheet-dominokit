@@ -74,7 +74,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
         HistoryToken historyToken = this;
 
         final SpreadsheetId id = this.id;
-        final SpreadsheetName name = this.name();
+        final SpreadsheetName name = this.name;
         final AnchoredSpreadsheetSelection spreadsheetSelection = this.anchoredSelection;
 
         if (valueOrNull instanceof Set) {
@@ -394,7 +394,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
         return null != formName ?
             HistoryToken.cellFormSelect(
                 this.id,
-                this.name(),
+                this.name,
                 this.anchoredSelection,
                 FormName.with(formName)
             ).parse(cursor) :
