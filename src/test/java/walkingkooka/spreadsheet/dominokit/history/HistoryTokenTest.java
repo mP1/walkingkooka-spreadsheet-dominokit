@@ -367,28 +367,29 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         );
     }
 
-    // setCellCut.......................................................................................................
+    // cut..............................................................................................................
 
     @Test
-    public void testSetCellCutWithNullKindFails() {
+    public void testCutWithNullKindFails() {
         assertThrows(
             NullPointerException.class,
-            () -> HistoryToken.unknown(UrlFragment.SLASH).setCellCut(null)
+            () -> HistoryToken.unknown(UrlFragment.SLASH)
+                .cut(null)
         );
     }
 
     @Test
-    public void testSetCellCutWithNonCellHistoryToken() {
+    public void testCutWithUnknownHistoryToken() {
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-            historyToken.setCellCut(SpreadsheetCellClipboardKind.CELL),
+            historyToken.cut(SpreadsheetCellClipboardKind.CELL),
             historyToken
         );
     }
 
     @Test
-    public void testSetCellCutWithCellHistoryToken() {
+    public void testCutWithCellHistoryTokenWithCell() {
         final HistoryToken historyToken = HistoryToken.cellSelect(
             ID,
             NAME,
@@ -402,12 +403,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                 CELL.setDefaultAnchor(),
                 SpreadsheetCellClipboardKind.CELL
             ),
-            historyToken.setCellCut(SpreadsheetCellClipboardKind.CELL)
+            historyToken.cut(SpreadsheetCellClipboardKind.CELL)
         );
     }
 
     @Test
-    public void testSetCellCutWithCellHistoryToken2() {
+    public void testCutWithCellHistoryTokenWithCellRange() {
         final AnchoredSpreadsheetSelection cell = SpreadsheetSelection.parseCellRange("A1:B2")
             .setAnchor(SpreadsheetViewportAnchor.TOP_LEFT);
 
@@ -425,13 +426,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                     cell,
                     kind
                 ),
-                historyToken.setCellCut(kind)
+                historyToken.cut(kind)
             );
         }
     }
 
     @Test
-    public void testSetCellCutWithColumnHistoryToken() {
+    public void testCutWithSpreadsheetColumnHistoryToken() {
         final HistoryToken historyToken = HistoryToken.columnSelect(
             ID,
             NAME,
@@ -439,13 +440,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         );
 
         assertSame(
-            historyToken.setCellCut(SpreadsheetCellClipboardKind.CELL),
+            historyToken.cut(SpreadsheetCellClipboardKind.CELL),
             historyToken
         );
     }
 
     @Test
-    public void testSetCellCutWithRowHistoryToken() {
+    public void testCutWithSpreadsheetRowHistoryToken() {
         final HistoryToken historyToken = HistoryToken.rowSelect(
             ID,
             NAME,
@@ -453,7 +454,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         );
 
         assertSame(
-            historyToken.setCellCut(SpreadsheetCellClipboardKind.CELL),
+            historyToken.cut(SpreadsheetCellClipboardKind.CELL),
             historyToken
         );
     }

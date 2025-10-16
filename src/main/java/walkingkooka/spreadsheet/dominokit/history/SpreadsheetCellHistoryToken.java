@@ -185,7 +185,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
 
             String component = parseComponentOrNull(cursor);
             if (null != component) {
-                token = cell.setCellCut(
+                token = cell.cut(
                     SpreadsheetCellClipboardKind.parse(component)
                 );
             }
