@@ -262,7 +262,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                     SpreadsheetIcons.copy()
                 ),
                 itemIdPrefix + '-',
-                historyToken::setCopy
+                historyToken::copy
             );
         }
 
