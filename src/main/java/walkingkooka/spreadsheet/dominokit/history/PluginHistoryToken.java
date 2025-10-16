@@ -20,6 +20,9 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
+
+import java.util.Optional;
 
 /**
  * Base class for all plugin {@link HistoryToken tokens}.
@@ -59,4 +62,28 @@ public abstract class PluginHistoryToken extends HistoryToken {
     private UrlFragment urlFragment;
 
     abstract UrlFragment pluginUrlFragment();
+
+    // saveValue........................................................................................................
+
+    final HistoryToken setSaveValuePlugin(final Optional<?> value) {
+        HistoryToken historyToken = null;
+
+        final Object valueOrNull = value.orElse(null);
+
+        if (this instanceof PluginSelectHistoryToken || this instanceof PluginSaveHistoryToken) {
+            final PluginNameHistoryToken pluginNameHistoryToken = this.cast(PluginNameHistoryToken.class);
+
+            historyToken = HistoryToken.pluginSave(
+                pluginNameHistoryToken.name(),
+                (String) valueOrNull
+            );
+        }
+        if (this instanceof PluginUploadHistoryToken) {
+            historyToken = HistoryToken.pluginUploadSave(
+                (BrowserFile) valueOrNull
+            );
+        }
+
+        return historyToken;
+    }
 }

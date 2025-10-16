@@ -3998,19 +3998,8 @@ public abstract class HistoryToken implements HasUrlFragment {
         HistoryToken historyToken = null;
 
         if (this instanceof PluginHistoryToken) {
-            if (this instanceof PluginSelectHistoryToken || this instanceof PluginSaveHistoryToken) {
-                final PluginNameHistoryToken pluginNameHistoryToken = this.cast(PluginNameHistoryToken.class);
-
-                historyToken = HistoryToken.pluginSave(
-                    pluginNameHistoryToken.name(),
-                    (String) valueOrNull
-                );
-            }
-            if (this instanceof PluginUploadHistoryToken) {
-                historyToken = HistoryToken.pluginUploadSave(
-                    (BrowserFile) valueOrNull
-                );
-            }
+            historyToken = this.cast(PluginHistoryToken.class)
+                .setSaveValuePlugin(value);
         }
 
         if (this instanceof SpreadsheetIdHistoryToken) {
