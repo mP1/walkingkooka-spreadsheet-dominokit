@@ -275,28 +275,29 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         );
     }
 
-    // setCellCopy......................................................................................................
+    // setCopy..........................................................................................................
 
     @Test
-    public void testSetCellCopyWithNullKindFails() {
+    public void testSetCopyWithNullKindFails() {
         assertThrows(
             NullPointerException.class,
-            () -> HistoryToken.unknown(UrlFragment.SLASH).setCellCopy(null)
+            () -> HistoryToken.unknown(UrlFragment.SLASH)
+                .setCopy(null)
         );
     }
 
     @Test
-    public void testSetCellCopyWithNonCellHistoryToken() {
+    public void testSetCopyWithNonSpreadsheetHistoryToken() {
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-            historyToken.setCellCopy(SpreadsheetCellClipboardKind.CELL),
+            historyToken.setCopy(SpreadsheetCellClipboardKind.CELL),
             historyToken
         );
     }
 
     @Test
-    public void testSetCellCopyWithCellHistoryToken() {
+    public void testSetCopyWithSpreadsheetCellHistoryTokenWithCell() {
         final HistoryToken historyToken = HistoryToken.cellSelect(
             ID,
             NAME,
@@ -310,12 +311,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                 CELL.setDefaultAnchor(),
                 SpreadsheetCellClipboardKind.CELL
             ),
-            historyToken.setCellCopy(SpreadsheetCellClipboardKind.CELL)
+            historyToken.setCopy(SpreadsheetCellClipboardKind.CELL)
         );
     }
 
     @Test
-    public void testSetCellCopyWithCellHistoryToken2() {
+    public void testSetCopyWithSpreadsheetCellHistoryTokenWithCellRange() {
         final AnchoredSpreadsheetSelection cell = SpreadsheetSelection.parseCellRange("A1:B2")
             .setAnchor(SpreadsheetViewportAnchor.TOP_LEFT);
 
@@ -333,13 +334,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                     cell,
                     kind
                 ),
-                historyToken.setCellCopy(kind)
+                historyToken.setCopy(kind)
             );
         }
     }
 
     @Test
-    public void testSetCellCopyWithColumnHistoryToken() {
+    public void testSetCopyWithSpreadsheetColumnHistoryToken() {
         final HistoryToken historyToken = HistoryToken.columnSelect(
             ID,
             NAME,
@@ -347,13 +348,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         );
 
         assertSame(
-            historyToken.setCellCopy(SpreadsheetCellClipboardKind.CELL),
+            historyToken.setCopy(SpreadsheetCellClipboardKind.CELL),
             historyToken
         );
     }
 
     @Test
-    public void testSetCellCopyWithRowHistoryToken() {
+    public void testSetCopyWithSpreadsheetRowHistoryToken() {
         final HistoryToken historyToken = HistoryToken.rowSelect(
             ID,
             NAME,
@@ -361,7 +362,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         );
 
         assertSame(
-            historyToken.setCellCopy(SpreadsheetCellClipboardKind.CELL),
+            historyToken.setCopy(SpreadsheetCellClipboardKind.CELL),
             historyToken
         );
     }

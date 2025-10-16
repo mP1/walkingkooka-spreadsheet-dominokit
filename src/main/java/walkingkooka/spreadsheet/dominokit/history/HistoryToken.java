@@ -2185,12 +2185,12 @@ public abstract class HistoryToken implements HasUrlFragment {
         return Optional.ofNullable(anchoredSelection);
     }
 
-    // CELL.............................................................................................................
+    // COPY.............................................................................................................
 
     /**
      * If possible creates a {@link SpreadsheetCellClipboardCopyHistoryToken} token.
      */
-    public final HistoryToken setCellCopy(final SpreadsheetCellClipboardKind kind) {
+    public final HistoryToken setCopy(final SpreadsheetCellClipboardKind kind) {
         Objects.requireNonNull(kind, "kind");
 
         HistoryToken token = this;
