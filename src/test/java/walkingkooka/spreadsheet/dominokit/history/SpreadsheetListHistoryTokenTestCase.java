@@ -95,13 +95,13 @@ public abstract class SpreadsheetListHistoryTokenTestCase<T extends SpreadsheetL
     // list.............................................................................................................
 
     @Test
-    public final void testSetListDifferentOffsetAndCount() {
+    public final void testListDifferentOffsetAndCount() {
         final HistoryTokenOffsetAndCount differentCount = HistoryTokenOffsetAndCount.with(
             OptionalInt.of(111),
             OptionalInt.of(222)
         );
 
-        this.setListAndCheck(
+        this.listAndCheck(
             this.createHistoryToken(HistoryTokenOffsetAndCount.EMPTY),
             differentCount,
             this.createHistoryToken(differentCount)
@@ -109,12 +109,12 @@ public abstract class SpreadsheetListHistoryTokenTestCase<T extends SpreadsheetL
     }
 
     @Test
-    public final void testSetListDifferentOffsetAndCount2() {
+    public final void testListDifferentOffsetAndCount2() {
         final HistoryTokenOffsetAndCount differentCount = HistoryTokenOffsetAndCount.EMPTY.setCount(
             OptionalInt.of(222)
         );
 
-        this.setListAndCheck(
+        this.listAndCheck(
             this.createHistoryToken(HistoryTokenOffsetAndCount.EMPTY.setOffset(OptionalInt.of(111))),
             differentCount,
             this.createHistoryToken(differentCount)

@@ -110,8 +110,8 @@ public abstract class SpreadsheetAnchoredSelectionHistoryTokenTestCase<T extends
     // list.............................................................................................................
 
     @Test
-    public final void testSetListWithEmptyOffsetCount() {
-        this.setListAndCheck(
+    public final void testListWithEmptyOffsetCount() {
+        this.listAndCheck(
             this.createHistoryToken(),
             HistoryTokenOffsetAndCount.EMPTY,
             HistoryToken.spreadsheetListSelect(HistoryTokenOffsetAndCount.EMPTY)
@@ -119,13 +119,13 @@ public abstract class SpreadsheetAnchoredSelectionHistoryTokenTestCase<T extends
     }
 
     @Test
-    public final void testSetListWithNonEmptyOffsetCount() {
+    public final void testListWithNonEmptyOffsetCount() {
         final HistoryTokenOffsetAndCount offsetAndCount = HistoryTokenOffsetAndCount.with(
             OptionalInt.of(123),
             OptionalInt.of(456)
         );
 
-        this.setListAndCheck(
+        this.listAndCheck(
             this.createHistoryToken(),
             offsetAndCount,
             HistoryToken.spreadsheetListSelect(offsetAndCount)

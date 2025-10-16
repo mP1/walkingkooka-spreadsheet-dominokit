@@ -515,26 +515,26 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     // setList..........................................................................................................
 
     @Test
-    public void testSetListWithNullOffsetAndCountFails() {
+    public void testListWithNullOffsetAndCountFails() {
         assertThrows(
             NullPointerException.class,
-            () -> this.createObject().setList(null)
+            () -> this.createObject().list(null)
         );
     }
 
-    final void setListAndCheck(final HistoryToken token) {
+    final void listAndCheck(final HistoryToken token) {
         assertSame(
             token,
-            token.setList(HistoryTokenOffsetAndCount.EMPTY)
+            token.list(HistoryTokenOffsetAndCount.EMPTY)
         );
     }
 
-    final void setListAndCheck(final HistoryToken token,
-                               final HistoryTokenOffsetAndCount offsetAndCount,
-                               final HistoryToken expected) {
+    final void listAndCheck(final HistoryToken token,
+                            final HistoryTokenOffsetAndCount offsetAndCount,
+                            final HistoryToken expected) {
         this.checkEquals(
             expected,
-            token.setList(offsetAndCount),
+            token.list(offsetAndCount),
             () -> token + " setList " + offsetAndCount
         );
     }

@@ -141,8 +141,8 @@ public final class SpreadsheetLabelMappingListHistoryTokenTest extends Spreadshe
     // setList..........................................................................................................
 
     @Test
-    public void testSetList() {
-        this.setListAndCheck(
+    public void testList() {
+        this.listAndCheck(
             this.createHistoryToken()
         );
     }

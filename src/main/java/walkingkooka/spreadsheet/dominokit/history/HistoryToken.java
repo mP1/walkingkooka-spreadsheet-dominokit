@@ -3142,7 +3142,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
     // LIST.............................................................................................................
 
-    public final HistoryToken setList(final HistoryTokenOffsetAndCount offsetAndCount) {
+    public final HistoryToken list(final HistoryTokenOffsetAndCount offsetAndCount) {
         Objects.requireNonNull(offsetAndCount, "offsetAndCount");
 
         HistoryToken historyToken;

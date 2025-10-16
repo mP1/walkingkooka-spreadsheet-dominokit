@@ -92,8 +92,8 @@ public final class SpreadsheetCreateHistoryTokenTest extends SpreadsheetHistoryT
     // list.............................................................................................................
 
     @Test
-    public void testSetList() {
-        this.setListAndCheck(
+    public void testList() {
+        this.listAndCheck(
             this.createHistoryToken(),
             HistoryTokenOffsetAndCount.EMPTY,
             HistoryToken.spreadsheetListSelect(HistoryTokenOffsetAndCount.EMPTY)
