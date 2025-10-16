@@ -23,6 +23,9 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.cursor.TextCursor;
 
+import java.util.Objects;
+import java.util.Optional;
+
 public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHistoryToken {
 
     SpreadsheetMetadataHistoryToken(final SpreadsheetId id,
@@ -31,6 +34,35 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
             id,
             name
         );
+    }
+
+    @Override
+    public final HistoryToken setSaveValue(final Optional<?> value) {
+        Objects.requireNonNull(value, "value");
+
+        HistoryToken historyToken = this;
+
+        if (this instanceof SpreadsheetMetadataPropertySelectHistoryToken || this instanceof SpreadsheetMetadataPropertySaveHistoryToken) {
+            historyToken = HistoryToken.metadataPropertySave(
+                this.id,
+                this.name,
+                this.cast(SpreadsheetMetadataPropertyHistoryToken.class)
+                    .propertyName,
+                value
+            );
+        }
+
+        if (this instanceof SpreadsheetMetadataPropertyStyleHistoryToken) {
+            historyToken = HistoryToken.metadataPropertyStyleSave(
+                this.id,
+                this.name,
+                this.cast(SpreadsheetMetadataPropertyStyleHistoryToken.class)
+                    .stylePropertyName(),
+                value
+            );
+        }
+
+        return this.elseIfDifferent(historyToken);
     }
 
     @Override //

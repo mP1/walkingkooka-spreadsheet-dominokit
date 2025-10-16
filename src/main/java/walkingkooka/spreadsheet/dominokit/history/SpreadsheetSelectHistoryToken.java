@@ -28,6 +28,7 @@ import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
 import walkingkooka.validation.form.FormName;
 
+import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -54,6 +55,13 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
             id,
             name
         );
+    }
+
+    @Override
+    public HistoryToken setSaveValue(final Optional<?> value) {
+        Objects.requireNonNull(value, "value");
+
+        return this;
     }
 
     @Override

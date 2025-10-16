@@ -31,6 +31,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.cursor.TextCursor;
 
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
@@ -70,6 +71,13 @@ public final class SpreadsheetListDeleteHistoryToken extends SpreadsheetIdHistor
     HistoryToken replaceIdAndName(final SpreadsheetId id,
                                   final SpreadsheetName name) {
         throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public HistoryToken setSaveValue(final Optional<?> value) {
+        Objects.requireNonNull(value, "value");
+
+        return this;
     }
 
     @Override

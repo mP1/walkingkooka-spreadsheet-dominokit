@@ -91,6 +91,13 @@ public final class SpreadsheetNavigateHistoryToken extends SpreadsheetNameHistor
     }
 
     @Override
+    public HistoryToken setSaveValue(final Optional<?> value) {
+        Objects.requireNonNull(value, "value");
+
+        return this;
+    }
+
+    @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
         final SpreadsheetViewportHomeNavigationList navigation = this.navigation.orElse(null);

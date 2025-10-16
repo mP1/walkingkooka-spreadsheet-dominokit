@@ -22,6 +22,9 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.text.cursor.TextCursor;
 
+import java.util.Objects;
+import java.util.Optional;
+
 public abstract class SpreadsheetListHistoryToken extends SpreadsheetHistoryToken {
 
     SpreadsheetListHistoryToken(final HistoryTokenOffsetAndCount offsetAndCount) {
@@ -61,4 +64,12 @@ public abstract class SpreadsheetListHistoryToken extends SpreadsheetHistoryToke
             name
         );
     }
+
+    @Override
+    public final HistoryToken setSaveValue(final Optional<?> value) {
+        Objects.requireNonNull(value, "value");
+
+        return this;
+    }
+
 }

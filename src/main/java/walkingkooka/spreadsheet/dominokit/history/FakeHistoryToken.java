@@ -24,6 +24,8 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.test.Fake;
 import walkingkooka.text.cursor.TextCursor;
 
+import java.util.Optional;
+
 @GwtIncompatible
 public class FakeHistoryToken extends HistoryToken implements Fake {
 
@@ -46,6 +48,11 @@ public class FakeHistoryToken extends HistoryToken implements Fake {
     @Override //
     HistoryToken replaceIdAndName(final SpreadsheetId id,
                                   final SpreadsheetName name) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public HistoryToken setSaveValue(final Optional<?> value) {
         throw new UnsupportedOperationException();
     }
 }

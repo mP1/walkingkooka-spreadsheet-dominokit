@@ -20,6 +20,10 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Base class for various {@link walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping} CRUD actions.
@@ -39,6 +43,37 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
         );
     }
 
+    @Override
+    public final HistoryToken setSaveValue(final Optional<?> value) {
+        Objects.requireNonNull(value, "value");
+
+        HistoryToken historyToken = null;
+
+        if (this instanceof SpreadsheetLabelMappingSelectHistoryToken || this instanceof SpreadsheetLabelMappingSaveHistoryToken) {
+            Object valueOrNull = value.orElse(null);
+
+            if (null != valueOrNull && false == valueOrNull instanceof SpreadsheetExpressionReference) {
+                this.reportInvalidSaveValue(
+                    valueOrNull,
+                    SpreadsheetExpressionReference.class
+                );
+            }
+
+            if (null != valueOrNull) {
+                historyToken = HistoryToken.labelMappingSave(
+                    id,
+                    name,
+                    this.cast(SpreadsheetLabelMappingHistoryToken.class)
+                        .labelName()
+                        .get()
+                        .setLabelMappingReference((SpreadsheetExpressionReference) valueOrNull)
+                );
+            }
+        }
+
+        return this.elseIfDifferent(historyToken);
+    }
+    
     /**
      * /label-create
      * /label/$label...

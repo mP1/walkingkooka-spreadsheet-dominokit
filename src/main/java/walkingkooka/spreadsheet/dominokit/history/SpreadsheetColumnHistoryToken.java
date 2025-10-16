@@ -17,15 +17,18 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.Cast;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetUrlFragments;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolvers;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
 
+import java.util.Objects;
 import java.util.Optional;
 
 abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetAnchoredSelectionHistoryToken {
@@ -57,6 +60,35 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetAnchoredS
     @Override
     public final HistoryToken clearAction() {
         return this.selectionSelect();
+    }
+
+    @Override
+    public final HistoryToken setSaveValue(final Optional<?> value) {
+        Objects.requireNonNull(value, "value");
+
+        HistoryToken historyToken = null;
+
+        if (this instanceof SpreadsheetColumnSortHistoryToken) {
+            final Object valueOrNull = value.orElse(null);
+
+            if (null != valueOrNull) {
+                if (false == valueOrNull instanceof SpreadsheetColumnOrRowSpreadsheetComparatorNamesList) {
+                    this.reportInvalidSaveValue(
+                        valueOrNull,
+                        SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.class
+                    );
+                }
+
+                historyToken = HistoryToken.columnSortSave(
+                    this.id,
+                    this.name,
+                    this.anchoredSelection,
+                    Cast.to(valueOrNull)
+                );
+            }
+        }
+
+        return this.elseIfDifferent(historyToken);
     }
 
     // parse............................................................................................................
