@@ -5008,7 +5008,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     public final HistoryToken setSortSave(final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames) {
         Objects.requireNonNull(comparatorNames, "comparatorNames");
 
-        HistoryToken historyToken = this;
+        HistoryToken historyToken = null;
 
         if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
             final SpreadsheetAnchoredSelectionHistoryToken anchoredSelectionHistoryToken = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
@@ -5043,13 +5043,9 @@ public abstract class HistoryToken implements HasUrlFragment {
                     comparatorNames
                 );
             }
-
-            if (historyToken.equals(this)) {
-                historyToken = this;
-            }
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     public final Optional<SpreadsheetFormatterSelector> spreadsheetFormatterSelector() {
