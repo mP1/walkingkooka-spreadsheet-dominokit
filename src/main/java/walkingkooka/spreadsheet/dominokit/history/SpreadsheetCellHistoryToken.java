@@ -168,7 +168,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
 
             String component = parseComponentOrNull(cursor);
             if (null != component) {
-                token = cell.setCellCopy(
+                token = cell.setCopy(
                     SpreadsheetCellClipboardKind.parse(component)
                 );
             }
