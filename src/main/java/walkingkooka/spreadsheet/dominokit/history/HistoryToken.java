@@ -3222,25 +3222,6 @@ public abstract class HistoryToken implements HasUrlFragment {
         return historyToken;
     }
 
-    public final HistoryToken setLocale(final Optional<Locale> locale) {
-        Objects.requireNonNull(locale, "locale");
-
-        HistoryToken historyToken = this;
-
-        if (this instanceof SpreadsheetCellLocaleSelectHistoryToken || this instanceof SpreadsheetCellLocaleSelectHistoryToken) {
-            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
-
-            historyToken = HistoryToken.cellLocaleSave(
-                cell.id(),
-                cell.name(),
-                cell.anchoredSelection(),
-                locale
-            );
-        }
-
-        return historyToken;
-    }
-
     // MENU.............................................................................................................
 
     public final HistoryToken menu() {
@@ -4682,13 +4663,14 @@ public abstract class HistoryToken implements HasUrlFragment {
                                 }
 
                                 if (this instanceof SpreadsheetCellLocaleHistoryToken) {
-                                    saved = value.isEmpty() ?
-                                        this.clearAction() :
-                                        this.setLocale(
-                                            Optional.of(
-                                                Locale.forLanguageTag(value)
-                                            )
-                                        );
+                                    saved = HistoryToken.cellLocaleSave(
+                                        id,
+                                        name,
+                                        anchoredSpreadsheetSelection,
+                                        Optional.of(
+                                            Locale.forLanguageTag(value)
+                                        )
+                                    );
                                 }
 
                                 if (this instanceof SpreadsheetCellParserHistoryToken && false == this instanceof SpreadsheetCellParserUnselectHistoryToken) {
