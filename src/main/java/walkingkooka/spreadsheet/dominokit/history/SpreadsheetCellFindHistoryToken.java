@@ -71,7 +71,7 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
             this :
             new SpreadsheetCellFindHistoryToken(
                 this.id,
-                this.name(),
+                this.name,
                 this.anchoredSelection(),
                 query
             );

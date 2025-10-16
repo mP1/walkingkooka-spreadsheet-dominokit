@@ -76,7 +76,7 @@ public final class SpreadsheetLabelMappingDeleteHistoryToken extends Spreadsheet
     public HistoryToken clearAction() {
         return HistoryToken.labelMappingSelect(
             this.id,
-            this.name(),
+            this.name,
             this.labelName
         );
     }

@@ -182,7 +182,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
         final HistoryToken token;
 
         final SpreadsheetId id = this.id;
-        final SpreadsheetName name = this.name();
+        final SpreadsheetName name = this.name;
 
         final String component = parseComponentOrEmpty(cursor);
 
@@ -216,7 +216,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     private HistoryToken parseLabelCreate(final TextCursor cursor) {
         return HistoryToken.labelMappingCreate(
             this.id,
-            this.name()
+            this.name
         ).parse(cursor);
     }
 
@@ -224,7 +224,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
         final HistoryToken token;
 
         final SpreadsheetId id = this.id;
-        final SpreadsheetName name = this.name();
+        final SpreadsheetName name = this.name;
 
         final String component = parseComponentOrEmpty(cursor);
 
@@ -270,7 +270,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
                     default:
                         result = metadataPropertySelect(
                             this.id,
-                            this.name(),
+                            this.name,
                             SpreadsheetMetadataPropertyName.with(next)
                         );
                         break;
@@ -283,7 +283,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
         if (null == result) {
             result = metadataSelect(
                 this.id,
-                this.name()
+                this.name
             );
         }
 

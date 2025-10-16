@@ -106,7 +106,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
             case CELL_STRING:
                 result = cellSaveCell(
                     this.id,
-                    this.name(),
+                    this.name,
                     this.anchoredSelection(),
                     parseJson(
                         cursor,
@@ -117,7 +117,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
             case DATE_TIME_SYMBOLS_STRING:
                 result = cellSaveDateTimeSymbols(
                     this.id,
-                    this.name(),
+                    this.name,
                     this.anchoredSelection(),
                     SpreadsheetCellSaveHistoryToken.parseJson(
                         cursor,
@@ -128,7 +128,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
             case DECIMAL_NUMBER_SYMBOLS_STRING:
                 result = cellSaveDecimalNumberSymbols(
                     this.id,
-                    this.name(),
+                    this.name,
                     this.anchoredSelection(),
                     SpreadsheetCellSaveHistoryToken.parseJson(
                         cursor,
@@ -139,7 +139,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
             case FORMATTER_STRING:
                 result = cellSaveFormatter(
                     this.id,
-                    this.name(),
+                    this.name,
                     this.anchoredSelection(),
                     SpreadsheetCellSaveHistoryToken.parseJson(
                         cursor,
@@ -150,7 +150,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
             case FORMULA_STRING:
                 result = cellSaveFormulaText(
                     this.id,
-                    this.name(),
+                    this.name,
                     this.anchoredSelection(),
                     SpreadsheetCellSaveHistoryToken.parseJson(
                         cursor,
@@ -161,7 +161,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
             case LOCALE_STRING:
                 result = cellSaveLocale(
                     this.id,
-                    this.name(),
+                    this.name,
                     this.anchoredSelection(),
                     SpreadsheetCellSaveHistoryToken.parseJson(
                         cursor,
@@ -172,7 +172,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
             case PARSER_STRING:
                 result = cellSaveParser(
                     this.id,
-                    this.name(),
+                    this.name,
                     this.anchoredSelection(),
                     SpreadsheetCellSaveHistoryToken.parseJson(
                         cursor,
@@ -183,7 +183,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
             case STYLE_STRING:
                 result = cellSaveStyle(
                     this.id,
-                    this.name(),
+                    this.name,
                     this.anchoredSelection(),
                     SpreadsheetCellSaveHistoryToken.parseJson(
                         cursor,
@@ -194,7 +194,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
             case VALIDATOR_STRING:
                 result = cellSaveValidator(
                     this.id,
-                    this.name(),
+                    this.name,
                     this.anchoredSelection(),
                     SpreadsheetCellSaveHistoryToken.parseJson(
                         cursor,
@@ -205,7 +205,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
             case VALUE_TYPE_STRING:
                 result = cellSaveValueType(
                     this.id,
-                    this.name(),
+                    this.name,
                     this.anchoredSelection(),
                     SpreadsheetCellSaveHistoryToken.parseJson(
                         cursor,

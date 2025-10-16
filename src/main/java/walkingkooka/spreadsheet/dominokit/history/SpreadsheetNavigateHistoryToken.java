@@ -77,7 +77,7 @@ public final class SpreadsheetNavigateHistoryToken extends SpreadsheetNameHistor
     public HistoryToken clearAction() {
         return spreadsheetSelect(
             this.id,
-            this.name()
+            this.name
         );
     }
 

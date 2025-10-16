@@ -77,7 +77,7 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
     public HistoryToken clearAction() {
         return cellFormula(
             this.id,
-            this.name(),
+            this.name,
             this.anchoredSelection()
         );
     }

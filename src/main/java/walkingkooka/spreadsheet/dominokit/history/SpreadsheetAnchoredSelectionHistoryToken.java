@@ -92,7 +92,7 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
     final HistoryToken selectionSelect() {
         final HistoryToken selection = HistoryToken.selection(
             this.id,
-            this.name(),
+            this.name,
             this.anchoredSelection()
         );
         return this.equals(selection) ?

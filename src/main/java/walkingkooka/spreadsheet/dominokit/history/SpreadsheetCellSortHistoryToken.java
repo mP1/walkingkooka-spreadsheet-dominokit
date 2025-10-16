@@ -47,7 +47,7 @@ public abstract class SpreadsheetCellSortHistoryToken extends SpreadsheetCellHis
     public HistoryToken clearAction() {
         return HistoryToken.cellSelect(
             this.id,
-            this.name(),
+            this.name,
             this.anchoredSelection()
         );
     }

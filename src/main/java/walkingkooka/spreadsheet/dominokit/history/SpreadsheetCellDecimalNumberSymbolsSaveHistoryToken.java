@@ -62,7 +62,7 @@ public final class SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken extends S
     public HistoryToken clearAction() {
         return HistoryToken.cellDecimalNumberSymbolsSelect(
             this.id,
-            this.name(),
+            this.name,
             this.anchoredSelection()
         );
     }

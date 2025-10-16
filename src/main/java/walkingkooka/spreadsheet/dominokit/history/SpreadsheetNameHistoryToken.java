@@ -53,7 +53,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
         );
     }
 
-    private final SpreadsheetName name;
+    final SpreadsheetName name;
 
     // parse............................................................................................................
 
@@ -128,7 +128,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
                     " have different ids, load SpreadsheetId and then fire current history token"
             );
             context.loadSpreadsheetMetadataAndPushPreviousIfFails(
-                this.id,
+                id,
                 previous
             );
         } else {
