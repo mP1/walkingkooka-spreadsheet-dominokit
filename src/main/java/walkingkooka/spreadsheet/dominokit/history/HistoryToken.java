@@ -4568,7 +4568,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                                 name,
                                 propertyName,
                                 Cast.to(
-                                    parseIntoOptional(
+                                    parseOptional(
                                         value,
                                         propertyName::parseUrlFragmentSaveValue
                                     )
@@ -4586,7 +4586,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                                 name,
                                 propertyName,
                                 Cast.to(
-                                    parseIntoOptional(
+                                    parseOptional(
                                         value,
                                         propertyName::parseValue
                                     )
@@ -4606,7 +4606,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                                         id,
                                         name,
                                         anchoredSpreadsheetSelection,
-                                        parseIntoOptional(
+                                        parseOptional(
                                             value,
                                             DateTimeSymbols::parse
                                         )
@@ -4618,7 +4618,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                                         id,
                                         name,
                                         anchoredSpreadsheetSelection,
-                                        parseIntoOptional(
+                                        parseOptional(
                                             value,
                                             DecimalNumberSymbols::parse
                                         )
@@ -4630,7 +4630,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                                         id,
                                         name,
                                         anchoredSpreadsheetSelection,
-                                        parseIntoOptional(
+                                        parseOptional(
                                             value,
                                             SpreadsheetFormatterSelector::parse
                                         )
@@ -4696,7 +4696,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                                         id,
                                         name,
                                         anchoredSpreadsheetSelection,
-                                        parseIntoOptional(
+                                        parseOptional(
                                             value,
                                             SpreadsheetParserSelector::parse
                                         )
@@ -4747,7 +4747,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                                         anchoredSpreadsheetSelection,
                                         propertyName,
                                         Cast.to(
-                                            parseIntoOptional(
+                                            parseOptional(
                                                 value,
                                                 propertyName::parseValue
                                             )
@@ -4760,7 +4760,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                                         id,
                                         name,
                                         anchoredSpreadsheetSelection,
-                                        parseIntoOptional(
+                                        parseOptional(
                                             value,
                                             ValidatorSelector::parse
                                         )
@@ -4783,7 +4783,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                                         id,
                                         name,
                                         anchoredSpreadsheetSelection,
-                                        parseIntoOptional(
+                                        parseOptional(
                                             value,
                                             ValueTypeName::with
                                         )
@@ -4856,8 +4856,8 @@ public abstract class HistoryToken implements HasUrlFragment {
         return this.elseIfDifferent(saved);
     }
 
-    private static <T> Optional<T> parseIntoOptional(final String text,
-                                                     final Function<String, T> notEmptyParser) {
+    private static <T> Optional<T> parseOptional(final String text,
+                                                 final Function<String, T> notEmptyParser) {
         return Optional.ofNullable(
             text.isEmpty() ?
                 null :
