@@ -44,14 +44,14 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
 
     @Override
     UrlFragment spreadsheetUrlFragment() {
-        return this.id().urlFragment();
+        return this.id.urlFragment();
     }
 
     @Override
     HistoryToken parseNext(final String component,
                            final TextCursor cursor) {
         return spreadsheetSelect(
-            this.id(),
+            this.id,
             SpreadsheetName.with(component)
         ).parse(cursor);
     }
@@ -76,7 +76,7 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
         context.loadSpreadsheetMetadataAndPushPreviousIfFails(
-            this.id(),
+            this.id,
             previous
         );
     }

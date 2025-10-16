@@ -99,7 +99,7 @@ public final class SpreadsheetCellSaveValueTypeHistoryToken extends SpreadsheetC
                                final AppContext context) {
         context.spreadsheetDeltaFetcher()
             .patchCellsValueType(
-                this.id(),
+                this.id,
                 this.anchoredSelection().selection(),
                 this.value()
             );

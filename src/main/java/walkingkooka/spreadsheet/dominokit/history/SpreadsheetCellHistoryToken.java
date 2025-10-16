@@ -73,7 +73,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
     final HistoryToken setSaveValueCell(final Object valueOrNull) {
         HistoryToken historyToken = this;
 
-        final SpreadsheetId id = this.id();
+        final SpreadsheetId id = this.id;
         final SpreadsheetName name = this.name();
         final AnchoredSpreadsheetSelection spreadsheetSelection = this.anchoredSelection;
 
@@ -393,7 +393,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
 
         return null != formName ?
             HistoryToken.cellFormSelect(
-                this.id(),
+                this.id,
                 this.name(),
                 this.anchoredSelection,
                 FormName.with(formName)

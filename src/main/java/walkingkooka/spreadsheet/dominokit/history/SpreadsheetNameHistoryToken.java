@@ -48,7 +48,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
 
     final HistoryToken replaceName(final SpreadsheetName name) {
         return this.replaceIdAndName(
-            this.id(),
+            this.id,
             name
         );
     }
@@ -92,7 +92,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     // HasUrlFragment...................................................................................................
 
     @Override final UrlFragment spreadsheetUrlFragment() {
-        return this.id()
+        return this.id
             .urlFragment()
             .appendSlashThen(
                 this.name.urlFragment()
@@ -113,7 +113,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
                                            final AppContext context) {
         // if the metadata.spreadsheetId and current historyToken.spreadsheetId DONT match wait for the metadata to
         // be loaded then fire history token again.
-        final SpreadsheetId id = this.id();
+        final SpreadsheetId id = this.id;
 
         final SpreadsheetId previousId = context.spreadsheetMetadata()
             .id()
@@ -128,7 +128,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
                     " have different ids, load SpreadsheetId and then fire current history token"
             );
             context.loadSpreadsheetMetadataAndPushPreviousIfFails(
-                this.id(),
+                this.id,
                 previous
             );
         } else {

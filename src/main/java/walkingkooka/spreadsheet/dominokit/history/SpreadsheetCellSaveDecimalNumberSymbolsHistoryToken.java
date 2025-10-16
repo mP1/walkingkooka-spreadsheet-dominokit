@@ -99,7 +99,7 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken extends S
                                final AppContext context) {
         context.spreadsheetDeltaFetcher()
             .patchCellsDecimalNumberSymbols(
-                this.id(),
+                this.id,
                 this.anchoredSelection().selection(),
                 this.value()
             );

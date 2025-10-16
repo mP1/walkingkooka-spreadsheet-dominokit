@@ -81,7 +81,7 @@ public final class SpreadsheetCellReloadHistoryToken extends SpreadsheetCellHist
                                final AppContext context) {
         context.spreadsheetDeltaFetcher()
             .getCells(
-                this.id(),
+                this.id,
                 context.viewport(
                     context.historyToken().anchoredSelectionOrEmpty()
                 )

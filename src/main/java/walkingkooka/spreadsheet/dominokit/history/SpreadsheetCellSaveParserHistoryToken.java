@@ -103,7 +103,7 @@ public final class SpreadsheetCellSaveParserHistoryToken extends SpreadsheetCell
                                final AppContext context) {
         context.spreadsheetDeltaFetcher()
             .patchCellsParser(
-                this.id(),
+                this.id,
                 this.anchoredSelection().selection(),
                 this.value()
             );

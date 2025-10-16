@@ -99,7 +99,7 @@ public final class SpreadsheetFormSaveHistoryToken extends SpreadsheetFormHistor
     @Override
     public HistoryToken clearAction() {
         return formSelect(
-            this.id(),
+            this.id,
             this.name(),
             this.form.name()
         );

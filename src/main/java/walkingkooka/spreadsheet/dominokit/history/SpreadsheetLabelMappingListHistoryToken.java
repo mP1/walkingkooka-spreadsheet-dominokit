@@ -80,7 +80,7 @@ public final class SpreadsheetLabelMappingListHistoryToken extends SpreadsheetLa
     @Override
     public HistoryToken clearAction() {
         return spreadsheetSelect(
-            this.id(),
+            this.id,
             this.name()
         );
     }

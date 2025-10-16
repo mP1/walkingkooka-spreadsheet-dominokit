@@ -61,7 +61,7 @@ public final class SpreadsheetCellLocaleSaveHistoryToken extends SpreadsheetCell
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.cellLocaleSelect(
-            this.id(),
+            this.id,
             this.name(),
             this.anchoredSelection()
         );
@@ -92,7 +92,7 @@ public final class SpreadsheetCellLocaleSaveHistoryToken extends SpreadsheetCell
 
         context.spreadsheetDeltaFetcher()
             .patchLocale(
-                this.id(),
+                this.id,
                 this.anchoredSelection().selection(),
                 this.locale
             );

@@ -99,7 +99,7 @@ public final class SpreadsheetCellSaveLocaleHistoryToken extends SpreadsheetCell
                                final AppContext context) {
         context.spreadsheetDeltaFetcher()
             .patchCellsLocale(
-                this.id(),
+                this.id,
                 this.anchoredSelection().selection(),
                 this.value()
             );

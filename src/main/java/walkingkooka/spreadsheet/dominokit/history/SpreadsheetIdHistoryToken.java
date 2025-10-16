@@ -38,5 +38,5 @@ public abstract class SpreadsheetIdHistoryToken extends SpreadsheetHistoryToken 
         return this.id;
     }
 
-    private final SpreadsheetId id;
+    final SpreadsheetId id;
 }

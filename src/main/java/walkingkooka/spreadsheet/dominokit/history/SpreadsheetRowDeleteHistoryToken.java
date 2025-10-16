@@ -78,7 +78,7 @@ public class SpreadsheetRowDeleteHistoryToken extends SpreadsheetRowHistoryToken
         );
         context.spreadsheetDeltaFetcher()
             .deleteDelta(
-                this.id(),
+                this.id,
                 this.anchoredSelection().selection()
             );
     }

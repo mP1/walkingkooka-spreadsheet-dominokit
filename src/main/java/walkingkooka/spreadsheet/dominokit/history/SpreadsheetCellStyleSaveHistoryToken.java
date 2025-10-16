@@ -106,7 +106,7 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
 
         context.spreadsheetDeltaFetcher()
             .patchStyleProperty(
-                this.id(),
+                this.id,
                 this.anchoredSelection()
                     .selection(),
                 this.propertyName(),

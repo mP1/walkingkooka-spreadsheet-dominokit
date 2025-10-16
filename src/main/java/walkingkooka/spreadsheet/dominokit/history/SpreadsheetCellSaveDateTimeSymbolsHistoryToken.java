@@ -99,7 +99,7 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryToken extends Spread
                                final AppContext context) {
         context.spreadsheetDeltaFetcher()
             .patchCellsDateTimeSymbols(
-                this.id(),
+                this.id,
                 this.anchoredSelection().selection(),
                 this.value()
             );
