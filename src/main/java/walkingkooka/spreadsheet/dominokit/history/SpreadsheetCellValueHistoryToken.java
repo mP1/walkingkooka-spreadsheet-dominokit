@@ -41,9 +41,9 @@ public abstract class SpreadsheetCellValueHistoryToken extends SpreadsheetCellHi
     @Override // /cell/A1/value
     final UrlFragment cellUrlFragment() {
         return VALUE.appendSlashThen(
-            this.valueTypeUrlFragment()
+            this.valueUrlFragment()
         );
     }
 
-    abstract UrlFragment valueTypeUrlFragment();
+    abstract UrlFragment valueUrlFragment();
 }
