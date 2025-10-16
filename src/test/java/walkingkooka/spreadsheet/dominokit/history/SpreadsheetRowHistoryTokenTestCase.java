@@ -172,12 +172,12 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
     // labels...........................................................................................................
 
     @Test
-    public final void testLabels() {
+    public final void testSetLabels() {
         final HistoryTokenOffsetAndCount offsetAndCount = HistoryTokenOffsetAndCount.EMPTY.setCount(
             OptionalInt.of(123)
         );
 
-        this.labelsAndCheck(
+        this.setLabelsAndCheck(
             this.createHistoryToken(),
             offsetAndCount,
             HistoryToken.labelMappingList(

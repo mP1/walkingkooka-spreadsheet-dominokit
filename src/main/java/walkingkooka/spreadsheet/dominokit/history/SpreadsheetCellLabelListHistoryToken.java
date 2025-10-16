@@ -84,7 +84,7 @@ public final class SpreadsheetCellLabelListHistoryToken extends SpreadsheetCellH
             id,
             name,
             anchoredSelection
-        ).labels(this.offsetAndCount);
+        ).setLabels(this.offsetAndCount);
     }
 
     @Override

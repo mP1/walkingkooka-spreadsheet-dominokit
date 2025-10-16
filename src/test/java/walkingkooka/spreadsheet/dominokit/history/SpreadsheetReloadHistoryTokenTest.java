@@ -59,12 +59,12 @@ public final class SpreadsheetReloadHistoryTokenTest extends SpreadsheetNameHist
     // labels...........................................................................................................
 
     @Test
-    public void testLabels() {
+    public void testSetLabels() {
         final HistoryTokenOffsetAndCount offsetAndCount = HistoryTokenOffsetAndCount.EMPTY.setCount(
             OptionalInt.of(123)
         );
 
-        this.labelsAndCheck(
+        this.setLabelsAndCheck(
             this.createHistoryToken(),
             offsetAndCount,
             HistoryToken.labelMappingList(

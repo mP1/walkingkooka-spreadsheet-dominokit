@@ -52,8 +52,8 @@ public abstract class SpreadsheetListRenameHistoryTokenTestCase<T extends Spread
     // labels...........................................................................................................
 
     @Test
-    public final void testLabels() {
-        this.labelsAndCheck(
+    public final void testSetLabels() {
+        this.setLabelsAndCheck(
             this.createHistoryToken(),
             HistoryTokenOffsetAndCount.EMPTY.setCount(
                 OptionalInt.of(123)
