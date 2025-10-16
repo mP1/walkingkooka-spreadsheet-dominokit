@@ -2125,35 +2125,27 @@ public abstract class HistoryToken implements HasUrlFragment {
     public final HistoryToken setAnchoredSelection(final Optional<AnchoredSpreadsheetSelection> anchoredSelection) {
         Objects.requireNonNull(anchoredSelection, "anchoredSelection");
 
-        return this.anchoredSelectionOrEmpty().equals(anchoredSelection) ?
-            this :
-            this.setDifferentAnchoredSelection(anchoredSelection);
-    }
+        HistoryToken historyToken = null;
 
-    private HistoryToken setDifferentAnchoredSelection(final Optional<AnchoredSpreadsheetSelection> maybeAnchoredSelection) {
-        HistoryToken token = this;
-
-        if (maybeAnchoredSelection.isPresent()) {
-            final AnchoredSpreadsheetSelection anchoredSelection = maybeAnchoredSelection.get();
-
+        if(false == this.anchoredSelectionOrEmpty().equals(anchoredSelection)) {
             if (this instanceof SpreadsheetNameHistoryToken) {
-                final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-                token = HistoryTokenSelectionSpreadsheetSelectionVisitor.selectionToken(
-                    spreadsheetNameHistoryToken,
-                    anchoredSelection
-                );
-            }
-        } else {
-            if (this instanceof SpreadsheetNameHistoryToken) {
-                final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-                token = spreadsheetSelect(
-                    spreadsheetNameHistoryToken.id(),
-                    spreadsheetNameHistoryToken.name()
-                );
+                if (anchoredSelection.isPresent()) {
+                    final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+                    historyToken = HistoryTokenSelectionSpreadsheetSelectionVisitor.selectionToken(
+                        spreadsheetNameHistoryToken,
+                        anchoredSelection.get()
+                    );
+                } else {
+                    final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+                    historyToken = spreadsheetSelect(
+                        spreadsheetNameHistoryToken.id(),
+                        spreadsheetNameHistoryToken.name()
+                    );
+                }
             }
         }
 
-        return token;
+        return this.elseIfDifferent(historyToken);
     }
 
     /**
@@ -4928,7 +4920,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                             .setDefaultAnchor();
                     }
 
-                    historyToken = this.setDifferentAnchoredSelection(
+                    historyToken = this.setAnchoredSelection(
                         Optional.of(anchoredSpreadsheetSelection.setSelection(spreadsheetSelection))
                     );
                 } else {
