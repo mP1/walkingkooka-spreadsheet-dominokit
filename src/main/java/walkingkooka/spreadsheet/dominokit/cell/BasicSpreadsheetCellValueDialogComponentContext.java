@@ -28,8 +28,6 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.Indentation;
 import walkingkooka.text.LineEnding;
-import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.text.printer.Printers;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 
 import java.util.Objects;
@@ -78,16 +76,12 @@ abstract class BasicSpreadsheetCellValueDialogComponentContext<T> implements Spr
         String string = "";
 
         if (value.isPresent()) {
-            final StringBuilder b = new StringBuilder();
-            try (final IndentingPrinter printer = Printers.stringBuilder(b, LineEnding.NONE).indenting(Indentation.EMPTY)) {
-                this.marshallContext.marshall(
-                    value.orElse(null)
-                ).printJson(printer);
-
-                printer.flush();
-            }
-
-            string = b.toString();
+            string = this.marshallContext.marshall(
+                value.orElse(null)
+            ).toJsonText(
+                Indentation.SPACES2,
+                LineEnding.NONE
+            );
         }
 
         return string;
