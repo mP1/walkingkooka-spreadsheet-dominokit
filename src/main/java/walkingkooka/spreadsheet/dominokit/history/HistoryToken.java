@@ -5098,38 +5098,33 @@ public abstract class HistoryToken implements HasUrlFragment {
     public final HistoryToken setStylePropertyName(final TextStylePropertyName<?> propertyName) {
         Objects.requireNonNull(propertyName, "propertyName");
 
-        HistoryToken historyToken = this;
+        HistoryToken historyToken = null;
 
-        if (this instanceof SpreadsheetSelectHistoryToken || this instanceof SpreadsheetMetadataHistoryToken) {
-            final SpreadsheetNameHistoryToken name = this.cast(SpreadsheetNameHistoryToken.class);
+        if (this instanceof SpreadsheetNameHistoryToken) {
+            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+            final SpreadsheetId id = spreadsheetNameHistoryToken.id();
+            final SpreadsheetName name = spreadsheetNameHistoryToken.name();
 
-            historyToken = metadataPropertyStyle(
-                name.id(),
-                name.name(),
-                propertyName
-            );
-
-            if (historyToken.equals(this)) {
-                historyToken = this;
-            }
-        } else {
-            if (this instanceof SpreadsheetCellHistoryToken) {
-                final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
-
-                historyToken = cellStyle(
-                    cell.id(),
-                    cell.name(),
-                    cell.anchoredSelection(),
+            if (this instanceof SpreadsheetSelectHistoryToken || this instanceof SpreadsheetMetadataHistoryToken) {
+                historyToken = metadataPropertyStyle(
+                    id,
+                    name,
                     propertyName
                 );
-            }
-
-            if (historyToken.equals(this)) {
-                historyToken = this;
+            } else {
+                if (this instanceof SpreadsheetCellHistoryToken) {
+                    historyToken = cellStyle(
+                        id,
+                        name,
+                        this.cast(SpreadsheetCellHistoryToken.class)
+                            .anchoredSelection(),
+                        propertyName
+                    );
+                }
             }
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     // TOOLBAR..........................................................................................................
