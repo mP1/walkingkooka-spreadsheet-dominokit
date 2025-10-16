@@ -70,7 +70,7 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
         return this.query.equals(query) ?
             this :
             new SpreadsheetCellFindHistoryToken(
-                this.id(),
+                this.id,
                 this.name(),
                 this.anchoredSelection(),
                 query

@@ -105,7 +105,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
         switch (component) {
             case CELL_STRING:
                 result = cellSaveCell(
-                    this.id(),
+                    this.id,
                     this.name(),
                     this.anchoredSelection(),
                     parseJson(
@@ -116,7 +116,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                 break;
             case DATE_TIME_SYMBOLS_STRING:
                 result = cellSaveDateTimeSymbols(
-                    this.id(),
+                    this.id,
                     this.name(),
                     this.anchoredSelection(),
                     SpreadsheetCellSaveHistoryToken.parseJson(
@@ -127,7 +127,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                 break;
             case DECIMAL_NUMBER_SYMBOLS_STRING:
                 result = cellSaveDecimalNumberSymbols(
-                    this.id(),
+                    this.id,
                     this.name(),
                     this.anchoredSelection(),
                     SpreadsheetCellSaveHistoryToken.parseJson(
@@ -138,7 +138,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                 break;
             case FORMATTER_STRING:
                 result = cellSaveFormatter(
-                    this.id(),
+                    this.id,
                     this.name(),
                     this.anchoredSelection(),
                     SpreadsheetCellSaveHistoryToken.parseJson(
@@ -149,7 +149,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                 break;
             case FORMULA_STRING:
                 result = cellSaveFormulaText(
-                    this.id(),
+                    this.id,
                     this.name(),
                     this.anchoredSelection(),
                     SpreadsheetCellSaveHistoryToken.parseJson(
@@ -160,7 +160,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                 break;
             case LOCALE_STRING:
                 result = cellSaveLocale(
-                    this.id(),
+                    this.id,
                     this.name(),
                     this.anchoredSelection(),
                     SpreadsheetCellSaveHistoryToken.parseJson(
@@ -171,7 +171,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                 break;
             case PARSER_STRING:
                 result = cellSaveParser(
-                    this.id(),
+                    this.id,
                     this.name(),
                     this.anchoredSelection(),
                     SpreadsheetCellSaveHistoryToken.parseJson(
@@ -182,7 +182,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                 break;
             case STYLE_STRING:
                 result = cellSaveStyle(
-                    this.id(),
+                    this.id,
                     this.name(),
                     this.anchoredSelection(),
                     SpreadsheetCellSaveHistoryToken.parseJson(
@@ -193,7 +193,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                 break;
             case VALIDATOR_STRING:
                 result = cellSaveValidator(
-                    this.id(),
+                    this.id,
                     this.name(),
                     this.anchoredSelection(),
                     SpreadsheetCellSaveHistoryToken.parseJson(
@@ -204,7 +204,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                 break;
             case VALUE_TYPE_STRING:
                 result = cellSaveValueType(
-                    this.id(),
+                    this.id,
                     this.name(),
                     this.anchoredSelection(),
                     SpreadsheetCellSaveHistoryToken.parseJson(

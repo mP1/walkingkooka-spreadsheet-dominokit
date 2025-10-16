@@ -61,7 +61,7 @@ public final class SpreadsheetCellDateTimeSymbolsSaveHistoryToken extends Spread
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.cellDateTimeSymbolsSelect(
-            this.id(),
+            this.id,
             this.name(),
             this.anchoredSelection()
         );
@@ -92,7 +92,7 @@ public final class SpreadsheetCellDateTimeSymbolsSaveHistoryToken extends Spread
 
         context.spreadsheetDeltaFetcher()
             .patchDateTimeSymbols(
-                this.id(),
+                this.id,
                 this.anchoredSelection().selection(),
                 this.dateTimeSymbols
             );

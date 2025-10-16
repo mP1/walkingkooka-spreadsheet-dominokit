@@ -76,7 +76,7 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
     @Override
     public HistoryToken clearAction() {
         return cellFormula(
-            this.id(),
+            this.id,
             this.name(),
             this.anchoredSelection()
         );
@@ -101,7 +101,7 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
 
         context.spreadsheetDeltaFetcher()
             .patchFormula(
-                this.id(),
+                this.id,
                 this.anchoredSelection().selection(),
                 SpreadsheetFormula.textPatch(text)
             );

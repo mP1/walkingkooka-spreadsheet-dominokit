@@ -103,7 +103,7 @@ public final class SpreadsheetCellSaveValidatorHistoryToken extends SpreadsheetC
                                final AppContext context) {
         context.spreadsheetDeltaFetcher()
             .patchCellsValidator(
-                this.id(),
+                this.id,
                 this.anchoredSelection().selection(),
                 this.value()
             );

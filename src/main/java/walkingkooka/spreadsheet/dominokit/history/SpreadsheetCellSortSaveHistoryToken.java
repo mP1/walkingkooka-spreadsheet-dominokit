@@ -100,7 +100,7 @@ public final class SpreadsheetCellSortSaveHistoryToken extends SpreadsheetCellSo
 
         context.spreadsheetDeltaFetcher()
             .getSortCells(
-                this.id(),
+                this.id,
                 (SpreadsheetExpressionReference)
                     this.anchoredSelection()
                         .selection(),

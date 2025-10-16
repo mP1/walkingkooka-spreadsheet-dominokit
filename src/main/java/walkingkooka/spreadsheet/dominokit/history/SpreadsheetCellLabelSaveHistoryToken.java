@@ -93,7 +93,7 @@ public final class SpreadsheetCellLabelSaveHistoryToken extends SpreadsheetCellL
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.cellLabelSelect(
-            this.id(),
+            this.id,
             this.name(),
             this.anchoredSelection()
         );
@@ -106,7 +106,7 @@ public final class SpreadsheetCellLabelSaveHistoryToken extends SpreadsheetCellL
 
         context.spreadsheetDeltaFetcher()
             .postLabelMapping(
-                this.id(),
+                this.id,
                 this.labelName.setLabelMappingReference(
                     this.anchoredSelection()
                         .selection()

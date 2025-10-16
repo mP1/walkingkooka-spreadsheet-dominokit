@@ -103,7 +103,7 @@ public class SpreadsheetRowInsertBeforeHistoryToken extends SpreadsheetRowInsert
 
         context.spreadsheetDeltaFetcher()
             .postInsertBeforeRow(
-                this.id(),
+                this.id,
                 selection,
                 count
             );

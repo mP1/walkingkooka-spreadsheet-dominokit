@@ -63,7 +63,7 @@ public final class SpreadsheetListRenameSaveHistoryToken extends SpreadsheetList
         return this.value.equals(name) ?
             this :
             new SpreadsheetListRenameSaveHistoryToken(
-                this.id(),
+                this.id,
                 name
             );
     }
@@ -78,7 +78,7 @@ public final class SpreadsheetListRenameSaveHistoryToken extends SpreadsheetList
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.spreadsheetListRenameSelect(
-            this.id()
+            this.id
         );
     }
 
@@ -96,7 +96,7 @@ public final class SpreadsheetListRenameSaveHistoryToken extends SpreadsheetList
         context.pushHistoryToken(previous);
         context.spreadsheetMetadataFetcher()
             .patchMetadata(
-                this.id(),
+                this.id,
                 SpreadsheetMetadataPropertyName.SPREADSHEET_NAME.patch(
                     this.value()
                 )

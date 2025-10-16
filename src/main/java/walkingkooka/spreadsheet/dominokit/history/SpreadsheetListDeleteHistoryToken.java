@@ -57,7 +57,7 @@ public final class SpreadsheetListDeleteHistoryToken extends SpreadsheetIdHistor
     @Override
     UrlFragment spreadsheetUrlFragment() {
         return DELETE.appendSlashThen(
-            this.id().urlFragment()
+            this.id.urlFragment()
         );
     }
 
@@ -136,6 +136,6 @@ public final class SpreadsheetListDeleteHistoryToken extends SpreadsheetIdHistor
             }
         );
         context.spreadsheetMetadataFetcher()
-            .deleteSpreadsheetMetadata(this.id());
+            .deleteSpreadsheetMetadata(this.id);
     }
 }

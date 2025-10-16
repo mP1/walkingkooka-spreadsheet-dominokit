@@ -90,7 +90,7 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.labelMappingSelect(
-            this.id(),
+            this.id,
             this.name(),
             this.mapping.label()
         );
@@ -114,7 +114,7 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
 
         context.spreadsheetDeltaFetcher()
             .postLabelMapping(
-                this.id(),
+                this.id,
                 this.mapping
             );
     }

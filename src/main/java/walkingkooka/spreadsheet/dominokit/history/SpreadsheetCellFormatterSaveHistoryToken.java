@@ -61,7 +61,7 @@ public final class SpreadsheetCellFormatterSaveHistoryToken extends SpreadsheetC
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.cellFormatterSelect(
-            this.id(),
+            this.id,
             this.name(),
             this.anchoredSelection()
         );
@@ -92,7 +92,7 @@ public final class SpreadsheetCellFormatterSaveHistoryToken extends SpreadsheetC
 
         context.spreadsheetDeltaFetcher()
             .patchFormatter(
-                this.id(),
+                this.id,
                 this.anchoredSelection().selection(),
                 this.spreadsheetFormatterSelector
             );

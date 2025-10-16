@@ -57,7 +57,7 @@ public final class SpreadsheetReloadHistoryToken extends SpreadsheetNameHistoryT
     @Override //
     public HistoryToken clearAction() {
         return spreadsheetSelect(
-            this.id(),
+            this.id,
             this.name()
         );
     }

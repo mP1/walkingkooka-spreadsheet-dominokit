@@ -81,7 +81,7 @@ public final class SpreadsheetCellDeleteHistoryToken extends SpreadsheetCellHist
                                final AppContext context) {
         context.spreadsheetDeltaFetcher()
             .deleteDelta(
-                this.id(),
+                this.id,
                 this.anchoredSelection().selection()
             );
     }

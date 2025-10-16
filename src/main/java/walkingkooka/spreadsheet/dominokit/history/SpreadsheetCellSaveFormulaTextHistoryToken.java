@@ -97,7 +97,7 @@ public final class SpreadsheetCellSaveFormulaTextHistoryToken extends Spreadshee
                                final AppContext context) {
         context.spreadsheetDeltaFetcher()
             .patchCellsFormulaText(
-                this.id(),
+                this.id,
                 this.anchoredSelection().selection(),
                 this.value()
             );

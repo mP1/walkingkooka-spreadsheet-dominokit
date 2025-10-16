@@ -100,7 +100,7 @@ public final class SpreadsheetRowSortSaveHistoryToken extends SpreadsheetRowSort
 
         context.spreadsheetDeltaFetcher()
             .getSortCells(
-                this.id(),
+                this.id,
                 this.anchoredSelection()
                     .selection()
                     .toCellRange(),

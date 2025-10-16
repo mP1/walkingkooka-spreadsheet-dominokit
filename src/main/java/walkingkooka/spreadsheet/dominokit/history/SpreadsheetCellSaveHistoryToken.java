@@ -44,7 +44,7 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
     @Override
     public final HistoryToken clearAction() {
         return HistoryToken.cellSelect(
-            this.id(),
+            this.id,
             this.name(),
             this.anchoredSelection()
         );

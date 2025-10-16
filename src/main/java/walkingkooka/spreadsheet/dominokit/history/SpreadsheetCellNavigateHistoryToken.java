@@ -96,7 +96,7 @@ public final class SpreadsheetCellNavigateHistoryToken extends SpreadsheetCellHi
             // http://localhost:12345/api/spreadsheet/1/cell/*/force-recompute?home=A1&width=1568&height=463&includeFrozenColumnsRows=true&selection=F1&selectionType=cell&navigation=right+1567px
             context.spreadsheetDeltaFetcher()
                 .getCells(
-                    this.id(),
+                    this.id,
                     context.viewport(
                         navigation,
                         Optional.of(

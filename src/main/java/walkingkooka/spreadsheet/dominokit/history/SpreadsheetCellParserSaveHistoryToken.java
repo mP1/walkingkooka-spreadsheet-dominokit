@@ -62,7 +62,7 @@ public final class SpreadsheetCellParserSaveHistoryToken extends SpreadsheetCell
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.cellParserSelect(
-            this.id(),
+            this.id,
             this.name(),
             this.anchoredSelection()
         );
@@ -93,7 +93,7 @@ public final class SpreadsheetCellParserSaveHistoryToken extends SpreadsheetCell
 
         context.spreadsheetDeltaFetcher()
             .patchParser(
-                this.id(),
+                this.id,
                 this.anchoredSelection().selection(),
                 this.spreadsheetParserSelector
             );

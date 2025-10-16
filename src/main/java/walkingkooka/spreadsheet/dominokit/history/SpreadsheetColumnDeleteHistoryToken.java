@@ -78,7 +78,7 @@ public class SpreadsheetColumnDeleteHistoryToken extends SpreadsheetColumnHistor
         );
         context.spreadsheetDeltaFetcher()
             .deleteDelta(
-                this.id(),
+                this.id,
                 this.anchoredSelection()
                     .selection()
             );

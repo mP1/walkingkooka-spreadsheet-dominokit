@@ -96,7 +96,7 @@ public final class SpreadsheetCellFormSaveHistoryToken extends SpreadsheetCellFo
     @Override
     public HistoryToken clearAction() {
         return cellFormSelect(
-            this.id(),
+            this.id,
             this.name(),
             this.anchoredSelection(),
             this.formName()

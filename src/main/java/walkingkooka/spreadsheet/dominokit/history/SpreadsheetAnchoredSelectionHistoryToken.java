@@ -91,7 +91,7 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
 
     final HistoryToken selectionSelect() {
         final HistoryToken selection = HistoryToken.selection(
-            this.id(),
+            this.id,
             this.name(),
             this.anchoredSelection()
         );
@@ -111,7 +111,7 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
     final void deltaClearSelection(final AppContext context) {
         context.spreadsheetDeltaFetcher()
             .postClear(
-                this.id(),
+                this.id,
                 this.anchoredSelection().selection()
             );
 
@@ -141,7 +141,7 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
                                       final AppContext context) {
         context.spreadsheetMetadataFetcher()
             .patchMetadata(
-                this.id(),
+                this.id,
                 SpreadsheetMetadata.EMPTY
                     .set(
                         propertyName1,
@@ -171,7 +171,7 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
         // POST metadata with frozen row=row range = null
         context.spreadsheetMetadataFetcher()
             .patchMetadata(
-                this.id(),
+                this.id,
                 propertyName,
                 propertyValue
             );

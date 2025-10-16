@@ -92,7 +92,7 @@ public class SpreadsheetColumnInsertAfterHistoryToken extends SpreadsheetColumnI
 
             context.spreadsheetDeltaFetcher()
                 .postInsertAfterColumn(
-                    this.id(),
+                    this.id,
                     selection,
                     count.getAsInt()
                 );

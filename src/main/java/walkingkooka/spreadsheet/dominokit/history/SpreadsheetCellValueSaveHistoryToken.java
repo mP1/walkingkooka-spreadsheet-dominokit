@@ -74,7 +74,7 @@ public final class SpreadsheetCellValueSaveHistoryToken extends SpreadsheetCellV
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.cellValueSelect(
-            this.id(),
+            this.id,
             this.name(),
             this.anchoredSelection(),
             this.valueType.get()
@@ -111,7 +111,7 @@ public final class SpreadsheetCellValueSaveHistoryToken extends SpreadsheetCellV
 
         context.spreadsheetDeltaFetcher()
             .patchValue(
-                this.id(),
+                this.id,
                 this.anchoredSelection().selection(),
                 this.valueType.get(),
                 this.value

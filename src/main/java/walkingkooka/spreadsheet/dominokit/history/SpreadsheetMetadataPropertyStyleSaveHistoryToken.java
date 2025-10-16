@@ -77,7 +77,7 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.metadataPropertyStyle(
-            this.id(),
+            this.id,
             this.name(),
             this.stylePropertyName()
         );
@@ -103,7 +103,7 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
         // PATCH metadata with style property+value
         context.spreadsheetMetadataFetcher()
             .patchMetadata(
-                this.id(),
+                this.id,
                 SpreadsheetMetadata.EMPTY.set(
                     SpreadsheetMetadataPropertyName.STYLE,
                     TextStyle.EMPTY.setOrRemove(

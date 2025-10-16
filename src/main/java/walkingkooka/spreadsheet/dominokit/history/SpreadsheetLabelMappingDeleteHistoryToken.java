@@ -75,7 +75,7 @@ public final class SpreadsheetLabelMappingDeleteHistoryToken extends Spreadsheet
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.labelMappingSelect(
-            this.id(),
+            this.id,
             this.name(),
             this.labelName
         );
@@ -99,7 +99,7 @@ public final class SpreadsheetLabelMappingDeleteHistoryToken extends Spreadsheet
 
         context.spreadsheetDeltaFetcher()
             .deleteLabelMapping(
-                this.id(),
+                this.id,
                 this.labelName // getter returns Optional label
             );
     }

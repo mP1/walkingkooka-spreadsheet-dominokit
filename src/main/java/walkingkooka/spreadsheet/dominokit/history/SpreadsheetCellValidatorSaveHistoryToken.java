@@ -61,7 +61,7 @@ public final class SpreadsheetCellValidatorSaveHistoryToken extends SpreadsheetC
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.cellValidatorSelect(
-            this.id(),
+            this.id,
             this.name(),
             this.anchoredSelection()
         );
@@ -92,7 +92,7 @@ public final class SpreadsheetCellValidatorSaveHistoryToken extends SpreadsheetC
 
         context.spreadsheetDeltaFetcher()
             .patchValidator(
-                this.id(),
+                this.id,
                 this.anchoredSelection().selection(),
                 this.validator
             );

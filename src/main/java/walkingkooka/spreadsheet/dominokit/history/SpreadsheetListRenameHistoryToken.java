@@ -32,7 +32,7 @@ public abstract class SpreadsheetListRenameHistoryToken extends SpreadsheetIdHis
     @Override //
     final UrlFragment spreadsheetUrlFragment() {
         return RENAME.appendSlashThen(
-            this.id().urlFragment()
+            this.id.urlFragment()
         ).appendSlashThen(this.renameUrlFragment());
     }
 
