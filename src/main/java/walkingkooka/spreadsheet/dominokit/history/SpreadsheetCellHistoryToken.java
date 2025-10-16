@@ -228,7 +228,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             offsetAndCount = HistoryTokenOffsetAndCount.EMPTY;
         }
 
-        return this.labels(offsetAndCount);
+        return this.setLabels(offsetAndCount);
     }
 
     private HistoryToken parsePaste(final TextCursor cursor) {

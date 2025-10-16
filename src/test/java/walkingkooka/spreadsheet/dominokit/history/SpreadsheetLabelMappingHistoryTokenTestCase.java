@@ -57,12 +57,12 @@ public abstract class SpreadsheetLabelMappingHistoryTokenTestCase<T extends Spre
     // labels...........................................................................................................
 
     @Test
-    public final void testLabels() {
+    public final void testSetLabels() {
         final HistoryTokenOffsetAndCount offsetAndCount = HistoryTokenOffsetAndCount.EMPTY.setCount(
             OptionalInt.of(123)
         );
 
-        this.labelsAndCheck(
+        this.setLabelsAndCheck(
             this.createHistoryToken(),
             offsetAndCount,
             HistoryToken.labelMappingList(

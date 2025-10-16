@@ -74,7 +74,7 @@ public final class SpreadsheetCellLabelsAnchorComponent implements AnchorCompone
         if (value.isPresent()) {
             historyToken = this.context.historyToken()
                 .setSelection(value)
-                .labels(HistoryTokenOffsetAndCount.EMPTY);
+                .setLabels(HistoryTokenOffsetAndCount.EMPTY);
             if (false == (historyToken instanceof SpreadsheetCellLabelListHistoryToken)) {
                 historyToken = null;
             }

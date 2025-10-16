@@ -56,7 +56,7 @@ public final class SpreadsheetLabelListAnchorComponent implements AnchorComponen
                 this.component.setHistoryToken(
                     Optional.of(
                         context.historyToken()
-                            .labels(HistoryTokenOffsetAndCount.EMPTY)
+                            .setLabels(HistoryTokenOffsetAndCount.EMPTY)
                     )
                 )
         );
