@@ -73,7 +73,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
         final Object valueOrNull = value.orElse(null);
 
         if (this instanceof SpreadsheetCellSelectHistoryToken || this instanceof SpreadsheetCellSaveHistoryToken) {
-            historyToken = this.setSaveValueCell(valueOrNull);
+            historyToken = this.setSaveValueSave(valueOrNull);
         }
 
         if (this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken) {
@@ -271,7 +271,8 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
         return this.elseIfDifferent(historyToken);
     }
 
-    private HistoryToken setSaveValueCell(final Object valueOrNull) {
+    // handles sub-classes of SpreadsheetCellSaveHistoryToken
+    private HistoryToken setSaveValueSave(final Object valueOrNull) {
         HistoryToken historyToken = null;
 
         if (valueOrNull instanceof Set) {
