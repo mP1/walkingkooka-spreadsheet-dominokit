@@ -4053,167 +4053,8 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                     if (this instanceof SpreadsheetCellHistoryToken) {
                         if (this instanceof SpreadsheetCellSelectHistoryToken || this instanceof SpreadsheetCellSaveHistoryToken) {
-                            if (valueOrNull instanceof Set) {
-                                historyToken = HistoryToken.cellSaveCell(
-                                    id,
-                                    name,
-                                    spreadsheetSelection,
-                                    Cast.to(valueOrNull) // Set<SpreadsheetCell>
-                                );
-                            } else {
-                                if (valueOrNull instanceof Map) {
-                                    final Map<?, ?> map = Cast.to(valueOrNull);
-                                    if (false == map.isEmpty()) {
-                                        final int MODE_DATE_TIME_SYMBOLS = 1;
-                                        final int MODE_DECIMAL_NUMBER_SYMBOLS = 2;
-                                        final int MODE_FORMATTER = 4;
-                                        final int MODE_FORMULA = 8;
-                                        final int MODE_LOCALE = 16;
-                                        final int MODE_PARSER = 32;
-                                        final int MODE_STYLE = 64;
-                                        final int MODE_VALIDATOR = 128;
-                                        final int MODE_VALUE_TYPE = 256;
-
-                                        int mode = MODE_DATE_TIME_SYMBOLS | MODE_DECIMAL_NUMBER_SYMBOLS | MODE_FORMATTER | MODE_FORMULA | MODE_LOCALE | MODE_PARSER | MODE_STYLE | MODE_VALIDATOR | MODE_VALUE_TYPE;
-
-                                        for (final Object mapValue : map.values()) {
-                                            // ignore nulls
-                                            if (mapValue instanceof Optional) {
-                                                final Optional<?> mapValueOptional = (Optional<?>) mapValue;
-                                                if (mapValueOptional.isPresent()) {
-                                                    Object mapValueOptionalValue = mapValueOptional.get();
-                                                    if (mapValueOptionalValue instanceof DateTimeSymbols) {
-                                                        mode = MODE_DATE_TIME_SYMBOLS & mode;
-                                                    } else {
-                                                        if (mapValueOptionalValue instanceof DecimalNumberSymbols) {
-                                                            mode = MODE_DECIMAL_NUMBER_SYMBOLS & mode;
-                                                        } else {
-                                                            if (mapValueOptionalValue instanceof SpreadsheetFormatterSelector) {
-                                                                mode = MODE_FORMATTER & mode;
-                                                            } else {
-                                                                if (mapValueOptionalValue instanceof Locale) {
-                                                                    mode = MODE_LOCALE & mode;
-                                                                } else {
-                                                                    if (mapValueOptionalValue instanceof SpreadsheetParserSelector) {
-                                                                        mode = MODE_PARSER & mode;
-                                                                    } else {
-                                                                        if (mapValueOptionalValue instanceof ValidatorSelector) {
-                                                                            mode = MODE_VALIDATOR & mode;
-                                                                        } else {
-                                                                            if (mapValueOptionalValue instanceof ValueTypeName) {
-                                                                                mode = MODE_VALUE_TYPE & mode;
-                                                                            } else {
-                                                                                mode = 0;
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            } else {
-                                                if (mapValue instanceof String) {
-                                                    mode = MODE_FORMULA & mode;
-                                                } else {
-                                                    if (mapValue instanceof TextStyle) {
-                                                        mode = MODE_STYLE & mode;
-                                                    } else {
-                                                        mode = 0;
-                                                        break;
-                                                    }
-                                                }
-                                            }
-
-                                            if (0 == mode) {
-                                                break;
-                                            }
-                                        }
-                                        switch (mode) {
-                                            case MODE_DATE_TIME_SYMBOLS:
-                                                historyToken = HistoryToken.cellSaveDateTimeSymbols(
-                                                    id,
-                                                    name,
-                                                    spreadsheetSelection,
-                                                    Cast.to(valueOrNull)
-                                                );
-                                                break;
-                                            case MODE_DECIMAL_NUMBER_SYMBOLS:
-                                                historyToken = HistoryToken.cellSaveDecimalNumberSymbols(
-                                                    id,
-                                                    name,
-                                                    spreadsheetSelection,
-                                                    Cast.to(valueOrNull)
-                                                );
-                                                break;
-                                            case MODE_FORMATTER:
-                                                historyToken = HistoryToken.cellSaveFormatter(
-                                                    id,
-                                                    name,
-                                                    spreadsheetSelection,
-                                                    Cast.to(valueOrNull)
-                                                );
-                                                break;
-                                            case MODE_FORMULA:
-                                                historyToken = HistoryToken.cellSaveFormulaText(
-                                                    id,
-                                                    name,
-                                                    spreadsheetSelection,
-                                                    Cast.to(valueOrNull)
-                                                );
-                                                break;
-                                            case MODE_LOCALE:
-                                                historyToken = HistoryToken.cellSaveLocale(
-                                                    id,
-                                                    name,
-                                                    spreadsheetSelection,
-                                                    Cast.to(valueOrNull)
-                                                );
-                                                break;
-                                            case MODE_PARSER:
-                                                historyToken = HistoryToken.cellSaveParser(
-                                                    id,
-                                                    name,
-                                                    spreadsheetSelection,
-                                                    Cast.to(valueOrNull)
-                                                );
-                                                break;
-                                            case MODE_STYLE:
-                                                historyToken = HistoryToken.cellSaveStyle(
-                                                    id,
-                                                    name,
-                                                    spreadsheetSelection,
-                                                    Cast.to(valueOrNull)
-                                                );
-                                                break;
-                                            case MODE_VALIDATOR:
-                                                historyToken = HistoryToken.cellSaveValidator(
-                                                    id,
-                                                    name,
-                                                    spreadsheetSelection,
-                                                    Cast.to(valueOrNull)
-                                                );
-                                                break;
-                                            case MODE_VALUE_TYPE:
-                                                historyToken = HistoryToken.cellSaveValueType(
-                                                    id,
-                                                    name,
-                                                    spreadsheetSelection,
-                                                    Cast.to(valueOrNull)
-                                                );
-                                                break;
-                                            default:
-                                                throw new IllegalArgumentException("Invalid value: got " + valueOrNull.getClass().getSimpleName());
-                                        }
-                                    }
-                                } else {
-                                    if (null == valueOrNull) {
-                                        historyToken = this.clearAction();
-                                    } else {
-                                        throw new IllegalArgumentException("Invalid value: got " + valueOrNull.getClass().getSimpleName());
-                                    }
-                                }
-                            }
+                            historyToken = this.cast(SpreadsheetCellHistoryToken.class)
+                                .setSaveValueCell(valueOrNull);
                         }
 
                         if (this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken) {
@@ -4447,12 +4288,11 @@ public abstract class HistoryToken implements HasUrlFragment {
                 }
 
                 if (this instanceof SpreadsheetLabelMappingSelectHistoryToken || this instanceof SpreadsheetLabelMappingSaveHistoryToken) {
-                    if (null != valueOrNull && false == valueOrNull instanceof SpreadsheetExpressionReference) {
-                        this.reportInvalidSaveValue(
-                            valueOrNull,
-                            SpreadsheetExpressionReference.class
-                        );
-                    }
+                    this.reportInvalidSaveValueIf(
+                        valueOrNull,
+                        SpreadsheetExpressionReference.class,
+                        valueOrNull instanceof SpreadsheetExpressionReference
+                    );
 
                     if (null != valueOrNull) {
                         historyToken = HistoryToken.labelMappingSave(
@@ -4491,6 +4331,17 @@ public abstract class HistoryToken implements HasUrlFragment {
         }
 
         return elseIfDifferent(historyToken);
+    }
+
+    private void reportInvalidSaveValueIf(final Object value,
+                                          final Class<?> expected,
+                                          final boolean typeTest) {
+        if (null != value && false == typeTest) {
+            this.reportInvalidSaveValue(
+                value,
+                expected
+            );
+        }
     }
 
     private void reportInvalidSaveValue(final Object value,
