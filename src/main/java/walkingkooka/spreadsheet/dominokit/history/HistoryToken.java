@@ -3177,10 +3177,10 @@ public abstract class HistoryToken implements HasUrlFragment {
     public final HistoryToken setList(final HistoryTokenOffsetAndCount offsetAndCount) {
         Objects.requireNonNull(offsetAndCount, "offsetAndCount");
 
-        HistoryToken token = null;
+        HistoryToken historyToken;
 
         if (this instanceof PluginHistoryToken) {
-            token = pluginListSelect(offsetAndCount);
+            historyToken = pluginListSelect(offsetAndCount);
         } else {
             if (this instanceof SpreadsheetNameHistoryToken) {
                 final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
@@ -3188,32 +3188,30 @@ public abstract class HistoryToken implements HasUrlFragment {
                 final SpreadsheetName name = spreadsheetNameHistoryToken.name();
 
                 if (this instanceof SpreadsheetLabelMappingHistoryToken) {
-                    token = labelMappingList(
+                    historyToken = labelMappingList(
                         id,
                         name,
                         offsetAndCount
                     );
                 } else {
-                    token = spreadsheetListSelect(
+                    historyToken = spreadsheetListSelect(
                         offsetAndCount
                     );
                 }
 
             } else {
                 if (this instanceof SpreadsheetListHistoryToken) {
-                    token = this.setOffset(offsetAndCount.offset)
+                    historyToken = this.setOffset(offsetAndCount.offset)
                         .setCount(offsetAndCount.count);
                 } else {
-                    token = spreadsheetListSelect(
+                    historyToken = spreadsheetListSelect(
                         offsetAndCount
                     );
                 }
             }
         }
 
-        return token.equals(this) ?
-            this :
-            token;
+        return this.elseIfDifferent(historyToken);
     }
 
     // locale...........................................................................................................
