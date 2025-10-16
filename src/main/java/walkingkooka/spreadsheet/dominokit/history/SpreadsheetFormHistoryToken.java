@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.validation.form.FormName;
 
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -44,6 +45,13 @@ public abstract class SpreadsheetFormHistoryToken extends SpreadsheetNameHistory
     }
 
     public abstract Optional<FormName> formName();
+
+    @Override
+    public HistoryToken setSaveValue(final Optional<?> value) {
+        Objects.requireNonNull(value, "value");
+
+        return this;
+    }
 
     @Override //
     final UrlFragment spreadsheetNameUrlFragment() {

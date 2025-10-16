@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.text.cursor.TextCursor;
 
 import java.util.Objects;
+import java.util.Optional;
 
 public final class UnknownHistoryToken extends HistoryToken {
 
@@ -61,5 +62,12 @@ public final class UnknownHistoryToken extends HistoryToken {
             id,
             name
         );
+    }
+
+    @Override
+    public HistoryToken setSaveValue(final Optional<?> value) {
+        Objects.requireNonNull(value, "value");
+
+        throw new UnsupportedOperationException();
     }
 }

@@ -23,6 +23,9 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.text.cursor.TextCursor;
 
+import java.util.Objects;
+import java.util.Optional;
+
 /**
  * Captures loading a spreadsheet using its spreadsheet-id
  * <pre>
@@ -68,6 +71,13 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
             id,
             name
         );
+    }
+
+    @Override
+    public HistoryToken setSaveValue(final Optional<?> value) {
+        Objects.requireNonNull(value, "value");
+
+        return this;
     }
 
     // HistoryTokenWatcher..............................................................................................

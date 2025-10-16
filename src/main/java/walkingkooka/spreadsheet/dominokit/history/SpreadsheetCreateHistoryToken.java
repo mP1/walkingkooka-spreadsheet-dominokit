@@ -23,6 +23,9 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.text.cursor.TextCursor;
 
+import java.util.Objects;
+import java.util.Optional;
+
 /**
  * A token that represents a spreadsheet create action.
  * <pre>
@@ -62,6 +65,13 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
             id,
             name
         );
+    }
+
+    @Override
+    public HistoryToken setSaveValue(final Optional<?> value) {
+        Objects.requireNonNull(value, "value");
+
+        return this;
     }
 
     // HistoryTokenWatcher..............................................................................................

@@ -21,6 +21,9 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 
+import java.util.Objects;
+import java.util.Optional;
+
 public abstract class SpreadsheetRenameHistoryToken extends SpreadsheetNameHistoryToken {
 
     SpreadsheetRenameHistoryToken(final SpreadsheetId id,
@@ -29,6 +32,28 @@ public abstract class SpreadsheetRenameHistoryToken extends SpreadsheetNameHisto
             id,
             name
         );
+    }
+
+    @Override
+    public final HistoryToken setSaveValue(final Optional<?> value) {
+        Objects.requireNonNull(value, "value");
+
+        HistoryToken historyToken;
+
+        if (value.isPresent()) {
+            historyToken = HistoryToken.spreadsheetRenameSave(
+                this.id,
+                this.name,
+                (SpreadsheetName) value.get()
+            );
+        } else {
+            historyToken = HistoryToken.spreadsheetRenameSelect(
+                this.id,
+                this.name
+            );
+        }
+
+        return this.elseIfDifferent(historyToken);
     }
 
     @Override //

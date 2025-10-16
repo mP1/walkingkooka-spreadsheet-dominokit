@@ -22,6 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -65,7 +66,10 @@ public abstract class PluginHistoryToken extends HistoryToken {
 
     // saveValue........................................................................................................
 
-    final HistoryToken setSaveValuePlugin(final Optional<?> value) {
+    @Override
+    public final HistoryToken setSaveValue(final Optional<?> value) {
+        Objects.requireNonNull(value, "value");
+
         HistoryToken historyToken = null;
 
         final Object valueOrNull = value.orElse(null);
@@ -84,6 +88,6 @@ public abstract class PluginHistoryToken extends HistoryToken {
             );
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 }

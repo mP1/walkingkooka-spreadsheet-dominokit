@@ -24,13 +24,16 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetUrlFragments;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolvers;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
+import walkingkooka.text.CharSequences;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
 import walkingkooka.tree.text.TextStyle;
@@ -40,6 +43,7 @@ import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
@@ -60,28 +64,221 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
         }
     }
 
-    @Override //
-    final UrlFragment selectionUrlFragment() {
-        return SpreadsheetUrlFragments.CELL.append(
-            this.anchoredSelection.urlFragment()
-        ).appendSlashThen(this.cellUrlFragment());
+    @Override
+    public HistoryToken setSaveValue(final Optional<?> value) {
+        Objects.requireNonNull(value, "value");
+
+        HistoryToken historyToken = this;
+
+        final Object valueOrNull = value.orElse(null);
+
+        if (this instanceof SpreadsheetCellSelectHistoryToken || this instanceof SpreadsheetCellSaveHistoryToken) {
+            historyToken = this.setSaveValueCell(valueOrNull);
+        }
+
+        if (this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken) {
+            if (null != valueOrNull && false == valueOrNull instanceof DateTimeSymbols) {
+                this.reportInvalidSaveValue(
+                    valueOrNull,
+                    DateTimeSymbols.class
+                );
+            }
+
+            historyToken = HistoryToken.cellDateTimeSymbolsSave(
+                this.id,
+                this.name,
+                this.anchoredSelection,
+                Cast.to(value)
+            );
+        }
+
+        if (this instanceof SpreadsheetCellDecimalNumberSymbolsHistoryToken) {
+            if (null != valueOrNull && false == valueOrNull instanceof DecimalNumberSymbols) {
+                this.reportInvalidSaveValue(
+                    valueOrNull,
+                    DecimalNumberSymbols.class
+                );
+            }
+
+            historyToken = HistoryToken.cellDecimalNumberSymbolsSave(
+                this.id,
+                this.name,
+                this.anchoredSelection,
+                Cast.to(value)
+            );
+        }
+
+        if (this instanceof SpreadsheetCellFormatterHistoryToken) {
+            if (null != valueOrNull && false == valueOrNull instanceof SpreadsheetFormatterSelector) {
+                this.reportInvalidSaveValue(
+                    valueOrNull,
+                    SpreadsheetFormatterSelector.class
+                );
+            }
+
+            historyToken = HistoryToken.cellFormatterSave(
+                this.id,
+                this.name,
+                this.anchoredSelection,
+                Cast.to(value)
+            );
+        }
+
+        if (this instanceof SpreadsheetCellFormulaHistoryToken) {
+            if (null != valueOrNull && false == valueOrNull instanceof String) {
+                this.reportInvalidSaveValue(
+                    valueOrNull,
+                    String.class
+                );
+            }
+
+            historyToken = HistoryToken.cellFormulaSave(
+                this.id,
+                this.name,
+                this.anchoredSelection,
+                CharSequences.nullToEmpty((String) valueOrNull)
+                    .toString()
+            );
+        }
+
+        if (this instanceof SpreadsheetCellLabelHistoryToken) {
+            if (null != valueOrNull && false == valueOrNull instanceof SpreadsheetLabelName) {
+                this.reportInvalidSaveValue(
+                    valueOrNull,
+                    SpreadsheetLabelName.class
+                );
+            }
+
+            historyToken = HistoryToken.cellLabelSave(
+                this.id,
+                this.name,
+                this.anchoredSelection,
+                (SpreadsheetLabelName) valueOrNull
+            );
+        }
+
+        if (this instanceof SpreadsheetCellLocaleHistoryToken) {
+            if (null != valueOrNull && false == valueOrNull instanceof Locale) {
+                this.reportInvalidSaveValue(
+                    valueOrNull,
+                    Locale.class
+                );
+            }
+
+            historyToken = HistoryToken.cellLocaleSave(
+                this.id,
+                this.name,
+                this.anchoredSelection,
+                Cast.to(value)
+            );
+        }
+
+        if (this instanceof SpreadsheetCellParserHistoryToken) {
+            if (null != valueOrNull && false == valueOrNull instanceof SpreadsheetParserSelector) {
+                this.reportInvalidSaveValue(
+                    valueOrNull,
+                    SpreadsheetParserSelector.class
+                );
+            }
+
+            historyToken = HistoryToken.cellParserSave(
+                this.id,
+                this.name,
+                this.anchoredSelection,
+                Cast.to(value)
+            );
+        }
+
+        if (this instanceof SpreadsheetCellSortHistoryToken) {
+            if (null != valueOrNull && false == valueOrNull instanceof SpreadsheetColumnOrRowSpreadsheetComparatorNamesList) {
+                this.reportInvalidSaveValue(
+                    valueOrNull,
+                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.class
+                );
+            }
+
+            historyToken = HistoryToken.cellSortSave(
+                this.id,
+                this.name,
+                this.anchoredSelection,
+                (SpreadsheetColumnOrRowSpreadsheetComparatorNamesList) valueOrNull
+            );
+        }
+
+        if (this instanceof SpreadsheetCellStyleHistoryToken) {
+            historyToken = HistoryToken.cellStyleSave(
+                this.id,
+                this.name,
+                this.anchoredSelection,
+                this.cast(SpreadsheetCellStyleHistoryToken.class)
+                    .propertyName(),
+                value
+            );
+        }
+
+        if (this instanceof SpreadsheetCellValidatorHistoryToken) {
+            if (null != valueOrNull && false == valueOrNull instanceof ValidatorSelector) {
+                this.reportInvalidSaveValue(
+                    valueOrNull,
+                    ValidatorSelector.class
+                );
+            }
+
+            historyToken = HistoryToken.cellValidatorSave(
+                this.id,
+                this.name,
+                this.anchoredSelection,
+                Cast.to(value)
+            );
+        }
+
+        if (this instanceof SpreadsheetCellValueHistoryToken) {
+            if (null != valueOrNull && false == valueOrNull instanceof String) {
+                this.reportInvalidSaveValue(
+                    valueOrNull,
+                    String.class
+                );
+            }
+
+            historyToken = HistoryToken.cellValueSave(
+                this.id,
+                this.name,
+                this.anchoredSelection,
+                this.cast(SpreadsheetCellValueHistoryToken.class)
+                    .valueType()
+                    .get(),
+                CharSequences.nullToEmpty((String) valueOrNull)
+                    .toString()
+            );
+        }
+
+        if (this instanceof SpreadsheetCellValueTypeHistoryToken) {
+            if (null != valueOrNull && false == valueOrNull instanceof ValueTypeName) {
+                this.reportInvalidSaveValue(
+                    valueOrNull,
+                    ValueTypeName.class
+                );
+            }
+
+            historyToken = HistoryToken.cellValueTypeSave(
+                this.id,
+                this.name,
+                this.anchoredSelection,
+                Cast.to(value)
+            );
+        }
+
+        return this.elseIfDifferent(historyToken);
     }
-
-    abstract UrlFragment cellUrlFragment();
-
 
     final HistoryToken setSaveValueCell(final Object valueOrNull) {
         HistoryToken historyToken = this;
 
-        final SpreadsheetId id = this.id;
-        final SpreadsheetName name = this.name;
-        final AnchoredSpreadsheetSelection spreadsheetSelection = this.anchoredSelection;
-
         if (valueOrNull instanceof Set) {
             historyToken = HistoryToken.cellSaveCell(
-                id,
-                name,
-                spreadsheetSelection,
+                this.id,
+                this.name,
+                this.anchoredSelection,
                 Cast.to(valueOrNull) // Set<SpreadsheetCell>
             );
         } else {
@@ -156,73 +353,73 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                     switch (mode) {
                         case MODE_DATE_TIME_SYMBOLS:
                             historyToken = HistoryToken.cellSaveDateTimeSymbols(
-                                id,
-                                name,
-                                spreadsheetSelection,
+                                this.id,
+                                this.name,
+                                this.anchoredSelection,
                                 Cast.to(valueOrNull)
                             );
                             break;
                         case MODE_DECIMAL_NUMBER_SYMBOLS:
                             historyToken = HistoryToken.cellSaveDecimalNumberSymbols(
-                                id,
-                                name,
-                                spreadsheetSelection,
+                                this.id,
+                                this.name,
+                                this.anchoredSelection,
                                 Cast.to(valueOrNull)
                             );
                             break;
                         case MODE_FORMATTER:
                             historyToken = HistoryToken.cellSaveFormatter(
-                                id,
-                                name,
-                                spreadsheetSelection,
+                                this.id,
+                                this.name,
+                                this.anchoredSelection,
                                 Cast.to(valueOrNull)
                             );
                             break;
                         case MODE_FORMULA:
                             historyToken = HistoryToken.cellSaveFormulaText(
-                                id,
-                                name,
-                                spreadsheetSelection,
+                                this.id,
+                                this.name,
+                                this.anchoredSelection,
                                 Cast.to(valueOrNull)
                             );
                             break;
                         case MODE_LOCALE:
                             historyToken = HistoryToken.cellSaveLocale(
-                                id,
-                                name,
-                                spreadsheetSelection,
+                                this.id,
+                                this.name,
+                                this.anchoredSelection,
                                 Cast.to(valueOrNull)
                             );
                             break;
                         case MODE_PARSER:
                             historyToken = HistoryToken.cellSaveParser(
-                                id,
-                                name,
-                                spreadsheetSelection,
+                                this.id,
+                                this.name,
+                                this.anchoredSelection,
                                 Cast.to(valueOrNull)
                             );
                             break;
                         case MODE_STYLE:
                             historyToken = HistoryToken.cellSaveStyle(
-                                id,
-                                name,
-                                spreadsheetSelection,
+                                this.id,
+                                this.name,
+                                this.anchoredSelection,
                                 Cast.to(valueOrNull)
                             );
                             break;
                         case MODE_VALIDATOR:
                             historyToken = HistoryToken.cellSaveValidator(
-                                id,
-                                name,
-                                spreadsheetSelection,
+                                this.id,
+                                this.name,
+                                this.anchoredSelection,
                                 Cast.to(valueOrNull)
                             );
                             break;
                         case MODE_VALUE_TYPE:
                             historyToken = HistoryToken.cellSaveValueType(
-                                id,
-                                name,
-                                spreadsheetSelection,
+                                this.id,
+                                this.name,
+                                this.anchoredSelection,
                                 Cast.to(valueOrNull)
                             );
                             break;
@@ -240,6 +437,17 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
         }
         return historyToken;
     }
+
+    // HasUrlFragment...................................................................................................
+
+    @Override //
+    final UrlFragment selectionUrlFragment() {
+        return SpreadsheetUrlFragments.CELL.append(
+            this.anchoredSelection.urlFragment()
+        ).appendSlashThen(this.cellUrlFragment());
+    }
+
+    abstract UrlFragment cellUrlFragment();
 
     // parse............................................................................................................
 
