@@ -4277,11 +4277,12 @@ public abstract class HistoryToken implements HasUrlFragment {
                 }
 
                 if (this instanceof SpreadsheetLabelMappingSelectHistoryToken || this instanceof SpreadsheetLabelMappingSaveHistoryToken) {
-                    this.reportInvalidSaveValueIf(
-                        valueOrNull,
-                        SpreadsheetExpressionReference.class,
-                        valueOrNull instanceof SpreadsheetExpressionReference
-                    );
+                    if (null != valueOrNull && false == valueOrNull instanceof SpreadsheetExpressionReference) {
+                        this.reportInvalidSaveValue(
+                            valueOrNull,
+                            SpreadsheetExpressionReference.class
+                        );
+                    }
 
                     if (null != valueOrNull) {
                         historyToken = HistoryToken.labelMappingSave(
@@ -4320,17 +4321,6 @@ public abstract class HistoryToken implements HasUrlFragment {
         }
 
         return elseIfDifferent(historyToken);
-    }
-
-    private void reportInvalidSaveValueIf(final Object value,
-                                          final Class<?> expected,
-                                          final boolean typeTest) {
-        if (null != value && false == typeTest) {
-            this.reportInvalidSaveValue(
-                value,
-                expected
-            );
-        }
     }
 
     private void reportInvalidSaveValue(final Object value,
