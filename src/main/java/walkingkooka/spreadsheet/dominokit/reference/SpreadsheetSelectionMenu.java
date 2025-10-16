@@ -248,7 +248,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                     SpreadsheetIcons.cut()
                 ),
                 itemIdPrefix + '-',
-                historyToken::setCellCut
+                historyToken::cut
             );
         }
 
