@@ -2230,28 +2230,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         return token;
     }
-
-    /**
-     * If possible creates a {@link SpreadsheetCellClipboardPasteHistoryToken} token.
-     */
-    public final HistoryToken setCellPaste(final SpreadsheetCellClipboardKind kind) {
-        Objects.requireNonNull(kind, "kind");
-
-        HistoryToken token = this;
-
-        if (this instanceof SpreadsheetCellHistoryToken) {
-            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
-            token = HistoryToken.cellClipboardPaste(
-                cell.id(),
-                cell.name(),
-                cell.anchoredSelection(),
-                kind
-            );
-        }
-
-        return token;
-    }
-
+    
     // clear............................................................................................................
 
     /**
@@ -3778,6 +3757,27 @@ public abstract class HistoryToken implements HasUrlFragment {
         return historyToken;
     }
 
+    /**
+     * If possible creates a {@link SpreadsheetCellClipboardPasteHistoryToken} token.
+     */
+    public final HistoryToken paste(final SpreadsheetCellClipboardKind kind) {
+        Objects.requireNonNull(kind, "kind");
+
+        HistoryToken token = this;
+
+        if (this instanceof SpreadsheetCellHistoryToken) {
+            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
+            token = HistoryToken.cellClipboardPaste(
+                cell.id(),
+                cell.name(),
+                cell.anchoredSelection(),
+                kind
+            );
+        }
+
+        return token;
+    }
+    
     // pluginName.......................................................................................................
 
     /**

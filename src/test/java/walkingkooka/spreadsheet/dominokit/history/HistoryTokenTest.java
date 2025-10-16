@@ -462,10 +462,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     // setCellPaste.....................................................................................................
 
     @Test
-    public void testSetCellPasteWithNullKindFails() {
+    public void testPasteWithNullKindFails() {
         assertThrows(
             NullPointerException.class,
-            () -> HistoryToken.unknown(UrlFragment.SLASH).setCellPaste(null)
+            () -> HistoryToken.unknown(UrlFragment.SLASH).paste(null)
         );
     }
 
@@ -474,7 +474,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-            historyToken.setCellPaste(SpreadsheetCellClipboardKind.CELL),
+            historyToken.paste(SpreadsheetCellClipboardKind.CELL),
             historyToken
         );
     }
@@ -494,7 +494,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                 CELL.setDefaultAnchor(),
                 SpreadsheetCellClipboardKind.CELL
             ),
-            historyToken.setCellPaste(SpreadsheetCellClipboardKind.CELL)
+            historyToken.paste(SpreadsheetCellClipboardKind.CELL)
         );
     }
 
@@ -517,13 +517,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                     cell,
                     kind
                 ),
-                historyToken.setCellPaste(kind)
+                historyToken.paste(kind)
             );
         }
     }
 
     @Test
-    public void testSetCellPasteWithColumnHistoryToken() {
+    public void testPasteWithColumnHistoryToken() {
         final HistoryToken historyToken = HistoryToken.columnSelect(
             ID,
             NAME,
@@ -531,13 +531,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         );
 
         assertSame(
-            historyToken.setCellPaste(SpreadsheetCellClipboardKind.CELL),
+            historyToken.paste(SpreadsheetCellClipboardKind.CELL),
             historyToken
         );
     }
 
     @Test
-    public void testSetCellPasteWithRowHistoryToken() {
+    public void testPasteWithRowHistoryToken() {
         final HistoryToken historyToken = HistoryToken.rowSelect(
             ID,
             NAME,
@@ -545,7 +545,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         );
 
         assertSame(
-            historyToken.setCellPaste(SpreadsheetCellClipboardKind.CELL),
+            historyToken.paste(SpreadsheetCellClipboardKind.CELL),
             historyToken
         );
     }
