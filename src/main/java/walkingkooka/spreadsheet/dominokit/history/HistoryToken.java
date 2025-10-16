@@ -3140,7 +3140,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     public final HistoryToken labels(final HistoryTokenOffsetAndCount offsetAndCount) {
         Objects.requireNonNull(offsetAndCount, "offsetAndCount");
 
-        HistoryToken historyToken = this;
+        HistoryToken historyToken = null;
 
         if (this instanceof SpreadsheetNameHistoryToken) {
             final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
@@ -3155,11 +3155,6 @@ public abstract class HistoryToken implements HasUrlFragment {
                         .anchoredSelection(),
                     offsetAndCount
                 );
-
-                if (historyToken.equals(this)) {
-                    historyToken = this;
-                }
-
             } else {
                 historyToken = labelMappingList(
                     id,
@@ -3169,7 +3164,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             }
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     // LIST.............................................................................................................
