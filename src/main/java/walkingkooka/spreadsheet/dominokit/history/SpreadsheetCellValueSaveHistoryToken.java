@@ -96,7 +96,7 @@ public final class SpreadsheetCellValueSaveHistoryToken extends SpreadsheetCellV
 
     // cell/A1/value/save/Value
     @Override
-    UrlFragment valueTypeUrlFragment() {
+    UrlFragment valueUrlFragment() {
         return this.valueType()
             .get()
             .urlFragment().appendSlashThen(

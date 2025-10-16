@@ -69,7 +69,7 @@ public final class SpreadsheetCellValueUnselectHistoryToken extends SpreadsheetC
 
     // cell/A1/value/toolbar
     @Override
-    UrlFragment valueTypeUrlFragment() {
+    UrlFragment valueUrlFragment() {
         return SELECT;
     }
 

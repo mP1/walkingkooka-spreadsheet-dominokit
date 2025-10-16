@@ -71,7 +71,7 @@ public final class SpreadsheetCellValueSelectHistoryToken extends SpreadsheetCel
 
     // cell/A1/value/ValueTypeName
     @Override
-    UrlFragment valueTypeUrlFragment() {
+    UrlFragment valueUrlFragment() {
         return this.valueType.get()
             .urlFragment();
     }
