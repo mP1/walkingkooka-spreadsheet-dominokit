@@ -22,7 +22,6 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatc
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
-import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -35,13 +34,11 @@ public final class SpreadsheetCellValueDialogComponentContexts implements Public
      */
     public static SpreadsheetCellValueDialogComponentContext<LocalDate> date(final SpreadsheetViewportCache viewportCache,
                                                                              final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
-                                                                             final JsonNodeMarshallContext marshallContext,
                                                                              final HistoryContext historyContext,
                                                                              final LoggingContext loggingContext) {
         return BasicSpreadsheetCellValueDialogComponentContextDate.with(
             viewportCache,
             deltaFetcherWatchers,
-            marshallContext,
             historyContext,
             loggingContext
         );
@@ -52,13 +49,11 @@ public final class SpreadsheetCellValueDialogComponentContexts implements Public
      */
     public static SpreadsheetCellValueDialogComponentContext<LocalDateTime> dateTime(final SpreadsheetViewportCache viewportCache,
                                                                                      final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
-                                                                                     final JsonNodeMarshallContext marshallContext,
                                                                                      final HistoryContext historyContext,
                                                                                      final LoggingContext loggingContext) {
         return BasicSpreadsheetCellValueDialogComponentContextDateTime.with(
             viewportCache,
             deltaFetcherWatchers,
-            marshallContext,
             historyContext,
             loggingContext
         );
@@ -69,13 +64,11 @@ public final class SpreadsheetCellValueDialogComponentContexts implements Public
      */
     public static SpreadsheetCellValueDialogComponentContext<String> text(final SpreadsheetViewportCache viewportCache,
                                                                           final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
-                                                                          final JsonNodeMarshallContext marshallContext,
                                                                           final HistoryContext historyContext,
                                                                           final LoggingContext loggingContext) {
         return BasicSpreadsheetCellValueDialogComponentContextText.with(
             viewportCache,
             deltaFetcherWatchers,
-            marshallContext,
             historyContext,
             loggingContext
         );
@@ -86,13 +79,11 @@ public final class SpreadsheetCellValueDialogComponentContexts implements Public
      */
     public static SpreadsheetCellValueDialogComponentContext<LocalTime> time(final SpreadsheetViewportCache viewportCache,
                                                                              final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
-                                                                             final JsonNodeMarshallContext marshallContext,
                                                                              final HistoryContext historyContext,
                                                                              final LoggingContext loggingContext) {
         return BasicSpreadsheetCellValueDialogComponentContextTime.with(
             viewportCache,
             deltaFetcherWatchers,
-            marshallContext,
             historyContext,
             loggingContext
         );

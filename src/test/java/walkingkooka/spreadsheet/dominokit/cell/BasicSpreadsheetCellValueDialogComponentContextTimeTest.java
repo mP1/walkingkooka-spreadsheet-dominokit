@@ -28,18 +28,14 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
 import walkingkooka.spreadsheet.dominokit.viewport.FakeSpreadsheetViewportCacheContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
-import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
-import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 
 import java.time.LocalTime;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class BasicSpreadsheetCellValueDialogComponentContextTimeTest implements SpreadsheetCellValueDialogComponentContextTesting<LocalTime, BasicSpreadsheetCellValueDialogComponentContextTime> {
 
     private final static SpreadsheetDeltaFetcherWatchers DELTA_FETCHER_WATCHERS = SpreadsheetDeltaFetcherWatchers.empty();
-    private final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
     private final static HistoryContext HISTORY_CONTEXT = HistoryContexts.fake();
     private final static LoggingContext LOGGING_CONTEXT = LoggingContexts.fake();
 
@@ -52,7 +48,6 @@ public final class BasicSpreadsheetCellValueDialogComponentContextTimeTest imple
             () -> BasicSpreadsheetCellValueDialogComponentContextTime.with(
                 null,
                 DELTA_FETCHER_WATCHERS,
-                MARSHALL_CONTEXT,
                 HISTORY_CONTEXT,
                 LOGGING_CONTEXT
             )
@@ -65,21 +60,6 @@ public final class BasicSpreadsheetCellValueDialogComponentContextTimeTest imple
             NullPointerException.class,
             () -> BasicSpreadsheetCellValueDialogComponentContextTime.with(
                 this.spreadsheetViewportCache(),
-                null,
-                MARSHALL_CONTEXT,
-                HISTORY_CONTEXT,
-                LOGGING_CONTEXT
-            )
-        );
-    }
-
-    @Test
-    public void testWithNullMarshallContextFails() {
-        assertThrows(
-            NullPointerException.class,
-            () -> BasicSpreadsheetCellValueDialogComponentContextTime.with(
-                this.spreadsheetViewportCache(),
-                DELTA_FETCHER_WATCHERS,
                 null,
                 HISTORY_CONTEXT,
                 LOGGING_CONTEXT
@@ -94,7 +74,6 @@ public final class BasicSpreadsheetCellValueDialogComponentContextTimeTest imple
             () -> BasicSpreadsheetCellValueDialogComponentContextTime.with(
                 this.spreadsheetViewportCache(),
                 DELTA_FETCHER_WATCHERS,
-                MARSHALL_CONTEXT,
                 null,
                 LOGGING_CONTEXT
             )
@@ -108,7 +87,6 @@ public final class BasicSpreadsheetCellValueDialogComponentContextTimeTest imple
             () -> BasicSpreadsheetCellValueDialogComponentContextTime.with(
                 this.spreadsheetViewportCache(),
                 DELTA_FETCHER_WATCHERS,
-                MARSHALL_CONTEXT,
                 HISTORY_CONTEXT,
                 null
             )
@@ -130,34 +108,11 @@ public final class BasicSpreadsheetCellValueDialogComponentContextTimeTest imple
         throw new UnsupportedOperationException();
     }
 
-    @Test
-    public void testToHistoryTokenSaveStringValueWithEmpty() {
-        this.toHistoryTokenSaveStringValueAndCheck(
-            Optional.empty(),
-            ""
-        );
-    }
-
-    @Test
-    public void testToHistoryTokenSaveStringValueWithNotEmpty() {
-        this.toHistoryTokenSaveStringValueAndCheck(
-            Optional.of(
-                LocalTime.of(
-                    12,
-                    58,
-                    59
-                )
-            ),
-            "\"12:58:59\""
-        );
-    }
-
     @Override
     public BasicSpreadsheetCellValueDialogComponentContextTime createContext() {
         return BasicSpreadsheetCellValueDialogComponentContextTime.with(
             this.spreadsheetViewportCache(),
             DELTA_FETCHER_WATCHERS,
-            MARSHALL_CONTEXT,
             HISTORY_CONTEXT,
             LOGGING_CONTEXT
         );

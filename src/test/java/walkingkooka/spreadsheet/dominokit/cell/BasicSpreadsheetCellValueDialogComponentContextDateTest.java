@@ -28,18 +28,14 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
 import walkingkooka.spreadsheet.dominokit.viewport.FakeSpreadsheetViewportCacheContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
-import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
-import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 
 import java.time.LocalDate;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class BasicSpreadsheetCellValueDialogComponentContextDateTest implements SpreadsheetCellValueDialogComponentContextTesting<LocalDate, BasicSpreadsheetCellValueDialogComponentContextDate> {
 
     private final static SpreadsheetDeltaFetcherWatchers DELTA_FETCHER_WATCHERS = SpreadsheetDeltaFetcherWatchers.empty();
-    private final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
     private final static HistoryContext HISTORY_CONTEXT = HistoryContexts.fake();
     private final static LoggingContext LOGGING_CONTEXT = LoggingContexts.fake();
 
@@ -52,7 +48,6 @@ public final class BasicSpreadsheetCellValueDialogComponentContextDateTest imple
             () -> BasicSpreadsheetCellValueDialogComponentContextDate.with(
                 null,
                 DELTA_FETCHER_WATCHERS,
-                MARSHALL_CONTEXT,
                 HISTORY_CONTEXT,
                 LOGGING_CONTEXT
             )
@@ -65,21 +60,6 @@ public final class BasicSpreadsheetCellValueDialogComponentContextDateTest imple
             NullPointerException.class,
             () -> BasicSpreadsheetCellValueDialogComponentContextDate.with(
                 this.spreadsheetViewportCache(),
-                null,
-                MARSHALL_CONTEXT,
-                HISTORY_CONTEXT,
-                LOGGING_CONTEXT
-            )
-        );
-    }
-
-    @Test
-    public void testWithNullMarshallContextFails() {
-        assertThrows(
-            NullPointerException.class,
-            () -> BasicSpreadsheetCellValueDialogComponentContextDate.with(
-                this.spreadsheetViewportCache(),
-                DELTA_FETCHER_WATCHERS,
                 null,
                 HISTORY_CONTEXT,
                 LOGGING_CONTEXT
@@ -94,7 +74,6 @@ public final class BasicSpreadsheetCellValueDialogComponentContextDateTest imple
             () -> BasicSpreadsheetCellValueDialogComponentContextDate.with(
                 this.spreadsheetViewportCache(),
                 DELTA_FETCHER_WATCHERS,
-                MARSHALL_CONTEXT,
                 null,
                 LOGGING_CONTEXT
             )
@@ -108,7 +87,6 @@ public final class BasicSpreadsheetCellValueDialogComponentContextDateTest imple
             () -> BasicSpreadsheetCellValueDialogComponentContextDate.with(
                 this.spreadsheetViewportCache(),
                 DELTA_FETCHER_WATCHERS,
-                MARSHALL_CONTEXT,
                 HISTORY_CONTEXT,
                 null
             )
@@ -130,34 +108,11 @@ public final class BasicSpreadsheetCellValueDialogComponentContextDateTest imple
         throw new UnsupportedOperationException();
     }
 
-    @Test
-    public void testToHistoryTokenSaveStringValueWithEmpty() {
-        this.toHistoryTokenSaveStringValueAndCheck(
-            Optional.empty(),
-            ""
-        );
-    }
-
-    @Test
-    public void testToHistoryTokenSaveStringValueWithNotEmpty() {
-        this.toHistoryTokenSaveStringValueAndCheck(
-            Optional.of(
-                LocalDate.of(
-                    1999,
-                    12,
-                    31
-                )
-            ),
-            "\"1999-12-31\""
-        );
-    }
-
     @Override
     public BasicSpreadsheetCellValueDialogComponentContextDate createContext() {
         return BasicSpreadsheetCellValueDialogComponentContextDate.with(
             this.spreadsheetViewportCache(),
             DELTA_FETCHER_WATCHERS,
-            MARSHALL_CONTEXT,
             HISTORY_CONTEXT,
             LOGGING_CONTEXT
         );

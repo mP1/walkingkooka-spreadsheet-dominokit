@@ -21,33 +21,32 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatc
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
-import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.validation.ValueTypeName;
-
-import java.util.Objects;
 
 final class BasicSpreadsheetCellValueDialogComponentContextText extends BasicSpreadsheetCellValueDialogComponentContext<String> {
 
     static BasicSpreadsheetCellValueDialogComponentContextText with(final SpreadsheetViewportCache viewportCache,
                                                                     final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
-                                                                    final JsonNodeMarshallContext marshallContext,
                                                                     final HistoryContext historyContext,
                                                                     final LoggingContext loggingContext) {
         return new BasicSpreadsheetCellValueDialogComponentContextText(
-            Objects.requireNonNull(viewportCache, "viewportCache"),
-            Objects.requireNonNull(deltaFetcherWatchers, "deltaFetcherWatchers"),
-            Objects.requireNonNull(marshallContext, "marshallContext"),
-            Objects.requireNonNull(historyContext, "historyContext"),
-            Objects.requireNonNull(loggingContext, "loggingContext")
+            viewportCache,
+            deltaFetcherWatchers,
+            historyContext,
+            loggingContext
         );
     }
 
     private BasicSpreadsheetCellValueDialogComponentContextText(final SpreadsheetViewportCache viewportCache,
                                                                 final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
-                                                                final JsonNodeMarshallContext marshallContext,
                                                                 final HistoryContext historyContext,
                                                                 final LoggingContext loggingContext) {
-        super(viewportCache, deltaFetcherWatchers, marshallContext, historyContext, loggingContext);
+        super(
+            viewportCache,
+            deltaFetcherWatchers,
+            historyContext,
+            loggingContext
+        );
     }
 
     @Override

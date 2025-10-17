@@ -20,12 +20,16 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.SpreadsheetValueType;
+import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellValueDialogComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
 import walkingkooka.tree.expression.ExpressionNumberKind;
+import walkingkooka.tree.json.JsonNode;
 import walkingkooka.validation.ValueTypeName;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Optional;
 
@@ -36,9 +40,9 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
 
     private final static ValueTypeName VALUE_TYPE = ValueTypeName.with("number");
 
-    private final static String VALUE = JSON_NODE_MARSHALL_CONTEXT.marshall(
+    private final static Optional<?> VALUE = Optional.of(
         ExpressionNumberKind.BIG_DECIMAL.create(123.5)
-    ).toString();
+    );
 
     @Test
     public void testWithNullValueTypeFails() {
@@ -49,7 +53,7 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
                 NAME,
                 CELL.setDefaultAnchor(),
                 null,
-                ""
+                Optional.empty()
             )
         );
     }
@@ -72,67 +76,81 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
 
     @Test
     public void testSetSaveValueWithEmptyOptional() {
+        final Optional<?> value = Optional.empty();
+
         this.setSaveValueAndCheck(
             HistoryToken.cellValueSave(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
                 ValueTypeName.DATE,
-                "Previous"
+                Optional.of("Previous")
             ),
-            Optional.empty(),
+            value,
             HistoryToken.cellValueSave(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
                 ValueTypeName.DATE,
-                ""
+                value
             )
         );
     }
 
     @Test
     public void testSetSaveValueWithNotEmptyDate() {
+        final Optional<?> value = Optional.of(
+            LocalDate.of(
+                1999,
+                12,
+                31
+            )
+        );
+
         this.setSaveValueAndCheck(
             HistoryToken.cellValueSave(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
                 ValueTypeName.DATE,
-                "Previous"
+                Optional.of("Previous")
             ),
-            Optional.of(
-                "\"1999,12,31\""
-            ),
+            value,
             HistoryToken.cellValueSave(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
                 ValueTypeName.DATE,
-                "\"1999,12,31\""
+                value
             )
         );
     }
 
     @Test
     public void testSetSaveValueWithNotEmptyTime() {
+        final Optional<?> value = Optional.of(
+            LocalTime.of(
+                12,
+                58,
+                59
+            )
+        );
+
         this.setSaveValueAndCheck(
             HistoryToken.cellValueSave(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
                 ValueTypeName.TIME,
-                "Previous"
+                Optional.of("Previous")
             ),
-            Optional.of(
-                "\"12:58:59\""
-            ),
+            value,
             HistoryToken.cellValueSave(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
                 ValueTypeName.TIME,
-                "\"12:58:59\""
+                value
             )
         );
     }
@@ -147,7 +165,7 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
                 NAME,
                 CELL.setDefaultAnchor(),
                 ValueTypeName.DATE,
-                "Previous"
+                Optional.of("Previous")
             ),
             Optional.empty(),
             HistoryToken.cellValueSave(
@@ -155,55 +173,57 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
                 NAME,
                 CELL.setDefaultAnchor(),
                 ValueTypeName.DATE,
-                ""
+                Optional.empty()
             )
         );
     }
 
     @Test
-    public void testSetSaveStringValueWithNotEmptyStringDate() {
-        final String value = "\"1999,12,31\"";
+    public void testSetSaveStringValueWithNotEmptyText() {
+        final String value = "Hello123";
 
         this.setSaveStringValueAndCheck(
             HistoryToken.cellValueSave(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                ValueTypeName.DATE,
-                "Previous"
+                ValueTypeName.TEXT,
+                Optional.of("Previous")
             ),
-            value,
+            JsonNode.string(value)
+                .toString(),
             HistoryToken.cellValueSave(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                ValueTypeName.DATE,
-                value
+                ValueTypeName.TEXT,
+                Optional.of(value)
             )
         );
     }
 
     @Test
-    public void testSetSaveStringValueWithNotEmptyStringTime() {
-        final String value = JSON_NODE_MARSHALL_CONTEXT.marshall(
-            LocalTime.of(12, 58, 59)
-        ).toString();
+    public void testSetSaveStringValueWithNotEmptyNumber() {
+        final String value = "1.25";
 
         this.setSaveStringValueAndCheck(
             HistoryToken.cellValueSave(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                ValueTypeName.TIME,
-                "Previous"
+                ValueTypeName.NUMBER,
+                Optional.of("Previous")
             ),
-            value,
+            JsonNode.string(value)
+                .toString(),
             HistoryToken.cellValueSave(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                ValueTypeName.TIME,
-                value
+                ValueTypeName.NUMBER,
+                Optional.of(
+                    EXPRESSION_NUMBER_KIND.create(1.25)
+                )
             )
         );
     }
@@ -246,7 +266,7 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
                 NAME,
                 CELL.setDefaultAnchor(),
                 VALUE_TYPE,
-                ""
+                Optional.empty()
             ),
             "/123/SpreadsheetName456/cell/A1/value/number/save/"
         );
@@ -278,6 +298,80 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
         this.urlFragmentAndCheck(
             LABEL,
             "/123/SpreadsheetName456/cell/Label123/value/number/save/%22123.5%22"
+        );
+    }
+
+    // parse............................................................................................................
+
+    @Test
+    public void testParseDateToday() {
+        this.parseAndCheck(
+            "/123/SpreadsheetName456/cell/A1/value/date/save/today",
+            SpreadsheetCellValueSaveHistoryToken.with(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                SpreadsheetValueType.DATE,
+                Optional.of(SpreadsheetCellValueDialogComponent.TODAY_TEXT)
+            )
+        );
+    }
+
+    @Test
+    public void testParseDateTimeToday() {
+        this.parseAndCheck(
+            "/123/SpreadsheetName456/cell/A1/value/date-time/save/now",
+            SpreadsheetCellValueSaveHistoryToken.with(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                SpreadsheetValueType.DATE_TIME,
+                Optional.of(SpreadsheetCellValueDialogComponent.NOW_TEXT)
+            )
+        );
+    }
+
+    @Test
+    public void testParseTimeToday() {
+        this.parseAndCheck(
+            "/123/SpreadsheetName456/cell/A1/value/time/save/now",
+            SpreadsheetCellValueSaveHistoryToken.with(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                SpreadsheetValueType.TIME,
+                Optional.of(SpreadsheetCellValueDialogComponent.NOW_TEXT)
+            )
+        );
+    }
+
+    @Test
+    public void testParseNumber() {
+        this.parseAndCheck(
+            "/123/SpreadsheetName456/cell/A1/value/number/save/\"1.5\"",
+            SpreadsheetCellValueSaveHistoryToken.with(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                SpreadsheetValueType.NUMBER,
+                Optional.of(
+                    EXPRESSION_NUMBER_KIND.create(1.5)
+                )
+            )
+        );
+    }
+
+    @Test
+    public void testParseText() {
+        this.parseAndCheck(
+            "/123/SpreadsheetName456/cell/A1/value/text/save/\"Hello\"",
+            SpreadsheetCellValueSaveHistoryToken.with(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                SpreadsheetValueType.TEXT,
+                Optional.of("Hello")
+            )
         );
     }
 

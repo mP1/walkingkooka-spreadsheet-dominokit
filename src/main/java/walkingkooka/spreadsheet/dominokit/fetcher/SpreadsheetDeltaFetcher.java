@@ -970,7 +970,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     public void patchValue(final SpreadsheetId id,
                            final SpreadsheetSelection selection,
                            final ValueTypeName valueType,
-                           final String value) {
+                           final Optional<?> value) {
         this.patchDeltaWithViewportAndWindowQueryString(
             id,
             selection,
@@ -983,32 +983,22 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
 
     // @VisibleForTesting
     JsonNode patchValuePatch(final ValueTypeName valueType,
-                             final String value) {
+                             final Optional<?> value) {
         final AppContext context = this.context;
 
-        final Class<?> type = SpreadsheetValueType.toClass(valueType)
-            .orElseThrow(() -> new IllegalStateException("Unsupported " + valueType));
+        Object valueOrNull = value.orElse(null);
 
-        Object typedValue = null;
-        if (value.isEmpty()) {
-            typedValue = null;
+        if (SpreadsheetValueType.DATE.equals(valueType) && SpreadsheetCellValueDialogComponent.TODAY_TEXT.equals(valueOrNull)) {
+            valueOrNull = context.now()
+                .toLocalDate();
         } else {
-            if (SpreadsheetValueType.DATE.equals(valueType) && SpreadsheetCellValueDialogComponent.TODAY_TEXT.equals(value)) {
-                typedValue = context.now()
-                    .toLocalDate();
-            }
-            if (SpreadsheetValueType.DATE_TIME.equals(valueType) && SpreadsheetCellValueDialogComponent.NOW_TEXT.equals(value)) {
-                typedValue = context.now();
-            }
-            if (SpreadsheetValueType.TIME.equals(valueType) && SpreadsheetCellValueDialogComponent.NOW_TEXT.equals(value)) {
-                typedValue = context.now()
-                    .toLocalTime();
-            }
-            if (null == typedValue) {
-                typedValue = context.unmarshall(
-                    JsonNode.parse(value),
-                    type
-                );
+            if (SpreadsheetValueType.DATE_TIME.equals(valueType) && SpreadsheetCellValueDialogComponent.NOW_TEXT.equals(valueOrNull)) {
+                valueOrNull = context.now();
+            } else {
+                if (SpreadsheetValueType.TIME.equals(valueType) && SpreadsheetCellValueDialogComponent.NOW_TEXT.equals(valueOrNull)) {
+                    valueOrNull = context.now()
+                        .toLocalTime();
+                }
             }
         }
 
@@ -1016,7 +1006,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
             JsonNode.object()
                 .set(
                     VALUE,
-                    context.marshallWithType(typedValue)
+                    context.marshallWithType(valueOrNull)
                 )
         );
     }

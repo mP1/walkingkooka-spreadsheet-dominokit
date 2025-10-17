@@ -50,11 +50,6 @@ public class FakeSpreadsheetCellValueDialogComponentContext<T> extends FakeHisto
         throw new UnsupportedOperationException();
     }
 
-    @Override
-    public String toHistoryTokenSaveStringValue(final Optional<T> value) {
-        throw new UnsupportedOperationException();
-    }
-
     // SpreadsheetDeltaFetcherWatchers..................................................................................
 
     @Override

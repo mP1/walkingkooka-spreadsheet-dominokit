@@ -26,9 +26,6 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.text.CaseKind;
-import walkingkooka.text.Indentation;
-import walkingkooka.text.LineEnding;
-import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -39,14 +36,14 @@ abstract class BasicSpreadsheetCellValueDialogComponentContext<T> implements Spr
 
     BasicSpreadsheetCellValueDialogComponentContext(final SpreadsheetViewportCache viewportCache,
                                                     final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
-                                                    final JsonNodeMarshallContext marshallContext,
                                                     final HistoryContext historyContext,
                                                     final LoggingContext loggingContext) {
-        this.viewportCache = viewportCache;
-        this.deltaFetcherWatchers = deltaFetcherWatchers;
-        this.marshallContext = marshallContext;
-        this.historyContext = historyContext;
-        this.loggingContext = loggingContext;
+        super();
+
+        this.viewportCache = Objects.requireNonNull(viewportCache, "viewportCache");
+        this.deltaFetcherWatchers = Objects.requireNonNull(deltaFetcherWatchers, "deltaFetcherWatchers");
+        this.historyContext = Objects.requireNonNull(historyContext, "historyContext");
+        this.loggingContext = Objects.requireNonNull(loggingContext, "loggingContext");
     }
 
     @Override
@@ -68,26 +65,6 @@ abstract class BasicSpreadsheetCellValueDialogComponentContext<T> implements Spr
     }
 
     final SpreadsheetViewportCache viewportCache;
-
-    @Override
-    public final String toHistoryTokenSaveStringValue(final Optional<T> value) {
-        Objects.requireNonNull(value, "value");
-
-        String string = "";
-
-        if (value.isPresent()) {
-            string = this.marshallContext.marshall(
-                value.orElse(null)
-            ).toJsonText(
-                Indentation.SPACES2,
-                LineEnding.NONE
-            );
-        }
-
-        return string;
-    }
-
-    final JsonNodeMarshallContext marshallContext;
 
     // HistoryContextDelegator..........................................................................................
 

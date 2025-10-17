@@ -19,18 +19,7 @@ package walkingkooka.spreadsheet.dominokit.cell;
 
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextTesting;
 
-import java.util.Optional;
-
 public interface SpreadsheetCellValueDialogComponentContextTesting<V, C extends SpreadsheetCellValueDialogComponentContext<V>> extends DialogComponentContextTesting<C> {
-
-    default void toHistoryTokenSaveStringValueAndCheck(final Optional<V> value,
-                                                       final String expected) {
-        this.checkEquals(
-            expected,
-            this.createContext()
-                .toHistoryTokenSaveStringValue(value)
-        );
-    }
 
     @Override
     default String typeNameSuffix() {

@@ -221,7 +221,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     public void testPatchValueWithCellRange() {
         this.patchValuePatchAndCheck(
             SpreadsheetValueType.CELL_RANGE_STRING,
-            SpreadsheetSelection.A1,
+            SpreadsheetSelection.A1.toCellRange(),
             "{\n" +
                 "  \"formula\": {\n" +
                 "    \"value\": {\n" +
@@ -405,15 +405,13 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
                                           final String expected) {
         this.patchValuePatchAndCheck2(
             ValueTypeName.with(valueType),
-            JsonNodeMarshallContexts.basic()
-                .marshallOptional(value)
-                .toString(),
+            value,
             JsonNode.parse(expected)
         );
     }
 
     private void patchValuePatchAndCheck2(final ValueTypeName valueType,
-                                          final String value,
+                                          final Optional<?> value,
                                           final JsonNode expected) {
         this.checkEquals(
             expected,
@@ -1213,10 +1211,10 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     );
 
     @Test
-    public void testPatchValuePatchWithTextAndEmptyString() {
+    public void testPatchValuePatchWithTextAndEmptyValue() {
         this.patchValuePatchAndCheck(
             ValueTypeName.TEXT,
-            "",
+            Optional.empty(),
             "{\n" +
                 "  \"formula\": {\n" +
                 "    \"value\": null\n" +
@@ -1229,7 +1227,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     public void testPatchValuePatchWithTextAndNotEmptyString() {
         this.patchValuePatchAndCheck(
             ValueTypeName.TEXT,
-            "\"Hello\"",
+            "Hello",
             "{\n" +
                 "  \"formula\": {\n" +
                 "    \"value\": \"Hello\"\n" +
@@ -1239,7 +1237,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     }
 
     @Test
-    public void testPatchValuePatchWithDateAndNow() {
+    public void testPatchValuePatchWithDateAndToday() {
         this.patchValuePatchAndCheck(
             ValueTypeName.DATE,
             "today",
@@ -1258,7 +1256,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     public void testPatchValuePatchWithDate() {
         this.patchValuePatchAndCheck(
             ValueTypeName.DATE,
-            "\"1999-12-31\"",
+            LocalDate.of(1999, 12, 31),
             "{\n" +
                 "  \"formula\": {\n" +
                 "    \"value\": {\n" +
@@ -1290,7 +1288,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     public void testPatchValuePatchWithDateTime() {
         this.patchValuePatchAndCheck(
             ValueTypeName.DATE_TIME,
-            "\"1999-12-31T12:58:59\"",
+            LocalDateTime.of(1999, 12, 31, 12, 58, 59),
             "{\n" +
                 "  \"formula\": {\n" +
                 "    \"value\": {\n" +
@@ -1322,7 +1320,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     public void testPatchValuePatchWithTime() {
         this.patchValuePatchAndCheck(
             ValueTypeName.TIME,
-            "\"12:58:59\"",
+            LocalTime.of(12, 58, 59),
             "{\n" +
                 "  \"formula\": {\n" +
                 "    \"value\": {\n" +
@@ -1335,7 +1333,17 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     }
 
     private void patchValuePatchAndCheck(final ValueTypeName valueType,
-                                         final String value,
+                                         final Object value,
+                                         final String expected) {
+        this.patchValuePatchAndCheck(
+            valueType,
+            Optional.of(value),
+            expected
+        );
+    }
+
+    private void patchValuePatchAndCheck(final ValueTypeName valueType,
+                                         final Optional<?> value,
                                          final String expected) {
         this.patchValuePatchAndCheck(
             valueType,
@@ -1345,7 +1353,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     }
 
     private void patchValuePatchAndCheck(final ValueTypeName valueType,
-                                         final String value,
+                                         final Optional<?> value,
                                          final JsonNode expected) {
         this.checkEquals(
             expected,
@@ -1373,7 +1381,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
                 valueType,
                 value
             ),
-            () -> "patchValuePatch " + valueType + " " + CharSequences.quoteAndEscape(value)
+            () -> "patchValuePatch " + valueType + " " + value.map(CharSequences::quoteIfChars).orElse(null)
         );
     }
 }
