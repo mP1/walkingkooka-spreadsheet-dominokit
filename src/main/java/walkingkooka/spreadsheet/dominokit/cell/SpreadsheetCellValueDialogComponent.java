@@ -86,9 +86,7 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
             (final Optional<T> oldValue,
              final Optional<T> newValue) -> context.pushHistoryToken(
                 context.historyToken()
-                    .setSaveStringValue(
-                        context.toHistoryTokenSaveStringValue(newValue)
-                    )
+                    .setSaveValue(newValue)
             )
         );
 
@@ -201,14 +199,11 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
 
     private void refreshSave() {
         this.save.setValue(
-            Optional.of(
-                this.context.toHistoryTokenSaveStringValue(
-                    this.context.cell()
-                        .flatMap((SpreadsheetCell cell) -> Cast.to(
-                            cell.formula()
-                                .value())
-                        )
-                )
+            Cast.to(
+                this.context.cell()
+                    .flatMap((SpreadsheetCell cell) -> cell.formula()
+                        .value()
+                    )
             )
         );
     }
@@ -235,11 +230,7 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
 
     private void refreshClear() {
         this.clear.setValue(
-            Optional.of(
-                this.context.toHistoryTokenSaveStringValue(
-                    Optional.empty()
-                )
-            )
+            Optional.empty()
         );
     }
 
@@ -247,15 +238,11 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
 
     private void refreshUndo() {
         this.undo.setValue(
-            Optional.of(
-                this.context.toHistoryTokenSaveStringValue(
-                    this.context.cell()
-                        .flatMap((SpreadsheetCell cell) -> Cast.to(
-                            cell.formula()
-                                .value())
-                        )
+            this.context.cell()
+                .flatMap((SpreadsheetCell cell) -> Cast.to(
+                    cell.formula()
+                        .value())
                 )
-            )
         );
     }
 

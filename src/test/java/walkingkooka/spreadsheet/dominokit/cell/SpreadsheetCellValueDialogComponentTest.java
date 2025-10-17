@@ -43,8 +43,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.tree.json.JsonNode;
-import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 import walkingkooka.validation.ValueTypeName;
 
 import java.time.LocalDate;
@@ -75,7 +73,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
             SPREADSHEET_NAME,
             SpreadsheetSelection.A1.setDefaultAnchor(),
             ValueTypeName.DATE,
-            ""
+            Optional.empty()
         );
 
         this.shouldIgnoreAndCheck(
@@ -483,6 +481,8 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
             return this.context.historyToken();
         }
 
+        private final AppContext context;
+
         @Override
         public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
             return this.historyTokenWatchers.add(watcher);
@@ -510,19 +510,6 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
         }
 
         private final Optional<SpreadsheetCell> cell;
-
-        @Override
-        public String toHistoryTokenSaveStringValue(final Optional<T> value) {
-            Objects.requireNonNull(value, "value");
-
-            final JsonNode json = JsonNodeMarshallContexts.basic()
-                .marshallOptional(value);
-            return json.isNull() ?
-                "" :
-                json.toString();
-        }
-
-        private final AppContext context;
     }
 
     @Override

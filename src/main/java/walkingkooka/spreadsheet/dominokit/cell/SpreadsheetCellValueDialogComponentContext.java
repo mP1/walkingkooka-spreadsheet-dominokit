@@ -44,9 +44,4 @@ public interface SpreadsheetCellValueDialogComponentContext<T> extends DialogCom
      * Get the current cell if available, which will be useful to get the value and errors.
      */
     Optional<SpreadsheetCell> cell();
-
-    /**
-     * Serializes the given value into a {@link String} which can be passed to {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken#setSaveStringValue(String).
-     */
-    String toHistoryTokenSaveStringValue(final Optional<T> value);
 }

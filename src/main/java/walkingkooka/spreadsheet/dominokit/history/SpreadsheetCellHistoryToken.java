@@ -24,6 +24,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetUrlFragments;
+import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
@@ -233,22 +234,12 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
         }
 
         if (this instanceof SpreadsheetCellValueHistoryToken) {
-            if (null != valueOrNull && false == valueOrNull instanceof String) {
-                this.reportInvalidSaveValue(
-                    valueOrNull,
-                    String.class
-                );
-            }
-
             historyToken = HistoryToken.cellValueSave(
                 this.id,
                 this.name,
                 this.anchoredSelection,
-                this.cast(SpreadsheetCellValueHistoryToken.class)
-                    .valueType()
-                    .get(),
-                CharSequences.nullToEmpty((String) valueOrNull)
-                    .toString()
+                ((SpreadsheetCellValueHistoryToken) this).valueType.orElse(SpreadsheetValueType.TEXT),
+                value
             );
         }
 

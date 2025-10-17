@@ -99,7 +99,7 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
     }
 
     @Test
-    public void testSetValueWithEmptyString() {
+    public void testSetValueWithEmptyValue() {
         this.treePrintAndCheck(
             this.createComponent(
                 HistoryToken.cellValueSave(
@@ -107,7 +107,7 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
                     SPREADSHEET_NAME,
                     SpreadsheetSelection.A1.setDefaultAnchor(),
                     ValueTypeName.TEXT,
-                    ""
+                    Optional.empty()
                 )
             ),
             "\"Save\" DISABLED id=HistoryTokenSaveValueAnchorComponent-Link"

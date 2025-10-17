@@ -28,17 +28,12 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
 import walkingkooka.spreadsheet.dominokit.viewport.FakeSpreadsheetViewportCacheContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
-import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
-import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
-
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class BasicSpreadsheetCellValueDialogComponentContextTextTest implements SpreadsheetCellValueDialogComponentContextTesting<String, BasicSpreadsheetCellValueDialogComponentContextText> {
 
     private final static SpreadsheetDeltaFetcherWatchers DELTA_FETCHER_WATCHERS = SpreadsheetDeltaFetcherWatchers.empty();
-    private final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
     private final static HistoryContext HISTORY_CONTEXT = HistoryContexts.fake();
     private final static LoggingContext LOGGING_CONTEXT = LoggingContexts.fake();
 
@@ -51,7 +46,6 @@ public final class BasicSpreadsheetCellValueDialogComponentContextTextTest imple
             () -> BasicSpreadsheetCellValueDialogComponentContextText.with(
                 null,
                 DELTA_FETCHER_WATCHERS,
-                MARSHALL_CONTEXT,
                 HISTORY_CONTEXT,
                 LOGGING_CONTEXT
             )
@@ -64,21 +58,6 @@ public final class BasicSpreadsheetCellValueDialogComponentContextTextTest imple
             NullPointerException.class,
             () -> BasicSpreadsheetCellValueDialogComponentContextText.with(
                 this.spreadsheetViewportCache(),
-                null,
-                MARSHALL_CONTEXT,
-                HISTORY_CONTEXT,
-                LOGGING_CONTEXT
-            )
-        );
-    }
-
-    @Test
-    public void testWithNullMarshallContextFails() {
-        assertThrows(
-            NullPointerException.class,
-            () -> BasicSpreadsheetCellValueDialogComponentContextText.with(
-                this.spreadsheetViewportCache(),
-                DELTA_FETCHER_WATCHERS,
                 null,
                 HISTORY_CONTEXT,
                 LOGGING_CONTEXT
@@ -93,7 +72,6 @@ public final class BasicSpreadsheetCellValueDialogComponentContextTextTest imple
             () -> BasicSpreadsheetCellValueDialogComponentContextText.with(
                 this.spreadsheetViewportCache(),
                 DELTA_FETCHER_WATCHERS,
-                MARSHALL_CONTEXT,
                 null,
                 LOGGING_CONTEXT
             )
@@ -107,7 +85,6 @@ public final class BasicSpreadsheetCellValueDialogComponentContextTextTest imple
             () -> BasicSpreadsheetCellValueDialogComponentContextText.with(
                 this.spreadsheetViewportCache(),
                 DELTA_FETCHER_WATCHERS,
-                MARSHALL_CONTEXT,
                 HISTORY_CONTEXT,
                 null
             )
@@ -129,28 +106,11 @@ public final class BasicSpreadsheetCellValueDialogComponentContextTextTest imple
         throw new UnsupportedOperationException();
     }
 
-    @Test
-    public void testToHistoryTokenSaveStringValueWithEmpty() {
-        this.toHistoryTokenSaveStringValueAndCheck(
-            Optional.empty(),
-            ""
-        );
-    }
-
-    @Test
-    public void testToHistoryTokenSaveStringValueWithNotEmpty() {
-        this.toHistoryTokenSaveStringValueAndCheck(
-            Optional.of("Hello"),
-            "\"Hello\""
-        );
-    }
-
     @Override
     public BasicSpreadsheetCellValueDialogComponentContextText createContext() {
         return BasicSpreadsheetCellValueDialogComponentContextText.with(
             this.spreadsheetViewportCache(),
             DELTA_FETCHER_WATCHERS,
-            MARSHALL_CONTEXT,
             HISTORY_CONTEXT,
             LOGGING_CONTEXT
         );

@@ -129,7 +129,6 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
             final SpreadsheetCellValueDialogComponentContext<LocalDate> dateContext = SpreadsheetCellValueDialogComponentContexts.date(
                 context.spreadsheetViewportCache(),
                 context, // SpreadsheetDeltaFetcherWatcher
-                context, // JsonNodeMarshallContext
                 context, // HistoryContext
                 context // LoggingContext
             );
@@ -146,7 +145,6 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
             final SpreadsheetCellValueDialogComponentContext<LocalDateTime> dateTimeContext = SpreadsheetCellValueDialogComponentContexts.dateTime(
                 context.spreadsheetViewportCache(),
                 context, // SpreadsheetDeltaFetcherWatcher
-                context, // JsonNodeMarshallContext
                 context, // HistoryContext
                 context // LoggingContext
             );
@@ -163,7 +161,6 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
             final SpreadsheetCellValueDialogComponentContext<String> textContext = SpreadsheetCellValueDialogComponentContexts.text(
                 context.spreadsheetViewportCache(),
                 context, // SpreadsheetDeltaFetcherWatcher
-                context, // JsonNodeMarshallContext
                 context, // HistoryContext
                 context // LoggingContext
             );
@@ -180,7 +177,6 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
             final SpreadsheetCellValueDialogComponentContext<LocalTime> timeContext = SpreadsheetCellValueDialogComponentContexts.time(
                 context.spreadsheetViewportCache(),
                 context, // SpreadsheetDeltaFetcherWatcher
-                context, // JsonNodeMarshallContext
                 context, // HistoryContext
                 context // LoggingContext
             );

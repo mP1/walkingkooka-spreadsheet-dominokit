@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
 import walkingkooka.validation.ValueTypeName;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertSame;
@@ -77,13 +78,17 @@ public final class SpreadsheetCellValueSelectHistoryTokenTest extends Spreadshee
                 NAME,
                 CELL.setDefaultAnchor(),
                 ValueTypeName.DATE,
-                ""
+                Optional.empty()
             )
         );
     }
 
     @Test
     public void testSetSaveValueWithNotEmptyDate() {
+        final Optional<LocalDate> value = Optional.of(
+            LocalDate.of(1999, 12, 31)
+        );
+
         this.setSaveValueAndCheck(
             HistoryToken.cellValueSelect(
                 ID,
@@ -91,15 +96,13 @@ public final class SpreadsheetCellValueSelectHistoryTokenTest extends Spreadshee
                 CELL.setDefaultAnchor(),
                 ValueTypeName.DATE
             ),
-            Optional.of(
-                "\"1999,12,31\""
-            ),
+            value,
             HistoryToken.cellValueSave(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
                 ValueTypeName.DATE,
-                "\"1999,12,31\""
+                value
             )
         );
     }
@@ -121,15 +124,13 @@ public final class SpreadsheetCellValueSelectHistoryTokenTest extends Spreadshee
                 NAME,
                 CELL.setDefaultAnchor(),
                 ValueTypeName.DATE,
-                ""
+                Optional.empty()
             )
         );
     }
 
     @Test
     public void testSetSaveStringValueWithNotEmptyString() {
-        final String value = "\"1999,12,31\"";
-
         this.setSaveStringValueAndCheck(
             HistoryToken.cellValueSelect(
                 ID,
@@ -137,13 +138,15 @@ public final class SpreadsheetCellValueSelectHistoryTokenTest extends Spreadshee
                 CELL.setDefaultAnchor(),
                 ValueTypeName.DATE
             ),
-            value,
+            "\"1999-12-31\"",
             HistoryToken.cellValueSave(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
                 ValueTypeName.DATE,
-                value
+                Optional.of(
+                    LocalDate.of(1999, 12, 31)
+                )
             )
         );
     }

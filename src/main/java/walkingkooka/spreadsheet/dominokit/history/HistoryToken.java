@@ -30,8 +30,10 @@ import walkingkooka.spreadsheet.SpreadsheetHateosResourceNames;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetUrlFragments;
+import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
+import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellValueDialogComponent;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
@@ -1018,7 +1020,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                                                                      final SpreadsheetName name,
                                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                                      final ValueTypeName valueType,
-                                                                     final String value) {
+                                                                     final Optional<?> value) {
         return SpreadsheetCellValueSaveHistoryToken.with(
             id,
             name,
@@ -4247,13 +4249,35 @@ public abstract class HistoryToken implements HasUrlFragment {
                                 }
 
                                 if (this instanceof SpreadsheetCellValueSaveHistoryToken || this instanceof SpreadsheetCellValueSelectHistoryToken) {
+                                    final ValueTypeName valueType = this.valueType()
+                                        .orElse(SpreadsheetValueType.TEXT);
+
+                                    Object saveValue;
+
+                                    if("".equals(value)) {
+                                        saveValue = null;
+                                    } else {
+                                        if (SpreadsheetCellValueDialogComponent.TODAY_TEXT.equals(value) && ((SpreadsheetValueType.DATE.equals(valueType) || SpreadsheetValueType.LOCAL_DATE.equals(valueType)))) {
+                                            saveValue = SpreadsheetCellValueDialogComponent.TODAY_TEXT;
+                                        } else {
+                                            if (SpreadsheetCellValueDialogComponent.NOW_TEXT.equals(value) && ((SpreadsheetValueType.DATE_TIME.equals(valueType) || SpreadsheetValueType.LOCAL_DATE_TIME.equals(valueType) || SpreadsheetValueType.TIME.equals(valueType) || SpreadsheetValueType.LOCAL_TIME.equals(valueType)))) {
+                                                saveValue = SpreadsheetCellValueDialogComponent.NOW_TEXT;
+                                            } else {
+                                                saveValue = UNMARSHALL_CONTEXT.unmarshall(
+                                                    JsonNode.parse(value),
+                                                    SpreadsheetValueType.toClass(valueType)
+                                                        .orElse(String.class)
+                                                );
+                                            }
+                                        }
+                                    }
+
                                     saved = HistoryToken.cellValueSave(
                                         id,
                                         name,
                                         anchoredSpreadsheetSelection,
-                                        this.valueType()
-                                            .get(),
-                                        value
+                                        valueType,
+                                        Optional.ofNullable(saveValue)
                                     );
                                 }
 
