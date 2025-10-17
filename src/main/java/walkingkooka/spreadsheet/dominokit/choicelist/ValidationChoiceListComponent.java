@@ -212,6 +212,8 @@ public final class ValidationChoiceListComponent implements FormValueComponent<H
             );
         }
 
+        this.validationChoiceList = validationChoiceList;
+
         return this;
     }
 
@@ -223,7 +225,18 @@ public final class ValidationChoiceListComponent implements FormValueComponent<H
     public ValidationChoiceListComponent setValue(final Optional<Object> value) {
         Objects.requireNonNull(value, "value");
 
-        this.select.setValue(value);
+        int select = -1;
+
+        int i = 0;
+        for(final ValidationChoice choice : this.validationChoiceList) {
+            if(choice.value().equals(value)) {
+                select = i;
+                break;
+            }
+            i++;
+        }
+
+        this.select.selectValue(select);
         return this;
     }
 
