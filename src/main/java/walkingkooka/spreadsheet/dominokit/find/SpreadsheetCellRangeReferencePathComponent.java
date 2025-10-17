@@ -199,10 +199,10 @@ public final class SpreadsheetCellRangeReferencePathComponent implements FormVal
     // Value............................................................................................................
 
     @Override
-    public SpreadsheetCellRangeReferencePathComponent setValue(final Optional<SpreadsheetCellRangeReferencePath> SpreadsheetCellRangeReferencePath) {
-        Objects.requireNonNull(SpreadsheetCellRangeReferencePath, "SpreadsheetCellRangeReferencePath");
+    public SpreadsheetCellRangeReferencePathComponent setValue(final Optional<SpreadsheetCellRangeReferencePath> value) {
+        Objects.requireNonNull(value, "value");
 
-        this.select.setValue(SpreadsheetCellRangeReferencePath);
+        this.select.setValue(value);
         return this;
     }
 
