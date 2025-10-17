@@ -260,6 +260,23 @@ public final class SelectComponent<T> implements FormValueComponent<HTMLFieldSet
 
     private Optional<T> value = Optional.empty();
 
+    public SelectComponent<T> selectValue(final int index) {
+        int i = 0;
+
+        Optional<T> selected = Optional.empty();
+
+        for (Optional<T> value : this.textToValue.values()) {
+            if (i == index) {
+                selected = value;
+                break;
+            }
+            i++;
+        }
+
+        this.setValue(selected);
+        return this;
+    }
+
     private static String checkText(final String text) {
         return Objects.requireNonNull(text, "text");
     }
