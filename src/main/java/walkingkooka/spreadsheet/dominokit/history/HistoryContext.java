@@ -69,11 +69,12 @@ public interface HistoryContext extends Context {
                 .setTextContent(text)
         );
 
-        menu.addSelectionHandler(
-            (ignored) -> this.pushHistoryToken(
-                historyToken.get()
-            )
-        );
+        final HistoryToken push = historyToken.orElse(null);
+        if (null != push) {
+            menu.addSelectionHandler(
+                (ignored) -> this.pushHistoryToken(push)
+            );
+        }
 
         return menu;
     }
