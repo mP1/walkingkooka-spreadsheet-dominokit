@@ -18,7 +18,9 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.Either;
+import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.environment.EnvironmentValueName;
+import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.store.PluginStore;
@@ -316,6 +318,35 @@ public class FakeSpreadsheetViewportComponentContext extends FakeHistoryContext 
 
     @Override
     public TextStyle showFormulasStyle(final TextStyle style) {
+        throw new UnsupportedOperationException();
+    }
+
+    // LocaleContext....................................................................................................
+
+    @Override
+    public Set<Locale> availableLocales() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<DateTimeSymbols> dateTimeSymbolsForLocale(final Locale locale) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<DecimalNumberSymbols> decimalNumberSymbolsForLocale(final Locale locale) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<Locale> findByLocaleText(final String text,
+                                        final int offset,
+                                        final int count) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<String> localeText(final Locale locale) {
         throw new UnsupportedOperationException();
     }
 }

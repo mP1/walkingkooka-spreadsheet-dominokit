@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.environment.EnvironmentValueName;
+import walkingkooka.locale.LocaleContext;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
@@ -45,6 +46,7 @@ public interface SpreadsheetViewportComponentContext extends HistoryContext,
     HasSpreadsheetMetadata,
     HasSpreadsheetMetadataFetcherWatchers,
     HasSpreadsheetViewportCache,
+    LocaleContext,
     RefreshContext,
     SpreadsheetComparatorProvider,
     SpreadsheetLabelNameResolver,

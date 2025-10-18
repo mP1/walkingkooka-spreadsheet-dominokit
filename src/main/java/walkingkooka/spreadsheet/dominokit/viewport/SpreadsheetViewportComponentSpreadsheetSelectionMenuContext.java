@@ -18,6 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.collect.set.Sets;
+import walkingkooka.locale.LocaleContext;
+import walkingkooka.locale.LocaleContextDelegator;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorAlias;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorAliasSet;
@@ -43,6 +45,7 @@ import walkingkooka.validation.provider.ValidatorAliasSet;
 import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -52,10 +55,12 @@ import java.util.stream.Collectors;
  */
 final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implements SpreadsheetSelectionMenuContext,
     SpreadsheetComparatorProviderDelegator,
-    HistoryContextDelegator {
+    HistoryContextDelegator,
+    LocaleContextDelegator {
 
     static SpreadsheetViewportComponentSpreadsheetSelectionMenuContext with(final List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors,
                                                                             final List<SpreadsheetFormatterMenu> spreadsheetFormatterMenus,
+                                                                            final List<Locale> recentLocales,
                                                                             final List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors,
                                                                             final List<TextStyleProperty<?>> recentTextStyleProperties,
                                                                             final List<ValidatorSelector> recentValidatorSelectors,
@@ -63,6 +68,7 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
         return new SpreadsheetViewportComponentSpreadsheetSelectionMenuContext(
             recentSpreadsheetFormatterSelectors,
             spreadsheetFormatterMenus,
+            recentLocales,
             recentSpreadsheetParserSelectors,
             recentTextStyleProperties,
             recentValidatorSelectors,
@@ -72,12 +78,15 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
 
     private SpreadsheetViewportComponentSpreadsheetSelectionMenuContext(final List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors,
                                                                         final List<SpreadsheetFormatterMenu> spreadsheetFormatterMenus,
+                                                                        final List<Locale> recentLocales,
                                                                         final List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors,
                                                                         final List<TextStyleProperty<?>> recentTextStyleProperties,
                                                                         final List<ValidatorSelector> recentValidatorSelectors,
                                                                         final SpreadsheetViewportComponentContext context) {
         this.recentSpreadsheetFormatterSelectors = recentSpreadsheetFormatterSelectors;
         this.spreadsheetFormatterMenus = spreadsheetFormatterMenus;
+
+        this.recentLocales = recentLocales;
 
         this.recentSpreadsheetParserSelectors = recentSpreadsheetParserSelectors;
 
@@ -124,6 +133,13 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
         return this.context.spreadsheetViewportCache()
             .labelMappings(selection);
     }
+
+    @Override
+    public List<Locale> recentLocales() {
+        return this.recentLocales;
+    }
+
+    private final List<Locale> recentLocales;
 
     @Override
     public List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors() {
@@ -199,6 +215,18 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     @Override
     public HistoryContext historyContext() {
         return this.context;
+    }
+
+    // LocaleContextDelegator...........................................................................................
+
+    @Override
+    public LocaleContext localeContext() {
+        return this.context;
+    }
+
+    @Override
+    public SpreadsheetViewportComponentSpreadsheetSelectionMenuContext setLocale(final Locale locale) {
+        throw new UnsupportedOperationException();
     }
 
     // SpreadsheetLabelNameResolver.....................................................................................

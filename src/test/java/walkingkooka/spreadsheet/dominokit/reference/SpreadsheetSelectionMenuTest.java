@@ -261,7 +261,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
-                "  (mdi-earth) \"Locale\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-MenuItem\n" +
+                "  \"Locale\" id=test-locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/und] id=test-locale-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
@@ -339,6 +342,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 SpreadsheetFormatterSelector.parse("date-format-pattern recent-2B"),
                 SpreadsheetFormatterSelector.parse("date-format-pattern recent-3C")
             ),
+            Lists.empty(),
             Lists.empty(),
             Lists.empty(),
             Lists.empty(), // recentTextStyleProperties
@@ -525,7 +529,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Date Format Pattern recent-3C\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date-format-pattern%20recent-3C] id=test-formatter-recent-2-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
-                "  (mdi-earth) \"Locale\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-MenuItem\n" +
+                "  \"Locale\" id=test-locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/und] id=test-locale-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
@@ -601,6 +608,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             SpreadsheetComparatorNameList.EMPTY,
             Lists.empty(),
             Lists.empty(),
+            Lists.empty(), // recentLocales
             Lists.of(
                 parsePattern.spreadsheetParserSelector()
             ),
@@ -784,7 +792,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
-                "  (mdi-earth) \"Locale\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-MenuItem\n" +
+                "  \"Locale\" id=test-locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/und] id=test-locale-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
@@ -860,6 +871,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             SpreadsheetComparatorNameList.EMPTY,
             Lists.empty(),
             Lists.empty(),
+            Lists.empty(), // recentLocales
             Lists.empty(),
             Lists.of(
                 TextStyleProperty.with(
@@ -1058,7 +1070,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
-                "  (mdi-earth) \"Locale\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-MenuItem\n" +
+                "  \"Locale\" id=test-locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/und] id=test-locale-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
@@ -1150,6 +1165,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                     SpreadsheetFormatterSelector.DEFAULT_TEXT_FORMAT
                 )
             ),
+            Lists.empty(), // recentLocales
             Lists.of(
                 SpreadsheetParserSelector.parse("date-parse-pattern recent-1A"),
                 SpreadsheetParserSelector.parse("date-parse-pattern recent-2B")
@@ -1342,7 +1358,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Date Format Pattern recent-1A\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date-format-pattern%20recent-1A] id=test-formatter-recent-0-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
-                "  (mdi-earth) \"Locale\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-MenuItem\n" +
+                "  \"Locale\" id=test-locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/und] id=test-locale-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
@@ -1416,6 +1435,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             SpreadsheetComparatorNameList.EMPTY,
             Lists.empty(), // recent formatters
             Lists.empty(),
+            Lists.empty(), // recentLocales
             Lists.empty(), // recent parsers
             Lists.empty(), // recentTextStyleProperties
             Lists.empty(), // recentValidatorSelectors
@@ -1602,7 +1622,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] CHECKED id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
-                "  (mdi-earth) \"Locale\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-MenuItem\n" +
+                "  \"Locale\" id=test-locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/und] id=test-locale-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
@@ -1676,6 +1699,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             SpreadsheetComparatorNameList.EMPTY,
             Lists.empty(), // recent formatters
             Lists.empty(),
+            Lists.empty(), // recentLocales
             Lists.empty(), // recent parsers
             Lists.empty(), // recentTextStyleProperties
             Lists.empty(), // recentValidatorSelectors
@@ -1862,7 +1886,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] CHECKED id=test-decimalNumberSymbols-MenuItem\n" +
-                "  (mdi-earth) \"Locale\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-MenuItem\n" +
+                "  \"Locale\" id=test-locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/und] id=test-locale-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
@@ -1936,6 +1963,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             SpreadsheetComparatorNameList.EMPTY,
             Lists.empty(), // recent formatters
             Lists.empty(),
+            Lists.empty(), // recentLocales
             Lists.empty(), // recent parsers
             Lists.empty(), // recentTextStyleProperties
             Lists.empty(), // recentValidatorSelectors
@@ -2122,7 +2150,280 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
-                "  (mdi-earth) \"Locale\" [/1/SpreadsheetName-1/cell/A1/locale] CHECKED id=test-locale-MenuItem\n" +
+                "  \"Locale\" id=test-locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/und] id=test-locale-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
+                "  \"Value type\" id=test-valueType-SubMenu\n" +
+                "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
+                "    \"Date\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
+                "    \"Date Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date-time] id=test-valueTypes-date-time-MenuItem\n" +
+                "    \"Number\" [/1/SpreadsheetName-1/cell/A1/valueType/save/number] id=test-valueTypes-number-MenuItem\n" +
+                "    \"Text\" [/1/SpreadsheetName-1/cell/A1/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
+                "    \"Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
+                "  \"Value\" id=test-value-SubMenu\n" +
+                "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/value/boolean] id=test-value-boolean-MenuItem\n" +
+                "    \"Date\" [/1/SpreadsheetName-1/cell/A1/value/date] id=test-value-date-MenuItem\n" +
+                "    \"Date Time\" [/1/SpreadsheetName-1/cell/A1/value/date-time] id=test-value-date-time-MenuItem\n" +
+                "    \"Number\" [/1/SpreadsheetName-1/cell/A1/value/number] id=test-value-number-MenuItem\n" +
+                "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] id=test-value-text-MenuItem\n" +
+                "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-value-time-MenuItem\n" +
+                "  \"Validator\" id=test-validator-SubMenu\n" +
+                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
+                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
+                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-3] id=test-validator-hello-validator-3-MenuItem\n" +
+                "    -----\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/validator/save/] id=test-validator-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
+                "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
+                "  -----\n" +
+                "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
+                "  -----\n" +
+                "  (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
+                "    \"1\" [/1/SpreadsheetName-1/column/A/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
+                "    \"2\" [/1/SpreadsheetName-1/column/A/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
+                "    \"3\" [/1/SpreadsheetName-1/column/A/insertBefore/3] id=test-column-insert-before-3-MenuItem\n" +
+                "    \"...\" [/1/SpreadsheetName-1/column/A/insertBefore] id=test-column-insert-before-prompt-MenuItem\n" +
+                "  (mdi-table-column-plus-after) \"Insert after column\" id=test-column-insert-after-SubMenu\n" +
+                "    \"1\" [/1/SpreadsheetName-1/column/A/insertAfter/1] id=test-column-insert-after-1-MenuItem\n" +
+                "    \"2\" [/1/SpreadsheetName-1/column/A/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
+                "    \"3\" [/1/SpreadsheetName-1/column/A/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
+                "    \"...\" [/1/SpreadsheetName-1/column/A/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
+                "  -----\n" +
+                "  (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
+                "    \"1\" [/1/SpreadsheetName-1/row/1/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
+                "    \"2\" [/1/SpreadsheetName-1/row/1/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
+                "    \"3\" [/1/SpreadsheetName-1/row/1/insertBefore/3] id=test-row-insert-before-3-MenuItem\n" +
+                "    \"...\" [/1/SpreadsheetName-1/row/1/insertBefore] id=test-row-insert-before-prompt-MenuItem\n" +
+                "  (mdi-table-row-plus-after) \"Insert after row\" id=test-row-insert-after-SubMenu\n" +
+                "    \"1\" [/1/SpreadsheetName-1/row/1/insertAfter/1] id=test-row-insert-after-1-MenuItem\n" +
+                "    \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
+                "    \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
+                "    \"...\" [/1/SpreadsheetName-1/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
+                "  -----\n" +
+                "  \"Freeze\" [/1/SpreadsheetName-1/cell/A1/freeze] id=test-freeze-MenuItem\n" +
+                "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
+                "  -----\n" +
+                "  \"Labels\" [1] id=test-label-SubMenu\n" +
+                "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
+                "    \"List...\" [/1/SpreadsheetName-1/cell/A1/labels] id=test-labels-list-MenuItem\n" +
+                "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
+                "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
+                "  -----\n" +
+                "  \"Reload\" [/1/SpreadsheetName-1/cell/A1/reload] id=test-reload-MenuItem\n"
+        );
+    }
+
+    @Test
+    public void testCellLocaleRecents() {
+        final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
+            SpreadsheetId.with(1), // id
+            SpreadsheetName.with("SpreadsheetName-1"), // name
+            SpreadsheetSelection.A1.setDefaultAnchor()
+        );
+        final SpreadsheetSelectionMenuContext context = this.context(
+            token,
+            SpreadsheetComparatorNameList.EMPTY,
+            Lists.empty(), // recent formatters
+            Lists.empty(),
+            Lists.of(
+                Locale.forLanguageTag("en-AU"),
+                Locale.forLanguageTag("en-NZ")
+            ), // recentLocales
+            Lists.empty(), // recent parsers
+            Lists.empty(), // recentTextStyleProperties
+            Lists.empty(), // recentValidatorSelectors
+            Optional.of(
+                SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
+                    .setLocale(
+                        Optional.of(Locale.ENGLISH)
+                    )
+            )
+        );
+
+        final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
+            Menu.create(
+                "Cell-MenuId",
+                "Cell A1 Menu",
+                Optional.empty(), // no icon
+                Optional.empty() // no badge
+            ),
+            context
+        );
+
+        SpreadsheetSelectionMenu.build(
+            token,
+            menu,
+            context
+        );
+
+        this.treePrintAndCheck(
+            menu,
+            "\"Cell A1 Menu\" id=Cell-MenuId\n" +
+                "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
+                "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
+                "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
+                "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
+                "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
+                "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
+                "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
+                "    \"Style\" [/1/SpreadsheetName-1/cell/A1/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
+                "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/cut/formatted-value] id=test-clipboard-cut-formatted-value-MenuItem\n" +
+                "    \"Value\" [/1/SpreadsheetName-1/cell/A1/cut/value] id=test-clipboard-cut-value-MenuItem\n" +
+                "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/cut/value-type] id=test-clipboard-cut-value-type-MenuItem\n" +
+                "    \"Validator\" [/1/SpreadsheetName-1/cell/A1/cut/validator] id=test-clipboard-cut-validator-MenuItem\n" +
+                "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
+                "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
+                "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
+                "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
+                "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
+                "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
+                "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
+                "    \"Style\" [/1/SpreadsheetName-1/cell/A1/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
+                "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/copy/formatted-value] id=test-clipboard-copy-formatted-value-MenuItem\n" +
+                "    \"Value\" [/1/SpreadsheetName-1/cell/A1/copy/value] id=test-clipboard-copy-value-MenuItem\n" +
+                "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/copy/value-type] id=test-clipboard-copy-value-type-MenuItem\n" +
+                "    \"Validator\" [/1/SpreadsheetName-1/cell/A1/copy/validator] id=test-clipboard-copy-validator-MenuItem\n" +
+                "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
+                "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
+                "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
+                "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
+                "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
+                "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
+                "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
+                "    \"Style\" [/1/SpreadsheetName-1/cell/A1/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
+                "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
+                "    \"Value\" [/1/SpreadsheetName-1/cell/A1/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
+                "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
+                "    \"Validator\" [/1/SpreadsheetName-1/cell/A1/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
+                "  -----\n" +
+                "  \"Style\" id=test-style-SubMenu\n" +
+                "    \"Alignment\" id=test-alignment-SubMenu\n" +
+                "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem key=L \n" +
+                "      (mdi-format-align-center) \"Center\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/CENTER] id=test-center-MenuItem key=C \n" +
+                "      (mdi-format-align-right) \"Right\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/RIGHT] id=test-right-MenuItem key=R \n" +
+                "      (mdi-format-align-justify) \"Justify\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/JUSTIFY] id=test-justify-MenuItem key=J \n" +
+                "    \"Vertical Alignment\" id=test-vertical-alignment-SubMenu\n" +
+                "      (mdi-format-align-top) \"Top\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/TOP] id=test-top-MenuItem\n" +
+                "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/MIDDLE] id=test-middle-MenuItem\n" +
+                "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/BOTTOM] id=test-bottom-MenuItem\n" +
+                "    (mdi-palette) \"Color\" id=test-color-SubMenu\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
+                "    (mdi-palette) \"Background color\" id=test-background-color-SubMenu\n" +
+                "      SpreadsheetMetadataColorPickerComponent\n" +
+                "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem key=b \n" +
+                "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem key=i \n" +
+                "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem key=s \n" +
+                "    (mdi-format-underline) \"Underline\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem key=u \n" +
+                "    \"Text case\" id=test-text-case-SubMenu\n" +
+                "      (mdi-format-letter-case-upper) \"Normal\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/] id=test-normal-MenuItem\n" +
+                "      (mdi-format-letter-case) \"Capitalize\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/CAPITALIZE] id=test-capitalize-MenuItem\n" +
+                "      (mdi-format-letter-case-lower) \"Lower case\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/LOWERCASE] id=test-lower-MenuItem\n" +
+                "      (mdi-format-letter-case-upper) \"Upper case\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/UPPERCASE] id=test-upper-MenuItem\n" +
+                "    \"Wrapping\" id=test-text-wrapping-SubMenu\n" +
+                "      (mdi-format-text-wrapping-clip) \"Clip\" [/1/SpreadsheetName-1/cell/A1/style/overflow-wrap/save/NORMAL] id=test-clip-MenuItem\n" +
+                "      (mdi-format-text-wrapping-overflow) \"Overflow\" [/1/SpreadsheetName-1/cell/A1/style/overflow-x/save/VISIBLE] id=test-overflow-MenuItem\n" +
+                "      (mdi-format-text-wrapping-wrap) \"Wrap\" [/1/SpreadsheetName-1/cell/A1/style/overflow-x/save/HIDDEN] id=test-wrap-MenuItem\n" +
+                "    \"Border\" id=test-border-SubMenu\n" +
+                "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
+                "        (mdi-palette) \"Color\" id=test-test-border-top-color-SubMenu\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
+                "        \"Style\" id=test-border-top-style-SubMenu\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
+                "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
+                "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DOTTED] id=test-border-top-style-dotted-MenuItem\n" +
+                "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/SOLID] id=test-border-top-style-solid-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/] id=test-border-top-style-clear-MenuItem\n" +
+                "        \"Width\" id=test-border-top-width-SubMenu\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/0px] id=test-border-top-width-0-MenuItem\n" +
+                "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/1px] id=test-border-top-width-1-MenuItem\n" +
+                "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
+                "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
+                "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
+                "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
+                "        (mdi-palette) \"Color\" id=test-test-border-left-color-SubMenu\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
+                "        \"Style\" id=test-border-left-style-SubMenu\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
+                "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
+                "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DOTTED] id=test-border-left-style-dotted-MenuItem\n" +
+                "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/SOLID] id=test-border-left-style-solid-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/] id=test-border-left-style-clear-MenuItem\n" +
+                "        \"Width\" id=test-border-left-width-SubMenu\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/0px] id=test-border-left-width-0-MenuItem\n" +
+                "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/1px] id=test-border-left-width-1-MenuItem\n" +
+                "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
+                "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
+                "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
+                "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
+                "        (mdi-palette) \"Color\" id=test-test-border-right-color-SubMenu\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
+                "        \"Style\" id=test-border-right-style-SubMenu\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
+                "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
+                "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DOTTED] id=test-border-right-style-dotted-MenuItem\n" +
+                "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/SOLID] id=test-border-right-style-solid-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/] id=test-border-right-style-clear-MenuItem\n" +
+                "        \"Width\" id=test-border-right-width-SubMenu\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/0px] id=test-border-right-width-0-MenuItem\n" +
+                "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/1px] id=test-border-right-width-1-MenuItem\n" +
+                "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
+                "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
+                "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
+                "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
+                "        (mdi-palette) \"Color\" id=test-test-border-bottom-color-SubMenu\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
+                "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
+                "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
+                "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DOTTED] id=test-border-bottom-style-dotted-MenuItem\n" +
+                "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/SOLID] id=test-border-bottom-style-solid-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/] id=test-border-bottom-style-clear-MenuItem\n" +
+                "        \"Width\" id=test-border-bottom-width-SubMenu\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/0px] id=test-border-bottom-width-0-MenuItem\n" +
+                "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/1px] id=test-border-bottom-width-1-MenuItem\n" +
+                "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
+                "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
+                "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
+                "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
+                "        (mdi-palette) \"Color\" id=test-test-border-all-color-SubMenu\n" +
+                "          SpreadsheetMetadataColorPickerComponent\n" +
+                "        \"Style\" id=test-border-all-style-SubMenu\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
+                "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
+                "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DOTTED] id=test-border-all-style-dotted-MenuItem\n" +
+                "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/SOLID] id=test-border-all-style-solid-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/] id=test-border-all-style-clear-MenuItem\n" +
+                "        \"Width\" id=test-border-all-width-SubMenu\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/0px] id=test-border-all-width-0-MenuItem\n" +
+                "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/1px] id=test-border-all-width-1-MenuItem\n" +
+                "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
+                "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
+                "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
+                "    -----\n" +
+                "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
+                "  \"Formatter\" id=test-formatter-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
+                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
+                "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
+                "  \"Locale\" id=test-locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/und] id=test-locale-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
+                "    -----\n" +
+                "    \"English (Australia)\" [/1/SpreadsheetName-1/cell/A1/locale/save/en-AU] id=test-locale-recent-0-MenuItem\n" +
+                "    \"English (New Zealand)\" [/1/SpreadsheetName-1/cell/A1/locale/save/en-NZ] id=test-locale-recent-1-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
@@ -2196,6 +2497,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             SpreadsheetComparatorNameList.EMPTY,
             Lists.empty(), // recent formatters
             Lists.empty(),
+            Lists.empty(), // recentLocales
             Lists.empty(), // recent parsers
             Lists.empty(), // recentTextStyleProperties
             Lists.of(
@@ -2382,7 +2684,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
-                "  (mdi-earth) \"Locale\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-MenuItem\n" +
+                "  \"Locale\" id=test-locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/und] id=test-locale-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
@@ -2459,6 +2764,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             SpreadsheetComparatorNameList.EMPTY,
             Lists.empty(), // recent formatters
             Lists.empty(),
+            Lists.empty(), // recentLocales
             Lists.empty(), // recent parsers
             Lists.empty(), // recentTextStyleProperties
             Lists.of(
@@ -2648,7 +2954,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
-                "  (mdi-earth) \"Locale\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-MenuItem\n" +
+                "  \"Locale\" id=test-locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/und] id=test-locale-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
@@ -2725,6 +3034,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             SpreadsheetComparatorNameList.EMPTY,
             Lists.empty(), // recent formatters
             Lists.empty(),
+            Lists.empty(), // recentLocales
             Lists.empty(), // recent parsers
             Lists.empty(), // recentTextStyleProperties
             Lists.empty(), // recentValidatorSelectors
@@ -2908,7 +3218,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
-                "  (mdi-earth) \"Locale\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-MenuItem\n" +
+                "  \"Locale\" id=test-locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/und] id=test-locale-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
@@ -2982,6 +3295,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             SpreadsheetComparatorNameList.EMPTY,
             Lists.empty(), // recent formatters
             Lists.empty(),
+            Lists.empty(), // recentLocales
             Lists.empty(), // recent parsers
             Lists.empty(), // recentTextStyleProperties
             Lists.empty(), // recentValidatorSelectors
@@ -3171,7 +3485,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
-                "  (mdi-earth) \"Locale\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-MenuItem\n" +
+                "  \"Locale\" id=test-locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/und] id=test-locale-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
@@ -3245,6 +3562,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             SpreadsheetComparatorNameList.EMPTY,
             Lists.empty(), // recent formatters
             Lists.empty(),
+            Lists.empty(), // recentLocales
             Lists.empty(), // recent parsers
             Lists.empty(), // recentTextStyleProperties
             Lists.empty(), // recentValidatorSelectors
@@ -3432,7 +3750,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
-                "  (mdi-earth) \"Locale\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-MenuItem\n" +
+                "  \"Locale\" id=test-locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/und] id=test-locale-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
@@ -3681,7 +4002,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
-                "  (mdi-earth) \"Locale\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/locale] id=test-locale-MenuItem\n" +
+                "  \"Locale\" id=test-locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/locale/save/und] id=test-locale-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
@@ -4026,7 +4350,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/Label123/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/Label123/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
-                "  (mdi-earth) \"Locale\" [/1/SpreadsheetName-1/cell/Label123/locale] id=test-locale-MenuItem\n" +
+                "  \"Locale\" id=test-locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/locale/save/und] id=test-locale-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
@@ -4276,7 +4603,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
-                "  (mdi-earth) \"Locale\" [/1/SpreadsheetName-1/cell/UnknownLabel/locale] id=test-locale-MenuItem\n" +
+                "  \"Locale\" id=test-locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/locale/save/und] id=test-locale-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
@@ -4901,6 +5231,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 .collect(Collectors.toList()),
             Lists.empty(), // format patterns
             Lists.empty(), // SpreadsheetFormatterMenu
+            Lists.empty(), // locales
             Lists.empty(), // parse patterns
             Lists.empty(), // recentTextStyleProperties
             Lists.empty(), // recentValidatorSelectors
@@ -4912,6 +5243,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                                                     final List<SpreadsheetComparatorName> sortComparatorNames,
                                                     final List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors,
                                                     final List<SpreadsheetFormatterMenu> spreadsheetFormatterMenus,
+                                                    final List<Locale> locales,
                                                     final List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors,
                                                     final List<TextStyleProperty<?>> recentTextStyleProperties,
                                                     final List<ValidatorSelector> recentValidatorSelectors,
@@ -4946,6 +5278,13 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             }
 
             @Override
+            public Optional<String> localeText(final Locale locale) {
+                return Optional.of(
+                    locale.getDisplayName()
+                );
+            }
+
+            @Override
             public List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors() {
                 return recentSpreadsheetFormatterSelectors;
             }
@@ -4973,6 +5312,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             @Override
             public List<SpreadsheetFormatterMenu> spreadsheetFormatterMenus() {
                 return spreadsheetFormatterMenus;
+            }
+
+            @Override
+            public List<Locale> recentLocales() {
+                return locales;
             }
 
             @Override

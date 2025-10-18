@@ -391,30 +391,26 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         );
     }
 
+    // locale...........................................................................................................
+
     private static void locale(final HistoryToken historyToken,
                                final SpreadsheetContextMenu menu,
                                final SpreadsheetSelectionMenuContext context) {
-        menu.item(
-            SpreadsheetContextMenuItem.with(
-                context.idPrefix() +
-                    "locale" +
-                    SpreadsheetElementIds.MENU_ITEM,
-                "Locale"
-            ).icon(
-                Optional.of(
-                    SpreadsheetIcons.locale()
-                )
-            ).historyToken(
-                Optional.of(
-                    historyToken.locale()
-                )
-            ).checked(
-                context.selectionSummary()
-                    .flatMap(SpreadsheetCell::locale)
-                    .isPresent()
-            )
+        final SpreadsheetContextMenu subMenu = menu.subMenu(
+            context.idPrefix() + "locale" + SpreadsheetElementIds.SUB_MENU,
+            "Locale"
         );
+
+        SpreadsheetSelectionMenuLocale.build(
+            historyToken.cast(SpreadsheetAnchoredSelectionHistoryToken.class),
+            subMenu,
+            context
+        );
+
+        subMenu.disableIfEmpty();
     }
+
+    // hideIfZero...........................................................................................................
 
     private static void hideIfZero(final HistoryToken historyToken,
                                    final SpreadsheetContextMenu menu,

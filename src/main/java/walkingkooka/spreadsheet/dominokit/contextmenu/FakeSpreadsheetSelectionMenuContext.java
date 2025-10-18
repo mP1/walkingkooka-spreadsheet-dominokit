@@ -17,6 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.contextmenu;
 
+import walkingkooka.datetime.DateTimeSymbols;
+import walkingkooka.locale.LocaleContext;
+import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
@@ -33,6 +36,7 @@ import walkingkooka.tree.text.TextStyleProperty;
 import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
 
@@ -55,6 +59,11 @@ public class FakeSpreadsheetSelectionMenuContext extends FakeHistoryContext impl
 
     @Override
     public Set<SpreadsheetLabelMapping> labelMappings(final SpreadsheetSelection selection) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public List<Locale> recentLocales() {
         throw new UnsupportedOperationException();
     }
 
@@ -102,6 +111,45 @@ public class FakeSpreadsheetSelectionMenuContext extends FakeHistoryContext impl
 
     @Override
     public Optional<SpreadsheetSelection> resolveLabel(final SpreadsheetLabelName spreadsheetLabelName) {
+        throw new UnsupportedOperationException();
+    }
+
+    // LocaleContext....................................................................................................
+
+    @Override
+    public Set<Locale> availableLocales() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<DateTimeSymbols> dateTimeSymbolsForLocale(final Locale locale) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<DecimalNumberSymbols> decimalNumberSymbolsForLocale(final Locale locale) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<Locale> findByLocaleText(final String text,
+                                        final int offset,
+                                        final int count) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<String> localeText(final Locale locale) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Locale locale() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public LocaleContext setLocale(final Locale locale) {
         throw new UnsupportedOperationException();
     }
 }
