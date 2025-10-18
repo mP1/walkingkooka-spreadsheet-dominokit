@@ -158,6 +158,10 @@ public final class SelectComponent<T> implements FormValueComponent<HTMLFieldSet
         return this;
     }
 
+    public SelectComponent<T> removePadding() {
+        return this;
+    }
+
     @Override
     public SelectComponent<T> addBlurListener(final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
