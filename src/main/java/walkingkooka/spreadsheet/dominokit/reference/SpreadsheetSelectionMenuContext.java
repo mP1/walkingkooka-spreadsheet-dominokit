@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.reference;
 
 import walkingkooka.Context;
+import walkingkooka.locale.LocaleContext;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
@@ -35,6 +36,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -45,6 +47,7 @@ import java.util.Set;
 public interface SpreadsheetSelectionMenuContext extends Context,
     HasSpreadsheetMetadata,
     HistoryContext,
+    LocaleContext,
     SpreadsheetLabelNameResolver {
 
     /**
@@ -66,6 +69,11 @@ public interface SpreadsheetSelectionMenuContext extends Context,
      * Returns all {@link SpreadsheetLabelMapping} for the given {@link SpreadsheetSelection}.
      */
     Set<SpreadsheetLabelMapping> labelMappings(final SpreadsheetSelection selection);
+
+    /**
+     * Returns recent {@link java.util.Locale}.
+     */
+    List<Locale> recentLocales();
 
     /**
      * Returns recent {@link SpreadsheetParserSelector}.

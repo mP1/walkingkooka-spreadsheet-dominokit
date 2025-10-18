@@ -222,6 +222,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.earth();
     }
 
+    public static MdiIcon localeRemove() {
+        return Icons.close();
+    }
+
     public static MdiIcon palette() {
         return Icons.palette();
     }

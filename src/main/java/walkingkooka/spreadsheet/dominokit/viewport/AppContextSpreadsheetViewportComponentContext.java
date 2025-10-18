@@ -18,6 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.environment.EnvironmentValueName;
+import walkingkooka.locale.LocaleContext;
+import walkingkooka.locale.LocaleContextDelegator;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.ProviderContextDelegator;
@@ -64,6 +66,7 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
     HasSpreadsheetFormatterFetcherWatchersDelegator,
     HasSpreadsheetMetadataFetcher,
     HasSpreadsheetMetadataFetcherWatchersDelegator,
+    LocaleContextDelegator,
     ProviderContextDelegator,
     SpreadsheetLabelNameResolver,
     SpreadsheetParserProviderDelegator,
@@ -184,6 +187,11 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
     // EnvironmentContext...............................................................................................
 
     @Override
+    public Locale locale() {
+        return this.context.locale();
+    }
+
+    @Override
     public SpreadsheetViewportComponentContext setLocale(final Locale locale) {
         this.context.setLocale(locale);
         return this;
@@ -209,6 +217,13 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
     public SpreadsheetViewportComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
         this.context.removeEnvironmentValue(name);
         return this;
+    }
+
+    // LocaleContextDelegator...........................................................................................
+
+    @Override
+    public LocaleContext localeContext() {
+        return this.context;
     }
 
     // SpreadsheetViewportContextDelegator..............................................................................

@@ -96,6 +96,7 @@ import walkingkooka.tree.text.TextStyleProperty;
 import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -775,6 +776,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
                 SpreadsheetViewportComponentSpreadsheetSelectionMenuContext.with(
                     recentValueSavesContext.recentValueSaves(SpreadsheetFormatterSelector.class),
                     spreadsheetFormatterSelectorMenus,
+                    recentValueSavesContext.recentValueSaves(Locale.class),
                     recentValueSavesContext.recentValueSaves(SpreadsheetParserSelector.class),
                     recentValueSavesContext.recentValueSaves(TEXT_STYLE_PROPERTY_CLASS),
                     recentValueSavesContext.recentValueSaves(ValidatorSelector.class),
