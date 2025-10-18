@@ -53,11 +53,6 @@ public interface SpreadsheetSelectionMenuContext extends Context,
     List<SpreadsheetComparatorName> sortComparatorNames();
 
     /**
-     * Returns all {@link SpreadsheetLabelMapping} for the given {@link SpreadsheetSelection}.
-     */
-    Set<SpreadsheetLabelMapping> labelMappings(final SpreadsheetSelection selection);
-
-    /**
      * Returns recent {@link SpreadsheetFormatterSelector}.
      */
     List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors();
@@ -66,6 +61,11 @@ public interface SpreadsheetSelectionMenuContext extends Context,
      * Returns the {@link List<SpreadsheetFormatterMenu>} for the current {@link SpreadsheetFormatterSelector}.
      */
     List<SpreadsheetFormatterMenu> spreadsheetFormatterMenus();
+
+    /**
+     * Returns all {@link SpreadsheetLabelMapping} for the given {@link SpreadsheetSelection}.
+     */
+    Set<SpreadsheetLabelMapping> labelMappings(final SpreadsheetSelection selection);
 
     /**
      * Returns recent {@link SpreadsheetParserSelector}.

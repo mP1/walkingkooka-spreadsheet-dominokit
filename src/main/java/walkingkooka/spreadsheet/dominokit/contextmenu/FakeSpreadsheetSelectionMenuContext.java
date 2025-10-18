@@ -44,17 +44,17 @@ public class FakeSpreadsheetSelectionMenuContext extends FakeHistoryContext impl
     }
 
     @Override
-    public Set<SpreadsheetLabelMapping> labelMappings(final SpreadsheetSelection selection) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors() {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public List<SpreadsheetFormatterMenu> spreadsheetFormatterMenus() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<SpreadsheetLabelMapping> labelMappings(final SpreadsheetSelection selection) {
         throw new UnsupportedOperationException();
     }
 

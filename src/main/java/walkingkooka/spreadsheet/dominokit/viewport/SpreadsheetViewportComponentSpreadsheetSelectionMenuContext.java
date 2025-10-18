@@ -106,27 +106,6 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     }
 
     @Override
-    public List<ValidatorSelector> validatorSelectors() {
-        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
-
-        final ValidatorAliasSet validators = metadata.get(SpreadsheetMetadataPropertyName.VALIDATION_VALIDATORS)
-            .orElse(ValidatorAliasSet.EMPTY);
-
-        return metadata.get(SpreadsheetMetadataPropertyName.VALIDATORS)
-            .orElse(ValidatorAliasSet.EMPTY)
-            .stream()
-            .map((final ValidatorAlias v) -> v.selector().orElse(null))
-            .filter((final ValidatorSelector s) -> null != s && validators.containsAliasOrName(s.name()))
-            .collect(Collectors.toList());
-    }
-
-    @Override
-    public Set<SpreadsheetLabelMapping> labelMappings(final SpreadsheetSelection selection) {
-        return this.context.spreadsheetViewportCache()
-            .labelMappings(selection);
-    }
-
-    @Override
     public List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors() {
         return this.recentSpreadsheetFormatterSelectors;
     }
@@ -139,6 +118,12 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     }
 
     private final List<SpreadsheetFormatterMenu> spreadsheetFormatterMenus;
+
+    @Override
+    public Set<SpreadsheetLabelMapping> labelMappings(final SpreadsheetSelection selection) {
+        return this.context.spreadsheetViewportCache()
+            .labelMappings(selection);
+    }
 
     @Override
     public List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors() {
@@ -168,6 +153,21 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     }
 
     private final List<ValidatorSelector> recentValidatorSelectors;
+
+    @Override
+    public List<ValidatorSelector> validatorSelectors() {
+        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
+
+        final ValidatorAliasSet validators = metadata.get(SpreadsheetMetadataPropertyName.VALIDATION_VALIDATORS)
+            .orElse(ValidatorAliasSet.EMPTY);
+
+        return metadata.get(SpreadsheetMetadataPropertyName.VALIDATORS)
+            .orElse(ValidatorAliasSet.EMPTY)
+            .stream()
+            .map((final ValidatorAlias v) -> v.selector().orElse(null))
+            .filter((final ValidatorSelector s) -> null != s && validators.containsAliasOrName(s.name()))
+            .collect(Collectors.toList());
+    }
 
     @Override
     public String idPrefix() {
