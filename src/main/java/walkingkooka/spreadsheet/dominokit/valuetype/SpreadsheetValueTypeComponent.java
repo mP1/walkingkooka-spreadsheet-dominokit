@@ -75,7 +75,7 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
             Optional.of(SpreadsheetValueType.ANY)
         );
 
-        for (final ValueTypeName typeName : SpreadsheetValueType.ALL_CELL_TYPES) {
+        for (final ValueTypeName typeName : SpreadsheetValueType.ALL_CELL_VALUE_TYPES) {
             select.appendOption(
                 Optional.of(typeName)
             );
