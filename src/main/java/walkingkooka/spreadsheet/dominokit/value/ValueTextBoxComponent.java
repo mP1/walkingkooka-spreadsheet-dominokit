@@ -218,6 +218,12 @@ public final class ValueTextBoxComponent<T> implements FormValueComponent<HTMLFi
     }
 
     @Override
+    public ValueTextBoxComponent<T> removePadding() {
+        this.textBox.removePadding();
+        return this;
+    }
+
+    @Override
     public ValueTextBoxComponent<T> addBlurListener(final EventListener listener) {
         this.textBox.addBlurListener(listener);
         return this;

@@ -114,6 +114,13 @@ public interface SuggestBoxComponentDelegator<E extends HTMLElement, V, C extend
     }
 
     @Override
+    default C removePadding() {
+        this.suggestBoxComponent()
+            .removePadding();
+        return (C)this;
+    }
+
+    @Override
     default boolean isDisabled() {
         return this.suggestBoxComponent()
             .isDisabled();

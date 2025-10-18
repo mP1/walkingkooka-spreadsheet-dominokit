@@ -79,6 +79,11 @@ abstract class UploadFileComponentLike implements FormValueComponent<HTMLDivElem
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public final UploadFileComponent removePadding() {
+        throw new UnsupportedOperationException();
+    }
+
     // addXXXListener...................................................................................................
 
     @Override

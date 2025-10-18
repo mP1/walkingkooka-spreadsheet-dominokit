@@ -291,6 +291,7 @@ public final class SelectComponent<T> implements FormValueComponent<HTMLFieldSet
         return this;
     }
 
+    @Override
     public SelectComponent<T> removePadding() {
         this.select.getInputElement()
             .parent()

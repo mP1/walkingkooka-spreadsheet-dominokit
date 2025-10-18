@@ -230,6 +230,11 @@ abstract class DominoKitPickerComponent<V, C extends DominoKitPickerComponent<V,
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public final C removePadding() {
+        throw new UnsupportedOperationException();
+    }
+
     // node.............................................................................................................
 
     @Override

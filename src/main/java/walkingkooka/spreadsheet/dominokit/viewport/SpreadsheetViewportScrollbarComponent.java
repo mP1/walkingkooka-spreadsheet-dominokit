@@ -272,6 +272,11 @@ abstract public class SpreadsheetViewportScrollbarComponent<R extends Spreadshee
     }
 
     @Override
+    public final SpreadsheetViewportScrollbarComponent<R> removePadding() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public final SpreadsheetViewportScrollbarComponent<R> focus() {
         return this;
     }

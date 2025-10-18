@@ -138,6 +138,11 @@ abstract class TextViewComponentLike implements FormValueComponent<HTMLDivElemen
     }
 
     @Override
+    public final TextViewComponent removePadding() {
+        return (TextViewComponent) this;
+    }
+
+    @Override
     public final TextViewComponent focus() {
         // ignored
         return (TextViewComponent) this;

@@ -238,6 +238,11 @@ public final class TimeComponent implements FormValueComponent<HTMLFieldSetEleme
         return this;
     }
 
+    @Override
+    public TimeComponent removePadding() {
+        return this;
+    }
+
     public TimeComponent autocompleteOff() {
         return this;
     }

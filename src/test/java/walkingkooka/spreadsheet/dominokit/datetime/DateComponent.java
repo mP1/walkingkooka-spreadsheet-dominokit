@@ -242,6 +242,11 @@ public final class DateComponent implements FormValueComponent<HTMLFieldSetEleme
         return this;
     }
 
+    @Override
+    public DateComponent removePadding() {
+        return this;
+    }
+
     public DateComponent autocompleteOff() {
         return this;
     }

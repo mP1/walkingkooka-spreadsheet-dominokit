@@ -308,4 +308,9 @@ public final class SuggestBoxComponent<T extends HasText> implements SuggestBoxC
     public SuggestBoxComponent<T> removeBorders() {
         return this;
     }
+
+    @Override
+    public SuggestBoxComponent<T> removePadding() {
+        return this;
+    }
 }

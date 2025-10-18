@@ -308,6 +308,11 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetC
     }
 
     @Override
+    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent removePadding() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent focus() {
         this.names.focus();
         return this;

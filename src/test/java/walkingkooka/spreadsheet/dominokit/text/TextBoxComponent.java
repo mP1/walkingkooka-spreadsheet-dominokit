@@ -226,6 +226,11 @@ public final class TextBoxComponent implements FormValueComponent<HTMLFieldSetEl
         return this;
     }
 
+    @Override
+    public TextBoxComponent removePadding() {
+        return this;
+    }
+
     public TextBoxComponent autocompleteOff() {
         return this;
     }

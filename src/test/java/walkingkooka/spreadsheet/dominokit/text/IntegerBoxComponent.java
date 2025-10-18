@@ -213,6 +213,11 @@ public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSe
         return this;
     }
 
+    @Override
+    public IntegerBoxComponent removePadding() {
+        return this;
+    }
+
     public IntegerBoxComponent clearIcon() {
         return this;
     }
