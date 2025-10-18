@@ -29,7 +29,6 @@ import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
-import walkingkooka.validation.ValidationChoice;
 
 import java.util.List;
 import java.util.Objects;
@@ -147,18 +146,6 @@ public final class SelectComponent<T> implements FormValueComponent<HTMLFieldSet
         return Optional.ofNullable(
             this.select.getValue()
         );
-    }
-
-    /**
-     * Used to select a value by index starting at 0, where the interesting value is not the entire type-parameter type
-     * but a component, such as {@link ValidationChoice}.
-     */
-    public SelectComponent<T> selectValue(final int index) {
-        this.select.selectAt(
-            true, // silent dont fire listeners
-            index
-        );
-        return this;
     }
 
     // validation.......................................................................................................
