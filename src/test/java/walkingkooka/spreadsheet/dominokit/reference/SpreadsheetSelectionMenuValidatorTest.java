@@ -81,6 +81,8 @@ public final class SpreadsheetSelectionMenuValidatorTest implements TreePrintabl
                 "  \"Hello Validator 1\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-1] CHECKED id=test-validator-hello-validator-1-MenuItem\n" +
                 "  \"Hello Validator 2\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
                 "  -----\n" +
+                "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/validator/save/] id=test-validator-clear-MenuItem\n" +
+                "  -----\n" +
                 "  \"Edit...\" [/1/Spreadsheet123/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  -----\n" +
                 "  \"Hello Validator 1\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-1] id=test-validator-recent-0-MenuItem\n" +
