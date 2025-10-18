@@ -134,14 +134,6 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     private final List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors;
 
     @Override
-    public Set<SpreadsheetExpressionReference> references(final SpreadsheetSelection selection) {
-        return selection.isExternalReference() ?
-            Sets.empty() :
-            this.context.spreadsheetViewportCache()
-                .cellReferences(selection.toExpressionReference());
-    }
-
-    @Override
     public List<SpreadsheetFormatterMenu> spreadsheetFormatterMenus() {
         return this.spreadsheetFormatterMenus;
     }
@@ -154,6 +146,14 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     }
 
     private final List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors;
+
+    @Override
+    public Set<SpreadsheetExpressionReference> references(final SpreadsheetSelection selection) {
+        return selection.isExternalReference() ?
+            Sets.empty() :
+            this.context.spreadsheetViewportCache()
+                .cellReferences(selection.toExpressionReference());
+    }
 
     @Override
     public List<TextStyleProperty<?>> recentTextStyleProperties() {
