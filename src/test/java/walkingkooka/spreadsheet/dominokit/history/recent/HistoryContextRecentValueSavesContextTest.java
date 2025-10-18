@@ -38,6 +38,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -83,6 +84,36 @@ public final class HistoryContextRecentValueSavesContextTest implements RecentVa
             formatter4,
             formatter3,
             formatter2
+        );
+    }
+
+    @Test
+    public void testSpreadsheetCellLocaleSaveHistoryToken() {
+        final Locale locale1 = Locale.forLanguageTag("en-AU");
+        final Locale locale2 = Locale.forLanguageTag("en-GB");
+        final Locale locale3 = Locale.forLanguageTag("en-NZ");
+        final Locale locale4 = null;
+        final Locale locale5 = Locale.forLanguageTag("en-US");
+
+        this.recentValueSavesAndCheck2(
+            Lists.of(
+                locale1,
+                locale2,
+                locale3,
+                locale4,
+                locale5
+            ),
+            (v) -> HistoryToken.cellLocaleSave(
+                ID,
+                NAME,
+                CELL,
+                Optional.ofNullable(v)
+            ),
+            Locale.class,
+            locale5,
+            // locale4 null skipped
+            locale3,
+            locale2
         );
     }
 

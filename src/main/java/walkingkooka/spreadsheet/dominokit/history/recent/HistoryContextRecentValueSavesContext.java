@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSaveHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellParserSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellStyleSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValidatorSaveHistoryToken;
@@ -33,6 +34,7 @@ import walkingkooka.tree.text.TextStyleProperty;
 import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -62,6 +64,17 @@ final class HistoryContextRecentValueSavesContext implements RecentValueSavesCon
                 historyToken instanceof SpreadsheetCellFormatterSaveHistoryToken ?
                     historyToken.cast(SpreadsheetCellFormatterSaveHistoryToken.class)
                         .spreadsheetFormatterSelector()
+                        .orElse(null) :
+                    null
+            )
+        );
+
+        this.addRecorder(
+            Locale.class,
+            (HistoryToken historyToken) -> Optional.ofNullable(
+                historyToken instanceof SpreadsheetCellLocaleSaveHistoryToken ?
+                    historyToken.cast(SpreadsheetCellLocaleSaveHistoryToken.class)
+                        .value()
                         .orElse(null) :
                     null
             )
