@@ -50,7 +50,7 @@ public final class HistoryContextRecentValueSavesContextTest implements RecentVa
     // recentValueSaves.................................................................................................
 
     @Test
-    public void testOnHistoryTokenAndRecentValueSaves() {
+    public void testSpreadsheetCellFormatterSaveHistoryToken() {
         final HistoryContext historyContext = new FakeHistoryContext() {
             @Override
             public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
@@ -142,6 +142,8 @@ public final class HistoryContextRecentValueSavesContextTest implements RecentVa
             }
         );
     }
+
+    // class............................................................................................................
 
     @Override
     public Class<HistoryContextRecentValueSavesContext> type() {
