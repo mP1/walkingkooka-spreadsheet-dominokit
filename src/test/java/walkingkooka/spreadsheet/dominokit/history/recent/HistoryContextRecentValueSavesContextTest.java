@@ -18,7 +18,9 @@
 package walkingkooka.spreadsheet.dominokit.history.recent;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
@@ -27,8 +29,13 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
+import walkingkooka.tree.text.TextAlign;
+import walkingkooka.tree.text.TextStyleProperty;
+import walkingkooka.tree.text.TextStylePropertyName;
+import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.List;
 import java.util.Optional;
@@ -76,6 +83,110 @@ public final class HistoryContextRecentValueSavesContextTest implements RecentVa
             formatter4,
             formatter3,
             formatter2
+        );
+    }
+
+    @Test
+    public void testSpreadsheetCellParserSaveHistoryToken() {
+        final SpreadsheetParserSelector parser1 = SpreadsheetParserSelector.parse("parser-1 111");
+        final SpreadsheetParserSelector parser2 = SpreadsheetParserSelector.parse("parser-2 222");
+        final SpreadsheetParserSelector parser3 = SpreadsheetParserSelector.parse("parser-3 333");
+        final SpreadsheetParserSelector parser4 = SpreadsheetParserSelector.parse("parser-4 444");
+
+        this.recentValueSavesAndCheck2(
+            Lists.of(
+                parser1,
+                parser2,
+                parser3,
+                parser4
+            ),
+            (v) -> HistoryToken.cellParserSave(
+                ID,
+                NAME,
+                CELL,
+                Optional.of(v)
+            ),
+            SpreadsheetParserSelector.class,
+            parser4,
+            parser3,
+            parser2
+        );
+    }
+
+    @Test
+    public void testSpreadsheetCellStyleSaveHistoryToken() {
+        final TextStyleProperty<?> style1 = TextStyleProperty.with(
+            TextStylePropertyName.BACKGROUND_COLOR,
+            Optional.of(
+                Color.parse("#111")
+            )
+        );
+        final TextStyleProperty<?> style2 = TextStyleProperty.with(
+            TextStylePropertyName.COLOR,
+            Optional.of(
+                Color.parse("#222")
+            )
+        );
+        final TextStyleProperty<?> style3 = TextStyleProperty.with(
+            TextStylePropertyName.COLOR,
+            Optional.of(
+                Color.parse("#333")
+            )
+        );
+        final TextStyleProperty<?> style4 = TextStyleProperty.with(
+            TextStylePropertyName.TEXT_ALIGN,
+            Optional.of(TextAlign.LEFT)
+        );
+
+        this.recentValueSavesAndCheck2(
+            Lists.of(
+                style1,
+                style2,
+                style3,
+                style4
+            ),
+            (TextStyleProperty<?> v) -> HistoryToken.cellStyleSave(
+                ID,
+                NAME,
+                CELL,
+                Cast.to(
+                    v.name()
+                ),
+                Cast.to(
+                    v.value()
+                )
+            ),
+            Cast.to(TextStyleProperty.class),
+            style4,
+            style3,
+            style2
+        );
+    }
+
+    @Test
+    public void testSpreadsheetCellValidatorSaveHistoryToken() {
+        final ValidatorSelector validator1 = ValidatorSelector.parse("validator-1");
+        final ValidatorSelector validator2 = ValidatorSelector.parse("validator-2");
+        final ValidatorSelector validator3 = ValidatorSelector.parse("validator-3");
+        final ValidatorSelector validator4 = ValidatorSelector.parse("validator-4");
+
+        this.recentValueSavesAndCheck2(
+            Lists.of(
+                validator1,
+                validator2,
+                validator3,
+                validator4
+            ),
+            (v) -> HistoryToken.cellValidatorSave(
+                ID,
+                NAME,
+                CELL,
+                Optional.of(v)
+            ),
+            ValidatorSelector.class,
+            validator4,
+            validator3,
+            validator2
         );
     }
 
