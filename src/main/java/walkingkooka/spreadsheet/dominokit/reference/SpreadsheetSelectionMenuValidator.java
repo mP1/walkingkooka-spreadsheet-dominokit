@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.reference;
 import walkingkooka.collect.set.SortedSets;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -37,6 +38,8 @@ import java.util.Set;
  * Validators
  *   Validator-1
  *   Validator-2
+ *   ---
+ *   Clear
  *   ---
  *   Edit
  *   ----
@@ -66,6 +69,14 @@ final class SpreadsheetSelectionMenuValidator {
             menu,
             idPrefix,
             context
+        );
+
+        menu.separator();
+
+        buildClear(
+            historyToken,
+            menu,
+            idPrefix
         );
 
         menu.separator();
@@ -125,6 +136,26 @@ final class SpreadsheetSelectionMenuValidator {
                 )
             );
         }
+    }
+
+    private static void buildClear(final HistoryToken historyToken,
+                                   final SpreadsheetContextMenu menu,
+                                   final String idPrefix) {
+        menu.item(
+            SpreadsheetContextMenuItem.with(
+                idPrefix + "clear" + SpreadsheetElementIds.MENU_ITEM,
+                "Clear..."
+            ).icon(
+                Optional.of(
+                    SpreadsheetIcons.validatorRemove()
+                )
+            ).historyToken(
+                Optional.of(
+                    historyToken.validator()
+                        .clearSaveValue()
+                )
+            )
+        );
     }
 
     private static void buildEdit(final HistoryToken historyToken,

@@ -399,6 +399,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.sign_yield();
     }
 
+    public static MdiIcon validatorRemove() {
+        return Icons.close();
+    }
+
     public static MdiIcon verticalAlignTop() {
         return Icons.format_align_top();
     }
