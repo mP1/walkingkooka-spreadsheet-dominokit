@@ -47,6 +47,8 @@ import java.util.stream.Collectors;
  *     Medium
  *     Long
  *   ---
+ *   Clear
+ *   ---
  *   Edit
  *   ---
  *   Date Format Pattern dd/mm/yy
