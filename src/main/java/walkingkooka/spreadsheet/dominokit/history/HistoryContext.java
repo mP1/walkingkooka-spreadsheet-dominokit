@@ -92,7 +92,8 @@ public interface HistoryContext extends Context {
         return SelectOption.<T>create(
             id, // key
             value.orElse(null), // value
-            (final String k, final T v) -> div(),
+            (final String k, final T v) -> div()
+                .textContent(text),
             (final String k, final T v) -> this.menuItem(
                 id,
                 text,
