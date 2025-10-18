@@ -225,18 +225,7 @@ public final class ValidationChoiceListComponent implements FormValueComponent<H
     public ValidationChoiceListComponent setValue(final Optional<Object> value) {
         Objects.requireNonNull(value, "value");
 
-        int select = -1;
-
-        int i = 0;
-        for(final ValidationChoice choice : this.validationChoiceList) {
-            if(choice.value().equals(value)) {
-                select = i;
-                break;
-            }
-            i++;
-        }
-
-        this.select.selectValue(select);
+        this.select.setValue(value);
         return this;
     }
 
