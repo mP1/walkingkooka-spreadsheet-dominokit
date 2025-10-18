@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
-import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLTableCellElement;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import walkingkooka.spreadsheet.SpreadsheetCell;
@@ -103,14 +102,6 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
             final ValidationChoiceList choices = cell.validationChoiceList()
                 .orElse(null);
             if (selected && null != choices) {
-                DomGlobal.console.log("@@ value class name =" + formula.value().map(v -> v.getClass().getName()) +
-                    " value=" +
-                    formula.value().orElse(null) +
-                    " choices = " + choices,
-                    formula.value().orElse(null),
-                    choices.toArray()
-                );
-
                 td.appendChild(
                     ValidationChoiceListComponent.empty(
                         this.td.id() + "-",
