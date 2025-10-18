@@ -187,7 +187,7 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
     }
 
     public static MdiIcon formatterRemove() {
-        return Icons.format_clear();
+        return Icons.close();
     }
 
     public static MdiIcon gridLines() {
