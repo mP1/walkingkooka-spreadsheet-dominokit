@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.history.recent;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
@@ -29,7 +30,9 @@ import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.function.Function;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -51,6 +54,47 @@ public final class HistoryContextRecentValueSavesContextTest implements RecentVa
 
     @Test
     public void testSpreadsheetCellFormatterSaveHistoryToken() {
+        final SpreadsheetFormatterSelector formatter1 = SpreadsheetFormatterSelector.parse("formatter-1 111");
+        final SpreadsheetFormatterSelector formatter2 = SpreadsheetFormatterSelector.parse("formatter-2 222");
+        final SpreadsheetFormatterSelector formatter3 = SpreadsheetFormatterSelector.parse("formatter-3 333");
+        final SpreadsheetFormatterSelector formatter4 = SpreadsheetFormatterSelector.parse("formatter-4 444");
+
+        this.recentValueSavesAndCheck2(
+            Lists.of(
+                formatter1,
+                formatter2,
+                formatter3,
+                formatter4
+            ),
+            (v) -> HistoryToken.cellFormatterSave(
+                ID,
+                NAME,
+                CELL,
+                Optional.of(v)
+            ),
+            SpreadsheetFormatterSelector.class,
+            formatter4,
+            formatter3,
+            formatter2
+        );
+    }
+
+    private <T> void recentValueSavesAndCheck2(final List<T> values,
+                                               final Function<T, HistoryToken> historyTokenFactory,
+                                               final Class<T> valueType,
+                                               final T... expected) {
+        this.recentValueSavesAndCheck2(
+            values,
+            historyTokenFactory,
+            valueType,
+            Lists.of(expected)
+        );
+    }
+
+    private <T> void recentValueSavesAndCheck2(final List<T> values,
+                                               final Function<T, HistoryToken> historyTokenFactory,
+                                               final Class<T> valueType,
+                                               final List<T> expected) {
         final HistoryContext historyContext = new FakeHistoryContext() {
             @Override
             public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
@@ -81,53 +125,16 @@ public final class HistoryContextRecentValueSavesContextTest implements RecentVa
 
         final HistoryContextRecentValueSavesContext context = HistoryContextRecentValueSavesContext.with(historyContext);
 
-        final SpreadsheetFormatterSelector formatter1 = SpreadsheetFormatterSelector.parse("formatter-1 111");
-        final SpreadsheetFormatterSelector formatter2 = SpreadsheetFormatterSelector.parse("formatter-2 222");
-        final SpreadsheetFormatterSelector formatter3 = SpreadsheetFormatterSelector.parse("formatter-3 333");
-        final SpreadsheetFormatterSelector formatter4 = SpreadsheetFormatterSelector.parse("formatter-4 444");
-
-        historyContext.pushHistoryToken(
-            HistoryToken.cellFormatterSave(
-                ID,
-                NAME,
-                CELL,
-                Optional.of(formatter1)
-            )
-        );
-
-        historyContext.pushHistoryToken(
-            HistoryToken.cellFormatterSave(
-                ID,
-                NAME,
-                CELL,
-                Optional.of(formatter2)
-            )
-        );
-
-        historyContext.pushHistoryToken(
-            HistoryToken.cellFormatterSave(
-                ID,
-                NAME,
-                CELL,
-                Optional.of(formatter3)
-            )
-        );
-
-        historyContext.pushHistoryToken(
-            HistoryToken.cellFormatterSave(
-                ID,
-                NAME,
-                CELL,
-                Optional.of(formatter4)
-            )
-        );
+        for (final T value : values) {
+            historyContext.pushHistoryToken(
+                historyTokenFactory.apply(value)
+            );
+        }
 
         this.recentValueSavesAndCheck(
             context,
-            SpreadsheetFormatterSelector.class,
-            formatter4,
-            formatter3,
-            formatter2
+            valueType,
+            expected
         );
     }
 
