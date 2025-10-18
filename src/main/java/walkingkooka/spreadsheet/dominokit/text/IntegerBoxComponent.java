@@ -250,6 +250,14 @@ public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSe
     }
 
     @Override
+    public IntegerBoxComponent removePadding() {
+        this.integerBox.getInputElement()
+            .parent()
+            .setPadding("0");
+        return this;
+    }
+
+    @Override
     public IntegerBoxComponent setId(final String id) {
         this.integerBox.getInputElement()
             .setId(id);

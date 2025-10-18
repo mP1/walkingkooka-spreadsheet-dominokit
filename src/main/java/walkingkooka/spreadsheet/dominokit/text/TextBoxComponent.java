@@ -240,6 +240,14 @@ public final class TextBoxComponent implements FormValueComponent<HTMLFieldSetEl
     }
 
     @Override
+    public TextBoxComponent removePadding() {
+        this.textBox.getInputElement()
+            .parent()
+            .setPadding("0");
+        return this;
+    }
+
+    @Override
     public TextBoxComponent setId(final String id) {
         CharSequences.failIfNullOrEmpty(id, "id");
 

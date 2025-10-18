@@ -94,6 +94,11 @@ public interface TableComponent<E extends HTMLElement, V, C extends TableCompone
     }
 
     @Override
+    default C removePadding() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     default boolean isEditing() {
         return false; // query individual components
     }

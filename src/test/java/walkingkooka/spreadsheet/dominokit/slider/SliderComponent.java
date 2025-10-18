@@ -286,6 +286,11 @@ public final class SliderComponent extends SliderComponentLike
         return this;
     }
 
+    @Override
+    public SliderComponent removePadding() {
+        return this;
+    }
+
     // FIXES
     //
     // java.lang.NoSuchMethodError: walkingkooka.spreadsheet.dominokit.value.TextBoxComponent.setCssText(Ljava/lang/String;)Lwalkingkooka/spreadsheet/dominokit/ui/textbox/TextBoxComponent;

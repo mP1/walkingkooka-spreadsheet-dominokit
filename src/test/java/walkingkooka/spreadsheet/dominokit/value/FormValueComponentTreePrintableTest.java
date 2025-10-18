@@ -213,6 +213,11 @@ public final class FormValueComponentTreePrintableTest implements TreePrintableT
             }
 
             @Override
+            public TestValueComponent removePadding() {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
             public void treePrintAlternateValues(final IndentingPrinter printer) {
                 printer.indent();
                 {

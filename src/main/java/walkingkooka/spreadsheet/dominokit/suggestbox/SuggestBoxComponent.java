@@ -458,6 +458,16 @@ public final class SuggestBoxComponent<T> implements SuggestBoxComponentLike<T> 
         return this;
     }
 
+    @Override
+    public SuggestBoxComponent<T> removePadding() {
+        // should work, untested
+        this.suggestBox.getInputElement()
+            .parent()
+            .parent()
+            .setPadding("0");
+        return this;
+    }
+
     // width............................................................................................................
 
     @Override

@@ -86,5 +86,7 @@ public interface ValueComponent<E extends HTMLElement, V, C extends ValueCompone
 
     C removeBorders();
 
+    C removePadding();
+
     C focus();
 }

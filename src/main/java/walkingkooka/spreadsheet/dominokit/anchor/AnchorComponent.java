@@ -138,4 +138,9 @@ public interface AnchorComponent<A extends AnchorComponent<A, T>, T> extends Val
     default A removeBorders() {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    default A removePadding() {
+        throw new UnsupportedOperationException();
+    }
 }

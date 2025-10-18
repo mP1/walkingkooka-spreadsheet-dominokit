@@ -197,6 +197,11 @@ public final class TextComponent implements FormValueComponent<HTMLDivElement, S
     }
 
     @Override
+    public TextComponent removePadding() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public TextComponent focus() {
         throw new UnsupportedOperationException();
     }

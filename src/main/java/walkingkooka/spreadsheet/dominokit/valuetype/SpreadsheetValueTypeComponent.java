@@ -159,6 +159,12 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
     }
 
     @Override
+    public SpreadsheetValueTypeComponent removePadding() {
+        this.select.removePadding();
+        return this;
+    }
+
+    @Override
     public boolean isDisabled() {
         return this.select.isDisabled();
     }

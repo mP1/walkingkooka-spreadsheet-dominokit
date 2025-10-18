@@ -175,6 +175,12 @@ public final class SpreadsheetCellRangeReferencePathComponent implements FormVal
     }
 
     @Override
+    public SpreadsheetCellRangeReferencePathComponent removePadding() {
+        this.select.removePadding();
+        return this;
+    }
+
+    @Override
     public SpreadsheetCellRangeReferencePathComponent addBlurListener(final EventListener listener) {
         this.select.addBlurListener(listener);
         return this;

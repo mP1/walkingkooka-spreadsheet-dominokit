@@ -76,7 +76,7 @@ public final class ValidationChoiceListComponent implements FormValueComponent<H
                         )
                 );
             }
-        ).removePadding();
+        );
 
         this.setId(id);
         this.validationChoiceList = ValidationChoiceList.EMPTY;
@@ -183,6 +183,12 @@ public final class ValidationChoiceListComponent implements FormValueComponent<H
     @Override
     public ValidationChoiceListComponent removeBorders() {
         this.select.removeBorders();
+        return this;
+    }
+
+    @Override
+    public ValidationChoiceListComponent removePadding() {
+        this.select.removePadding();
         return this;
     }
 

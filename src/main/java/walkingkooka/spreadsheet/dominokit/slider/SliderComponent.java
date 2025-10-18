@@ -317,6 +317,11 @@ public final class SliderComponent extends SliderComponentLike {
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public SliderComponent removePadding() {
+        throw new UnsupportedOperationException();
+    }
+
     // width............................................................................................................
 
     @Override

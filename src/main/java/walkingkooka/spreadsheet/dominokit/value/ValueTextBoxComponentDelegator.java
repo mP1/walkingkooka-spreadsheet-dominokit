@@ -217,6 +217,13 @@ public interface ValueTextBoxComponentDelegator<C extends ValueTextBoxComponentD
     }
 
     @Override
+    default C removePadding() {
+        this.valueTextBoxComponent()
+            .removePadding();
+        return (C) this;
+    }
+
+    @Override
     default Optional<V> value() {
         return this.valueTextBoxComponent()
             .value();

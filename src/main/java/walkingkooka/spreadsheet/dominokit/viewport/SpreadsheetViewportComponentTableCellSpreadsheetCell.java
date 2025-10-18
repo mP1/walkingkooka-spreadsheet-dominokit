@@ -109,7 +109,7 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
                         ).setValidationChoiceList(choices)
                         .setValue(
                             formula.value()
-                        )
+                        ).removePadding()
                 );
             } else {
                 final boolean shouldHideZeroValues = context.shouldHideZeroValues();
