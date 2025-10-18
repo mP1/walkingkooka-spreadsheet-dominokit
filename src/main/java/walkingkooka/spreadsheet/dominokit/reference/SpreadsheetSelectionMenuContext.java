@@ -63,11 +63,6 @@ public interface SpreadsheetSelectionMenuContext extends Context,
     List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors();
 
     /**
-     * Returns all the references for the given {@link SpreadsheetSelection}
-     */
-    Set<SpreadsheetExpressionReference> references(final SpreadsheetSelection selection);
-
-    /**
      * Returns the {@link List<SpreadsheetFormatterMenu>} for the current {@link SpreadsheetFormatterSelector}.
      */
     List<SpreadsheetFormatterMenu> spreadsheetFormatterMenus();
@@ -76,6 +71,11 @@ public interface SpreadsheetSelectionMenuContext extends Context,
      * Returns recent {@link SpreadsheetParserSelector}.
      */
     List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors();
+
+    /**
+     * Returns all the references for the given {@link SpreadsheetSelection}
+     */
+    Set<SpreadsheetExpressionReference> references(final SpreadsheetSelection selection);
 
     /**
      * Returns recent {@link TextStyleProperty}
