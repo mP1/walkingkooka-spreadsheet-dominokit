@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.find;
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 
@@ -30,39 +31,39 @@ public final class SpreadsheetCellRangeReferencePathComponentTest implements For
     @Test
     public void testEmpty() {
         this.treePrintAndCheck(
-            SpreadsheetCellRangeReferencePathComponent.empty(),
+            this.createComponent(),
             "SpreadsheetCellRangeReferencePathComponent\n" +
                 "  SelectComponent\n" +
-                "    []\n" +
-                "      left-right top-down=LRTD\n" +
-                "      right-left top-down=RLTD\n" +
-                "      left-right bottom-up=LRBU\n" +
-                "      right-left bottom-up=RLBU\n" +
-                "      top-down left-right=TDLR\n" +
-                "      top-down right-left=TDRL\n" +
-                "      bottom-up left-right=BULR\n" +
-                "      bottom-up right-left=BURL\n"
+                "    [] id=Path123-\n" +
+                "      LRTD\n" +
+                "      RLTD\n" +
+                "      LRBU\n" +
+                "      RLBU\n" +
+                "      TDLR\n" +
+                "      TDRL\n" +
+                "      BULR\n" +
+                "      BURL\n"
         );
     }
 
     @Test
     public void testSetValue() {
         this.treePrintAndCheck(
-            SpreadsheetCellRangeReferencePathComponent.empty()
+            this.createComponent()
                 .setValue(
                     Optional.of(SpreadsheetCellRangeReferencePath.BULR)
                 ),
             "SpreadsheetCellRangeReferencePathComponent\n" +
                 "  SelectComponent\n" +
-                "    [BULR]\n" +
-                "      left-right top-down=LRTD\n" +
-                "      right-left top-down=RLTD\n" +
-                "      left-right bottom-up=LRBU\n" +
-                "      right-left bottom-up=RLBU\n" +
-                "      top-down left-right=TDLR\n" +
-                "      top-down right-left=TDRL\n" +
-                "      bottom-up left-right=BULR\n" +
-                "      bottom-up right-left=BURL\n"
+                "    [BULR] id=Path123-\n" +
+                "      LRTD\n" +
+                "      RLTD\n" +
+                "      LRBU\n" +
+                "      RLBU\n" +
+                "      TDLR\n" +
+                "      TDRL\n" +
+                "      BULR\n" +
+                "      BURL\n"
         );
     }
 
@@ -70,7 +71,15 @@ public final class SpreadsheetCellRangeReferencePathComponentTest implements For
 
     @Override
     public SpreadsheetCellRangeReferencePathComponent createComponent() {
-        return SpreadsheetCellRangeReferencePathComponent.empty();
+        return SpreadsheetCellRangeReferencePathComponent.empty(
+            "Path123-",
+            new FakeSpreadsheetCellRangeReferencePathComponentContext() {
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.parseString("/1/SpreadsheetName1/cell/A1");
+                }
+            }
+        );
     }
 
     // class............................................................................................................

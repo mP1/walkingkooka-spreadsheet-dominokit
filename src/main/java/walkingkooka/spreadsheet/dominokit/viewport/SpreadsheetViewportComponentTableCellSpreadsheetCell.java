@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLTableCellElement;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import walkingkooka.spreadsheet.SpreadsheetCell;
@@ -36,7 +37,6 @@ import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.validation.ValidationChoiceList;
 
-import java.util.Optional;
 import java.util.function.Predicate;
 
 /**
@@ -103,16 +103,21 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
             final ValidationChoiceList choices = cell.validationChoiceList()
                 .orElse(null);
             if (selected && null != choices) {
+                DomGlobal.console.log("@@ value class name =" + formula.value().map(v -> v.getClass().getName()) +
+                    " value=" +
+                    formula.value().orElse(null) +
+                    " choices = " + choices,
+                    formula.value().orElse(null),
+                    choices.toArray()
+                );
+
                 td.appendChild(
-                    ValidationChoiceListComponent.empty()
+                    ValidationChoiceListComponent.empty(
+                        this.td.id() + "-",
+                            context
+                        ).setValidationChoiceList(choices)
                         .setValue(
                             formula.value()
-                        ).setValidationChoiceList(choices)
-                        .addChangeListener(
-                            (Optional<Object> oldValue, Optional<Object> newValue) -> context.pushHistoryToken(
-                                context.historyToken()
-                                    .setSaveValue(newValue)
-                            )
                         )
                 );
             } else {

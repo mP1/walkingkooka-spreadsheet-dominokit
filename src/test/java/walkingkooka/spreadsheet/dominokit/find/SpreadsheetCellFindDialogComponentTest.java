@@ -113,26 +113,26 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [BULR] id=cellFind-cell-range-path-Select\n" +
-                "              left-right top-down=LRTD\n" +
-                "              right-left top-down=RLTD\n" +
-                "              left-right bottom-up=LRBU\n" +
-                "              right-left bottom-up=RLBU\n" +
-                "              top-down left-right=TDLR\n" +
-                "              top-down right-left=TDRL\n" +
-                "              bottom-up left-right=BULR\n" +
-                "              bottom-up right-left=BURL\n" +
+                "            Cell Range Path [BULR] id=cellFind-cell-range-path-\n" +
+                "              LRTD\n" +
+                "              RLTD\n" +
+                "              LRBU\n" +
+                "              RLBU\n" +
+                "              TDLR\n" +
+                "              TDRL\n" +
+                "              BULR\n" +
+                "              BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [date] id=cellFind-value-type-Select\n" +
-                "              Any=*\n" +
-                "              Boolean=boolean\n" +
-                "              Date=date\n" +
-                "              Date Time=date-time\n" +
-                "              Error=error\n" +
-                "              Number=number\n" +
-                "              Text=text\n" +
-                "              Time=time\n" +
+                "            Value type [date] id=cellFind-value-type-\n" +
+                "              *\n" +
+                "              boolean\n" +
+                "              date\n" +
+                "              date-time\n" +
+                "              error\n" +
+                "              number\n" +
+                "              text\n" +
+                "              time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -234,26 +234,26 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [BULR] id=cellFind-cell-range-path-Select\n" +
-                "              left-right top-down=LRTD\n" +
-                "              right-left top-down=RLTD\n" +
-                "              left-right bottom-up=LRBU\n" +
-                "              right-left bottom-up=RLBU\n" +
-                "              top-down left-right=TDLR\n" +
-                "              top-down right-left=TDRL\n" +
-                "              bottom-up left-right=BULR\n" +
-                "              bottom-up right-left=BURL\n" +
+                "            Cell Range Path [BULR] id=cellFind-cell-range-path-\n" +
+                "              LRTD\n" +
+                "              RLTD\n" +
+                "              LRBU\n" +
+                "              RLBU\n" +
+                "              TDLR\n" +
+                "              TDRL\n" +
+                "              BULR\n" +
+                "              BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [date] id=cellFind-value-type-Select\n" +
-                "              Any=*\n" +
-                "              Boolean=boolean\n" +
-                "              Date=date\n" +
-                "              Date Time=date-time\n" +
-                "              Error=error\n" +
-                "              Number=number\n" +
-                "              Text=text\n" +
-                "              Time=time\n" +
+                "            Value type [date] id=cellFind-value-type-\n" +
+                "              *\n" +
+                "              boolean\n" +
+                "              date\n" +
+                "              date-time\n" +
+                "              error\n" +
+                "              number\n" +
+                "              text\n" +
+                "              time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -355,26 +355,26 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
-                "              left-right top-down=LRTD\n" +
-                "              right-left top-down=RLTD\n" +
-                "              left-right bottom-up=LRBU\n" +
-                "              right-left bottom-up=RLBU\n" +
-                "              top-down left-right=TDLR\n" +
-                "              top-down right-left=TDRL\n" +
-                "              bottom-up left-right=BULR\n" +
-                "              bottom-up right-left=BURL\n" +
+                "            Cell Range Path [] id=cellFind-cell-range-path-\n" +
+                "              LRTD\n" +
+                "              RLTD\n" +
+                "              LRBU\n" +
+                "              RLBU\n" +
+                "              TDLR\n" +
+                "              TDRL\n" +
+                "              BULR\n" +
+                "              BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=cellFind-value-type-Select\n" +
-                "              Any=*\n" +
-                "              Boolean=boolean\n" +
-                "              Date=date\n" +
-                "              Date Time=date-time\n" +
-                "              Error=error\n" +
-                "              Number=number\n" +
-                "              Text=text\n" +
-                "              Time=time\n" +
+                "            Value type [] id=cellFind-value-type-\n" +
+                "              *\n" +
+                "              boolean\n" +
+                "              date\n" +
+                "              date-time\n" +
+                "              error\n" +
+                "              number\n" +
+                "              text\n" +
+                "              time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -474,26 +474,26 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [BULR] id=cellFind-cell-range-path-Select\n" +
-                "              left-right top-down=LRTD\n" +
-                "              right-left top-down=RLTD\n" +
-                "              left-right bottom-up=LRBU\n" +
-                "              right-left bottom-up=RLBU\n" +
-                "              top-down left-right=TDLR\n" +
-                "              top-down right-left=TDRL\n" +
-                "              bottom-up left-right=BULR\n" +
-                "              bottom-up right-left=BURL\n" +
+                "            Cell Range Path [BULR] id=cellFind-cell-range-path-\n" +
+                "              LRTD\n" +
+                "              RLTD\n" +
+                "              LRBU\n" +
+                "              RLBU\n" +
+                "              TDLR\n" +
+                "              TDRL\n" +
+                "              BULR\n" +
+                "              BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [date] id=cellFind-value-type-Select\n" +
-                "              Any=*\n" +
-                "              Boolean=boolean\n" +
-                "              Date=date\n" +
-                "              Date Time=date-time\n" +
-                "              Error=error\n" +
-                "              Number=number\n" +
-                "              Text=text\n" +
-                "              Time=time\n" +
+                "            Value type [date] id=cellFind-value-type-\n" +
+                "              *\n" +
+                "              boolean\n" +
+                "              date\n" +
+                "              date-time\n" +
+                "              error\n" +
+                "              number\n" +
+                "              text\n" +
+                "              time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -629,26 +629,26 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [BULR] id=cellFind-cell-range-path-Select\n" +
-                "              left-right top-down=LRTD\n" +
-                "              right-left top-down=RLTD\n" +
-                "              left-right bottom-up=LRBU\n" +
-                "              right-left bottom-up=RLBU\n" +
-                "              top-down left-right=TDLR\n" +
-                "              top-down right-left=TDRL\n" +
-                "              bottom-up left-right=BULR\n" +
-                "              bottom-up right-left=BURL\n" +
+                "            Cell Range Path [BULR] id=cellFind-cell-range-path-\n" +
+                "              LRTD\n" +
+                "              RLTD\n" +
+                "              LRBU\n" +
+                "              RLBU\n" +
+                "              TDLR\n" +
+                "              TDRL\n" +
+                "              BULR\n" +
+                "              BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [date] id=cellFind-value-type-Select\n" +
-                "              Any=*\n" +
-                "              Boolean=boolean\n" +
-                "              Date=date\n" +
-                "              Date Time=date-time\n" +
-                "              Error=error\n" +
-                "              Number=number\n" +
-                "              Text=text\n" +
-                "              Time=time\n" +
+                "            Value type [date] id=cellFind-value-type-\n" +
+                "              *\n" +
+                "              boolean\n" +
+                "              date\n" +
+                "              date-time\n" +
+                "              error\n" +
+                "              number\n" +
+                "              text\n" +
+                "              time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -779,26 +779,26 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
-                "              left-right top-down=LRTD\n" +
-                "              right-left top-down=RLTD\n" +
-                "              left-right bottom-up=LRBU\n" +
-                "              right-left bottom-up=RLBU\n" +
-                "              top-down left-right=TDLR\n" +
-                "              top-down right-left=TDRL\n" +
-                "              bottom-up left-right=BULR\n" +
-                "              bottom-up right-left=BURL\n" +
+                "            Cell Range Path [] id=cellFind-cell-range-path-\n" +
+                "              LRTD\n" +
+                "              RLTD\n" +
+                "              LRBU\n" +
+                "              RLBU\n" +
+                "              TDLR\n" +
+                "              TDRL\n" +
+                "              BULR\n" +
+                "              BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=cellFind-value-type-Select\n" +
-                "              Any=*\n" +
-                "              Boolean=boolean\n" +
-                "              Date=date\n" +
-                "              Date Time=date-time\n" +
-                "              Error=error\n" +
-                "              Number=number\n" +
-                "              Text=text\n" +
-                "              Time=time\n" +
+                "            Value type [] id=cellFind-value-type-\n" +
+                "              *\n" +
+                "              boolean\n" +
+                "              date\n" +
+                "              date-time\n" +
+                "              error\n" +
+                "              number\n" +
+                "              text\n" +
+                "              time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -898,26 +898,26 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
-                "              left-right top-down=LRTD\n" +
-                "              right-left top-down=RLTD\n" +
-                "              left-right bottom-up=LRBU\n" +
-                "              right-left bottom-up=RLBU\n" +
-                "              top-down left-right=TDLR\n" +
-                "              top-down right-left=TDRL\n" +
-                "              bottom-up left-right=BULR\n" +
-                "              bottom-up right-left=BURL\n" +
+                "            Cell Range Path [] id=cellFind-cell-range-path-\n" +
+                "              LRTD\n" +
+                "              RLTD\n" +
+                "              LRBU\n" +
+                "              RLBU\n" +
+                "              TDLR\n" +
+                "              TDRL\n" +
+                "              BULR\n" +
+                "              BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=cellFind-value-type-Select\n" +
-                "              Any=*\n" +
-                "              Boolean=boolean\n" +
-                "              Date=date\n" +
-                "              Date Time=date-time\n" +
-                "              Error=error\n" +
-                "              Number=number\n" +
-                "              Text=text\n" +
-                "              Time=time\n" +
+                "            Value type [] id=cellFind-value-type-\n" +
+                "              *\n" +
+                "              boolean\n" +
+                "              date\n" +
+                "              date-time\n" +
+                "              error\n" +
+                "              number\n" +
+                "              text\n" +
+                "              time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1017,26 +1017,26 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
-                "              left-right top-down=LRTD\n" +
-                "              right-left top-down=RLTD\n" +
-                "              left-right bottom-up=LRBU\n" +
-                "              right-left bottom-up=RLBU\n" +
-                "              top-down left-right=TDLR\n" +
-                "              top-down right-left=TDRL\n" +
-                "              bottom-up left-right=BULR\n" +
-                "              bottom-up right-left=BURL\n" +
+                "            Cell Range Path [] id=cellFind-cell-range-path-\n" +
+                "              LRTD\n" +
+                "              RLTD\n" +
+                "              LRBU\n" +
+                "              RLBU\n" +
+                "              TDLR\n" +
+                "              TDRL\n" +
+                "              BULR\n" +
+                "              BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=cellFind-value-type-Select\n" +
-                "              Any=*\n" +
-                "              Boolean=boolean\n" +
-                "              Date=date\n" +
-                "              Date Time=date-time\n" +
-                "              Error=error\n" +
-                "              Number=number\n" +
-                "              Text=text\n" +
-                "              Time=time\n" +
+                "            Value type [] id=cellFind-value-type-\n" +
+                "              *\n" +
+                "              boolean\n" +
+                "              date\n" +
+                "              date-time\n" +
+                "              error\n" +
+                "              number\n" +
+                "              text\n" +
+                "              time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1136,26 +1136,26 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
-                "              left-right top-down=LRTD\n" +
-                "              right-left top-down=RLTD\n" +
-                "              left-right bottom-up=LRBU\n" +
-                "              right-left bottom-up=RLBU\n" +
-                "              top-down left-right=TDLR\n" +
-                "              top-down right-left=TDRL\n" +
-                "              bottom-up left-right=BULR\n" +
-                "              bottom-up right-left=BURL\n" +
+                "            Cell Range Path [] id=cellFind-cell-range-path-\n" +
+                "              LRTD\n" +
+                "              RLTD\n" +
+                "              LRBU\n" +
+                "              RLBU\n" +
+                "              TDLR\n" +
+                "              TDRL\n" +
+                "              BULR\n" +
+                "              BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=cellFind-value-type-Select\n" +
-                "              Any=*\n" +
-                "              Boolean=boolean\n" +
-                "              Date=date\n" +
-                "              Date Time=date-time\n" +
-                "              Error=error\n" +
-                "              Number=number\n" +
-                "              Text=text\n" +
-                "              Time=time\n" +
+                "            Value type [] id=cellFind-value-type-\n" +
+                "              *\n" +
+                "              boolean\n" +
+                "              date\n" +
+                "              date-time\n" +
+                "              error\n" +
+                "              number\n" +
+                "              text\n" +
+                "              time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1255,26 +1255,26 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
-                "              left-right top-down=LRTD\n" +
-                "              right-left top-down=RLTD\n" +
-                "              left-right bottom-up=LRBU\n" +
-                "              right-left bottom-up=RLBU\n" +
-                "              top-down left-right=TDLR\n" +
-                "              top-down right-left=TDRL\n" +
-                "              bottom-up left-right=BULR\n" +
-                "              bottom-up right-left=BURL\n" +
+                "            Cell Range Path [] id=cellFind-cell-range-path-\n" +
+                "              LRTD\n" +
+                "              RLTD\n" +
+                "              LRBU\n" +
+                "              RLBU\n" +
+                "              TDLR\n" +
+                "              TDRL\n" +
+                "              BULR\n" +
+                "              BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=cellFind-value-type-Select\n" +
-                "              Any=*\n" +
-                "              Boolean=boolean\n" +
-                "              Date=date\n" +
-                "              Date Time=date-time\n" +
-                "              Error=error\n" +
-                "              Number=number\n" +
-                "              Text=text\n" +
-                "              Time=time\n" +
+                "            Value type [] id=cellFind-value-type-\n" +
+                "              *\n" +
+                "              boolean\n" +
+                "              date\n" +
+                "              date-time\n" +
+                "              error\n" +
+                "              number\n" +
+                "              text\n" +
+                "              time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1374,26 +1374,26 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
-                "              left-right top-down=LRTD\n" +
-                "              right-left top-down=RLTD\n" +
-                "              left-right bottom-up=LRBU\n" +
-                "              right-left bottom-up=RLBU\n" +
-                "              top-down left-right=TDLR\n" +
-                "              top-down right-left=TDRL\n" +
-                "              bottom-up left-right=BULR\n" +
-                "              bottom-up right-left=BURL\n" +
+                "            Cell Range Path [] id=cellFind-cell-range-path-\n" +
+                "              LRTD\n" +
+                "              RLTD\n" +
+                "              LRBU\n" +
+                "              RLBU\n" +
+                "              TDLR\n" +
+                "              TDRL\n" +
+                "              BULR\n" +
+                "              BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=cellFind-value-type-Select\n" +
-                "              Any=*\n" +
-                "              Boolean=boolean\n" +
-                "              Date=date\n" +
-                "              Date Time=date-time\n" +
-                "              Error=error\n" +
-                "              Number=number\n" +
-                "              Text=text\n" +
-                "              Time=time\n" +
+                "            Value type [] id=cellFind-value-type-\n" +
+                "              *\n" +
+                "              boolean\n" +
+                "              date\n" +
+                "              date-time\n" +
+                "              error\n" +
+                "              number\n" +
+                "              text\n" +
+                "              time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1493,26 +1493,26 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
-                "              left-right top-down=LRTD\n" +
-                "              right-left top-down=RLTD\n" +
-                "              left-right bottom-up=LRBU\n" +
-                "              right-left bottom-up=RLBU\n" +
-                "              top-down left-right=TDLR\n" +
-                "              top-down right-left=TDRL\n" +
-                "              bottom-up left-right=BULR\n" +
-                "              bottom-up right-left=BURL\n" +
+                "            Cell Range Path [] id=cellFind-cell-range-path-\n" +
+                "              LRTD\n" +
+                "              RLTD\n" +
+                "              LRBU\n" +
+                "              RLBU\n" +
+                "              TDLR\n" +
+                "              TDRL\n" +
+                "              BULR\n" +
+                "              BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=cellFind-value-type-Select\n" +
-                "              Any=*\n" +
-                "              Boolean=boolean\n" +
-                "              Date=date\n" +
-                "              Date Time=date-time\n" +
-                "              Error=error\n" +
-                "              Number=number\n" +
-                "              Text=text\n" +
-                "              Time=time\n" +
+                "            Value type [] id=cellFind-value-type-\n" +
+                "              *\n" +
+                "              boolean\n" +
+                "              date\n" +
+                "              date-time\n" +
+                "              error\n" +
+                "              number\n" +
+                "              text\n" +
+                "              time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1612,26 +1612,26 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
-                "              left-right top-down=LRTD\n" +
-                "              right-left top-down=RLTD\n" +
-                "              left-right bottom-up=LRBU\n" +
-                "              right-left bottom-up=RLBU\n" +
-                "              top-down left-right=TDLR\n" +
-                "              top-down right-left=TDRL\n" +
-                "              bottom-up left-right=BULR\n" +
-                "              bottom-up right-left=BURL\n" +
+                "            Cell Range Path [] id=cellFind-cell-range-path-\n" +
+                "              LRTD\n" +
+                "              RLTD\n" +
+                "              LRBU\n" +
+                "              RLBU\n" +
+                "              TDLR\n" +
+                "              TDRL\n" +
+                "              BULR\n" +
+                "              BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=cellFind-value-type-Select\n" +
-                "              Any=*\n" +
-                "              Boolean=boolean\n" +
-                "              Date=date\n" +
-                "              Date Time=date-time\n" +
-                "              Error=error\n" +
-                "              Number=number\n" +
-                "              Text=text\n" +
-                "              Time=time\n" +
+                "            Value type [] id=cellFind-value-type-\n" +
+                "              *\n" +
+                "              boolean\n" +
+                "              date\n" +
+                "              date-time\n" +
+                "              error\n" +
+                "              number\n" +
+                "              text\n" +
+                "              time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1731,26 +1731,26 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
-                "              left-right top-down=LRTD\n" +
-                "              right-left top-down=RLTD\n" +
-                "              left-right bottom-up=LRBU\n" +
-                "              right-left bottom-up=RLBU\n" +
-                "              top-down left-right=TDLR\n" +
-                "              top-down right-left=TDRL\n" +
-                "              bottom-up left-right=BULR\n" +
-                "              bottom-up right-left=BURL\n" +
+                "            Cell Range Path [] id=cellFind-cell-range-path-\n" +
+                "              LRTD\n" +
+                "              RLTD\n" +
+                "              LRBU\n" +
+                "              RLBU\n" +
+                "              TDLR\n" +
+                "              TDRL\n" +
+                "              BULR\n" +
+                "              BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=cellFind-value-type-Select\n" +
-                "              Any=*\n" +
-                "              Boolean=boolean\n" +
-                "              Date=date\n" +
-                "              Date Time=date-time\n" +
-                "              Error=error\n" +
-                "              Number=number\n" +
-                "              Text=text\n" +
-                "              Time=time\n" +
+                "            Value type [] id=cellFind-value-type-\n" +
+                "              *\n" +
+                "              boolean\n" +
+                "              date\n" +
+                "              date-time\n" +
+                "              error\n" +
+                "              number\n" +
+                "              text\n" +
+                "              time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1850,26 +1850,26 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
-                "              left-right top-down=LRTD\n" +
-                "              right-left top-down=RLTD\n" +
-                "              left-right bottom-up=LRBU\n" +
-                "              right-left bottom-up=RLBU\n" +
-                "              top-down left-right=TDLR\n" +
-                "              top-down right-left=TDRL\n" +
-                "              bottom-up left-right=BULR\n" +
-                "              bottom-up right-left=BURL\n" +
+                "            Cell Range Path [] id=cellFind-cell-range-path-\n" +
+                "              LRTD\n" +
+                "              RLTD\n" +
+                "              LRBU\n" +
+                "              RLBU\n" +
+                "              TDLR\n" +
+                "              TDRL\n" +
+                "              BULR\n" +
+                "              BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=cellFind-value-type-Select\n" +
-                "              Any=*\n" +
-                "              Boolean=boolean\n" +
-                "              Date=date\n" +
-                "              Date Time=date-time\n" +
-                "              Error=error\n" +
-                "              Number=number\n" +
-                "              Text=text\n" +
-                "              Time=time\n" +
+                "            Value type [] id=cellFind-value-type-\n" +
+                "              *\n" +
+                "              boolean\n" +
+                "              date\n" +
+                "              date-time\n" +
+                "              error\n" +
+                "              number\n" +
+                "              text\n" +
+                "              time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1969,26 +1969,26 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
-                "              left-right top-down=LRTD\n" +
-                "              right-left top-down=RLTD\n" +
-                "              left-right bottom-up=LRBU\n" +
-                "              right-left bottom-up=RLBU\n" +
-                "              top-down left-right=TDLR\n" +
-                "              top-down right-left=TDRL\n" +
-                "              bottom-up left-right=BULR\n" +
-                "              bottom-up right-left=BURL\n" +
+                "            Cell Range Path [] id=cellFind-cell-range-path-\n" +
+                "              LRTD\n" +
+                "              RLTD\n" +
+                "              LRBU\n" +
+                "              RLBU\n" +
+                "              TDLR\n" +
+                "              TDRL\n" +
+                "              BULR\n" +
+                "              BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=cellFind-value-type-Select\n" +
-                "              Any=*\n" +
-                "              Boolean=boolean\n" +
-                "              Date=date\n" +
-                "              Date Time=date-time\n" +
-                "              Error=error\n" +
-                "              Number=number\n" +
-                "              Text=text\n" +
-                "              Time=time\n" +
+                "            Value type [] id=cellFind-value-type-\n" +
+                "              *\n" +
+                "              boolean\n" +
+                "              date\n" +
+                "              date-time\n" +
+                "              error\n" +
+                "              number\n" +
+                "              text\n" +
+                "              time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -2088,26 +2088,26 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
-                "              left-right top-down=LRTD\n" +
-                "              right-left top-down=RLTD\n" +
-                "              left-right bottom-up=LRBU\n" +
-                "              right-left bottom-up=RLBU\n" +
-                "              top-down left-right=TDLR\n" +
-                "              top-down right-left=TDRL\n" +
-                "              bottom-up left-right=BULR\n" +
-                "              bottom-up right-left=BURL\n" +
+                "            Cell Range Path [] id=cellFind-cell-range-path-\n" +
+                "              LRTD\n" +
+                "              RLTD\n" +
+                "              LRBU\n" +
+                "              RLBU\n" +
+                "              TDLR\n" +
+                "              TDRL\n" +
+                "              BULR\n" +
+                "              BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=cellFind-value-type-Select\n" +
-                "              Any=*\n" +
-                "              Boolean=boolean\n" +
-                "              Date=date\n" +
-                "              Date Time=date-time\n" +
-                "              Error=error\n" +
-                "              Number=number\n" +
-                "              Text=text\n" +
-                "              Time=time\n" +
+                "            Value type [] id=cellFind-value-type-\n" +
+                "              *\n" +
+                "              boolean\n" +
+                "              date\n" +
+                "              date-time\n" +
+                "              error\n" +
+                "              number\n" +
+                "              text\n" +
+                "              time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -2207,26 +2207,26 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              Cell Range [A1] id=cellFind-cell-range-TextBox\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=cellFind-cell-range-path-Select\n" +
-                "              left-right top-down=LRTD\n" +
-                "              right-left top-down=RLTD\n" +
-                "              left-right bottom-up=LRBU\n" +
-                "              right-left bottom-up=RLBU\n" +
-                "              top-down left-right=TDLR\n" +
-                "              top-down right-left=TDRL\n" +
-                "              bottom-up left-right=BULR\n" +
-                "              bottom-up right-left=BURL\n" +
+                "            Cell Range Path [] id=cellFind-cell-range-path-\n" +
+                "              LRTD\n" +
+                "              RLTD\n" +
+                "              LRBU\n" +
+                "              RLBU\n" +
+                "              TDLR\n" +
+                "              TDRL\n" +
+                "              BULR\n" +
+                "              BURL\n" +
                 "        SpreadsheetValueTypeComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=cellFind-value-type-Select\n" +
-                "              Any=*\n" +
-                "              Boolean=boolean\n" +
-                "              Date=date\n" +
-                "              Date Time=date-time\n" +
-                "              Error=error\n" +
-                "              Number=number\n" +
-                "              Text=text\n" +
-                "              Time=time\n" +
+                "            Value type [] id=cellFind-value-type-\n" +
+                "              *\n" +
+                "              boolean\n" +
+                "              date\n" +
+                "              date-time\n" +
+                "              error\n" +
+                "              number\n" +
+                "              text\n" +
+                "              time\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +

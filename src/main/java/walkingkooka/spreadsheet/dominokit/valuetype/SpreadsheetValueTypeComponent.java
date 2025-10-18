@@ -23,6 +23,7 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.select.SelectComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.text.CaseKind;
@@ -41,29 +42,47 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
     HtmlComponentDelegator<HTMLFieldSetElement, SpreadsheetValueTypeComponent>,
     TreePrintable {
 
-    public static SpreadsheetValueTypeComponent empty() {
-        return new SpreadsheetValueTypeComponent();
+    public static SpreadsheetValueTypeComponent empty(final String id,
+                                                      final SpreadsheetValueTypeComponentContext context) {
+        return new SpreadsheetValueTypeComponent(
+            id,
+            context
+        );
     }
 
-    private SpreadsheetValueTypeComponent() {
-        final SelectComponent<ValueTypeName> select = SelectComponent.empty();
+    private SpreadsheetValueTypeComponent(final String id,
+                                          final SpreadsheetValueTypeComponentContext context) {
+        final SelectComponent<ValueTypeName> select = SelectComponent.<ValueTypeName>empty(
+            (v) -> {
+                final ValueTypeName n = v.orElseThrow(() -> new IllegalArgumentException("Missing ValueTypeName"));
+                final String nameText = n.text();
+
+                return context.selectOption(
+                    id + nameText + SpreadsheetElementIds.OPTION, // id
+                    n.isAny() ?
+                        "Any" :
+                        CaseKind.PASCAL.change(
+                            nameText,
+                            CaseKind.TITLE
+                        ), // text
+                    v, // value
+                    Optional.empty() // HistoryToken
+                );
+            }
+        );
 
         select.appendOption(
-            "Any",
-            SpreadsheetValueType.ANY
+            Optional.of(SpreadsheetValueType.ANY)
         );
 
         for (final ValueTypeName typeName : SpreadsheetValueType.ALL_CELL_TYPES) {
             select.appendOption(
-                CaseKind.KEBAB.change(
-                    typeName.text(),
-                    CaseKind.TITLE
-                ),
-                typeName
+                Optional.of(typeName)
             );
         }
 
         this.select = select;
+        this.setId(id);
     }
 
     @Override

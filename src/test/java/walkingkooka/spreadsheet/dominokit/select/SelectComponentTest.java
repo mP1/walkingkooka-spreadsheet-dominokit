@@ -30,21 +30,25 @@ public final class SelectComponentTest implements FormValueComponentTesting<HTML
     @Test
     public void testTreePrint() {
         this.treePrintAndCheck(
-            SelectComponent.empty()
+            this.createComponent()
                 .setLabel("Label123")
                 .setValue(Optional.of("Value456"))
                 .setId("id987")
                 .setDisabled(true)
                 .required()
-                .appendOption("text1", "value1")
-                .appendOption("text2", "value2")
-                .appendOption("text3", "value3")
+                .appendOption(
+                    Optional.of("value1")
+                ).appendOption(
+                    Optional.of("value2")
+                ).appendOption(
+                    Optional.of("value3")
+                )
             ,
             "SelectComponent\n" +
                 "  Label123 [Value456] id=id987 DISABLED REQUIRED\n" +
-                "    text1=value1\n" +
-                "    text2=value2\n" +
-                "    text3=value3\n"
+                "    \"value1\"\n" +
+                "    \"value2\"\n" +
+                "    \"value3\"\n"
         );
     }
 
@@ -52,7 +56,11 @@ public final class SelectComponentTest implements FormValueComponentTesting<HTML
 
     @Override
     public SelectComponent<String> createComponent() {
-        return SelectComponent.empty();
+        return SelectComponent.empty(
+            (v) -> {
+                throw new UnsupportedOperationException();
+            }
+        );
     }
 
     // ClassTesting.....................................................................................................

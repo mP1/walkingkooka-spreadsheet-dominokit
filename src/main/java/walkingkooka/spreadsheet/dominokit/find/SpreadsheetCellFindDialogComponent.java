@@ -186,10 +186,12 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
 
     // path.............................................................................................................
 
+
     private SpreadsheetCellRangeReferencePathComponent path() {
-        return SpreadsheetCellRangeReferencePathComponent.empty()
-            .setId(ID_PREFIX + "cell-range-path" + SpreadsheetElementIds.SELECT)
-            .setLabel("Cell Range Path")
+        return SpreadsheetCellRangeReferencePathComponent.empty(
+                ID_PREFIX + "cell-range-path-",
+                this.context
+            ).setLabel("Cell Range Path")
             .addChangeListener(this::onCellRangePathValueChange);
     }
 
@@ -290,9 +292,10 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
     // valueType........................................................................................................
 
     private SpreadsheetValueTypeComponent valueType() {
-        return SpreadsheetValueTypeComponent.empty()
-            .setId(ID_PREFIX + "value-type" + SpreadsheetElementIds.SELECT)
-            .setLabel("Value type")
+        return SpreadsheetValueTypeComponent.empty(
+                ID_PREFIX + "value-type-",
+                this.context
+            ).setLabel("Value type")
             .addChangeListener(this::onValueTypeChange);
     }
 
