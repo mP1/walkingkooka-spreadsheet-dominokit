@@ -22,9 +22,11 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.select.SelectComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
+import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
@@ -37,19 +39,37 @@ import java.util.Optional;
 public final class SpreadsheetCellRangeReferencePathComponent implements FormValueComponent<HTMLFieldSetElement, SpreadsheetCellRangeReferencePath, SpreadsheetCellRangeReferencePathComponent>,
     HtmlComponentDelegator<HTMLFieldSetElement, SpreadsheetCellRangeReferencePathComponent> {
 
-    public static SpreadsheetCellRangeReferencePathComponent empty() {
-        return new SpreadsheetCellRangeReferencePathComponent();
+    public static SpreadsheetCellRangeReferencePathComponent empty(final String id,
+                                                                   final SpreadsheetCellRangeReferencePathComponentContext context) {
+        return new SpreadsheetCellRangeReferencePathComponent(
+            CharSequences.failIfNullOrEmpty(id, "id"),
+            Objects.requireNonNull(context, "context")
+        );
     }
 
-    private SpreadsheetCellRangeReferencePathComponent() {
-        this.select = SelectComponent.empty();
+    private SpreadsheetCellRangeReferencePathComponent(final String id,
+                                                       final SpreadsheetCellRangeReferencePathComponentContext context) {
+        final SelectComponent<SpreadsheetCellRangeReferencePath> select = SelectComponent.<SpreadsheetCellRangeReferencePath>empty(
+            (v) -> {
+                final SpreadsheetCellRangeReferencePath p = v.orElseThrow(() -> new IllegalArgumentException("Missing SpreadsheetCellRangeReferencePath"));
+
+                return context.selectOption(
+                    id + p.name() + SpreadsheetElementIds.OPTION, // id
+                    p.labelText(), // text
+                    v, // value
+                    Optional.empty() // HistoryToken
+                );
+            }
+        );
 
         for (final SpreadsheetCellRangeReferencePath path : SpreadsheetCellRangeReferencePath.values()) {
-            this.select.appendOption(
-                path.labelText(), // text
-                path // value
+            select.appendOption(
+                Optional.of(path) // value
             );
         }
+
+        this.select = select;
+        this.setId(id);
     }
 
     @Override

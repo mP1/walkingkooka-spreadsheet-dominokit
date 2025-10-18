@@ -21,6 +21,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.validation.ValueTypeName;
 
@@ -31,44 +32,44 @@ public final class SpreadsheetValueTypeComponentTest implements FormValueCompone
     @Test
     public void testTreePrintWithoutValue() {
         this.treePrintAndCheck(
-            SpreadsheetValueTypeComponent.empty(),
+            this.createComponent(),
             "SpreadsheetValueTypeComponent\n" +
                 "  SelectComponent\n" +
-                "    []\n" +
-                "      Any=*\n" +
-                "      Boolean=boolean\n" +
-                "      Date=date\n" +
-                "      Date Time=date-time\n" +
-                "      Error=error\n" +
-                "      Number=number\n" +
-                "      Text=text\n" +
-                "      Time=time\n"
+                "    [] id=ValueType123-\n" +
+                "      *\n" +
+                "      boolean\n" +
+                "      date\n" +
+                "      date-time\n" +
+                "      error\n" +
+                "      number\n" +
+                "      text\n" +
+                "      time\n"
         );
     }
 
     @Test
     public void testTreePrintWithAnyValue() {
         this.treePrintAndCheck(
-            SpreadsheetValueTypeComponent.empty()
+            this.createComponent()
                 .setValue(Optional.of(SpreadsheetValueType.ANY)),
             "SpreadsheetValueTypeComponent\n" +
                 "  SelectComponent\n" +
-                "    [*]\n" +
-                "      Any=*\n" +
-                "      Boolean=boolean\n" +
-                "      Date=date\n" +
-                "      Date Time=date-time\n" +
-                "      Error=error\n" +
-                "      Number=number\n" +
-                "      Text=text\n" +
-                "      Time=time\n"
+                "    [*] id=ValueType123-\n" +
+                "      *\n" +
+                "      boolean\n" +
+                "      date\n" +
+                "      date-time\n" +
+                "      error\n" +
+                "      number\n" +
+                "      text\n" +
+                "      time\n"
         );
     }
 
     @Test
     public void testTreePrintWithBooleanValue() {
         this.treePrintAndCheck(
-            SpreadsheetValueTypeComponent.empty()
+            this.createComponent()
                 .setValue(
                     Optional.of(
                         SpreadsheetValueType.BOOLEAN
@@ -76,15 +77,15 @@ public final class SpreadsheetValueTypeComponentTest implements FormValueCompone
                 ),
             "SpreadsheetValueTypeComponent\n" +
                 "  SelectComponent\n" +
-                "    [boolean]\n" +
-                "      Any=*\n" +
-                "      Boolean=boolean\n" +
-                "      Date=date\n" +
-                "      Date Time=date-time\n" +
-                "      Error=error\n" +
-                "      Number=number\n" +
-                "      Text=text\n" +
-                "      Time=time\n"
+                "    [boolean] id=ValueType123-\n" +
+                "      *\n" +
+                "      boolean\n" +
+                "      date\n" +
+                "      date-time\n" +
+                "      error\n" +
+                "      number\n" +
+                "      text\n" +
+                "      time\n"
         );
     }
 
@@ -92,7 +93,16 @@ public final class SpreadsheetValueTypeComponentTest implements FormValueCompone
 
     @Override
     public SpreadsheetValueTypeComponent createComponent() {
-        return SpreadsheetValueTypeComponent.empty();
+        return SpreadsheetValueTypeComponent.empty(
+            "ValueType123-",
+            new FakeSpreadsheetValueTypeComponentContext() {
+
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.parseString("/1/SpreadsheetName1/cell/A1");
+                }
+            }
+        );
     }
 
     // class............................................................................................................

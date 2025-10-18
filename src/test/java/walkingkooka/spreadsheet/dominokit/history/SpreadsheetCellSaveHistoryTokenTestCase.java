@@ -21,8 +21,6 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 
-import java.util.Optional;
-
 public abstract class SpreadsheetCellSaveHistoryTokenTestCase<T extends SpreadsheetCellSaveHistoryToken<?>> extends SpreadsheetCellHistoryTokenTestCase<T> {
 
     SpreadsheetCellSaveHistoryTokenTestCase() {
@@ -42,15 +40,6 @@ public abstract class SpreadsheetCellSaveHistoryTokenTestCase<T extends Spreadsh
     public final void testNavigation() {
         this.navigationAndCheck(
             this.createHistoryToken()
-        );
-    }
-
-    // setSaveStringValue.....................................................................................................
-
-    @Test
-    public final void testSetSaveValueWithInvalidOptionalValueFails() {
-        this.setSaveValueFails(
-            Optional.of(this)
         );
     }
 }

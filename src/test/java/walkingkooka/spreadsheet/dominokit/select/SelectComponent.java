@@ -19,19 +19,19 @@ package walkingkooka.spreadsheet.dominokit.select;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
+import org.dominokit.domino.ui.forms.suggest.SelectOption;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
 import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.text.printer.TreePrintable;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.Function;
 
 /**
  * A select component with a few helpers to assist with build and working with values.
@@ -40,7 +40,9 @@ public final class SelectComponent<T> implements FormValueComponent<HTMLFieldSet
     FormValueComponentTreePrintable<HTMLFieldSetElement, SelectComponent<T>, T>,
     TestHtmlElementComponent<HTMLFieldSetElement, SelectComponent<T>> {
 
-    public static <T> SelectComponent<T> empty() {
+    public static <T> SelectComponent<T> empty(final Function<Optional<T>, SelectOption<T>> selectCreator) {
+        Objects.requireNonNull(selectCreator, "selectCreator");
+
         return new SelectComponent<>();
     }
 
@@ -211,45 +213,26 @@ public final class SelectComponent<T> implements FormValueComponent<HTMLFieldSet
     /**
      * Appends a new value to the drop down.
      */
-    public SelectComponent<T> appendOption(final String text,
-                                           final T value) {
-        checkText(text);
-        checkValue(value);
+    public SelectComponent<T> appendOption(final Optional<T> value) {
 
-        return this.appendOption(
-            text,
-            Optional.of(value)
-        );
-    }
-
-    /**
-     * Appends a new value to the drop down.
-     */
-    public SelectComponent<T> appendOption(final String text,
-                                           final Optional<T> value) {
-        checkText(text);
-        checkValue(value);
-
-        this.textToValue.put(
-            text,
-            value
+        this.values.add(
+            Objects.requireNonNull(value, "value")
+                .orElse(null)
         );
         return this;
     }
 
     public SelectComponent<T> clearOptions() {
-        this.textToValue.clear();
+        this.values.clear();
         return this;
     }
 
     // order is important!
-    private final Map<String, Optional<T>> textToValue = Maps.ordered();
+    private final List<T> values = Lists.array();
 
     @Override
     public SelectComponent<T> setValue(final Optional<T> value) {
-        checkValue(value);
-
-        this.value = value;
+        this.value = Objects.requireNonNull(value, "value");
         return this;
     }
 
@@ -260,27 +243,18 @@ public final class SelectComponent<T> implements FormValueComponent<HTMLFieldSet
 
     private Optional<T> value = Optional.empty();
 
-    private static String checkText(final String text) {
-        return Objects.requireNonNull(text, "text");
-    }
-
-    private static <T> T checkValue(final T value) {
-        return Objects.requireNonNull(value, "value");
-    }
-
     // FormValueComponentTreePrintable..................................................................................
 
     @Override
     public void treePrintAlternateValues(final IndentingPrinter printer) {
         printer.indent();
         {
-            for (final Entry<String, Optional<T>> textAndValue : this.textToValue.entrySet()) {
-                printer.println(
-                    textAndValue.getKey() +
-                        "=" +
-                        textAndValue.getValue()
-                            .map(Object::toString)
-                            .orElse("")
+            for (final T value : this.values) {
+                printer.lineStart();
+
+                TreePrintable.printTreeOrToString(
+                    value,
+                    printer
                 );
             }
         }

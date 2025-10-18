@@ -22,8 +22,12 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.select.SelectComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
+import walkingkooka.text.CaseKind;
+import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.validation.ValidationChoice;
 import walkingkooka.validation.ValidationChoiceList;
@@ -38,12 +42,42 @@ import java.util.Optional;
 public final class ValidationChoiceListComponent implements FormValueComponent<HTMLFieldSetElement, Object, ValidationChoiceListComponent>,
     HtmlComponentDelegator<HTMLFieldSetElement, ValidationChoiceListComponent> {
 
-    public static ValidationChoiceListComponent empty() {
-        return new ValidationChoiceListComponent();
+    public static ValidationChoiceListComponent empty(final String id,
+                                                      final ValidationChoiceListComponentContext context) {
+        return new ValidationChoiceListComponent(
+            CharSequences.failIfNullOrEmpty(id, id),
+            Objects.requireNonNull(context, "context")
+        );
     }
 
-    private ValidationChoiceListComponent() {
-        this.select = SelectComponent.empty();
+    private ValidationChoiceListComponent(final String id,
+                                          final ValidationChoiceListComponentContext context) {
+        this.select = SelectComponent.<ValidationChoice>empty(
+            (v) -> {
+                final ValidationChoice c = v.orElseThrow(() -> new IllegalArgumentException("Missing ValidationChoice"));
+                final String nameText = c.label();
+
+                final HistoryToken historyToken = context.historyToken();
+
+                return context.selectOption(
+                    id + c.value() + SpreadsheetElementIds.OPTION, // id
+                    CaseKind.PASCAL.change(
+                        nameText,
+                        CaseKind.TITLE
+                    ), // text
+                    v, // value
+                    historyToken.selection()
+                        .map(s ->
+                            historyToken.setSelection(
+                                Optional.of(s)
+                            ).setSaveValue(
+                                v.flatMap(vv -> vv.value())
+                            )
+                        )
+                );
+            }
+        );
+        this.setId(id);
         this.validationChoiceList = ValidationChoiceList.EMPTY;
     }
 
@@ -165,7 +199,13 @@ public final class ValidationChoiceListComponent implements FormValueComponent<H
 
     @Override
     public ValidationChoiceListComponent addChangeListener(final ChangeListener<Optional<Object>> listener) {
-        this.select.addChangeListener(listener);
+        this.select.addChangeListener(
+            (final Optional<ValidationChoice> oldValue,
+             final Optional<ValidationChoice> newValue) -> listener.onValueChanged(
+                oldValue.map(ValidationChoice::value),
+                newValue.map(ValidationChoice::value)
+            )
+        );
         return this;
     }
 
@@ -202,13 +242,12 @@ public final class ValidationChoiceListComponent implements FormValueComponent<H
     public ValidationChoiceListComponent setValidationChoiceList(final ValidationChoiceList validationChoiceList) {
         Objects.requireNonNull(validationChoiceList, "validationChoiceList");
 
-        final SelectComponent<Object> select = this.select;
+        final SelectComponent<ValidationChoice> select = this.select;
         select.clearOptions();
 
         for (final ValidationChoice choice : validationChoiceList) {
             select.appendOption(
-                choice.label(),
-                choice.value()
+                Optional.of(choice)
             );
         }
 
@@ -225,13 +264,19 @@ public final class ValidationChoiceListComponent implements FormValueComponent<H
     public ValidationChoiceListComponent setValue(final Optional<Object> value) {
         Objects.requireNonNull(value, "value");
 
-        this.select.setValue(value);
+        // Select#value only match using ValidationChoice#value and not ValidationChoice#label and #value.
+        this.select.setValue(
+            this.validationChoiceList.stream()
+                .filter(c -> c.value().equals(value))
+                .findFirst()
+        );
         return this;
     }
 
     @Override //
     public Optional<Object> value() {
-        return this.select.value();
+        return this.select.value()
+            .map(ValidationChoice::value);
     }
 
     @Override
@@ -246,7 +291,7 @@ public final class ValidationChoiceListComponent implements FormValueComponent<H
         return this.select;
     }
 
-    private final SelectComponent<Object> select;
+    private final SelectComponent<ValidationChoice> select;
 
     // Object...........................................................................................................
 

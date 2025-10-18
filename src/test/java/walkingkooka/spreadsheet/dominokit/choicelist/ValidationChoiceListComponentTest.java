@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.choicelist;
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.validation.ValidationChoice;
 import walkingkooka.validation.ValidationChoiceList;
@@ -31,7 +32,7 @@ public final class ValidationChoiceListComponentTest implements FormValueCompone
     @Test
     public void testSetValidationChoiceList() {
         this.treePrintAndCheck(
-            ValidationChoiceListComponent.empty()
+            this.createComponent()
                 .setLabel("Label")
                 .setValidationChoiceList(
                     ValidationChoiceList.EMPTY.concat(
@@ -57,17 +58,19 @@ public final class ValidationChoiceListComponentTest implements FormValueCompone
                 ),
             "ValidationChoiceListComponent\n" +
                 "  SelectComponent\n" +
-                "    Label []\n" +
-                "      ValueLabel1=Value1\n" +
-                "      ValueLabel2=Value2\n" +
-                "      ValueLabel3=\n"
+                "    Label [] id=ChoiceList123\n" +
+                "      ValueLabel1\n" +
+                "        \"Value1\"\n" +
+                "      ValueLabel2\n" +
+                "        \"Value2\"\n" +
+                "      ValueLabel3\n"
         );
     }
 
     @Test
     public void testSetValidationChoiceListWithNumberValues() {
         this.treePrintAndCheck(
-            ValidationChoiceListComponent.empty()
+            this.createComponent()
                 .setValidationChoiceList(
                     ValidationChoiceList.EMPTY.concat(
                         ValidationChoice.with(
@@ -92,17 +95,19 @@ public final class ValidationChoiceListComponentTest implements FormValueCompone
                 ),
             "ValidationChoiceListComponent\n" +
                 "  SelectComponent\n" +
-                "    []\n" +
-                "      ValueLabel1=11\n" +
-                "      ValueLabel2=22\n" +
-                "      ValueLabel3=\n"
+                "    [] id=ChoiceList123\n" +
+                "      ValueLabel1\n" +
+                "        11\n" +
+                "      ValueLabel2\n" +
+                "        22\n" +
+                "      ValueLabel3\n"
         );
     }
 
     @Test
     public void testSetValidationChoiceListAndSetValue() {
         this.treePrintAndCheck(
-            ValidationChoiceListComponent.empty()
+            this.createComponent()
                 .setLabel("LabelLabel")
                 .setValidationChoiceList(
                     ValidationChoiceList.EMPTY.concat(
@@ -130,17 +135,19 @@ public final class ValidationChoiceListComponentTest implements FormValueCompone
                 ),
             "ValidationChoiceListComponent\n" +
                 "  SelectComponent\n" +
-                "    LabelLabel [11]\n" +
-                "      ValueLabel1=11\n" +
-                "      ValueLabel2=22\n" +
-                "      ValueLabel3=\n"
+                "    LabelLabel [ValueLabel1=11] id=ChoiceList123\n" +
+                "      ValueLabel1\n" +
+                "        11\n" +
+                "      ValueLabel2\n" +
+                "        22\n" +
+                "      ValueLabel3\n"
         );
     }
 
     @Test
     public void testSetValidationChoiceListSetValidationChoiceList() {
         this.treePrintAndCheck(
-            ValidationChoiceListComponent.empty()
+            this.createComponent()
                 .setLabel("LabelLabel")
                 .setValidationChoiceList(
                     ValidationChoiceList.EMPTY.concat(
@@ -177,10 +184,12 @@ public final class ValidationChoiceListComponentTest implements FormValueCompone
                 ),
             "ValidationChoiceListComponent\n" +
                 "  SelectComponent\n" +
-                "    LabelLabel [Value1]\n" +
-                "      DifferentLabel1=DifferentValue1\n" +
-                "      DifferentLabel2=DifferentValue2\n" +
-                "      DifferentLabel3=\n"
+                "    LabelLabel [Label1=\"Value1\"] id=ChoiceList123\n" +
+                "      DifferentLabel1\n" +
+                "        \"DifferentValue1\"\n" +
+                "      DifferentLabel2\n" +
+                "        \"DifferentValue2\"\n" +
+                "      DifferentLabel3\n"
         );
     }
 
@@ -188,7 +197,16 @@ public final class ValidationChoiceListComponentTest implements FormValueCompone
 
     @Override
     public ValidationChoiceListComponent createComponent() {
-        return ValidationChoiceListComponent.empty();
+        return ValidationChoiceListComponent.empty(
+            "ChoiceList123",
+            new FakeValidationChoiceListComponentContext() {
+
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.parseString("/1/SpreadsheetName1/cell/A1");
+                }
+            }
+        );
     }
 
     // class............................................................................................................

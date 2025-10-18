@@ -22,6 +22,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.suggest.Select;
 import org.dominokit.domino.ui.forms.suggest.SelectOption;
+import org.dominokit.domino.ui.menu.MenuItem;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
@@ -33,6 +34,7 @@ import walkingkooka.text.printer.TreePrintable;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.Function;
 
 /**
  * A select component with a few helpers to assist with build and working with values.
@@ -40,14 +42,18 @@ import java.util.Optional;
 public final class SelectComponent<T> implements FormValueComponent<HTMLFieldSetElement, T, SelectComponent<T>>,
     FormValueComponentTreePrintable<HTMLFieldSetElement, SelectComponent<T>, T> {
 
-    public static <T> SelectComponent<T> empty() {
-        return new SelectComponent<>();
+    public static <T> SelectComponent<T> empty(final Function<Optional<T>, SelectOption<T>> selectCreator) {
+        return new SelectComponent<>(
+            Objects.requireNonNull(selectCreator, "selectCreator")
+        );
     }
 
-    private SelectComponent() {
+    private SelectComponent(final Function<Optional<T>, SelectOption<T>> selectCreator) {
         this.select = Select.create();
         this.select.setAutoValidation(true);
         this.select.addValidator(SelectComponentValidator.with(this));
+
+        this.selectCreator = selectCreator;
     }
 
     // id...............................................................................................................
@@ -98,33 +104,20 @@ public final class SelectComponent<T> implements FormValueComponent<HTMLFieldSet
     /**
      * Appends a new value to the drop down.
      */
-    public SelectComponent<T> appendOption(final String text,
-                                           final T value) {
-        Objects.requireNonNull(text, "text");
-        Objects.requireNonNull(value, "value");
-
-        return this.appendOption(
-            text,
-            Optional.of(value)
+    public SelectComponent<T> appendOption(final Optional<T> value) {
+        this.select.appendChild(
+            this.selectCreator.apply(
+                Objects.requireNonNull(value, "value")
+            )
         );
+
+        return this;
     }
 
     /**
-     * Appends a new value to the drop down.
+     * Factory that creates the {@link MenuItem}, for each option.
      */
-    public SelectComponent<T> appendOption(final String text,
-                                           final Optional<T> value) {
-        Objects.requireNonNull(text, "text");
-        Objects.requireNonNull(value, "value");
-
-        this.select.appendChild(
-            SelectOption.create(
-                value.orElse(null),
-                text
-            )
-        );
-        return this;
-    }
+    private final Function<Optional<T>, SelectOption<T>> selectCreator;
 
     public SelectComponent<T> clearOptions() {
         this.select.removeAllOptions();

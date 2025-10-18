@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import walkingkooka.spreadsheet.dominokit.choicelist.ValidationChoiceListComponentContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
@@ -31,7 +32,8 @@ import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigation;
 interface SpreadsheetViewportComponentTableContext extends HistoryContext,
     LoggingContext,
     HasSpreadsheetViewportCache,
-    SpreadsheetViewportContext{
+    SpreadsheetViewportContext,
+    ValidationChoiceListComponentContext {
 
     /**
      * The width allocated to the viewport grid.

@@ -71,11 +71,11 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
 
         HistoryToken historyToken = this;
 
-        final Object valueOrNull = value.orElse(null);
-
         if (this instanceof SpreadsheetCellSelectHistoryToken || this instanceof SpreadsheetCellSaveHistoryToken) {
-            historyToken = this.setSaveValueSave(valueOrNull);
+            historyToken = this.setSaveValueSave(value);
         }
+
+        final Object valueOrNull = value.orElse(null);
 
         if (this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken) {
             if (null != valueOrNull && false == valueOrNull instanceof DateTimeSymbols) {
@@ -263,9 +263,10 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
     }
 
     // handles sub-classes of SpreadsheetCellSaveHistoryToken
-    private HistoryToken setSaveValueSave(final Object valueOrNull) {
+    private HistoryToken setSaveValueSave(final Optional<?> value) {
         HistoryToken historyToken = null;
 
+        final Object valueOrNull = value.orElse(null);
         if (valueOrNull instanceof Set) {
             historyToken = HistoryToken.cellSaveCell(
                 this.id,
@@ -423,7 +424,16 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                 if (null == valueOrNull) {
                     historyToken = this.clearAction();
                 } else {
-                    throw new IllegalArgumentException("Invalid value: got " + valueOrNull.getClass().getSimpleName());
+                    historyToken = HistoryToken.cellValueSave(
+                        this.id,
+                        this.name,
+                        this.anchoredSelection,
+                        null != valueOrNull ?
+                            SpreadsheetValueType.toValueType(valueOrNull.getClass())
+                                .orElse(SpreadsheetValueType.TEXT) :
+                            SpreadsheetValueType.TEXT, // valueType
+                        value
+                    );
                 }
             }
         }

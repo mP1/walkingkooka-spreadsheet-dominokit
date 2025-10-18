@@ -17,10 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import org.dominokit.domino.ui.forms.suggest.SelectOption;
 import walkingkooka.Context;
 
 import java.util.Objects;
 import java.util.Optional;
+
+import static org.dominokit.domino.ui.utils.Domino.div;
 
 /**
  * A {@link Context} that includes operations to interact with the history tokens.
@@ -77,5 +80,24 @@ public interface HistoryContext extends Context {
         }
 
         return menu;
+    }
+
+    /**
+     * Creates a {@link SelectOption} with a custom menu item which allows anchors with [@link HistoryToken] links.
+     */
+    default <T> SelectOption<T> selectOption(final String id,
+                                             final String text,
+                                             final Optional<T> value,
+                                             final Optional<HistoryToken> historyToken) {
+        return SelectOption.<T>create(
+            id, // key
+            value.orElse(null), // value
+            (final String k, final T v) -> div(),
+            (final String k, final T v) -> this.menuItem(
+                id,
+                text,
+                historyToken
+            )
+        );
     }
 }
