@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.reference;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -74,6 +75,14 @@ final class SpreadsheetSelectionMenuFormatter {
             menu,
             idPrefix,
             context
+        );
+
+        menu.separator();
+
+        buildClear(
+            historyToken,
+            menu,
+            idPrefix
         );
 
         menu.separator();
@@ -150,6 +159,26 @@ final class SpreadsheetSelectionMenuFormatter {
                 );
             }
         }
+    }
+
+    private static void buildClear(final HistoryToken historyToken,
+                                   final SpreadsheetContextMenu menu,
+                                   final String idPrefix) {
+        menu.item(
+            SpreadsheetContextMenuItem.with(
+                idPrefix + "clear" + SpreadsheetElementIds.MENU_ITEM,
+                "Clear..."
+            ).icon(
+                Optional.of(
+                    SpreadsheetIcons.formatterRemove()
+                )
+            ).historyToken(
+                Optional.of(
+                    historyToken.formatter()
+                        .clearSaveValue()
+                )
+            )
+        );
     }
 
     private static void buildEdit(final HistoryToken historyToken,
