@@ -35,6 +35,7 @@ import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.validation.ValidationChoiceList;
+import walkingkooka.validation.ValidationPromptValue;
 
 import java.util.function.Predicate;
 
@@ -99,12 +100,13 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
 
         if (null != cell) {
             final SpreadsheetFormula formula = cell.formula();
-            final ValidationChoiceList choices = cell.validationChoiceList()
+            final ValidationPromptValue prompt = cell.validationPromptValue()
                 .orElse(null);
-            if (selected && null != choices) {
+            if (selected && prompt instanceof ValidationChoiceList) {
+                final ValidationChoiceList choices = (ValidationChoiceList) prompt;
                 td.appendChild(
                     ValidationChoiceListComponent.empty(
-                        this.td.id() + "-",
+                            this.td.id() + "-",
                             context
                         ).setValidationChoiceList(choices)
                         .setValue(
