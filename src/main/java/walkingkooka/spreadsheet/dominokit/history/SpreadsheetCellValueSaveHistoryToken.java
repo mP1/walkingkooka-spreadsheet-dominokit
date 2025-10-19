@@ -113,7 +113,7 @@ public final class SpreadsheetCellValueSaveHistoryToken extends SpreadsheetCellV
                 if (SpreadsheetCellValueDialogComponent.NOW_TEXT.equals(valueOrNull) && ((SpreadsheetValueType.DATE_TIME.equals(valueType) || SpreadsheetValueType.LOCAL_DATE_TIME.equals(valueType) || SpreadsheetValueType.TIME.equals(valueType) || SpreadsheetValueType.LOCAL_TIME.equals(valueType)))) {
                     json = SpreadsheetCellValueDialogComponent.NOW_TEXT;
                 } else {
-                    json = MARSHALL_CONTEXT.marshall(valueOrNull).toString();
+                    json = MARSHALL_UNMARSHALL_CONTEXT.marshall(valueOrNull).toString();
                 }
             }
         }

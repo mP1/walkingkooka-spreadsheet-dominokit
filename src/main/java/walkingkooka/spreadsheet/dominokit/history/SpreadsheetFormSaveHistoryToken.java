@@ -79,7 +79,7 @@ public final class SpreadsheetFormSaveHistoryToken extends SpreadsheetFormHistor
             .appendSlashThen(
                 SAVE).appendSlashThen(
                 UrlFragment.with(
-                    MARSHALL_CONTEXT.marshall(this.form)
+                    MARSHALL_UNMARSHALL_CONTEXT.marshall(this.form)
                         .toString()
                 )
             );

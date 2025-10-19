@@ -68,9 +68,9 @@ import walkingkooka.text.cursor.parser.Parsers;
 import walkingkooka.text.cursor.parser.StringParserToken;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.json.JsonNode;
-import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
-import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
+import walkingkooka.tree.json.marshall.JsonNodeMarshallUnmarshallContext;
+import walkingkooka.tree.json.marshall.JsonNodeMarshallUnmarshallContexts;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -303,7 +303,16 @@ public abstract class HistoryToken implements HasUrlFragment {
 
     final static UrlFragment WILDCARD = UrlFragment.parse(WILDCARD_STRING);
 
-    final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
+    /**
+     * Used to marshall and unmarshall a save value.
+     */
+    final static JsonNodeMarshallUnmarshallContext MARSHALL_UNMARSHALL_CONTEXT = JsonNodeMarshallUnmarshallContexts.basic(
+        JsonNodeMarshallContexts.basic(),
+        JsonNodeUnmarshallContexts.basic(
+            ExpressionNumberKind.BIG_DECIMAL,
+            MathContext.DECIMAL64
+        )
+    );
 
     /**
      * {@see SpreadsheetCellSelectHistoryToken}
@@ -2052,16 +2061,11 @@ public abstract class HistoryToken implements HasUrlFragment {
 
     static <T> T parseJson(final JsonNode json,
                            final Class<T> type) {
-        return UNMARSHALL_CONTEXT.unmarshall(
+        return MARSHALL_UNMARSHALL_CONTEXT.unmarshall(
             json,
             type
         );
     }
-
-    final static JsonNodeUnmarshallContext UNMARSHALL_CONTEXT = JsonNodeUnmarshallContexts.basic(
-        ExpressionNumberKind.BIG_DECIMAL,
-        MathContext.DECIMAL64
-    );
 
     static OptionalInt parseOptionalInt(final TextCursor cursor) {
         return parseComponent(cursor)
@@ -4263,7 +4267,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                                             if (SpreadsheetCellValueDialogComponent.NOW_TEXT.equals(value) && ((SpreadsheetValueType.DATE_TIME.equals(valueType) || SpreadsheetValueType.LOCAL_DATE_TIME.equals(valueType) || SpreadsheetValueType.TIME.equals(valueType) || SpreadsheetValueType.LOCAL_TIME.equals(valueType)))) {
                                                 saveValue = SpreadsheetCellValueDialogComponent.NOW_TEXT;
                                             } else {
-                                                saveValue = UNMARSHALL_CONTEXT.unmarshall(
+                                                saveValue = MARSHALL_UNMARSHALL_CONTEXT.unmarshall(
                                                     JsonNode.parse(value),
                                                     SpreadsheetValueType.toClass(valueType)
                                                         .orElse(String.class)
