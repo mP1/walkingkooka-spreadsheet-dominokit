@@ -68,11 +68,12 @@ public final class ValidationChoiceListComponent implements FormValueComponent<H
                     v, // value
                     historyToken.selection()
                         .map(s ->
-                            historyToken.setSelection(
-                                Optional.of(s)
-                            ).setSaveValue(
-                                v.flatMap(vv -> vv.value())
-                            )
+                            historyToken.clearSelection()
+                                .setSelection(
+                                    Optional.of(s)
+                                ).setSaveValue(
+                                    v.flatMap(vv -> vv.value())
+                                )
                         )
                 );
             }
