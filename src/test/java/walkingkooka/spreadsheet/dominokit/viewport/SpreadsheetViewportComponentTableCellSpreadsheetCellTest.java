@@ -36,6 +36,7 @@ import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.FontStyle;
 import walkingkooka.tree.text.Length;
@@ -51,6 +52,8 @@ import java.util.Arrays;
 import java.util.Optional;
 
 public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest extends SpreadsheetViewportComponentTableCellTestCase<HTMLTableCellElement, SpreadsheetViewportComponentTableCellSpreadsheetCell> {
+
+    private final static SpreadsheetCellReference SELECTION = SpreadsheetSelection.A1;
 
     @Test
     public void testTreePrintNothingSelected() {
@@ -147,7 +150,7 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                SpreadsheetSelection.A1.setDefaultAnchor()
+                SELECTION.setDefaultAnchor()
             ),
             false, // shouldHideZeroValues
             false, // shouldShowFormulas
@@ -181,7 +184,7 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                SpreadsheetSelection.A1.setDefaultAnchor()
+                SELECTION.setDefaultAnchor()
             ),
             false, // shouldHideZeroValues
             false, // shouldShowFormulas
@@ -262,7 +265,7 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                SpreadsheetSelection.A1.column()
+                SELECTION.column()
                     .setDefaultAnchor()
             ),
             false, // shouldHideZeroValues
@@ -281,7 +284,7 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                SpreadsheetSelection.A1.row()
+                SELECTION.row()
                     .setDefaultAnchor()
             ),
             false, // shouldHideZeroValues
@@ -300,7 +303,7 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                SpreadsheetSelection.A1.setDefaultAnchor()
+                SELECTION.setDefaultAnchor()
             ),
             false, // shouldHideZeroValues
             false, // shouldShowFormulas
@@ -495,7 +498,7 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
                 Url.parseRelative("/api/spreadsheet/1/cell/A1"),
                 SpreadsheetDelta.EMPTY.setCells(
                     Sets.of(
-                        SpreadsheetSelection.A1.setFormula(
+                        SELECTION.setFormula(
                             SpreadsheetFormula.EMPTY.setText("=1+2")
                                 .setValue(value)
                                 .setError(error)
@@ -507,7 +510,7 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
 
         this.treePrintAndCheck(
             SpreadsheetViewportComponentTableCellSpreadsheetCell.empty(
-                SpreadsheetSelection.A1,
+                SELECTION,
                 tableContext
             ),
             expected
