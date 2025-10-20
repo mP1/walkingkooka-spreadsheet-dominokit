@@ -887,10 +887,8 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         final Optional<SpreadsheetViewport> maybeSpreadsheetViewport = delta.viewport();
         if (maybeSpreadsheetViewport.isPresent()) {
             final SpreadsheetViewport viewport = maybeSpreadsheetViewport.get();
-            this.synchronizeHistoryToken(
-                viewport,
-                context
-            );
+
+            this.synchronizeSpreadsheetDeltaViewportSelectionHistoryToken(viewport);
             this.reloadSpreadsheetMetadataIfViewportChanged(viewport);
         }
         this.componentLifecycleHistoryTokenQuery(context);
@@ -898,30 +896,37 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
     }
 
     /**
-     * Reacts to new or different {@link AnchoredSpreadsheetSelection} from a {@link SpreadsheetDelta} response,
-     * pushing the {@link AnchoredSpreadsheetSelection} to the {@link HistoryToken} which results in the navigation
-     * being updated and followed.
+     * If the table is being edited and the {@link SpreadsheetDelta#viewport()} contains a new {@link SpreadsheetSelection}
+     * push a new {@link HistoryToken}.
+     * <br>
+     * If the {@link SpreadsheetViewport#anchoredSelection()} can be empty (such as a {@link walkingkooka.validation.ValidationCheckbox}
+     * server PATCH and will be ignored.
      */
-    private void synchronizeHistoryToken(final SpreadsheetViewport viewport,
-                                         final AppContext context) {
+    private void synchronizeSpreadsheetDeltaViewportSelectionHistoryToken(final SpreadsheetViewport viewport) {
         if (this.table.isEditing()) {
+            final SpreadsheetViewportComponentContext context = this.context;
+
             // before pushing history token need to update the AppContext.metadata
             final HistoryToken historyToken = context.historyToken();
 
-            final HistoryToken withSelection = historyToken
-                .clearSelection()
-                .setAnchoredSelection(
-                    viewport.anchoredSelection()
-                );
+            final Optional<AnchoredSpreadsheetSelection> viewportSelection = viewport.anchoredSelection();
 
-            if(SPREADSHEET_VIEWPORT_COMPONENT) {
-                context.debug(
-                    this.getClass().getSimpleName() +
-                        ".synchronizeHistoryToken different selection from history token @" +
-                        withSelection
-                );
+            // Without this ValidationCheckbox, ValidationChoiceList server patch will lose focus.
+            if (viewportSelection.isPresent()) {
+                final HistoryToken withSelection = historyToken
+                    .setAnchoredSelection(viewportSelection);
+
+                if (SPREADSHEET_VIEWPORT_COMPONENT) {
+                    context.debug(
+                        this.getClass().getSimpleName() +
+                            ".onSpreadsheetDelta " +
+                            (viewportSelection.map(Object::toString).orElse("").trim()) +
+                            "different selection " +
+                            withSelection
+                    );
+                }
+                context.pushHistoryToken(withSelection);
             }
-            context.pushHistoryToken(withSelection);
         }
     }
 
