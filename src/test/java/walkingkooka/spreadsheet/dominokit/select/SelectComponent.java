@@ -19,12 +19,11 @@ package walkingkooka.spreadsheet.dominokit.select;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
+import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.suggest.SelectOption;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
@@ -36,9 +35,8 @@ import java.util.function.Function;
 /**
  * A select component with a few helpers to assist with build and working with values.
  */
-public final class SelectComponent<T> implements FormValueComponent<HTMLFieldSetElement, T, SelectComponent<T>>,
-    FormValueComponentTreePrintable<HTMLFieldSetElement, SelectComponent<T>, T>,
-    TestHtmlElementComponent<HTMLFieldSetElement, SelectComponent<T>> {
+public final class SelectComponent<T> extends SelectComponentLike<T>
+    implements TestHtmlElementComponent<HTMLFieldSetElement, SelectComponent<T>> {
 
     public static <T> SelectComponent<T> empty(final Function<Optional<T>, SelectOption<T>> selectCreator) {
         Objects.requireNonNull(selectCreator, "selectCreator");
@@ -48,6 +46,29 @@ public final class SelectComponent<T> implements FormValueComponent<HTMLFieldSet
 
     private SelectComponent() {
     }
+
+    /**
+     * Appends a new value to the drop down.
+     */
+    @Override
+    public SelectComponent<T> appendOption(final Optional<T> value) {
+
+        this.values.add(
+            Objects.requireNonNull(value, "value")
+                .orElse(null)
+        );
+        return this;
+    }
+
+    @Override
+    public SelectComponent<T> clearOptions() {
+        this.values.clear();
+        return this;
+    }
+
+    // order is important!
+    private final List<T> values = Lists.array();
+
 
     @Override
     public SelectComponent<T> setId(final String id) {
@@ -134,21 +155,6 @@ public final class SelectComponent<T> implements FormValueComponent<HTMLFieldSet
     }
 
     @Override
-    public SelectComponent<T> alwaysShowHelperText() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SelectComponent<T> setHelperText(final Optional<String> text) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Optional<String> helperText() {
-        return Optional.empty();
-    }
-
-    @Override
     public SelectComponent<T> hideMarginBottom() {
         return this;
     }
@@ -163,77 +169,22 @@ public final class SelectComponent<T> implements FormValueComponent<HTMLFieldSet
         return this;
     }
 
-    @Override
-    public SelectComponent<T> addBlurListener(final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-        return this;
-    }
+    // addXXXListener...................................................................................................
 
-    @Override public SelectComponent<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
+    @Override
+    public SelectComponent<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
         Objects.requireNonNull(listener, "listener");
 
         return this;
     }
 
     @Override
-    public SelectComponent<T> addClickListener(final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
+    SelectComponent<T> addEventListener(final EventType type,
+                                        final EventListener listener) {
         return this;
-    }
-
-    @Override
-    public SelectComponent<T> addContextMenuListener(final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-        return this;
-    }
-
-    @Override
-    public SelectComponent<T> addFocusListener(final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-        return this;
-    }
-
-    @Override
-    public SelectComponent<T> addKeyDownListener(final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        return this;
-    }
-
-    @Override
-    public SelectComponent<T> addKeyUpListener(final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-        return this;
-    }
-
-    // IsElement........................................................................................................
-
-    @Override
-    public HTMLFieldSetElement element() {
-        throw new UnsupportedOperationException();
     }
 
     // Value............................................................................................................
-
-    /**
-     * Appends a new value to the drop down.
-     */
-    public SelectComponent<T> appendOption(final Optional<T> value) {
-
-        this.values.add(
-            Objects.requireNonNull(value, "value")
-                .orElse(null)
-        );
-        return this;
-    }
-
-    public SelectComponent<T> clearOptions() {
-        this.values.clear();
-        return this;
-    }
-
-    // order is important!
-    private final List<T> values = Lists.array();
 
     @Override
     public SelectComponent<T> setValue(final Optional<T> value) {
