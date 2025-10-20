@@ -129,10 +129,12 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              boolean\n" +
                 "              date\n" +
                 "              date-time\n" +
+                "              email\n" +
                 "              error\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
+                "              url\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -250,10 +252,12 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              boolean\n" +
                 "              date\n" +
                 "              date-time\n" +
+                "              email\n" +
                 "              error\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
+                "              url\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -371,10 +375,12 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              boolean\n" +
                 "              date\n" +
                 "              date-time\n" +
+                "              email\n" +
                 "              error\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
+                "              url\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -490,10 +496,12 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              boolean\n" +
                 "              date\n" +
                 "              date-time\n" +
+                "              email\n" +
                 "              error\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
+                "              url\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -645,10 +653,12 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              boolean\n" +
                 "              date\n" +
                 "              date-time\n" +
+                "              email\n" +
                 "              error\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
+                "              url\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -795,10 +805,12 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              boolean\n" +
                 "              date\n" +
                 "              date-time\n" +
+                "              email\n" +
                 "              error\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
+                "              url\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -914,10 +926,12 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              boolean\n" +
                 "              date\n" +
                 "              date-time\n" +
+                "              email\n" +
                 "              error\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
+                "              url\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1033,10 +1047,12 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              boolean\n" +
                 "              date\n" +
                 "              date-time\n" +
+                "              email\n" +
                 "              error\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
+                "              url\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1152,10 +1168,12 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              boolean\n" +
                 "              date\n" +
                 "              date-time\n" +
+                "              email\n" +
                 "              error\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
+                "              url\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1271,10 +1289,12 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              boolean\n" +
                 "              date\n" +
                 "              date-time\n" +
+                "              email\n" +
                 "              error\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
+                "              url\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1390,10 +1410,12 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              boolean\n" +
                 "              date\n" +
                 "              date-time\n" +
+                "              email\n" +
                 "              error\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
+                "              url\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1509,10 +1531,12 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              boolean\n" +
                 "              date\n" +
                 "              date-time\n" +
+                "              email\n" +
                 "              error\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
+                "              url\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1628,10 +1652,12 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              boolean\n" +
                 "              date\n" +
                 "              date-time\n" +
+                "              email\n" +
                 "              error\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
+                "              url\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1747,10 +1773,12 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              boolean\n" +
                 "              date\n" +
                 "              date-time\n" +
+                "              email\n" +
                 "              error\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
+                "              url\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1866,10 +1894,12 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              boolean\n" +
                 "              date\n" +
                 "              date-time\n" +
+                "              email\n" +
                 "              error\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
+                "              url\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1985,10 +2015,12 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              boolean\n" +
                 "              date\n" +
                 "              date-time\n" +
+                "              email\n" +
                 "              error\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
+                "              url\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -2104,10 +2136,12 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              boolean\n" +
                 "              date\n" +
                 "              date-time\n" +
+                "              email\n" +
                 "              error\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
+                "              url\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -2223,10 +2257,12 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              boolean\n" +
                 "              date\n" +
                 "              date-time\n" +
+                "              email\n" +
                 "              error\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
+                "              url\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
