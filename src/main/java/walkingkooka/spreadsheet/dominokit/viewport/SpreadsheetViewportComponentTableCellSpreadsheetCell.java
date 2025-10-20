@@ -22,10 +22,14 @@ import org.dominokit.domino.ui.menu.direction.DropDirection;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
+import walkingkooka.spreadsheet.dominokit.checkbox.ValidationCheckboxComponent;
 import walkingkooka.spreadsheet.dominokit.choicelist.ValidationChoiceListComponent;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.dom.TdComponent;
 import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -34,9 +38,11 @@ import walkingkooka.tree.text.Badge;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
+import walkingkooka.validation.ValidationCheckbox;
 import walkingkooka.validation.ValidationChoiceList;
 import walkingkooka.validation.ValidationPromptValue;
 
+import java.util.Optional;
 import java.util.function.Predicate;
 
 /**
@@ -100,19 +106,16 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
 
         if (null != cell) {
             final SpreadsheetFormula formula = cell.formula();
+
             final ValidationPromptValue prompt = cell.validationPromptValue()
                 .orElse(null);
-            if (selected && prompt instanceof ValidationChoiceList) {
-                final ValidationChoiceList choices = (ValidationChoiceList) prompt;
+            if (selected && null != prompt) {
                 td.appendChild(
-                    ValidationChoiceListComponent.empty(
-                            this.td.id() + "-",
-                            context
-                        ).setValidationChoiceList(choices)
-                        .setValue(
-                            formula.value()
-                        ).removeBorders()
-                        .removePadding()
+                    this.handleValidationPromptValue(
+                        prompt,
+                        formula,
+                        context
+                    )
                 );
             } else {
                 final boolean shouldHideZeroValues = context.shouldHideZeroValues();
@@ -183,6 +186,49 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
     }
 
     private final SpreadsheetCellReference cellReference;
+
+    private HtmlComponent<?, ?> handleValidationPromptValue(final ValidationPromptValue validationPromptValue,
+                                                            final SpreadsheetFormula formula,
+                                                            final SpreadsheetViewportComponentTableContext context) {
+        final String idPrefix = this.td.id();
+        final Optional<Object> formulaValue = formula.value();
+
+        final ValueComponent<?, ?, ?> component;
+
+        if (validationPromptValue instanceof ValidationChoiceList) {
+            component = ValidationChoiceListComponent.empty(
+                    idPrefix + "-",
+                    context
+                ).setValidationChoiceList((ValidationChoiceList) validationPromptValue)
+                .setValue(
+                    formulaValue
+                ).removeBorders()
+                .removePadding();
+        } else {
+            if (validationPromptValue instanceof ValidationCheckbox) {
+                final ValidationCheckboxComponent checkbox = ValidationCheckboxComponent.empty(
+                        idPrefix + SpreadsheetElementIds.CHECKBOX,
+                        context
+                    ).setValidationCheckbox((ValidationCheckbox) validationPromptValue)
+                    .setValue(formulaValue)
+                    .removeBorders()
+                    .removePadding()
+                    .setCssText("width: fit-content; height: 0px; margin: auto;")
+                    .addChangeListener(
+                        (Optional<Object> oldValue, Optional<Object> newValue) -> context.pushHistoryToken(
+                            context.historyToken()
+                                .clearAction()
+                                .setSaveValue(newValue)
+                        )
+                    );
+                component = checkbox;
+            } else {
+                throw new IllegalArgumentException("Unknown value: " + validationPromptValue);
+            }
+        }
+
+        return component;
+    }
 
     private void tooltipRefresh(final String newTooltipMessage) {
         final String oldTooltipMessage = this.tooltipMessage;
