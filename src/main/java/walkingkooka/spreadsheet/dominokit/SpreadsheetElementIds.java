@@ -23,6 +23,8 @@ public final class SpreadsheetElementIds implements PublicStaticHelper {
 
     public final static String BUTTON = "-Button";
 
+    public final static String CHECKBOX = "-Checkbox";
+
     public final static String CHIP = "-Chip";
 
     public final static String DATE = "-Date";

@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import walkingkooka.spreadsheet.dominokit.checkbox.ValidationCheckboxComponentContext;
 import walkingkooka.spreadsheet.dominokit.choicelist.ValidationChoiceListComponentContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -33,6 +34,7 @@ interface SpreadsheetViewportComponentTableContext extends HistoryContext,
     LoggingContext,
     HasSpreadsheetViewportCache,
     SpreadsheetViewportContext,
+    ValidationCheckboxComponentContext,
     ValidationChoiceListComponentContext {
 
     /**
