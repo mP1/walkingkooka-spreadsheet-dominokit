@@ -40,10 +40,12 @@ public final class SpreadsheetValueTypeComponentTest implements FormValueCompone
                 "      boolean\n" +
                 "      date\n" +
                 "      date-time\n" +
+                "      email\n" +
                 "      error\n" +
                 "      number\n" +
                 "      text\n" +
-                "      time\n"
+                "      time\n" +
+                "      url\n"
         );
     }
 
@@ -59,10 +61,12 @@ public final class SpreadsheetValueTypeComponentTest implements FormValueCompone
                 "      boolean\n" +
                 "      date\n" +
                 "      date-time\n" +
+                "      email\n" +
                 "      error\n" +
                 "      number\n" +
                 "      text\n" +
-                "      time\n"
+                "      time\n" +
+                "      url\n"
         );
     }
 
@@ -82,10 +86,12 @@ public final class SpreadsheetValueTypeComponentTest implements FormValueCompone
                 "      boolean\n" +
                 "      date\n" +
                 "      date-time\n" +
+                "      email\n" +
                 "      error\n" +
                 "      number\n" +
                 "      text\n" +
-                "      time\n"
+                "      time\n" +
+                "      url\n"
         );
     }
 
