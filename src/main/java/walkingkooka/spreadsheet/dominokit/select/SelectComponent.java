@@ -26,8 +26,6 @@ import org.dominokit.domino.ui.menu.MenuItem;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
@@ -39,8 +37,7 @@ import java.util.function.Function;
 /**
  * A select component with a few helpers to assist with build and working with values.
  */
-public final class SelectComponent<T> implements FormValueComponent<HTMLFieldSetElement, T, SelectComponent<T>>,
-    FormValueComponentTreePrintable<HTMLFieldSetElement, SelectComponent<T>, T> {
+public final class SelectComponent<T> extends SelectComponentLike<T> {
 
     public static <T> SelectComponent<T> empty(final Function<Optional<T>, SelectOption<T>> selectCreator) {
         return new SelectComponent<>(
@@ -54,6 +51,31 @@ public final class SelectComponent<T> implements FormValueComponent<HTMLFieldSet
         this.select.addValidator(SelectComponentValidator.with(this));
 
         this.selectCreator = selectCreator;
+    }
+
+    /**
+     * Appends a new value to the drop down.
+     */
+    @Override
+    public SelectComponent<T> appendOption(final Optional<T> value) {
+        this.select.appendChild(
+            this.selectCreator.apply(
+                Objects.requireNonNull(value, "value")
+            )
+        );
+
+        return this;
+    }
+
+    /**
+     * Factory that creates the {@link MenuItem}, for each option.
+     */
+    private final Function<Optional<T>, SelectOption<T>> selectCreator;
+
+    @Override
+    public SelectComponent<T> clearOptions() {
+        this.select.removeAllOptions();
+        return this;
     }
 
     // id...............................................................................................................
@@ -82,47 +104,7 @@ public final class SelectComponent<T> implements FormValueComponent<HTMLFieldSet
         return this.select.getLabel();
     }
 
-    // helperText.......................................................................................................
-
-    @Override
-    public SelectComponent<T> alwaysShowHelperText() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SelectComponent<T> setHelperText(final Optional<String> text) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Optional<String> helperText() {
-        return Optional.empty();
-    }
-
     // Value............................................................................................................
-
-    /**
-     * Appends a new value to the drop down.
-     */
-    public SelectComponent<T> appendOption(final Optional<T> value) {
-        this.select.appendChild(
-            this.selectCreator.apply(
-                Objects.requireNonNull(value, "value")
-            )
-        );
-
-        return this;
-    }
-
-    /**
-     * Factory that creates the {@link MenuItem}, for each option.
-     */
-    private final Function<Optional<T>, SelectOption<T>> selectCreator;
-
-    public SelectComponent<T> clearOptions() {
-        this.select.removeAllOptions();
-        return this;
-    }
 
     @Override
     public SelectComponent<T> setValue(final Optional<T> value) {
@@ -197,14 +179,6 @@ public final class SelectComponent<T> implements FormValueComponent<HTMLFieldSet
     // events...........................................................................................................
 
     @Override
-    public SelectComponent<T> addBlurListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.blur,
-            listener
-        );
-    }
-
-    @Override
     public SelectComponent<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
         Objects.requireNonNull(listener, "listener");
 
@@ -218,47 +192,8 @@ public final class SelectComponent<T> implements FormValueComponent<HTMLFieldSet
     }
 
     @Override
-    public SelectComponent<T> addClickListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.click,
-            listener
-        );
-    }
-
-    @Override
-    public SelectComponent<T> addContextMenuListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.contextmenu,
-            listener
-        );
-    }
-
-    @Override
-    public SelectComponent<T> addFocusListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.focus,
-            listener
-        );
-    }
-
-    @Override
-    public SelectComponent<T> addKeyDownListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.keydown,
-            listener
-        );
-    }
-
-    @Override
-    public SelectComponent<T> addKeyUpListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.keyup,
-            listener
-        );
-    }
-
-    private SelectComponent<T> addEventListener(final EventType type,
-                                                final EventListener listener) {
+    SelectComponent<T> addEventListener(final EventType type,
+                                        final EventListener listener) {
         this.select.addEventListener(
             type,
             Objects.requireNonNull(listener, "listener")
