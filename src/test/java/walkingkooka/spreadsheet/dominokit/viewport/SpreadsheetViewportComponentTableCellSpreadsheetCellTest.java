@@ -44,6 +44,8 @@ import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.tree.text.WordBreak;
 import walkingkooka.validation.ValidationCheckbox;
+import walkingkooka.validation.ValidationChoice;
+import walkingkooka.validation.ValidationChoiceList;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -170,6 +172,54 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
                 "      ValidationCheckboxComponent\n" +
                 "        CheckboxComponent\n" +
                 "          [false] id=viewport-cell-A1-Checkbox\n"
+        );
+    }
+
+    @Test
+    public void testTreePrintSpreadsheetCellWithChoiceList() {
+        this.treePrintAndCheck2(
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            false, // shouldHideZeroValues
+            false, // shouldShowFormulas
+            SpreadsheetFormula.NO_VALUE, // value
+            Optional.of(
+                SpreadsheetError.validationPromptValue(
+                    ValidationChoiceList.EMPTY.concat(
+                        ValidationChoice.with(
+                            "Label1",
+                            Optional.of(111)
+                        )
+                    ).concat(
+                        ValidationChoice.with(
+                            "Label2",
+                            Optional.of(222)
+                        )
+                    )
+                )
+            ),
+            Optional.of(
+                TextNode.badge(
+                    "BadgeText111"
+                ).appendChild(
+                    TextNode.text(
+                        String.valueOf(123)
+                    )
+                )
+            ),
+            "SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
+                "  TD\n" +
+                "    id=\"viewport-cell-A1\" tabIndex=0 style=\"box-sizing: border-box; color: green; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "      ValidationChoiceListComponent\n" +
+                "        SelectComponent\n" +
+                "          [] id=viewport-cell-A1-\n" +
+                "            Label1\n" +
+                "              111\n" +
+                "            Label2\n" +
+                "              222\n"
         );
     }
 
