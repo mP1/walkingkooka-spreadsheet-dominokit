@@ -76,6 +76,7 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
                 this.selectAll(event);
                 break;
             case "b":
+            case "2":
                 this.bold(event);
                 break;
             case "i":

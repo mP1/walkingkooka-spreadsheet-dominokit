@@ -183,6 +183,32 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
         this.defaultPreventedAndCheck(event);
     }
 
+    @Test
+    public void testHandleEventWithBoldKey2WithCellRangeSelectionWithoutBold() {
+        final KeyboardEvent event = controlKey("2");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL_RANGE
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL_RANGE,
+                TextStylePropertyName.FONT_WEIGHT,
+                Optional.of(FontWeight.BOLD)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
     // italics..........................................................................................................
 
     @Test
