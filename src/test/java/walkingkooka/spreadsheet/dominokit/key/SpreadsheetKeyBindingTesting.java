@@ -59,5 +59,36 @@ public interface SpreadsheetKeyBindingTesting<T extends SpreadsheetKeyBinding> e
         );
     }
 
+    @Test
+    default void testUniqueKeyBindings() throws Exception {
+        final Map<KeyBinding, Set<String>> duplicates = Maps.sorted();
+
+        final SpreadsheetKeyBinding spreadsheetKeyBinding = this.createSpreadsheetKeyBinding();
+
+        for(final Method method : SpreadsheetKeyBinding.class.getDeclaredMethods()) {
+            for(KeyBinding key : (Set<KeyBinding>) method.invoke(spreadsheetKeyBinding)) {
+                Set<String> getters = duplicates.get(key);
+                if(null == getters) {
+                    getters = SortedSets.tree();
+                    duplicates.put(
+                        key,
+                        getters
+                    );
+                }
+
+                getters.add(method.getName());
+            }
+        }
+
+
+        this.checkEquals(
+            Sets.empty(),
+            duplicates.values()
+                .stream()
+                .filter(v -> v.size() > 1)
+                .collect(Collectors.toCollection(SortedSets::tree))
+        );
+    }
+
     T createSpreadsheetKeyBinding();
 }
