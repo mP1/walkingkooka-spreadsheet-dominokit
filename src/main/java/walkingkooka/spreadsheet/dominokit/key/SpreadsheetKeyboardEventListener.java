@@ -88,6 +88,9 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
             case "3":
                 this.italics(event);
                 break;
+            case "5":
+                this.strikethru(event);
+                break;
             case "u":
             case "4":
                 this.underline(event);
@@ -124,6 +127,14 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
             context.pushHistoryToken(historyToken);
         }
 
+        event.preventDefault();
+    }
+
+    private void strikethru(final KeyboardEvent event) {
+        this.flipCellStyle(
+            TextStylePropertyName.TEXT_DECORATION_LINE,
+            TextDecorationLine.LINE_THROUGH
+        );
         event.preventDefault();
     }
 
