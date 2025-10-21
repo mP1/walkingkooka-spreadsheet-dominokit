@@ -40,6 +40,8 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public final class SpreadsheetKeyboardEventListenerTest implements TreePrintableTesting {
 
     private final static SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1);
@@ -50,6 +52,16 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
     private final static AnchoredSpreadsheetSelection CELL_RANGE = SpreadsheetSelection.parseCellRange("A1:B2")
         .setAnchor(SpreadsheetViewportAnchor.TOP_LEFT);
+
+    // with.............................................................................................................
+
+    @Test
+    public void testWithNullContextFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetKeyboardEventListener.with(null)
+        );
+    }
 
     // bold.............................................................................................................
 
