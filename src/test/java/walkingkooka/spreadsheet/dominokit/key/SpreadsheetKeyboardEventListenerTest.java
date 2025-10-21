@@ -32,6 +32,7 @@ import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
 import walkingkooka.text.printer.TreePrintableTesting;
 import walkingkooka.tree.text.FontStyle;
 import walkingkooka.tree.text.FontWeight;
+import walkingkooka.tree.text.TextDecorationLine;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -390,6 +391,149 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 SpreadsheetSelection.ALL_CELLS.setDefaultAnchor()
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    // underline........................................................................................................
+
+    @Test
+    public void testHandleEventWithUnderlineWithoutCellSelection() {
+        final KeyboardEvent event = controlKey("u");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.spreadsheetSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME
+                )
+            )
+        );
+    }
+
+    @Test
+    public void testHandleEventWithUnderlineWithCellSelectionWithoutFontStyle() {
+        final KeyboardEvent event = controlKey("u");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.TEXT_DECORATION_LINE,
+                Optional.of(
+                    TextDecorationLine.UNDERLINE
+                )
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
+    public void testHandleEventWithUnderlineWithCellSelectionWithLineThrough() {
+        final KeyboardEvent event = controlKey("u");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+                    .setStyle(
+                        TextStyle.EMPTY.set(
+                            TextStylePropertyName.TEXT_DECORATION_LINE,
+                            TextDecorationLine.LINE_THROUGH
+                        )
+                    )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.TEXT_DECORATION_LINE,
+                Optional.of(
+                    TextDecorationLine.UNDERLINE
+                )
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
+    public void testHandleEventWithUnderlineWithCellSelectionWithUnderline() {
+        final KeyboardEvent event = controlKey("u");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+                    .setStyle(
+                        TextStyle.EMPTY.set(
+                            TextStylePropertyName.TEXT_DECORATION_LINE,
+                            TextDecorationLine.UNDERLINE
+                        )
+                    )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.TEXT_DECORATION_LINE,
+                Optional.empty()
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
+    public void testHandleEventWithUnderlineFourDigitWithCellSelectionWithUnderline() {
+        final KeyboardEvent event = controlKey("4");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+                    .setStyle(
+                        TextStyle.EMPTY.set(
+                            TextStylePropertyName.TEXT_DECORATION_LINE,
+                            TextDecorationLine.UNDERLINE
+                        )
+                    )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.TEXT_DECORATION_LINE,
+                Optional.empty()
             )
         );
 
