@@ -18,9 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.key;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 
 /**
  * A {@link walkingkooka.Context} that helps dispatch global keys such as CONTROL-B to bold a cell and more.
  */
-public interface SpreadsheetKeyboardContext extends HistoryContext {
+public interface SpreadsheetKeyboardContext extends HistoryContext,
+    LoggingContext {
 }
