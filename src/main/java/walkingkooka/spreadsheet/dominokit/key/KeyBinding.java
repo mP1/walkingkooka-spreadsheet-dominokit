@@ -27,7 +27,7 @@ import java.util.Objects;
 /**
  * Captures the binding for a single keyboard to action mapping.
  */
-public final class KeyBinding {
+public final class KeyBinding implements Comparable<KeyBinding> {
 
     public static KeyBinding with(final String key) {
         return new KeyBinding(
@@ -177,4 +177,11 @@ public final class KeyBinding {
     }
 
     private String toString;
+
+    // Comparable.......................................................................................................
+
+    @Override
+    public int compareTo(final KeyBinding other) {
+        return this.toString().compareTo(other.toString());
+    }
 }

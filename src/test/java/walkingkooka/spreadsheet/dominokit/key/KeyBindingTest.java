@@ -20,12 +20,14 @@ package walkingkooka.spreadsheet.dominokit.key;
 import org.junit.jupiter.api.Test;
 import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.ToStringTesting;
+import walkingkooka.compare.ComparableTesting2;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
 public final class KeyBindingTest implements HashCodeEqualsDefinedTesting2<KeyBinding>,
     ToStringTesting<KeyBinding>,
-    ClassTesting<KeyBinding> {
+    ClassTesting<KeyBinding>,
+    ComparableTesting2<KeyBinding> {
 
     // equals...........................................................................................................
 
@@ -73,11 +75,6 @@ public final class KeyBindingTest implements HashCodeEqualsDefinedTesting2<KeyBi
         );
     }
 
-    @Override
-    public KeyBinding createObject() {
-        return KeyBinding.with("A");
-    }
-
     // ToString.........................................................................................................
 
     @Test
@@ -107,6 +104,25 @@ public final class KeyBindingTest implements HashCodeEqualsDefinedTesting2<KeyBi
                 .setShift(),
             "\"a\" alt control meta shift"
         );
+    }
+
+    // Comparable.......................................................................................................
+
+    @Test
+    public void testCompareLess() {
+        this.compareToAndCheckLess(
+            KeyBinding.with("a")
+                .setAlt()
+                .setControl()
+                .setMeta()
+                .setShift(),
+            KeyBinding.with("b")
+        );
+    }
+
+    @Override
+    public KeyBinding createComparable() {
+        return KeyBinding.with("a");
     }
 
     // class............................................................................................................
