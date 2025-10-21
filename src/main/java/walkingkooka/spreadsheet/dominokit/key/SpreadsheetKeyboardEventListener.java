@@ -20,20 +20,23 @@ package walkingkooka.spreadsheet.dominokit.key;
 import elemental2.dom.Event;
 import elemental2.dom.EventListener;
 import elemental2.dom.KeyboardEvent;
+import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.Logging;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.FontStyle;
 import walkingkooka.tree.text.FontWeight;
 import walkingkooka.tree.text.TextDecorationLine;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Collection;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.Consumer;
 
 
 /**
@@ -43,14 +46,53 @@ import java.util.Optional;
 public class SpreadsheetKeyboardEventListener implements EventListener,
     Logging {
 
-    public static SpreadsheetKeyboardEventListener with(final SpreadsheetKeyboardContext context) {
+    public static SpreadsheetKeyboardEventListener with(final SpreadsheetKeyBinding bindings,
+                                                        final SpreadsheetKeyboardContext context) {
         return new SpreadsheetKeyboardEventListener(
+            Objects.requireNonNull(bindings, "bindings"),
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private SpreadsheetKeyboardEventListener(final SpreadsheetKeyboardContext context) {
+    private SpreadsheetKeyboardEventListener(final SpreadsheetKeyBinding bindings,
+                                             final SpreadsheetKeyboardContext context) {
+        this.bindingToKeyboardEventHandler = Maps.sorted();
         this.context = context;
+
+        this.registerBindings(
+            bindings.bold(),
+            this::bold
+        );
+
+        this.registerBindings(
+            bindings.italics(),
+            this::italics
+        );
+
+        this.registerBindings(
+            bindings.selectAll(),
+            this::selectAll
+        );
+
+        this.registerBindings(
+            bindings.strikethru(),
+            this::strikethru
+        );
+
+        this.registerBindings(
+            bindings.underline(),
+            this::underline
+        );
+    }
+
+    private void registerBindings(final Collection<KeyBinding> bindings,
+                                  final Consumer<KeyboardEvent> handler) {
+        for(KeyBinding binding : bindings) {
+            this.bindingToKeyboardEventHandler.put(
+                binding,
+                handler
+            );
+        }
     }
 
     @Override
@@ -61,44 +103,32 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
     }
 
     private void handleKeyEvent(final KeyboardEvent event) {
+        KeyBinding binding = KeyBinding.with(event.key);
+
+        if(event.altKey) {
+            binding = binding.setAlt();
+        }
+        if(event.ctrlKey) {
+            binding = binding.setControl();
+        }
+        if(event.metaKey) {
+            binding = binding.setMeta();
+        }
+        if(event.shiftKey) {
+            binding = binding.setShift();
+        }
+
         if (SPREADSHEET_KEYBOARD_EVENT_LISTENER) {
-            this.context.debug(this.getClass().getSimpleName() + " handleKeyEvent " +
-                (event.ctrlKey ? "control " : "") +
-                (event.shiftKey ? "shift " : "") +
-                (event.altKey ? "alt " : "") +
-                "key: " + CharSequences.quote(event.key)
-            );
+            this.context.debug(this.getClass().getSimpleName() + " handleKeyEvent " + binding);
         }
 
-        if (event.ctrlKey) {
-            this.handleControlKeyEvent(event);
+        final Consumer<KeyboardEvent> handler = this.bindingToKeyboardEventHandler.get(binding);
+        if(null != handler) {
+            handler.accept(event);
         }
     }
 
-    private void handleControlKeyEvent(final KeyboardEvent event) {
-        switch (event.key) {
-            case "a":
-                this.selectAll(event);
-                break;
-            case "b":
-            case "2":
-                this.bold(event);
-                break;
-            case "i":
-            case "3":
-                this.italics(event);
-                break;
-            case "5":
-                this.strikethru(event);
-                break;
-            case "u":
-            case "4":
-                this.underline(event);
-                break;
-            default:
-                break;
-        }
-    }
+    private final Map<KeyBinding, Consumer<KeyboardEvent>> bindingToKeyboardEventHandler;
 
     private void bold(final KeyboardEvent event) {
         this.flipCellStyle(
