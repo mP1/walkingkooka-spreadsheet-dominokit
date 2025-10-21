@@ -18,8 +18,10 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.Event;
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.elements.SectionElement;
+import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.lib.Icons;
 import org.dominokit.domino.ui.layout.AppLayout;
 import org.dominokit.domino.ui.layout.RightDrawerSize;
@@ -27,6 +29,7 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
+import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyboardEventListener;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataHistoryTokenAwareComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponent;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponentContexts;
@@ -93,6 +96,8 @@ final class SpreadsheetAppLayout extends AppLayout implements
         );
 
         this.context = context;
+
+        this.keyboardEventListener = SpreadsheetKeyboardEventListener.with(context);
     }
 
     private void appendRightDrawer() {
@@ -179,6 +184,11 @@ final class SpreadsheetAppLayout extends AppLayout implements
             this.element(),
             true
         );
+
+        this.addEventListener(
+            EventType.keydown.getName(),
+            this.keyboardEventListener
+        );
     }
 
     @Override
@@ -197,7 +207,16 @@ final class SpreadsheetAppLayout extends AppLayout implements
             this.element(),
             false
         );
+        this.removeEventListener(
+            EventType.keydown.getName(),
+            this.keyboardEventListener
+        );
     }
+
+    /**
+     * A keydown {@link EventListener} that handles global spreadsheet events
+     */
+    private final EventListener keyboardEventListener;
 
     @Override
     public boolean shouldLogLifecycleChanges() {
