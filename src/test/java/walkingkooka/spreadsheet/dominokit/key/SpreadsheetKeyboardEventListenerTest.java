@@ -53,9 +53,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
     @Test
     public void testHandleEventWithBoldWithoutCellSelection() {
-        final KeyboardEvent event = new KeyboardEvent(EventType.keydown.getName());
-        event.ctrlKey = true;
-        event.key = "b";
+        final KeyboardEvent event = controlKey("b");
 
         this.handleEventAndCheck(
             event,
@@ -70,9 +68,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
     @Test
     public void testHandleEventWithBoldWithCellSelectionWithNonBoldFontWeight() {
-        final KeyboardEvent event = new KeyboardEvent(EventType.keydown.getName());
-        event.ctrlKey = true;
-        event.key = "b";
+        final KeyboardEvent event = controlKey("b");
 
         this.handleEventAndCheck(
             event,
@@ -104,9 +100,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
     @Test
     public void testHandleEventWithBoldWithCellSelectionWithoutBold() {
-        final KeyboardEvent event = new KeyboardEvent(EventType.keydown.getName());
-        event.ctrlKey = true;
-        event.key = "b";
+        final KeyboardEvent event = controlKey("b");
 
         this.handleEventAndCheck(
             event,
@@ -132,9 +126,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
     @Test
     public void testHandleEventWithBoldWithCellSelectionWithBold() {
-        final KeyboardEvent event = new KeyboardEvent(EventType.keydown.getName());
-        event.ctrlKey = true;
-        event.key = "b";
+        final KeyboardEvent event = controlKey("b");
 
         this.handleEventAndCheck(
             event,
@@ -166,9 +158,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
     @Test
     public void testHandleEventWithBoldWithCellRangeSelectionWithoutBold() {
-        final KeyboardEvent event = new KeyboardEvent(EventType.keydown.getName());
-        event.ctrlKey = true;
-        event.key = "b";
+        final KeyboardEvent event = controlKey("b");
 
         this.handleEventAndCheck(
             event,
@@ -196,9 +186,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
     @Test
     public void testHandleEventWithSelectAllWithoutSelection() {
-        final KeyboardEvent event = new KeyboardEvent(EventType.keydown.getName());
-        event.ctrlKey = true;
-        event.key = "a";
+        final KeyboardEvent event = controlKey("a");
 
         this.handleEventAndCheck(
             event,
@@ -220,9 +208,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
     @Test
     public void testHandleEventWithSelectAllWithCellSelection() {
-        final KeyboardEvent event = new KeyboardEvent(EventType.keydown.getName());
-        event.ctrlKey = true;
-        event.key = "a";
+        final KeyboardEvent event = controlKey("a");
 
         this.handleEventAndCheck(
             event,
@@ -242,6 +228,15 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.defaultPreventedAndCheck(event);
     }
+
+    private static KeyboardEvent controlKey(final String key) {
+        final KeyboardEvent event = new KeyboardEvent(EventType.keydown.getName());
+        event.ctrlKey = true;
+        event.key = key;
+        return event;
+    }
+
+    // handleEventAndCheck..............................................................................................
 
     private void handleEventAndCheck(final KeyboardEvent event,
                                      final TestSpreadsheetKeyboardContext context) {
