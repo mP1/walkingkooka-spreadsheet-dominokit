@@ -36,6 +36,10 @@ import java.util.Objects;
 import java.util.Optional;
 
 
+/**
+ * Maps well known Excel keyboard shortcuts
+ * <pre>https://support.microsoft.com/en-au/office/keyboard-shortcuts-in-excel-1798d9d5-842a-42b8-9c99-9b7213f0040f</pre>
+ */
 public class SpreadsheetKeyboardEventListener implements EventListener,
     Logging {
 
