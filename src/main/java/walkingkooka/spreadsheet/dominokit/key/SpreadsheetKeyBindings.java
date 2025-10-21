@@ -27,6 +27,13 @@ public final class SpreadsheetKeyBindings implements PublicStaticHelper {
     /**
      * {@see FakeSpreadsheetKeyBinding}
      */
+    public static SpreadsheetKeyBinding basic() {
+        return BasicSpreadsheetKeyBinding.INSTANCE;
+    }
+
+    /**
+     * {@see FakeSpreadsheetKeyBinding}
+     */
     public static SpreadsheetKeyBinding fake() {
         return new FakeSpreadsheetKeyBinding();
     }
