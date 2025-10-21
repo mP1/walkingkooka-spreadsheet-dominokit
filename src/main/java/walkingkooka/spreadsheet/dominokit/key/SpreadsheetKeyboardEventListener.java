@@ -28,6 +28,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.FontStyle;
 import walkingkooka.tree.text.FontWeight;
+import walkingkooka.tree.text.TextDecorationLine;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -83,6 +84,10 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
             case "3":
                 this.italics(event);
                 break;
+            case "u":
+            case "4":
+                this.underline(event);
+                break;
             default:
                 break;
         }
@@ -115,6 +120,14 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
             context.pushHistoryToken(historyToken);
         }
 
+        event.preventDefault();
+    }
+
+    private void underline(final KeyboardEvent event) {
+        this.flipCellStyle(
+            TextStylePropertyName.TEXT_DECORATION_LINE,
+            TextDecorationLine.UNDERLINE
+        );
         event.preventDefault();
     }
 
