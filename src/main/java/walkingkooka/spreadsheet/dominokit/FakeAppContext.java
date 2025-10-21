@@ -804,4 +804,11 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     public <T> List<T> recentValueSaves(final Class<T> type) {
         throw new UnsupportedOperationException();
     }
+
+    // SpreadsheetKeyboardContext.......................................................................................
+
+    @Override
+    public Optional<SpreadsheetCell> historyTokenCell() {
+        throw new UnsupportedOperationException();
+    }
 }
