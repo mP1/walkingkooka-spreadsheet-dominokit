@@ -36,6 +36,11 @@ public class FakeSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
     }
 
     @Override
+    public Set<KeyBinding> leftTextAlign() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public Set<KeyBinding> selectAll() {
         throw new UnsupportedOperationException();
     }

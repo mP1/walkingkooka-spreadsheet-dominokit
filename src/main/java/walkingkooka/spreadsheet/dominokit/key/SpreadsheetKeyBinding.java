@@ -25,6 +25,8 @@ public interface SpreadsheetKeyBinding {
 
     Set<KeyBinding> italics();
 
+    Set<KeyBinding> leftTextAlign();
+
     Set<KeyBinding> selectAll();
 
     Set<KeyBinding> strikethru();

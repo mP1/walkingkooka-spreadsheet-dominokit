@@ -28,6 +28,7 @@ import walkingkooka.spreadsheet.dominokit.log.Logging;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.FontStyle;
 import walkingkooka.tree.text.FontWeight;
+import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextDecorationLine;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -67,6 +68,11 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         this.registerBindings(
             bindings.italics(),
             this::italics
+        );
+
+        this.registerBindings(
+            bindings.leftTextAlign(),
+            this::leftTextAlignment
         );
 
         this.registerBindings(
@@ -146,6 +152,14 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         event.preventDefault();
     }
 
+    private void leftTextAlignment(final KeyboardEvent event) {
+        this.setCellStyle(
+            TextStylePropertyName.TEXT_ALIGN,
+            TextAlign.LEFT
+        );
+        event.preventDefault();
+    }
+
     private void selectAll(final KeyboardEvent event) {
         final SpreadsheetKeyboardContext context = this.context;
 
@@ -174,6 +188,28 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
             TextDecorationLine.UNDERLINE
         );
         event.preventDefault();
+    }
+
+    /**
+     * Unconditionally sets a {@link TextStyle} property.
+     */
+    private <T> void setCellStyle(final TextStylePropertyName<T> name,
+                                  final T value) {
+        final SpreadsheetKeyboardContext context = this.context;
+
+        final SpreadsheetCell cell = context.historyTokenCell()
+            .orElse(null);
+
+        if (null != cell) {
+            context.pushHistoryToken(
+                context.historyToken()
+                    .setStylePropertyName(
+                        name
+                    ).setSaveValue(
+                        Optional.of(value)
+                    )
+            );
+        }
     }
 
     /**
