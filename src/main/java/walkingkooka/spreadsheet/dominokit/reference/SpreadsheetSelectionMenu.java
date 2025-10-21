@@ -25,7 +25,6 @@ import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.SpreadsheetHotKeys;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
@@ -734,7 +733,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             ), // icons
             TextStylePropertyName.FONT_WEIGHT,
             FontWeight.BOLD,
-            SpreadsheetHotKeys.BOLD,
             context
         );
     }
@@ -749,7 +747,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             ), // icons
             TextStylePropertyName.FONT_STYLE,
             FontStyle.ITALIC,
-            SpreadsheetHotKeys.ITALICS,
             context
         );
     }
@@ -764,7 +761,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             ), // icons
             TextStylePropertyName.TEXT_DECORATION_LINE,
             TextDecorationLine.LINE_THROUGH,
-            SpreadsheetHotKeys.STRIKETHRU,
             context
         ).checkedItem(
             context.idPrefix() + "underline" + SpreadsheetElementIds.MENU_ITEM, // id
@@ -774,7 +770,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             ), // icons
             TextStylePropertyName.TEXT_DECORATION_LINE,
             TextDecorationLine.UNDERLINE,
-            SpreadsheetHotKeys.UNDERLINE,
             context
         );
     }
@@ -804,7 +799,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             ), // icons
             TextStylePropertyName.TEXT_TRANSFORM,
             TextTransform.CAPITALIZE,
-            SpreadsheetHotKeys.TEXT_TRANSFORM_CAPITALIZE,
             context
         ).checkedItem(
             context.idPrefix() + "lower" + SpreadsheetElementIds.MENU_ITEM, // id
@@ -814,7 +808,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             ), // icons
             TextStylePropertyName.TEXT_TRANSFORM,
             TextTransform.LOWERCASE,
-            SpreadsheetHotKeys.TEXT_TRANSFORM_LOWERCASE,
             context
         ).checkedItem(
             context.idPrefix() + "upper" + SpreadsheetElementIds.MENU_ITEM, // id
@@ -824,7 +817,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             ), // icons
             TextStylePropertyName.TEXT_TRANSFORM,
             TextTransform.UPPERCASE,
-            SpreadsheetHotKeys.TEXT_TRANSFORM_UPPERCASE,
             context
         );
     }
@@ -842,7 +834,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             ), // icons
             TextStylePropertyName.OVERFLOW_WRAP,
             OverflowWrap.NORMAL,
-            SpreadsheetHotKeys.TEXT_WRAPPING_NORMAL,
             context
         ).checkedItem(
             context.idPrefix() + "overflow" + SpreadsheetElementIds.MENU_ITEM,
@@ -852,7 +843,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             ), // icons
             TextStylePropertyName.OVERFLOW_X,
             Overflow.VISIBLE,
-            SpreadsheetHotKeys.TEXT_WRAPPING_OVERFLOW,
             context
         ).checkedItem(
             context.idPrefix() + "wrap" + SpreadsheetElementIds.MENU_ITEM, // id
@@ -862,7 +852,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             ), // icons
             TextStylePropertyName.OVERFLOW_X,
             Overflow.HIDDEN,
-            SpreadsheetHotKeys.TEXT_WRAPPING_WRAP,
             context
         );
     }
@@ -983,7 +972,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                 Optional.empty(), // no icons
                 propertyName, // property name
                 borderStyle, // property value
-                "", // key
                 context
             );
         }
@@ -1039,7 +1027,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                 Optional.empty(), // no icons
                 propertyName, // property name
                 Length.pixel((double) i), // property value
-                "", // key
                 context
             );
         }
@@ -1075,7 +1062,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             ), // icons
             TextStylePropertyName.TEXT_ALIGN,
             TextAlign.LEFT,
-            SpreadsheetHotKeys.ALIGNMENT_LEFT,
             context
         ).checkedItem(
             context.idPrefix() + "center" + SpreadsheetElementIds.MENU_ITEM, // id
@@ -1085,7 +1071,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             ), // icons
             TextStylePropertyName.TEXT_ALIGN,
             TextAlign.CENTER,
-            SpreadsheetHotKeys.ALIGNMENT_CENTER,
             context
         ).checkedItem(
             context.idPrefix() + "right" + SpreadsheetElementIds.MENU_ITEM, // id
@@ -1095,7 +1080,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             ), // icons
             TextStylePropertyName.TEXT_ALIGN,
             TextAlign.RIGHT,
-            SpreadsheetHotKeys.ALIGNMENT_RIGHT,
             context
         ).checkedItem(
             context.idPrefix() + "justify" + SpreadsheetElementIds.MENU_ITEM, // id
@@ -1105,7 +1089,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             ), // icons
             TextStylePropertyName.TEXT_ALIGN,
             TextAlign.JUSTIFY,
-            SpreadsheetHotKeys.ALIGNMENT_JUSTIFY,
             context
         );
     }
@@ -1123,7 +1106,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             ), // icons
             TextStylePropertyName.VERTICAL_ALIGN,
             VerticalAlign.TOP,
-            SpreadsheetHotKeys.VERTICAL_ALIGNMENT_TOP,
             context
         ).checkedItem(
             context.idPrefix() + "middle" + SpreadsheetElementIds.MENU_ITEM, // id
@@ -1133,7 +1115,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             ), // icons
             TextStylePropertyName.VERTICAL_ALIGN,
             VerticalAlign.MIDDLE,
-            SpreadsheetHotKeys.VERTICAL_ALIGNMENT_MIDDLE,
             context
         ).checkedItem(
             context.idPrefix() + "bottom" + SpreadsheetElementIds.MENU_ITEM, // id
@@ -1143,7 +1124,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             ), // icons
             TextStylePropertyName.VERTICAL_ALIGN,
             VerticalAlign.BOTTOM,
-            SpreadsheetHotKeys.VERTICAL_ALIGNMENT_BOTTOM,
             context
         );
     }
