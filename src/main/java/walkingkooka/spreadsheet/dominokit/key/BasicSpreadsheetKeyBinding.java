@@ -56,6 +56,13 @@ final class BasicSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
     }
 
     @Override
+    public Set<KeyBinding> justifyTextAlign() {
+        return Sets.of(
+            control("j")
+        );
+    }
+
+    @Override
     public Set<KeyBinding> leftTextAlign() {
         return Sets.of(
             control("l")

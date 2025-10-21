@@ -76,6 +76,11 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         );
 
         this.registerBindings(
+            bindings.justifyTextAlign(),
+            this::justifyTextAlign
+        );
+
+        this.registerBindings(
             bindings.leftTextAlign(),
             this::leftTextAlign
         );
@@ -166,6 +171,14 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         this.flipCellStyle(
             TextStylePropertyName.FONT_STYLE,
             FontStyle.ITALIC
+        );
+        event.preventDefault();
+    }
+
+    private void justifyTextAlign(final KeyboardEvent event) {
+        this.setCellStyle(
+            TextStylePropertyName.TEXT_ALIGN,
+            TextAlign.JUSTIFY
         );
         event.preventDefault();
     }

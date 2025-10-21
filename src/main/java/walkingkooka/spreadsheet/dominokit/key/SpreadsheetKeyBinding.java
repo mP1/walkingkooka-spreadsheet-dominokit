@@ -27,6 +27,8 @@ public interface SpreadsheetKeyBinding {
 
     Set<KeyBinding> italics();
 
+    Set<KeyBinding> justifyTextAlign();
+
     Set<KeyBinding> leftTextAlign();
 
     Set<KeyBinding> rightTextAlign();
