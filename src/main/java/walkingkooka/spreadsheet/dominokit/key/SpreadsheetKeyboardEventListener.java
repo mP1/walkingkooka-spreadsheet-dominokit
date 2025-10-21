@@ -80,6 +80,7 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
                 this.bold(event);
                 break;
             case "i":
+            case "3":
                 this.italics(event);
                 break;
             default:
