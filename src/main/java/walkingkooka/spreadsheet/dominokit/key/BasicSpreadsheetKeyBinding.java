@@ -56,6 +56,13 @@ final class BasicSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
     }
 
     @Override
+    public Set<KeyBinding> rightTextAlign() {
+        return Sets.of(
+            control("r")
+        );
+    }
+
+    @Override
     public Set<KeyBinding> selectAll() {
         return Sets.of(
             control("a")

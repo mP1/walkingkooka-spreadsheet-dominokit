@@ -457,6 +457,87 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
         this.defaultPreventedAndCheck(event);
     }
 
+    // rightTextAlignment...............................................................................................
+
+    @Test
+    public void testHandleEventWithRightTextAlignWithoutCellSelection() {
+        final KeyboardEvent event = controlKey("r");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.spreadsheetSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME
+                )
+            )
+        );
+    }
+
+    @Test
+    public void testHandleEventWithRightTextAlignWithCellSelectionWithLeftAlign() {
+        final KeyboardEvent event = controlKey("r");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+                    .setStyle(
+                        TextStyle.EMPTY.set(
+                            TextStylePropertyName.TEXT_ALIGN,
+                            TextAlign.LEFT
+                        )
+                    )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.TEXT_ALIGN,
+                Optional.of(TextAlign.RIGHT)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
+    public void testHandleEventWithRightTextAlignWithCellSelectionWithRightAlign() {
+        final KeyboardEvent event = controlKey("r");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+                    .setStyle(
+                        TextStyle.EMPTY.set(
+                            TextStylePropertyName.TEXT_ALIGN,
+                            TextAlign.RIGHT
+                        )
+                    )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.TEXT_ALIGN,
+                Optional.of(TextAlign.RIGHT)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
     // selectAll........................................................................................................
 
     @Test
