@@ -49,6 +49,7 @@ import walkingkooka.plugin.ProviderContextDelegator;
 import walkingkooka.plugin.store.Plugin;
 import walkingkooka.plugin.store.PluginSet;
 import walkingkooka.plugin.store.PluginStores;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorInfoSet;
@@ -1550,6 +1551,14 @@ public class App implements EntryPoint,
     }
 
     private SpreadsheetProvider systemSpreadsheetProvider;
+
+    // SpreadsheetKeyboardContext.......................................................................................
+
+    @Override
+    public Optional<SpreadsheetCell> historyTokenCell() {
+        return this.spreadsheetViewportCache()
+            .historyTokenCell();
+    }
 
     // SpreadsheetViewport..............................................................................................
 
