@@ -35,38 +35,43 @@ final class BasicSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
     @Override
     public Set<KeyBinding> bold() {
         return Sets.of(
-            KeyBinding.with("b"),
-            KeyBinding.with("2")
+            control("b"),
+            control("2")
         );
     }
 
     @Override
     public Set<KeyBinding> italics() {
         return Sets.of(
-            KeyBinding.with("i"),
-            KeyBinding.with("3")
+            control("i"),
+            control("3")
         );
     }
 
     @Override
     public Set<KeyBinding> selectAll() {
         return Sets.of(
-            KeyBinding.with("a")
+            control("a")
         );
     }
 
     @Override
     public Set<KeyBinding> strikethru() {
         return Sets.of(
-            KeyBinding.with("5")
+            control("5")
         );
     }
 
     @Override
     public Set<KeyBinding> underline() {
         return Sets.of(
-            KeyBinding.with("u"),
-            KeyBinding.with("4")
+            control("u"),
+            control("4")
         );
+    }
+    
+    private static KeyBinding control(final String key) {
+        return KeyBinding.with(key)
+            .setControl();
     }
 }
