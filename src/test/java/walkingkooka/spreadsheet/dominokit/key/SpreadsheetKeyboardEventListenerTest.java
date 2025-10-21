@@ -316,6 +316,39 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
         this.defaultPreventedAndCheck(event);
     }
 
+    @Test
+    public void testHandleEventWithItalicsThreeDigitWithCellSelectionWithItalics() {
+        final KeyboardEvent event = controlKey("3");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+                    .setStyle(
+                        TextStyle.EMPTY.set(
+                            TextStylePropertyName.FONT_STYLE,
+                            FontStyle.ITALIC
+                        )
+                    )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.FONT_STYLE,
+                Optional.empty()
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+
     // selectAll........................................................................................................
 
     @Test
