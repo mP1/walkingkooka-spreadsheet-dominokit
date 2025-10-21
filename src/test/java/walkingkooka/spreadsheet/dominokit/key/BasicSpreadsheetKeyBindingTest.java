@@ -22,6 +22,13 @@ import walkingkooka.reflect.JavaVisibility;
 public final class BasicSpreadsheetKeyBindingTest implements SpreadsheetKeyBindingTesting<BasicSpreadsheetKeyBinding> {
 
     @Override
+    public BasicSpreadsheetKeyBinding createSpreadsheetKeyBinding() {
+        return new BasicSpreadsheetKeyBinding();
+    }
+
+    // class............................................................................................................
+
+    @Override
     public Class<BasicSpreadsheetKeyBinding> type() {
         return BasicSpreadsheetKeyBinding.class;
     }

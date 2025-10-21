@@ -22,4 +22,6 @@ import walkingkooka.text.printer.TreePrintableTesting;
 
 public interface SpreadsheetKeyBindingTesting<T extends SpreadsheetKeyBinding> extends ClassTesting<T>,
     TreePrintableTesting {
+
+    T createSpreadsheetKeyBinding();
 }
