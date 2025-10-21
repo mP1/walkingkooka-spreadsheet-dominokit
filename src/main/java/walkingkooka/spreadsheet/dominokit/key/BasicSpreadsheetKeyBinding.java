@@ -41,6 +41,13 @@ final class BasicSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
     }
 
     @Override
+    public Set<KeyBinding> centerTextAlign() {
+        return Sets.of(
+            control("c")
+        );
+    }
+
+    @Override
     public Set<KeyBinding> italics() {
         return Sets.of(
             control("i"),

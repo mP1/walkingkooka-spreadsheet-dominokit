@@ -23,6 +23,8 @@ public interface SpreadsheetKeyBinding {
 
     Set<KeyBinding> bold();
 
+    Set<KeyBinding> centerTextAlign();
+
     Set<KeyBinding> italics();
 
     Set<KeyBinding> leftTextAlign();

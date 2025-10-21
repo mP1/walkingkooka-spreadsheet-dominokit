@@ -66,6 +66,11 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         );
 
         this.registerBindings(
+            bindings.centerTextAlign(),
+            this::centerTextAlign
+        );
+
+        this.registerBindings(
             bindings.italics(),
             this::italics
         );
@@ -145,6 +150,14 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         this.flipCellStyle(
             TextStylePropertyName.FONT_WEIGHT,
             FontWeight.BOLD
+        );
+        event.preventDefault();
+    }
+
+    private void centerTextAlign(final KeyboardEvent event) {
+        this.setCellStyle(
+            TextStylePropertyName.TEXT_ALIGN,
+            TextAlign.CENTER
         );
         event.preventDefault();
     }

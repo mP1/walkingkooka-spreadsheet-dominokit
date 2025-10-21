@@ -237,6 +237,87 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
         this.defaultPreventedAndCheck(event);
     }
 
+    // centerTextAlignment..............................................................................................
+
+    @Test
+    public void testHandleEventWithCenterTextAlignWithoutCellSelection() {
+        final KeyboardEvent event = controlKey("c");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.spreadsheetSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME
+                )
+            )
+        );
+    }
+
+    @Test
+    public void testHandleEventWithCenterTextAlignWithCellSelectionWithLeftAlign() {
+        final KeyboardEvent event = controlKey("c");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+                    .setStyle(
+                        TextStyle.EMPTY.set(
+                            TextStylePropertyName.TEXT_ALIGN,
+                            TextAlign.LEFT
+                        )
+                    )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.TEXT_ALIGN,
+                Optional.of(TextAlign.CENTER)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
+    public void testHandleEventWithCenterTextAlignWithCellSelectionWithCenterAlign() {
+        final KeyboardEvent event = controlKey("c");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+                    .setStyle(
+                        TextStyle.EMPTY.set(
+                            TextStylePropertyName.TEXT_ALIGN,
+                            TextAlign.CENTER
+                        )
+                    )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.TEXT_ALIGN,
+                Optional.of(TextAlign.CENTER)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+    
     // italics..........................................................................................................
 
     @Test
