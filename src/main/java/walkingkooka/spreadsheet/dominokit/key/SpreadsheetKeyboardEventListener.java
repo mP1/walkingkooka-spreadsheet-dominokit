@@ -20,11 +20,15 @@ package walkingkooka.spreadsheet.dominokit.key;
 import elemental2.dom.Event;
 import elemental2.dom.EventListener;
 import elemental2.dom.KeyboardEvent;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.Logging;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CharSequences;
+import walkingkooka.tree.text.FontWeight;
+import walkingkooka.tree.text.TextStyle;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -70,9 +74,20 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
             case "a":
                 this.selectAll(event);
                 break;
+            case "b":
+                this.bold(event);
+                break;
             default:
                 break;
         }
+    }
+
+    private void bold(final KeyboardEvent event) {
+        this.flipCellStyle(
+            TextStylePropertyName.FONT_WEIGHT,
+            FontWeight.BOLD
+        );
+        event.preventDefault();
     }
 
     private void selectAll(final KeyboardEvent event) {
@@ -87,6 +102,39 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         }
 
         event.preventDefault();
+    }
+
+    /**
+     * Helper that may be used to FLIP a {@link SpreadsheetCell} {@link TextStyle}, such as BOLD.
+     */
+    private <T> void flipCellStyle(final TextStylePropertyName<T> name,
+                                   final T value) {
+        final SpreadsheetKeyboardContext context = this.context;
+
+        final SpreadsheetCell cell = context.historyTokenCell()
+            .orElse(null);
+
+        if (null != cell) {
+            final TextStyle style = cell.textStyle();
+            final T previous = style.get(name)
+                .orElse(null);
+
+            context.pushHistoryToken(
+                context.historyToken()
+                    .setStylePropertyName(
+                        name
+                    ).setSaveValue(
+                        Optional.ofNullable(
+                            Objects.equals(
+                                previous,
+                                value
+                            ) ?
+                                null :
+                                value
+                        )
+                    )
+            );
+        }
     }
 
     private final SpreadsheetKeyboardContext context;

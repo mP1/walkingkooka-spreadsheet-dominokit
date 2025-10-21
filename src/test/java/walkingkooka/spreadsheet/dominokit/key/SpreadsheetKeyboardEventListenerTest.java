@@ -20,15 +20,23 @@ package walkingkooka.spreadsheet.dominokit.key;
 import elemental2.dom.KeyboardEvent;
 import org.dominokit.domino.ui.events.EventType;
 import org.junit.jupiter.api.Test;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
 import walkingkooka.text.printer.TreePrintableTesting;
+import walkingkooka.tree.text.FontWeight;
+import walkingkooka.tree.text.TextStyle;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.Optional;
 
 public final class SpreadsheetKeyboardEventListenerTest implements TreePrintableTesting {
 
@@ -37,6 +45,152 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
     private final static SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("SpreadsheetName1");
 
     private final static SpreadsheetCellReference CELL = SpreadsheetSelection.A1;
+
+    private final static AnchoredSpreadsheetSelection CELL_RANGE = SpreadsheetSelection.parseCellRange("A1:B2")
+        .setAnchor(SpreadsheetViewportAnchor.TOP_LEFT);
+
+    // bold.............................................................................................................
+
+    @Test
+    public void testHandleEventWithBoldWithoutCellSelection() {
+        final KeyboardEvent event = new KeyboardEvent(EventType.keydown.getName());
+        event.ctrlKey = true;
+        event.key = "b";
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.spreadsheetSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME
+                )
+            )
+        );
+    }
+
+    @Test
+    public void testHandleEventWithBoldWithCellSelectionWithNonBoldFontWeight() {
+        final KeyboardEvent event = new KeyboardEvent(EventType.keydown.getName());
+        event.ctrlKey = true;
+        event.key = "b";
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+                    .setStyle(
+                        TextStyle.EMPTY.set(
+                            TextStylePropertyName.FONT_WEIGHT,
+                            FontWeight.with(1)
+                        )
+                    )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.FONT_WEIGHT,
+                Optional.of(FontWeight.BOLD)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
+    public void testHandleEventWithBoldWithCellSelectionWithoutBold() {
+        final KeyboardEvent event = new KeyboardEvent(EventType.keydown.getName());
+        event.ctrlKey = true;
+        event.key = "b";
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.FONT_WEIGHT,
+                Optional.of(FontWeight.BOLD)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
+    public void testHandleEventWithBoldWithCellSelectionWithBold() {
+        final KeyboardEvent event = new KeyboardEvent(EventType.keydown.getName());
+        event.ctrlKey = true;
+        event.key = "b";
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+                    .setStyle(
+                        TextStyle.EMPTY.set(
+                            TextStylePropertyName.FONT_WEIGHT,
+                            FontWeight.BOLD
+                        )
+                    )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.FONT_WEIGHT,
+                Optional.empty()
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
+    public void testHandleEventWithBoldWithCellRangeSelectionWithoutBold() {
+        final KeyboardEvent event = new KeyboardEvent(EventType.keydown.getName());
+        event.ctrlKey = true;
+        event.key = "b";
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL_RANGE
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL_RANGE,
+                TextStylePropertyName.FONT_WEIGHT,
+                Optional.of(FontWeight.BOLD)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
 
     // selectAll........................................................................................................
 
@@ -119,10 +273,39 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
         );
     }
 
-    private static class TestSpreadsheetKeyboardContext extends FakeSpreadsheetKeyboardContext {
+    private class TestSpreadsheetKeyboardContext extends FakeSpreadsheetKeyboardContext {
 
         TestSpreadsheetKeyboardContext(final HistoryToken historyToken) {
+            this(
+                historyToken,
+                Optional.empty() // no cell
+            );
+        }
+
+        TestSpreadsheetKeyboardContext(final HistoryToken historyToken,
+                                       final SpreadsheetCell cell) {
+            this(
+                historyToken,
+                Optional.of(cell)
+            );
+        }
+
+        TestSpreadsheetKeyboardContext(final HistoryToken historyToken,
+                                       final Optional<SpreadsheetCell> cell) {
             this.historyToken = historyToken;
+            this.cell = cell;
+
+            if(cell.isPresent()) {
+                final SpreadsheetSelection historyTokenCell = historyToken.selection()
+                    .get();
+
+                checkEquals(
+                    historyTokenCell.toCell(),
+                    cell.get()
+                        .reference(),
+                    () -> "historyToken has incompatible selection " + historyToken
+                );
+            }
         }
 
         @Override
@@ -137,6 +320,15 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
         }
 
         private HistoryToken historyToken;
+
+        @Override
+        public Optional<SpreadsheetCell> historyTokenCell() {
+            return this.cell;
+        }
+
+        private final Optional<SpreadsheetCell> cell;
+
+        // LoggingContext...............................................................................................
 
         @Override
         public void debug(final Object... values) {
