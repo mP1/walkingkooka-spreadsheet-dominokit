@@ -27,6 +27,8 @@ public interface SpreadsheetKeyBinding {
 
     Set<KeyBinding> leftTextAlign();
 
+    Set<KeyBinding> rightTextAlign();
+
     Set<KeyBinding> selectAll();
 
     Set<KeyBinding> strikethru();
