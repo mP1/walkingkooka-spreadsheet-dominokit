@@ -23,7 +23,7 @@ public final class BasicSpreadsheetKeyBindingTest implements SpreadsheetKeyBindi
 
     @Override
     public BasicSpreadsheetKeyBinding createSpreadsheetKeyBinding() {
-        return new BasicSpreadsheetKeyBinding();
+        return BasicSpreadsheetKeyBinding.INSTANCE;
     }
 
     // class............................................................................................................
@@ -35,6 +35,6 @@ public final class BasicSpreadsheetKeyBindingTest implements SpreadsheetKeyBindi
 
     @Override
     public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
+        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

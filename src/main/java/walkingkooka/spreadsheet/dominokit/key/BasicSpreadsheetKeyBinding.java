@@ -21,9 +21,14 @@ import walkingkooka.collect.set.Sets;
 
 import java.util.Set;
 
-public class BasicSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
+final class BasicSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
 
-    public BasicSpreadsheetKeyBinding() {
+    /**
+     * Singleton
+     */
+    final static BasicSpreadsheetKeyBinding INSTANCE = new BasicSpreadsheetKeyBinding();
+
+    private BasicSpreadsheetKeyBinding() {
         super();
     }
 
