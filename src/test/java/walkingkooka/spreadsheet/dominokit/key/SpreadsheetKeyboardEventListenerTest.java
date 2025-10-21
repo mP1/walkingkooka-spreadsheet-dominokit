@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
 import walkingkooka.text.printer.TreePrintableTesting;
+import walkingkooka.tree.text.FontStyle;
 import walkingkooka.tree.text.FontWeight;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -176,6 +177,113 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
                 CELL_RANGE,
                 TextStylePropertyName.FONT_WEIGHT,
                 Optional.of(FontWeight.BOLD)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    // italics..........................................................................................................
+
+    @Test
+    public void testHandleEventWithItalicsWithoutCellSelection() {
+        final KeyboardEvent event = controlKey("i");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.spreadsheetSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME
+                )
+            )
+        );
+    }
+
+    @Test
+    public void testHandleEventWithItalicsWithCellSelectionWithoutFontStyle() {
+        final KeyboardEvent event = controlKey("i");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.FONT_STYLE,
+                Optional.of(FontStyle.ITALIC)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
+    public void testHandleEventWithItalicsWithCellSelectionWithNormal() {
+        final KeyboardEvent event = controlKey("i");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+                    .setStyle(
+                        TextStyle.EMPTY.set(
+                            TextStylePropertyName.FONT_STYLE,
+                            FontStyle.NORMAL
+                        )
+                    )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.FONT_STYLE,
+                Optional.of(FontStyle.ITALIC)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
+    public void testHandleEventWithItalicsWithCellSelectionWithItalics() {
+        final KeyboardEvent event = controlKey("i");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+                    .setStyle(
+                        TextStyle.EMPTY.set(
+                            TextStylePropertyName.FONT_STYLE,
+                            FontStyle.ITALIC
+                        )
+                    )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.FONT_STYLE,
+                Optional.empty()
             )
         );
 

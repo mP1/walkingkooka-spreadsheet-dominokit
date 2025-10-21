@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.Logging;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CharSequences;
+import walkingkooka.tree.text.FontStyle;
 import walkingkooka.tree.text.FontWeight;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -77,6 +78,9 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
             case "b":
                 this.bold(event);
                 break;
+            case "i":
+                this.italics(event);
+                break;
             default:
                 break;
         }
@@ -86,6 +90,14 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         this.flipCellStyle(
             TextStylePropertyName.FONT_WEIGHT,
             FontWeight.BOLD
+        );
+        event.preventDefault();
+    }
+
+    private void italics(final KeyboardEvent event) {
+        this.flipCellStyle(
+            TextStylePropertyName.FONT_STYLE,
+            FontStyle.ITALIC
         );
         event.preventDefault();
     }
