@@ -17,11 +17,47 @@
 
 package walkingkooka.spreadsheet.dominokit.key;
 
+import org.junit.jupiter.api.Test;
+import walkingkooka.collect.map.Maps;
+import walkingkooka.collect.set.Sets;
+import walkingkooka.collect.set.SortedSets;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.text.printer.TreePrintableTesting;
 
+import java.lang.reflect.Method;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 public interface SpreadsheetKeyBindingTesting<T extends SpreadsheetKeyBinding> extends ClassTesting<T>,
     TreePrintableTesting {
+
+    @Test
+    default void testAllKeyBindingsNotEmpty() throws Exception {
+        final Map<String, Set<KeyBinding>> all = Maps.ordered();
+
+        final SpreadsheetKeyBinding bindings = this.createSpreadsheetKeyBinding();
+
+        for(final Method method : SpreadsheetKeyBinding.class.getDeclaredMethods()) {
+            final Set<KeyBinding> methodKeyBindings = (Set<KeyBinding>) method.invoke(bindings);
+            if(false == methodKeyBindings.isEmpty()) {
+                all.put(
+                    method.getName(),
+                    methodKeyBindings
+                );
+            }
+        }
+
+
+        this.checkEquals(
+            Sets.empty(),
+            all.entrySet()
+                .stream()
+                .filter(e -> e.getValue().isEmpty())
+                .map(e -> e.getKey())
+                .collect(Collectors.toCollection(SortedSets::tree))
+        );
+    }
 
     T createSpreadsheetKeyBinding();
 }
