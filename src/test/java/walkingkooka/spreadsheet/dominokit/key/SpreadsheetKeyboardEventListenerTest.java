@@ -38,8 +38,10 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
     private final static SpreadsheetCellReference CELL = SpreadsheetSelection.A1;
 
+    // selectAll........................................................................................................
+
     @Test
-    public void testHandleEventSelectAll() {
+    public void testHandleEventWithSelectAllWithoutSelection() {
         final KeyboardEvent event = new KeyboardEvent(EventType.keydown.getName());
         event.ctrlKey = true;
         event.key = "a";
@@ -50,6 +52,31 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
+                )
+            ),
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.ALL_CELLS.setDefaultAnchor()
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
+    public void testHandleEventWithSelectAllWithCellSelection() {
+        final KeyboardEvent event = new KeyboardEvent(EventType.keydown.getName());
+        event.ctrlKey = true;
+        event.key = "a";
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
                 )
             ),
             HistoryToken.cellSelect(
