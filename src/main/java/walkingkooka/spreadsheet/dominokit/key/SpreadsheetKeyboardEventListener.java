@@ -72,7 +72,7 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
 
         this.registerBindings(
             bindings.leftTextAlign(),
-            this::leftTextAlignment
+            this::leftTextAlign
         );
 
         this.registerBindings(
@@ -157,7 +157,7 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         event.preventDefault();
     }
 
-    private void leftTextAlignment(final KeyboardEvent event) {
+    private void leftTextAlign(final KeyboardEvent event) {
         this.setCellStyle(
             TextStylePropertyName.TEXT_ALIGN,
             TextAlign.LEFT
