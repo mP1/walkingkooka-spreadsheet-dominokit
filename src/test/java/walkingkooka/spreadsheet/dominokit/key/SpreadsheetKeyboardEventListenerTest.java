@@ -56,10 +56,24 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
     // with.............................................................................................................
 
     @Test
+    public void testWithNullSpreadsheetKeyBindingFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetKeyboardEventListener.with(
+                null,
+                SpreadsheetKeyboardContexts.fake()
+            )
+        );
+    }
+
+    @Test
     public void testWithNullContextFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetKeyboardEventListener.with(null)
+            () -> SpreadsheetKeyboardEventListener.with(
+                SpreadsheetKeyBindings.fake(),
+                null
+            )
         );
     }
 
@@ -515,7 +529,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.defaultPreventedAndCheck(event);
     }
-    
+
     // underline........................................................................................................
 
     @Test
@@ -680,8 +694,10 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
     private void handleEventAndCheck(final KeyboardEvent event,
                                      final TestSpreadsheetKeyboardContext context,
                                      final HistoryToken expected) {
-        SpreadsheetKeyboardEventListener.with(context)
-            .handleEvent(event);
+        SpreadsheetKeyboardEventListener.with(
+            SpreadsheetKeyBindings.basic(),
+            context
+        ).handleEvent(event);
 
         this.checkEquals(
             expected,
@@ -720,7 +736,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
             this.historyToken = historyToken;
             this.cell = cell;
 
-            if(cell.isPresent()) {
+            if (cell.isPresent()) {
                 final SpreadsheetSelection historyTokenCell = historyToken.selection()
                     .get();
 
