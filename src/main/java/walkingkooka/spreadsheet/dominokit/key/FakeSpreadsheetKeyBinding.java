@@ -17,24 +17,36 @@
 
 package walkingkooka.spreadsheet.dominokit.key;
 
-import walkingkooka.reflect.PublicStaticHelper;
+import java.util.Set;
 
-/**
- * A collection of {@link SpreadsheetKeyBinding}.
- */
-public final class SpreadsheetKeyBindings implements PublicStaticHelper {
+public class FakeSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
 
-    /**
-     * {@see FakeSpreadsheetKeyBinding}
-     */
-    public static SpreadsheetKeyBinding fake() {
-        return new FakeSpreadsheetKeyBinding();
+    public FakeSpreadsheetKeyBinding() {
+        super();
     }
 
-    /**
-     * Stop creation
-     */
-    private SpreadsheetKeyBindings() {
+    @Override
+    public Set<KeyBinding> bold() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<KeyBinding> italics() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<KeyBinding> selectAll() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<KeyBinding> strikethru() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<KeyBinding> underline() {
         throw new UnsupportedOperationException();
     }
 }
