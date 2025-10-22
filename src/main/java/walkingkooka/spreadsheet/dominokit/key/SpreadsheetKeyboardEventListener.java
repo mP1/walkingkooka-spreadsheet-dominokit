@@ -32,6 +32,7 @@ import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextDecorationLine;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
+import walkingkooka.tree.text.TextTransform;
 import walkingkooka.tree.text.VerticalAlign;
 
 import java.util.Collection;
@@ -119,6 +120,11 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         this.registerBindings(
             bindings.underline(),
             this::underline
+        );
+
+        this.registerBindings(
+            bindings.upperCase(),
+            this::upperCase
         );
     }
 
@@ -265,6 +271,14 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         this.flipCellStyle(
             TextStylePropertyName.TEXT_DECORATION_LINE,
             TextDecorationLine.UNDERLINE
+        );
+        event.preventDefault();
+    }
+
+    private void upperCase(final KeyboardEvent event) {
+        this.setCellStyle(
+            TextStylePropertyName.TEXT_TRANSFORM,
+            TextTransform.UPPERCASE
         );
         event.preventDefault();
     }

@@ -84,4 +84,9 @@ public class FakeSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
     public Set<KeyBinding> underline() {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public Set<KeyBinding> upperCase() {
+        throw new UnsupportedOperationException();
+    }
 }
