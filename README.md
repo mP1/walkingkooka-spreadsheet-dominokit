@@ -72,10 +72,11 @@ Individual issues that breakdown outstanding tasks will be added.
 - Keyboard
   - Cursor key navigation *DONE*
   - ENTER gives focus to Formula for editing *DONE*
+  - Key bindings *DONE* [TODO]
 - Mouse
   - Click cell, column, row to select *DONE*
   - Mouse SHIFT click to extend cell/column/row range *DONE*
-  - Support dragging mouse to select/extend a range [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2063)
+  - Support dragging mouse to select/extend a range [TODO](https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues?q=is%3Aissue%20state%3Aopen%20label%3AKeys)
 - Viewport
   - Show/Hide formula editor *DONE*
   - Show/Hide Column/Row headers *DONE*
