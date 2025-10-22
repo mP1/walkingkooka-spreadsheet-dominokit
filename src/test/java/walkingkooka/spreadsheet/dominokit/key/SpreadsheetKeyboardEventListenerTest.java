@@ -702,6 +702,87 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
         this.defaultPreventedAndCheck(event);
     }
 
+    // lowerCase........................................................................................................
+
+    @Test
+    public void testHandleEventWithLowerCaseWithoutCellSelection() {
+        final KeyboardEvent event = shiftControlKey("L");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.spreadsheetSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME
+                )
+            )
+        );
+    }
+
+    @Test
+    public void testHandleEventWithLowerCaseWithCellSelectionWithUpperCase() {
+        final KeyboardEvent event = shiftControlKey("L");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+                    .setStyle(
+                        TextStyle.EMPTY.set(
+                            TextStylePropertyName.TEXT_TRANSFORM,
+                            TextTransform.UPPERCASE
+                        )
+                    )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.TEXT_TRANSFORM,
+                Optional.of(TextTransform.LOWERCASE)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
+    public void testHandleEventWithLowerCaseWithCellSelectionWithLowerCase() {
+        final KeyboardEvent event = shiftControlKey("L");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+                    .setStyle(
+                        TextStyle.EMPTY.set(
+                            TextStylePropertyName.TEXT_TRANSFORM,
+                            TextTransform.LOWERCASE
+                        )
+                    )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.TEXT_TRANSFORM,
+                Optional.of(TextTransform.LOWERCASE)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+    
     // middleVerticalAlignment..........................................................................................
 
     @Test

@@ -93,6 +93,11 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         );
 
         this.registerBindings(
+            bindings.lowerCase(),
+            this::lowerCase
+        );
+
+        this.registerBindings(
             bindings.middleVerticalAlign(),
             this::middleVerticalAlign
         );
@@ -217,6 +222,14 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         this.setCellStyle(
             TextStylePropertyName.TEXT_ALIGN,
             TextAlign.LEFT
+        );
+        event.preventDefault();
+    }
+
+    private void lowerCase(final KeyboardEvent event) {
+        this.setCellStyle(
+            TextStylePropertyName.TEXT_TRANSFORM,
+            TextTransform.LOWERCASE
         );
         event.preventDefault();
     }
