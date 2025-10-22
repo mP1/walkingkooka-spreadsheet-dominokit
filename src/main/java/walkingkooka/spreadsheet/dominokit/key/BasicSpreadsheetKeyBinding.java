@@ -76,6 +76,13 @@ final class BasicSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
     }
 
     @Override
+    public Set<KeyBinding> generalFormat() {
+        return Sets.of(
+            formatter(7)
+        );
+    }
+
+    @Override
     public Set<KeyBinding> italics() {
         return Sets.of(
             control("i"),
@@ -200,7 +207,7 @@ final class BasicSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
     }
 
     private static KeyBinding formatter(final int number) {
-        if(number < 1 || number > 6) {
+        if(number < 1 || number > 7) {
             throw new IllegalArgumentException("Invalid number " + number);
         }
 
