@@ -77,6 +77,13 @@ final class BasicSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
     }
 
     @Override
+    public Set<KeyBinding> lowerCase() {
+        return Sets.of(
+            controlShift("L")
+        );
+    }
+
+    @Override
     public Set<KeyBinding> middleVerticalAlign() {
         return Sets.of(
             controlShift("M")
