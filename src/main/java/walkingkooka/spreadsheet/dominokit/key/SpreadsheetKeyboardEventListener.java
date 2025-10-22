@@ -329,10 +329,7 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
                                   final T value) {
         final SpreadsheetKeyboardContext context = this.context;
 
-        final SpreadsheetCell cell = context.historyTokenCell()
-            .orElse(null);
-
-        if (null != cell) {
+        if (context.historyToken() instanceof SpreadsheetCellHistoryToken) {
             context.pushHistoryToken(
                 context.historyToken()
                     .setStylePropertyName(
