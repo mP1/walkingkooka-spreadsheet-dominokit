@@ -130,6 +130,11 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         );
 
         this.registerBindings(
+            bindings.percentFormat(),
+            this::percentFormat
+        );
+
+        this.registerBindings(
             bindings.rightTextAlign(),
             this::rightTextAlign
         );
@@ -314,6 +319,16 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         this.setCellFormatter(
             Optional.of(
                 SpreadsheetPattern.parseNumberFormatPattern("0.00")
+                    .spreadsheetFormatterSelector()
+            )
+        );
+        event.preventDefault();
+    }
+
+    private void percentFormat(final KeyboardEvent event) {
+        this.setCellFormatter(
+            Optional.of(
+                SpreadsheetPattern.parseNumberFormatPattern("0%")
                     .spreadsheetFormatterSelector()
             )
         );
