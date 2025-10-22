@@ -1017,7 +1017,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
         this.defaultPreventedAndCheck(event);
     }
 
-    // topTextAlignment.................................................................................................
+    // topVerticalAlignment.............................................................................................
 
     @Test
     public void testHandleEventWithTopTextAlignWithoutCellSelection() {
