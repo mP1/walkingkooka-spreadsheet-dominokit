@@ -118,6 +118,13 @@ final class BasicSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
             control("4")
         );
     }
+
+    @Override
+    public Set<KeyBinding> upperCase() {
+        return Sets.of(
+            controlShift("U")
+        );
+    }
     
     private static KeyBinding control(final String key) {
         return KeyBinding.with(key)

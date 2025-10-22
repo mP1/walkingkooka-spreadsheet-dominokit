@@ -44,4 +44,6 @@ public interface SpreadsheetKeyBinding {
     Set<KeyBinding> topVerticalAlign();
 
     Set<KeyBinding> underline();
+
+    Set<KeyBinding> upperCase();
 }

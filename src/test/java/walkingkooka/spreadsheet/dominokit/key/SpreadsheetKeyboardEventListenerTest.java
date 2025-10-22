@@ -36,6 +36,7 @@ import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextDecorationLine;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
+import walkingkooka.tree.text.TextTransform;
 import walkingkooka.tree.text.VerticalAlign;
 
 import java.util.Arrays;
@@ -1235,6 +1236,87 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
                 CELL.setDefaultAnchor(),
                 TextStylePropertyName.TEXT_DECORATION_LINE,
                 Optional.empty()
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    // upperCase........................................................................................................
+
+    @Test
+    public void testHandleEventWithUpperCaseWithoutCellSelection() {
+        final KeyboardEvent event = shiftControlKey("U");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.spreadsheetSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME
+                )
+            )
+        );
+    }
+
+    @Test
+    public void testHandleEventWithUpperCaseWithCellSelectionWithLowerCase() {
+        final KeyboardEvent event = shiftControlKey("U");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+                    .setStyle(
+                        TextStyle.EMPTY.set(
+                            TextStylePropertyName.TEXT_TRANSFORM,
+                            TextTransform.LOWERCASE
+                        )
+                    )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.TEXT_TRANSFORM,
+                Optional.of(TextTransform.UPPERCASE)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
+    public void testHandleEventWithUpperCaseWithCellSelectionWithUpperCase() {
+        final KeyboardEvent event = shiftControlKey("U");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+                    .setStyle(
+                        TextStyle.EMPTY.set(
+                            TextStylePropertyName.TEXT_TRANSFORM,
+                            TextTransform.UPPERCASE
+                        )
+                    )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.TEXT_TRANSFORM,
+                Optional.of(TextTransform.UPPERCASE)
             )
         );
 
