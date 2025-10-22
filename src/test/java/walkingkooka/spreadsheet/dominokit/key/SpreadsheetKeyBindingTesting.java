@@ -33,33 +33,6 @@ public interface SpreadsheetKeyBindingTesting<T extends SpreadsheetKeyBinding> e
     TreePrintableTesting {
 
     @Test
-    default void testAllKeyBindingsNotEmpty() throws Exception {
-        final Map<String, Set<KeyBinding>> all = Maps.ordered();
-
-        final SpreadsheetKeyBinding bindings = this.createSpreadsheetKeyBinding();
-
-        for(final Method method : SpreadsheetKeyBinding.class.getDeclaredMethods()) {
-            final Set<KeyBinding> methodKeyBindings = (Set<KeyBinding>) method.invoke(bindings);
-            if(false == methodKeyBindings.isEmpty()) {
-                all.put(
-                    method.getName(),
-                    methodKeyBindings
-                );
-            }
-        }
-
-
-        this.checkEquals(
-            Sets.empty(),
-            all.entrySet()
-                .stream()
-                .filter(e -> e.getValue().isEmpty())
-                .map(e -> e.getKey())
-                .collect(Collectors.toCollection(SortedSets::tree))
-        );
-    }
-
-    @Test
     default void testUniqueKeyBindings() throws Exception {
         final Map<KeyBinding, Set<String>> duplicates = Maps.sorted();
 
