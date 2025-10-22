@@ -133,6 +133,13 @@ final class BasicSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
     }
 
     @Override
+    public Set<KeyBinding> timeFormat() {
+        return Sets.of(
+            formatter(2)
+        );
+    }
+
+    @Override
     public Set<KeyBinding> topVerticalAlign() {
         return Sets.of(
             controlShift("T")

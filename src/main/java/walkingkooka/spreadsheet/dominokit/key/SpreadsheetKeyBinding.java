@@ -49,6 +49,8 @@ public interface SpreadsheetKeyBinding {
 
     Set<KeyBinding> strikethru();
 
+    Set<KeyBinding> timeFormat();
+
     Set<KeyBinding> topVerticalAlign();
 
     Set<KeyBinding> underline();

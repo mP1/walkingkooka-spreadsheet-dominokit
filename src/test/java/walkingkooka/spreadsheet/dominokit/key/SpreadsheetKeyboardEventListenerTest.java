@@ -1615,6 +1615,111 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
         this.defaultPreventedAndCheck(event);
     }
 
+    // timeFormat.......................................................................................................
+
+    @Test
+    public void testHandleEventWithTimeFormatWithoutCellSelection() {
+        final KeyboardEvent event = shiftControlKey("2");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.spreadsheetSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME
+                )
+            )
+        );
+    }
+
+    @Test
+    public void testHandleEventWithTimeFormatWithCellSelectionMissingCell() {
+        final KeyboardEvent event = shiftControlKey("2");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                )
+            ),
+            HistoryToken.cellFormatterSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                Optional.of(
+                    SpreadsheetPattern.parseTimeFormatPattern("hh:mm AM/PM")
+                        .spreadsheetFormatterSelector()
+                )
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
+    public void testHandleEventWithTimeFormatWithCellSelectionWithDateFormatter() {
+        final KeyboardEvent event = shiftControlKey("2");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+                    .setFormatter(
+                        Optional.of(
+                            SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
+                                .spreadsheetFormatterSelector()
+                        )
+                    )
+            ),
+            HistoryToken.cellFormatterSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                Optional.of(
+                    SpreadsheetPattern.parseTimeFormatPattern("hh:mm AM/PM")
+                        .spreadsheetFormatterSelector()
+                )
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
+    public void testHandleEventWithTimeFormatMissingCell() {
+        final KeyboardEvent event = shiftControlKey("2");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                )
+            ),
+            HistoryToken.cellFormatterSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                Optional.of(
+                    SpreadsheetPattern.parseTimeFormatPattern("hh:mm AM/PM")
+                        .spreadsheetFormatterSelector()
+                )
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+    
     // topVerticalAlignment.............................................................................................
 
     @Test
