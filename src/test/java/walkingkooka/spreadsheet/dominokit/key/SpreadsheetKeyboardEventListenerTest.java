@@ -257,6 +257,31 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
     }
 
     @Test
+    public void testHandleEventWithBottomVerticalAlignMissingCell() {
+        final KeyboardEvent event = shiftControlKey("B");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.VERTICAL_ALIGN,
+                Optional.of(VerticalAlign.BOTTOM)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
     public void testHandleEventWithBottomVerticalAlignWithCellSelectionWithTop() {
         final KeyboardEvent event = shiftControlKey("B");
 
@@ -338,6 +363,31 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
     }
 
     @Test
+    public void testHandleEventWithCapitalizeWithCellSelectionMissingCell() {
+        final KeyboardEvent event = shiftControlKey("C");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.TEXT_TRANSFORM,
+                Optional.of(TextTransform.CAPITALIZE)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
     public void testHandleEventWithCapitalizeWithCellSelectionWithLowerCase() {
         final KeyboardEvent event = shiftControlKey("C");
 
@@ -416,6 +466,31 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
                 )
             )
         );
+    }
+
+    @Test
+    public void testHandleEventWithCenterTextAlignWithCellSelectionMissingCell() {
+        final KeyboardEvent event = controlKey("c");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.TEXT_ALIGN,
+                Optional.of(TextAlign.CENTER)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
     }
 
     @Test
@@ -639,6 +714,31 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
     }
 
     @Test
+    public void testHandleEventWithJustifyTextAlignWithCellSelectionMissingCell() {
+        final KeyboardEvent event = controlKey("j");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.TEXT_ALIGN,
+                Optional.of(TextAlign.JUSTIFY)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
     public void testHandleEventWithJustifyTextAlignWithCellSelectionWithLeftAlign() {
         final KeyboardEvent event = controlKey("j");
 
@@ -801,6 +901,31 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
     }
 
     @Test
+    public void testHandleEventWithLowerCaseWithCellSelectionMissingCell() {
+        final KeyboardEvent event = shiftControlKey("L");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.TEXT_TRANSFORM,
+                Optional.of(TextTransform.LOWERCASE)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
     public void testHandleEventWithLowerCaseWithCellSelectionWithUpperCase() {
         final KeyboardEvent event = shiftControlKey("L");
 
@@ -879,6 +1004,31 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
                 )
             )
         );
+    }
+
+    @Test
+    public void testHandleEventWithMiddleVerticalAlignWithCellSelectionMissingCell() {
+        final KeyboardEvent event = shiftControlKey("M");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.VERTICAL_ALIGN,
+                Optional.of(VerticalAlign.MIDDLE)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
     }
 
     @Test
@@ -963,6 +1113,31 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
     }
 
     @Test
+    public void testHandleEventWithNormalTextWithCellSelectionMissingCell() {
+        final KeyboardEvent event = shiftControlKey("N");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.TEXT_TRANSFORM,
+                Optional.of(TextTransform.NONE)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
     public void testHandleEventWithNormalTextWithCellSelectionWithLowerCase() {
         final KeyboardEvent event = shiftControlKey("N");
 
@@ -1041,6 +1216,31 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
                 )
             )
         );
+    }
+
+    @Test
+    public void testHandleEventWithRightTextAlignWithCellSelectionMissingCell() {
+        final KeyboardEvent event = controlKey("r");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.TEXT_ALIGN,
+                Optional.of(TextAlign.RIGHT)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
     }
 
     @Test
@@ -1279,6 +1479,31 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
     }
 
     @Test
+    public void testHandleEventWithTopTextAlignWithCellSelectionMissingCell() {
+        final KeyboardEvent event = shiftControlKey("T");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.VERTICAL_ALIGN,
+                Optional.of(VerticalAlign.TOP)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
     public void testHandleEventWithTopTextAlignWithCellSelectionWithBottom() {
         final KeyboardEvent event = shiftControlKey("T");
 
@@ -1500,6 +1725,31 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
                 )
             )
         );
+    }
+
+    @Test
+    public void testHandleEventWithUpperCaseWithCellSelectionMissingCell() {
+        final KeyboardEvent event = shiftControlKey("U");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.TEXT_TRANSFORM,
+                Optional.of(TextTransform.UPPERCASE)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
     }
 
     @Test
