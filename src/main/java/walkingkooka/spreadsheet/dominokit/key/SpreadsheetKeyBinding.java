@@ -29,6 +29,8 @@ public interface SpreadsheetKeyBinding {
 
     Set<KeyBinding> centerTextAlign();
 
+    Set<KeyBinding> currencyFormat();
+
     Set<KeyBinding> dateFormat();
 
     Set<KeyBinding> italics();

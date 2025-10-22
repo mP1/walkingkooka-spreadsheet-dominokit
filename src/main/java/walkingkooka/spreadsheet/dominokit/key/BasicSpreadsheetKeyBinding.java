@@ -62,6 +62,13 @@ final class BasicSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
     }
 
     @Override
+    public Set<KeyBinding> currencyFormat() {
+        return Sets.of(
+            formatter(4)
+        );
+    }
+
+    @Override
     public Set<KeyBinding> dateFormat() {
         return Sets.of(
             formatter(3)

@@ -85,6 +85,11 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         );
 
         this.registerBindings(
+            bindings.currencyFormat(),
+            this::currencyFormat
+        );
+
+        this.registerBindings(
             bindings.dateFormat(),
             this::dateFormat
         );
@@ -233,6 +238,16 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         this.setCellStyle(
             TextStylePropertyName.TEXT_ALIGN,
             TextAlign.CENTER
+        );
+        event.preventDefault();
+    }
+
+    private void currencyFormat(final KeyboardEvent event) {
+        this.setCellFormatter(
+            Optional.of(
+                SpreadsheetPattern.parseNumberFormatPattern("$0.00")
+                    .spreadsheetFormatterSelector()
+            )
         );
         event.preventDefault();
     }

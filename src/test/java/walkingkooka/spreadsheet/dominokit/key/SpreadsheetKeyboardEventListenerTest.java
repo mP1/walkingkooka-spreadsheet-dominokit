@@ -583,6 +583,111 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
         this.defaultPreventedAndCheck(event);
     }
 
+    // currencyFormat...................................................................................................
+
+    @Test
+    public void testHandleEventWithCurrencyFormatWithoutCellSelection() {
+        final KeyboardEvent event = shiftControlKey("4");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.spreadsheetSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME
+                )
+            )
+        );
+    }
+
+    @Test
+    public void testHandleEventWithCurrencyFormatWithCellSelectionMissingCell() {
+        final KeyboardEvent event = shiftControlKey("4");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                )
+            ),
+            HistoryToken.cellFormatterSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                Optional.of(
+                    SpreadsheetPattern.parseNumberFormatPattern("$0.00")
+                        .spreadsheetFormatterSelector()
+                )
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
+    public void testHandleEventWithCurrencyFormatWithCellSelectionWithTimeFormatter() {
+        final KeyboardEvent event = shiftControlKey("4");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+                    .setFormatter(
+                        Optional.of(
+                            SpreadsheetPattern.parseTimeFormatPattern("hh:mm")
+                                .spreadsheetFormatterSelector()
+                        )
+                    )
+            ),
+            HistoryToken.cellFormatterSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                Optional.of(
+                    SpreadsheetPattern.parseNumberFormatPattern("$0.00")
+                        .spreadsheetFormatterSelector()
+                )
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
+    public void testHandleEventWithCurrencyFormatMissingCell() {
+        final KeyboardEvent event = shiftControlKey("4");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                )
+            ),
+            HistoryToken.cellFormatterSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                Optional.of(
+                    SpreadsheetPattern.parseNumberFormatPattern("$0.00")
+                        .spreadsheetFormatterSelector()
+                )
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+    
     // dateFormat.......................................................................................................
 
     @Test
