@@ -1539,7 +1539,112 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.defaultPreventedAndCheck(event);
     }
-    
+
+    // percentFormat.....................................................................................................
+
+    @Test
+    public void testHandleEventWithPercentFormatWithoutCellSelection() {
+        final KeyboardEvent event = shiftControlKey("5");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.spreadsheetSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME
+                )
+            )
+        );
+    }
+
+    @Test
+    public void testHandleEventWithPercentFormatWithCellSelectionMissingCell() {
+        final KeyboardEvent event = shiftControlKey("5");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                )
+            ),
+            HistoryToken.cellFormatterSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                Optional.of(
+                    SpreadsheetPattern.parseNumberFormatPattern("0%")
+                        .spreadsheetFormatterSelector()
+                )
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
+    public void testHandleEventWithPercentFormatWithCellSelectionWithDateFormatter() {
+        final KeyboardEvent event = shiftControlKey("5");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+                    .setFormatter(
+                        Optional.of(
+                            SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
+                                .spreadsheetFormatterSelector()
+                        )
+                    )
+            ),
+            HistoryToken.cellFormatterSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                Optional.of(
+                    SpreadsheetPattern.parseNumberFormatPattern("0%")
+                        .spreadsheetFormatterSelector()
+                )
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
+    public void testHandleEventWithPercentFormatMissingCell() {
+        final KeyboardEvent event = shiftControlKey("5");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                )
+            ),
+            HistoryToken.cellFormatterSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                Optional.of(
+                    SpreadsheetPattern.parseNumberFormatPattern("0%")
+                        .spreadsheetFormatterSelector()
+                )
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
     // rightTextAlignment...............................................................................................
 
     @Test

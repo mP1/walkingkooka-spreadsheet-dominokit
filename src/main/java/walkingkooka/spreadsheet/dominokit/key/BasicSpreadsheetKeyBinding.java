@@ -126,6 +126,13 @@ final class BasicSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
     }
 
     @Override
+    public Set<KeyBinding> percentFormat() {
+        return Sets.of(
+            formatter(5)
+        );
+    }
+
+    @Override
     public Set<KeyBinding> rightTextAlign() {
         return Sets.of(
             control("r")

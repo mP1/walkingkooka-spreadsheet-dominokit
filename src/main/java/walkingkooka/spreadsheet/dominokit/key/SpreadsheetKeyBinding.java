@@ -47,6 +47,8 @@ public interface SpreadsheetKeyBinding {
 
     Set<KeyBinding> numberFormat();
 
+    Set<KeyBinding> percentFormat();
+
     Set<KeyBinding> rightTextAlign();
 
     Set<KeyBinding> selectAll();
