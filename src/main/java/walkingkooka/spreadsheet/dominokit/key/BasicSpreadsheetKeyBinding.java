@@ -140,6 +140,13 @@ final class BasicSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
     }
 
     @Override
+    public Set<KeyBinding> scientificFormat() {
+        return Sets.of(
+            formatter(6)
+        );
+    }
+
+    @Override
     public Set<KeyBinding> selectAll() {
         return Sets.of(
             control("a")

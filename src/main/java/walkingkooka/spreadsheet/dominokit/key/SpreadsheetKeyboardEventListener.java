@@ -140,6 +140,11 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         );
 
         this.registerBindings(
+            bindings.scientificFormat(),
+            this::scientificFormat
+        );
+
+        this.registerBindings(
             bindings.selectAll(),
             this::selectAll
         );
@@ -339,6 +344,16 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         this.setCellStyle(
             TextStylePropertyName.TEXT_ALIGN,
             TextAlign.RIGHT
+        );
+        event.preventDefault();
+    }
+
+    private void scientificFormat(final KeyboardEvent event) {
+        this.setCellFormatter(
+            Optional.of(
+                SpreadsheetPattern.parseNumberFormatPattern("0.00E+00")
+                    .spreadsheetFormatterSelector()
+            )
         );
         event.preventDefault();
     }
