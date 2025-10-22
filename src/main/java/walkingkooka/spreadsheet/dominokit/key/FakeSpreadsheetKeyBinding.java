@@ -56,6 +56,11 @@ public class FakeSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
     }
 
     @Override
+    public Set<KeyBinding> generalFormat() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public Set<KeyBinding> italics() {
         throw new UnsupportedOperationException();
     }

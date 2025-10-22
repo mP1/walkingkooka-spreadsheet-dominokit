@@ -33,6 +33,8 @@ public interface SpreadsheetKeyBinding {
 
     Set<KeyBinding> dateFormat();
 
+    Set<KeyBinding> generalFormat();
+
     Set<KeyBinding> italics();
 
     Set<KeyBinding> justifyTextAlign();
