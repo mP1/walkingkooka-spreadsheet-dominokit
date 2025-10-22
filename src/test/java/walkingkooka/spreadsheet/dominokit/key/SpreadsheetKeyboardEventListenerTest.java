@@ -582,6 +582,111 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.defaultPreventedAndCheck(event);
     }
+
+    // dateFormat.......................................................................................................
+
+    @Test
+    public void testHandleEventWithDateFormatWithoutCellSelection() {
+        final KeyboardEvent event = shiftControlKey("3");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.spreadsheetSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME
+                )
+            )
+        );
+    }
+
+    @Test
+    public void testHandleEventWithDateFormatWithCellSelectionMissingCell() {
+        final KeyboardEvent event = shiftControlKey("3");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                )
+            ),
+            HistoryToken.cellFormatterSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                Optional.of(
+                    SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
+                        .spreadsheetFormatterSelector()
+                )
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
+    public void testHandleEventWithDateFormatWithCellSelectionWithTimeFormatter() {
+        final KeyboardEvent event = shiftControlKey("3");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+                    .setFormatter(
+                        Optional.of(
+                            SpreadsheetPattern.parseTimeFormatPattern("hh:mm")
+                                .spreadsheetFormatterSelector()
+                        )
+                    )
+            ),
+            HistoryToken.cellFormatterSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                Optional.of(
+                    SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
+                        .spreadsheetFormatterSelector()
+                )
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
+    public void testHandleEventWithDateFormatMissingCell() {
+        final KeyboardEvent event = shiftControlKey("3");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                )
+            ),
+            HistoryToken.cellFormatterSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                Optional.of(
+                    SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
+                        .spreadsheetFormatterSelector()
+                )
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
     
     // italics..........................................................................................................
 

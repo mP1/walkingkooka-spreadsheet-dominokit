@@ -29,6 +29,8 @@ public interface SpreadsheetKeyBinding {
 
     Set<KeyBinding> centerTextAlign();
 
+    Set<KeyBinding> dateFormat();
+
     Set<KeyBinding> italics();
 
     Set<KeyBinding> justifyTextAlign();

@@ -62,6 +62,13 @@ final class BasicSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
     }
 
     @Override
+    public Set<KeyBinding> dateFormat() {
+        return Sets.of(
+            formatter(3)
+        );
+    }
+
+    @Override
     public Set<KeyBinding> italics() {
         return Sets.of(
             control("i"),

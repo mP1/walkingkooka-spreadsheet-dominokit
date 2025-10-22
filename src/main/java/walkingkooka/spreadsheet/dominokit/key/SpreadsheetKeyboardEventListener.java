@@ -85,6 +85,11 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         );
 
         this.registerBindings(
+            bindings.dateFormat(),
+            this::dateFormat
+        );
+
+        this.registerBindings(
             bindings.italics(),
             this::italics
         );
@@ -228,6 +233,16 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         this.setCellStyle(
             TextStylePropertyName.TEXT_ALIGN,
             TextAlign.CENTER
+        );
+        event.preventDefault();
+    }
+
+    private void dateFormat(final KeyboardEvent event) {
+        this.setCellFormatter(
+            Optional.of(
+                SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
+                    .spreadsheetFormatterSelector()
+            )
         );
         event.preventDefault();
     }
