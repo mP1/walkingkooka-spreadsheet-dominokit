@@ -73,6 +73,11 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         );
 
         this.registerBindings(
+            bindings.capitalize(),
+            this::capitalize
+        );
+
+        this.registerBindings(
             bindings.centerTextAlign(),
             this::centerTextAlign
         );
@@ -190,6 +195,14 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         this.setCellStyle(
             TextStylePropertyName.VERTICAL_ALIGN,
             VerticalAlign.BOTTOM
+        );
+        event.preventDefault();
+    }
+
+    private void capitalize(final KeyboardEvent event) {
+        this.setCellStyle(
+            TextStylePropertyName.TEXT_TRANSFORM,
+            TextTransform.CAPITALIZE
         );
         event.preventDefault();
     }
