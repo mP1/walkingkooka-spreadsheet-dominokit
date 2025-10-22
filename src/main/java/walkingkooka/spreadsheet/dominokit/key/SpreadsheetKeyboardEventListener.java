@@ -25,6 +25,8 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.Logging;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.FontStyle;
 import walkingkooka.tree.text.FontWeight;
@@ -110,6 +112,11 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         this.registerBindings(
             bindings.normalText(),
             this::normalText
+        );
+
+        this.registerBindings(
+            bindings.numberFormat(),
+            this::numberFormat
         );
 
         this.registerBindings(
@@ -268,6 +275,16 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         event.preventDefault();
     }
 
+    private void numberFormat(final KeyboardEvent event) {
+        this.setCellFormatter(
+            Optional.of(
+                SpreadsheetPattern.parseNumberFormatPattern("0.00")
+                    .spreadsheetFormatterSelector()
+            )
+        );
+        event.preventDefault();
+    }
+
     private void rightTextAlign(final KeyboardEvent event) {
         this.setCellStyle(
             TextStylePropertyName.TEXT_ALIGN,
@@ -320,6 +337,19 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
             TextTransform.UPPERCASE
         );
         event.preventDefault();
+    }
+
+    /**
+     * Unconditionally sets a {@link SpreadsheetFormatterSelector} belonging to a {@link SpreadsheetCell}.
+     */
+    private <T> void setCellFormatter(final Optional<SpreadsheetFormatterSelector> formatter) {
+        final SpreadsheetKeyboardContext context = this.context;
+
+        context.pushHistoryToken(
+            context.historyToken()
+                .formatter()
+                .setSaveValue(formatter)
+        );
     }
 
     /**

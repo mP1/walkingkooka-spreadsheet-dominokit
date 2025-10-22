@@ -105,6 +105,13 @@ final class BasicSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
     }
 
     @Override
+    public Set<KeyBinding> numberFormat() {
+        return Sets.of(
+            formatter(1)
+        );
+    }
+
+    @Override
     public Set<KeyBinding> rightTextAlign() {
         return Sets.of(
             control("r")
@@ -155,5 +162,15 @@ final class BasicSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
     private static KeyBinding controlShift(final String key) {
         return control(key)
             .setShift();
+    }
+
+    private static KeyBinding formatter(final int number) {
+        if(number < 1 || number > 6) {
+            throw new IllegalArgumentException("Invalid number " + number);
+        }
+
+        return controlShift(
+            String.valueOf(number)
+        );
     }
 }

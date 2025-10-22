@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -1245,6 +1246,84 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
                 CELL.setDefaultAnchor(),
                 TextStylePropertyName.TEXT_TRANSFORM,
                 Optional.of(TextTransform.NONE)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    // numberFormat.....................................................................................................
+
+    @Test
+    public void testHandleEventWithNumberFormatWithoutCellSelection() {
+        final KeyboardEvent event = shiftControlKey("1");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.spreadsheetSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME
+                )
+            )
+        );
+    }
+
+    @Test
+    public void testHandleEventWithNumberFormatWithCellSelectionWithDateFormatter() {
+        final KeyboardEvent event = shiftControlKey("1");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+                    .setFormatter(
+                        Optional.of(
+                            SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
+                                .spreadsheetFormatterSelector()
+                        )
+                    )
+            ),
+            HistoryToken.cellFormatterSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                Optional.of(
+                    SpreadsheetPattern.parseNumberFormatPattern("0.00")
+                        .spreadsheetFormatterSelector()
+                )
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
+    public void testHandleEventWithNumberFormatMissingCell() {
+        final KeyboardEvent event = shiftControlKey("1");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                )
+            ),
+            HistoryToken.cellFormatterSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                Optional.of(
+                    SpreadsheetPattern.parseNumberFormatPattern("0.00")
+                        .spreadsheetFormatterSelector()
+                )
             )
         );
 
