@@ -135,6 +135,11 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         );
 
         this.registerBindings(
+            bindings.timeFormat(),
+            this::timeFormat
+        );
+
+        this.registerBindings(
             bindings.topVerticalAlign(),
             this::topVerticalAlign
         );
@@ -311,6 +316,16 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         this.flipCellStyle(
             TextStylePropertyName.TEXT_DECORATION_LINE,
             TextDecorationLine.LINE_THROUGH
+        );
+        event.preventDefault();
+    }
+
+    private void timeFormat(final KeyboardEvent event) {
+        this.setCellFormatter(
+            Optional.of(
+                SpreadsheetPattern.parseTimeFormatPattern("hh:mm AM/PM")
+                    .spreadsheetFormatterSelector()
+            )
         );
         event.preventDefault();
     }
