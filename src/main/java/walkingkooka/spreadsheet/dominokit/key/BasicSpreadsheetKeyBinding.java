@@ -168,6 +168,13 @@ final class BasicSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
     }
 
     @Override
+    public Set<KeyBinding> textFormat() {
+        return Sets.of(
+            formatter(8)
+        );
+    }
+
+    @Override
     public Set<KeyBinding> timeFormat() {
         return Sets.of(
             formatter(2)
@@ -207,7 +214,7 @@ final class BasicSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
     }
 
     private static KeyBinding formatter(final int number) {
-        if(number < 1 || number > 7) {
+        if(number < 1 || number > 8) {
             throw new IllegalArgumentException("Invalid number " + number);
         }
 
