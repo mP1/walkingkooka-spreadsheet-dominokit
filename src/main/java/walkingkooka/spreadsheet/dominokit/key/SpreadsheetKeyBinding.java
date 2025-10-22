@@ -41,6 +41,8 @@ public interface SpreadsheetKeyBinding {
 
     Set<KeyBinding> normalText();
 
+    Set<KeyBinding> numberFormat();
+
     Set<KeyBinding> rightTextAlign();
 
     Set<KeyBinding> selectAll();
