@@ -98,6 +98,13 @@ final class BasicSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
     }
 
     @Override
+    public Set<KeyBinding> normalText() {
+        return Sets.of(
+            controlShift("N")
+        );
+    }
+
+    @Override
     public Set<KeyBinding> rightTextAlign() {
         return Sets.of(
             control("r")
