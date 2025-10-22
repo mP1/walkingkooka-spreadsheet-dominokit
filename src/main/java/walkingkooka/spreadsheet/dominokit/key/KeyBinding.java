@@ -164,13 +164,15 @@ public final class KeyBinding implements Comparable<KeyBinding> {
     public String toString() {
         if(null == this.toString) {
             this.toString = ToStringBuilder.empty()
-                .value(this.key)
-                .separator(" ")
+                .separator("+")
                 .disable(ToStringBuilderOption.QUOTE)
                 .value(this.alt ? "alt" : "")
                 .value(this.control ? "control" : "")
                 .value(this.meta ? "meta" : "")
                 .value(this.shift ? "shift" : "")
+                .separator(" ")
+                .enable(ToStringBuilderOption.QUOTE)
+                .value(this.key)
                 .build();
         }
         return this.toString;

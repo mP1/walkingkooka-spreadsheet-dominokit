@@ -90,7 +90,7 @@ public final class KeyBindingTest implements HashCodeEqualsDefinedTesting2<KeyBi
         this.toStringAndCheck(
             KeyBinding.with("a")
                 .setShift(),
-            "\"a\" shift"
+            "shift \"a\""
         );
     }
 
@@ -102,7 +102,7 @@ public final class KeyBindingTest implements HashCodeEqualsDefinedTesting2<KeyBi
                 .setControl()
                 .setMeta()
                 .setShift(),
-            "\"a\" alt control meta shift"
+            "alt+control+meta+shift \"a\""
         );
     }
 
@@ -111,11 +111,7 @@ public final class KeyBindingTest implements HashCodeEqualsDefinedTesting2<KeyBi
     @Test
     public void testCompareLess() {
         this.compareToAndCheckLess(
-            KeyBinding.with("a")
-                .setAlt()
-                .setControl()
-                .setMeta()
-                .setShift(),
+            KeyBinding.with("a"),
             KeyBinding.with("b")
         );
     }
