@@ -91,6 +91,13 @@ final class BasicSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
     }
 
     @Override
+    public Set<KeyBinding> topVerticalAlign() {
+        return Sets.of(
+            controlShift("T")
+        );
+    }
+
+    @Override
     public Set<KeyBinding> underline() {
         return Sets.of(
             control("u"),
@@ -101,5 +108,10 @@ final class BasicSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
     private static KeyBinding control(final String key) {
         return KeyBinding.with(key)
             .setControl();
+    }
+
+    private static KeyBinding controlShift(final String key) {
+        return control(key)
+            .setShift();
     }
 }
