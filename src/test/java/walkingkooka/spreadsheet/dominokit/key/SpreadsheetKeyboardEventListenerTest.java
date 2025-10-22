@@ -238,10 +238,10 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
         this.defaultPreventedAndCheck(event);
     }
 
-    // bottomTextAlignment..............................................................................................
+    // bottomVerticalAlignment..............................................................................................
 
     @Test
-    public void testHandleEventWithBottomTextAlignWithoutCellSelection() {
+    public void testHandleEventWithBottomVerticalAlignWithoutCellSelection() {
         final KeyboardEvent event = shiftControlKey("B");
 
         this.handleEventAndCheck(
@@ -256,7 +256,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
     }
 
     @Test
-    public void testHandleEventWithBottomTextAlignWithCellSelectionWithTop() {
+    public void testHandleEventWithBottomVerticalAlignWithCellSelectionWithTop() {
         final KeyboardEvent event = shiftControlKey("B");
 
         this.handleEventAndCheck(
@@ -288,7 +288,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
     }
 
     @Test
-    public void testHandleEventWithBottomTextAlignWithCellSelectionWithBottom() {
+    public void testHandleEventWithBottomVerticalAlignWithCellSelectionWithBottom() {
         final KeyboardEvent event = shiftControlKey("B");
 
         this.handleEventAndCheck(
