@@ -39,6 +39,8 @@ public interface SpreadsheetKeyBinding {
 
     Set<KeyBinding> middleVerticalAlign();
 
+    Set<KeyBinding> normalText();
+
     Set<KeyBinding> rightTextAlign();
 
     Set<KeyBinding> selectAll();
