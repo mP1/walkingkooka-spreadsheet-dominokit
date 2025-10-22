@@ -101,6 +101,11 @@ public class FakeSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
     }
 
     @Override
+    public Set<KeyBinding> scientificFormat() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public Set<KeyBinding> selectAll() {
         throw new UnsupportedOperationException();
     }

@@ -51,6 +51,8 @@ public interface SpreadsheetKeyBinding {
 
     Set<KeyBinding> rightTextAlign();
 
+    Set<KeyBinding> scientificFormat();
+
     Set<KeyBinding> selectAll();
 
     Set<KeyBinding> strikethru();
