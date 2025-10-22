@@ -48,6 +48,13 @@ final class BasicSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
     }
 
     @Override
+    public Set<KeyBinding> capitalize() {
+        return Sets.of(
+            controlShift("C")
+        );
+    }
+
+    @Override
     public Set<KeyBinding> centerTextAlign() {
         return Sets.of(
             control("c")

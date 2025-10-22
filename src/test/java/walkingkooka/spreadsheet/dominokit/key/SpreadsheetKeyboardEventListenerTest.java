@@ -319,7 +319,88 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.defaultPreventedAndCheck(event);
     }
-    
+
+    // capitalize.......................................................................................................
+
+    @Test
+    public void testHandleEventWithCapitalizeWithoutCellSelection() {
+        final KeyboardEvent event = shiftControlKey("C");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.spreadsheetSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME
+                )
+            )
+        );
+    }
+
+    @Test
+    public void testHandleEventWithCapitalizeWithCellSelectionWithLowerCase() {
+        final KeyboardEvent event = shiftControlKey("C");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+                    .setStyle(
+                        TextStyle.EMPTY.set(
+                            TextStylePropertyName.TEXT_TRANSFORM,
+                            TextTransform.LOWERCASE
+                        )
+                    )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.TEXT_TRANSFORM,
+                Optional.of(TextTransform.CAPITALIZE)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
+    public void testHandleEventWithCapitalizeWithCellSelectionWithCapitalize() {
+        final KeyboardEvent event = shiftControlKey("C");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+                    .setStyle(
+                        TextStyle.EMPTY.set(
+                            TextStylePropertyName.TEXT_TRANSFORM,
+                            TextTransform.CAPITALIZE
+                        )
+                    )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.TEXT_TRANSFORM,
+                Optional.of(TextTransform.CAPITALIZE)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
     // centerTextAlignment..............................................................................................
 
     @Test

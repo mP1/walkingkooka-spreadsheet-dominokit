@@ -25,6 +25,8 @@ public interface SpreadsheetKeyBinding {
 
     Set<KeyBinding> bottomVerticalAlign();
 
+    Set<KeyBinding> capitalize();
+
     Set<KeyBinding> centerTextAlign();
 
     Set<KeyBinding> italics();
