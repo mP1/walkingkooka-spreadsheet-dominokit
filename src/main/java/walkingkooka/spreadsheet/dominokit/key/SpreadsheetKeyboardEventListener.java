@@ -32,6 +32,7 @@ import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextDecorationLine;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
+import walkingkooka.tree.text.VerticalAlign;
 
 import java.util.Collection;
 import java.util.Map;
@@ -98,6 +99,11 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         this.registerBindings(
             bindings.strikethru(),
             this::strikethru
+        );
+
+        this.registerBindings(
+            bindings.topVerticalAlign(),
+            this::topVerticalAlign
         );
 
         this.registerBindings(
@@ -217,6 +223,14 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         this.flipCellStyle(
             TextStylePropertyName.TEXT_DECORATION_LINE,
             TextDecorationLine.LINE_THROUGH
+        );
+        event.preventDefault();
+    }
+
+    private void topVerticalAlign(final KeyboardEvent event) {
+        this.setCellStyle(
+            TextStylePropertyName.VERTICAL_ALIGN,
+            VerticalAlign.TOP
         );
         event.preventDefault();
     }
