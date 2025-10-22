@@ -252,18 +252,18 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         event.preventDefault();
     }
 
-    private void normalText(final KeyboardEvent event) {
-        this.setCellStyle(
-            TextStylePropertyName.TEXT_TRANSFORM,
-            TextTransform.NONE
-        );
-        event.preventDefault();
-    }
-
     private void middleVerticalAlign(final KeyboardEvent event) {
         this.setCellStyle(
             TextStylePropertyName.VERTICAL_ALIGN,
             VerticalAlign.MIDDLE
+        );
+        event.preventDefault();
+    }
+
+    private void normalText(final KeyboardEvent event) {
+        this.setCellStyle(
+            TextStylePropertyName.TEXT_TRANSFORM,
+            TextTransform.NONE
         );
         event.preventDefault();
     }
