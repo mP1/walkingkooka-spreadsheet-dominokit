@@ -121,6 +121,11 @@ public class FakeSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
     }
 
     @Override
+    public Set<KeyBinding> textFormat() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public Set<KeyBinding> timeFormat() {
         throw new UnsupportedOperationException();
     }

@@ -160,6 +160,11 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         );
 
         this.registerBindings(
+            bindings.textFormat(),
+            this::textFormat
+        );
+
+        this.registerBindings(
             bindings.timeFormat(),
             this::timeFormat
         );
@@ -391,6 +396,15 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         this.flipCellStyle(
             TextStylePropertyName.TEXT_DECORATION_LINE,
             TextDecorationLine.LINE_THROUGH
+        );
+        event.preventDefault();
+    }
+
+    private void textFormat(final KeyboardEvent event) {
+        this.setCellFormatter(
+            Optional.of(
+                SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN.spreadsheetFormatterSelector()
+            )
         );
         event.preventDefault();
     }
