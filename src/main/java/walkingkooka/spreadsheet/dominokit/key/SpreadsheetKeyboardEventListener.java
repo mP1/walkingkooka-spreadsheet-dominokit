@@ -92,6 +92,11 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         );
 
         this.registerBindings(
+            bindings.middleVerticalAlign(),
+            this::middleVerticalAlign
+        );
+
+        this.registerBindings(
             bindings.rightTextAlign(),
             this::rightTextAlign
         );
@@ -206,6 +211,14 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         this.setCellStyle(
             TextStylePropertyName.TEXT_ALIGN,
             TextAlign.LEFT
+        );
+        event.preventDefault();
+    }
+
+    private void middleVerticalAlign(final KeyboardEvent event) {
+        this.setCellStyle(
+            TextStylePropertyName.VERTICAL_ALIGN,
+            VerticalAlign.MIDDLE
         );
         event.preventDefault();
     }

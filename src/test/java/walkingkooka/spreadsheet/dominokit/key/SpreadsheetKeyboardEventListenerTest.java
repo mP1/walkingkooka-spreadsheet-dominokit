@@ -701,6 +701,87 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
         this.defaultPreventedAndCheck(event);
     }
 
+    // middleVerticalAlignment..........................................................................................
+
+    @Test
+    public void testHandleEventWithMiddleVerticalAlignWithoutCellSelection() {
+        final KeyboardEvent event = shiftControlKey("M");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.spreadsheetSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME
+                )
+            )
+        );
+    }
+
+    @Test
+    public void testHandleEventWithMiddleVerticalAlignWithCellSelectionWithTop() {
+        final KeyboardEvent event = shiftControlKey("M");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+                    .setStyle(
+                        TextStyle.EMPTY.set(
+                            TextStylePropertyName.VERTICAL_ALIGN,
+                            VerticalAlign.TOP
+                        )
+                    )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.VERTICAL_ALIGN,
+                Optional.of(VerticalAlign.MIDDLE)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
+    public void testHandleEventWithMiddleVerticalAlignWithCellSelectionWithMiddle() {
+        final KeyboardEvent event = shiftControlKey("M");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                CELL.setFormula(SpreadsheetFormula.EMPTY)
+                    .setStyle(
+                        TextStyle.EMPTY.set(
+                            TextStylePropertyName.VERTICAL_ALIGN,
+                            VerticalAlign.MIDDLE
+                        )
+                    )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.VERTICAL_ALIGN,
+                Optional.of(VerticalAlign.MIDDLE)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+    
     // rightTextAlignment...............................................................................................
 
     @Test
