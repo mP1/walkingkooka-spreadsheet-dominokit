@@ -98,6 +98,31 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
     }
 
     @Test
+    public void testHandleEventWithBoldWithCellSelectionMissingCell() {
+        final KeyboardEvent event = controlKey("b");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.FONT_WEIGHT,
+                Optional.of(FontWeight.BOLD)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
     public void testHandleEventWithBoldWithCellSelectionWithNonBoldFontWeight() {
         final KeyboardEvent event = controlKey("b");
 
@@ -572,6 +597,31 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
                 )
             )
         );
+    }
+
+    @Test
+    public void testHandleEventWithItalicsWithCellSelectionMissingCell() {
+        final KeyboardEvent event = controlKey("i");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.FONT_STYLE,
+                Optional.of(FontStyle.ITALIC)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
     }
 
     @Test
@@ -1372,6 +1422,31 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
     }
 
     @Test
+    public void testHandleEventWithStrikethruWithCellSelectionMissingCell() {
+        final KeyboardEvent event = controlKey("5");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.TEXT_DECORATION_LINE,
+                Optional.of(TextDecorationLine.LINE_THROUGH)
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
+    }
+
+    @Test
     public void testHandleEventWithStrikethruWithCellSelectionWithoutTextDecorationLine() {
         final KeyboardEvent event = controlKey("5");
 
@@ -1582,6 +1657,33 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
                 )
             )
         );
+    }
+
+    @Test
+    public void testHandleEventWithUnderlineWithCellSelectionMissingCell() {
+        final KeyboardEvent event = controlKey("u");
+
+        this.handleEventAndCheck(
+            event,
+            new TestSpreadsheetKeyboardContext(
+                HistoryToken.cellSelect(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    CELL.setDefaultAnchor()
+                )
+            ),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.TEXT_DECORATION_LINE,
+                Optional.of(
+                    TextDecorationLine.UNDERLINE
+                )
+            )
+        );
+
+        this.defaultPreventedAndCheck(event);
     }
 
     @Test

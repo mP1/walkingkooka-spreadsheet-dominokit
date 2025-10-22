@@ -348,13 +348,17 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
                                    final T value) {
         final SpreadsheetKeyboardContext context = this.context;
 
-        final SpreadsheetCell cell = context.historyTokenCell()
-            .orElse(null);
-
-        if (null != cell) {
-            final TextStyle style = cell.textStyle();
-            final T previous = style.get(name)
+        if(context.historyToken() instanceof SpreadsheetCellHistoryToken) {
+            final SpreadsheetCell cell = context.historyTokenCell()
                 .orElse(null);
+
+            T previous = null;
+
+            if (null != cell) {
+                final TextStyle style = cell.textStyle();
+                previous = style.get(name)
+                    .orElse(null);
+            }
 
             context.pushHistoryToken(
                 context.historyToken()
