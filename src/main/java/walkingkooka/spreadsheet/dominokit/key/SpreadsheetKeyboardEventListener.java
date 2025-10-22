@@ -67,6 +67,11 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         );
 
         this.registerBindings(
+            bindings.bottomVerticalAlign(),
+            this::bottomVerticalAlign
+        );
+
+        this.registerBindings(
             bindings.centerTextAlign(),
             this::centerTextAlign
         );
@@ -161,6 +166,14 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         this.flipCellStyle(
             TextStylePropertyName.FONT_WEIGHT,
             FontWeight.BOLD
+        );
+        event.preventDefault();
+    }
+
+    private void bottomVerticalAlign(final KeyboardEvent event) {
+        this.setCellStyle(
+            TextStylePropertyName.VERTICAL_ALIGN,
+            VerticalAlign.BOTTOM
         );
         event.preventDefault();
     }
