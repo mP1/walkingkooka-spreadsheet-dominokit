@@ -352,8 +352,7 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
     private void percentFormat(final KeyboardEvent event) {
         this.setCellFormatter(
             Optional.of(
-                SpreadsheetPattern.parseNumberFormatPattern("0%")
-                    .spreadsheetFormatterSelector()
+                SpreadsheetFormatterSelector.parse("percent")
             )
         );
         event.preventDefault();
