@@ -115,7 +115,7 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
     @Test
     public void testParseOneCell() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/save/formatter/%7B%0A%20%20%20%22A1%22%3A%20%22text-format-pattern%20%40%22%0A%7D",
+            "/123/SpreadsheetName456/cell/A1/save/formatter/%7B%0A%20%20%20%22A1%22%3A%20%22text%20%40%22%0A%7D",
             SpreadsheetCellSaveFormatterHistoryToken.with(
                 ID,
                 NAME,

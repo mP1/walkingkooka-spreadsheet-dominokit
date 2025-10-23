@@ -101,7 +101,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
                 "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Text Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "                  \"Time Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
@@ -189,7 +189,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
                 "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Text Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "                  \"Time Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
@@ -309,7 +309,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
                 "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Text Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "                  \"Time Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
@@ -448,7 +448,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
                 "                  \"Number\" DISABLED id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Text Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "                  \"Time Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
@@ -586,7 +586,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             SpreadsheetFormatterSelectorDialogComponent.with(
                 AppContextSpreadsheetFormatterSelectorDialogComponentContextCell.with(context)
             ),
-            SpreadsheetFormatterName.TEXT_FORMAT_PATTERN + " @ \"Hello\"",
+            SpreadsheetFormatterName.TEXT + " @ \"Hello\"",
             context,
             "SpreadsheetFormatterSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
@@ -608,7 +608,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
                 "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Text Format Pattern\" DISABLED id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"Text\" DISABLED id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "                  \"Time Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
@@ -619,13 +619,13 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Default\n" +
-                "                  \"@\" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern%20@] id=spreadsheetFormatterSelector-Default-Link\n" +
+                "                  \"@\" [#/1/Spreadsheet1/cell/A1/formatter/save/text%20@] id=spreadsheetFormatterSelector-Default-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    Hello 123\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"@ \"Hello\"\" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern%20@%20%22Hello%22] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  \"@ \"Hello\"\" [#/1/Spreadsheet1/cell/A1/formatter/save/text%20@%20%22Hello%22] id=spreadsheetFormatterSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    Hello World 123 Hello\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -634,26 +634,26 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"* \" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern%20@%20%22Hello%22*%20] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
-                "                  \"@\" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern%20@%20%22Hello%22@] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
-                "                  \"_ \" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern%20@%20%22Hello%22_%20] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
+                "                  \"* \" [#/1/Spreadsheet1/cell/A1/formatter/save/text%20@%20%22Hello%22*%20] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
+                "                  \"@\" [#/1/Spreadsheet1/cell/A1/formatter/save/text%20@%20%22Hello%22@] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
+                "                  \"_ \" [#/1/Spreadsheet1/cell/A1/formatter/save/text%20@%20%22Hello%22_%20] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"@\" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern%20%20%22Hello%22] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
-                "                  \" \" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern%20@%22Hello%22] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"\"Hello\"\" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern%20@%20] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
+                "                  \"@\" [#/1/Spreadsheet1/cell/A1/formatter/save/text%20%20%22Hello%22] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
+                "                  \" \" [#/1/Spreadsheet1/cell/A1/formatter/save/text%20@%22Hello%22] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"\"Hello\"\" [#/1/Spreadsheet1/cell/A1/formatter/save/text%20@%20] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [text-format-pattern @ \"Hello\"] id=spreadsheetFormatterSelector-TextBox\n" +
+                "            [text @ \"Hello\"] id=spreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern%20@%20%22Hello%22] id=spreadsheetFormatterSelector-save-Link\n" +
+                "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/text%20@%20%22Hello%22] id=spreadsheetFormatterSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
                 "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=spreadsheetFormatterSelector-close-Link\n"
@@ -694,7 +694,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
                 "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Text Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "                  \"Time Format Pattern\" DISABLED id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
@@ -809,7 +809,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"General\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
                 "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Text Format Pattern\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "                  \"Time Format Pattern\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
@@ -943,7 +943,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"General\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
                 "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Text Format Pattern\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "                  \"Time Format Pattern\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
@@ -1096,7 +1096,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"General\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
                 "                  \"Number\" DISABLED id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Text Format Pattern\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "                  \"Time Format Pattern\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
@@ -1217,7 +1217,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "          ROW\n" +
                 "            \"Save\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00] id=spreadsheetFormatterSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/badge-error%20text-format-pattern%20@] id=spreadsheetFormatterSelector-undo-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/badge-error%20text%20@] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=spreadsheetFormatterSelector-close-Link\n"
         );
     }
@@ -1270,7 +1270,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"General\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
                 "                  \"Number\" DISABLED id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Text Format Pattern\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "                  \"Time Format Pattern\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
@@ -1408,7 +1408,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             SpreadsheetFormatterSelectorDialogComponent.with(
                 AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata.with(context)
             ),
-            SpreadsheetFormatterName.TEXT_FORMAT_PATTERN + " @ \"Hello\"",
+            SpreadsheetFormatterName.TEXT + " @ \"Hello\"",
             context,
             "SpreadsheetFormatterSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
@@ -1444,7 +1444,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"General\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
                 "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Text Format Pattern\" DISABLED id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"Text\" DISABLED id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "                  \"Time Format Pattern\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
@@ -1455,13 +1455,13 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Default\n" +
-                "                  \"@\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text-format-pattern%20@] id=spreadsheetFormatterSelector-Default-Link\n" +
+                "                  \"@\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@] id=spreadsheetFormatterSelector-Default-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    Hello 123\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"@ \"Hello\"\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text-format-pattern%20@%20%22Hello%22] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  \"@ \"Hello\"\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@%20%22Hello%22] id=spreadsheetFormatterSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    Hello World 123 Hello\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -1470,28 +1470,28 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"* \" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text-format-pattern%20@%20%22Hello%22*%20] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
-                "                  \"@\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text-format-pattern%20@%20%22Hello%22@] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
-                "                  \"_ \" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text-format-pattern%20@%20%22Hello%22_%20] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
+                "                  \"* \" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@%20%22Hello%22*%20] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
+                "                  \"@\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@%20%22Hello%22@] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
+                "                  \"_ \" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@%20%22Hello%22_%20] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"@\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text-format-pattern%20%20%22Hello%22] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
-                "                  \" \" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text-format-pattern%20@%22Hello%22] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"\"Hello\"\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text-format-pattern%20@%20] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
+                "                  \"@\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20%20%22Hello%22] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
+                "                  \" \" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@%22Hello%22] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"\"Hello\"\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@%20] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [text-format-pattern @ \"Hello\"] id=spreadsheetFormatterSelector-TextBox\n" +
+                "            [text @ \"Hello\"] id=spreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text-format-pattern%20@%20%22Hello%22] id=spreadsheetFormatterSelector-save-Link\n" +
+                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@%20%22Hello%22] id=spreadsheetFormatterSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text-format-pattern%20@] id=spreadsheetFormatterSelector-undo-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=spreadsheetFormatterSelector-close-Link\n"
         );
     }
@@ -1544,7 +1544,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"General\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
                 "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Text Format Pattern\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "                  \"Time Format Pattern\" DISABLED id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +

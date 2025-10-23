@@ -322,7 +322,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                     "      \"formula\": {\n" +
                     "        \"text\": \"=22\"\n" +
                     "      },\n" +
-                    "      \"formatter\": \"text-format-pattern @\"\n" +
+                    "      \"formatter\": \"text @\"\n" +
                     "    }\n" +
                     "  }\n" +
                     "}"
@@ -456,7 +456,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                     "  \"cell-range\": \"A1:B2\",\n" +
                     "  \"value\": {\n" +
                     "    \"A1\": null,\n" +
-                    "    \"B2\": \"text-format-pattern @\"\n" +
+                    "    \"B2\": \"text @\"\n" +
                     "  }\n" +
                     "}"
             )
@@ -490,7 +490,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                     "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector\",\n" +
                     "  \"cell-range\": \"A1:B2\",\n" +
                     "  \"value\": {\n" +
-                    "    \"A1\": \"text-format-pattern @\",\n" +
+                    "    \"A1\": \"text @\",\n" +
                     "    \"B2\": \"number $0.00\"\n" +
                     "  }\n" +
                     "}"
@@ -914,7 +914,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 "      \"formula\": {\n" +
                 "        \"text\": \"=22\"\n" +
                 "      },\n" +
-                "      \"formatter\": \"text-format-pattern @\"\n" +
+                "      \"formatter\": \"text @\"\n" +
                 "    }\n" +
                 "  }\n" +
                 "}",

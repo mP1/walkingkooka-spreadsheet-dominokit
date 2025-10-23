@@ -216,7 +216,7 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
     public void testRefreshTextFormat() {
         this.refreshAndCheck(
             "/1/Untitled/cell/A1/formatter",
-            SpreadsheetFormatterName.TEXT_FORMAT_PATTERN,
+            SpreadsheetFormatterName.TEXT,
             Lists.of(
                 SpreadsheetFormatterSelectorToken.with(
                     "@",
@@ -240,8 +240,8 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
                 "      Append component(s)\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"@\" [#/1/Untitled/cell/A1/formatter/save/text-format-pattern%20@@] id=id123-append-0-Link\n" +
-                "            \"_ \" [#/1/Untitled/cell/A1/formatter/save/text-format-pattern%20@_%20] id=id123-append-1-Link\n" // expected
+                "            \"@\" [#/1/Untitled/cell/A1/formatter/save/text%20@@] id=id123-append-0-Link\n" +
+                "            \"_ \" [#/1/Untitled/cell/A1/formatter/save/text%20@_%20] id=id123-append-1-Link\n" // expected
         );
     }
 

@@ -229,7 +229,7 @@ public final class RemoveOrReplacePluginSelectorTokenComponentTest implements Ht
     public void testRefreshTextFormatTextComponents() {
         this.refreshAndCheck(
             "/1/Untitled/cell/A1/formatter",
-            SpreadsheetFormatterName.TEXT_FORMAT_PATTERN,
+            SpreadsheetFormatterName.TEXT,
             Lists.of(
                 SpreadsheetFormatterSelectorToken.with(
                     "@",
@@ -251,7 +251,7 @@ public final class RemoveOrReplacePluginSelectorTokenComponentTest implements Ht
     public void testRefreshTextFormatTextComponents2() {
         this.refreshAndCheck(
             "/1/Untitled/cell/A1/formatter",
-            SpreadsheetFormatterName.TEXT_FORMAT_PATTERN,
+            SpreadsheetFormatterName.TEXT,
             Lists.of(
                 SpreadsheetFormatterSelectorToken.with(
                     "@",
@@ -270,8 +270,8 @@ public final class RemoveOrReplacePluginSelectorTokenComponentTest implements Ht
                 "      Remove / Replace component(s)\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"@\" [#/1/Untitled/cell/A1/formatter/save/text-format-pattern%20%22Hello%22] id=id123-remove-0-Link\n" +
-                "            \"\"Hello\"\" [#/1/Untitled/cell/A1/formatter/save/text-format-pattern%20@] id=id123-remove-1-Link\n" // expected
+                "            \"@\" [#/1/Untitled/cell/A1/formatter/save/text%20%22Hello%22] id=id123-remove-0-Link\n" +
+                "            \"\"Hello\"\" [#/1/Untitled/cell/A1/formatter/save/text%20@] id=id123-remove-1-Link\n" // expected
         );
     }
 
