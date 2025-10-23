@@ -1182,8 +1182,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             ),
             Lists.empty(), // recentLocales
             Lists.of(
-                SpreadsheetParserSelector.parse("date-parse-pattern recent-1A"),
-                SpreadsheetParserSelector.parse("date-parse-pattern recent-2B")
+                SpreadsheetParserSelector.parse("date recent-1A"),
+                SpreadsheetParserSelector.parse("date recent-2B")
             ), // recent parsers
             Lists.empty(), // recentTextStyleProperties
             Lists.empty(), // recentValidatorSelectors

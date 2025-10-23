@@ -594,7 +594,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                     "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector\",\n" +
                     "  \"cell-range\": \"A1:B2\",\n" +
                     "  \"value\": {\n" +
-                    "    \"A1\": \"date-parse-pattern dd/mm/yyyy\",\n" +
+                    "    \"A1\": \"date dd/mm/yyyy\",\n" +
                     "    \"B2\": \"number-parse-pattern $0.00\"\n" +
                     "  }\n" +
                     "}"

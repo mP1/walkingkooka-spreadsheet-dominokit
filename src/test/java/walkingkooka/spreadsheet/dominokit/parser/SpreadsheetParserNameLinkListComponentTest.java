@@ -46,7 +46,7 @@ public class SpreadsheetParserNameLinkListComponentTest implements HtmlComponent
                 "      Card\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Date Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/date-parse-pattern] id=ID123-0-Link\n" +
+                "            \"Date\" [#/1/SpreadsheetName123/cell/A1/parser/save/date] id=ID123-0-Link\n" +
                 "            \"Date Time Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/date-time-parse-pattern] id=ID123-1-Link\n" +
                 "            \"Number Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/number-parse-pattern] id=ID123-2-Link\n" +
                 "            \"Time Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/time-parse-pattern] id=ID123-3-Link\n"
@@ -65,7 +65,7 @@ public class SpreadsheetParserNameLinkListComponentTest implements HtmlComponent
                 "      Card\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Date Parse Pattern\" DISABLED id=ID123-0-Link\n" +
+                "            \"Date\" DISABLED id=ID123-0-Link\n" +
                 "            \"Date Time Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/date-time-parse-pattern] id=ID123-1-Link\n" +
                 "            \"Number Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/number-parse-pattern] id=ID123-2-Link\n" +
                 "            \"Time Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/time-parse-pattern] id=ID123-3-Link\n"

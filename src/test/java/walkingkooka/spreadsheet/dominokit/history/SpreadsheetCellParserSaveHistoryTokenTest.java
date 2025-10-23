@@ -51,7 +51,7 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/parser/save/date-parse-pattern yyyy-mm-dd");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/parser/save/date yyyy-mm-dd");
     }
 
     @Test
@@ -71,7 +71,7 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/123/SpreadsheetName456/cell/B2:C3/top-left/parser/save/date-parse-pattern yyyy-mm-dd"
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/parser/save/date yyyy-mm-dd"
         );
     }
 
@@ -79,7 +79,7 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/123/SpreadsheetName456/cell/*/top-left/parser/save/date-parse-pattern yyyy-mm-dd"
+            "/123/SpreadsheetName456/cell/*/top-left/parser/save/date yyyy-mm-dd"
         );
     }
 
@@ -87,7 +87,7 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
             LABEL,
-            "/123/SpreadsheetName456/cell/Label123/parser/save/date-parse-pattern yyyy-mm-dd"
+            "/123/SpreadsheetName456/cell/Label123/parser/save/date yyyy-mm-dd"
         );
     }
 
