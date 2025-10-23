@@ -172,7 +172,7 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
     }
 
     // {
-    //   "A1": "number-parse-pattern #.##"
+    //   "A1": "number #.##"
     // }
     @Test
     public void testUrlFragment() {

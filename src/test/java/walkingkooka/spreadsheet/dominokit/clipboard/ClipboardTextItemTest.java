@@ -559,7 +559,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                     "  \"cell-range\": \"A1:B2\",\n" +
                     "  \"value\": {\n" +
                     "    \"A1\": null,\n" +
-                    "    \"B2\": \"number-parse-pattern $0.00\"\n" +
+                    "    \"B2\": \"number $0.00\"\n" +
                     "  }\n" +
                     "}"
             )
@@ -595,7 +595,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                     "  \"cell-range\": \"A1:B2\",\n" +
                     "  \"value\": {\n" +
                     "    \"A1\": \"date dd/mm/yyyy\",\n" +
-                    "    \"B2\": \"number-parse-pattern $0.00\"\n" +
+                    "    \"B2\": \"number $0.00\"\n" +
                     "  }\n" +
                     "}"
             )

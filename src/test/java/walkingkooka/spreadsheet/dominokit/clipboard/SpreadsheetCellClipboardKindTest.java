@@ -544,7 +544,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
                 "  \"style\": {\n" +
                 "    \"textAlign\": \"CENTER\"\n" +
                 "  },\n" +
-                "  \"parser\": \"number-parse-pattern $0.00\",\n" +
+                "  \"parser\": \"number $0.00\",\n" +
                 "  \"formatter\": \"date yyyy/mm/dd\"\n" +
                 "}"
         );

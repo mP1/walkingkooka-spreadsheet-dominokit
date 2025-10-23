@@ -93,7 +93,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                ROW\n" +
                 "                  \"Date\" DISABLED id=spreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time] id=spreadsheetParserSelector-parserNames-1-Link\n" +
-                "                  \"Number Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/parser/save/number] id=spreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Time Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
@@ -173,7 +173,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                ROW\n" +
                 "                  \"Date\" DISABLED id=spreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time] id=spreadsheetParserSelector-parserNames-1-Link\n" +
-                "                  \"Number Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/parser/save/number] id=spreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Time Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
@@ -285,7 +285,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                ROW\n" +
                 "                  \"Date\" [#/1/Spreadsheet1/cell/A1/parser/save/date] id=spreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time\" DISABLED id=spreadsheetParserSelector-parserNames-1-Link\n" +
-                "                  \"Number Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/parser/save/number] id=spreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Time Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
@@ -416,7 +416,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                ROW\n" +
                 "                  \"Date\" [#/1/Spreadsheet1/cell/A1/parser/save/date] id=spreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time] id=spreadsheetParserSelector-parserNames-1-Link\n" +
-                "                  \"Number Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-2-Link\n" +
+                "                  \"Number\" DISABLED id=spreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Time Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
@@ -427,79 +427,79 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20%23,%23%230.%23%23%23] id=spreadsheetParserSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20%23,%23%230.%23%23%23] id=spreadsheetParserSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    123.5\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20%23,%23%230.%23%23%23] id=spreadsheetParserSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20%23,%23%230.%23%23%23] id=spreadsheetParserSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -123.5\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20%23,%23%230.%23%23%23] id=spreadsheetParserSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20%23,%23%230.%23%23%23] id=spreadsheetParserSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0.\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20%23,%23%230] id=spreadsheetParserSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20%23,%23%230] id=spreadsheetParserSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    124\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20%23,%23%230] id=spreadsheetParserSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20%23,%23%230] id=spreadsheetParserSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -124\n" +
                 "                ROW 5\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20%23,%23%230] id=spreadsheetParserSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20%23,%23%230] id=spreadsheetParserSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0\n" +
                 "                ROW 6\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20%23,%23%230%25] id=spreadsheetParserSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20%23,%23%230%25] id=spreadsheetParserSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    12,350%\n" +
                 "                ROW 7\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20%23,%23%230%25] id=spreadsheetParserSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20%23,%23%230%25] id=spreadsheetParserSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -12,350%\n" +
                 "                ROW 8\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20%23,%23%230%25] id=spreadsheetParserSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20%23,%23%230%25] id=spreadsheetParserSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0%\n" +
                 "                ROW 9\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20$%23,%23%230.00] id=spreadsheetParserSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%23,%23%230.00] id=spreadsheetParserSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $123.50\n" +
                 "                ROW 10\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20$%23,%23%230.00] id=spreadsheetParserSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%23,%23%230.00] id=spreadsheetParserSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $-123.50\n" +
                 "                ROW 11\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20$%23,%23%230.00] id=spreadsheetParserSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%23,%23%230.00] id=spreadsheetParserSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $0.00\n" +
                 "                ROW 12\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"$#0.00\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20$%230.00] id=spreadsheetParserSelector-Sample-Link\n" +
+                "                  \"$#0.00\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%230.00] id=spreadsheetParserSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $1234.50\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -508,34 +508,34 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"#\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20$%230.00%23] id=spreadsheetParserSelector-appender-append-0-Link\n" +
-                "                  \"$\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20$%230.00$] id=spreadsheetParserSelector-appender-append-1-Link\n" +
-                "                  \"%\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20$%230.00%25] id=spreadsheetParserSelector-appender-append-2-Link\n" +
-                "                  \",\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20$%230.00,] id=spreadsheetParserSelector-appender-append-3-Link\n" +
-                "                  \".\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20$%230.00.] id=spreadsheetParserSelector-appender-append-4-Link\n" +
-                "                  \"/\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20$%230.00/] id=spreadsheetParserSelector-appender-append-5-Link\n" +
-                "                  \"?\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20$%230.00?] id=spreadsheetParserSelector-appender-append-6-Link\n" +
-                "                  \"E\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20$%230.00E] id=spreadsheetParserSelector-appender-append-7-Link\n" +
+                "                  \"#\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%230.00%23] id=spreadsheetParserSelector-appender-append-0-Link\n" +
+                "                  \"$\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%230.00$] id=spreadsheetParserSelector-appender-append-1-Link\n" +
+                "                  \"%\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%230.00%25] id=spreadsheetParserSelector-appender-append-2-Link\n" +
+                "                  \",\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%230.00,] id=spreadsheetParserSelector-appender-append-3-Link\n" +
+                "                  \".\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%230.00.] id=spreadsheetParserSelector-appender-append-4-Link\n" +
+                "                  \"/\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%230.00/] id=spreadsheetParserSelector-appender-append-5-Link\n" +
+                "                  \"?\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%230.00?] id=spreadsheetParserSelector-appender-append-6-Link\n" +
+                "                  \"E\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%230.00E] id=spreadsheetParserSelector-appender-append-7-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"$\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20%230.00] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
-                "                  \"#\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20$0.00] id=spreadsheetParserSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20$%23.00] id=spreadsheetParserSelector-removeOrReplace-remove-2-Link\n" +
-                "                  \".\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20$%23000] id=spreadsheetParserSelector-removeOrReplace-remove-3-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20$%230.0] id=spreadsheetParserSelector-removeOrReplace-remove-4-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20$%230.0] id=spreadsheetParserSelector-removeOrReplace-remove-5-Link\n" +
+                "                  \"$\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20%230.00] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
+                "                  \"#\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$0.00] id=spreadsheetParserSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%23.00] id=spreadsheetParserSelector-removeOrReplace-remove-2-Link\n" +
+                "                  \".\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%23000] id=spreadsheetParserSelector-removeOrReplace-remove-3-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%230.0] id=spreadsheetParserSelector-removeOrReplace-remove-4-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%230.0] id=spreadsheetParserSelector-removeOrReplace-remove-5-Link\n" +
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [number-parse-pattern $#0.00] id=spreadsheetParserSelector-TextBox\n" +
+                "            [number $#0.00] id=spreadsheetParserSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern%20$%230.00] id=spreadsheetParserSelector-save-Link\n" +
+                "            \"Save\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%230.00] id=spreadsheetParserSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=spreadsheetParserSelector-clear-Link\n" +
                 "            \"Undo\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=spreadsheetParserSelector-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=spreadsheetParserSelector-close-Link\n"
@@ -568,7 +568,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                ROW\n" +
                 "                  \"Date\" [#/1/Spreadsheet1/cell/A1/parser/save/date] id=spreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time] id=spreadsheetParserSelector-parserNames-1-Link\n" +
-                "                  \"Number Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/parser/save/number] id=spreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Time Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-3-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
@@ -671,7 +671,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                ROW\n" +
                 "                  \"Date\" DISABLED id=spreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-time] id=spreadsheetParserSelector-parserNames-1-Link\n" +
-                "                  \"Number Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/number] id=spreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Time Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
@@ -793,7 +793,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                ROW\n" +
                 "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date] id=spreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time\" DISABLED id=spreadsheetParserSelector-parserNames-1-Link\n" +
-                "                  \"Number Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/number] id=spreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Time Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
@@ -934,7 +934,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                ROW\n" +
                 "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/date] id=spreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/date-time] id=spreadsheetParserSelector-parserNames-1-Link\n" +
-                "                  \"Number Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-2-Link\n" +
+                "                  \"Number\" DISABLED id=spreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Time Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
@@ -945,79 +945,79 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20%23,%23%230.%23%23%23] id=spreadsheetParserSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20%23,%23%230.%23%23%23] id=spreadsheetParserSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    123.5\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20%23,%23%230.%23%23%23] id=spreadsheetParserSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20%23,%23%230.%23%23%23] id=spreadsheetParserSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -123.5\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20%23,%23%230.%23%23%23] id=spreadsheetParserSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20%23,%23%230.%23%23%23] id=spreadsheetParserSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0.\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20%23,%23%230] id=spreadsheetParserSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20%23,%23%230] id=spreadsheetParserSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    124\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20%23,%23%230] id=spreadsheetParserSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20%23,%23%230] id=spreadsheetParserSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -124\n" +
                 "                ROW 5\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20%23,%23%230] id=spreadsheetParserSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20%23,%23%230] id=spreadsheetParserSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0\n" +
                 "                ROW 6\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20%23,%23%230%25] id=spreadsheetParserSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20%23,%23%230%25] id=spreadsheetParserSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    12,350%\n" +
                 "                ROW 7\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20%23,%23%230%25] id=spreadsheetParserSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20%23,%23%230%25] id=spreadsheetParserSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -12,350%\n" +
                 "                ROW 8\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20%23,%23%230%25] id=spreadsheetParserSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20%23,%23%230%25] id=spreadsheetParserSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0%\n" +
                 "                ROW 9\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20$%23,%23%230.00] id=spreadsheetParserSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%23,%23%230.00] id=spreadsheetParserSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $123.50\n" +
                 "                ROW 10\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20$%23,%23%230.00] id=spreadsheetParserSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%23,%23%230.00] id=spreadsheetParserSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $-123.50\n" +
                 "                ROW 11\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20$%23,%23%230.00] id=spreadsheetParserSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%23,%23%230.00] id=spreadsheetParserSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $0.00\n" +
                 "                ROW 12\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"$#0.00\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20$%230.00] id=spreadsheetParserSelector-Sample-Link\n" +
+                "                  \"$#0.00\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00] id=spreadsheetParserSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $1234.50\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -1026,36 +1026,36 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"#\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20$%230.00%23] id=spreadsheetParserSelector-appender-append-0-Link\n" +
-                "                  \"$\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20$%230.00$] id=spreadsheetParserSelector-appender-append-1-Link\n" +
-                "                  \"%\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20$%230.00%25] id=spreadsheetParserSelector-appender-append-2-Link\n" +
-                "                  \",\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20$%230.00,] id=spreadsheetParserSelector-appender-append-3-Link\n" +
-                "                  \".\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20$%230.00.] id=spreadsheetParserSelector-appender-append-4-Link\n" +
-                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20$%230.00/] id=spreadsheetParserSelector-appender-append-5-Link\n" +
-                "                  \"?\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20$%230.00?] id=spreadsheetParserSelector-appender-append-6-Link\n" +
-                "                  \"E\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20$%230.00E] id=spreadsheetParserSelector-appender-append-7-Link\n" +
+                "                  \"#\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00%23] id=spreadsheetParserSelector-appender-append-0-Link\n" +
+                "                  \"$\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00$] id=spreadsheetParserSelector-appender-append-1-Link\n" +
+                "                  \"%\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00%25] id=spreadsheetParserSelector-appender-append-2-Link\n" +
+                "                  \",\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00,] id=spreadsheetParserSelector-appender-append-3-Link\n" +
+                "                  \".\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00.] id=spreadsheetParserSelector-appender-append-4-Link\n" +
+                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00/] id=spreadsheetParserSelector-appender-append-5-Link\n" +
+                "                  \"?\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00?] id=spreadsheetParserSelector-appender-append-6-Link\n" +
+                "                  \"E\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00E] id=spreadsheetParserSelector-appender-append-7-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"$\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20%230.00] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
-                "                  \"#\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20$0.00] id=spreadsheetParserSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20$%23.00] id=spreadsheetParserSelector-removeOrReplace-remove-2-Link\n" +
-                "                  \".\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20$%23000] id=spreadsheetParserSelector-removeOrReplace-remove-3-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20$%230.0] id=spreadsheetParserSelector-removeOrReplace-remove-4-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20$%230.0] id=spreadsheetParserSelector-removeOrReplace-remove-5-Link\n" +
+                "                  \"$\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20%230.00] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
+                "                  \"#\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$0.00] id=spreadsheetParserSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%23.00] id=spreadsheetParserSelector-removeOrReplace-remove-2-Link\n" +
+                "                  \".\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%23000] id=spreadsheetParserSelector-removeOrReplace-remove-3-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.0] id=spreadsheetParserSelector-removeOrReplace-remove-4-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.0] id=spreadsheetParserSelector-removeOrReplace-remove-5-Link\n" +
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [number-parse-pattern $#0.00] id=spreadsheetParserSelector-TextBox\n" +
+                "            [number $#0.00] id=spreadsheetParserSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%20$%230.00] id=spreadsheetParserSelector-save-Link\n" +
+                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00] id=spreadsheetParserSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/] id=spreadsheetParserSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number-parse-pattern%200.%23;0.%23;0] id=spreadsheetParserSelector-undo-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%200.%23;0.%23;0] id=spreadsheetParserSelector-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=spreadsheetParserSelector-close-Link\n"
         );
     }
@@ -1096,7 +1096,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                ROW\n" +
                 "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/date] id=spreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/date-time] id=spreadsheetParserSelector-parserNames-1-Link\n" +
-                "                  \"Number Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/number] id=spreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Time Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-3-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
