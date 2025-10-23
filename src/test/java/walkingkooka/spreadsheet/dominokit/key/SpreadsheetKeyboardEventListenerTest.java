@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -618,8 +619,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
                 SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.of(
-                    SpreadsheetPattern.parseNumberFormatPattern("$0.00")
-                        .spreadsheetFormatterSelector()
+                    SpreadsheetFormatterSelector.parse("currency")
                 )
             )
         );
@@ -652,8 +652,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
                 SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.of(
-                    SpreadsheetPattern.parseNumberFormatPattern("$0.00")
-                        .spreadsheetFormatterSelector()
+                    SpreadsheetFormatterSelector.parse("currency")
                 )
             )
         );
@@ -679,8 +678,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
                 SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.of(
-                    SpreadsheetPattern.parseNumberFormatPattern("$0.00")
-                        .spreadsheetFormatterSelector()
+                    SpreadsheetFormatterSelector.parse("currency")
                 )
             )
         );
