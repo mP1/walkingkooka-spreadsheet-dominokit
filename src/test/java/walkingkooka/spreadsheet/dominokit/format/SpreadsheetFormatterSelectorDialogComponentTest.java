@@ -95,7 +95,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Badge Error\" [#/1/Spreadsheet1/cell/A1/formatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
                 "                  \"Date\" DISABLED id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date Time Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
                 "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
                 "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
                 "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
@@ -183,7 +183,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Badge Error\" [#/1/Spreadsheet1/cell/A1/formatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
                 "                  \"Date\" DISABLED id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date Time Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
                 "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
                 "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
                 "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
@@ -287,7 +287,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             SpreadsheetFormatterSelectorDialogComponent.with(
                 AppContextSpreadsheetFormatterSelectorDialogComponentContextCell.with(context)
             ),
-            SpreadsheetFormatterName.DATE_TIME_FORMAT_PATTERN + " dd/mm/yyyy hh:mm:ss",
+            SpreadsheetFormatterName.DATE_TIME + " dd/mm/yyyy hh:mm:ss",
             context,
             "SpreadsheetFormatterSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
@@ -303,7 +303,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Badge Error\" [#/1/Spreadsheet1/cell/A1/formatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
                 "                  \"Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/date] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date Time Format Pattern\" DISABLED id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" DISABLED id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
                 "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
                 "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
                 "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
@@ -320,31 +320,31 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Short\n" +
-                "                  \"d/m/yy, h:mm AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20d/m/yy,%20h:mm%20AM/PM] id=spreadsheetFormatterSelector-Short-Link\n" +
+                "                  \"d/m/yy, h:mm AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20d/m/yy,%20h:mm%20AM/PM] id=spreadsheetFormatterSelector-Short-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31/12/99, 12:58 PM\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Medium\n" +
-                "                  \"d mmm yyyy, h:mm:ss AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20d%20mmm%20yyyy,%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Medium-Link\n" +
+                "                  \"d mmm yyyy, h:mm:ss AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20d%20mmm%20yyyy,%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Medium-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 Dec. 1999, 12:58:00 PM\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Long\n" +
-                "                  \"d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Long-Link\n" +
+                "                  \"d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Long-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 December 1999 at 12:58:00 PM\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Full\n" +
-                "                  \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Full-Link\n" +
+                "                  \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Full-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    Friday, 31 December 1999 at 12:58:00 PM\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"dd/mm/yyyy hh:mm:ss\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  \"dd/mm/yyyy hh:mm:ss\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31/12/1999 12:58:00\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -353,61 +353,61 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \".\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ss.] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ss0] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
-                "                  \"A/P\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssA/P] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
-                "                  \"AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssAM/PM] id=spreadsheetFormatterSelector-appender-append-3-Link\n" +
-                "                  \"a/p\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssa/p] id=spreadsheetFormatterSelector-appender-append-4-Link\n" +
-                "                  \"am/pm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssam/pm] id=spreadsheetFormatterSelector-appender-append-5-Link\n" +
-                "                  \"d\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssd] id=spreadsheetFormatterSelector-appender-append-6-Link\n" +
-                "                  \"dd\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssdd] id=spreadsheetFormatterSelector-appender-append-7-Link\n" +
-                "                  \"ddd\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssddd] id=spreadsheetFormatterSelector-appender-append-8-Link\n" +
-                "                  \"dddd\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssdddd] id=spreadsheetFormatterSelector-appender-append-9-Link\n" +
-                "                  \"h\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssh] id=spreadsheetFormatterSelector-appender-append-10-Link\n" +
-                "                  \"hh\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:sshh] id=spreadsheetFormatterSelector-appender-append-11-Link\n" +
-                "                  \"m\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssm] id=spreadsheetFormatterSelector-appender-append-12-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssmm] id=spreadsheetFormatterSelector-appender-append-13-Link\n" +
-                "                  \"mmm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssmmm] id=spreadsheetFormatterSelector-appender-append-14-Link\n" +
-                "                  \"mmmm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssmmmm] id=spreadsheetFormatterSelector-appender-append-15-Link\n" +
-                "                  \"mmmmm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssmmmmm] id=spreadsheetFormatterSelector-appender-append-16-Link\n" +
-                "                  \"yy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssyy] id=spreadsheetFormatterSelector-appender-append-17-Link\n" +
-                "                  \"yyyy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssyyyy] id=spreadsheetFormatterSelector-appender-append-18-Link\n" +
+                "                  \".\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss.] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss0] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
+                "                  \"A/P\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssA/P] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
+                "                  \"AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssAM/PM] id=spreadsheetFormatterSelector-appender-append-3-Link\n" +
+                "                  \"a/p\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssa/p] id=spreadsheetFormatterSelector-appender-append-4-Link\n" +
+                "                  \"am/pm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssam/pm] id=spreadsheetFormatterSelector-appender-append-5-Link\n" +
+                "                  \"d\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssd] id=spreadsheetFormatterSelector-appender-append-6-Link\n" +
+                "                  \"dd\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssdd] id=spreadsheetFormatterSelector-appender-append-7-Link\n" +
+                "                  \"ddd\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssddd] id=spreadsheetFormatterSelector-appender-append-8-Link\n" +
+                "                  \"dddd\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssdddd] id=spreadsheetFormatterSelector-appender-append-9-Link\n" +
+                "                  \"h\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssh] id=spreadsheetFormatterSelector-appender-append-10-Link\n" +
+                "                  \"hh\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:sshh] id=spreadsheetFormatterSelector-appender-append-11-Link\n" +
+                "                  \"m\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssm] id=spreadsheetFormatterSelector-appender-append-12-Link\n" +
+                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssmm] id=spreadsheetFormatterSelector-appender-append-13-Link\n" +
+                "                  \"mmm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmm] id=spreadsheetFormatterSelector-appender-append-14-Link\n" +
+                "                  \"mmmm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmmm] id=spreadsheetFormatterSelector-appender-append-15-Link\n" +
+                "                  \"mmmmm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmmmm] id=spreadsheetFormatterSelector-appender-append-16-Link\n" +
+                "                  \"yy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssyy] id=spreadsheetFormatterSelector-appender-append-17-Link\n" +
+                "                  \"yyyy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssyyyy] id=spreadsheetFormatterSelector-appender-append-18-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"dd\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
-                "                      \"d\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20d/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
-                "                      \"ddd\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20ddd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-1-MenuItem\n" +
-                "                      \"dddd\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dddd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-2-MenuItem\n" +
-                "                  \"/\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20ddmm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd//yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
-                "                      \"m\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/m/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
-                "                      \"mmm\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mmm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-1-MenuItem\n" +
-                "                      \"mmmm\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mmmm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-2-MenuItem\n" +
-                "                      \"mmmmm\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mmmmm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-3-MenuItem\n" +
-                "                  \"/\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mmyyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-3-Link\n" +
-                "                  \"yyyy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link\n" +
-                "                      \"yy\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link-replace-0-MenuItem\n" +
-                "                  \" \" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyyhh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-5-Link\n" +
-                "                  \"hh\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-6-Link\n" +
-                "                      \"h\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20h:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-6-Link-replace-0-MenuItem\n" +
-                "                  \":\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hhmm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-7-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh::ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-8-Link\n" +
-                "                      \"m\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:m:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-8-Link-replace-0-MenuItem\n" +
-                "                  \":\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mmss] id=spreadsheetFormatterSelector-removeOrReplace-remove-9-Link\n" +
-                "                  \"ss\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:] id=spreadsheetFormatterSelector-removeOrReplace-remove-10-Link\n" +
-                "                      \"s\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:s] id=spreadsheetFormatterSelector-removeOrReplace-remove-10-Link-replace-0-MenuItem\n" +
+                "                  \"dd\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
+                "                      \"d\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20d/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
+                "                      \"ddd\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20ddd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-1-MenuItem\n" +
+                "                      \"dddd\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dddd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-2-MenuItem\n" +
+                "                  \"/\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20ddmm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd//yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
+                "                      \"m\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/m/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
+                "                      \"mmm\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mmm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-1-MenuItem\n" +
+                "                      \"mmmm\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mmmm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-2-MenuItem\n" +
+                "                      \"mmmmm\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mmmmm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-3-MenuItem\n" +
+                "                  \"/\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mmyyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-3-Link\n" +
+                "                  \"yyyy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link\n" +
+                "                      \"yy\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link-replace-0-MenuItem\n" +
+                "                  \" \" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyyhh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-5-Link\n" +
+                "                  \"hh\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-6-Link\n" +
+                "                      \"h\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20h:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-6-Link-replace-0-MenuItem\n" +
+                "                  \":\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hhmm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-7-Link\n" +
+                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh::ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-8-Link\n" +
+                "                      \"m\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:m:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-8-Link-replace-0-MenuItem\n" +
+                "                  \":\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mmss] id=spreadsheetFormatterSelector-removeOrReplace-remove-9-Link\n" +
+                "                  \"ss\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:] id=spreadsheetFormatterSelector-removeOrReplace-remove-10-Link\n" +
+                "                      \"s\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:s] id=spreadsheetFormatterSelector-removeOrReplace-remove-10-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date-time-format-pattern dd/mm/yyyy hh:mm:ss] id=spreadsheetFormatterSelector-TextBox\n" +
+                "            [date-time dd/mm/yyyy hh:mm:ss] id=spreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-save-Link\n" +
+                "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
                 "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=spreadsheetFormatterSelector-close-Link\n"
@@ -442,7 +442,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Badge Error\" [#/1/Spreadsheet1/cell/A1/formatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
                 "                  \"Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/date] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date Time Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
                 "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
                 "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
                 "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
@@ -602,7 +602,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Badge Error\" [#/1/Spreadsheet1/cell/A1/formatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
                 "                  \"Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/date] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date Time Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
                 "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
                 "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
                 "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
@@ -688,7 +688,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Badge Error\" [#/1/Spreadsheet1/cell/A1/formatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
                 "                  \"Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/date] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date Time Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
                 "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
                 "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
                 "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
@@ -803,7 +803,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Badge Error\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
                 "                  \"Date\" DISABLED id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date Time Format Pattern\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date-time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
                 "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
                 "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
                 "                  \"General\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
@@ -907,7 +907,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             SpreadsheetFormatterSelectorDialogComponent.with(
                 AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata.with(context)
             ),
-            SpreadsheetFormatterName.DATE_TIME_FORMAT_PATTERN + " dd/mm/yyyy hh:mm:ss",
+            SpreadsheetFormatterName.DATE_TIME + " dd/mm/yyyy hh:mm:ss",
             context,
             "SpreadsheetFormatterSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
@@ -937,7 +937,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Badge Error\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
                 "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date Time Format Pattern\" DISABLED id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" DISABLED id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
                 "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
                 "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
                 "                  \"General\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
@@ -954,31 +954,31 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Short\n" +
-                "                  \"d/m/yy, h:mm AM/PM\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20d/m/yy,%20h:mm%20AM/PM] id=spreadsheetFormatterSelector-Short-Link\n" +
+                "                  \"d/m/yy, h:mm AM/PM\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20d/m/yy,%20h:mm%20AM/PM] id=spreadsheetFormatterSelector-Short-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31/12/99, 12:58 PM\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Medium\n" +
-                "                  \"d mmm yyyy, h:mm:ss AM/PM\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20d%20mmm%20yyyy,%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Medium-Link\n" +
+                "                  \"d mmm yyyy, h:mm:ss AM/PM\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20d%20mmm%20yyyy,%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Medium-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 Dec. 1999, 12:58:00 PM\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Long\n" +
-                "                  \"d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Long-Link\n" +
+                "                  \"d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Long-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 December 1999 at 12:58:00 PM\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Full\n" +
-                "                  \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Full-Link\n" +
+                "                  \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Full-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    Friday, 31 December 1999 at 12:58:00 PM\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"dd/mm/yyyy hh:mm:ss\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  \"dd/mm/yyyy hh:mm:ss\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31/12/1999 12:58:00\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -987,63 +987,63 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \".\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ss.] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ss0] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
-                "                  \"A/P\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssA/P] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
-                "                  \"AM/PM\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssAM/PM] id=spreadsheetFormatterSelector-appender-append-3-Link\n" +
-                "                  \"a/p\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssa/p] id=spreadsheetFormatterSelector-appender-append-4-Link\n" +
-                "                  \"am/pm\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssam/pm] id=spreadsheetFormatterSelector-appender-append-5-Link\n" +
-                "                  \"d\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssd] id=spreadsheetFormatterSelector-appender-append-6-Link\n" +
-                "                  \"dd\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssdd] id=spreadsheetFormatterSelector-appender-append-7-Link\n" +
-                "                  \"ddd\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssddd] id=spreadsheetFormatterSelector-appender-append-8-Link\n" +
-                "                  \"dddd\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssdddd] id=spreadsheetFormatterSelector-appender-append-9-Link\n" +
-                "                  \"h\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssh] id=spreadsheetFormatterSelector-appender-append-10-Link\n" +
-                "                  \"hh\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:sshh] id=spreadsheetFormatterSelector-appender-append-11-Link\n" +
-                "                  \"m\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssm] id=spreadsheetFormatterSelector-appender-append-12-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssmm] id=spreadsheetFormatterSelector-appender-append-13-Link\n" +
-                "                  \"mmm\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssmmm] id=spreadsheetFormatterSelector-appender-append-14-Link\n" +
-                "                  \"mmmm\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssmmmm] id=spreadsheetFormatterSelector-appender-append-15-Link\n" +
-                "                  \"mmmmm\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssmmmmm] id=spreadsheetFormatterSelector-appender-append-16-Link\n" +
-                "                  \"yy\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssyy] id=spreadsheetFormatterSelector-appender-append-17-Link\n" +
-                "                  \"yyyy\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssyyyy] id=spreadsheetFormatterSelector-appender-append-18-Link\n" +
+                "                  \".\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss.] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss0] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
+                "                  \"A/P\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssA/P] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
+                "                  \"AM/PM\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssAM/PM] id=spreadsheetFormatterSelector-appender-append-3-Link\n" +
+                "                  \"a/p\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssa/p] id=spreadsheetFormatterSelector-appender-append-4-Link\n" +
+                "                  \"am/pm\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssam/pm] id=spreadsheetFormatterSelector-appender-append-5-Link\n" +
+                "                  \"d\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssd] id=spreadsheetFormatterSelector-appender-append-6-Link\n" +
+                "                  \"dd\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssdd] id=spreadsheetFormatterSelector-appender-append-7-Link\n" +
+                "                  \"ddd\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssddd] id=spreadsheetFormatterSelector-appender-append-8-Link\n" +
+                "                  \"dddd\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssdddd] id=spreadsheetFormatterSelector-appender-append-9-Link\n" +
+                "                  \"h\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssh] id=spreadsheetFormatterSelector-appender-append-10-Link\n" +
+                "                  \"hh\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:sshh] id=spreadsheetFormatterSelector-appender-append-11-Link\n" +
+                "                  \"m\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssm] id=spreadsheetFormatterSelector-appender-append-12-Link\n" +
+                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssmm] id=spreadsheetFormatterSelector-appender-append-13-Link\n" +
+                "                  \"mmm\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmm] id=spreadsheetFormatterSelector-appender-append-14-Link\n" +
+                "                  \"mmmm\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmmm] id=spreadsheetFormatterSelector-appender-append-15-Link\n" +
+                "                  \"mmmmm\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmmmm] id=spreadsheetFormatterSelector-appender-append-16-Link\n" +
+                "                  \"yy\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssyy] id=spreadsheetFormatterSelector-appender-append-17-Link\n" +
+                "                  \"yyyy\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssyyyy] id=spreadsheetFormatterSelector-appender-append-18-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"dd\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
-                "                      \"d\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20d/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
-                "                      \"ddd\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20ddd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-1-MenuItem\n" +
-                "                      \"dddd\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dddd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-2-MenuItem\n" +
-                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20ddmm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd//yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
-                "                      \"m\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/m/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
-                "                      \"mmm\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mmm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-1-MenuItem\n" +
-                "                      \"mmmm\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mmmm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-2-MenuItem\n" +
-                "                      \"mmmmm\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mmmmm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-3-MenuItem\n" +
-                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mmyyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-3-Link\n" +
-                "                  \"yyyy\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link\n" +
-                "                      \"yy\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link-replace-0-MenuItem\n" +
-                "                  \" \" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyyhh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-5-Link\n" +
-                "                  \"hh\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-6-Link\n" +
-                "                      \"h\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20h:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-6-Link-replace-0-MenuItem\n" +
-                "                  \":\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hhmm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-7-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh::ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-8-Link\n" +
-                "                      \"m\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:m:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-8-Link-replace-0-MenuItem\n" +
-                "                  \":\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mmss] id=spreadsheetFormatterSelector-removeOrReplace-remove-9-Link\n" +
-                "                  \"ss\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:] id=spreadsheetFormatterSelector-removeOrReplace-remove-10-Link\n" +
-                "                      \"s\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:s] id=spreadsheetFormatterSelector-removeOrReplace-remove-10-Link-replace-0-MenuItem\n" +
+                "                  \"dd\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
+                "                      \"d\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20d/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
+                "                      \"ddd\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20ddd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-1-MenuItem\n" +
+                "                      \"dddd\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dddd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-2-MenuItem\n" +
+                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20ddmm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd//yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
+                "                      \"m\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/m/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
+                "                      \"mmm\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mmm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-1-MenuItem\n" +
+                "                      \"mmmm\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mmmm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-2-MenuItem\n" +
+                "                      \"mmmmm\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mmmmm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-3-MenuItem\n" +
+                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mmyyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-3-Link\n" +
+                "                  \"yyyy\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link\n" +
+                "                      \"yy\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link-replace-0-MenuItem\n" +
+                "                  \" \" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyyhh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-5-Link\n" +
+                "                  \"hh\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-6-Link\n" +
+                "                      \"h\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20h:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-6-Link-replace-0-MenuItem\n" +
+                "                  \":\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hhmm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-7-Link\n" +
+                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh::ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-8-Link\n" +
+                "                      \"m\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:m:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-8-Link-replace-0-MenuItem\n" +
+                "                  \":\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mmss] id=spreadsheetFormatterSelector-removeOrReplace-remove-9-Link\n" +
+                "                  \"ss\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:] id=spreadsheetFormatterSelector-removeOrReplace-remove-10-Link\n" +
+                "                      \"s\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:s] id=spreadsheetFormatterSelector-removeOrReplace-remove-10-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date-time-format-pattern dd/mm/yyyy hh:mm:ss] id=spreadsheetFormatterSelector-TextBox\n" +
+                "            [date-time dd/mm/yyyy hh:mm:ss] id=spreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-save-Link\n" +
+                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time-format-pattern%20yyyy/mm/dd%20hh:mm] id=spreadsheetFormatterSelector-undo-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20yyyy/mm/dd%20hh:mm] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=spreadsheetFormatterSelector-close-Link\n"
         );
     }
@@ -1090,7 +1090,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Badge Error\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
                 "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/date] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date Time Format Pattern\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/date-time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
                 "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
                 "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
                 "                  \"General\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
@@ -1264,7 +1264,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Badge Error\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
                 "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/date] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date Time Format Pattern\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/date-time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
                 "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
                 "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
                 "                  \"General\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
@@ -1438,7 +1438,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Badge Error\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
                 "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/date] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date Time Format Pattern\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/date-time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
                 "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
                 "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
                 "                  \"General\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
@@ -1538,7 +1538,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Badge Error\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
                 "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/date] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date Time Format Pattern\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/date-time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
                 "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
                 "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
                 "                  \"General\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +

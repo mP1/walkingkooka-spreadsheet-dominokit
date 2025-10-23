@@ -50,7 +50,7 @@ public class SpreadsheetFormatterNameLinkListComponentTest implements HtmlCompon
                 "            \"Badge Error\" [#/1/SpreadsheetName123/cell/A1/formatter/save/badge-error] id=ID123-1-Link\n" +
                 "            \"Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/collection] id=ID123-2-Link\n" +
                 "            \"Date\" [#/1/SpreadsheetName123/cell/A1/formatter/save/date] id=ID123-3-Link\n" +
-                "            \"Date Time Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/date-time-format-pattern] id=ID123-4-Link\n" +
+                "            \"Date Time\" [#/1/SpreadsheetName123/cell/A1/formatter/save/date-time] id=ID123-4-Link\n" +
                 "            \"Default Text\" [#/1/SpreadsheetName123/cell/A1/formatter/save/default-text] id=ID123-5-Link\n" +
                 "            \"Expression\" [#/1/SpreadsheetName123/cell/A1/formatter/save/expression] id=ID123-6-Link\n" +
                 "            \"General\" [#/1/SpreadsheetName123/cell/A1/formatter/save/general] id=ID123-7-Link\n" +
@@ -77,7 +77,7 @@ public class SpreadsheetFormatterNameLinkListComponentTest implements HtmlCompon
                 "            \"Badge Error\" [#/1/SpreadsheetName123/cell/A1/formatter/save/badge-error] id=ID123-1-Link\n" +
                 "            \"Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/collection] id=ID123-2-Link\n" +
                 "            \"Date\" DISABLED id=ID123-3-Link\n" +
-                "            \"Date Time Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/date-time-format-pattern] id=ID123-4-Link\n" +
+                "            \"Date Time\" [#/1/SpreadsheetName123/cell/A1/formatter/save/date-time] id=ID123-4-Link\n" +
                 "            \"Default Text\" [#/1/SpreadsheetName123/cell/A1/formatter/save/default-text] id=ID123-5-Link\n" +
                 "            \"Expression\" [#/1/SpreadsheetName123/cell/A1/formatter/save/expression] id=ID123-6-Link\n" +
                 "            \"General\" [#/1/SpreadsheetName123/cell/A1/formatter/save/general] id=ID123-7-Link\n" +
