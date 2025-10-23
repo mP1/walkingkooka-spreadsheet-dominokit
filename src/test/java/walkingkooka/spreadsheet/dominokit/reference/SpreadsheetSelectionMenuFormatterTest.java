@@ -60,8 +60,8 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
         final SpreadsheetSelectionMenuContext context = this.context(
             historyToken,
             Lists.of(
-                SpreadsheetFormatterSelector.parse("date-format-pattern recent-1A"),
-                SpreadsheetFormatterSelector.parse("date-format-pattern recent-2B")
+                SpreadsheetFormatterSelector.parse("date recent-1A"),
+                SpreadsheetFormatterSelector.parse("date recent-2B")
             ),
             Lists.empty(),
             Optional.empty() // selectionSummary
@@ -90,8 +90,8 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
                 "  -----\n" +
                 "  \"Edit...\" [/1/Spreadsheet123/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  -----\n" +
-                "  \"Date Format Pattern recent-1A\" [/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20recent-1A] id=test-formatter-recent-0-MenuItem\n" +
-                "  \"Date Format Pattern recent-2B\" [/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20recent-2B] id=test-formatter-recent-1-MenuItem\n"
+                "  \"Date recent-1A\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-1A] id=test-formatter-recent-0-MenuItem\n" +
+                "  \"Date recent-2B\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-2B] id=test-formatter-recent-1-MenuItem\n"
         );
     }
 
@@ -106,13 +106,13 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
             )
         );
 
-        final SpreadsheetFormatterSelector matchedSelector = SpreadsheetFormatterSelector.parse("date-format-pattern recent-1A");
+        final SpreadsheetFormatterSelector matchedSelector = SpreadsheetFormatterSelector.parse("date recent-1A");
 
         final SpreadsheetSelectionMenuContext context = this.context(
             historyToken,
             Lists.of(
                 matchedSelector,
-                SpreadsheetFormatterSelector.parse("date-format-pattern recent-2B")
+                SpreadsheetFormatterSelector.parse("date recent-2B")
             ), // recent
             Lists.empty(), // menu
             Optional.of(
@@ -146,8 +146,8 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
                 "  -----\n" +
                 "  \"Edit...\" [/1/Spreadsheet123/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  -----\n" +
-                "  \"Date Format Pattern recent-1A\" [/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20recent-1A] CHECKED id=test-formatter-recent-0-MenuItem\n" +
-                "  \"Date Format Pattern recent-2B\" [/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20recent-2B] id=test-formatter-recent-1-MenuItem\n"
+                "  \"Date recent-1A\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-1A] CHECKED id=test-formatter-recent-0-MenuItem\n" +
+                "  \"Date recent-2B\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-2B] id=test-formatter-recent-1-MenuItem\n"
         );
     }
 
@@ -203,9 +203,9 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
         this.treePrintAndCheck(
             menu,
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
-                "  \"Date Format Pattern\" id=test-formatter-date-format-pattern-SubMenu\n" +
-                "    \"Short\" [/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20yy/mm/dd] id=test-formatter-date-format-pattern-MenuItem\n" +
-                "    \"Medium\" [/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20yyyy/mm/ddd] id=test-formatter-date-format-pattern-MenuItem\n" +
+                "  \"Date\" id=test-formatter-date-SubMenu\n" +
+                "    \"Short\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20yy/mm/dd] id=test-formatter-date-MenuItem\n" +
+                "    \"Medium\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20yyyy/mm/ddd] id=test-formatter-date-MenuItem\n" +
                 "  \"Text Format Pattern\" id=test-formatter-text-format-pattern-SubMenu\n" +
                 "    \"Default text\" [/1/Spreadsheet123/cell/A1/formatter/save/text-format-pattern%20@] id=test-formatter-text-format-pattern-MenuItem\n" +
                 "  -----\n" +
@@ -274,9 +274,9 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
         this.treePrintAndCheck(
             menu,
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
-                "  \"Date Format Pattern\" id=test-formatter-date-format-pattern-SubMenu\n" +
-                "    \"Short\" [/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20yy/mm/dd] CHECKED id=test-formatter-date-format-pattern-MenuItem\n" +
-                "    \"Medium\" [/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20yyyy/mm/ddd] id=test-formatter-date-format-pattern-MenuItem\n" +
+                "  \"Date\" id=test-formatter-date-SubMenu\n" +
+                "    \"Short\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20yy/mm/dd] CHECKED id=test-formatter-date-MenuItem\n" +
+                "    \"Medium\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20yyyy/mm/ddd] id=test-formatter-date-MenuItem\n" +
                 "  \"Text Format Pattern\" id=test-formatter-text-format-pattern-SubMenu\n" +
                 "    \"Default text\" [/1/Spreadsheet123/cell/A1/formatter/save/text-format-pattern%20@] id=test-formatter-text-format-pattern-MenuItem\n" +
                 "  -----\n" +
@@ -300,8 +300,8 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
         final SpreadsheetSelectionMenuContext context = this.context(
             historyToken,
             Lists.of(
-                SpreadsheetFormatterSelector.parse("date-format-pattern recent-1A"),
-                SpreadsheetFormatterSelector.parse("date-format-pattern recent-2B")
+                SpreadsheetFormatterSelector.parse("date recent-1A"),
+                SpreadsheetFormatterSelector.parse("date recent-2B")
             ),
             Lists.of(
                 SpreadsheetFormatterMenu.with(
@@ -356,9 +356,9 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
         this.treePrintAndCheck(
             menu,
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
-                "  \"Date Format Pattern\" id=test-formatter-date-format-pattern-SubMenu\n" +
-                "    \"Short\" [/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20yy/mm/dd] id=test-formatter-date-format-pattern-MenuItem\n" +
-                "    \"Medium\" [/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20yyyy/mm/ddd] id=test-formatter-date-format-pattern-MenuItem\n" +
+                "  \"Date\" id=test-formatter-date-SubMenu\n" +
+                "    \"Short\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20yy/mm/dd] id=test-formatter-date-MenuItem\n" +
+                "    \"Medium\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20yyyy/mm/ddd] id=test-formatter-date-MenuItem\n" +
                 "  \"Date Time Format Pattern\" id=test-formatter-date-time-format-pattern-SubMenu\n" +
                 "    \"Short\" [/1/Spreadsheet123/cell/A1/formatter/save/date-time-format-pattern%20yy/mm/dd] id=test-formatter-date-time-format-pattern-MenuItem\n" +
                 "    \"Medium\" [/1/Spreadsheet123/cell/A1/formatter/save/date-time-format-pattern%20yyyy/mm/ddd] id=test-formatter-date-time-format-pattern-MenuItem\n" +
@@ -370,8 +370,8 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
                 "  -----\n" +
                 "  \"Edit...\" [/1/Spreadsheet123/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                 "  -----\n" +
-                "  \"Date Format Pattern recent-1A\" [/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20recent-1A] id=test-formatter-recent-0-MenuItem\n" +
-                "  \"Date Format Pattern recent-2B\" [/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20recent-2B] id=test-formatter-recent-1-MenuItem\n"
+                "  \"Date recent-1A\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-1A] id=test-formatter-recent-0-MenuItem\n" +
+                "  \"Date recent-2B\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-2B] id=test-formatter-recent-1-MenuItem\n"
         );
     }
 

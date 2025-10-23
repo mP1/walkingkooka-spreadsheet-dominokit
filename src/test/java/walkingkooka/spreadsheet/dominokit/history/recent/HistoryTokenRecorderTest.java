@@ -377,7 +377,7 @@ public final class HistoryTokenRecorderTest implements ClassTesting<HistoryToken
 
         this.toStringAndCheck(
             recorder,
-            "max=3 date-format-pattern dd/mm/yyyy"
+            "max=3 date dd/mm/yyyy"
         );
     }
 

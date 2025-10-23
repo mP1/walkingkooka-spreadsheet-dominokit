@@ -59,7 +59,7 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
     public void testRefreshNoTextComponentsNoAlternatives() {
         this.refreshAndCheck(
             "/1/Untitled/cell/A1/formatter",
-            SpreadsheetFormatterName.DATE_FORMAT_PATTERN,
+            SpreadsheetFormatterName.DATE,
             Lists.empty(), // textComponents
             Lists.empty(), // append
             "AppendPluginSelectorTokenComponent\n" // expected
@@ -70,7 +70,7 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
     public void testRefreshDateFormatEmptyTextComponents() {
         this.refreshAndCheck(
             "/1/Untitled/cell/A1/formatter",
-            SpreadsheetFormatterName.DATE_FORMAT_PATTERN,
+            SpreadsheetFormatterName.DATE,
             Lists.empty(), // textComponents
             Lists.of(
                 SpreadsheetFormatterSelectorTokenAlternative.with(
@@ -88,8 +88,8 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
                 "      Append component(s)\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"d\" [#/1/Untitled/cell/A1/formatter/save/date-format-pattern%20d] id=id123-append-0-Link\n" +
-                "            \"m\" [#/1/Untitled/cell/A1/formatter/save/date-format-pattern%20m] id=id123-append-1-Link\n" // expected
+                "            \"d\" [#/1/Untitled/cell/A1/formatter/save/date%20d] id=id123-append-0-Link\n" +
+                "            \"m\" [#/1/Untitled/cell/A1/formatter/save/date%20m] id=id123-append-1-Link\n" // expected
         );
     }
 
@@ -97,7 +97,7 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
     public void testRefreshDateFormatTextComponentsAndAlternatives() {
         this.refreshAndCheck(
             "/1/Untitled/cell/A1/formatter",
-            SpreadsheetFormatterName.DATE_FORMAT_PATTERN,
+            SpreadsheetFormatterName.DATE,
             Lists.of(
                 SpreadsheetFormatterSelectorToken.with(
                     "d",
@@ -131,8 +131,8 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
                 "      Append component(s)\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"d\" [#/1/Untitled/cell/A1/formatter/save/date-format-pattern%20dmyyd] id=id123-append-0-Link\n" +
-                "            \"m\" [#/1/Untitled/cell/A1/formatter/save/date-format-pattern%20dmyym] id=id123-append-1-Link\n" // expected
+                "            \"d\" [#/1/Untitled/cell/A1/formatter/save/date%20dmyyd] id=id123-append-0-Link\n" +
+                "            \"m\" [#/1/Untitled/cell/A1/formatter/save/date%20dmyym] id=id123-append-1-Link\n" // expected
         );
     }
 

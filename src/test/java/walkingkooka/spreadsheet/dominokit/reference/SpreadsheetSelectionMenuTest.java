@@ -341,9 +341,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             token,
             SpreadsheetComparatorNameList.EMPTY,
             Lists.of(
-                SpreadsheetFormatterSelector.parse("date-format-pattern recent-1A"),
-                SpreadsheetFormatterSelector.parse("date-format-pattern recent-2B"),
-                SpreadsheetFormatterSelector.parse("date-format-pattern recent-3C")
+                SpreadsheetFormatterSelector.parse("date recent-1A"),
+                SpreadsheetFormatterSelector.parse("date recent-2B"),
+                SpreadsheetFormatterSelector.parse("date recent-3C")
             ),
             Lists.empty(),
             Lists.empty(),
@@ -527,9 +527,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                 "    -----\n" +
-                "    \"Date Format Pattern recent-1A\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date-format-pattern%20recent-1A] id=test-formatter-recent-0-MenuItem\n" +
-                "    \"Date Format Pattern recent-2B\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date-format-pattern%20recent-2B] id=test-formatter-recent-1-MenuItem\n" +
-                "    \"Date Format Pattern recent-3C\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date-format-pattern%20recent-3C] id=test-formatter-recent-2-MenuItem\n" +
+                "    \"Date recent-1A\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date%20recent-1A] id=test-formatter-recent-0-MenuItem\n" +
+                "    \"Date recent-2B\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date%20recent-2B] id=test-formatter-recent-1-MenuItem\n" +
+                "    \"Date recent-3C\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date%20recent-3C] id=test-formatter-recent-2-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  \"Locale\" id=test-locale-SubMenu\n" +
@@ -1162,7 +1162,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             token,
             SpreadsheetComparatorNameList.EMPTY,
             Lists.of(
-                SpreadsheetFormatterSelector.parse("date-format-pattern recent-1A")
+                SpreadsheetFormatterSelector.parse("date recent-1A")
             ), // recent formatters
             Lists.of(
                 SpreadsheetFormatterMenu.with(
@@ -1360,9 +1360,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
-                "    \"Date Format Pattern\" id=test-formatter-date-format-pattern-SubMenu\n" +
-                "      \"Short\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date-format-pattern%20yy/mm/dd] id=test-formatter-date-format-pattern-MenuItem\n" +
-                "      \"Medium\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date-format-pattern%20yyyy/mm/ddd] id=test-formatter-date-format-pattern-MenuItem\n" +
+                "    \"Date\" id=test-formatter-date-SubMenu\n" +
+                "      \"Short\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date%20yy/mm/dd] id=test-formatter-date-MenuItem\n" +
+                "      \"Medium\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date%20yyyy/mm/ddd] id=test-formatter-date-MenuItem\n" +
                 "    \"Text Format Pattern\" id=test-formatter-text-format-pattern-SubMenu\n" +
                 "      \"Default text\" [/1/SpreadsheetName-1/cell/A1/formatter/save/text-format-pattern%20@] id=test-formatter-text-format-pattern-MenuItem\n" +
                 "    -----\n" +
@@ -1370,7 +1370,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                 "    -----\n" +
-                "    \"Date Format Pattern recent-1A\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date-format-pattern%20recent-1A] id=test-formatter-recent-0-MenuItem\n" +
+                "    \"Date recent-1A\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date%20recent-1A] id=test-formatter-recent-0-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  \"Locale\" id=test-locale-SubMenu\n" +
