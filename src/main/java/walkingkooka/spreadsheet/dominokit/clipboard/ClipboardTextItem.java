@@ -86,7 +86,7 @@ import java.util.stream.Collectors;
  *   "mediaType": "application/json+walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector",
  *   "cell-range": "A1:B2",
  *   "value": {
- *     "A1": "date-format-pattern dd/mm/yyyy",
+ *     "A1": "date dd/mm/yyyy",
  *     "B2": "number-format-pattern $0.00"
  *   }
  * }

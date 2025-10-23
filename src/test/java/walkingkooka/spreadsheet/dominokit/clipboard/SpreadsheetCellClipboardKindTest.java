@@ -545,7 +545,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
                 "    \"textAlign\": \"CENTER\"\n" +
                 "  },\n" +
                 "  \"parser\": \"number-parse-pattern $0.00\",\n" +
-                "  \"formatter\": \"date-format-pattern yyyy/mm/dd\"\n" +
+                "  \"formatter\": \"date yyyy/mm/dd\"\n" +
                 "}"
         );
     }
@@ -594,7 +594,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
                             .spreadsheetFormatterSelector()
                     )
                 ),
-            "\"date-format-pattern yyyy/mm/dd\""
+            "\"date yyyy/mm/dd\""
         );
     }
 

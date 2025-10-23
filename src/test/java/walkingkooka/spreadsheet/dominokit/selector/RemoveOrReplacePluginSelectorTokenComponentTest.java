@@ -59,7 +59,7 @@ public final class RemoveOrReplacePluginSelectorTokenComponentTest implements Ht
     public void testRefreshNoTextComponents() {
         this.refreshAndCheck(
             "/1/Untitled/cell/A1/formatter",
-            SpreadsheetFormatterName.DATE_FORMAT_PATTERN,
+            SpreadsheetFormatterName.DATE,
             Lists.empty(), // textComponents
             "RemoveOrReplacePluginSelectorTokenComponent\n" // expected
         );
@@ -69,7 +69,7 @@ public final class RemoveOrReplacePluginSelectorTokenComponentTest implements Ht
     public void testRefreshDateFormatTextComponents() {
         this.refreshAndCheck(
             "/1/Untitled/cell/A1/formatter",
-            SpreadsheetFormatterName.DATE_FORMAT_PATTERN,
+            SpreadsheetFormatterName.DATE,
             Lists.of(
                 SpreadsheetFormatterSelectorToken.with(
                     "d",
@@ -116,14 +116,14 @@ public final class RemoveOrReplacePluginSelectorTokenComponentTest implements Ht
                 "      Remove / Replace component(s)\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"d\" [#/1/Untitled/cell/A1/formatter/save/date-format-pattern%20myy] id=id123-remove-0-Link\n" +
-                "                \"dd\" [/1/Untitled/cell/A1/formatter/save/date-format-pattern%20ddmyy] id=id123-remove-0-Link-replace-0-MenuItem\n" +
-                "                \"ddd\" [/1/Untitled/cell/A1/formatter/save/date-format-pattern%20dddmyy] id=id123-remove-0-Link-replace-1-MenuItem\n" +
-                "            \"m\" [#/1/Untitled/cell/A1/formatter/save/date-format-pattern%20dyy] id=id123-remove-1-Link\n" +
-                "                \"mm\" [/1/Untitled/cell/A1/formatter/save/date-format-pattern%20dmmyy] id=id123-remove-1-Link-replace-0-MenuItem\n" +
-                "                \"mmm\" [/1/Untitled/cell/A1/formatter/save/date-format-pattern%20dmmmyy] id=id123-remove-1-Link-replace-1-MenuItem\n" +
-                "            \"yy\" [#/1/Untitled/cell/A1/formatter/save/date-format-pattern%20dm] id=id123-remove-2-Link\n" +
-                "                \"yyyy\" [/1/Untitled/cell/A1/formatter/save/date-format-pattern%20dmyyyy] id=id123-remove-2-Link-replace-0-MenuItem\n" // expected
+                "            \"d\" [#/1/Untitled/cell/A1/formatter/save/date%20myy] id=id123-remove-0-Link\n" +
+                "                \"dd\" [/1/Untitled/cell/A1/formatter/save/date%20ddmyy] id=id123-remove-0-Link-replace-0-MenuItem\n" +
+                "                \"ddd\" [/1/Untitled/cell/A1/formatter/save/date%20dddmyy] id=id123-remove-0-Link-replace-1-MenuItem\n" +
+                "            \"m\" [#/1/Untitled/cell/A1/formatter/save/date%20dyy] id=id123-remove-1-Link\n" +
+                "                \"mm\" [/1/Untitled/cell/A1/formatter/save/date%20dmmyy] id=id123-remove-1-Link-replace-0-MenuItem\n" +
+                "                \"mmm\" [/1/Untitled/cell/A1/formatter/save/date%20dmmmyy] id=id123-remove-1-Link-replace-1-MenuItem\n" +
+                "            \"yy\" [#/1/Untitled/cell/A1/formatter/save/date%20dm] id=id123-remove-2-Link\n" +
+                "                \"yyyy\" [/1/Untitled/cell/A1/formatter/save/date%20dmyyyy] id=id123-remove-2-Link-replace-0-MenuItem\n" // expected
         );
     }
 

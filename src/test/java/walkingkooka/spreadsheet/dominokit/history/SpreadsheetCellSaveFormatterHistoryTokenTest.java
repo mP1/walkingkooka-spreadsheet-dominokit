@@ -138,7 +138,7 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
     @Test
     public void testParseSeveralCells() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/formatter/%7B%0A%20%20%22A1%22%3A%20%22date-format-pattern%20dd%2Fmm%2Fyyyy%22%2C%0A%20%20%22A2%22%3A%20%22time-format-pattern%20hh%3Amm%22%0A%7D",
+            "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/formatter/%7B%0A%20%20%22A1%22%3A%20%22date%20dd%2Fmm%2Fyyyy%22%2C%0A%20%20%22A2%22%3A%20%22time-format-pattern%20hh%3Amm%22%0A%7D",
             SpreadsheetCellSaveFormatterHistoryToken.with(
                 ID,
                 NAME,
