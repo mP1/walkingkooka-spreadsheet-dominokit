@@ -249,7 +249,7 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
     public void testRefreshTimeFormat() {
         this.refreshAndCheck(
             "/1/Untitled/cell/A1/formatter",
-            SpreadsheetFormatterName.TIME_FORMAT_PATTERN,
+            SpreadsheetFormatterName.TIME,
             Lists.of(
                 SpreadsheetFormatterSelectorToken.with(
                     "h",
@@ -269,7 +269,7 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
                 "      Append component(s)\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"m\" [#/1/Untitled/cell/A1/formatter/save/time-format-pattern%20hm] id=id123-append-0-Link\n" // expected
+                "            \"m\" [#/1/Untitled/cell/A1/formatter/save/time%20hm] id=id123-append-0-Link\n" // expected
         );
     }
 

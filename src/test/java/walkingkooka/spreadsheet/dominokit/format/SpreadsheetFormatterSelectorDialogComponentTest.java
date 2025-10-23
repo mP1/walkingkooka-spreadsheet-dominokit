@@ -102,7 +102,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"Time Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -190,7 +190,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"Time Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -310,7 +310,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"Time Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -449,7 +449,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Number\" DISABLED id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"Time Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -609,7 +609,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Text\" DISABLED id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"Time Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -672,7 +672,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             SpreadsheetFormatterSelectorDialogComponent.with(
                 AppContextSpreadsheetFormatterSelectorDialogComponentContextCell.with(context)
             ),
-            SpreadsheetFormatterName.TIME_FORMAT_PATTERN + " hh:mm",
+            SpreadsheetFormatterName.TIME + " hh:mm",
             context,
             "SpreadsheetFormatterSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
@@ -695,7 +695,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"Time Format Pattern\" DISABLED id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Time\" DISABLED id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -705,19 +705,19 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Short\n" +
-                "                  \"h:mm AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20h:mm%20AM/PM] id=spreadsheetFormatterSelector-Short-Link\n" +
+                "                  \"h:mm AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20h:mm%20AM/PM] id=spreadsheetFormatterSelector-Short-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    12:58 PM\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Long\n" +
-                "                  \"h:mm:ss AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Long-Link\n" +
+                "                  \"h:mm:ss AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Long-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    12:58:00 PM\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"hh:mm\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20hh:mm] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  \"hh:mm\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mm] id=spreadsheetFormatterSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    12:58\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -726,35 +726,35 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \".\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20hh:mm.] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20hh:mm0] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
-                "                  \"A/P\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20hh:mmA/P] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
-                "                  \"AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20hh:mmAM/PM] id=spreadsheetFormatterSelector-appender-append-3-Link\n" +
-                "                  \"a/p\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20hh:mma/p] id=spreadsheetFormatterSelector-appender-append-4-Link\n" +
-                "                  \"am/pm\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20hh:mmam/pm] id=spreadsheetFormatterSelector-appender-append-5-Link\n" +
-                "                  \"h\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20hh:mmh] id=spreadsheetFormatterSelector-appender-append-6-Link\n" +
-                "                  \"hh\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20hh:mmhh] id=spreadsheetFormatterSelector-appender-append-7-Link\n" +
-                "                  \"s\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20hh:mms] id=spreadsheetFormatterSelector-appender-append-8-Link\n" +
-                "                  \"ss\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20hh:mmss] id=spreadsheetFormatterSelector-appender-append-9-Link\n" +
+                "                  \".\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mm.] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mm0] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
+                "                  \"A/P\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mmA/P] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
+                "                  \"AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mmAM/PM] id=spreadsheetFormatterSelector-appender-append-3-Link\n" +
+                "                  \"a/p\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mma/p] id=spreadsheetFormatterSelector-appender-append-4-Link\n" +
+                "                  \"am/pm\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mmam/pm] id=spreadsheetFormatterSelector-appender-append-5-Link\n" +
+                "                  \"h\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mmh] id=spreadsheetFormatterSelector-appender-append-6-Link\n" +
+                "                  \"hh\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mmhh] id=spreadsheetFormatterSelector-appender-append-7-Link\n" +
+                "                  \"s\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mms] id=spreadsheetFormatterSelector-appender-append-8-Link\n" +
+                "                  \"ss\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mmss] id=spreadsheetFormatterSelector-appender-append-9-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"hh\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20:mm] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
-                "                      \"h\" [/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20h:mm] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
-                "                  \":\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20hhmm] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20hh:] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
-                "                      \"m\" [/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20hh:m] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
+                "                  \"hh\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20:mm] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
+                "                      \"h\" [/1/Spreadsheet1/cell/A1/formatter/save/time%20h:mm] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
+                "                  \":\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hhmm] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
+                "                      \"m\" [/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:m] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [time-format-pattern hh:mm] id=spreadsheetFormatterSelector-TextBox\n" +
+                "            [time hh:mm] id=spreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern%20hh:mm] id=spreadsheetFormatterSelector-save-Link\n" +
+                "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mm] id=spreadsheetFormatterSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
                 "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=spreadsheetFormatterSelector-close-Link\n"
@@ -810,7 +810,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"Time Format Pattern\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -944,7 +944,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"Time Format Pattern\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -1097,7 +1097,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Number\" DISABLED id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"Time Format Pattern\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -1271,7 +1271,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Number\" DISABLED id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"Time Format Pattern\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -1445,7 +1445,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Text\" DISABLED id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"Time Format Pattern\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -1508,7 +1508,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             SpreadsheetFormatterSelectorDialogComponent.with(
                 AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata.with(context)
             ),
-            SpreadsheetFormatterName.TIME_FORMAT_PATTERN + " hh:mm",
+            SpreadsheetFormatterName.TIME + " hh:mm",
             context,
             "SpreadsheetFormatterSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
@@ -1545,7 +1545,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"Time Format Pattern\" DISABLED id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Time\" DISABLED id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -1555,19 +1555,19 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Short\n" +
-                "                  \"h:mm AM/PM\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20h:mm%20AM/PM] id=spreadsheetFormatterSelector-Short-Link\n" +
+                "                  \"h:mm AM/PM\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20h:mm%20AM/PM] id=spreadsheetFormatterSelector-Short-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    12:58 PM\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Long\n" +
-                "                  \"h:mm:ss AM/PM\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Long-Link\n" +
+                "                  \"h:mm:ss AM/PM\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Long-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    12:58:00 PM\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"hh:mm\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20hh:mm] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  \"hh:mm\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mm] id=spreadsheetFormatterSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    12:58\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -1576,37 +1576,37 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \".\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20hh:mm.] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20hh:mm0] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
-                "                  \"A/P\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20hh:mmA/P] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
-                "                  \"AM/PM\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20hh:mmAM/PM] id=spreadsheetFormatterSelector-appender-append-3-Link\n" +
-                "                  \"a/p\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20hh:mma/p] id=spreadsheetFormatterSelector-appender-append-4-Link\n" +
-                "                  \"am/pm\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20hh:mmam/pm] id=spreadsheetFormatterSelector-appender-append-5-Link\n" +
-                "                  \"h\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20hh:mmh] id=spreadsheetFormatterSelector-appender-append-6-Link\n" +
-                "                  \"hh\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20hh:mmhh] id=spreadsheetFormatterSelector-appender-append-7-Link\n" +
-                "                  \"s\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20hh:mms] id=spreadsheetFormatterSelector-appender-append-8-Link\n" +
-                "                  \"ss\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20hh:mmss] id=spreadsheetFormatterSelector-appender-append-9-Link\n" +
+                "                  \".\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mm.] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mm0] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
+                "                  \"A/P\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mmA/P] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
+                "                  \"AM/PM\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mmAM/PM] id=spreadsheetFormatterSelector-appender-append-3-Link\n" +
+                "                  \"a/p\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mma/p] id=spreadsheetFormatterSelector-appender-append-4-Link\n" +
+                "                  \"am/pm\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mmam/pm] id=spreadsheetFormatterSelector-appender-append-5-Link\n" +
+                "                  \"h\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mmh] id=spreadsheetFormatterSelector-appender-append-6-Link\n" +
+                "                  \"hh\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mmhh] id=spreadsheetFormatterSelector-appender-append-7-Link\n" +
+                "                  \"s\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mms] id=spreadsheetFormatterSelector-appender-append-8-Link\n" +
+                "                  \"ss\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mmss] id=spreadsheetFormatterSelector-appender-append-9-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"hh\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20:mm] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
-                "                      \"h\" [/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20h:mm] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
-                "                  \":\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20hhmm] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20hh:] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
-                "                      \"m\" [/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20hh:m] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
+                "                  \"hh\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20:mm] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
+                "                      \"h\" [/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20h:mm] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
+                "                  \":\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hhmm] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
+                "                      \"m\" [/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:m] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [time-format-pattern hh:mm] id=spreadsheetFormatterSelector-TextBox\n" +
+                "            [time hh:mm] id=spreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20hh:mm] id=spreadsheetFormatterSelector-save-Link\n" +
+                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mm] id=spreadsheetFormatterSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time-format-pattern%20hh:mm:ss] id=spreadsheetFormatterSelector-undo-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mm:ss] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=spreadsheetFormatterSelector-close-Link\n"
         );
     }
