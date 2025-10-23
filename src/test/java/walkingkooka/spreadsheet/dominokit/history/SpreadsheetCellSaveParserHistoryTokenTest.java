@@ -133,12 +133,12 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
 
     // {
     //   "A1": "date dd/mm/yyyy",
-    //   "A2": "time-parse-pattern hh:mm"
+    //   "A2": "time hh:mm"
     // }
     @Test
     public void testParseSeveralCells() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/parser/%7B%20%22A1%22%3A%20%22date%20dd%2Fmm%2Fyyyy%22%2C%20%22A2%22%3A%20%22time-parse-pattern%20hh%3Amm%22%20%7D",
+            "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/parser/%7B%0A%20%20%22A1%22:%20%22date%20dd/mm/yyyy%22,%0A%20%20%22A2%22:%20%22time%20hh:mm%22%0A%7D",
             SpreadsheetCellSaveParserHistoryToken.with(
                 ID,
                 NAME,
