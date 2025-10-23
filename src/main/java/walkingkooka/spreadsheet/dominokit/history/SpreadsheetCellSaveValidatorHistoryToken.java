@@ -34,7 +34,7 @@ import java.util.Optional;
  * This {@link HistoryToken} is used by to paste a {@link ValidatorSelector} for many cells over another range.
  * <pre>
  * {
- *   "A1": "number-parse-pattern 0.00"
+ *   "A1": "number 0.00"
  * }
  *
  * /123/SpreadsheetName456/cell/A1/save/validator/HelloValidator

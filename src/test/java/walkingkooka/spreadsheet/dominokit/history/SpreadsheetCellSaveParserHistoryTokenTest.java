@@ -110,12 +110,12 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
     }
 
     // {
-    //   "A1": "number-parse-pattern 0.00"
+    //   "A1": "number 0.00"
     // }
     @Test
     public void testParseOneCell() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/save/parser/%7B%20%22A1%22%3A%20%22number-parse-pattern%200.00%22%20%7D",
+            "/123/SpreadsheetName456/cell/A1/save/parser/%7B%20%22A1%22%3A%20%22number%200.00%22%20%7D",
             SpreadsheetCellSaveParserHistoryToken.with(
                 ID,
                 NAME,
@@ -181,7 +181,7 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
     }
 
     // {
-    //   "A1": "number-parse-pattern #.##"
+    //   "A1": "number #.##"
     // }
     @Test
     public void testUrlFragment() {

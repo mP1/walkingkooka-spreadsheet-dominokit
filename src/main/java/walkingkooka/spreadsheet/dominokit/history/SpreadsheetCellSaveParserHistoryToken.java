@@ -34,10 +34,10 @@ import java.util.Optional;
  * This {@link HistoryToken} is used by to paste a {@link SpreadsheetParserSelector} for many cells over another range.
  * <pre>
  * {
- *   "A1": "number-parse-pattern 0.00"
+ *   "A1": "number 0.00"
  * }
  *
- * /123/SpreadsheetName456/cell/A1/save/parser/%7B%22A1%22%3A%20%22number-parse-pattern%200.00%22%7D}
+ * /123/SpreadsheetName456/cell/A1/save/parser/%7B%22A1%22%3A%20%22number%200.00%22%7D}
  *
  * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/save/parser/{@link SpreadsheetParserSelector} patch as json.
  * </pre>
