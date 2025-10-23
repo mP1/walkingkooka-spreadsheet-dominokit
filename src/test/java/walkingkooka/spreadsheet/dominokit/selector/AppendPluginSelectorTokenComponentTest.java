@@ -183,7 +183,7 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
     public void testRefreshNumberFormat() {
         this.refreshAndCheck(
             "/1/Untitled/cell/A1/formatter",
-            SpreadsheetFormatterName.NUMBER_FORMAT_PATTERN,
+            SpreadsheetFormatterName.NUMBER,
             Lists.of(
                 SpreadsheetFormatterSelectorToken.with(
                     "$",
@@ -207,8 +207,8 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
                 "      Append component(s)\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"0\" [#/1/Untitled/cell/A1/formatter/save/number-format-pattern%20$0] id=id123-append-0-Link\n" +
-                "            \"#\" [#/1/Untitled/cell/A1/formatter/save/number-format-pattern%20$%23] id=id123-append-1-Link\n" // expected
+                "            \"0\" [#/1/Untitled/cell/A1/formatter/save/number%20$0] id=id123-append-0-Link\n" +
+                "            \"#\" [#/1/Untitled/cell/A1/formatter/save/number%20$%23] id=id123-append-1-Link\n" // expected
         );
     }
 

@@ -79,7 +79,7 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
     @Test
     public void testSetValueWithSpreadsheetFormatterSelectorWithDollarSignAndHashes() {
         final Optional<SpreadsheetFormatterSelector> value = Optional.of(
-            SpreadsheetFormatterSelector.parse("number-format-pattern $###.00")
+            SpreadsheetFormatterSelector.parse("number $###.00")
         );
 
         this.treePrintAndCheck(
@@ -94,7 +94,7 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
                     )
                 )
             ).setValue(value),
-            "\"Save\" [#/1/SpreadsheetName1/cell/A1/formatter/save/number-format-pattern%20$%23%23%23.00] id=id123"
+            "\"Save\" [#/1/SpreadsheetName1/cell/A1/formatter/save/number%20$%23%23%23.00] id=id123"
         );
     }
 

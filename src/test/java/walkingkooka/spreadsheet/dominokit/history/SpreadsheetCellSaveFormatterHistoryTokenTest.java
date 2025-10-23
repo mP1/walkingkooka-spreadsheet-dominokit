@@ -181,7 +181,7 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
 
     // {
     //   "A1": {
-    //     "type": "spreadsheet-number-format-pattern",
+    //     "type": "spreadsheet-number",
     //     "value": "#.##"
     //   }
     // }

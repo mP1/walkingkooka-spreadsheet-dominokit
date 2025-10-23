@@ -99,7 +99,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
                 "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
                 "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Number Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Text Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "                  \"Time Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
@@ -187,7 +187,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
                 "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
                 "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Number Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Text Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "                  \"Time Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
@@ -307,7 +307,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
                 "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
                 "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Number Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Text Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "                  \"Time Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
@@ -426,7 +426,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             SpreadsheetFormatterSelectorDialogComponent.with(
                 AppContextSpreadsheetFormatterSelectorDialogComponentContextCell.with(context)
             ),
-            SpreadsheetFormatterName.NUMBER_FORMAT_PATTERN + " $#0.00",
+            SpreadsheetFormatterName.NUMBER + " $#0.00",
             context,
             "SpreadsheetFormatterSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
@@ -446,7 +446,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
                 "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
                 "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Number Format Pattern\" DISABLED id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Number\" DISABLED id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Text Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "                  \"Time Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
@@ -459,79 +459,79 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    123.5\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -123.5\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0.\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    124\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -124\n" +
                 "                ROW 5\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0\n" +
                 "                ROW 6\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    12,350%\n" +
                 "                ROW 7\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -12,350%\n" +
                 "                ROW 8\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0%\n" +
                 "                ROW 9\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $123*50\n" +
                 "                ROW 10\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $-123*50\n" +
                 "                ROW 11\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $0*00\n" +
                 "                ROW 12\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"$#0.00\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20$%230.00] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  \"$#0.00\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00] id=spreadsheetFormatterSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $1234*50\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -540,34 +540,34 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"#\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20$%230.00%23] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
-                "                  \"$\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20$%230.00$] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
-                "                  \"%\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20$%230.00%25] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
-                "                  \",\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20$%230.00,] id=spreadsheetFormatterSelector-appender-append-3-Link\n" +
-                "                  \".\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20$%230.00.] id=spreadsheetFormatterSelector-appender-append-4-Link\n" +
-                "                  \"/\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20$%230.00/] id=spreadsheetFormatterSelector-appender-append-5-Link\n" +
-                "                  \"?\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20$%230.00?] id=spreadsheetFormatterSelector-appender-append-6-Link\n" +
-                "                  \"E\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20$%230.00E] id=spreadsheetFormatterSelector-appender-append-7-Link\n" +
+                "                  \"#\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00%23] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
+                "                  \"$\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00$] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
+                "                  \"%\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00%25] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
+                "                  \",\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00,] id=spreadsheetFormatterSelector-appender-append-3-Link\n" +
+                "                  \".\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00.] id=spreadsheetFormatterSelector-appender-append-4-Link\n" +
+                "                  \"/\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00/] id=spreadsheetFormatterSelector-appender-append-5-Link\n" +
+                "                  \"?\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00?] id=spreadsheetFormatterSelector-appender-append-6-Link\n" +
+                "                  \"E\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00E] id=spreadsheetFormatterSelector-appender-append-7-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"$\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20%230.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
-                "                  \"#\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20$0.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20$%23.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
-                "                  \".\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20$%23000] id=spreadsheetFormatterSelector-removeOrReplace-remove-3-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20$%230.0] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20$%230.0] id=spreadsheetFormatterSelector-removeOrReplace-remove-5-Link\n" +
+                "                  \"$\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%230.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
+                "                  \"#\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$0.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%23.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
+                "                  \".\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%23000] id=spreadsheetFormatterSelector-removeOrReplace-remove-3-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.0] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.0] id=spreadsheetFormatterSelector-removeOrReplace-remove-5-Link\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [number-format-pattern $#0.00] id=spreadsheetFormatterSelector-TextBox\n" +
+                "            [number $#0.00] id=spreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern%20$%230.00] id=spreadsheetFormatterSelector-save-Link\n" +
+                "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00] id=spreadsheetFormatterSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
                 "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=spreadsheetFormatterSelector-close-Link\n"
@@ -606,7 +606,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
                 "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
                 "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Number Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Text Format Pattern\" DISABLED id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "                  \"Time Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
@@ -692,7 +692,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
                 "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
                 "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Number Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/number-format-pattern] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Text Format Pattern\" [#/1/Spreadsheet1/cell/A1/formatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "                  \"Time Format Pattern\" DISABLED id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
@@ -807,7 +807,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
                 "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
                 "                  \"General\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Number Format Pattern\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/number-format-pattern] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Text Format Pattern\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "                  \"Time Format Pattern\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
@@ -941,7 +941,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
                 "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
                 "                  \"General\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Number Format Pattern\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/number-format-pattern] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Text Format Pattern\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "                  \"Time Format Pattern\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
@@ -1060,7 +1060,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             SpreadsheetFormatterSelectorDialogComponent.with(
                 AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata.with(context)
             ),
-            SpreadsheetFormatterName.NUMBER_FORMAT_PATTERN + " $#0.00",
+            SpreadsheetFormatterName.NUMBER + " $#0.00",
             context,
             "SpreadsheetFormatterSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
@@ -1094,7 +1094,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
                 "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
                 "                  \"General\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Number Format Pattern\" DISABLED id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Number\" DISABLED id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Text Format Pattern\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "                  \"Time Format Pattern\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
@@ -1107,79 +1107,79 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    123.5\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -123.5\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0.\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    124\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -124\n" +
                 "                ROW 5\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0\n" +
                 "                ROW 6\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    12,350%\n" +
                 "                ROW 7\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -12,350%\n" +
                 "                ROW 8\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0%\n" +
                 "                ROW 9\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $123*50\n" +
                 "                ROW 10\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $-123*50\n" +
                 "                ROW 11\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $0*00\n" +
                 "                ROW 12\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"$#0.00\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%230.00] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  \"$#0.00\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00] id=spreadsheetFormatterSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $1234*50\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -1188,34 +1188,34 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"#\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%230.00%23] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
-                "                  \"$\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%230.00$] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
-                "                  \"%\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%230.00%25] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
-                "                  \",\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%230.00,] id=spreadsheetFormatterSelector-appender-append-3-Link\n" +
-                "                  \".\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%230.00.] id=spreadsheetFormatterSelector-appender-append-4-Link\n" +
-                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%230.00/] id=spreadsheetFormatterSelector-appender-append-5-Link\n" +
-                "                  \"?\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%230.00?] id=spreadsheetFormatterSelector-appender-append-6-Link\n" +
-                "                  \"E\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%230.00E] id=spreadsheetFormatterSelector-appender-append-7-Link\n" +
+                "                  \"#\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00%23] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
+                "                  \"$\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00$] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
+                "                  \"%\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00%25] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
+                "                  \",\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00,] id=spreadsheetFormatterSelector-appender-append-3-Link\n" +
+                "                  \".\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00.] id=spreadsheetFormatterSelector-appender-append-4-Link\n" +
+                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00/] id=spreadsheetFormatterSelector-appender-append-5-Link\n" +
+                "                  \"?\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00?] id=spreadsheetFormatterSelector-appender-append-6-Link\n" +
+                "                  \"E\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00E] id=spreadsheetFormatterSelector-appender-append-7-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"$\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20%230.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
-                "                  \"#\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$0.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%23.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
-                "                  \".\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%23000] id=spreadsheetFormatterSelector-removeOrReplace-remove-3-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%230.0] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%230.0] id=spreadsheetFormatterSelector-removeOrReplace-remove-5-Link\n" +
+                "                  \"$\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%230.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
+                "                  \"#\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$0.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%23.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
+                "                  \".\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%23000] id=spreadsheetFormatterSelector-removeOrReplace-remove-3-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.0] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.0] id=spreadsheetFormatterSelector-removeOrReplace-remove-5-Link\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [number-format-pattern $#0.00] id=spreadsheetFormatterSelector-TextBox\n" +
+                "            [number $#0.00] id=spreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number-format-pattern%20$%230.00] id=spreadsheetFormatterSelector-save-Link\n" +
+                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00] id=spreadsheetFormatterSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
                 "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/badge-error%20text-format-pattern%20@] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=spreadsheetFormatterSelector-close-Link\n"
@@ -1234,7 +1234,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             SpreadsheetFormatterSelectorDialogComponent.with(
                 AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata.with(context)
             ),
-            SpreadsheetFormatterName.NUMBER_FORMAT_PATTERN + " $#0.00",
+            SpreadsheetFormatterName.NUMBER + " $#0.00",
             context,
             "SpreadsheetFormatterSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
@@ -1268,7 +1268,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
                 "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
                 "                  \"General\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Number Format Pattern\" DISABLED id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Number\" DISABLED id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Text Format Pattern\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "                  \"Time Format Pattern\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
@@ -1281,79 +1281,79 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    123.5\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -123.5\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0.\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    124\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -124\n" +
                 "                ROW 5\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0\n" +
                 "                ROW 6\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    12,350%\n" +
                 "                ROW 7\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -12,350%\n" +
                 "                ROW 8\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0%\n" +
                 "                ROW 9\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $123*50\n" +
                 "                ROW 10\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $-123*50\n" +
                 "                ROW 11\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $0*00\n" +
                 "                ROW 12\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"$#0.00\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20$%230.00] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  \"$#0.00\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00] id=spreadsheetFormatterSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $1234*50\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -1362,36 +1362,36 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"#\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20$%230.00%23] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
-                "                  \"$\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20$%230.00$] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
-                "                  \"%\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20$%230.00%25] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
-                "                  \",\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20$%230.00,] id=spreadsheetFormatterSelector-appender-append-3-Link\n" +
-                "                  \".\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20$%230.00.] id=spreadsheetFormatterSelector-appender-append-4-Link\n" +
-                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20$%230.00/] id=spreadsheetFormatterSelector-appender-append-5-Link\n" +
-                "                  \"?\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20$%230.00?] id=spreadsheetFormatterSelector-appender-append-6-Link\n" +
-                "                  \"E\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20$%230.00E] id=spreadsheetFormatterSelector-appender-append-7-Link\n" +
+                "                  \"#\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00%23] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
+                "                  \"$\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00$] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
+                "                  \"%\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00%25] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
+                "                  \",\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00,] id=spreadsheetFormatterSelector-appender-append-3-Link\n" +
+                "                  \".\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00.] id=spreadsheetFormatterSelector-appender-append-4-Link\n" +
+                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00/] id=spreadsheetFormatterSelector-appender-append-5-Link\n" +
+                "                  \"?\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00?] id=spreadsheetFormatterSelector-appender-append-6-Link\n" +
+                "                  \"E\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00E] id=spreadsheetFormatterSelector-appender-append-7-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"$\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20%230.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
-                "                  \"#\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20$0.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20$%23.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
-                "                  \".\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20$%23000] id=spreadsheetFormatterSelector-removeOrReplace-remove-3-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20$%230.0] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20$%230.0] id=spreadsheetFormatterSelector-removeOrReplace-remove-5-Link\n" +
+                "                  \"$\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%230.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
+                "                  \"#\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$0.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%23.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
+                "                  \".\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%23000] id=spreadsheetFormatterSelector-removeOrReplace-remove-3-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.0] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.0] id=spreadsheetFormatterSelector-removeOrReplace-remove-5-Link\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [number-format-pattern $#0.00] id=spreadsheetFormatterSelector-TextBox\n" +
+                "            [number $#0.00] id=spreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%20$%230.00] id=spreadsheetFormatterSelector-save-Link\n" +
+                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00] id=spreadsheetFormatterSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number-format-pattern%200.%23;0.%23;0] id=spreadsheetFormatterSelector-undo-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%200.%23;0.%23;0] id=spreadsheetFormatterSelector-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=spreadsheetFormatterSelector-close-Link\n"
         );
     }
@@ -1442,7 +1442,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
                 "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
                 "                  \"General\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Number Format Pattern\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/number-format-pattern] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Text Format Pattern\" DISABLED id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "                  \"Time Format Pattern\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/time-format-pattern] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
@@ -1542,7 +1542,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
                 "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
                 "                  \"General\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Number Format Pattern\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/number-format-pattern] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
                 "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
                 "                  \"Text Format Pattern\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/text-format-pattern] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
                 "                  \"Time Format Pattern\" DISABLED id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
