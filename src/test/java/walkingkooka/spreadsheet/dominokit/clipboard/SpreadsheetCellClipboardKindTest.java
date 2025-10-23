@@ -618,7 +618,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
                             .spreadsheetParserSelector()
                     )
                 ),
-            "\"date-parse-pattern yyyy/mm/dd\""
+            "\"date yyyy/mm/dd\""
         );
     }
 

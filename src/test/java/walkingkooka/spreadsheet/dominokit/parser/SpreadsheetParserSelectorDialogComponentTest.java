@@ -91,7 +91,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Date Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-0-Link\n" +
+                "                  \"Date\" DISABLED id=spreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time-parse-pattern] id=spreadsheetParserSelector-parserNames-1-Link\n" +
                 "                  \"Number Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Time Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
@@ -104,31 +104,31 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Short\n" +
-                "                  \"d/m/yy\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20d/m/yy] id=spreadsheetParserSelector-Short-Link\n" +
+                "                  \"d/m/yy\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20d/m/yy] id=spreadsheetParserSelector-Short-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31/12/99\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Medium\n" +
-                "                  \"d mmm yyyy\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20d%20mmm%20yyyy] id=spreadsheetParserSelector-Medium-Link\n" +
+                "                  \"d mmm yyyy\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20d%20mmm%20yyyy] id=spreadsheetParserSelector-Medium-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 Dec. 1999\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Long\n" +
-                "                  \"d mmmm yyyy\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20d%20mmmm%20yyyy] id=spreadsheetParserSelector-Long-Link\n" +
+                "                  \"d mmmm yyyy\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20d%20mmmm%20yyyy] id=spreadsheetParserSelector-Long-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 December 1999\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Full\n" +
-                "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20dddd,%20d%20mmmm%20yyyy] id=spreadsheetParserSelector-Full-Link\n" +
+                "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dddd,%20d%20mmmm%20yyyy] id=spreadsheetParserSelector-Full-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    Friday, 31 December 1999\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern] id=spreadsheetParserSelector-Sample-Link\n" +
+                "                  [#/1/Spreadsheet1/cell/A1/parser/save/date] id=spreadsheetParserSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    ERROR Empty \"text\"\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -136,7 +136,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date-parse-pattern] id=spreadsheetParserSelector-TextBox\n" +
+                "            [date] id=spreadsheetParserSelector-TextBox\n" +
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
                 "      AnchorListComponent\n" +
@@ -171,7 +171,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Date Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-0-Link\n" +
+                "                  \"Date\" DISABLED id=spreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time-parse-pattern] id=spreadsheetParserSelector-parserNames-1-Link\n" +
                 "                  \"Number Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Time Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
@@ -184,31 +184,31 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Short\n" +
-                "                  \"d/m/yy\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20d/m/yy] id=spreadsheetParserSelector-Short-Link\n" +
+                "                  \"d/m/yy\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20d/m/yy] id=spreadsheetParserSelector-Short-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31/12/99\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Medium\n" +
-                "                  \"d mmm yyyy\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20d%20mmm%20yyyy] id=spreadsheetParserSelector-Medium-Link\n" +
+                "                  \"d mmm yyyy\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20d%20mmm%20yyyy] id=spreadsheetParserSelector-Medium-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 Dec. 1999\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Long\n" +
-                "                  \"d mmmm yyyy\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20d%20mmmm%20yyyy] id=spreadsheetParserSelector-Long-Link\n" +
+                "                  \"d mmmm yyyy\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20d%20mmmm%20yyyy] id=spreadsheetParserSelector-Long-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 December 1999\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Full\n" +
-                "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20dddd,%20d%20mmmm%20yyyy] id=spreadsheetParserSelector-Full-Link\n" +
+                "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dddd,%20d%20mmmm%20yyyy] id=spreadsheetParserSelector-Full-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    Friday, 31 December 1999\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"dd/mm/yyyy\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20dd/mm/yyyy] id=spreadsheetParserSelector-Sample-Link\n" +
+                "                  \"dd/mm/yyyy\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyy] id=spreadsheetParserSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31/12/1999\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -217,42 +217,42 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"d\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20dd/mm/yyyyd] id=spreadsheetParserSelector-appender-append-0-Link\n" +
-                "                  \"dd\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20dd/mm/yyyydd] id=spreadsheetParserSelector-appender-append-1-Link\n" +
-                "                  \"ddd\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20dd/mm/yyyyddd] id=spreadsheetParserSelector-appender-append-2-Link\n" +
-                "                  \"dddd\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20dd/mm/yyyydddd] id=spreadsheetParserSelector-appender-append-3-Link\n" +
-                "                  \"m\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20dd/mm/yyyym] id=spreadsheetParserSelector-appender-append-4-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20dd/mm/yyyymm] id=spreadsheetParserSelector-appender-append-5-Link\n" +
-                "                  \"mmm\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20dd/mm/yyyymmm] id=spreadsheetParserSelector-appender-append-6-Link\n" +
-                "                  \"mmmm\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20dd/mm/yyyymmmm] id=spreadsheetParserSelector-appender-append-7-Link\n" +
-                "                  \"mmmmm\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20dd/mm/yyyymmmmm] id=spreadsheetParserSelector-appender-append-8-Link\n" +
+                "                  \"d\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyyd] id=spreadsheetParserSelector-appender-append-0-Link\n" +
+                "                  \"dd\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyydd] id=spreadsheetParserSelector-appender-append-1-Link\n" +
+                "                  \"ddd\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyyddd] id=spreadsheetParserSelector-appender-append-2-Link\n" +
+                "                  \"dddd\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyydddd] id=spreadsheetParserSelector-appender-append-3-Link\n" +
+                "                  \"m\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyym] id=spreadsheetParserSelector-appender-append-4-Link\n" +
+                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyymm] id=spreadsheetParserSelector-appender-append-5-Link\n" +
+                "                  \"mmm\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyymmm] id=spreadsheetParserSelector-appender-append-6-Link\n" +
+                "                  \"mmmm\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyymmmm] id=spreadsheetParserSelector-appender-append-7-Link\n" +
+                "                  \"mmmmm\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyymmmmm] id=spreadsheetParserSelector-appender-append-8-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"dd\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20/mm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
-                "                      \"d\" [/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20d/mm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
-                "                      \"ddd\" [/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20ddd/mm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-1-MenuItem\n" +
-                "                      \"dddd\" [/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20dddd/mm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-2-MenuItem\n" +
-                "                  \"/\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20ddmm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20dd//yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-2-Link\n" +
-                "                      \"m\" [/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20dd/m/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
-                "                      \"mmm\" [/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20dd/mmm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-1-MenuItem\n" +
-                "                      \"mmmm\" [/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20dd/mmmm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-2-MenuItem\n" +
-                "                      \"mmmmm\" [/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20dd/mmmmm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-3-MenuItem\n" +
-                "                  \"/\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20dd/mmyyyy] id=spreadsheetParserSelector-removeOrReplace-remove-3-Link\n" +
-                "                  \"yyyy\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20dd/mm/] id=spreadsheetParserSelector-removeOrReplace-remove-4-Link\n" +
-                "                      \"yy\" [/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20dd/mm/yy] id=spreadsheetParserSelector-removeOrReplace-remove-4-Link-replace-0-MenuItem\n" +
+                "                  \"dd\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20/mm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
+                "                      \"d\" [/1/Spreadsheet1/cell/A1/parser/save/date%20d/mm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
+                "                      \"ddd\" [/1/Spreadsheet1/cell/A1/parser/save/date%20ddd/mm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-1-MenuItem\n" +
+                "                      \"dddd\" [/1/Spreadsheet1/cell/A1/parser/save/date%20dddd/mm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-2-MenuItem\n" +
+                "                  \"/\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20ddmm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd//yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-2-Link\n" +
+                "                      \"m\" [/1/Spreadsheet1/cell/A1/parser/save/date%20dd/m/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
+                "                      \"mmm\" [/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mmm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-1-MenuItem\n" +
+                "                      \"mmmm\" [/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mmmm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-2-MenuItem\n" +
+                "                      \"mmmmm\" [/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mmmmm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-3-MenuItem\n" +
+                "                  \"/\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mmyyyy] id=spreadsheetParserSelector-removeOrReplace-remove-3-Link\n" +
+                "                  \"yyyy\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/] id=spreadsheetParserSelector-removeOrReplace-remove-4-Link\n" +
+                "                      \"yy\" [/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yy] id=spreadsheetParserSelector-removeOrReplace-remove-4-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date-parse-pattern dd/mm/yyyy] id=spreadsheetParserSelector-TextBox\n" +
+                "            [date dd/mm/yyyy] id=spreadsheetParserSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern%20dd/mm/yyyy] id=spreadsheetParserSelector-save-Link\n" +
+                "            \"Save\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyy] id=spreadsheetParserSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=spreadsheetParserSelector-clear-Link\n" +
                 "            \"Undo\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=spreadsheetParserSelector-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=spreadsheetParserSelector-close-Link\n"
@@ -283,7 +283,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Date Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern] id=spreadsheetParserSelector-parserNames-0-Link\n" +
+                "                  \"Date\" [#/1/Spreadsheet1/cell/A1/parser/save/date] id=spreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-1-Link\n" +
                 "                  \"Number Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Time Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
@@ -414,7 +414,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Date Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern] id=spreadsheetParserSelector-parserNames-0-Link\n" +
+                "                  \"Date\" [#/1/Spreadsheet1/cell/A1/parser/save/date] id=spreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time-parse-pattern] id=spreadsheetParserSelector-parserNames-1-Link\n" +
                 "                  \"Number Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Time Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
@@ -566,7 +566,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Date Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/date-parse-pattern] id=spreadsheetParserSelector-parserNames-0-Link\n" +
+                "                  \"Date\" [#/1/Spreadsheet1/cell/A1/parser/save/date] id=spreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time-parse-pattern] id=spreadsheetParserSelector-parserNames-1-Link\n" +
                 "                  \"Number Parse Pattern\" [#/1/Spreadsheet1/cell/A1/parser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Time Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-3-Link\n" +
@@ -669,7 +669,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Date Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-0-Link\n" +
+                "                  \"Date\" DISABLED id=spreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-time-parse-pattern] id=spreadsheetParserSelector-parserNames-1-Link\n" +
                 "                  \"Number Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Time Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
@@ -682,31 +682,31 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Short\n" +
-                "                  \"d/m/yy\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20d/m/yy] id=spreadsheetParserSelector-Short-Link\n" +
+                "                  \"d/m/yy\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20d/m/yy] id=spreadsheetParserSelector-Short-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31/12/99\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Medium\n" +
-                "                  \"d mmm yyyy\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20d%20mmm%20yyyy] id=spreadsheetParserSelector-Medium-Link\n" +
+                "                  \"d mmm yyyy\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20d%20mmm%20yyyy] id=spreadsheetParserSelector-Medium-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 Dec. 1999\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Long\n" +
-                "                  \"d mmmm yyyy\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20d%20mmmm%20yyyy] id=spreadsheetParserSelector-Long-Link\n" +
+                "                  \"d mmmm yyyy\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20d%20mmmm%20yyyy] id=spreadsheetParserSelector-Long-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 December 1999\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Full\n" +
-                "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20dddd,%20d%20mmmm%20yyyy] id=spreadsheetParserSelector-Full-Link\n" +
+                "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dddd,%20d%20mmmm%20yyyy] id=spreadsheetParserSelector-Full-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    Friday, 31 December 1999\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"dd/mm/yyyy\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20dd/mm/yyyy] id=spreadsheetParserSelector-Sample-Link\n" +
+                "                  \"dd/mm/yyyy\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyy] id=spreadsheetParserSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31/12/1999\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -715,44 +715,44 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"d\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20dd/mm/yyyyd] id=spreadsheetParserSelector-appender-append-0-Link\n" +
-                "                  \"dd\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20dd/mm/yyyydd] id=spreadsheetParserSelector-appender-append-1-Link\n" +
-                "                  \"ddd\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20dd/mm/yyyyddd] id=spreadsheetParserSelector-appender-append-2-Link\n" +
-                "                  \"dddd\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20dd/mm/yyyydddd] id=spreadsheetParserSelector-appender-append-3-Link\n" +
-                "                  \"m\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20dd/mm/yyyym] id=spreadsheetParserSelector-appender-append-4-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20dd/mm/yyyymm] id=spreadsheetParserSelector-appender-append-5-Link\n" +
-                "                  \"mmm\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20dd/mm/yyyymmm] id=spreadsheetParserSelector-appender-append-6-Link\n" +
-                "                  \"mmmm\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20dd/mm/yyyymmmm] id=spreadsheetParserSelector-appender-append-7-Link\n" +
-                "                  \"mmmmm\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20dd/mm/yyyymmmmm] id=spreadsheetParserSelector-appender-append-8-Link\n" +
+                "                  \"d\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyyd] id=spreadsheetParserSelector-appender-append-0-Link\n" +
+                "                  \"dd\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyydd] id=spreadsheetParserSelector-appender-append-1-Link\n" +
+                "                  \"ddd\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyyddd] id=spreadsheetParserSelector-appender-append-2-Link\n" +
+                "                  \"dddd\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyydddd] id=spreadsheetParserSelector-appender-append-3-Link\n" +
+                "                  \"m\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyym] id=spreadsheetParserSelector-appender-append-4-Link\n" +
+                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyymm] id=spreadsheetParserSelector-appender-append-5-Link\n" +
+                "                  \"mmm\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyymmm] id=spreadsheetParserSelector-appender-append-6-Link\n" +
+                "                  \"mmmm\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyymmmm] id=spreadsheetParserSelector-appender-append-7-Link\n" +
+                "                  \"mmmmm\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyymmmmm] id=spreadsheetParserSelector-appender-append-8-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"dd\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20/mm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
-                "                      \"d\" [/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20d/mm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
-                "                      \"ddd\" [/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20ddd/mm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-1-MenuItem\n" +
-                "                      \"dddd\" [/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20dddd/mm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-2-MenuItem\n" +
-                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20ddmm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20dd//yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-2-Link\n" +
-                "                      \"m\" [/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20dd/m/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
-                "                      \"mmm\" [/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20dd/mmm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-1-MenuItem\n" +
-                "                      \"mmmm\" [/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20dd/mmmm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-2-MenuItem\n" +
-                "                      \"mmmmm\" [/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20dd/mmmmm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-3-MenuItem\n" +
-                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20dd/mmyyyy] id=spreadsheetParserSelector-removeOrReplace-remove-3-Link\n" +
-                "                  \"yyyy\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20dd/mm/] id=spreadsheetParserSelector-removeOrReplace-remove-4-Link\n" +
-                "                      \"yy\" [/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20dd/mm/yy] id=spreadsheetParserSelector-removeOrReplace-remove-4-Link-replace-0-MenuItem\n" +
+                "                  \"dd\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20/mm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
+                "                      \"d\" [/1/Spreadsheet1/spreadsheet/dateParser/save/date%20d/mm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
+                "                      \"ddd\" [/1/Spreadsheet1/spreadsheet/dateParser/save/date%20ddd/mm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-1-MenuItem\n" +
+                "                      \"dddd\" [/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dddd/mm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-2-MenuItem\n" +
+                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20ddmm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd//yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-2-Link\n" +
+                "                      \"m\" [/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/m/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
+                "                      \"mmm\" [/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mmm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-1-MenuItem\n" +
+                "                      \"mmmm\" [/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mmmm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-2-MenuItem\n" +
+                "                      \"mmmmm\" [/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mmmmm/yyyy] id=spreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-3-MenuItem\n" +
+                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mmyyyy] id=spreadsheetParserSelector-removeOrReplace-remove-3-Link\n" +
+                "                  \"yyyy\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/] id=spreadsheetParserSelector-removeOrReplace-remove-4-Link\n" +
+                "                      \"yy\" [/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yy] id=spreadsheetParserSelector-removeOrReplace-remove-4-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date-parse-pattern dd/mm/yyyy] id=spreadsheetParserSelector-TextBox\n" +
+                "            [date dd/mm/yyyy] id=spreadsheetParserSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20dd/mm/yyyy] id=spreadsheetParserSelector-save-Link\n" +
+                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyy] id=spreadsheetParserSelector-save-Link\n" +
                 "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/] id=spreadsheetParserSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-parse-pattern%20yyyy/mm/dd] id=spreadsheetParserSelector-undo-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20yyyy/mm/dd] id=spreadsheetParserSelector-undo-Link\n" +
                 "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=spreadsheetParserSelector-close-Link\n"
         );
     }
@@ -791,7 +791,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Date Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-parse-pattern] id=spreadsheetParserSelector-parserNames-0-Link\n" +
+                "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date] id=spreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-1-Link\n" +
                 "                  \"Number Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Time Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
@@ -932,7 +932,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Date Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/date-parse-pattern] id=spreadsheetParserSelector-parserNames-0-Link\n" +
+                "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/date] id=spreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/date-time-parse-pattern] id=spreadsheetParserSelector-parserNames-1-Link\n" +
                 "                  \"Number Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Time Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
@@ -1094,7 +1094,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Date Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/date-parse-pattern] id=spreadsheetParserSelector-parserNames-0-Link\n" +
+                "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/date] id=spreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/date-time-parse-pattern] id=spreadsheetParserSelector-parserNames-1-Link\n" +
                 "                  \"Number Parse Pattern\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Time Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-3-Link\n" +
