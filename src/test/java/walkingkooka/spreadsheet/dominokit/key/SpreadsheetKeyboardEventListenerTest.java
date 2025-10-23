@@ -1678,8 +1678,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
                 SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.of(
-                    SpreadsheetPattern.parseNumberFormatPattern("0%")
-                        .spreadsheetFormatterSelector()
+                    SpreadsheetFormatterSelector.parse("percent")
                 )
             )
         );
@@ -1712,8 +1711,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
                 SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.of(
-                    SpreadsheetPattern.parseNumberFormatPattern("0%")
-                        .spreadsheetFormatterSelector()
+                    SpreadsheetFormatterSelector.parse("percent")
                 )
             )
         );
@@ -1739,8 +1737,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
                 SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.of(
-                    SpreadsheetPattern.parseNumberFormatPattern("0%")
-                        .spreadsheetFormatterSelector()
+                    SpreadsheetFormatterSelector.parse("percent")
                 )
             )
         );
