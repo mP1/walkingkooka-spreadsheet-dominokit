@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.Logging;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.FontStyle;
@@ -369,8 +370,7 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
     private void scientificFormat(final KeyboardEvent event) {
         this.setCellFormatter(
             Optional.of(
-                SpreadsheetPattern.parseNumberFormatPattern("0.00E+00")
-                    .spreadsheetFormatterSelector()
+                SpreadsheetFormatterName.SCIENTIFIC.setValueText("")
             )
         );
         event.preventDefault();

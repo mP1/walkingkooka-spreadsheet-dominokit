@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
@@ -1886,8 +1887,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
                 SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.of(
-                    SpreadsheetPattern.parseNumberFormatPattern("0.00E+00")
-                        .spreadsheetFormatterSelector()
+                    SpreadsheetFormatterName.SCIENTIFIC.setValueText("")
                 )
             )
         );
@@ -1920,8 +1920,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
                 SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.of(
-                    SpreadsheetPattern.parseNumberFormatPattern("0.00E+00")
-                        .spreadsheetFormatterSelector()
+                    SpreadsheetFormatterName.SCIENTIFIC.setValueText("")
                 )
             )
         );
@@ -1947,8 +1946,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
                 SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.of(
-                    SpreadsheetPattern.parseNumberFormatPattern("0.00E+00")
-                        .spreadsheetFormatterSelector()
+                    SpreadsheetFormatterName.SCIENTIFIC.setValueText("")
                 )
             )
         );
