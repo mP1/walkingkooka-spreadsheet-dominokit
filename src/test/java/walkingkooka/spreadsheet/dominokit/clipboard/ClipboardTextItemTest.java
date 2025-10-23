@@ -491,7 +491,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                     "  \"cell-range\": \"A1:B2\",\n" +
                     "  \"value\": {\n" +
                     "    \"A1\": \"text-format-pattern @\",\n" +
-                    "    \"B2\": \"number-format-pattern $0.00\"\n" +
+                    "    \"B2\": \"number $0.00\"\n" +
                     "  }\n" +
                     "}"
             )

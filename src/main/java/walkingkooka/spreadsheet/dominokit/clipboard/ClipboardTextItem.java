@@ -87,7 +87,7 @@ import java.util.stream.Collectors;
  *   "cell-range": "A1:B2",
  *   "value": {
  *     "A1": "date dd/mm/yyyy",
- *     "B2": "number-format-pattern $0.00"
+ *     "B2": "number $0.00"
  *   }
  * }
  * </pre>

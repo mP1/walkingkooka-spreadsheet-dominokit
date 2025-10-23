@@ -198,10 +198,10 @@ public final class RemoveOrReplacePluginSelectorTokenComponentTest implements Ht
 
 
     @Test
-    public void testRefreshNumberFormatTextComponents() {
+    public void testRefreshNumberTextComponents() {
         this.refreshAndCheck(
             "/1/Untitled/cell/A1/formatter",
-            SpreadsheetFormatterName.NUMBER_FORMAT_PATTERN,
+            SpreadsheetFormatterName.NUMBER,
             Lists.of(
                 SpreadsheetFormatterSelectorToken.with(
                     "$",
@@ -220,8 +220,8 @@ public final class RemoveOrReplacePluginSelectorTokenComponentTest implements Ht
                 "      Remove / Replace component(s)\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"$\" [#/1/Untitled/cell/A1/formatter/save/number-format-pattern%200] id=id123-remove-0-Link\n" +
-                "            \"0\" [#/1/Untitled/cell/A1/formatter/save/number-format-pattern%20$] id=id123-remove-1-Link\n" // expected
+                "            \"$\" [#/1/Untitled/cell/A1/formatter/save/number%200] id=id123-remove-0-Link\n" +
+                "            \"0\" [#/1/Untitled/cell/A1/formatter/save/number%20$] id=id123-remove-1-Link\n" // expected
         );
     }
 
