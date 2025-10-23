@@ -359,10 +359,10 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
                 "  \"Date\" id=test-formatter-date-SubMenu\n" +
                 "    \"Short\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20yy/mm/dd] id=test-formatter-date-MenuItem\n" +
                 "    \"Medium\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20yyyy/mm/ddd] id=test-formatter-date-MenuItem\n" +
-                "  \"Date Time Format Pattern\" id=test-formatter-date-time-format-pattern-SubMenu\n" +
-                "    \"Short\" [/1/Spreadsheet123/cell/A1/formatter/save/date-time-format-pattern%20yy/mm/dd] id=test-formatter-date-time-format-pattern-MenuItem\n" +
-                "    \"Medium\" [/1/Spreadsheet123/cell/A1/formatter/save/date-time-format-pattern%20yyyy/mm/ddd] id=test-formatter-date-time-format-pattern-MenuItem\n" +
-                "    \"Long\" [/1/Spreadsheet123/cell/A1/formatter/save/date-time-format-pattern%20yyyy/mmm/dddd] id=test-formatter-date-time-format-pattern-MenuItem\n" +
+                "  \"Date Time\" id=test-formatter-date-time-SubMenu\n" +
+                "    \"Short\" [/1/Spreadsheet123/cell/A1/formatter/save/date-time%20yy/mm/dd] id=test-formatter-date-time-MenuItem\n" +
+                "    \"Medium\" [/1/Spreadsheet123/cell/A1/formatter/save/date-time%20yyyy/mm/ddd] id=test-formatter-date-time-MenuItem\n" +
+                "    \"Long\" [/1/Spreadsheet123/cell/A1/formatter/save/date-time%20yyyy/mmm/dddd] id=test-formatter-date-time-MenuItem\n" +
                 "  \"Text Format Pattern\" id=test-formatter-text-format-pattern-SubMenu\n" +
                 "    \"Default text\" [/1/Spreadsheet123/cell/A1/formatter/save/text-format-pattern%20@] id=test-formatter-text-format-pattern-MenuItem\n" +
                 "  -----\n" +
