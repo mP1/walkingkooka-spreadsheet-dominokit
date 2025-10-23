@@ -206,8 +206,8 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
                 "  \"Date\" id=test-formatter-date-SubMenu\n" +
                 "    \"Short\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20yy/mm/dd] id=test-formatter-date-MenuItem\n" +
                 "    \"Medium\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20yyyy/mm/ddd] id=test-formatter-date-MenuItem\n" +
-                "  \"Text Format Pattern\" id=test-formatter-text-format-pattern-SubMenu\n" +
-                "    \"Default text\" [/1/Spreadsheet123/cell/A1/formatter/save/text-format-pattern%20@] id=test-formatter-text-format-pattern-MenuItem\n" +
+                "  \"Text\" id=test-formatter-text-SubMenu\n" +
+                "    \"Default text\" [/1/Spreadsheet123/cell/A1/formatter/save/text%20@] id=test-formatter-text-MenuItem\n" +
                 "  -----\n" +
                 "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
                 "  -----\n" +
@@ -277,8 +277,8 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
                 "  \"Date\" id=test-formatter-date-SubMenu\n" +
                 "    \"Short\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20yy/mm/dd] CHECKED id=test-formatter-date-MenuItem\n" +
                 "    \"Medium\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20yyyy/mm/ddd] id=test-formatter-date-MenuItem\n" +
-                "  \"Text Format Pattern\" id=test-formatter-text-format-pattern-SubMenu\n" +
-                "    \"Default text\" [/1/Spreadsheet123/cell/A1/formatter/save/text-format-pattern%20@] id=test-formatter-text-format-pattern-MenuItem\n" +
+                "  \"Text\" id=test-formatter-text-SubMenu\n" +
+                "    \"Default text\" [/1/Spreadsheet123/cell/A1/formatter/save/text%20@] id=test-formatter-text-MenuItem\n" +
                 "  -----\n" +
                 "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
                 "  -----\n" +
@@ -363,8 +363,8 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
                 "    \"Short\" [/1/Spreadsheet123/cell/A1/formatter/save/date-time%20yy/mm/dd] id=test-formatter-date-time-MenuItem\n" +
                 "    \"Medium\" [/1/Spreadsheet123/cell/A1/formatter/save/date-time%20yyyy/mm/ddd] id=test-formatter-date-time-MenuItem\n" +
                 "    \"Long\" [/1/Spreadsheet123/cell/A1/formatter/save/date-time%20yyyy/mmm/dddd] id=test-formatter-date-time-MenuItem\n" +
-                "  \"Text Format Pattern\" id=test-formatter-text-format-pattern-SubMenu\n" +
-                "    \"Default text\" [/1/Spreadsheet123/cell/A1/formatter/save/text-format-pattern%20@] id=test-formatter-text-format-pattern-MenuItem\n" +
+                "  \"Text\" id=test-formatter-text-SubMenu\n" +
+                "    \"Default text\" [/1/Spreadsheet123/cell/A1/formatter/save/text%20@] id=test-formatter-text-MenuItem\n" +
                 "  -----\n" +
                 "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
                 "  -----\n" +

@@ -1363,8 +1363,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Date\" id=test-formatter-date-SubMenu\n" +
                 "      \"Short\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date%20yy/mm/dd] id=test-formatter-date-MenuItem\n" +
                 "      \"Medium\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date%20yyyy/mm/ddd] id=test-formatter-date-MenuItem\n" +
-                "    \"Text Format Pattern\" id=test-formatter-text-format-pattern-SubMenu\n" +
-                "      \"Default text\" [/1/SpreadsheetName-1/cell/A1/formatter/save/text-format-pattern%20@] id=test-formatter-text-format-pattern-MenuItem\n" +
+                "    \"Text\" id=test-formatter-text-SubMenu\n" +
+                "      \"Default text\" [/1/SpreadsheetName-1/cell/A1/formatter/save/text%20@] id=test-formatter-text-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
                 "    -----\n" +
