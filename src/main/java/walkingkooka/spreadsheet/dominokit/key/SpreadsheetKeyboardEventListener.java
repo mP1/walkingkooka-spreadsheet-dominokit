@@ -265,8 +265,7 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
     private void currencyFormat(final KeyboardEvent event) {
         this.setCellFormatter(
             Optional.of(
-                SpreadsheetPattern.parseNumberFormatPattern("$0.00")
-                    .spreadsheetFormatterSelector()
+                SpreadsheetFormatterSelector.parse("currency")
             )
         );
         event.preventDefault();
