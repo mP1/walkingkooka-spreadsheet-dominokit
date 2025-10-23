@@ -52,7 +52,7 @@ public final class SpreadsheetParserInfoSetComponentTest implements FormValueCom
             "SpreadsheetParserInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/date date,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/date-time-parse-pattern date-time-parse-pattern,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/number-parse-pattern number-parse-pattern,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/time-parse-pattern time-parse-pattern]\n"
+                "      [https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/date date,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/date-time date-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/number-parse-pattern number-parse-pattern,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/time-parse-pattern time-parse-pattern]\n"
         );
     }
 
