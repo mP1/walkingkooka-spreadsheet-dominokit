@@ -66,7 +66,7 @@ public final class RemoveOrReplacePluginSelectorTokenComponentTest implements Ht
     }
 
     @Test
-    public void testRefreshDateFormatTextComponents() {
+    public void testRefreshDateComponents() {
         this.refreshAndCheck(
             "/1/Untitled/cell/A1/formatter",
             SpreadsheetFormatterName.DATE,
@@ -128,7 +128,7 @@ public final class RemoveOrReplacePluginSelectorTokenComponentTest implements Ht
     }
 
     @Test
-    public void testRefreshDateTimeFormatTextComponents() {
+    public void testRefreshDateTimeComponents() {
         this.refreshAndCheck(
             "/1/Untitled/cell/A1/formatter",
             SpreadsheetFormatterName.DATE_TIME,
