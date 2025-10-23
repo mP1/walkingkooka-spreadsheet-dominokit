@@ -276,10 +276,10 @@ public final class RemoveOrReplacePluginSelectorTokenComponentTest implements Ht
     }
 
     @Test
-    public void testRefreshTimeFormatTextComponents() {
+    public void testRefreshTimeTextComponents() {
         this.refreshAndCheck(
             "/1/Untitled/cell/A1/formatter",
-            SpreadsheetFormatterName.TIME_FORMAT_PATTERN,
+            SpreadsheetFormatterName.TIME,
             Lists.of(
                 SpreadsheetFormatterSelectorToken.with(
                     "h",
@@ -308,10 +308,10 @@ public final class RemoveOrReplacePluginSelectorTokenComponentTest implements Ht
                 "      Remove / Replace component(s)\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"h\" [#/1/Untitled/cell/A1/formatter/save/time-format-pattern%20m] id=id123-remove-0-Link\n" +
-                "                \"hh\" [/1/Untitled/cell/A1/formatter/save/time-format-pattern%20hhm] id=id123-remove-0-Link-replace-0-MenuItem\n" +
-                "            \"m\" [#/1/Untitled/cell/A1/formatter/save/time-format-pattern%20h] id=id123-remove-1-Link\n" +
-                "                \"mm\" [/1/Untitled/cell/A1/formatter/save/time-format-pattern%20hmm] id=id123-remove-1-Link-replace-0-MenuItem\n" // expected
+                "            \"h\" [#/1/Untitled/cell/A1/formatter/save/time%20m] id=id123-remove-0-Link\n" +
+                "                \"hh\" [/1/Untitled/cell/A1/formatter/save/time%20hhm] id=id123-remove-0-Link-replace-0-MenuItem\n" +
+                "            \"m\" [#/1/Untitled/cell/A1/formatter/save/time%20h] id=id123-remove-1-Link\n" +
+                "                \"mm\" [/1/Untitled/cell/A1/formatter/save/time%20hmm] id=id123-remove-1-Link-replace-0-MenuItem\n" // expected
         );
     }
 

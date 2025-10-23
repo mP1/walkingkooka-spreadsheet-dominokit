@@ -57,7 +57,7 @@ public class SpreadsheetFormatterNameLinkListComponentTest implements HtmlCompon
                 "            \"Number\" [#/1/SpreadsheetName123/cell/A1/formatter/save/number] id=ID123-8-Link\n" +
                 "            \"Spreadsheet Pattern Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/spreadsheet-pattern-collection] id=ID123-9-Link\n" +
                 "            \"Text\" [#/1/SpreadsheetName123/cell/A1/formatter/save/text] id=ID123-10-Link\n" +
-                "            \"Time Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/time-format-pattern] id=ID123-11-Link\n"
+                "            \"Time\" [#/1/SpreadsheetName123/cell/A1/formatter/save/time] id=ID123-11-Link\n"
         );
     }
 
@@ -84,7 +84,7 @@ public class SpreadsheetFormatterNameLinkListComponentTest implements HtmlCompon
                 "            \"Number\" [#/1/SpreadsheetName123/cell/A1/formatter/save/number] id=ID123-8-Link\n" +
                 "            \"Spreadsheet Pattern Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/spreadsheet-pattern-collection] id=ID123-9-Link\n" +
                 "            \"Text\" [#/1/SpreadsheetName123/cell/A1/formatter/save/text] id=ID123-10-Link\n" +
-                "            \"Time Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/time-format-pattern] id=ID123-11-Link\n"
+                "            \"Time\" [#/1/SpreadsheetName123/cell/A1/formatter/save/time] id=ID123-11-Link\n"
         );
     }
 
