@@ -49,15 +49,16 @@ public class SpreadsheetFormatterNameLinkListComponentTest implements HtmlCompon
                 "            \"Automatic\" [#/1/SpreadsheetName123/cell/A1/formatter/save/automatic] id=ID123-0-Link\n" +
                 "            \"Badge Error\" [#/1/SpreadsheetName123/cell/A1/formatter/save/badge-error] id=ID123-1-Link\n" +
                 "            \"Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/collection] id=ID123-2-Link\n" +
-                "            \"Date\" [#/1/SpreadsheetName123/cell/A1/formatter/save/date] id=ID123-3-Link\n" +
-                "            \"Date Time\" [#/1/SpreadsheetName123/cell/A1/formatter/save/date-time] id=ID123-4-Link\n" +
-                "            \"Default Text\" [#/1/SpreadsheetName123/cell/A1/formatter/save/default-text] id=ID123-5-Link\n" +
-                "            \"Expression\" [#/1/SpreadsheetName123/cell/A1/formatter/save/expression] id=ID123-6-Link\n" +
-                "            \"General\" [#/1/SpreadsheetName123/cell/A1/formatter/save/general] id=ID123-7-Link\n" +
-                "            \"Number\" [#/1/SpreadsheetName123/cell/A1/formatter/save/number] id=ID123-8-Link\n" +
-                "            \"Spreadsheet Pattern Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/spreadsheet-pattern-collection] id=ID123-9-Link\n" +
-                "            \"Text\" [#/1/SpreadsheetName123/cell/A1/formatter/save/text] id=ID123-10-Link\n" +
-                "            \"Time\" [#/1/SpreadsheetName123/cell/A1/formatter/save/time] id=ID123-11-Link\n"
+                "            \"Currency\" [#/1/SpreadsheetName123/cell/A1/formatter/save/currency] id=ID123-3-Link\n" +
+                "            \"Date\" [#/1/SpreadsheetName123/cell/A1/formatter/save/date] id=ID123-4-Link\n" +
+                "            \"Date Time\" [#/1/SpreadsheetName123/cell/A1/formatter/save/date-time] id=ID123-5-Link\n" +
+                "            \"Default Text\" [#/1/SpreadsheetName123/cell/A1/formatter/save/default-text] id=ID123-6-Link\n" +
+                "            \"Expression\" [#/1/SpreadsheetName123/cell/A1/formatter/save/expression] id=ID123-7-Link\n" +
+                "            \"General\" [#/1/SpreadsheetName123/cell/A1/formatter/save/general] id=ID123-8-Link\n" +
+                "            \"Number\" [#/1/SpreadsheetName123/cell/A1/formatter/save/number] id=ID123-9-Link\n" +
+                "            \"Spreadsheet Pattern Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/spreadsheet-pattern-collection] id=ID123-10-Link\n" +
+                "            \"Text\" [#/1/SpreadsheetName123/cell/A1/formatter/save/text] id=ID123-11-Link\n" +
+                "            \"Time\" [#/1/SpreadsheetName123/cell/A1/formatter/save/time] id=ID123-12-Link\n"
         );
     }
 
@@ -76,15 +77,16 @@ public class SpreadsheetFormatterNameLinkListComponentTest implements HtmlCompon
                 "            \"Automatic\" [#/1/SpreadsheetName123/cell/A1/formatter/save/automatic] id=ID123-0-Link\n" +
                 "            \"Badge Error\" [#/1/SpreadsheetName123/cell/A1/formatter/save/badge-error] id=ID123-1-Link\n" +
                 "            \"Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/collection] id=ID123-2-Link\n" +
-                "            \"Date\" DISABLED id=ID123-3-Link\n" +
-                "            \"Date Time\" [#/1/SpreadsheetName123/cell/A1/formatter/save/date-time] id=ID123-4-Link\n" +
-                "            \"Default Text\" [#/1/SpreadsheetName123/cell/A1/formatter/save/default-text] id=ID123-5-Link\n" +
-                "            \"Expression\" [#/1/SpreadsheetName123/cell/A1/formatter/save/expression] id=ID123-6-Link\n" +
-                "            \"General\" [#/1/SpreadsheetName123/cell/A1/formatter/save/general] id=ID123-7-Link\n" +
-                "            \"Number\" [#/1/SpreadsheetName123/cell/A1/formatter/save/number] id=ID123-8-Link\n" +
-                "            \"Spreadsheet Pattern Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/spreadsheet-pattern-collection] id=ID123-9-Link\n" +
-                "            \"Text\" [#/1/SpreadsheetName123/cell/A1/formatter/save/text] id=ID123-10-Link\n" +
-                "            \"Time\" [#/1/SpreadsheetName123/cell/A1/formatter/save/time] id=ID123-11-Link\n"
+                "            \"Currency\" [#/1/SpreadsheetName123/cell/A1/formatter/save/currency] id=ID123-3-Link\n" +
+                "            \"Date\" DISABLED id=ID123-4-Link\n" +
+                "            \"Date Time\" [#/1/SpreadsheetName123/cell/A1/formatter/save/date-time] id=ID123-5-Link\n" +
+                "            \"Default Text\" [#/1/SpreadsheetName123/cell/A1/formatter/save/default-text] id=ID123-6-Link\n" +
+                "            \"Expression\" [#/1/SpreadsheetName123/cell/A1/formatter/save/expression] id=ID123-7-Link\n" +
+                "            \"General\" [#/1/SpreadsheetName123/cell/A1/formatter/save/general] id=ID123-8-Link\n" +
+                "            \"Number\" [#/1/SpreadsheetName123/cell/A1/formatter/save/number] id=ID123-9-Link\n" +
+                "            \"Spreadsheet Pattern Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/spreadsheet-pattern-collection] id=ID123-10-Link\n" +
+                "            \"Text\" [#/1/SpreadsheetName123/cell/A1/formatter/save/text] id=ID123-11-Link\n" +
+                "            \"Time\" [#/1/SpreadsheetName123/cell/A1/formatter/save/time] id=ID123-12-Link\n"
         );
     }
 

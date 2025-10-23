@@ -94,15 +94,16 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Automatic\" [#/1/Spreadsheet1/cell/A1/formatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
                 "                  \"Badge Error\" [#/1/Spreadsheet1/cell/A1/formatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
-                "                  \"Date\" DISABLED id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
-                "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
-                "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Currency\" [#/1/Spreadsheet1/cell/A1/formatter/save/currency] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
+                "                  \"Date\" DISABLED id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
+                "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
+                "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -182,15 +183,16 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Automatic\" [#/1/Spreadsheet1/cell/A1/formatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
                 "                  \"Badge Error\" [#/1/Spreadsheet1/cell/A1/formatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
-                "                  \"Date\" DISABLED id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
-                "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
-                "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Currency\" [#/1/Spreadsheet1/cell/A1/formatter/save/currency] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
+                "                  \"Date\" DISABLED id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
+                "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
+                "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -302,15 +304,16 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Automatic\" [#/1/Spreadsheet1/cell/A1/formatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
                 "                  \"Badge Error\" [#/1/Spreadsheet1/cell/A1/formatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
-                "                  \"Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/date] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date Time\" DISABLED id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
-                "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
-                "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Currency\" [#/1/Spreadsheet1/cell/A1/formatter/save/currency] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
+                "                  \"Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/date] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" DISABLED id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
+                "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
+                "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -441,15 +444,16 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Automatic\" [#/1/Spreadsheet1/cell/A1/formatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
                 "                  \"Badge Error\" [#/1/Spreadsheet1/cell/A1/formatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
-                "                  \"Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/date] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
-                "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
-                "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Number\" DISABLED id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Currency\" [#/1/Spreadsheet1/cell/A1/formatter/save/currency] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
+                "                  \"Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/date] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
+                "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
+                "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Number\" DISABLED id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -601,15 +605,16 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Automatic\" [#/1/Spreadsheet1/cell/A1/formatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
                 "                  \"Badge Error\" [#/1/Spreadsheet1/cell/A1/formatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
-                "                  \"Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/date] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
-                "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
-                "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Text\" DISABLED id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Currency\" [#/1/Spreadsheet1/cell/A1/formatter/save/currency] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
+                "                  \"Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/date] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
+                "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
+                "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"Text\" DISABLED id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -687,15 +692,16 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Automatic\" [#/1/Spreadsheet1/cell/A1/formatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
                 "                  \"Badge Error\" [#/1/Spreadsheet1/cell/A1/formatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
-                "                  \"Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/date] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
-                "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
-                "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"Time\" DISABLED id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Currency\" [#/1/Spreadsheet1/cell/A1/formatter/save/currency] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
+                "                  \"Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/date] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
+                "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
+                "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Time\" DISABLED id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -802,15 +808,16 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Automatic\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
                 "                  \"Badge Error\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
-                "                  \"Date\" DISABLED id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
-                "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
-                "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Currency\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/currency] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
+                "                  \"Date\" DISABLED id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
+                "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
+                "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -936,15 +943,16 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Automatic\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
                 "                  \"Badge Error\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
-                "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date Time\" DISABLED id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
-                "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
-                "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Currency\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/currency] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
+                "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" DISABLED id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
+                "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
+                "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -1089,15 +1097,16 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Automatic\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
                 "                  \"Badge Error\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
-                "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/date] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
-                "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
-                "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Number\" DISABLED id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Currency\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/currency] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
+                "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/date] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
+                "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
+                "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Number\" DISABLED id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -1263,15 +1272,16 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Automatic\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
                 "                  \"Badge Error\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
-                "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/date] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
-                "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
-                "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Number\" DISABLED id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Currency\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/currency] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
+                "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/date] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
+                "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
+                "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Number\" DISABLED id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -1437,15 +1447,16 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Automatic\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
                 "                  \"Badge Error\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
-                "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/date] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
-                "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
-                "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Text\" DISABLED id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Currency\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/currency] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
+                "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/date] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
+                "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
+                "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"Text\" DISABLED id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -1537,15 +1548,16 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Automatic\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
                 "                  \"Badge Error\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
                 "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
-                "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/date] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
-                "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
-                "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"Time\" DISABLED id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Currency\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/currency] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
+                "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/date] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
+                "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
+                "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Time\" DISABLED id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
