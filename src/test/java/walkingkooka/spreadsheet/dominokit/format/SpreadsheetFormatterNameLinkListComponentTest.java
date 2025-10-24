@@ -62,9 +62,10 @@ public class SpreadsheetFormatterNameLinkListComponentTest implements HtmlCompon
                 "            \"Percent\" [#/1/SpreadsheetName123/cell/A1/formatter/save/percent] id=ID123-13-Link\n" +
                 "            \"Scientific\" [#/1/SpreadsheetName123/cell/A1/formatter/save/scientific] id=ID123-14-Link\n" +
                 "            \"Short Date\" [#/1/SpreadsheetName123/cell/A1/formatter/save/short-date] id=ID123-15-Link\n" +
-                "            \"Spreadsheet Pattern Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/spreadsheet-pattern-collection] id=ID123-16-Link\n" +
-                "            \"Text\" [#/1/SpreadsheetName123/cell/A1/formatter/save/text] id=ID123-17-Link\n" +
-                "            \"Time\" [#/1/SpreadsheetName123/cell/A1/formatter/save/time] id=ID123-18-Link\n"
+                "            \"Short Date Time\" [#/1/SpreadsheetName123/cell/A1/formatter/save/short-date-time] id=ID123-16-Link\n" +
+                "            \"Spreadsheet Pattern Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/spreadsheet-pattern-collection] id=ID123-17-Link\n" +
+                "            \"Text\" [#/1/SpreadsheetName123/cell/A1/formatter/save/text] id=ID123-18-Link\n" +
+                "            \"Time\" [#/1/SpreadsheetName123/cell/A1/formatter/save/time] id=ID123-19-Link\n"
         );
     }
 
@@ -96,9 +97,10 @@ public class SpreadsheetFormatterNameLinkListComponentTest implements HtmlCompon
                 "            \"Percent\" [#/1/SpreadsheetName123/cell/A1/formatter/save/percent] id=ID123-13-Link\n" +
                 "            \"Scientific\" [#/1/SpreadsheetName123/cell/A1/formatter/save/scientific] id=ID123-14-Link\n" +
                 "            \"Short Date\" [#/1/SpreadsheetName123/cell/A1/formatter/save/short-date] id=ID123-15-Link\n" +
-                "            \"Spreadsheet Pattern Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/spreadsheet-pattern-collection] id=ID123-16-Link\n" +
-                "            \"Text\" [#/1/SpreadsheetName123/cell/A1/formatter/save/text] id=ID123-17-Link\n" +
-                "            \"Time\" [#/1/SpreadsheetName123/cell/A1/formatter/save/time] id=ID123-18-Link\n"
+                "            \"Short Date Time\" [#/1/SpreadsheetName123/cell/A1/formatter/save/short-date-time] id=ID123-16-Link\n" +
+                "            \"Spreadsheet Pattern Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/spreadsheet-pattern-collection] id=ID123-17-Link\n" +
+                "            \"Text\" [#/1/SpreadsheetName123/cell/A1/formatter/save/text] id=ID123-18-Link\n" +
+                "            \"Time\" [#/1/SpreadsheetName123/cell/A1/formatter/save/time] id=ID123-19-Link\n"
         );
     }
 
