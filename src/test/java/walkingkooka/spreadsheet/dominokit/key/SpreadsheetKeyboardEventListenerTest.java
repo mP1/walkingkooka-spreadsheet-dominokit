@@ -722,8 +722,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
                 SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.of(
-                    SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
-                        .spreadsheetFormatterSelector()
+                    SpreadsheetFormatterName.MEDIUM_DATE.setValueText("")
                 )
             )
         );
@@ -756,8 +755,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
                 SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.of(
-                    SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
-                        .spreadsheetFormatterSelector()
+                    SpreadsheetFormatterName.MEDIUM_DATE.setValueText("")
                 )
             )
         );
@@ -783,8 +781,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
                 SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.of(
-                    SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
-                        .spreadsheetFormatterSelector()
+                    SpreadsheetFormatterName.MEDIUM_DATE.setValueText("")
                 )
             )
         );

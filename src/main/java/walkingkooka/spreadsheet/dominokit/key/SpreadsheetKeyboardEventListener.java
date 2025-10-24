@@ -275,8 +275,7 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
     private void dateFormat(final KeyboardEvent event) {
         this.setCellFormatter(
             Optional.of(
-                SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
-                    .spreadsheetFormatterSelector()
+                SpreadsheetFormatterName.MEDIUM_DATE.setValueText("")
             )
         );
         event.preventDefault();
