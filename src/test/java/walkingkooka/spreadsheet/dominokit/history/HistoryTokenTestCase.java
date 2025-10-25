@@ -24,6 +24,7 @@ import walkingkooka.Value;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.collect.set.SortedSets;
+import walkingkooka.naming.ValueName;
 import walkingkooka.net.HasUrlFragmentTesting;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.plugin.PluginName;
@@ -755,6 +756,27 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
                 () -> "Missing save in class name " + type.getName()
             );
         }
+    }
+
+    // setValueName.....................................................................................................
+
+    @Test
+    public final void testSetValueNameWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createHistoryToken()
+                .setValueName(null)
+        );
+    }
+
+    final void setValueNameAndCheck(final HistoryToken token,
+                                    final ValueName<?> valueName,
+                                    final HistoryToken expected) {
+        this.checkEquals(
+            expected,
+            token.setValueName(valueName),
+            () -> token + " setValueName " + valueName
+        );
     }
 
     // setSave..........................................................................................................

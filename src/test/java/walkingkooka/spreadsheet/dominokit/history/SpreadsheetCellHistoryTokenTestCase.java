@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.OptionalInt;
 
@@ -401,6 +402,40 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
                 ID,
                 NAME,
                 selection.setDefaultAnchor()
+            )
+        );
+    }
+
+    // setValueName.....................................................................................................
+
+    @Test
+    public final void testSetValueNameWithSpreadsheetMetadataPropertyName() {
+        final TextStylePropertyName<?> stylePropertyName = TextStylePropertyName.COLOR;
+
+        this.setValueNameAndCheck(
+            this.createHistoryToken(),
+            stylePropertyName,
+            HistoryToken.cellStyle(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                stylePropertyName
+            )
+        );
+    }
+
+    @Test
+    public final void testSetValueNameWithSpreadsheetMetadataPropertyName2() {
+        final TextStylePropertyName<?> stylePropertyName = TextStylePropertyName.TEXT_ALIGN;
+
+        this.setValueNameAndCheck(
+            this.createHistoryToken(),
+            stylePropertyName,
+            HistoryToken.cellStyle(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                stylePropertyName
             )
         );
     }

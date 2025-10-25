@@ -21,6 +21,7 @@ import walkingkooka.Cast;
 import walkingkooka.Value;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.math.DecimalNumberSymbols;
+import walkingkooka.naming.ValueName;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.plugin.PluginName;
@@ -4809,6 +4810,26 @@ public abstract class HistoryToken implements HasUrlFragment {
         }
 
         return this.elseIfDifferent(historyToken);
+    }
+
+    // valueName........................................................................................................
+
+    public final HistoryToken setValueName(final ValueName<?> name) {
+        Objects.requireNonNull(name, "name");
+
+        final HistoryToken historyToken;
+
+        if (name instanceof SpreadsheetMetadataPropertyName) {
+            historyToken = this.setMetadataPropertyName((SpreadsheetMetadataPropertyName<?>) name);
+        } else {
+            if (name instanceof TextStylePropertyName) {
+                historyToken = this.setStylePropertyName((TextStylePropertyName<?>) name);
+            } else {
+                throw new IllegalArgumentException("Unknown ValueName expected either " + SpreadsheetMetadataPropertyName.class.getSimpleName() + " or " + TextStylePropertyName.class.getSimpleName());
+            }
+        }
+
+        return historyToken;
     }
 
     // valueType........................................................................................................
