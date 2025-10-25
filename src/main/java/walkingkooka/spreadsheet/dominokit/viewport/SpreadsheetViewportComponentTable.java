@@ -29,6 +29,7 @@ import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.SortedSets;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
@@ -36,6 +37,7 @@ import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.dom.TBodyComponent;
 import walkingkooka.spreadsheet.dominokit.dom.THeadComponent;
 import walkingkooka.spreadsheet.dominokit.dom.TableComponent;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -215,6 +217,28 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
                 navigation = shifted ?
                     SpreadsheetViewportNavigation.extendDownRow() :
                     SpreadsheetViewportNavigation.downRow();
+                break;
+            case Backspace:
+                // delete selection and edit cell
+                HistoryToken historyToken = context.historyToken();
+                final Optional<SpreadsheetSelection> selection = historyToken.selection();
+
+                historyToken = historyToken.clearSelection()
+                    .setSelection(selection);
+
+                // delete the selection
+                context.pushHistoryToken(
+                    historyToken.delete()
+                );
+
+                // edit cell formula, cant push HistoryToken twice, first push gets "lost"
+                context.addHistoryTokenWatcherOnce(
+                    (HistoryToken p,
+                    AppContext c) -> context.pushHistoryToken(
+                        context.historyToken()
+                            .formula()
+                    )
+                );
                 break;
             case Enter:
                 // if cell then edit formula
