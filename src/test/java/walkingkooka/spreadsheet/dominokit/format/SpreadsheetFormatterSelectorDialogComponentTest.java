@@ -106,15 +106,16 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Long Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date-time] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
                 "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date] id=spreadsheetFormatterSelector-formatterNames-13-Link\n" +
                 "                  \"Medium Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date-time] id=spreadsheetFormatterSelector-formatterNames-14-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
-                "                  \"Percent\" [#/1/Spreadsheet1/cell/A1/formatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
-                "                  \"Scientific\" [#/1/Spreadsheet1/cell/A1/formatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Medium Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-time] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
+                "                  \"Percent\" [#/1/Spreadsheet1/cell/A1/formatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
+                "                  \"Scientific\" [#/1/Spreadsheet1/cell/A1/formatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
+                "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-24-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -206,15 +207,16 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Long Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date-time] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
                 "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date] id=spreadsheetFormatterSelector-formatterNames-13-Link\n" +
                 "                  \"Medium Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date-time] id=spreadsheetFormatterSelector-formatterNames-14-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
-                "                  \"Percent\" [#/1/Spreadsheet1/cell/A1/formatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
-                "                  \"Scientific\" [#/1/Spreadsheet1/cell/A1/formatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Medium Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-time] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
+                "                  \"Percent\" [#/1/Spreadsheet1/cell/A1/formatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
+                "                  \"Scientific\" [#/1/Spreadsheet1/cell/A1/formatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
+                "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-24-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -338,15 +340,16 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Long Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date-time] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
                 "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date] id=spreadsheetFormatterSelector-formatterNames-13-Link\n" +
                 "                  \"Medium Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date-time] id=spreadsheetFormatterSelector-formatterNames-14-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
-                "                  \"Percent\" [#/1/Spreadsheet1/cell/A1/formatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
-                "                  \"Scientific\" [#/1/Spreadsheet1/cell/A1/formatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Medium Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-time] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
+                "                  \"Percent\" [#/1/Spreadsheet1/cell/A1/formatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
+                "                  \"Scientific\" [#/1/Spreadsheet1/cell/A1/formatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
+                "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-24-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -489,15 +492,16 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Long Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date-time] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
                 "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date] id=spreadsheetFormatterSelector-formatterNames-13-Link\n" +
                 "                  \"Medium Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date-time] id=spreadsheetFormatterSelector-formatterNames-14-Link\n" +
-                "                  \"Number\" DISABLED id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
-                "                  \"Percent\" [#/1/Spreadsheet1/cell/A1/formatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
-                "                  \"Scientific\" [#/1/Spreadsheet1/cell/A1/formatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Medium Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-time] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
+                "                  \"Number\" DISABLED id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
+                "                  \"Percent\" [#/1/Spreadsheet1/cell/A1/formatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
+                "                  \"Scientific\" [#/1/Spreadsheet1/cell/A1/formatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
+                "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-24-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -661,15 +665,16 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Long Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date-time] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
                 "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date] id=spreadsheetFormatterSelector-formatterNames-13-Link\n" +
                 "                  \"Medium Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date-time] id=spreadsheetFormatterSelector-formatterNames-14-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
-                "                  \"Percent\" [#/1/Spreadsheet1/cell/A1/formatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
-                "                  \"Scientific\" [#/1/Spreadsheet1/cell/A1/formatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
-                "                  \"Text\" DISABLED id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Medium Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-time] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
+                "                  \"Percent\" [#/1/Spreadsheet1/cell/A1/formatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
+                "                  \"Scientific\" [#/1/Spreadsheet1/cell/A1/formatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
+                "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
+                "                  \"Text\" DISABLED id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-24-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -759,15 +764,16 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Long Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date-time] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
                 "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date] id=spreadsheetFormatterSelector-formatterNames-13-Link\n" +
                 "                  \"Medium Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date-time] id=spreadsheetFormatterSelector-formatterNames-14-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
-                "                  \"Percent\" [#/1/Spreadsheet1/cell/A1/formatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
-                "                  \"Scientific\" [#/1/Spreadsheet1/cell/A1/formatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
-                "                  \"Time\" DISABLED id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Medium Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-time] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
+                "                  \"Percent\" [#/1/Spreadsheet1/cell/A1/formatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
+                "                  \"Scientific\" [#/1/Spreadsheet1/cell/A1/formatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
+                "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Time\" DISABLED id=spreadsheetFormatterSelector-formatterNames-24-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -886,15 +892,16 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Long Date Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/long-date-time] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
                 "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/medium-date] id=spreadsheetFormatterSelector-formatterNames-13-Link\n" +
                 "                  \"Medium Date Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/medium-date-time] id=spreadsheetFormatterSelector-formatterNames-14-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
-                "                  \"Percent\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
-                "                  \"Scientific\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Medium Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/medium-time] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
+                "                  \"Percent\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
+                "                  \"Scientific\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
+                "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-24-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -1032,15 +1039,16 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Long Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/long-date-time] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
                 "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/medium-date] id=spreadsheetFormatterSelector-formatterNames-13-Link\n" +
                 "                  \"Medium Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/medium-date-time] id=spreadsheetFormatterSelector-formatterNames-14-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
-                "                  \"Percent\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
-                "                  \"Scientific\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Medium Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/medium-time] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
+                "                  \"Percent\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
+                "                  \"Scientific\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
+                "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-24-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -1197,15 +1205,16 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Long Date Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/long-date-time] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
                 "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/medium-date] id=spreadsheetFormatterSelector-formatterNames-13-Link\n" +
                 "                  \"Medium Date Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/medium-date-time] id=spreadsheetFormatterSelector-formatterNames-14-Link\n" +
-                "                  \"Number\" DISABLED id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
-                "                  \"Percent\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
-                "                  \"Scientific\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Medium Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/medium-time] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
+                "                  \"Number\" DISABLED id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
+                "                  \"Percent\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
+                "                  \"Scientific\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
+                "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-24-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -1383,15 +1392,16 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Long Date Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/long-date-time] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
                 "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/medium-date] id=spreadsheetFormatterSelector-formatterNames-13-Link\n" +
                 "                  \"Medium Date Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/medium-date-time] id=spreadsheetFormatterSelector-formatterNames-14-Link\n" +
-                "                  \"Number\" DISABLED id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
-                "                  \"Percent\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
-                "                  \"Scientific\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Medium Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/medium-time] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
+                "                  \"Number\" DISABLED id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
+                "                  \"Percent\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
+                "                  \"Scientific\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
+                "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-24-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -1569,15 +1579,16 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Long Date Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/long-date-time] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
                 "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/medium-date] id=spreadsheetFormatterSelector-formatterNames-13-Link\n" +
                 "                  \"Medium Date Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/medium-date-time] id=spreadsheetFormatterSelector-formatterNames-14-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
-                "                  \"Percent\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
-                "                  \"Scientific\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
-                "                  \"Text\" DISABLED id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Medium Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/medium-time] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
+                "                  \"Percent\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
+                "                  \"Scientific\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
+                "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
+                "                  \"Text\" DISABLED id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-24-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -1681,15 +1692,16 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Long Date Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/long-date-time] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
                 "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/medium-date] id=spreadsheetFormatterSelector-formatterNames-13-Link\n" +
                 "                  \"Medium Date Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/medium-date-time] id=spreadsheetFormatterSelector-formatterNames-14-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
-                "                  \"Percent\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
-                "                  \"Scientific\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
-                "                  \"Time\" DISABLED id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Medium Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/medium-time] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
+                "                  \"Percent\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
+                "                  \"Scientific\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
+                "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Time\" DISABLED id=spreadsheetFormatterSelector-formatterNames-24-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
