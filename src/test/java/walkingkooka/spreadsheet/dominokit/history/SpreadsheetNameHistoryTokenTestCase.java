@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
@@ -248,6 +249,38 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
             this.createHistoryToken(
                 ID,
                 differentName
+            )
+        );
+    }
+
+    // setValueName.....................................................................................................
+
+    @Test
+    public final void testSetValueNameWithTextStylePropertyName() {
+        final SpreadsheetMetadataPropertyName<?> metadataPropertyName = SpreadsheetMetadataPropertyName.DEFAULT_YEAR;
+
+        this.setValueNameAndCheck(
+            this.createHistoryToken(),
+            metadataPropertyName,
+            HistoryToken.metadataPropertySelect(
+                ID,
+                NAME,
+                metadataPropertyName
+            )
+        );
+    }
+
+    @Test
+    public final void testSetValueNameWithTextStylePropertyName2() {
+        final SpreadsheetMetadataPropertyName<?> metadataPropertyName = SpreadsheetMetadataPropertyName.ROUNDING_MODE;
+
+        this.setValueNameAndCheck(
+            this.createHistoryToken(),
+            metadataPropertyName,
+            HistoryToken.metadataPropertySelect(
+                ID,
+                NAME,
+                metadataPropertyName
             )
         );
     }
