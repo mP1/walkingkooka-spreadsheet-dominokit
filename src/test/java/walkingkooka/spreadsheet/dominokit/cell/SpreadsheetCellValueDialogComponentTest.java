@@ -21,6 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.net.AbsoluteUrl;
 import walkingkooka.net.Url;
+import walkingkooka.net.email.EmailAddress;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -29,6 +30,7 @@ import walkingkooka.spreadsheet.dominokit.datetime.DateComponent;
 import walkingkooka.spreadsheet.dominokit.datetime.DateTimeComponent;
 import walkingkooka.spreadsheet.dominokit.datetime.TimeComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.email.EmailAddressComponent;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -259,6 +261,45 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
         );
     }
 
+    @Test
+    public void testOnHistoryTokenChangeWithSpreadsheetCellValueHistoryTokenAndEmailValue() {
+        final HistoryToken historyToken = HistoryToken.parseString(
+            "/1/SpreadsheetName456/cell/A1/value/email"
+        );
+
+        final AppContext context = this.appContext(historyToken);
+
+        final SpreadsheetCellValueDialogComponent<EmailAddress> dialog = SpreadsheetCellValueDialogComponent.with(
+            EmailAddressComponent.empty(),
+            new TestSpreadsheetCellValueDialogComponentContext<>(
+                ValueTypeName.EMAIL,
+                Optional.of(
+                    EmailAddress.parse("user123@example.com")
+                ),
+                context
+            )
+        );
+        this.onHistoryTokenChangeAndCheck(
+            dialog,
+            context,
+            "SpreadsheetCellValueDialogComponent\n" +
+                "  DialogComponent\n" +
+                "    HelloDialogTitle\n" +
+                "    id=Test123-Dialog includeClose=true\n" +
+                "      EmailAddressComponent\n" +
+                "        ValueTextBoxComponent\n" +
+                "          TextBoxComponent\n" +
+                "            [user123@example.com]\n" +
+                "      AnchorListComponent\n" +
+                "        FlexLayoutComponent\n" +
+                "          ROW\n" +
+                "            \"Save\" [#/1/SpreadsheetName456/cell/A1/value/email/save/%22user123@example.com%22] id=Test123-save-Link\n" +
+                "            \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/email/save/] id=Test123-clear-Link\n" +
+                "            \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/email/save/%22user123@example.com%22] id=Test123-undo-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
+        );
+    }
+    
     @Test
     public void testOnHistoryTokenChangeWithSpreadsheetCellValueHistoryTokenAndTextValue() {
         final HistoryToken historyToken = HistoryToken.parseString(

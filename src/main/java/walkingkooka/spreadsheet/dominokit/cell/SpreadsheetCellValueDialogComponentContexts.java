@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.cell;
 
 import walkingkooka.net.AbsoluteUrl;
+import walkingkooka.net.email.EmailAddress;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
@@ -53,6 +54,21 @@ public final class SpreadsheetCellValueDialogComponentContexts implements Public
                                                                                      final HistoryContext historyContext,
                                                                                      final LoggingContext loggingContext) {
         return BasicSpreadsheetCellValueDialogComponentContextDateTime.with(
+            viewportCache,
+            deltaFetcherWatchers,
+            historyContext,
+            loggingContext
+        );
+    }
+
+    /**
+     * {@see BasicSpreadsheetCellValueDialogComponentContextEmail}
+     */
+    public static SpreadsheetCellValueDialogComponentContext<EmailAddress> email(final SpreadsheetViewportCache viewportCache,
+                                                                                 final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
+                                                                                 final HistoryContext historyContext,
+                                                                                 final LoggingContext loggingContext) {
+        return BasicSpreadsheetCellValueDialogComponentContextEmail.with(
             viewportCache,
             deltaFetcherWatchers,
             historyContext,
