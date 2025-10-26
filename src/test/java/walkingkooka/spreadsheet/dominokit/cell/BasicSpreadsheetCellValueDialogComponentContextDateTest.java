@@ -28,9 +28,9 @@ public final class BasicSpreadsheetCellValueDialogComponentContextDateTest exten
 
     @Override
     BasicSpreadsheetCellValueDialogComponentContextDate createContext(final SpreadsheetViewportCache viewportCache,
-                            final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
-                            final HistoryContext historyContext,
-                            final LoggingContext loggingContext) {
+                                                                      final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
+                                                                      final HistoryContext historyContext,
+                                                                      final LoggingContext loggingContext) {
         return BasicSpreadsheetCellValueDialogComponentContextDate.with(
             viewportCache,
             deltaFetcherWatchers,
