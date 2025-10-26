@@ -19,6 +19,8 @@ package walkingkooka.spreadsheet.dominokit.cell;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
+import walkingkooka.net.AbsoluteUrl;
+import walkingkooka.net.Url;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -37,6 +39,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValueHistoryToken;
 import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
+import walkingkooka.spreadsheet.dominokit.url.AbsoluteUrlComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -368,6 +371,45 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "            \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/time/save/] id=Test123-clear-Link\n" +
                 "            \"Now\" [#/1/SpreadsheetName456/cell/A1/value/time/save/now] id=Test123-now-Link\n" +
                 "            \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/time/save/%2212:58:59%22] id=Test123-undo-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
+        );
+    }
+
+    @Test
+    public void testOnHistoryTokenChangeWithSpreadsheetCellValueHistoryTokenAndUrlValue() {
+        final HistoryToken historyToken = HistoryToken.parseString(
+            "/1/SpreadsheetName456/cell/A1/value/url"
+        );
+
+        final AppContext context = this.appContext(historyToken);
+
+        final SpreadsheetCellValueDialogComponent<AbsoluteUrl> dialog = SpreadsheetCellValueDialogComponent.with(
+            AbsoluteUrlComponent.empty(),
+            new TestSpreadsheetCellValueDialogComponentContext<>(
+                ValueTypeName.URL,
+                Optional.of(
+                    Url.parseAbsolute("https://example.com/path1/k1=v2")
+                ),
+                context
+            )
+        );
+        this.onHistoryTokenChangeAndCheck(
+            dialog,
+            context,
+            "SpreadsheetCellValueDialogComponent\n" +
+                "  DialogComponent\n" +
+                "    HelloDialogTitle\n" +
+                "    id=Test123-Dialog includeClose=true\n" +
+                "      AbsoluteUrlComponent\n" +
+                "        ValueTextBoxComponent\n" +
+                "          TextBoxComponent\n" +
+                "            [https://example.com/path1/k1%3Dv2]\n" +
+                "      AnchorListComponent\n" +
+                "        FlexLayoutComponent\n" +
+                "          ROW\n" +
+                "            \"Save\" [#/1/SpreadsheetName456/cell/A1/value/url/save/%22https://example.com/path1/k1%253Dv2%22] id=Test123-save-Link\n" +
+                "            \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/url/save/] id=Test123-clear-Link\n" +
+                "            \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/url/save/%22https://example.com/path1/k1%253Dv2%22] id=Test123-undo-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
         );
     }

@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
+import walkingkooka.net.AbsoluteUrl;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
@@ -89,6 +90,21 @@ public final class SpreadsheetCellValueDialogComponentContexts implements Public
         );
     }
 
+    /**
+     * {@see BasicSpreadsheetCellValueDialogComponentContextUrl}
+     */
+    public static SpreadsheetCellValueDialogComponentContext<AbsoluteUrl> url(final SpreadsheetViewportCache viewportCache,
+                                                                              final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
+                                                                              final HistoryContext historyContext,
+                                                                              final LoggingContext loggingContext) {
+        return BasicSpreadsheetCellValueDialogComponentContextUrl.with(
+            viewportCache,
+            deltaFetcherWatchers,
+            historyContext,
+            loggingContext
+        );
+    }
+    
     /**
      * {@see FakeSpreadsheetCellValueDialogComponentContext}
      */

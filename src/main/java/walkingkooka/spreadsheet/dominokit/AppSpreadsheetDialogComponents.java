@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import walkingkooka.Cast;
+import walkingkooka.net.AbsoluteUrl;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesDialogComponent;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesDialogComponentContexts;
@@ -73,6 +74,7 @@ import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListDialogCompo
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponent;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
+import walkingkooka.spreadsheet.dominokit.url.AbsoluteUrlComponent;
 import walkingkooka.spreadsheet.dominokit.validator.ValidatorSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.validator.ValidatorSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -187,6 +189,21 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
                     context.now()::toLocalTime // HasNow
                 ),
                 timeContext
+            );
+        }
+
+        {
+            final SpreadsheetCellValueDialogComponentContext<AbsoluteUrl> urlContext = SpreadsheetCellValueDialogComponentContexts.url(
+                context.spreadsheetViewportCache(),
+                context, // SpreadsheetDeltaFetcherWatcher
+                context, // HistoryContext
+                context // LoggingContext
+            );
+
+            SpreadsheetCellValueDialogComponent.with(
+                AbsoluteUrlComponent.empty()
+                    .setId(urlContext.id()),
+                urlContext
             );
         }
     }
