@@ -43,6 +43,32 @@ public final class AbsoluteUrlComponentTest implements FormValueComponentTesting
     }
 
     @Test
+    public void testOptionalClearValue() {
+        this.treePrintAndCheck(
+            AbsoluteUrlComponent.empty()
+                .optional()
+                .clearValue(),
+            "AbsoluteUrlComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      []\n"
+        );
+    }
+
+    @Test
+    public void testClearValueOptional() {
+        this.treePrintAndCheck(
+            AbsoluteUrlComponent.empty()
+                .optional()
+                .clearValue(),
+            "AbsoluteUrlComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      []\n"
+        );
+    }
+
+    @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
             AbsoluteUrlComponent.empty()
