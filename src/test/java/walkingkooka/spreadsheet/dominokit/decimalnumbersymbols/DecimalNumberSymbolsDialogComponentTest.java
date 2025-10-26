@@ -138,7 +138,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "                Date Time Symbols []\n" +
                 "                Errors\n" +
                 "                  Expected 12 tokens but got 0\n" +
-                "      SpreadsheetLocaleComponent\n" +
+                "      LocaleComponent\n" +
                 "        SuggestBoxComponent\n" +
                 "          Load from Locale []\n" +
                 "      AnchorListComponent\n" +
@@ -223,7 +223,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
                 "                Date Time Symbols [-,+,0,$,.,e,\",\",∞,.,NaN,%,‰]\n" +
-                "      SpreadsheetLocaleComponent\n" +
+                "      LocaleComponent\n" +
                 "        SuggestBoxComponent\n" +
                 "          Load from Locale []\n" +
                 "      AnchorListComponent\n" +
@@ -334,7 +334,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "                Date Time Symbols []\n" +
                 "                Errors\n" +
                 "                  Expected 12 tokens but got 0\n" +
-                "      SpreadsheetLocaleComponent\n" +
+                "      LocaleComponent\n" +
                 "        SuggestBoxComponent\n" +
                 "          Load from Locale []\n" +
                 "      AnchorListComponent\n" +

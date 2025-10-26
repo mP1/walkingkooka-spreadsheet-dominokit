@@ -36,7 +36,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
 
-public final class SpreadsheetLocaleComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, Locale, SpreadsheetLocaleComponent<Locale>> {
+public final class LocaleComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, Locale, LocaleComponent<Locale>> {
 
     private final static Locale ENAU = Locale.forLanguageTag("en-AU");
     private final static Locale ENNZ = Locale.forLanguageTag("en-NZ");
@@ -46,9 +46,9 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
     private final static String ENGLISH_NEW_ZEALAND_TEXT = "English (New Zealand)";
     private final static String FRENCH_TEXT = "French 123";
 
-    private final static SuggestBoxComponentSuggestionsProvider<SpreadsheetLocaleComponentSuggestionsValue<Locale>> SUGGESTIONS_PROVIDER = new FakeSuggestBoxComponentSuggestionsProvider<>();
+    private final static SuggestBoxComponentSuggestionsProvider<LocaleComponentSuggestionsValue<Locale>> SUGGESTIONS_PROVIDER = new FakeSuggestBoxComponentSuggestionsProvider<>();
 
-    private final static Function<SpreadsheetLocaleComponentSuggestionsValue<Locale>, MenuItem<SpreadsheetLocaleComponentSuggestionsValue<Locale>>> OPTION_MENU_ITEM_CREATOR = (v) -> {
+    private final static Function<LocaleComponentSuggestionsValue<Locale>, MenuItem<LocaleComponentSuggestionsValue<Locale>>> OPTION_MENU_ITEM_CREATOR = (v) -> {
         throw new UnsupportedOperationException(); // never actually called within a test
     };
 
@@ -90,7 +90,7 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
     public void testTreePrintWithoutValue() {
         this.treePrintAndCheck(
             this.createComponent(),
-            "SpreadsheetLocaleComponent\n" +
+            "LocaleComponent\n" +
                 "  SuggestBoxComponent\n" +
                 "    [] REQUIRED\n" +
                 "    Errors\n" +
@@ -107,7 +107,7 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
                         ENAU
                     )
                 ),
-            "SpreadsheetLocaleComponent\n" +
+            "LocaleComponent\n" +
                 "  SuggestBoxComponent\n" +
                 "    [English (Australia)] REQUIRED\n"
         );
@@ -121,14 +121,14 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
     // ValueComponent...................................................................................................
 
     @Override
-    public SpreadsheetLocaleComponent<Locale> createComponent() {
-        return SpreadsheetLocaleComponent.empty(
-            new FakeSpreadsheetLocaleComponentContext<>() {
+    public LocaleComponent<Locale> createComponent() {
+        return LocaleComponent.empty(
+            new FakeLocaleComponentContext<>() {
 
                 @Override
-                public Optional<SpreadsheetLocaleComponentSuggestionsValue<Locale>> toValue(final Locale locale) {
+                public Optional<LocaleComponentSuggestionsValue<Locale>> toValue(final Locale locale) {
                     return CONTEXT.localeText(locale)
-                        .map(t -> SpreadsheetLocaleComponentSuggestionsValue.with(
+                        .map(t -> LocaleComponentSuggestionsValue.with(
                             locale,
                             t,
                             locale
@@ -136,8 +136,8 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
                 }
 
                 @Override
-                public void verifyOption(final SpreadsheetLocaleComponentSuggestionsValue<Locale> value,
-                                         final SuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<Locale>> suggestBox) {
+                public void verifyOption(final LocaleComponentSuggestionsValue<Locale> value,
+                                         final SuggestBoxComponent<LocaleComponentSuggestionsValue<Locale>> suggestBox) {
                     suggestBox.setVerifiedOption(value);
                 }
             }
@@ -147,8 +147,8 @@ public final class SpreadsheetLocaleComponentTest implements FormValueComponentT
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetLocaleComponent<Locale>> type() {
-        return Cast.to(SpreadsheetLocaleComponent.class);
+    public Class<LocaleComponent<Locale>> type() {
+        return Cast.to(LocaleComponent.class);
     }
 
     @Override

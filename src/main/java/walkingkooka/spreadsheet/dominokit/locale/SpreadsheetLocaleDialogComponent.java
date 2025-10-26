@@ -49,7 +49,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * A model dialog that displays a {@link SpreadsheetLocaleComponent} allowing the user to pick a {@link java.util.Locale}.
+ * A model dialog that displays a {@link LocaleComponent} allowing the user to pick a {@link java.util.Locale}.
  */
 public final class SpreadsheetLocaleDialogComponent implements DialogComponentLifecycle,
     LoadedSpreadsheetMetadataRequired,
@@ -129,14 +129,14 @@ public final class SpreadsheetLocaleDialogComponent implements DialogComponentLi
 
     // localeComponent..................................................................................................
 
-    private SpreadsheetLocaleComponent<Locale> locale() {
-        return SpreadsheetLocaleComponent.empty(
-                new SpreadsheetLocaleComponentContext<Locale>() {
+    private LocaleComponent<Locale> locale() {
+        return LocaleComponent.empty(
+                new LocaleComponentContext<Locale>() {
 
                     @Override
-                    public Optional<SpreadsheetLocaleComponentSuggestionsValue<Locale>> toValue(final Locale locale) {
+                    public Optional<LocaleComponentSuggestionsValue<Locale>> toValue(final Locale locale) {
                         return context.localeText(locale)
-                            .map(t -> SpreadsheetLocaleComponentSuggestionsValue.with(
+                            .map(t -> LocaleComponentSuggestionsValue.with(
                                     locale,
                                     t,
                                     locale
@@ -146,13 +146,13 @@ public final class SpreadsheetLocaleDialogComponent implements DialogComponentLi
 
                     @Override
                     public void filter(final String startsWith,
-                                       final SuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<Locale>> suggestBox) {
+                                       final SuggestBoxComponent<LocaleComponentSuggestionsValue<Locale>> suggestBox) {
                         suggestBox.setOptions(
                             LocaleHateosResourceSet.filter(startsWith, SpreadsheetLocaleDialogComponent.this.context)
                                 .stream()
                                 .map(
                                     (LocaleHateosResource lhr) ->
-                                        SpreadsheetLocaleComponentSuggestionsValue.with(
+                                        LocaleComponentSuggestionsValue.with(
                                             lhr.locale(),
                                             lhr.text(),
                                             lhr.locale()
@@ -163,15 +163,15 @@ public final class SpreadsheetLocaleDialogComponent implements DialogComponentLi
                     }
 
                     @Override
-                    public void verifyOption(final SpreadsheetLocaleComponentSuggestionsValue<Locale> value,
-                                             final SuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<Locale>> suggestBox) {
-                        SpreadsheetLocaleComponentSuggestionsValue<Locale> verified = null;
+                    public void verifyOption(final LocaleComponentSuggestionsValue<Locale> value,
+                                             final SuggestBoxComponent<LocaleComponentSuggestionsValue<Locale>> suggestBox) {
+                        LocaleComponentSuggestionsValue<Locale> verified = null;
 
                         if (null != value) {
                             final Locale locale = value.locale();
                             final String localeText = SpreadsheetLocaleDialogComponent.this.context.localeText(locale)
                                 .orElse(null);
-                            verified = SpreadsheetLocaleComponentSuggestionsValue.with(
+                            verified = LocaleComponentSuggestionsValue.with(
                                 locale,
                                 localeText,
                                 locale
@@ -184,7 +184,7 @@ public final class SpreadsheetLocaleDialogComponent implements DialogComponentLi
                     }
 
                     @Override
-                    public MenuItem<SpreadsheetLocaleComponentSuggestionsValue<Locale>> createMenuItem(final SpreadsheetLocaleComponentSuggestionsValue<Locale> value) {
+                    public MenuItem<LocaleComponentSuggestionsValue<Locale>> createMenuItem(final LocaleComponentSuggestionsValue<Locale> value) {
                         return this.historyTokenMenuItem(
                             ID,
                             value,
@@ -198,7 +198,7 @@ public final class SpreadsheetLocaleDialogComponent implements DialogComponentLi
             );
     }
 
-    private final SpreadsheetLocaleComponent<Locale> locale;
+    private final LocaleComponent<Locale> locale;
 
     // save.............................................................................................................
 
@@ -243,7 +243,7 @@ public final class SpreadsheetLocaleDialogComponent implements DialogComponentLi
     }
 
     /**
-     * Give focus to the {@link SpreadsheetLocaleComponent}.
+     * Give focus to the {@link LocaleComponent}.
      */
     @Override
     public void openGiveFocus(final RefreshContext context) {

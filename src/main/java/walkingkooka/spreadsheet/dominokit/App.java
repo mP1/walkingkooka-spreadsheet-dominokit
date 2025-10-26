@@ -126,6 +126,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListSelectHistoryTo
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContext;
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContextDelegator;
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContexts;
+import walkingkooka.spreadsheet.dominokit.locale.LocaleComponent;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
@@ -1102,7 +1103,7 @@ public class App implements EntryPoint,
     }
 
     /**
-     * Save the loaded locales. These will appear in the {@link walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleComponent}.
+     * Save the loaded locales. These will appear in the {@link LocaleComponent}.
      */
     @Override
     public void onLocaleHateosResourceSet(final LocaleHateosResourceSet locales,

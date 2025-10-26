@@ -43,9 +43,9 @@ import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleComponent;
-import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleComponentContext;
-import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleComponentSuggestionsValue;
+import walkingkooka.spreadsheet.dominokit.locale.LocaleComponent;
+import walkingkooka.spreadsheet.dominokit.locale.LocaleComponentContext;
+import walkingkooka.spreadsheet.dominokit.locale.LocaleComponentSuggestionsValue;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;
 import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.validator.SpreadsheetValidators;
@@ -602,18 +602,18 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
     /**
      * A locale drop down that when selected loads the symbols for the selected Locale.
      */
-    private SpreadsheetLocaleComponent<DecimalNumberSymbols> localeLoad(final DecimalNumberSymbolsDialogComponentContext context) {
-        return SpreadsheetLocaleComponent.empty(
-                new SpreadsheetLocaleComponentContext<DecimalNumberSymbols>() {
+    private LocaleComponent<DecimalNumberSymbols> localeLoad(final DecimalNumberSymbolsDialogComponentContext context) {
+        return LocaleComponent.empty(
+                new LocaleComponentContext<DecimalNumberSymbols>() {
 
                     @Override
                     public void filter(final String startsWith,
-                                       final SuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<DecimalNumberSymbols>> suggestBox) {
+                                       final SuggestBoxComponent<LocaleComponentSuggestionsValue<DecimalNumberSymbols>> suggestBox) {
                         context.findDecimalNumberSymbolsWithLocaleStartsWith(startsWith);
                     }
 
                     @Override
-                    public MenuItem<SpreadsheetLocaleComponentSuggestionsValue<DecimalNumberSymbols>> createMenuItem(final SpreadsheetLocaleComponentSuggestionsValue<DecimalNumberSymbols> value) {
+                    public MenuItem<LocaleComponentSuggestionsValue<DecimalNumberSymbols>> createMenuItem(final LocaleComponentSuggestionsValue<DecimalNumberSymbols> value) {
                         return this.historyTokenMenuItem(
                             ID,
                             value,
@@ -622,13 +622,13 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
                     }
 
                     @Override
-                    public Optional<SpreadsheetLocaleComponentSuggestionsValue<DecimalNumberSymbols>> toValue(final Locale locale) {
+                    public Optional<LocaleComponentSuggestionsValue<DecimalNumberSymbols>> toValue(final Locale locale) {
                         throw new UnsupportedOperationException();
                     }
 
                     @Override
-                    public void verifyOption(final SpreadsheetLocaleComponentSuggestionsValue<DecimalNumberSymbols> value,
-                                             final SuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<DecimalNumberSymbols>> suggestBox) {
+                    public void verifyOption(final LocaleComponentSuggestionsValue<DecimalNumberSymbols> value,
+                                             final SuggestBoxComponent<LocaleComponentSuggestionsValue<DecimalNumberSymbols>> suggestBox) {
                         throw new UnsupportedOperationException();
                     }
                 }
@@ -637,11 +637,11 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
     }
 
     /**
-     * This {@link SpreadsheetLocaleComponent} is only intended to support search for a Locale, and to allow the user
-     * to click any of the suggestions. Operations such as {@link SpreadsheetLocaleComponent#setValue(Optional)} are
+     * This {@link LocaleComponent} is only intended to support search for a Locale, and to allow the user
+     * to click any of the suggestions. Operations such as {@link LocaleComponent#setValue(Optional)} are
      * not supported.
      */
-    private final SpreadsheetLocaleComponent<DecimalNumberSymbols> localeLoad;
+    private final LocaleComponent<DecimalNumberSymbols> localeLoad;
 
     // save.............................................................................................................
 
@@ -761,7 +761,7 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
         this.localeLoad.suggestBoxComponent()
             .setOptions(
                 symbols.stream()
-                    .map(SpreadsheetLocaleComponentSuggestionsValue::fromDecimalNumberSymbolsHateosResource)
+                    .map(LocaleComponentSuggestionsValue::fromDecimalNumberSymbolsHateosResource)
                     .collect(Collectors.toList())
             );
     }

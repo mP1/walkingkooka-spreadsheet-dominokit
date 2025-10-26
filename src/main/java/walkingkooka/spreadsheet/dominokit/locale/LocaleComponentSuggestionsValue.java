@@ -30,12 +30,12 @@ import walkingkooka.util.HasLocale;
 import java.util.Locale;
 import java.util.Objects;
 
-public final class SpreadsheetLocaleComponentSuggestionsValue<T> implements HasLocale,
+public final class LocaleComponentSuggestionsValue<T> implements HasLocale,
     HasText,
     Value<T>,
-    Comparable<SpreadsheetLocaleComponentSuggestionsValue<T>> {
+    Comparable<LocaleComponentSuggestionsValue<T>> {
 
-    public static SpreadsheetLocaleComponentSuggestionsValue<DateTimeSymbols> fromDateTimeSymbolsHateosResource(final DateTimeSymbolsHateosResource resource) {
+    public static LocaleComponentSuggestionsValue<DateTimeSymbols> fromDateTimeSymbolsHateosResource(final DateTimeSymbolsHateosResource resource) {
         Objects.requireNonNull(resource, "resource");
         return with(
             Locale.forLanguageTag(
@@ -46,7 +46,7 @@ public final class SpreadsheetLocaleComponentSuggestionsValue<T> implements HasL
         );
     }
 
-    public static SpreadsheetLocaleComponentSuggestionsValue<DecimalNumberSymbols> fromDecimalNumberSymbolsHateosResource(final DecimalNumberSymbolsHateosResource resource) {
+    public static LocaleComponentSuggestionsValue<DecimalNumberSymbols> fromDecimalNumberSymbolsHateosResource(final DecimalNumberSymbolsHateosResource resource) {
         Objects.requireNonNull(resource, "resource");
         return with(
             Locale.forLanguageTag(
@@ -57,19 +57,19 @@ public final class SpreadsheetLocaleComponentSuggestionsValue<T> implements HasL
         );
     }
 
-    static <T> SpreadsheetLocaleComponentSuggestionsValue<T> with(final Locale locale,
-                                                                  final String text,
-                                                                  final T value) {
-        return new SpreadsheetLocaleComponentSuggestionsValue<>(
+    static <T> LocaleComponentSuggestionsValue<T> with(final Locale locale,
+                                                       final String text,
+                                                       final T value) {
+        return new LocaleComponentSuggestionsValue<>(
             Objects.requireNonNull(locale, "locale"),
             CharSequences.failIfNullOrEmpty(text, "text"),
             Objects.requireNonNull(value, "value")
         );
     }
 
-    private SpreadsheetLocaleComponentSuggestionsValue(final Locale locale,
-                                                       final String text,
-                                                       final T value) {
+    private LocaleComponentSuggestionsValue(final Locale locale,
+                                            final String text,
+                                            final T value) {
         this.locale = locale;
         this.text = text;
         this.value = value;
@@ -110,10 +110,10 @@ public final class SpreadsheetLocaleComponentSuggestionsValue<T> implements HasL
     @Override
     public boolean equals(final Object other) {
         return this == other ||
-            (other instanceof SpreadsheetLocaleComponentSuggestionsValue && this.equals0((SpreadsheetLocaleComponentSuggestionsValue<?>) other));
+            (other instanceof LocaleComponentSuggestionsValue && this.equals0((LocaleComponentSuggestionsValue<?>) other));
     }
 
-    private boolean equals0(final SpreadsheetLocaleComponentSuggestionsValue<?> other) {
+    private boolean equals0(final LocaleComponentSuggestionsValue<?> other) {
         return this.locale.equals(other.locale) &&
             this.text.equals(other.text) &&
             this.value.equals(other.value);
@@ -129,7 +129,7 @@ public final class SpreadsheetLocaleComponentSuggestionsValue<T> implements HasL
 // Comparable.......................................................................................................
 
     @Override
-    public int compareTo(final SpreadsheetLocaleComponentSuggestionsValue other) {
+    public int compareTo(final LocaleComponentSuggestionsValue other) {
         return LocaleContexts.CASE_SENSITIVITY.comparator()
             .compare(
                 this.text,
