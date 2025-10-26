@@ -30,7 +30,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleUnselectH
 import java.util.Locale;
 import java.util.Optional;
 
-final class AppContextLocaleDialogComponentContextCellLocale extends AppContextSpreadsheetLocaleDialogComponentContext
+final class AppContextLocaleDialogComponentContextCellLocale extends AppContextLocaleDialogComponentContext
     implements HasSpreadsheetDeltaFetcherWatchersDelegator {
 
     static AppContextLocaleDialogComponentContextCellLocale with(final AppContext context) {

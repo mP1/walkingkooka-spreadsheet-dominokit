@@ -44,7 +44,7 @@ import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
 
-public final class SpreadsheetLocaleDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetLocaleDialogComponent>,
+public final class LocaleDialogComponentTest implements DialogComponentLifecycleTesting<LocaleDialogComponent>,
     HistoryTokenTesting,
     SpreadsheetMetadataTesting {
 
@@ -87,7 +87,7 @@ public final class SpreadsheetLocaleDialogComponentTest implements DialogCompone
             );
 
         this.onHistoryTokenChangeAndCheck2(
-            SpreadsheetLocaleDialogComponent.with(
+            LocaleDialogComponent.with(
                 SpreadsheetLocaleDialogComponentContexts.appContextCellLocale(context)
             ),
             HistoryToken.cellSelect(
@@ -96,7 +96,7 @@ public final class SpreadsheetLocaleDialogComponentTest implements DialogCompone
                 SpreadsheetSelection.A1.setDefaultAnchor()
             ),
             context,
-            "SpreadsheetLocaleDialogComponent\n" +
+            "LocaleDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    A1: Locale\n" +
                 "    id=locale-Dialog includeClose=true\n" +
@@ -150,7 +150,7 @@ public final class SpreadsheetLocaleDialogComponentTest implements DialogCompone
             );
 
         this.onHistoryTokenChangeAndCheck2(
-            SpreadsheetLocaleDialogComponent.with(
+            LocaleDialogComponent.with(
                 SpreadsheetLocaleDialogComponentContexts.appContextCellLocale(context)
             ),
             HistoryToken.cellSelect(
@@ -159,7 +159,7 @@ public final class SpreadsheetLocaleDialogComponentTest implements DialogCompone
                 cell.setDefaultAnchor()
             ),
             context,
-            "SpreadsheetLocaleDialogComponent\n" +
+            "LocaleDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    A1: Locale\n" +
                 "    id=locale-Dialog includeClose=true\n" +
@@ -179,8 +179,8 @@ public final class SpreadsheetLocaleDialogComponentTest implements DialogCompone
     }
 
     @Override
-    public SpreadsheetLocaleDialogComponent createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
-        return SpreadsheetLocaleDialogComponent.with(
+    public LocaleDialogComponent createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
+        return LocaleDialogComponent.with(
             SpreadsheetLocaleDialogComponentContexts.appContextSpreadsheetMetadataLocale(
                 this.appContext(
                     historyToken,
@@ -269,8 +269,8 @@ public final class SpreadsheetLocaleDialogComponentTest implements DialogCompone
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SpreadsheetLocaleDialogComponent> type() {
-        return SpreadsheetLocaleDialogComponent.class;
+    public Class<LocaleDialogComponent> type() {
+        return LocaleDialogComponent.class;
     }
 
     @Override

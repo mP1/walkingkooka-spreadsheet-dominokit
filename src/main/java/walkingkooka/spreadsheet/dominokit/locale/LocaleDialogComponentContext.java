@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherW
 import java.util.Locale;
 import java.util.Optional;
 
-public interface SpreadsheetLocaleDialogComponentContext extends DialogComponentContext,
+public interface LocaleDialogComponentContext extends DialogComponentContext,
     LocaleContext,
     ComponentLifecycleMatcher,
     HasSpreadsheetDeltaFetcherWatchers,

@@ -51,7 +51,7 @@ import java.util.stream.Collectors;
 /**
  * A model dialog that displays a {@link LocaleComponent} allowing the user to pick a {@link java.util.Locale}.
  */
-public final class SpreadsheetLocaleDialogComponent implements DialogComponentLifecycle,
+public final class LocaleDialogComponent implements DialogComponentLifecycle,
     LoadedSpreadsheetMetadataRequired,
     SpreadsheetDeltaFetcherWatcher,
     SpreadsheetMetadataFetcherWatcher,
@@ -60,15 +60,15 @@ public final class SpreadsheetLocaleDialogComponent implements DialogComponentLi
     NopEmptyResponseFetcherWatcher {
 
     /**
-     * Creates a new {@link SpreadsheetLocaleDialogComponent}.
+     * Creates a new {@link LocaleDialogComponent}.
      */
-    public static SpreadsheetLocaleDialogComponent with(final SpreadsheetLocaleDialogComponentContext context) {
+    public static LocaleDialogComponent with(final LocaleDialogComponentContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetLocaleDialogComponent(context);
+        return new LocaleDialogComponent(context);
     }
 
-    private SpreadsheetLocaleDialogComponent(final SpreadsheetLocaleDialogComponentContext context) {
+    private LocaleDialogComponent(final LocaleDialogComponentContext context) {
         this.context = context;
 
         this.locale = this.locale();
@@ -89,7 +89,7 @@ public final class SpreadsheetLocaleDialogComponent implements DialogComponentLi
     // dialog...........................................................................................................
 
     private DialogComponent dialogCreate() {
-        final SpreadsheetLocaleDialogComponentContext context = this.context;
+        final LocaleDialogComponentContext context = this.context;
 
         return DialogComponent.smallerPrompt(
             ID + SpreadsheetElementIds.DIALOG,
@@ -109,7 +109,7 @@ public final class SpreadsheetLocaleDialogComponent implements DialogComponentLi
 
     private final DialogComponent dialog;
 
-    private final SpreadsheetLocaleDialogComponentContext context;
+    private final LocaleDialogComponentContext context;
 
     @Override
     public DialogComponent dialog() {
@@ -148,7 +148,7 @@ public final class SpreadsheetLocaleDialogComponent implements DialogComponentLi
                     public void filter(final String startsWith,
                                        final SuggestBoxComponent<LocaleComponentSuggestionsValue<Locale>> suggestBox) {
                         suggestBox.setOptions(
-                            LocaleHateosResourceSet.filter(startsWith, SpreadsheetLocaleDialogComponent.this.context)
+                            LocaleHateosResourceSet.filter(startsWith, LocaleDialogComponent.this.context)
                                 .stream()
                                 .map(
                                     (LocaleHateosResource lhr) ->
@@ -169,7 +169,7 @@ public final class SpreadsheetLocaleDialogComponent implements DialogComponentLi
 
                         if (null != value) {
                             final Locale locale = value.locale();
-                            final String localeText = SpreadsheetLocaleDialogComponent.this.context.localeText(locale)
+                            final String localeText = LocaleDialogComponent.this.context.localeText(locale)
                                 .orElse(null);
                             verified = LocaleComponentSuggestionsValue.with(
                                 locale,
@@ -188,7 +188,7 @@ public final class SpreadsheetLocaleDialogComponent implements DialogComponentLi
                         return this.historyTokenMenuItem(
                             ID,
                             value,
-                            SpreadsheetLocaleDialogComponent.this.context
+                            LocaleDialogComponent.this.context
                         );
                     }
                 }

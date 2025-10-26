@@ -25,25 +25,25 @@ public final class SpreadsheetLocaleDialogComponentContexts implements PublicSta
     /**
      * {@see AppContextLocaleDialogComponentContextCellLocale}
      */
-    public static SpreadsheetLocaleDialogComponentContext appContextCellLocale(final AppContext context) {
+    public static LocaleDialogComponentContext appContextCellLocale(final AppContext context) {
         return AppContextLocaleDialogComponentContextCellLocale.with(
             context
         );
     }
 
     /**
-     * {@see AppContextSpreadsheetLocaleDialogComponentContextMetadataLocale}
+     * {@see AppContextLocaleDialogComponentContextMetadataLocale}
      */
-    public static SpreadsheetLocaleDialogComponentContext appContextSpreadsheetMetadataLocale(final AppContext context) {
-        return AppContextSpreadsheetLocaleDialogComponentContextMetadataLocale.with(
+    public static LocaleDialogComponentContext appContextSpreadsheetMetadataLocale(final AppContext context) {
+        return AppContextLocaleDialogComponentContextMetadataLocale.with(
             context
         );
     }
 
     /**
-     * {@see FakeSpreadsheetLocaleDialogComponentContext}
+     * {@see FakeLocaleDialogComponentContext}
      */
-    public static FakeSpreadsheetLocaleDialogComponentContext fake() {
+    public static FakeLocaleDialogComponentContext fake() {
         throw new UnsupportedOperationException();
     }
 

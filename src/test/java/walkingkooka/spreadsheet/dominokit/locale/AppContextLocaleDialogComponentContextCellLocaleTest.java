@@ -28,7 +28,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class AppContextSpreadsheetLocaleDialogComponentContextCellLocaleTest extends AppContextSpreadsheetLocaleDialogComponentContextTestCase<AppContextLocaleDialogComponentContextCellLocale> {
+public final class AppContextLocaleDialogComponentContextCellLocaleTest extends AppContextLocaleDialogComponentContextTestCase<AppContextLocaleDialogComponentContextCellLocale> {
 
     @Test
     public void testWithNullAppContextFails() {

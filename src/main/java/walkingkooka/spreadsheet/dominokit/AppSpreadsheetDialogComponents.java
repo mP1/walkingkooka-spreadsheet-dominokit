@@ -48,7 +48,7 @@ import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingDialogCom
 import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingListDialogComponent;
 import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingListDialogComponentContexts;
-import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleDialogComponent;
+import walkingkooka.spreadsheet.dominokit.locale.LocaleDialogComponent;
 import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.navigate.SpreadsheetNavigateDialogComponent;
 import walkingkooka.spreadsheet.dominokit.navigate.SpreadsheetNavigateDialogComponentContexts;
@@ -251,11 +251,11 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
     }
 
     private static void locale(final AppContext context) {
-        SpreadsheetLocaleDialogComponent.with(
+        LocaleDialogComponent.with(
             SpreadsheetLocaleDialogComponentContexts.appContextCellLocale(context)
         );
 
-        SpreadsheetLocaleDialogComponent.with(
+        LocaleDialogComponent.with(
             SpreadsheetLocaleDialogComponentContexts.appContextSpreadsheetMetadataLocale(context)
         );
     }
