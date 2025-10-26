@@ -88,7 +88,7 @@ public final class LocaleDialogComponentTest implements DialogComponentLifecycle
 
         this.onHistoryTokenChangeAndCheck2(
             LocaleDialogComponent.with(
-                SpreadsheetLocaleDialogComponentContexts.appContextCellLocale(context)
+                LocaleDialogComponentContexts.appContextCellLocale(context)
             ),
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
@@ -151,7 +151,7 @@ public final class LocaleDialogComponentTest implements DialogComponentLifecycle
 
         this.onHistoryTokenChangeAndCheck2(
             LocaleDialogComponent.with(
-                SpreadsheetLocaleDialogComponentContexts.appContextCellLocale(context)
+                LocaleDialogComponentContexts.appContextCellLocale(context)
             ),
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
@@ -181,7 +181,7 @@ public final class LocaleDialogComponentTest implements DialogComponentLifecycle
     @Override
     public LocaleDialogComponent createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
         return LocaleDialogComponent.with(
-            SpreadsheetLocaleDialogComponentContexts.appContextSpreadsheetMetadataLocale(
+            LocaleDialogComponentContexts.appContextSpreadsheetMetadataLocale(
                 this.appContext(
                     historyToken,
                     null
