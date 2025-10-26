@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit;
 
 import walkingkooka.Cast;
 import walkingkooka.net.AbsoluteUrl;
+import walkingkooka.net.email.EmailAddress;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesDialogComponent;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesDialogComponentContexts;
@@ -37,6 +38,7 @@ import walkingkooka.spreadsheet.dominokit.datetimesymbols.DateTimeSymbolsDialogC
 import walkingkooka.spreadsheet.dominokit.decimalnumbersymbols.DecimalNumberSymbolsDialogComponent;
 import walkingkooka.spreadsheet.dominokit.decimalnumbersymbols.DecimalNumberSymbolsDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
+import walkingkooka.spreadsheet.dominokit.email.EmailAddressComponent;
 import walkingkooka.spreadsheet.dominokit.find.SpreadsheetCellFindDialogComponent;
 import walkingkooka.spreadsheet.dominokit.find.SpreadsheetCellFindDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterSelectorDialogComponent;
@@ -159,6 +161,22 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
                 dateTimeContext
             );
         }
+
+        {
+            final SpreadsheetCellValueDialogComponentContext<EmailAddress> emailContext = SpreadsheetCellValueDialogComponentContexts.email(
+                context.spreadsheetViewportCache(),
+                context, // SpreadsheetDeltaFetcherWatcher
+                context, // HistoryContext
+                context // LoggingContext
+            );
+
+            SpreadsheetCellValueDialogComponent.with(
+                EmailAddressComponent.empty()
+                    .setId(emailContext.id()),
+                emailContext
+            );
+        }
+        
         {
             final SpreadsheetCellValueDialogComponentContext<String> textContext = SpreadsheetCellValueDialogComponentContexts.text(
                 context.spreadsheetViewportCache(),
