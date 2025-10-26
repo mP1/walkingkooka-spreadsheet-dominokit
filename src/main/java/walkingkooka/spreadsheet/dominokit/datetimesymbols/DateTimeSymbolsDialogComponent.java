@@ -41,9 +41,9 @@ import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleComponent;
-import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleComponentContext;
-import walkingkooka.spreadsheet.dominokit.locale.SpreadsheetLocaleComponentSuggestionsValue;
+import walkingkooka.spreadsheet.dominokit.locale.LocaleComponent;
+import walkingkooka.spreadsheet.dominokit.locale.LocaleComponentContext;
+import walkingkooka.spreadsheet.dominokit.locale.LocaleComponentSuggestionsValue;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -449,18 +449,18 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
     /**
      * A locale drop down that when selected loads the symbols for the selected Locale.
      */
-    private SpreadsheetLocaleComponent<DateTimeSymbols> localeLoad(final DateTimeSymbolsDialogComponentContext context) {
-        return SpreadsheetLocaleComponent.empty(
-            new SpreadsheetLocaleComponentContext<DateTimeSymbols>() {
+    private LocaleComponent<DateTimeSymbols> localeLoad(final DateTimeSymbolsDialogComponentContext context) {
+        return LocaleComponent.empty(
+            new LocaleComponentContext<DateTimeSymbols>() {
 
                 @Override
                 public void filter(final String startsWith,
-                                   final SuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<DateTimeSymbols>> suggestBox) {
+                                   final SuggestBoxComponent<LocaleComponentSuggestionsValue<DateTimeSymbols>> suggestBox) {
                     context.findDateTimeSymbolsWithLocaleStartsWith(startsWith);
                 }
 
                 @Override
-                public MenuItem<SpreadsheetLocaleComponentSuggestionsValue<DateTimeSymbols>> createMenuItem(final SpreadsheetLocaleComponentSuggestionsValue<DateTimeSymbols> value) {
+                public MenuItem<LocaleComponentSuggestionsValue<DateTimeSymbols>> createMenuItem(final LocaleComponentSuggestionsValue<DateTimeSymbols> value) {
                     return this.historyTokenMenuItem(
                         ID,
                         value,
@@ -469,13 +469,13 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
                 }
 
                 @Override
-                public Optional<SpreadsheetLocaleComponentSuggestionsValue<DateTimeSymbols>> toValue(final Locale locale) {
+                public Optional<LocaleComponentSuggestionsValue<DateTimeSymbols>> toValue(final Locale locale) {
                     throw new UnsupportedOperationException();
                 }
 
                 @Override
-                public void verifyOption(final SpreadsheetLocaleComponentSuggestionsValue<DateTimeSymbols> value,
-                                         final SuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<DateTimeSymbols>> suggestBox) {
+                public void verifyOption(final LocaleComponentSuggestionsValue<DateTimeSymbols> value,
+                                         final SuggestBoxComponent<LocaleComponentSuggestionsValue<DateTimeSymbols>> suggestBox) {
                     throw new UnsupportedOperationException();
                 }
             }
@@ -484,11 +484,11 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
     }
 
     /**
-     * This {@link SpreadsheetLocaleComponent} is only intended to support search for a Locale, and to allow the user
-     * to click any of the suggestions. Operations such as {@link SpreadsheetLocaleComponent#setValue(Optional)} are
+     * This {@link LocaleComponent} is only intended to support search for a Locale, and to allow the user
+     * to click any of the suggestions. Operations such as {@link LocaleComponent#setValue(Optional)} are
      * not supported.
      */
-    private final SpreadsheetLocaleComponent<DateTimeSymbols> localeLoad;
+    private final LocaleComponent<DateTimeSymbols> localeLoad;
 
     // undo.............................................................................................................
 
@@ -573,7 +573,7 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
         this.localeLoad.suggestBoxComponent()
             .setOptions(
                 symbols.stream()
-                    .map(SpreadsheetLocaleComponentSuggestionsValue::fromDateTimeSymbolsHateosResource)
+                    .map(LocaleComponentSuggestionsValue::fromDateTimeSymbolsHateosResource)
                     .collect(Collectors.toList())
             );
     }

@@ -33,20 +33,20 @@ import java.util.Optional;
 /**
  * A drop down that supports picking an optional {@link Locale}.
  */
-public final class SpreadsheetLocaleComponent<T> implements SuggestBoxComponentDelegator<HTMLFieldSetElement, Locale, SpreadsheetLocaleComponent<T>>,
+public final class LocaleComponent<T> implements SuggestBoxComponentDelegator<HTMLFieldSetElement, Locale, LocaleComponent<T>>,
     TreePrintable {
 
     /**
-     * A {@link SpreadsheetLocaleComponent} which is initially empty, possible options to select must be added after
+     * A {@link LocaleComponent} which is initially empty, possible options to select must be added after
      * creation.
      */
-    public static <T> SpreadsheetLocaleComponent<T> empty(final SpreadsheetLocaleComponentContext<T> context) {
-        return new SpreadsheetLocaleComponent<>(
+    public static <T> LocaleComponent<T> empty(final LocaleComponentContext<T> context) {
+        return new LocaleComponent<>(
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private SpreadsheetLocaleComponent(final SpreadsheetLocaleComponentContext<T> context) {
+    private LocaleComponent(final LocaleComponentContext<T> context) {
         this.suggestBox = SuggestBoxComponent.with(
             context,
             context::createMenuItem
@@ -55,7 +55,7 @@ public final class SpreadsheetLocaleComponent<T> implements SuggestBoxComponentD
     }
 
     @Override
-    public SpreadsheetLocaleComponent<T> focus() {
+    public LocaleComponent<T> focus() {
         this.suggestBox.focus();
         return this;
     }
@@ -66,11 +66,11 @@ public final class SpreadsheetLocaleComponent<T> implements SuggestBoxComponentD
     }
 
     @Override
-    public SpreadsheetLocaleComponent<T> addChangeListener(final ChangeListener<Optional<Locale>> listener) {
+    public LocaleComponent<T> addChangeListener(final ChangeListener<Optional<Locale>> listener) {
         Objects.requireNonNull(listener, "listener");
 
         this.suggestBox.addChangeListener(
-            (Optional<SpreadsheetLocaleComponentSuggestionsValue<T>> oldLocale, Optional<SpreadsheetLocaleComponentSuggestionsValue<T>> newLocale) -> listener.onValueChanged(
+            (Optional<LocaleComponentSuggestionsValue<T>> oldLocale, Optional<LocaleComponentSuggestionsValue<T>> newLocale) -> listener.onValueChanged(
                 oldLocale.map(HasLocale::locale),
                 newLocale.map(HasLocale::locale)
             )
@@ -79,7 +79,7 @@ public final class SpreadsheetLocaleComponent<T> implements SuggestBoxComponentD
     }
 
     @Override
-    public SpreadsheetLocaleComponent<T> addClickListener(final EventListener listener) {
+    public LocaleComponent<T> addClickListener(final EventListener listener) {
         this.suggestBox.addClickListener(
             listener
         );
@@ -87,7 +87,7 @@ public final class SpreadsheetLocaleComponent<T> implements SuggestBoxComponentD
     }
 
     @Override
-    public SpreadsheetLocaleComponent<T> addFocusListener(final EventListener listener) {
+    public LocaleComponent<T> addFocusListener(final EventListener listener) {
         this.suggestBox.addFocusListener(
             listener
         );
@@ -95,13 +95,13 @@ public final class SpreadsheetLocaleComponent<T> implements SuggestBoxComponentD
     }
 
     @Override
-    public SpreadsheetLocaleComponent<T> addKeyDownListener(final EventListener listener) {
+    public LocaleComponent<T> addKeyDownListener(final EventListener listener) {
         this.suggestBox.addKeyDownListener(listener);
         return this;
     }
 
     @Override
-    public SpreadsheetLocaleComponent<T> addKeyUpListener(final EventListener listener) {
+    public LocaleComponent<T> addKeyUpListener(final EventListener listener) {
         this.suggestBox.addKeyUpListener(listener);
         return this;
     }
@@ -109,7 +109,7 @@ public final class SpreadsheetLocaleComponent<T> implements SuggestBoxComponentD
     // Value............................................................................................................
 
     @Override
-    public SpreadsheetLocaleComponent<T> setValue(final Optional<Locale> locale) {
+    public LocaleComponent<T> setValue(final Optional<Locale> locale) {
         Objects.requireNonNull(locale, "locale");
 
         this.suggestBox.setValue(
@@ -118,7 +118,7 @@ public final class SpreadsheetLocaleComponent<T> implements SuggestBoxComponentD
         return this;
     }
 
-    private final SpreadsheetLocaleComponentContext<T> context;
+    private final LocaleComponentContext<T> context;
 
     @Override //
     public Optional<Locale> value() {
@@ -129,11 +129,11 @@ public final class SpreadsheetLocaleComponent<T> implements SuggestBoxComponentD
     // SuggestBoxComponentDelegator.....................................................................................
 
     @Override
-    public SuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<T>> suggestBoxComponent() {
+    public SuggestBoxComponent<LocaleComponentSuggestionsValue<T>> suggestBoxComponent() {
         return this.suggestBox;
     }
 
-    private final SuggestBoxComponent<SpreadsheetLocaleComponentSuggestionsValue<T>> suggestBox;
+    private final SuggestBoxComponent<LocaleComponentSuggestionsValue<T>> suggestBox;
 
     // Object...........................................................................................................
 

@@ -26,18 +26,18 @@ import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponentSuggesti
 import java.util.Locale;
 import java.util.Optional;
 
-public interface SpreadsheetLocaleComponentContext<T> extends SuggestBoxComponentSuggestionsProvider<SpreadsheetLocaleComponentSuggestionsValue<T>>,
+public interface LocaleComponentContext<T> extends SuggestBoxComponentSuggestionsProvider<LocaleComponentSuggestionsValue<T>>,
     Context {
 
-    MenuItem<SpreadsheetLocaleComponentSuggestionsValue<T>> createMenuItem(final SpreadsheetLocaleComponentSuggestionsValue<T> value);
+    MenuItem<LocaleComponentSuggestionsValue<T>> createMenuItem(final LocaleComponentSuggestionsValue<T> value);
 
     /**
      * Creates a {@link MenuItem} with a save {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken} with the
      * provided value.
      */
-    default MenuItem<SpreadsheetLocaleComponentSuggestionsValue<T>> historyTokenMenuItem(final String id,
-                                                                                         final SpreadsheetLocaleComponentSuggestionsValue<T> value,
-                                                                                         final HistoryContext historyContext) {
+    default MenuItem<LocaleComponentSuggestionsValue<T>> historyTokenMenuItem(final String id,
+                                                                              final LocaleComponentSuggestionsValue<T> value,
+                                                                              final HistoryContext historyContext) {
         return historyContext.menuItem(
             id + "-suggestion-" + value.locale().toLanguageTag() + SpreadsheetElementIds.OPTION, // id
             value.text(),
@@ -52,10 +52,10 @@ public interface SpreadsheetLocaleComponentContext<T> extends SuggestBoxComponen
         );
     }
 
-    Optional<SpreadsheetLocaleComponentSuggestionsValue<T>> toValue(final Locale locale);
+    Optional<LocaleComponentSuggestionsValue<T>> toValue(final Locale locale);
 
     @Override
-    default String menuItemKey(final SpreadsheetLocaleComponentSuggestionsValue<T> value) {
+    default String menuItemKey(final LocaleComponentSuggestionsValue<T> value) {
         return value.locale()
             .toLanguageTag();
     }

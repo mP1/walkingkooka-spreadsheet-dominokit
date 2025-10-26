@@ -38,8 +38,8 @@ import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetLocaleComponentSuggestionsValueTest implements ComparableTesting2<SpreadsheetLocaleComponentSuggestionsValue<Integer>>,
-    ClassTesting<SpreadsheetLocaleComponentSuggestionsValue<Integer>>,
+public final class LocaleComponentSuggestionsValueTest implements ComparableTesting2<LocaleComponentSuggestionsValue<Integer>>,
+    ClassTesting<LocaleComponentSuggestionsValue<Integer>>,
     HasTextTesting {
 
     private final static Locale LOCALE = Locale.ENGLISH;
@@ -52,7 +52,7 @@ public final class SpreadsheetLocaleComponentSuggestionsValueTest implements Com
     public void testFromDateTimeSymbolsHateosResourceWithNullFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetLocaleComponentSuggestionsValue.fromDateTimeSymbolsHateosResource(null)
+            () -> LocaleComponentSuggestionsValue.fromDateTimeSymbolsHateosResource(null)
         );
     }
 
@@ -63,7 +63,7 @@ public final class SpreadsheetLocaleComponentSuggestionsValueTest implements Com
             new DateFormatSymbols(locale)
         );
 
-        final SpreadsheetLocaleComponentSuggestionsValue<DateTimeSymbols> value = SpreadsheetLocaleComponentSuggestionsValue.fromDateTimeSymbolsHateosResource(
+        final LocaleComponentSuggestionsValue<DateTimeSymbols> value = LocaleComponentSuggestionsValue.fromDateTimeSymbolsHateosResource(
             DateTimeSymbolsHateosResource.fromLocale(locale)
         );
         this.checkEquals(
@@ -88,7 +88,7 @@ public final class SpreadsheetLocaleComponentSuggestionsValueTest implements Com
     public void testFromDecimalNumberSymbolsHateosResourceWithNullFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetLocaleComponentSuggestionsValue.fromDecimalNumberSymbolsHateosResource(null)
+            () -> LocaleComponentSuggestionsValue.fromDecimalNumberSymbolsHateosResource(null)
         );
     }
 
@@ -100,7 +100,7 @@ public final class SpreadsheetLocaleComponentSuggestionsValueTest implements Com
             new DecimalFormatSymbols(locale)
         );
 
-        final SpreadsheetLocaleComponentSuggestionsValue<DecimalNumberSymbols> value = SpreadsheetLocaleComponentSuggestionsValue.fromDecimalNumberSymbolsHateosResource(
+        final LocaleComponentSuggestionsValue<DecimalNumberSymbols> value = LocaleComponentSuggestionsValue.fromDecimalNumberSymbolsHateosResource(
             DecimalNumberSymbolsHateosResource.fromLocale(locale)
         );
         this.checkEquals(
@@ -125,7 +125,7 @@ public final class SpreadsheetLocaleComponentSuggestionsValueTest implements Com
     public void testWithNullLocaleFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetLocaleComponentSuggestionsValue.with(
+            () -> LocaleComponentSuggestionsValue.with(
                 null,
                 TEXT,
                 VALUE
@@ -137,7 +137,7 @@ public final class SpreadsheetLocaleComponentSuggestionsValueTest implements Com
     public void testWithNullTextFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetLocaleComponentSuggestionsValue.with(
+            () -> LocaleComponentSuggestionsValue.with(
                 LOCALE,
                 null,
                 VALUE
@@ -149,7 +149,7 @@ public final class SpreadsheetLocaleComponentSuggestionsValueTest implements Com
     public void testWithEmptyTextFails() {
         assertThrows(
             IllegalArgumentException.class,
-            () -> SpreadsheetLocaleComponentSuggestionsValue.with(
+            () -> LocaleComponentSuggestionsValue.with(
                 LOCALE,
                 "",
                 VALUE
@@ -161,7 +161,7 @@ public final class SpreadsheetLocaleComponentSuggestionsValueTest implements Com
     public void testWithNullValueFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetLocaleComponentSuggestionsValue.with(
+            () -> LocaleComponentSuggestionsValue.with(
                 LOCALE,
                 TEXT,
                 null
@@ -173,17 +173,17 @@ public final class SpreadsheetLocaleComponentSuggestionsValueTest implements Com
 
     @Test
     public void testComparableSort() {
-        final Set<SpreadsheetLocaleComponentSuggestionsValue<Integer>> values = SortedSets.tree();
+        final Set<LocaleComponentSuggestionsValue<Integer>> values = SortedSets.tree();
 
-        final SpreadsheetLocaleComponentSuggestionsValue<Integer> english = this.createComparable();
+        final LocaleComponentSuggestionsValue<Integer> english = this.createComparable();
 
-        final SpreadsheetLocaleComponentSuggestionsValue<Integer> au = SpreadsheetLocaleComponentSuggestionsValue.with(
+        final LocaleComponentSuggestionsValue<Integer> au = LocaleComponentSuggestionsValue.with(
             LOCALE,
             "English australia",
             VALUE
         );
 
-        final SpreadsheetLocaleComponentSuggestionsValue<Integer> nz = SpreadsheetLocaleComponentSuggestionsValue.with(
+        final LocaleComponentSuggestionsValue<Integer> nz = LocaleComponentSuggestionsValue.with(
             Locale.forLanguageTag("en-NZ"),
             "English NEW ZEALAND",
             VALUE
@@ -205,8 +205,8 @@ public final class SpreadsheetLocaleComponentSuggestionsValueTest implements Com
     }
 
     @Override
-    public SpreadsheetLocaleComponentSuggestionsValue<Integer> createComparable() {
-        return SpreadsheetLocaleComponentSuggestionsValue.with(
+    public LocaleComponentSuggestionsValue<Integer> createComparable() {
+        return LocaleComponentSuggestionsValue.with(
             LOCALE,
             TEXT,
             VALUE
@@ -216,8 +216,8 @@ public final class SpreadsheetLocaleComponentSuggestionsValueTest implements Com
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetLocaleComponentSuggestionsValue<Integer>> type() {
-        return Cast.to(SpreadsheetLocaleComponentSuggestionsValue.class);
+    public Class<LocaleComponentSuggestionsValue<Integer>> type() {
+        return Cast.to(LocaleComponentSuggestionsValue.class);
     }
 
     @Override

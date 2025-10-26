@@ -102,7 +102,7 @@ public final class SpreadsheetLocaleDialogComponentTest implements DialogCompone
                 "    id=locale-Dialog includeClose=true\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          SpreadsheetLocaleComponent\n" +
+                "          LocaleComponent\n" +
                 "            SuggestBoxComponent\n" +
                 "              []\n" +
                 "      AnchorListComponent\n" +
@@ -165,7 +165,7 @@ public final class SpreadsheetLocaleDialogComponentTest implements DialogCompone
                 "    id=locale-Dialog includeClose=true\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          SpreadsheetLocaleComponent\n" +
+                "          LocaleComponent\n" +
                 "            SuggestBoxComponent\n" +
                 "              [English (Australian)]\n" +
                 "      AnchorListComponent\n" +
