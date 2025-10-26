@@ -28,12 +28,12 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContexts;
 import java.util.Locale;
 import java.util.Objects;
 
-abstract class AppContextSpreadsheetLocaleDialogComponentContext implements SpreadsheetLocaleDialogComponentContext,
+abstract class AppContextLocaleDialogComponentContext implements LocaleDialogComponentContext,
     DialogComponentContextDelegator,
     LocaleContextDelegator,
     ComponentLifecycleMatcher {
 
-    AppContextSpreadsheetLocaleDialogComponentContext(final AppContext context) {
+    AppContextLocaleDialogComponentContext(final AppContext context) {
         this.context = Objects.requireNonNull(context, "context");
     }
 
@@ -55,7 +55,7 @@ abstract class AppContextSpreadsheetLocaleDialogComponentContext implements Spre
     }
 
     @Override
-    public SpreadsheetLocaleDialogComponentContext setLocale(final Locale locale) {
+    public LocaleDialogComponentContext setLocale(final Locale locale) {
         Objects.requireNonNull(locale, "locale");
         throw new UnsupportedOperationException();
     }

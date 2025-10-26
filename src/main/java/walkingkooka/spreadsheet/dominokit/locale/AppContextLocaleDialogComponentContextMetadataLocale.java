@@ -29,14 +29,14 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import java.util.Locale;
 import java.util.Optional;
 
-final class AppContextSpreadsheetLocaleDialogComponentContextMetadataLocale extends AppContextSpreadsheetLocaleDialogComponentContext
+final class AppContextLocaleDialogComponentContextMetadataLocale extends AppContextLocaleDialogComponentContext
     implements HasSpreadsheetMetadataFetcherWatchersDelegator {
 
-    static AppContextSpreadsheetLocaleDialogComponentContextMetadataLocale with(final AppContext context) {
-        return new AppContextSpreadsheetLocaleDialogComponentContextMetadataLocale(context);
+    static AppContextLocaleDialogComponentContextMetadataLocale with(final AppContext context) {
+        return new AppContextLocaleDialogComponentContextMetadataLocale(context);
     }
 
-    private AppContextSpreadsheetLocaleDialogComponentContextMetadataLocale(final AppContext context) {
+    private AppContextLocaleDialogComponentContextMetadataLocale(final AppContext context) {
         super(context);
     }
 
