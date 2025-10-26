@@ -34,8 +34,8 @@ import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyboardEventListener;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataHistoryTokenAwareComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponent;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponentContexts;
-import walkingkooka.spreadsheet.dominokit.toolbar.SpreadsheetToolbarComponent;
-import walkingkooka.spreadsheet.dominokit.toolbar.SpreadsheetToolbarComponentContexts;
+import walkingkooka.spreadsheet.dominokit.toolbar.ToolbarComponent;
+import walkingkooka.spreadsheet.dominokit.toolbar.ToolbarComponentContexts;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 
@@ -77,8 +77,8 @@ final class SpreadsheetAppLayout extends AppLayout implements
                 }
             ).getBody()
             .appendChild(
-                SpreadsheetToolbarComponent.with(
-                    SpreadsheetToolbarComponentContexts.appContext(context)
+                ToolbarComponent.with(
+                    ToolbarComponentContexts.appContext(context)
                 )
             );
 
