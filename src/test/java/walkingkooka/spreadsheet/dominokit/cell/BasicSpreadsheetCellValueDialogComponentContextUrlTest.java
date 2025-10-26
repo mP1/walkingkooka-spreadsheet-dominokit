@@ -27,9 +27,9 @@ public final class BasicSpreadsheetCellValueDialogComponentContextUrlTest extend
 
     @Override
     BasicSpreadsheetCellValueDialogComponentContextUrl createContext(final SpreadsheetViewportCache viewportCache,
-                                                                      final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
-                                                                      final HistoryContext historyContext,
-                                                                      final LoggingContext loggingContext) {
+                                                                     final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
+                                                                     final HistoryContext historyContext,
+                                                                     final LoggingContext loggingContext) {
         return BasicSpreadsheetCellValueDialogComponentContextUrl.with(
             viewportCache,
             deltaFetcherWatchers,
