@@ -42,6 +42,32 @@ public final class EmailAddressComponentTest implements FormValueComponentTestin
     }
 
     @Test
+    public void testOptionalClearValue() {
+        this.treePrintAndCheck(
+            EmailAddressComponent.empty()
+                .optional()
+                .clearValue(),
+            "EmailAddressComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      []\n"
+        );
+    }
+
+    @Test
+    public void testClearValueOptional() {
+        this.treePrintAndCheck(
+            EmailAddressComponent.empty()
+                .optional()
+                .clearValue(),
+            "EmailAddressComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      []\n"
+        );
+    }
+
+    @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
             EmailAddressComponent.empty()
