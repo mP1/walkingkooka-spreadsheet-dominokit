@@ -259,7 +259,7 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
 
     private final HistoryTokenAnchorComponent close;
 
-    // DialogComponentLifecycle..............................................................................
+    // DialogComponentLifecycle.........................................................................................
 
     @Override
     public DialogComponent dialog() {
@@ -325,7 +325,7 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
         this.refreshIfOpen(context);
     }
 
-    // Object..........................................................................................................
+    // Object...........................................................................................................
 
     @Override
     public String toString() {
