@@ -93,22 +93,20 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         // LOCALE
         // VALUE TYPE
         // VALUE
+        // VALIDATOR
         // HIDE ZERO VALUES
         // -----
-        // CLEAR
         // DELETE
         // ------
-        // INSERT
-        // -------
-        // SORT COLUMN
-        // SORT ROWS
+        // INSERT XXX
         // -------
         // FREEZE
         // UNFREEZE
-        // -----
-        // VALUE TYPES
         // -------
         // LABELS
+        // REFERENCES
+        // -------
+        // RELOAD
 
         if (selection.isExternalReference()) {
             clipboard(
