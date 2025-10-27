@@ -79,6 +79,16 @@ public final class SpreadsheetCellClearAndFormulaHistoryToken extends Spreadshee
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        // NOP
+        context.spreadsheetDeltaFetcher()
+            .deleteDelta(
+                this.id,
+                this.anchoredSelection()
+                    .selection()
+            );
+
+        context.pushHistoryToken(
+            context.historyToken()
+                .formula()
+        );
     }
 }
