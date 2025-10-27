@@ -21,6 +21,7 @@ import walkingkooka.Context;
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName;
+import walkingkooka.spreadsheet.dominokit.color.ColorComponentContext;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
@@ -48,7 +49,8 @@ public interface SpreadsheetSelectionMenuContext extends Context,
     HasSpreadsheetMetadata,
     HistoryContext,
     LocaleContext,
-    SpreadsheetLabelNameResolver {
+    SpreadsheetLabelNameResolver,
+    ColorComponentContext {
 
     /**
      * Returns the names of {@link SpreadsheetComparatorName} that will appear in the SORT menus.
