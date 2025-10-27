@@ -21,19 +21,20 @@ import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.utils.DominoElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
+import walkingkooka.color.Color;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
+import walkingkooka.spreadsheet.dominokit.color.ColorComponent;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.dominokit.hidezerovalues.HideZeroValues;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
-import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataColorPickerComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
@@ -573,8 +574,8 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                               final SpreadsheetSelectionMenuContext context) {
         alignment(menu, context);
         verticalAlignment(menu, context);
-        color(historyToken, menu, context);
-        backgroundColor(historyToken, menu, context);
+        color(menu, context);
+        backgroundColor(menu, context);
         fontWeight(menu, context);
         fontStyle(menu, context);
         textDecoration(menu, context);
@@ -591,48 +592,46 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         recentStyle(historyToken, menu, context);
     }
 
-    private static void color(final HistoryToken historyToken,
-                              final SpreadsheetContextMenu menu,
+    private static void color(final SpreadsheetContextMenu menu,
                               final SpreadsheetSelectionMenuContext context) {
         colorItem(
-            "color",
-            "Color",
-            historyToken.setStylePropertyName(TextStylePropertyName.COLOR),
+            TextStylePropertyName.COLOR,
             menu,
             context
         );
     }
 
-    private static void backgroundColor(final HistoryToken historyToken,
-                                        final SpreadsheetContextMenu menu,
+    private static void backgroundColor(final SpreadsheetContextMenu menu,
                                         final SpreadsheetSelectionMenuContext context) {
         colorItem(
-            "background-color",
-            "Background color",
-            historyToken.setStylePropertyName(TextStylePropertyName.BACKGROUND_COLOR),
+            TextStylePropertyName.BACKGROUND_COLOR,
             menu,
             context
         );
     }
 
-    private static void colorItem(final String id,
-                                  final String text,
-                                  final HistoryToken historyToken,
+    private static void colorItem(final TextStylePropertyName<Color> color,
                                   final SpreadsheetContextMenu menu,
                                   final SpreadsheetSelectionMenuContext context) {
+        final String id = context.idPrefix() + color.value();
+
         final SpreadsheetContextMenu sub = menu.subMenu(
-            context.idPrefix() + id + SpreadsheetElementIds.SUB_MENU,
-            text,
+            id + SpreadsheetElementIds.SUB_MENU,
+            CaseKind.kebabToTitle(
+                color.value()
+            ),
             SpreadsheetIcons.palette()
         );
 
-        final SpreadsheetMetadataColorPickerComponent colors = SpreadsheetMetadataColorPickerComponent.with(historyToken);
-
-        colors.refreshAll(
-            historyToken,
-            context.spreadsheetMetadata()
+        sub.item(
+            ColorComponent.with(
+                id + "-",
+                (h) -> Optional.of(
+                    h.setStylePropertyName(color)
+                ),
+                context
+            )
         );
-        sub.item(colors);
     }
 
     private static void clearStyle(final HistoryToken historyToken,
@@ -922,9 +921,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         final HistoryToken historyToken = context.historyToken();
 
         colorItem(
-            idPrefix + "color",
-            "Color",
-            historyToken.setStylePropertyName(boxEdge.borderColorPropertyName()), // token
+            boxEdge.borderColorPropertyName(),
             menu,
             context
         );

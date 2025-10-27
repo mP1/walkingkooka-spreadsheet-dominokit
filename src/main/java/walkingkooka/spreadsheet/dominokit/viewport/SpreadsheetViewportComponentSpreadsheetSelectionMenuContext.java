@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorNameList;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorProviderDelegator;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetSelectionMenuContext;
@@ -237,6 +238,15 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     }
 
     private final SpreadsheetViewportComponentContext context;
+
+    // ColorComponentContext............................................................................................
+
+    @Override
+    public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+        return this.context.addSpreadsheetMetadataFetcherWatcher(watcher);
+    }
+
+    // Object...........................................................................................................
 
     @Override
     public String toString() {
