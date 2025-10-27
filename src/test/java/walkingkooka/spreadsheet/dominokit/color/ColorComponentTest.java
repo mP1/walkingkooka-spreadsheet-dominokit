@@ -39,15 +39,42 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public final class ColorComponentTest implements ValueComponentTesting<HTMLTableElement, Color, ColorComponent>,
     SpreadsheetMetadataTesting {
 
+    private final static String ID_PREFIX = "TestColorPicker-";
+
     private final static Function<HistoryToken, Optional<HistoryToken>> HISTORY_TOKEN_PREPARER = (h) -> Optional.of(
         h.setStylePropertyName(TextStylePropertyName.COLOR)
     );
+
+    @Test
+    public void testWithNullIdFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> ColorComponent.with(
+                ID_PREFIX,
+                null,
+                ColorComponentContexts.fake()
+            )
+        );
+    }
+
+    @Test
+    public void testWithEmptyIdFails() {
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> ColorComponent.with(
+                "",
+                null,
+                ColorComponentContexts.fake()
+            )
+        );
+    }
 
     @Test
     public void testWithNullHistoryTokenPreparerFails() {
         assertThrows(
             NullPointerException.class,
             () -> ColorComponent.with(
+                ID_PREFIX,
                 null,
                 ColorComponentContexts.fake()
             )
@@ -59,6 +86,7 @@ public final class ColorComponentTest implements ValueComponentTesting<HTMLTable
         assertThrows(
             NullPointerException.class,
             () -> ColorComponent.with(
+                ID_PREFIX,
                 HISTORY_TOKEN_PREPARER,
                 null
             )
@@ -71,193 +99,194 @@ public final class ColorComponentTest implements ValueComponentTesting<HTMLTable
             this.createComponent(),
             "ColorComponent\n" +
                 "  TABLE\n" +
-                "    id=\"color-picker\" className=dui dui-menu-item\n" +
+                "    id=\"TestColorPicker-Table\" className=dui dui-menu-item\n" +
                 "      TBODY\n" +
                 "        TR\n" +
                 "          TD\n" +
                 "            style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              \"Black\" [#/1/SpreadsheetName1/cell/A1/style/color/save/black] id=color-picker-color-1-Link\n" +
+                "              \"Black\" [#/1/SpreadsheetName1/cell/A1/style/color/save/black] id=TestColorPicker-color-1-Link\n" +
                 "          TD\n" +
                 "            style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              \"White\" [#/1/SpreadsheetName1/cell/A1/style/color/save/white] id=color-picker-color-2-Link\n" +
+                "              \"White\" [#/1/SpreadsheetName1/cell/A1/style/color/save/white] id=TestColorPicker-color-2-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-3-Link\n" +
+                "              DISABLED id=TestColorPicker-color-3-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-4-Link\n" +
+                "              DISABLED id=TestColorPicker-color-4-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-5-Link\n" +
+                "              DISABLED id=TestColorPicker-color-5-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-6-Link\n" +
+                "              DISABLED id=TestColorPicker-color-6-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-7-Link\n" +
+                "              DISABLED id=TestColorPicker-color-7-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-8-Link\n" +
+                "              DISABLED id=TestColorPicker-color-8-Link\n" +
                 "        TR\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-9-Link\n" +
+                "              DISABLED id=TestColorPicker-color-9-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-10-Link\n" +
+                "              DISABLED id=TestColorPicker-color-10-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-11-Link\n" +
+                "              DISABLED id=TestColorPicker-color-11-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-12-Link\n" +
+                "              DISABLED id=TestColorPicker-color-12-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-13-Link\n" +
+                "              DISABLED id=TestColorPicker-color-13-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-14-Link\n" +
+                "              DISABLED id=TestColorPicker-color-14-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-15-Link\n" +
+                "              DISABLED id=TestColorPicker-color-15-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-16-Link\n" +
+                "              DISABLED id=TestColorPicker-color-16-Link\n" +
                 "        TR\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-17-Link\n" +
+                "              DISABLED id=TestColorPicker-color-17-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-18-Link\n" +
+                "              DISABLED id=TestColorPicker-color-18-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-19-Link\n" +
+                "              DISABLED id=TestColorPicker-color-19-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-20-Link\n" +
+                "              DISABLED id=TestColorPicker-color-20-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-21-Link\n" +
+                "              DISABLED id=TestColorPicker-color-21-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-22-Link\n" +
+                "              DISABLED id=TestColorPicker-color-22-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-23-Link\n" +
+                "              DISABLED id=TestColorPicker-color-23-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-24-Link\n" +
+                "              DISABLED id=TestColorPicker-color-24-Link\n" +
                 "        TR\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-25-Link\n" +
+                "              DISABLED id=TestColorPicker-color-25-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-26-Link\n" +
+                "              DISABLED id=TestColorPicker-color-26-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-27-Link\n" +
+                "              DISABLED id=TestColorPicker-color-27-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-28-Link\n" +
+                "              DISABLED id=TestColorPicker-color-28-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-29-Link\n" +
+                "              DISABLED id=TestColorPicker-color-29-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-30-Link\n" +
+                "              DISABLED id=TestColorPicker-color-30-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-31-Link\n" +
+                "              DISABLED id=TestColorPicker-color-31-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-32-Link\n" +
+                "              DISABLED id=TestColorPicker-color-32-Link\n" +
                 "        TR\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-33-Link\n" +
+                "              DISABLED id=TestColorPicker-color-33-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-34-Link\n" +
+                "              DISABLED id=TestColorPicker-color-34-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-35-Link\n" +
+                "              DISABLED id=TestColorPicker-color-35-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-36-Link\n" +
+                "              DISABLED id=TestColorPicker-color-36-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-37-Link\n" +
+                "              DISABLED id=TestColorPicker-color-37-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-38-Link\n" +
+                "              DISABLED id=TestColorPicker-color-38-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-39-Link\n" +
+                "              DISABLED id=TestColorPicker-color-39-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-40-Link\n" +
+                "              DISABLED id=TestColorPicker-color-40-Link\n" +
                 "        TR\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-41-Link\n" +
+                "              DISABLED id=TestColorPicker-color-41-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-42-Link\n" +
+                "              DISABLED id=TestColorPicker-color-42-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-43-Link\n" +
+                "              DISABLED id=TestColorPicker-color-43-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-44-Link\n" +
+                "              DISABLED id=TestColorPicker-color-44-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-45-Link\n" +
+                "              DISABLED id=TestColorPicker-color-45-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-46-Link\n" +
+                "              DISABLED id=TestColorPicker-color-46-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-47-Link\n" +
+                "              DISABLED id=TestColorPicker-color-47-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-48-Link\n" +
+                "              DISABLED id=TestColorPicker-color-48-Link\n" +
                 "        TR\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-49-Link\n" +
+                "              DISABLED id=TestColorPicker-color-49-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-50-Link\n" +
+                "              DISABLED id=TestColorPicker-color-50-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-51-Link\n" +
+                "              DISABLED id=TestColorPicker-color-51-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-52-Link\n" +
+                "              DISABLED id=TestColorPicker-color-52-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-53-Link\n" +
+                "              DISABLED id=TestColorPicker-color-53-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-54-Link\n" +
+                "              DISABLED id=TestColorPicker-color-54-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-55-Link\n" +
+                "              DISABLED id=TestColorPicker-color-55-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              DISABLED id=color-picker-color-56-Link\n" +
+                "              DISABLED id=TestColorPicker-color-56-Link\n" +
                 "        TR\n" +
                 "          TD\n" +
                 "            colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/color/save/] id=color-picker-color-clear-Link\n"
+                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/color/save/] id=TestColorPicker-color-clear-Link\n"
         );
     }
 
     @Override
     public ColorComponent createComponent() {
         return ColorComponent.with(
+            ID_PREFIX,
             HISTORY_TOKEN_PREPARER,
             new FakeColorComponentContext() {
                 @Override

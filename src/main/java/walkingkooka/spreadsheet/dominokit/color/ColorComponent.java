@@ -39,6 +39,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.format.SpreadsheetColorName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Objects;
@@ -57,23 +58,24 @@ public final class ColorComponent implements ValueComponent<HTMLTableElement, Co
     NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher {
 
-    private final static String ID = "color-picker";
-
     private final static int ROWS = 7;
 
     private final static int COLUMNS = 8;
 
     private final static int COLOR_COUNT = ROWS * COLUMNS;
 
-    public static ColorComponent with(final Function<HistoryToken, Optional<HistoryToken>> historyTokenPreparer,
+    public static ColorComponent with(final String idPrefix,
+                                      final Function<HistoryToken, Optional<HistoryToken>> historyTokenPreparer,
                                       final ColorComponentContext context) {
         return new ColorComponent(
+            CharSequences.failIfNullOrEmpty(idPrefix, "idPrefix"),
             Objects.requireNonNull(historyTokenPreparer, "historyTokenPreparer"),
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private ColorComponent(final Function<HistoryToken, Optional<HistoryToken>> historyTokenPreparer,
+    private ColorComponent(final String idPrefix,
+                           final Function<HistoryToken, Optional<HistoryToken>> historyTokenPreparer,
                            final ColorComponentContext context) {
         final TBodyComponent tbody = HtmlElementComponent.tbody();
 
@@ -92,7 +94,7 @@ public final class ColorComponent implements ValueComponent<HTMLTableElement, Co
                 tr.appendChild(td);
 
                 final HistoryTokenAnchorComponent anchor = HistoryTokenAnchorComponent.empty();
-                anchor.setId(ID + "-color-" + (i + 1) + SpreadsheetElementIds.LINK);
+                anchor.setId(idPrefix + "color-" + (i + 1) + SpreadsheetElementIds.LINK);
 
                 td.appendChild(anchor);
 
@@ -114,7 +116,7 @@ public final class ColorComponent implements ValueComponent<HTMLTableElement, Co
         tr.appendChild(td);
 
         final HistoryTokenAnchorComponent anchor = HistoryTokenAnchorComponent.empty();
-        anchor.setId(ID + "-color-clear" + SpreadsheetElementIds.LINK);
+        anchor.setId(idPrefix + "color-clear" + SpreadsheetElementIds.LINK);
         anchor.setTextContent("Clear");
         this.clearAnchor = anchor;
 
@@ -122,7 +124,13 @@ public final class ColorComponent implements ValueComponent<HTMLTableElement, Co
 
 
         final TableComponent table = HtmlElementComponent.table();
-        table.setId(ID);
+        table.setId(
+            CharSequences.subSequence(
+                idPrefix,
+                0,
+                -1)
+                + SpreadsheetElementIds.TABLE
+        );
         table.appendChild(tbody);
         table.setAttribute(
             "className",
@@ -209,8 +217,7 @@ public final class ColorComponent implements ValueComponent<HTMLTableElement, Co
 
     @Override
     public ColorComponent setId(final String id) {
-        this.table.setId(id);
-        return this;
+        throw new UnsupportedOperationException();
     }
 
     @Override
