@@ -65,13 +65,16 @@ public final class ColorComponent implements ValueComponent<HTMLTableElement, Co
 
     private final static int COLOR_COUNT = ROWS * COLUMNS;
 
-    public static ColorComponent with(final ColorComponentContext context) {
+    public static ColorComponent with(final Function<HistoryToken, Optional<HistoryToken>> historyTokenPreparer,
+                                      final ColorComponentContext context) {
         return new ColorComponent(
+            Objects.requireNonNull(historyTokenPreparer, "historyTokenPreparer"),
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private ColorComponent(final ColorComponentContext context) {
+    private ColorComponent(final Function<HistoryToken, Optional<HistoryToken>> historyTokenPreparer,
+                           final ColorComponentContext context) {
         final TBodyComponent tbody = HtmlElementComponent.tbody();
 
         int i = 0;
@@ -131,6 +134,7 @@ public final class ColorComponent implements ValueComponent<HTMLTableElement, Co
         this.cells = cells;
         this.anchors = anchors;
 
+        this.historyTokenPreparer = historyTokenPreparer;
         this.context = context;
 
         this.refreshAnchors();
@@ -138,13 +142,15 @@ public final class ColorComponent implements ValueComponent<HTMLTableElement, Co
 
     private void refreshAnchors() {
         final ColorComponentContext context = this.context;
-        final HistoryToken token = context.historyToken();
+        final HistoryToken historyToken = context.historyToken();
         final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
 
         final TdComponent[] cells = this.cells;
         final HistoryTokenAnchorComponent[] anchors = this.anchors;
         final Function<Integer, Optional<Color>> numberToColors = metadata.numberToColor();
         final Function<Integer, Optional<SpreadsheetColorName>> numberToColorNames = metadata.numberToColorName();
+
+        final Function<HistoryToken, Optional<HistoryToken>> historyTokenPreparer = this.historyTokenPreparer;
 
         for (int i = 0; i < COLOR_COUNT; i++) {
             final int colorNumber = 1 + i;
@@ -163,19 +169,19 @@ public final class ColorComponent implements ValueComponent<HTMLTableElement, Co
                 final HistoryTokenAnchorComponent anchor = anchors[i];
                 anchor.setTextContent(text);
                 anchor.setHistoryToken(
-                    Optional.of(
-                        token.setSaveValue(
-                            Optional.of(color)
+                    historyTokenPreparer.apply(historyToken)
+                        .map(
+                            h -> h.setSaveValue(
+                                Optional.of(color)
+                            )
                         )
-                    )
                 );
             }
         }
 
         this.clearAnchor.setHistoryToken(
-            Optional.of(
-                token.clearSaveValue()
-            )
+            historyTokenPreparer.apply(historyToken)
+                .map(h -> h.clearSaveValue())
         );
     }
 
@@ -186,6 +192,11 @@ public final class ColorComponent implements ValueComponent<HTMLTableElement, Co
     private final HistoryTokenAnchorComponent[] anchors;
 
     private final HistoryTokenAnchorComponent clearAnchor;
+
+    /**
+     * Transform a {@link HistoryToken} so that it can take a {@link Color}.
+     */
+    private final Function<HistoryToken, Optional<HistoryToken>> historyTokenPreparer;
 
     private final ColorComponentContext context;
 
