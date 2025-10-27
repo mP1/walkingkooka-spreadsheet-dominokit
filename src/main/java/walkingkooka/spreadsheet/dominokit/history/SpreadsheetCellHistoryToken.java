@@ -459,6 +459,9 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
         final HistoryToken result;
 
         switch (component) {
+            case CLEAR_AND_FORMULA_STRING:
+                result = this.clearAndFormula();
+                break;
             case COPY_STRING:
                 result = this.parseCopy(cursor);
                 break;

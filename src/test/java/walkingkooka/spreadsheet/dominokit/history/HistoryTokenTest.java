@@ -2847,6 +2847,20 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         );
     }
 
+    // cell/clear-and-formula...........................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellClearAndFormula() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/clear-and-formula",
+            HistoryToken.cellClearAndFormula(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
     // cell/formula.....................................................................................................
 
     @Test
