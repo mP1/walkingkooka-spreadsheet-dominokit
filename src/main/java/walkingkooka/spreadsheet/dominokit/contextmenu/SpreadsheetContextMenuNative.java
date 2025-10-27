@@ -30,8 +30,8 @@ import org.dominokit.domino.ui.utils.PostfixAddOn;
 import org.dominokit.domino.ui.utils.PrefixAddOn;
 import org.dominokit.domino.ui.utils.Separator;
 import walkingkooka.Cast;
-import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
+import walkingkooka.spreadsheet.dominokit.color.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenMenuItem;
 

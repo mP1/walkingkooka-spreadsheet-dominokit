@@ -31,7 +31,7 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
-import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
+import walkingkooka.spreadsheet.dominokit.color.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponent;
 import walkingkooka.text.CharSequences;
