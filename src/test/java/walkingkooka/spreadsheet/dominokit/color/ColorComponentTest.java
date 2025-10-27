@@ -31,8 +31,39 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Optional;
+import java.util.function.Function;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public final class ColorComponentTest implements ValueComponentTesting<HTMLTableElement, Color, ColorComponent>,
     SpreadsheetMetadataTesting {
+
+    private final static Function<HistoryToken, Optional<HistoryToken>> HISTORY_TOKEN_PREPARER = (h) -> Optional.of(
+        h.setStylePropertyName(TextStylePropertyName.COLOR)
+    );
+
+    @Test
+    public void testWithNullHistoryTokenPreparerFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> ColorComponent.with(
+                null,
+                ColorComponentContexts.fake()
+            )
+        );
+    }
+
+    @Test
+    public void testWithNullContextFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> ColorComponent.with(
+                HISTORY_TOKEN_PREPARER,
+                null
+            )
+        );
+    }
 
     @Test
     public void testTreePrint() {
@@ -227,6 +258,7 @@ public final class ColorComponentTest implements ValueComponentTesting<HTMLTable
     @Override
     public ColorComponent createComponent() {
         return ColorComponent.with(
+            HISTORY_TOKEN_PREPARER,
             new FakeColorComponentContext() {
                 @Override
                 public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
