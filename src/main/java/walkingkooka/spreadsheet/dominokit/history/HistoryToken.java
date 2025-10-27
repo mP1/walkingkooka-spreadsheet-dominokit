@@ -136,6 +136,10 @@ public abstract class HistoryToken implements HasUrlFragment {
 
     final static UrlFragment CLEAR = UrlFragment.parse(CLEAR_STRING);
 
+    final static String CLEAR_AND_FORMULA_STRING = "clear-and-formula";
+
+    final static UrlFragment CLEAR_AND_FORMULA = UrlFragment.parse(CLEAR_AND_FORMULA_STRING);
+
     final static String COLUMN_STRING = SpreadsheetHateosResourceNames.COLUMN_STRING;
 
     final static String COPY_STRING = "copy";
@@ -314,6 +318,19 @@ public abstract class HistoryToken implements HasUrlFragment {
             MathContext.DECIMAL64
         )
     );
+
+    /**
+     * {@see SpreadsheetCellClearAndFormulaHistoryToken}
+     */
+    public static SpreadsheetCellClearAndFormulaHistoryToken cellClearAndFormula(final SpreadsheetId id,
+                                                                                 final SpreadsheetName name,
+                                                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
+        return SpreadsheetCellClearAndFormulaHistoryToken.with(
+            id,
+            name,
+            anchoredSelection
+        );
+    }
 
     /**
      * {@see SpreadsheetCellSelectHistoryToken}
@@ -2267,6 +2284,26 @@ public abstract class HistoryToken implements HasUrlFragment {
         return historyToken;
     }
 
+    // clearAndFormula..................................................................................................
+
+    /**
+     * if possible creates a clear.
+     */
+    public final HistoryToken clearAndFormula() {
+        HistoryToken historyToken = this;
+
+        if (this instanceof SpreadsheetCellHistoryToken) {
+            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
+            historyToken = cellClearAndFormula(
+                cell.id(),
+                cell.name(),
+                cell.anchoredSelection()
+            );
+        }
+
+        return historyToken;
+    }
+    
     // CLOSE............................................................................................................
 
     /**
@@ -2328,7 +2365,8 @@ public abstract class HistoryToken implements HasUrlFragment {
                 }
 
                 if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
-                    if (this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken ||
+                    if (this instanceof SpreadsheetCellClearAndFormulaHistoryToken ||
+                        this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken ||
                         this instanceof SpreadsheetCellDecimalNumberSymbolsHistoryToken ||
                         this instanceof SpreadsheetCellFindHistoryToken ||
                         this instanceof SpreadsheetCellFormHistoryToken ||
