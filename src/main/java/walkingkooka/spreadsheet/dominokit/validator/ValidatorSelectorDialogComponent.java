@@ -66,6 +66,8 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
         context.addHistoryTokenWatcher(this);
         context.addSpreadsheetDeltaFetcherWatcher(this);
 
+        this.validators = this.validators();
+
         this.selector = this.selector();
 
         this.save = this.saveValueAnchor(context);
@@ -99,7 +101,8 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
             context
         );
 
-        return dialog.appendChild(this.selector)
+        return dialog.appendChild(this.validators)
+            .appendChild(this.selector)
             .appendChild(
                 AnchorListComponent.empty()
                     .appendChild(this.save)
@@ -117,6 +120,17 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
     private final DialogComponent dialog;
 
     private final ValidatorSelectorDialogComponentContext context;
+
+    // validators.......................................................................................................
+
+    private ValidatorSelectorNameAnchorListComponent validators() {
+        return ValidatorSelectorNameAnchorListComponent.with(
+            this.idPrefix(),
+            this.context
+        );
+    }
+
+    private final ValidatorSelectorNameAnchorListComponent validators;
 
     // textBox..........................................................................................................
 
@@ -142,9 +156,9 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
      * Refreshes the {@link #selector} with the latest value.
      */
     private void refreshSelectorValue() {
-        this.selector.setValue(
-            this.context.undo()
-        );
+        final Optional<ValidatorSelector> value = this.context.undo();
+        this.selector.setValue(value);
+        this.validators.setValue(value);
     }
 
     /**

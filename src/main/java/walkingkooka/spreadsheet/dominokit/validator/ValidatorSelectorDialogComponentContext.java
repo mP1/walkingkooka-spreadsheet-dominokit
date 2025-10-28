@@ -28,7 +28,8 @@ import java.util.Optional;
  * A {@link walkingkooka.Context} tht accompanies a {@link ValidatorSelectorDialogComponent} provided various inputs.
  */
 public interface ValidatorSelectorDialogComponentContext extends DialogComponentContext,
-    HasSpreadsheetViewportCache {
+    HasSpreadsheetViewportCache,
+    ValidatorSelectorNameAnchorListComponentContext {
 
     Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher);
 
