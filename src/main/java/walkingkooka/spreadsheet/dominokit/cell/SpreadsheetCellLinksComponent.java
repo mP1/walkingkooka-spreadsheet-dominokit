@@ -78,6 +78,8 @@ public final class SpreadsheetCellLinksComponent implements HtmlComponentDelegat
         this.clearValue();
     }
 
+    // value............................................................................................................
+
     public Optional<SpreadsheetExpressionReference> value() {
         return this.createLabel.value();
     }

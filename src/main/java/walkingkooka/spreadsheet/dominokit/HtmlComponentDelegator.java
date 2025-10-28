@@ -21,6 +21,21 @@ import elemental2.dom.HTMLElement;
 
 public interface HtmlComponentDelegator<E extends HTMLElement, C extends HtmlComponent<E, C>> extends HtmlComponent<E, C> {
 
+    // id...............................................................................................................
+
+    @Override
+    default String id() {
+        return this.htmlComponent()
+            .id();
+    }
+
+    @Override
+    default C setId(final String id) {
+        this.htmlComponent()
+            .setId(id);
+        return (C) this;
+    }
+
     // width............................................................................................................
 
     @Override

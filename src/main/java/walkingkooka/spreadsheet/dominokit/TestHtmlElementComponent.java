@@ -24,6 +24,18 @@ import elemental2.dom.HTMLElement;
  */
 public interface TestHtmlElementComponent<E extends HTMLElement, C extends HtmlComponent<E, C>> extends HtmlComponent<E, C> {
 
+    // id...............................................................................................................
+
+    @Override
+    default String id() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default C setId(final String id) {
+        throw new UnsupportedOperationException();
+    }
+
     // isEditing........................................................................................................
 
     @Override

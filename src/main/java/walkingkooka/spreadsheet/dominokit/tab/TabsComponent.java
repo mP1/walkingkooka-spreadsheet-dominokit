@@ -129,6 +129,20 @@ public final class TabsComponent implements TabsComponentLike {
     private final List<Tab> tabs;
 
 
+    // id...............................................................................................................
+
+    @Override
+    public String id() {
+        return this.element().id;
+    }
+
+    @Override
+    public TabsComponent setId(final String id) {
+        this.element()
+            .id = id;
+        return this;
+    }
+
     // width............................................................................................................
 
     @Override

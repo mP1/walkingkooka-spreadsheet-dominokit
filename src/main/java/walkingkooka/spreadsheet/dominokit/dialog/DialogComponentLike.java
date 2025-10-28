@@ -99,10 +99,10 @@ abstract class DialogComponentLike implements HtmlComponent<HTMLDivElement, Dial
         super();
     }
 
-    /**
-     * Getter that returns the ID.
-     */
-    abstract public String id();
+    @Override
+    public final DialogComponent setId(final String id) {
+        throw new UnsupportedOperationException();
+    }
 
     /**
      * Sets a new title on the dialog.
