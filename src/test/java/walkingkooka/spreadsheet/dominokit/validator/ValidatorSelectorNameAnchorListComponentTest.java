@@ -54,9 +54,9 @@ public final class ValidatorSelectorNameAnchorListComponentTest implements Value
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
                 "        id=TestId123links\n" +
-                "          \"Apple Tree\" [#/1/Spreadsheet111/cell/A1/validator/save/apple-tree] id=TestId123-Link\n" +
-                "          \"Banana\" [#/1/Spreadsheet111/cell/A1/validator/save/banana] id=TestId123-Link\n" +
-                "          \"Carrot\" [#/1/Spreadsheet111/cell/A1/validator/save/carrot] id=TestId123-Link\n"
+                "          \"Apple Tree\" [#/1/Spreadsheet111/cell/A1/validator/save/apple-tree] id=TestId123-apple-tree-Link\n" +
+                "          \"Banana\" [#/1/Spreadsheet111/cell/A1/validator/save/banana] id=TestId123-banana-Link\n" +
+                "          \"Carrot\" [#/1/Spreadsheet111/cell/A1/validator/save/carrot] id=TestId123-carrot-Link\n"
         );
     }
 
@@ -74,9 +74,9 @@ public final class ValidatorSelectorNameAnchorListComponentTest implements Value
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
                 "        id=TestId123links\n" +
-                "          \"Apple Tree\" [#/1/Spreadsheet111/cell/A1/validator/save/apple-tree%20123] id=TestId123-Link\n" +
-                "          \"Banana\" [#/1/Spreadsheet111/cell/A1/validator/save/banana%20123] id=TestId123-Link\n" +
-                "          \"Carrot\" [#/1/Spreadsheet111/cell/A1/validator/save/carrot%20123] id=TestId123-Link\n"
+                "          \"Apple Tree\" [#/1/Spreadsheet111/cell/A1/validator/save/apple-tree%20123] id=TestId123-apple-tree-Link\n" +
+                "          \"Banana\" [#/1/Spreadsheet111/cell/A1/validator/save/banana%20123] id=TestId123-banana-Link\n" +
+                "          \"Carrot\" [#/1/Spreadsheet111/cell/A1/validator/save/carrot%20123] id=TestId123-carrot-Link\n"
         );
     }
 
@@ -94,9 +94,9 @@ public final class ValidatorSelectorNameAnchorListComponentTest implements Value
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
                 "        id=TestId123links\n" +
-                "          \"Apple Tree\" [#/1/Spreadsheet111/cell/A1/validator/save/apple-tree] id=TestId123-Link\n" +
-                "          \"Banana\" [#/1/Spreadsheet111/cell/A1/validator/save/banana] id=TestId123-Link\n" +
-                "          \"Carrot\" [#/1/Spreadsheet111/cell/A1/validator/save/carrot] id=TestId123-Link\n"
+                "          \"Apple Tree\" [#/1/Spreadsheet111/cell/A1/validator/save/apple-tree] id=TestId123-apple-tree-Link\n" +
+                "          \"Banana\" [#/1/Spreadsheet111/cell/A1/validator/save/banana] id=TestId123-banana-Link\n" +
+                "          \"Carrot\" [#/1/Spreadsheet111/cell/A1/validator/save/carrot] id=TestId123-carrot-Link\n"
         );
     }
 
@@ -114,9 +114,9 @@ public final class ValidatorSelectorNameAnchorListComponentTest implements Value
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
                 "        id=TestId123links\n" +
-                "          \"Apple Tree\" [#/1/Spreadsheet111/cell/A1/validator/save/apple-tree%20123] id=TestId123-Link\n" +
-                "          \"Banana\" [#/1/Spreadsheet111/cell/A1/validator/save/banana%20123] id=TestId123-Link\n" +
-                "          \"Carrot\" [#/1/Spreadsheet111/cell/A1/validator/save/carrot%20123] id=TestId123-Link\n"
+                "          \"Apple Tree\" [#/1/Spreadsheet111/cell/A1/validator/save/apple-tree%20123] id=TestId123-apple-tree-Link\n" +
+                "          \"Banana\" [#/1/Spreadsheet111/cell/A1/validator/save/banana%20123] id=TestId123-banana-Link\n" +
+                "          \"Carrot\" [#/1/Spreadsheet111/cell/A1/validator/save/carrot%20123] id=TestId123-carrot-Link\n"
         );
     }
 

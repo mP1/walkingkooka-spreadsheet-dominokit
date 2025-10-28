@@ -80,7 +80,7 @@ public final class ValidatorSelectorNameAnchorListComponent implements ValueComp
 
         final ValidatorSelectorNameAnchorListComponentContext context = this.context;
         final HistoryToken historyToken = context.historyToken();
-        final String id = this.id;
+        final String id = this.id + "-";
 
         final String value = this.value
             .map(ValidatorSelector::valueText)
@@ -98,7 +98,7 @@ public final class ValidatorSelectorNameAnchorListComponent implements ValueComp
                                 value
                             )
                         )
-                    ).link(id)
+                    ).link(id + name)
                     .setTextContent(
                         CaseKind.kebabToTitle(name.text())
                     )
