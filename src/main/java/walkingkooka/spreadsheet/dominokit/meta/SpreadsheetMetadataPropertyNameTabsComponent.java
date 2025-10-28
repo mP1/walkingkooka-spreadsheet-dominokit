@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.tab.SpreadsheetTabsComponent;
+import walkingkooka.spreadsheet.dominokit.tab.TabsComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -60,12 +60,12 @@ public final class SpreadsheetMetadataPropertyNameTabsComponent implements HtmlC
         this.propertyNames = propertyNames;
     }
 
-    // SpreadsheetTabsComponent.........................................................................................
+    // TabsComponent....................................................................................................
 
-    private SpreadsheetTabsComponent tabsComponentCreate(final String id,
-                                                         final List<SpreadsheetMetadataPropertyName<?>> propertyNames,
-                                                         final SpreadsheetMetadataPropertyNameTabsComponentContext context) {
-        final SpreadsheetTabsComponent tabs = SpreadsheetTabsComponent.with(context);
+    private TabsComponent tabsComponentCreate(final String id,
+                                              final List<SpreadsheetMetadataPropertyName<?>> propertyNames,
+                                              final SpreadsheetMetadataPropertyNameTabsComponentContext context) {
+        final TabsComponent tabs = TabsComponent.with(context);
 
         for (final SpreadsheetMetadataPropertyName<?> propertyName : propertyNames) {
             tabs.appendTab(
@@ -98,7 +98,7 @@ public final class SpreadsheetMetadataPropertyNameTabsComponent implements HtmlC
      * Iterates over the links in each tab updating the link, disabling and activating as necessary.
      */
     public void refresh(final SpreadsheetMetadataPropertyNameTabsComponentContext context) {
-        final SpreadsheetTabsComponent tabs = this.tabsComponent;
+        final TabsComponent tabs = this.tabsComponent;
         final SpreadsheetMetadataPropertyName<?> propertyName = context.historyToken()
             .metadataPropertyName()
             .orElse(null);
@@ -134,7 +134,7 @@ public final class SpreadsheetMetadataPropertyNameTabsComponent implements HtmlC
         return this.tabsComponent;
     }
 
-    private final SpreadsheetTabsComponent tabsComponent;
+    private final TabsComponent tabsComponent;
 
     // isEditing........................................................................................................
 

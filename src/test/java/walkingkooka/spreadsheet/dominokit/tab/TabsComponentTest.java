@@ -26,12 +26,12 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 
 import java.util.Optional;
 
-public final class SpreadsheetTabsComponentTest implements HtmlComponentTesting<SpreadsheetTabsComponent, HTMLDivElement> {
+public final class TabsComponentTest implements HtmlComponentTesting<TabsComponent, HTMLDivElement> {
 
     @Test
     public void testEmptyNoTabs() {
         this.treePrintAndCheck(
-            SpreadsheetTabsComponent.with(
+            TabsComponent.with(
                 new FakeHistoryContext() {
                     @Override
                     public HistoryToken historyToken() {
@@ -39,14 +39,14 @@ public final class SpreadsheetTabsComponentTest implements HtmlComponentTesting<
                     }
                 }
             ),
-            "SpreadsheetTabsComponent\n"
+            "TabsComponent\n"
         );
     }
 
     @Test
     public void testSeveralTabsNonActive() {
         this.treePrintAndCheck(
-            SpreadsheetTabsComponent.with(
+            TabsComponent.with(
                     new FakeHistoryContext() {
                         @Override
                         public HistoryToken historyToken() {
@@ -56,7 +56,7 @@ public final class SpreadsheetTabsComponentTest implements HtmlComponentTesting<
                 ).appendTab("tab-1", "Tab-1A")
                 .appendTab("tab-2", "Tab-2B")
                 .appendTab("tab-3", "Tab-3C"),
-            "SpreadsheetTabsComponent\n" +
+            "TabsComponent\n" +
                 "  TAB 0\n" +
                 "    \"Tab-1A\" DISABLED id=tab-1\n" +
                 "  TAB 1\n" +
@@ -69,7 +69,7 @@ public final class SpreadsheetTabsComponentTest implements HtmlComponentTesting<
     @Test
     public void testSeveralTabsIncludingActive() {
         this.treePrintAndCheck(
-            SpreadsheetTabsComponent.with(
+            TabsComponent.with(
                     new FakeHistoryContext() {
                         @Override
                         public HistoryToken historyToken() {
@@ -80,7 +80,7 @@ public final class SpreadsheetTabsComponentTest implements HtmlComponentTesting<
                 .appendTab("tab-2", "Tab-2B")
                 .appendTab("tab-3", "Tab-3C")
                 .setTab(1),
-            "SpreadsheetTabsComponent\n" +
+            "TabsComponent\n" +
                 "  TAB 0\n" +
                 "    \"Tab-1A\" DISABLED id=tab-1\n" +
                 "  TAB 1 SELECTED\n" +
@@ -92,7 +92,7 @@ public final class SpreadsheetTabsComponentTest implements HtmlComponentTesting<
 
     @Test
     public void testSeveralTabsIncludingActiveLinksWithAnchor() {
-        final SpreadsheetTabsComponent tabs = SpreadsheetTabsComponent.with(
+        final TabsComponent tabs = TabsComponent.with(
                 new FakeHistoryContext() {
                     @Override
                     public HistoryToken historyToken() {
@@ -126,7 +126,7 @@ public final class SpreadsheetTabsComponentTest implements HtmlComponentTesting<
 
         this.treePrintAndCheck(
             tabs,
-            "SpreadsheetTabsComponent\n" +
+            "TabsComponent\n" +
                 "  TAB 0\n" +
                 "    \"Date\" [#/1/Untitled/cell/B1/formatter] id=date-tab\n" +
                 "  TAB 1 SELECTED\n" +
@@ -139,8 +139,8 @@ public final class SpreadsheetTabsComponentTest implements HtmlComponentTesting<
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SpreadsheetTabsComponent> type() {
-        return SpreadsheetTabsComponent.class;
+    public Class<TabsComponent> type() {
+        return TabsComponent.class;
     }
 
     @Override

@@ -39,7 +39,7 @@ public final class SpreadsheetMetadataPropertyNameTabsComponentTest implements H
                 )
             ),
             "SpreadsheetMetadataPropertyNameTabsComponent\n" +
-                "  SpreadsheetTabsComponent\n" +
+                "  TabsComponent\n" +
                 "    TAB 0\n" +
                 "      \"Date\" DISABLED id=id123-dateFormatter\n" +
                 "    TAB 1\n" +
@@ -64,7 +64,7 @@ public final class SpreadsheetMetadataPropertyNameTabsComponentTest implements H
                 )
             ),
             "SpreadsheetMetadataPropertyNameTabsComponent\n" +
-                "  SpreadsheetTabsComponent\n" +
+                "  TabsComponent\n" +
                 "    TAB 0\n" +
                 "      \"Date\" DISABLED id=id123-dateParser\n" +
                 "    TAB 1\n" +

@@ -30,26 +30,26 @@ import java.util.Objects;
 /**
  * Wraps a DOMINO-KIT TabsPanel and tabs.
  */
-public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentLike, TestHtmlElementComponent<HTMLDivElement, SpreadsheetTabsComponent> {
+public final class TabsComponent implements TabsComponentLike, TestHtmlElementComponent<HTMLDivElement, TabsComponent> {
 
     private final HistoryContext context;
     private final List<HistoryTokenAnchorComponent> anchors;
     private int activate = -1;
 
-    private SpreadsheetTabsComponent(final HistoryContext context) {
+    private TabsComponent(final HistoryContext context) {
         this.anchors = Lists.array();
         this.context = context;
     }
 
-    public static SpreadsheetTabsComponent with(final HistoryContext context) {
+    public static TabsComponent with(final HistoryContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetTabsComponent(context);
+        return new TabsComponent(context);
     }
 
     @Override
-    public SpreadsheetTabsComponent appendTab(final String id,
-                                              final String title) {
+    public TabsComponent appendTab(final String id,
+                                   final String title) {
         CharSequences.failIfNullOrEmpty(id, "id");
         CharSequences.failIfNullOrEmpty(title, "title");
 
@@ -75,7 +75,7 @@ public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentL
      * Activate the given tab and de-actives all other tabs.
      */
     @Override
-    public SpreadsheetTabsComponent setTab(final int index) {
+    public TabsComponent setTab(final int index) {
         this.activate = index;
         return this;
     }
