@@ -54,9 +54,9 @@ public final class ValidatorSelectorNameAnchorListComponentTest implements Value
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
                 "        id=TestId123links\n" +
-                "          [#/1/Spreadsheet111/cell/A1/validator/save/apple] id=TestId123-Link\n" +
-                "          [#/1/Spreadsheet111/cell/A1/validator/save/banana] id=TestId123-Link\n" +
-                "          [#/1/Spreadsheet111/cell/A1/validator/save/carrot] id=TestId123-Link\n"
+                "          \"Apple Tree\" [#/1/Spreadsheet111/cell/A1/validator/save/apple-tree] id=TestId123-Link\n" +
+                "          \"Banana\" [#/1/Spreadsheet111/cell/A1/validator/save/banana] id=TestId123-Link\n" +
+                "          \"Carrot\" [#/1/Spreadsheet111/cell/A1/validator/save/carrot] id=TestId123-Link\n"
         );
     }
 
@@ -74,9 +74,9 @@ public final class ValidatorSelectorNameAnchorListComponentTest implements Value
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
                 "        id=TestId123links\n" +
-                "          [#/1/Spreadsheet111/cell/A1/validator/save/apple%20123] id=TestId123-Link\n" +
-                "          [#/1/Spreadsheet111/cell/A1/validator/save/banana%20123] id=TestId123-Link\n" +
-                "          [#/1/Spreadsheet111/cell/A1/validator/save/carrot%20123] id=TestId123-Link\n"
+                "          \"Apple Tree\" [#/1/Spreadsheet111/cell/A1/validator/save/apple-tree%20123] id=TestId123-Link\n" +
+                "          \"Banana\" [#/1/Spreadsheet111/cell/A1/validator/save/banana%20123] id=TestId123-Link\n" +
+                "          \"Carrot\" [#/1/Spreadsheet111/cell/A1/validator/save/carrot%20123] id=TestId123-Link\n"
         );
     }
 
@@ -94,9 +94,9 @@ public final class ValidatorSelectorNameAnchorListComponentTest implements Value
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
                 "        id=TestId123links\n" +
-                "          [#/1/Spreadsheet111/cell/A1/validator/save/apple] id=TestId123-Link\n" +
-                "          [#/1/Spreadsheet111/cell/A1/validator/save/banana] id=TestId123-Link\n" +
-                "          [#/1/Spreadsheet111/cell/A1/validator/save/carrot] id=TestId123-Link\n"
+                "          \"Apple Tree\" [#/1/Spreadsheet111/cell/A1/validator/save/apple-tree] id=TestId123-Link\n" +
+                "          \"Banana\" [#/1/Spreadsheet111/cell/A1/validator/save/banana] id=TestId123-Link\n" +
+                "          \"Carrot\" [#/1/Spreadsheet111/cell/A1/validator/save/carrot] id=TestId123-Link\n"
         );
     }
 
@@ -114,9 +114,9 @@ public final class ValidatorSelectorNameAnchorListComponentTest implements Value
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
                 "        id=TestId123links\n" +
-                "          [#/1/Spreadsheet111/cell/A1/validator/save/apple%20123] id=TestId123-Link\n" +
-                "          [#/1/Spreadsheet111/cell/A1/validator/save/banana%20123] id=TestId123-Link\n" +
-                "          [#/1/Spreadsheet111/cell/A1/validator/save/carrot%20123] id=TestId123-Link\n"
+                "          \"Apple Tree\" [#/1/Spreadsheet111/cell/A1/validator/save/apple-tree%20123] id=TestId123-Link\n" +
+                "          \"Banana\" [#/1/Spreadsheet111/cell/A1/validator/save/banana%20123] id=TestId123-Link\n" +
+                "          \"Carrot\" [#/1/Spreadsheet111/cell/A1/validator/save/carrot%20123] id=TestId123-Link\n"
         );
     }
 
@@ -138,7 +138,7 @@ public final class ValidatorSelectorNameAnchorListComponentTest implements Value
                 public SpreadsheetMetadata spreadsheetMetadata() {
                     return METADATA_EN_AU.set(
                         SpreadsheetMetadataPropertyName.VALIDATION_VALIDATORS,
-                        ValidatorAliasSet.parse("apple, banana, carrot")
+                        ValidatorAliasSet.parse("apple-tree, banana, carrot")
                     );
                 }
 

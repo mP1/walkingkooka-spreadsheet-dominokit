@@ -32,6 +32,7 @@ import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.validation.provider.ValidatorAlias;
@@ -86,7 +87,7 @@ public final class ValidatorSelectorNameAnchorListComponent implements ValueComp
             .orElse("");
 
         for (final ValidatorAlias validator : context.spreadsheetMetadata().getOrFail(SpreadsheetMetadataPropertyName.VALIDATION_VALIDATORS)) {
-            ValidatorName name = validator.name();
+            final ValidatorName name = validator.name();
 
             anchors.appendChild(
                 historyToken.validator()
@@ -98,6 +99,9 @@ public final class ValidatorSelectorNameAnchorListComponent implements ValueComp
                             )
                         )
                     ).link(id)
+                    .setTextContent(
+                        CaseKind.kebabToTitle(name.text())
+                    )
             );
         }
     }
