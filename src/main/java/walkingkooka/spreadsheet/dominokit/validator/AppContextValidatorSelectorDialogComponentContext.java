@@ -23,7 +23,9 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextDelegator;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Objects;
@@ -62,6 +64,18 @@ final class AppContextValidatorSelectorDialogComponentContext implements Validat
     @Override
     public SpreadsheetViewportCache spreadsheetViewportCache() {
         return this.context.spreadsheetViewportCache();
+    }
+
+    // ValidatorSelectorNameAnchorListComponentContext..................................................................
+
+    @Override
+    public SpreadsheetMetadata spreadsheetMetadata() {
+        return this.context.spreadsheetMetadata();
+    }
+
+    @Override
+    public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+        return this.context.addSpreadsheetMetadataFetcherWatcher(watcher);
     }
 
     // DialogComponentContext...........................................................................................

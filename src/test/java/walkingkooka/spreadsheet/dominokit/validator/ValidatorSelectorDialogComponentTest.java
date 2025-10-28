@@ -42,6 +42,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.validation.form.SpreadsheetForms;
+import walkingkooka.validation.provider.ValidatorAliasSet;
 import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Arrays;
@@ -96,17 +97,25 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                 "  DialogComponent\n" +
                 "    Validator Title123\n" +
                 "    id=selector-Dialog includeClose=true\n" +
-                "      ValidatorSelectorComponent\n" +
-                "        ValueTextBoxComponent\n" +
-                "          TextBoxComponent\n" +
-                "            [hello-validator] id=selector-TextBox\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=selector-save-Link\n" +
-                "            \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=selector-clear-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=selector-undo-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1/cell/A1] id=selector-close-Link\n"
+                "      ValidatorSelectorNameAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              id=selector-links\n" +
+                "                \"Validator 1\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-1] id=selector-validator-1-Link\n" +
+                "                \"Validator 2\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-2] id=selector-validator-2-Link\n" +
+                "                \"Validator 3\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-3] id=selector-validator-3-Link\n" +
+                "        ValidatorSelectorComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              [hello-validator] id=selector-TextBox\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=selector-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=selector-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=selector-undo-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=selector-close-Link\n"
         );
     }
 
@@ -181,19 +190,27 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                 "  DialogComponent\n" +
                 "    Validator Title123\n" +
                 "    id=selector-Dialog includeClose=true\n" +
-                "      ValidatorSelectorComponent\n" +
-                "        ValueTextBoxComponent\n" +
-                "          TextBoxComponent\n" +
-                "            [hello-validator] id=selector-TextBox\n" +
-                "            Errors\n" +
-                "              Validator Fail Message 123\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=selector-save-Link\n" +
-                "            \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=selector-clear-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=selector-undo-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1/cell/A1] id=selector-close-Link\n"
+                "      ValidatorSelectorNameAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              id=selector-links\n" +
+                "                \"Validator 1\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-1] id=selector-validator-1-Link\n" +
+                "                \"Validator 2\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-2] id=selector-validator-2-Link\n" +
+                "                \"Validator 3\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-3] id=selector-validator-3-Link\n" +
+                "        ValidatorSelectorComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              [hello-validator] id=selector-TextBox\n" +
+                "              Errors\n" +
+                "                Validator Fail Message 123\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=selector-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=selector-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=selector-undo-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=selector-close-Link\n"
         );
     }
 
@@ -212,6 +229,16 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
         @Override
         public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
             return this.context.addSpreadsheetDeltaFetcherWatcher(watcher);
+        }
+
+        @Override
+        public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+            return this.context.addSpreadsheetMetadataFetcherWatcher(watcher);
+        }
+
+        @Override
+        public SpreadsheetMetadata spreadsheetMetadata() {
+            return this.context.spreadsheetMetadata();
         }
 
         private final AppContext context;
@@ -259,6 +286,9 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
             return METADATA_EN_AU.set(
                 SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                 SpreadsheetId.with(1)
+            ).set(
+                SpreadsheetMetadataPropertyName.VALIDATION_VALIDATORS,
+                ValidatorAliasSet.parse("validator-1, validator-2, validator-3")
             );
         }
 
