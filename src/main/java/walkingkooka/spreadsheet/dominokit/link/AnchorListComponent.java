@@ -50,17 +50,6 @@ public final class AnchorListComponent implements HtmlComponentDelegator<HTMLDiv
      */
     private final FlexLayoutComponent root;
 
-    // id...............................................................................................................
-
-    public String id() {
-        return this.root.id();
-    }
-
-    public AnchorListComponent setId(final String id) {
-        this.root.setId(id);
-        return this;
-    }
-
     // isEditing........................................................................................................
 
     @Override
