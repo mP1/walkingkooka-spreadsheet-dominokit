@@ -45,6 +45,11 @@ public final class AnchorListComponent implements HtmlComponentDelegator<HTMLDiv
         return this;
     }
 
+    public AnchorListComponent removeAllChildren() {
+        this.root.removeAllChildren();
+        return this;
+    }
+
     /**
      * The parent holding the links.
      */

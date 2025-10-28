@@ -32,7 +32,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class AnchorListComponentTest implements HtmlComponentTesting<AnchorListComponent, HTMLDivElement> {
 
-    private final static String ID = "LinkList123-";
+    private static final SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1);
+    private static final SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("SpreadsheetName111");
 
     // appendChild......................................................................................................
 
@@ -56,8 +57,8 @@ public final class AnchorListComponentTest implements HtmlComponentTesting<Ancho
                         .setHistoryToken(
                             Optional.of(
                                 HistoryToken.spreadsheetSelect(
-                                    SpreadsheetId.with(1),
-                                    SpreadsheetName.with("SpreadsheetName222")
+                                    SPREADSHEET_ID,
+                                    SPREADSHEET_NAME
                                 )
                             )
                         )
@@ -65,7 +66,44 @@ public final class AnchorListComponentTest implements HtmlComponentTesting<Ancho
             "AnchorListComponent\n" +
                 "  FlexLayoutComponent\n" +
                 "    ROW\n" +
-                "      \"Edit spreadsheet name\" [#/1/SpreadsheetName222]\n"
+                "      \"Edit spreadsheet name\" [#/1/SpreadsheetName111]\n"
+        );
+    }
+
+    // removeAllChildren................................................................................................
+
+    @Test
+    public void testRemoveAllChildren() {
+        this.treePrintAndCheck(
+            AnchorListComponent.empty()
+                .appendChild(
+                    HistoryTokenAnchorComponent.empty()
+                        .setTextContent("Lost")
+                        .setHistoryToken(
+                            Optional.of(
+                                HistoryToken.spreadsheetSelect(
+                                    SPREADSHEET_ID,
+                                    SPREADSHEET_NAME
+                                )
+                            )
+                        )
+                ).removeAllChildren()
+                .appendChild(
+                    HistoryTokenAnchorComponent.empty()
+                        .setTextContent("Again")
+                        .setHistoryToken(
+                            Optional.of(
+                                HistoryToken.spreadsheetSelect(
+                                    SPREADSHEET_ID,
+                                    SPREADSHEET_NAME
+                                )
+                            )
+                        )
+                ),
+            "AnchorListComponent\n" +
+                "  FlexLayoutComponent\n" +
+                "    ROW\n" +
+                "      \"Again\" [#/1/SpreadsheetName111]\n"
         );
     }
 
