@@ -53,6 +53,23 @@ public final class RowComponent implements HtmlComponent<HTMLDivElement, RowComp
         this.column = column;
     }
 
+    // appendChild......................................................................................................
+
+    public RowComponent appendChild(final HtmlComponent<?, ?> child) {
+        Objects.requireNonNull(child, "child");
+
+        this.row.appendChild(
+            this.column.get()
+                .appendChild(child)
+        );
+        this.children.add(child);
+        return this;
+    }
+
+    private final Supplier<Column> column;
+
+    private final List<HtmlComponent<?, ?>> children;
+
     // width............................................................................................................
 
     @Override
@@ -69,22 +86,7 @@ public final class RowComponent implements HtmlComponent<HTMLDivElement, RowComp
             .offsetHeight;
     }
 
-    // id...............................................................................................................
-
-    public RowComponent appendChild(final HtmlComponent<?, ?> child) {
-        Objects.requireNonNull(child, "child");
-
-        this.row.appendChild(
-            this.column.get()
-                .appendChild(child)
-        );
-        this.children.add(child);
-        return this;
-    }
-
-    private final Supplier<Column> column;
-
-    private final List<HtmlComponent<?, ?>> children;
+    // css..............................................................................................................
 
     @Override
     public RowComponent setCssText(final String css) {
@@ -115,12 +117,16 @@ public final class RowComponent implements HtmlComponent<HTMLDivElement, RowComp
         return this.row.isExpanded(); // should really ask components within the row
     }
 
+    // IsElement........................................................................................................
+
     @Override
     public HTMLDivElement element() {
         return this.row.element();
     }
 
     private final Row row;
+
+    // TreePrintable....................................................................................................
 
     @Override
     public void printTree(final IndentingPrinter printer) {
