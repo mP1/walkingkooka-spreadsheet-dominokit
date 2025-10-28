@@ -29,16 +29,6 @@ import java.util.Optional;
 public interface TableComponent<E extends HTMLElement, V, C extends TableComponent<E, V, C>> extends ValueComponent<E, V, C> {
 
     @Override
-    default String id() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default C setId(final String id) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     default boolean isDisabled() {
         return false;
     }

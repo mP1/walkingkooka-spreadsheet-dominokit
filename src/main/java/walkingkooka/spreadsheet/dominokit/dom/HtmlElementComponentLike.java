@@ -46,8 +46,10 @@ abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlEle
         this.tooltip = Optional.empty();
     }
 
+    @Override
     public abstract C setId(final String id);
 
+    @Override
     public abstract String id();
 
     public abstract C setTabIndex(final int tabIndex);

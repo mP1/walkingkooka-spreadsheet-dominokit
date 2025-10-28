@@ -33,10 +33,6 @@ public interface ValueComponent<E extends HTMLElement, V, C extends ValueCompone
     extends HtmlComponent<E, C>,
     Value<Optional<V>> {
 
-    C setId(final String id);
-
-    String id();
-
     C setValue(final Optional<V> value);
 
     default C clearValue() {

@@ -69,6 +69,19 @@ public final class CardComponent implements HtmlComponent<HTMLDivElement, CardCo
         return this;
     }
 
+    // id...............................................................................................................
+
+    @Override
+    public String id() {
+        return this.card.getId();
+    }
+
+    @Override
+    public CardComponent setId(final String id) {
+        this.card.setId(id);
+        return this;
+    }
+
     // width............................................................................................................
 
     @Override

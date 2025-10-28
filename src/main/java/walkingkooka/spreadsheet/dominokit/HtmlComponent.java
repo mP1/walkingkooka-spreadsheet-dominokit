@@ -30,6 +30,10 @@ import walkingkooka.spreadsheet.dominokit.dom.Doms;
 public interface HtmlComponent<E extends HTMLElement, C extends HtmlComponent<E, C>> extends Component,
     IsElement<E> {
 
+    String id();
+
+    C setId(final String id);
+
     /**
      * The width of this component, mostly delegates to offsetWidth
      */

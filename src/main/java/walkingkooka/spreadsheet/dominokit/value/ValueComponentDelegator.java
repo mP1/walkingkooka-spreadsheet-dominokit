@@ -32,19 +32,6 @@ public interface ValueComponentDelegator<E extends HTMLElement, V, C extends Val
     HtmlComponentDelegator<E, C> {
 
     @Override
-    default C setId(final String id) {
-        this.valueComponent()
-            .setId(id);
-        return (C) this;
-    }
-
-    @Override
-    default String id() {
-        return this.valueComponent()
-            .id();
-    }
-
-    @Override
     default Optional<V> value() {
         return this.valueComponent()
             .value();

@@ -227,6 +227,21 @@ final class SpreadsheetAppLayout extends AppLayout implements
         return SPREADSHEET_APP_LAYOUT;
     }
 
+    // id...............................................................................................................
+
+    @Override
+    public String id() {
+        return this.element()
+            .id;
+    }
+
+    @Override
+    public SpreadsheetAppLayout setId(final String id) {
+        this.element()
+            .id = id;
+        return this;
+    }
+
     // width............................................................................................................
 
     @Override

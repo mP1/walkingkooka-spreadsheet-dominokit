@@ -70,6 +70,19 @@ public final class RowComponent implements HtmlComponent<HTMLDivElement, RowComp
 
     private final List<HtmlComponent<?, ?>> children;
 
+    // id...............................................................................................................
+
+    @Override
+    public String id() {
+        return this.row.getId();
+    }
+
+    @Override
+    public RowComponent setId(final String id) {
+        this.row.setId(id);
+        return this;
+    }
+
     // width............................................................................................................
 
     @Override
