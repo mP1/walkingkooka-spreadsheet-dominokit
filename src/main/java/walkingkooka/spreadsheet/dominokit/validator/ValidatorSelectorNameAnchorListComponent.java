@@ -52,22 +52,22 @@ public final class ValidatorSelectorNameAnchorListComponent implements ValueComp
     NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher {
 
-    public static ValidatorSelectorNameAnchorListComponent with(final String id,
+    public static ValidatorSelectorNameAnchorListComponent with(final String idPrefix,
                                                                 final ValidatorSelectorNameAnchorListComponentContext context) {
         return new ValidatorSelectorNameAnchorListComponent(
-            CharSequences.failIfNullOrEmpty(id, "id"),
+            CharSequences.failIfNullOrEmpty(idPrefix, "idPrefix"),
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private ValidatorSelectorNameAnchorListComponent(final String id,
+    private ValidatorSelectorNameAnchorListComponent(final String idPrefix,
                                                      final ValidatorSelectorNameAnchorListComponentContext context) {
         super();
 
-        this.id = id;
+        this.idPrefix = idPrefix;
 
         this.anchors = AnchorListComponent.empty()
-            .setId(id + "links");
+            .setId(idPrefix + "links");
         this.value = Optional.empty();
         this.context = context;
 
@@ -80,7 +80,7 @@ public final class ValidatorSelectorNameAnchorListComponent implements ValueComp
 
         final ValidatorSelectorNameAnchorListComponentContext context = this.context;
         final HistoryToken historyToken = context.historyToken();
-        final String id = this.id + "-";
+        final String idPrefix = this.idPrefix;
 
         final String value = this.value
             .map(ValidatorSelector::valueText)
@@ -98,7 +98,7 @@ public final class ValidatorSelectorNameAnchorListComponent implements ValueComp
                                 value
                             )
                         )
-                    ).link(id + name)
+                    ).link(idPrefix + name)
                     .setTextContent(
                         CaseKind.kebabToTitle(name.text())
                     )
@@ -106,7 +106,7 @@ public final class ValidatorSelectorNameAnchorListComponent implements ValueComp
         }
     }
 
-    private final String id;
+    private final String idPrefix;
 
     private final ValidatorSelectorNameAnchorListComponentContext context;
 
