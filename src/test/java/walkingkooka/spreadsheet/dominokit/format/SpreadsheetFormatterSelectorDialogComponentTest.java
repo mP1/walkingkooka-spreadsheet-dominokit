@@ -870,7 +870,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "    Spreadsheet: Date Formatter (dateFormatter)\n" +
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetMetadataPropertyNameTabsComponent\n" +
-                "        SpreadsheetTabsComponent\n" +
+                "        TabsComponent\n" +
                 "          TAB 0 SELECTED\n" +
                 "            \"Date\" DISABLED id=spreadsheetFormatterSelector-Tabs-dateFormatter\n" +
                 "          TAB 1\n" +
@@ -1019,7 +1019,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "    Spreadsheet: Date Time Formatter (dateTimeFormatter)\n" +
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetMetadataPropertyNameTabsComponent\n" +
-                "        SpreadsheetTabsComponent\n" +
+                "        TabsComponent\n" +
                 "          TAB 0\n" +
                 "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter] id=spreadsheetFormatterSelector-Tabs-dateFormatter\n" +
                 "          TAB 1 SELECTED\n" +
@@ -1187,7 +1187,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "    Spreadsheet: Error Formatter (errorFormatter)\n" +
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetMetadataPropertyNameTabsComponent\n" +
-                "        SpreadsheetTabsComponent\n" +
+                "        TabsComponent\n" +
                 "          TAB 0\n" +
                 "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter] id=spreadsheetFormatterSelector-Tabs-dateFormatter\n" +
                 "          TAB 1\n" +
@@ -1376,7 +1376,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "    Spreadsheet: Number Formatter (numberFormatter)\n" +
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetMetadataPropertyNameTabsComponent\n" +
-                "        SpreadsheetTabsComponent\n" +
+                "        TabsComponent\n" +
                 "          TAB 0\n" +
                 "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter] id=spreadsheetFormatterSelector-Tabs-dateFormatter\n" +
                 "          TAB 1\n" +
@@ -1565,7 +1565,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "    Spreadsheet: Text Formatter (textFormatter)\n" +
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetMetadataPropertyNameTabsComponent\n" +
-                "        SpreadsheetTabsComponent\n" +
+                "        TabsComponent\n" +
                 "          TAB 0\n" +
                 "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter] id=spreadsheetFormatterSelector-Tabs-dateFormatter\n" +
                 "          TAB 1\n" +
@@ -1680,7 +1680,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "    Spreadsheet: Time Formatter (timeFormatter)\n" +
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetMetadataPropertyNameTabsComponent\n" +
-                "        SpreadsheetTabsComponent\n" +
+                "        TabsComponent\n" +
                 "          TAB 0\n" +
                 "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter] id=spreadsheetFormatterSelector-Tabs-dateFormatter\n" +
                 "          TAB 1\n" +

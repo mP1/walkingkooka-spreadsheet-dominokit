@@ -23,15 +23,15 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 
 /**
- * Defines the public interface of a {@link SpreadsheetTabsComponent}.
+ * Defines the public interface of a {@link TabsComponent}.
  */
-public interface SpreadsheetTabsComponentLike extends HtmlComponent<HTMLDivElement, SpreadsheetTabsComponent> {
+public interface TabsComponentLike extends HtmlComponent<HTMLDivElement, TabsComponent> {
 
     /**
      * Appends a new tab. The anchor holding the title will be disabled.
      */
-    SpreadsheetTabsComponentLike appendTab(final String id,
-                                           final String title);
+    TabsComponentLike appendTab(final String id,
+                                final String title);
 
     /**
      * Fetches the anchor holding the tab text.
@@ -41,7 +41,7 @@ public interface SpreadsheetTabsComponentLike extends HtmlComponent<HTMLDivEleme
     /**
      * Activate the given tab and de-actives all other tabs.
      */
-    SpreadsheetTabsComponentLike setTab(final int index);
+    TabsComponentLike setTab(final int index);
 
     /**
      * Returns the selected tab index.

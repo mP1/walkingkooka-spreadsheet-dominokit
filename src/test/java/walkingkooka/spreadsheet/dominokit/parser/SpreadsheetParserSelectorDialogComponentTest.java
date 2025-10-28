@@ -654,7 +654,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "    Spreadsheet: Date Parser (dateParser)\n" +
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetMetadataPropertyNameTabsComponent\n" +
-                "        SpreadsheetTabsComponent\n" +
+                "        TabsComponent\n" +
                 "          TAB 0 SELECTED\n" +
                 "            \"Date\" DISABLED id=spreadsheetParserSelector-Tabs-dateParser\n" +
                 "          TAB 1\n" +
@@ -776,7 +776,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "    Spreadsheet: Date Time Parser (dateTimeParser)\n" +
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetMetadataPropertyNameTabsComponent\n" +
-                "        SpreadsheetTabsComponent\n" +
+                "        TabsComponent\n" +
                 "          TAB 0\n" +
                 "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateParser] id=spreadsheetParserSelector-Tabs-dateParser\n" +
                 "          TAB 1 SELECTED\n" +
@@ -917,7 +917,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "    Spreadsheet: Number Parser (numberParser)\n" +
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetMetadataPropertyNameTabsComponent\n" +
-                "        SpreadsheetTabsComponent\n" +
+                "        TabsComponent\n" +
                 "          TAB 0\n" +
                 "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateParser] id=spreadsheetParserSelector-Tabs-dateParser\n" +
                 "          TAB 1\n" +
@@ -1079,7 +1079,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "    Spreadsheet: Time Parser (timeParser)\n" +
                 "    id=spreadsheetParserSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetMetadataPropertyNameTabsComponent\n" +
-                "        SpreadsheetTabsComponent\n" +
+                "        TabsComponent\n" +
                 "          TAB 0\n" +
                 "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateParser] id=spreadsheetParserSelector-Tabs-dateParser\n" +
                 "          TAB 1\n" +

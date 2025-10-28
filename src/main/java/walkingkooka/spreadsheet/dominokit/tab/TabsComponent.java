@@ -32,15 +32,15 @@ import java.util.Objects;
 /**
  * Wraps a DOMINO-KIT TabsPanel and tabs.
  */
-public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentLike {
+public final class TabsComponent implements TabsComponentLike {
 
-    public static SpreadsheetTabsComponent with(final HistoryContext context) {
+    public static TabsComponent with(final HistoryContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetTabsComponent(context);
+        return new TabsComponent(context);
     }
 
-    private SpreadsheetTabsComponent(final HistoryContext context) {
+    private TabsComponent(final HistoryContext context) {
         this.tabsPanel = TabsPanel.create();
         this.tabs = Lists.array();
         this.anchors = Lists.array();
@@ -51,8 +51,8 @@ public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentL
      * Appends a new tab. The anchor holding the title will be disabled.
      */
     @Override
-    public SpreadsheetTabsComponent appendTab(final String id,
-                                              final String title) {
+    public TabsComponent appendTab(final String id,
+                                   final String title) {
         CharSequences.failIfNullOrEmpty(id, "id");
         CharSequences.failIfNullOrEmpty(title, "title");
 
@@ -93,7 +93,7 @@ public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentL
      * Activate the given tab and de-actives all other tabs.
      */
     @Override
-    public SpreadsheetTabsComponent setTab(final int index) {
+    public TabsComponent setTab(final int index) {
         int i = 0;
 
         for (final Tab tab : this.tabs) {
@@ -148,7 +148,7 @@ public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentL
     // setCssText.......................................................................................................
 
     @Override
-    public SpreadsheetTabsComponent setCssText(final String css) {
+    public TabsComponent setCssText(final String css) {
         Objects.requireNonNull(css, "css");
 
         this.tabsPanel.cssText(css);
@@ -158,8 +158,8 @@ public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentL
     // setCssProperty...................................................................................................
 
     @Override
-    public SpreadsheetTabsComponent setCssProperty(final String name,
-                                                   final String value) {
+    public TabsComponent setCssProperty(final String name,
+                                        final String value) {
         this.tabsPanel.setCssProperty(
             name,
             value
@@ -170,7 +170,7 @@ public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentL
     // removeCssProperty................................................................................................
 
     @Override
-    public SpreadsheetTabsComponent removeCssProperty(final String name) {
+    public TabsComponent removeCssProperty(final String name) {
         this.tabsPanel.removeCssProperty(name);
         return this;
     }
