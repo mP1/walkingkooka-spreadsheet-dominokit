@@ -84,74 +84,74 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             "SpreadsheetFormatterSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    A1: Formatter\n" +
-                "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
+                "    id=SpreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Automatic\" [#/1/Spreadsheet1/cell/A1/formatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
-                "                  \"Badge Error\" [#/1/Spreadsheet1/cell/A1/formatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
-                "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
-                "                  \"Currency\" [#/1/Spreadsheet1/cell/A1/formatter/save/currency] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date\" DISABLED id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
-                "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
-                "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
-                "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Full Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-date] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
-                "                  \"Full Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-date-time] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Full Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-time] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
-                "                  \"Long Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date-time] id=spreadsheetFormatterSelector-formatterNames-13-Link\n" +
-                "                  \"Long Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-time] id=spreadsheetFormatterSelector-formatterNames-14-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
-                "                  \"Medium Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date-time] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
-                "                  \"Medium Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-time] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
-                "                  \"Percent\" [#/1/Spreadsheet1/cell/A1/formatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
-                "                  \"Scientific\" [#/1/Spreadsheet1/cell/A1/formatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-24-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-25-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-26-Link\n" +
+                "                  \"Automatic\" [#/1/Spreadsheet1/cell/A1/formatter/save/automatic] id=SpreadsheetFormatterSelector-formatterNames-0-Link\n" +
+                "                  \"Badge Error\" [#/1/Spreadsheet1/cell/A1/formatter/save/badge-error] id=SpreadsheetFormatterSelector-formatterNames-1-Link\n" +
+                "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=SpreadsheetFormatterSelector-formatterNames-2-Link\n" +
+                "                  \"Currency\" [#/1/Spreadsheet1/cell/A1/formatter/save/currency] id=SpreadsheetFormatterSelector-formatterNames-3-Link\n" +
+                "                  \"Date\" DISABLED id=SpreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time] id=SpreadsheetFormatterSelector-formatterNames-5-Link\n" +
+                "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=SpreadsheetFormatterSelector-formatterNames-6-Link\n" +
+                "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=SpreadsheetFormatterSelector-formatterNames-7-Link\n" +
+                "                  \"Full Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-date] id=SpreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Full Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-date-time] id=SpreadsheetFormatterSelector-formatterNames-9-Link\n" +
+                "                  \"Full Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-time] id=SpreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=SpreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Long Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date] id=SpreadsheetFormatterSelector-formatterNames-12-Link\n" +
+                "                  \"Long Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date-time] id=SpreadsheetFormatterSelector-formatterNames-13-Link\n" +
+                "                  \"Long Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-time] id=SpreadsheetFormatterSelector-formatterNames-14-Link\n" +
+                "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date] id=SpreadsheetFormatterSelector-formatterNames-15-Link\n" +
+                "                  \"Medium Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date-time] id=SpreadsheetFormatterSelector-formatterNames-16-Link\n" +
+                "                  \"Medium Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-time] id=SpreadsheetFormatterSelector-formatterNames-17-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=SpreadsheetFormatterSelector-formatterNames-18-Link\n" +
+                "                  \"Percent\" [#/1/Spreadsheet1/cell/A1/formatter/save/percent] id=SpreadsheetFormatterSelector-formatterNames-19-Link\n" +
+                "                  \"Scientific\" [#/1/Spreadsheet1/cell/A1/formatter/save/scientific] id=SpreadsheetFormatterSelector-formatterNames-20-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=SpreadsheetFormatterSelector-formatterNames-21-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=SpreadsheetFormatterSelector-formatterNames-22-Link\n" +
+                "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=SpreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-26-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=spreadsheetFormatterSelector-Table\n" +
+                "              id=SpreadsheetFormatterSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Short\n" +
-                "                  \"d/m/yy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20d/m/yy] id=spreadsheetFormatterSelector-Short-Link\n" +
+                "                  \"d/m/yy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20d/m/yy] id=SpreadsheetFormatterSelector-Short-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31/12/99\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Medium\n" +
-                "                  \"d mmm yyyy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20d%20mmm%20yyyy] id=spreadsheetFormatterSelector-Medium-Link\n" +
+                "                  \"d mmm yyyy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20d%20mmm%20yyyy] id=SpreadsheetFormatterSelector-Medium-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 Dec. 1999\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Long\n" +
-                "                  \"d mmmm yyyy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20d%20mmmm%20yyyy] id=spreadsheetFormatterSelector-Long-Link\n" +
+                "                  \"d mmmm yyyy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20d%20mmmm%20yyyy] id=SpreadsheetFormatterSelector-Long-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 December 1999\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Full\n" +
-                "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dddd,%20d%20mmmm%20yyyy] id=spreadsheetFormatterSelector-Full-Link\n" +
+                "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dddd,%20d%20mmmm%20yyyy] id=SpreadsheetFormatterSelector-Full-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    Friday, 31 December 1999\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  [#/1/Spreadsheet1/cell/A1/formatter/save/date] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  [#/1/Spreadsheet1/cell/A1/formatter/save/date] id=SpreadsheetFormatterSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    ERROR Empty \"text\"\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -159,16 +159,16 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date] id=spreadsheetFormatterSelector-TextBox\n" +
+                "            [date] id=SpreadsheetFormatterSelector-TextBox\n" +
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" DISABLED id=spreadsheetFormatterSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=spreadsheetFormatterSelector-close-Link\n"
+                "            \"Save\" DISABLED id=SpreadsheetFormatterSelector-save-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-undo-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -187,74 +187,74 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             "SpreadsheetFormatterSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    A1: Formatter\n" +
-                "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
+                "    id=SpreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Automatic\" [#/1/Spreadsheet1/cell/A1/formatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
-                "                  \"Badge Error\" [#/1/Spreadsheet1/cell/A1/formatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
-                "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
-                "                  \"Currency\" [#/1/Spreadsheet1/cell/A1/formatter/save/currency] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date\" DISABLED id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
-                "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
-                "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
-                "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Full Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-date] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
-                "                  \"Full Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-date-time] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Full Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-time] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
-                "                  \"Long Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date-time] id=spreadsheetFormatterSelector-formatterNames-13-Link\n" +
-                "                  \"Long Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-time] id=spreadsheetFormatterSelector-formatterNames-14-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
-                "                  \"Medium Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date-time] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
-                "                  \"Medium Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-time] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
-                "                  \"Percent\" [#/1/Spreadsheet1/cell/A1/formatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
-                "                  \"Scientific\" [#/1/Spreadsheet1/cell/A1/formatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-24-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-25-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-26-Link\n" +
+                "                  \"Automatic\" [#/1/Spreadsheet1/cell/A1/formatter/save/automatic] id=SpreadsheetFormatterSelector-formatterNames-0-Link\n" +
+                "                  \"Badge Error\" [#/1/Spreadsheet1/cell/A1/formatter/save/badge-error] id=SpreadsheetFormatterSelector-formatterNames-1-Link\n" +
+                "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=SpreadsheetFormatterSelector-formatterNames-2-Link\n" +
+                "                  \"Currency\" [#/1/Spreadsheet1/cell/A1/formatter/save/currency] id=SpreadsheetFormatterSelector-formatterNames-3-Link\n" +
+                "                  \"Date\" DISABLED id=SpreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time] id=SpreadsheetFormatterSelector-formatterNames-5-Link\n" +
+                "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=SpreadsheetFormatterSelector-formatterNames-6-Link\n" +
+                "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=SpreadsheetFormatterSelector-formatterNames-7-Link\n" +
+                "                  \"Full Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-date] id=SpreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Full Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-date-time] id=SpreadsheetFormatterSelector-formatterNames-9-Link\n" +
+                "                  \"Full Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-time] id=SpreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=SpreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Long Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date] id=SpreadsheetFormatterSelector-formatterNames-12-Link\n" +
+                "                  \"Long Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date-time] id=SpreadsheetFormatterSelector-formatterNames-13-Link\n" +
+                "                  \"Long Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-time] id=SpreadsheetFormatterSelector-formatterNames-14-Link\n" +
+                "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date] id=SpreadsheetFormatterSelector-formatterNames-15-Link\n" +
+                "                  \"Medium Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date-time] id=SpreadsheetFormatterSelector-formatterNames-16-Link\n" +
+                "                  \"Medium Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-time] id=SpreadsheetFormatterSelector-formatterNames-17-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=SpreadsheetFormatterSelector-formatterNames-18-Link\n" +
+                "                  \"Percent\" [#/1/Spreadsheet1/cell/A1/formatter/save/percent] id=SpreadsheetFormatterSelector-formatterNames-19-Link\n" +
+                "                  \"Scientific\" [#/1/Spreadsheet1/cell/A1/formatter/save/scientific] id=SpreadsheetFormatterSelector-formatterNames-20-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=SpreadsheetFormatterSelector-formatterNames-21-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=SpreadsheetFormatterSelector-formatterNames-22-Link\n" +
+                "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=SpreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-26-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=spreadsheetFormatterSelector-Table\n" +
+                "              id=SpreadsheetFormatterSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Short\n" +
-                "                  \"d/m/yy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20d/m/yy] id=spreadsheetFormatterSelector-Short-Link\n" +
+                "                  \"d/m/yy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20d/m/yy] id=SpreadsheetFormatterSelector-Short-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31/12/99\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Medium\n" +
-                "                  \"d mmm yyyy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20d%20mmm%20yyyy] id=spreadsheetFormatterSelector-Medium-Link\n" +
+                "                  \"d mmm yyyy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20d%20mmm%20yyyy] id=SpreadsheetFormatterSelector-Medium-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 Dec. 1999\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Long\n" +
-                "                  \"d mmmm yyyy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20d%20mmmm%20yyyy] id=spreadsheetFormatterSelector-Long-Link\n" +
+                "                  \"d mmmm yyyy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20d%20mmmm%20yyyy] id=SpreadsheetFormatterSelector-Long-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 December 1999\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Full\n" +
-                "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dddd,%20d%20mmmm%20yyyy] id=spreadsheetFormatterSelector-Full-Link\n" +
+                "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dddd,%20d%20mmmm%20yyyy] id=SpreadsheetFormatterSelector-Full-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    Friday, 31 December 1999\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"dd/mm/yyyy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mm/yyyy] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  \"dd/mm/yyyy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mm/yyyy] id=SpreadsheetFormatterSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31/12/1999\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -263,45 +263,45 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"d\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mm/yyyyd] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
-                "                  \"dd\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mm/yyyydd] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
-                "                  \"ddd\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mm/yyyyddd] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
-                "                  \"dddd\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mm/yyyydddd] id=spreadsheetFormatterSelector-appender-append-3-Link\n" +
-                "                  \"m\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mm/yyyym] id=spreadsheetFormatterSelector-appender-append-4-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mm/yyyymm] id=spreadsheetFormatterSelector-appender-append-5-Link\n" +
-                "                  \"mmm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mm/yyyymmm] id=spreadsheetFormatterSelector-appender-append-6-Link\n" +
-                "                  \"mmmm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mm/yyyymmmm] id=spreadsheetFormatterSelector-appender-append-7-Link\n" +
-                "                  \"mmmmm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mm/yyyymmmmm] id=spreadsheetFormatterSelector-appender-append-8-Link\n" +
+                "                  \"d\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mm/yyyyd] id=SpreadsheetFormatterSelector-appender-append-0-Link\n" +
+                "                  \"dd\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mm/yyyydd] id=SpreadsheetFormatterSelector-appender-append-1-Link\n" +
+                "                  \"ddd\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mm/yyyyddd] id=SpreadsheetFormatterSelector-appender-append-2-Link\n" +
+                "                  \"dddd\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mm/yyyydddd] id=SpreadsheetFormatterSelector-appender-append-3-Link\n" +
+                "                  \"m\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mm/yyyym] id=SpreadsheetFormatterSelector-appender-append-4-Link\n" +
+                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mm/yyyymm] id=SpreadsheetFormatterSelector-appender-append-5-Link\n" +
+                "                  \"mmm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mm/yyyymmm] id=SpreadsheetFormatterSelector-appender-append-6-Link\n" +
+                "                  \"mmmm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mm/yyyymmmm] id=SpreadsheetFormatterSelector-appender-append-7-Link\n" +
+                "                  \"mmmmm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mm/yyyymmmmm] id=SpreadsheetFormatterSelector-appender-append-8-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"dd\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20/mm/yyyy] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
-                "                      \"d\" [/1/Spreadsheet1/cell/A1/formatter/save/date%20d/mm/yyyy] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
-                "                      \"ddd\" [/1/Spreadsheet1/cell/A1/formatter/save/date%20ddd/mm/yyyy] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-1-MenuItem\n" +
-                "                      \"dddd\" [/1/Spreadsheet1/cell/A1/formatter/save/date%20dddd/mm/yyyy] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-2-MenuItem\n" +
-                "                  \"/\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20ddmm/yyyy] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd//yyyy] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
-                "                      \"m\" [/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/m/yyyy] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
-                "                      \"mmm\" [/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mmm/yyyy] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-1-MenuItem\n" +
-                "                      \"mmmm\" [/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mmmm/yyyy] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-2-MenuItem\n" +
-                "                      \"mmmmm\" [/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mmmmm/yyyy] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-3-MenuItem\n" +
-                "                  \"/\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mmyyyy] id=spreadsheetFormatterSelector-removeOrReplace-remove-3-Link\n" +
-                "                  \"yyyy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mm/] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link\n" +
-                "                      \"yy\" [/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mm/yy] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link-replace-0-MenuItem\n" +
+                "                  \"dd\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20/mm/yyyy] id=SpreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
+                "                      \"d\" [/1/Spreadsheet1/cell/A1/formatter/save/date%20d/mm/yyyy] id=SpreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
+                "                      \"ddd\" [/1/Spreadsheet1/cell/A1/formatter/save/date%20ddd/mm/yyyy] id=SpreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-1-MenuItem\n" +
+                "                      \"dddd\" [/1/Spreadsheet1/cell/A1/formatter/save/date%20dddd/mm/yyyy] id=SpreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-2-MenuItem\n" +
+                "                  \"/\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20ddmm/yyyy] id=SpreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd//yyyy] id=SpreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
+                "                      \"m\" [/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/m/yyyy] id=SpreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
+                "                      \"mmm\" [/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mmm/yyyy] id=SpreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-1-MenuItem\n" +
+                "                      \"mmmm\" [/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mmmm/yyyy] id=SpreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-2-MenuItem\n" +
+                "                      \"mmmmm\" [/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mmmmm/yyyy] id=SpreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-3-MenuItem\n" +
+                "                  \"/\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mmyyyy] id=SpreadsheetFormatterSelector-removeOrReplace-remove-3-Link\n" +
+                "                  \"yyyy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mm/] id=SpreadsheetFormatterSelector-removeOrReplace-remove-4-Link\n" +
+                "                      \"yy\" [/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mm/yy] id=SpreadsheetFormatterSelector-removeOrReplace-remove-4-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date dd/mm/yyyy] id=spreadsheetFormatterSelector-TextBox\n" +
+                "            [date dd/mm/yyyy] id=SpreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mm/yyyy] id=spreadsheetFormatterSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=spreadsheetFormatterSelector-close-Link\n"
+                "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mm/yyyy] id=SpreadsheetFormatterSelector-save-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-undo-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -322,74 +322,74 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             "SpreadsheetFormatterSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    A1: Formatter\n" +
-                "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
+                "    id=SpreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Automatic\" [#/1/Spreadsheet1/cell/A1/formatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
-                "                  \"Badge Error\" [#/1/Spreadsheet1/cell/A1/formatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
-                "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
-                "                  \"Currency\" [#/1/Spreadsheet1/cell/A1/formatter/save/currency] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/date] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
-                "                  \"Date Time\" DISABLED id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
-                "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
-                "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Full Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-date] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
-                "                  \"Full Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-date-time] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Full Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-time] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
-                "                  \"Long Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date-time] id=spreadsheetFormatterSelector-formatterNames-13-Link\n" +
-                "                  \"Long Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-time] id=spreadsheetFormatterSelector-formatterNames-14-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
-                "                  \"Medium Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date-time] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
-                "                  \"Medium Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-time] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
-                "                  \"Percent\" [#/1/Spreadsheet1/cell/A1/formatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
-                "                  \"Scientific\" [#/1/Spreadsheet1/cell/A1/formatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-24-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-25-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-26-Link\n" +
+                "                  \"Automatic\" [#/1/Spreadsheet1/cell/A1/formatter/save/automatic] id=SpreadsheetFormatterSelector-formatterNames-0-Link\n" +
+                "                  \"Badge Error\" [#/1/Spreadsheet1/cell/A1/formatter/save/badge-error] id=SpreadsheetFormatterSelector-formatterNames-1-Link\n" +
+                "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=SpreadsheetFormatterSelector-formatterNames-2-Link\n" +
+                "                  \"Currency\" [#/1/Spreadsheet1/cell/A1/formatter/save/currency] id=SpreadsheetFormatterSelector-formatterNames-3-Link\n" +
+                "                  \"Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/date] id=SpreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" DISABLED id=SpreadsheetFormatterSelector-formatterNames-5-Link\n" +
+                "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=SpreadsheetFormatterSelector-formatterNames-6-Link\n" +
+                "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=SpreadsheetFormatterSelector-formatterNames-7-Link\n" +
+                "                  \"Full Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-date] id=SpreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Full Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-date-time] id=SpreadsheetFormatterSelector-formatterNames-9-Link\n" +
+                "                  \"Full Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-time] id=SpreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=SpreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Long Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date] id=SpreadsheetFormatterSelector-formatterNames-12-Link\n" +
+                "                  \"Long Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date-time] id=SpreadsheetFormatterSelector-formatterNames-13-Link\n" +
+                "                  \"Long Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-time] id=SpreadsheetFormatterSelector-formatterNames-14-Link\n" +
+                "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date] id=SpreadsheetFormatterSelector-formatterNames-15-Link\n" +
+                "                  \"Medium Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date-time] id=SpreadsheetFormatterSelector-formatterNames-16-Link\n" +
+                "                  \"Medium Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-time] id=SpreadsheetFormatterSelector-formatterNames-17-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=SpreadsheetFormatterSelector-formatterNames-18-Link\n" +
+                "                  \"Percent\" [#/1/Spreadsheet1/cell/A1/formatter/save/percent] id=SpreadsheetFormatterSelector-formatterNames-19-Link\n" +
+                "                  \"Scientific\" [#/1/Spreadsheet1/cell/A1/formatter/save/scientific] id=SpreadsheetFormatterSelector-formatterNames-20-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=SpreadsheetFormatterSelector-formatterNames-21-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=SpreadsheetFormatterSelector-formatterNames-22-Link\n" +
+                "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=SpreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-26-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=spreadsheetFormatterSelector-Table\n" +
+                "              id=SpreadsheetFormatterSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Short\n" +
-                "                  \"d/m/yy, h:mm AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20d/m/yy,%20h:mm%20AM/PM] id=spreadsheetFormatterSelector-Short-Link\n" +
+                "                  \"d/m/yy, h:mm AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20d/m/yy,%20h:mm%20AM/PM] id=SpreadsheetFormatterSelector-Short-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31/12/99, 12:58 PM\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Medium\n" +
-                "                  \"d mmm yyyy, h:mm:ss AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20d%20mmm%20yyyy,%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Medium-Link\n" +
+                "                  \"d mmm yyyy, h:mm:ss AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20d%20mmm%20yyyy,%20h:mm:ss%20AM/PM] id=SpreadsheetFormatterSelector-Medium-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 Dec. 1999, 12:58:00 PM\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Long\n" +
-                "                  \"d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Long-Link\n" +
+                "                  \"d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=SpreadsheetFormatterSelector-Long-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 December 1999 at 12:58:00 PM\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Full\n" +
-                "                  \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Full-Link\n" +
+                "                  \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=SpreadsheetFormatterSelector-Full-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    Friday, 31 December 1999 at 12:58:00 PM\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"dd/mm/yyyy hh:mm:ss\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  \"dd/mm/yyyy hh:mm:ss\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31/12/1999 12:58:00\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -398,64 +398,64 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \".\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss.] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss0] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
-                "                  \"A/P\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssA/P] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
-                "                  \"AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssAM/PM] id=spreadsheetFormatterSelector-appender-append-3-Link\n" +
-                "                  \"a/p\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssa/p] id=spreadsheetFormatterSelector-appender-append-4-Link\n" +
-                "                  \"am/pm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssam/pm] id=spreadsheetFormatterSelector-appender-append-5-Link\n" +
-                "                  \"d\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssd] id=spreadsheetFormatterSelector-appender-append-6-Link\n" +
-                "                  \"dd\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssdd] id=spreadsheetFormatterSelector-appender-append-7-Link\n" +
-                "                  \"ddd\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssddd] id=spreadsheetFormatterSelector-appender-append-8-Link\n" +
-                "                  \"dddd\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssdddd] id=spreadsheetFormatterSelector-appender-append-9-Link\n" +
-                "                  \"h\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssh] id=spreadsheetFormatterSelector-appender-append-10-Link\n" +
-                "                  \"hh\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:sshh] id=spreadsheetFormatterSelector-appender-append-11-Link\n" +
-                "                  \"m\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssm] id=spreadsheetFormatterSelector-appender-append-12-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssmm] id=spreadsheetFormatterSelector-appender-append-13-Link\n" +
-                "                  \"mmm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmm] id=spreadsheetFormatterSelector-appender-append-14-Link\n" +
-                "                  \"mmmm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmmm] id=spreadsheetFormatterSelector-appender-append-15-Link\n" +
-                "                  \"mmmmm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmmmm] id=spreadsheetFormatterSelector-appender-append-16-Link\n" +
-                "                  \"yy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssyy] id=spreadsheetFormatterSelector-appender-append-17-Link\n" +
-                "                  \"yyyy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssyyyy] id=spreadsheetFormatterSelector-appender-append-18-Link\n" +
+                "                  \".\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss.] id=SpreadsheetFormatterSelector-appender-append-0-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss0] id=SpreadsheetFormatterSelector-appender-append-1-Link\n" +
+                "                  \"A/P\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssA/P] id=SpreadsheetFormatterSelector-appender-append-2-Link\n" +
+                "                  \"AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssAM/PM] id=SpreadsheetFormatterSelector-appender-append-3-Link\n" +
+                "                  \"a/p\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssa/p] id=SpreadsheetFormatterSelector-appender-append-4-Link\n" +
+                "                  \"am/pm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssam/pm] id=SpreadsheetFormatterSelector-appender-append-5-Link\n" +
+                "                  \"d\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssd] id=SpreadsheetFormatterSelector-appender-append-6-Link\n" +
+                "                  \"dd\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssdd] id=SpreadsheetFormatterSelector-appender-append-7-Link\n" +
+                "                  \"ddd\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssddd] id=SpreadsheetFormatterSelector-appender-append-8-Link\n" +
+                "                  \"dddd\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssdddd] id=SpreadsheetFormatterSelector-appender-append-9-Link\n" +
+                "                  \"h\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssh] id=SpreadsheetFormatterSelector-appender-append-10-Link\n" +
+                "                  \"hh\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:sshh] id=SpreadsheetFormatterSelector-appender-append-11-Link\n" +
+                "                  \"m\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssm] id=SpreadsheetFormatterSelector-appender-append-12-Link\n" +
+                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssmm] id=SpreadsheetFormatterSelector-appender-append-13-Link\n" +
+                "                  \"mmm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmm] id=SpreadsheetFormatterSelector-appender-append-14-Link\n" +
+                "                  \"mmmm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmmm] id=SpreadsheetFormatterSelector-appender-append-15-Link\n" +
+                "                  \"mmmmm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmmmm] id=SpreadsheetFormatterSelector-appender-append-16-Link\n" +
+                "                  \"yy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssyy] id=SpreadsheetFormatterSelector-appender-append-17-Link\n" +
+                "                  \"yyyy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssyyyy] id=SpreadsheetFormatterSelector-appender-append-18-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"dd\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
-                "                      \"d\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20d/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
-                "                      \"ddd\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20ddd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-1-MenuItem\n" +
-                "                      \"dddd\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dddd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-2-MenuItem\n" +
-                "                  \"/\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20ddmm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd//yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
-                "                      \"m\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/m/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
-                "                      \"mmm\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mmm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-1-MenuItem\n" +
-                "                      \"mmmm\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mmmm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-2-MenuItem\n" +
-                "                      \"mmmmm\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mmmmm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-3-MenuItem\n" +
-                "                  \"/\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mmyyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-3-Link\n" +
-                "                  \"yyyy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link\n" +
-                "                      \"yy\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link-replace-0-MenuItem\n" +
-                "                  \" \" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyyhh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-5-Link\n" +
-                "                  \"hh\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-6-Link\n" +
-                "                      \"h\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20h:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-6-Link-replace-0-MenuItem\n" +
-                "                  \":\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hhmm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-7-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh::ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-8-Link\n" +
-                "                      \"m\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:m:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-8-Link-replace-0-MenuItem\n" +
-                "                  \":\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mmss] id=spreadsheetFormatterSelector-removeOrReplace-remove-9-Link\n" +
-                "                  \"ss\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:] id=spreadsheetFormatterSelector-removeOrReplace-remove-10-Link\n" +
-                "                      \"s\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:s] id=spreadsheetFormatterSelector-removeOrReplace-remove-10-Link-replace-0-MenuItem\n" +
+                "                  \"dd\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20/mm/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
+                "                      \"d\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20d/mm/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
+                "                      \"ddd\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20ddd/mm/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-1-MenuItem\n" +
+                "                      \"dddd\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dddd/mm/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-2-MenuItem\n" +
+                "                  \"/\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20ddmm/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd//yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
+                "                      \"m\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/m/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
+                "                      \"mmm\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mmm/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-1-MenuItem\n" +
+                "                      \"mmmm\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mmmm/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-2-MenuItem\n" +
+                "                      \"mmmmm\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mmmmm/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-3-MenuItem\n" +
+                "                  \"/\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mmyyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-3-Link\n" +
+                "                  \"yyyy\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/%20hh:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-4-Link\n" +
+                "                      \"yy\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yy%20hh:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-4-Link-replace-0-MenuItem\n" +
+                "                  \" \" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyyhh:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-5-Link\n" +
+                "                  \"hh\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-6-Link\n" +
+                "                      \"h\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20h:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-6-Link-replace-0-MenuItem\n" +
+                "                  \":\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hhmm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-7-Link\n" +
+                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh::ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-8-Link\n" +
+                "                      \"m\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:m:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-8-Link-replace-0-MenuItem\n" +
+                "                  \":\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mmss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-9-Link\n" +
+                "                  \"ss\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:] id=SpreadsheetFormatterSelector-removeOrReplace-remove-10-Link\n" +
+                "                      \"s\" [/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:s] id=SpreadsheetFormatterSelector-removeOrReplace-remove-10-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date-time dd/mm/yyyy hh:mm:ss] id=spreadsheetFormatterSelector-TextBox\n" +
+                "            [date-time dd/mm/yyyy hh:mm:ss] id=SpreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=spreadsheetFormatterSelector-close-Link\n"
+                "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-save-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-undo-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -476,122 +476,122 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             "SpreadsheetFormatterSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    A1: Formatter\n" +
-                "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
+                "    id=SpreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Automatic\" [#/1/Spreadsheet1/cell/A1/formatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
-                "                  \"Badge Error\" [#/1/Spreadsheet1/cell/A1/formatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
-                "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
-                "                  \"Currency\" [#/1/Spreadsheet1/cell/A1/formatter/save/currency] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/date] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
-                "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
-                "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
-                "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Full Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-date] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
-                "                  \"Full Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-date-time] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Full Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-time] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
-                "                  \"Long Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date-time] id=spreadsheetFormatterSelector-formatterNames-13-Link\n" +
-                "                  \"Long Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-time] id=spreadsheetFormatterSelector-formatterNames-14-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
-                "                  \"Medium Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date-time] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
-                "                  \"Medium Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-time] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
-                "                  \"Number\" DISABLED id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
-                "                  \"Percent\" [#/1/Spreadsheet1/cell/A1/formatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
-                "                  \"Scientific\" [#/1/Spreadsheet1/cell/A1/formatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-24-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-25-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-26-Link\n" +
+                "                  \"Automatic\" [#/1/Spreadsheet1/cell/A1/formatter/save/automatic] id=SpreadsheetFormatterSelector-formatterNames-0-Link\n" +
+                "                  \"Badge Error\" [#/1/Spreadsheet1/cell/A1/formatter/save/badge-error] id=SpreadsheetFormatterSelector-formatterNames-1-Link\n" +
+                "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=SpreadsheetFormatterSelector-formatterNames-2-Link\n" +
+                "                  \"Currency\" [#/1/Spreadsheet1/cell/A1/formatter/save/currency] id=SpreadsheetFormatterSelector-formatterNames-3-Link\n" +
+                "                  \"Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/date] id=SpreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time] id=SpreadsheetFormatterSelector-formatterNames-5-Link\n" +
+                "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=SpreadsheetFormatterSelector-formatterNames-6-Link\n" +
+                "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=SpreadsheetFormatterSelector-formatterNames-7-Link\n" +
+                "                  \"Full Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-date] id=SpreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Full Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-date-time] id=SpreadsheetFormatterSelector-formatterNames-9-Link\n" +
+                "                  \"Full Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-time] id=SpreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=SpreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Long Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date] id=SpreadsheetFormatterSelector-formatterNames-12-Link\n" +
+                "                  \"Long Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date-time] id=SpreadsheetFormatterSelector-formatterNames-13-Link\n" +
+                "                  \"Long Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-time] id=SpreadsheetFormatterSelector-formatterNames-14-Link\n" +
+                "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date] id=SpreadsheetFormatterSelector-formatterNames-15-Link\n" +
+                "                  \"Medium Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date-time] id=SpreadsheetFormatterSelector-formatterNames-16-Link\n" +
+                "                  \"Medium Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-time] id=SpreadsheetFormatterSelector-formatterNames-17-Link\n" +
+                "                  \"Number\" DISABLED id=SpreadsheetFormatterSelector-formatterNames-18-Link\n" +
+                "                  \"Percent\" [#/1/Spreadsheet1/cell/A1/formatter/save/percent] id=SpreadsheetFormatterSelector-formatterNames-19-Link\n" +
+                "                  \"Scientific\" [#/1/Spreadsheet1/cell/A1/formatter/save/scientific] id=SpreadsheetFormatterSelector-formatterNames-20-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=SpreadsheetFormatterSelector-formatterNames-21-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=SpreadsheetFormatterSelector-formatterNames-22-Link\n" +
+                "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=SpreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-26-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=spreadsheetFormatterSelector-Table\n" +
+                "              id=SpreadsheetFormatterSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%23,%23%230.%23%23%23] id=SpreadsheetFormatterSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    123.5\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%23,%23%230.%23%23%23] id=SpreadsheetFormatterSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -123.5\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%23,%23%230.%23%23%23] id=SpreadsheetFormatterSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0.\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%23,%23%230] id=SpreadsheetFormatterSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    124\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%23,%23%230] id=SpreadsheetFormatterSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -124\n" +
                 "                ROW 5\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%23,%23%230] id=SpreadsheetFormatterSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0\n" +
                 "                ROW 6\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%23,%23%230%25] id=SpreadsheetFormatterSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    12,350%\n" +
                 "                ROW 7\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%23,%23%230%25] id=SpreadsheetFormatterSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -12,350%\n" +
                 "                ROW 8\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%23,%23%230%25] id=SpreadsheetFormatterSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0%\n" +
                 "                ROW 9\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%23,%23%230.00] id=SpreadsheetFormatterSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $123*50\n" +
                 "                ROW 10\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%23,%23%230.00] id=SpreadsheetFormatterSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $-123*50\n" +
                 "                ROW 11\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%23,%23%230.00] id=SpreadsheetFormatterSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $0*00\n" +
                 "                ROW 12\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"$#0.00\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  \"$#0.00\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00] id=SpreadsheetFormatterSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $1234*50\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -600,37 +600,37 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"#\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00%23] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
-                "                  \"$\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00$] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
-                "                  \"%\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00%25] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
-                "                  \",\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00,] id=spreadsheetFormatterSelector-appender-append-3-Link\n" +
-                "                  \".\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00.] id=spreadsheetFormatterSelector-appender-append-4-Link\n" +
-                "                  \"/\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00/] id=spreadsheetFormatterSelector-appender-append-5-Link\n" +
-                "                  \"?\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00?] id=spreadsheetFormatterSelector-appender-append-6-Link\n" +
-                "                  \"E\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00E] id=spreadsheetFormatterSelector-appender-append-7-Link\n" +
+                "                  \"#\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00%23] id=SpreadsheetFormatterSelector-appender-append-0-Link\n" +
+                "                  \"$\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00$] id=SpreadsheetFormatterSelector-appender-append-1-Link\n" +
+                "                  \"%\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00%25] id=SpreadsheetFormatterSelector-appender-append-2-Link\n" +
+                "                  \",\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00,] id=SpreadsheetFormatterSelector-appender-append-3-Link\n" +
+                "                  \".\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00.] id=SpreadsheetFormatterSelector-appender-append-4-Link\n" +
+                "                  \"/\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00/] id=SpreadsheetFormatterSelector-appender-append-5-Link\n" +
+                "                  \"?\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00?] id=SpreadsheetFormatterSelector-appender-append-6-Link\n" +
+                "                  \"E\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00E] id=SpreadsheetFormatterSelector-appender-append-7-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"$\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%230.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
-                "                  \"#\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$0.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%23.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
-                "                  \".\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%23000] id=spreadsheetFormatterSelector-removeOrReplace-remove-3-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.0] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.0] id=spreadsheetFormatterSelector-removeOrReplace-remove-5-Link\n" +
+                "                  \"$\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20%230.00] id=SpreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
+                "                  \"#\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$0.00] id=SpreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%23.00] id=SpreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
+                "                  \".\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%23000] id=SpreadsheetFormatterSelector-removeOrReplace-remove-3-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.0] id=SpreadsheetFormatterSelector-removeOrReplace-remove-4-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.0] id=SpreadsheetFormatterSelector-removeOrReplace-remove-5-Link\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [number $#0.00] id=spreadsheetFormatterSelector-TextBox\n" +
+                "            [number $#0.00] id=SpreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00] id=spreadsheetFormatterSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=spreadsheetFormatterSelector-close-Link\n"
+                "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00] id=SpreadsheetFormatterSelector-save-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-undo-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -651,56 +651,56 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             "SpreadsheetFormatterSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    A1: Formatter\n" +
-                "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
+                "    id=SpreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Automatic\" [#/1/Spreadsheet1/cell/A1/formatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
-                "                  \"Badge Error\" [#/1/Spreadsheet1/cell/A1/formatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
-                "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
-                "                  \"Currency\" [#/1/Spreadsheet1/cell/A1/formatter/save/currency] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/date] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
-                "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
-                "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
-                "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Full Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-date] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
-                "                  \"Full Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-date-time] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Full Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-time] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
-                "                  \"Long Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date-time] id=spreadsheetFormatterSelector-formatterNames-13-Link\n" +
-                "                  \"Long Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-time] id=spreadsheetFormatterSelector-formatterNames-14-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
-                "                  \"Medium Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date-time] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
-                "                  \"Medium Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-time] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
-                "                  \"Percent\" [#/1/Spreadsheet1/cell/A1/formatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
-                "                  \"Scientific\" [#/1/Spreadsheet1/cell/A1/formatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-24-Link\n" +
-                "                  \"Text\" DISABLED id=spreadsheetFormatterSelector-formatterNames-25-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=spreadsheetFormatterSelector-formatterNames-26-Link\n" +
+                "                  \"Automatic\" [#/1/Spreadsheet1/cell/A1/formatter/save/automatic] id=SpreadsheetFormatterSelector-formatterNames-0-Link\n" +
+                "                  \"Badge Error\" [#/1/Spreadsheet1/cell/A1/formatter/save/badge-error] id=SpreadsheetFormatterSelector-formatterNames-1-Link\n" +
+                "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=SpreadsheetFormatterSelector-formatterNames-2-Link\n" +
+                "                  \"Currency\" [#/1/Spreadsheet1/cell/A1/formatter/save/currency] id=SpreadsheetFormatterSelector-formatterNames-3-Link\n" +
+                "                  \"Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/date] id=SpreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time] id=SpreadsheetFormatterSelector-formatterNames-5-Link\n" +
+                "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=SpreadsheetFormatterSelector-formatterNames-6-Link\n" +
+                "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=SpreadsheetFormatterSelector-formatterNames-7-Link\n" +
+                "                  \"Full Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-date] id=SpreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Full Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-date-time] id=SpreadsheetFormatterSelector-formatterNames-9-Link\n" +
+                "                  \"Full Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-time] id=SpreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=SpreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Long Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date] id=SpreadsheetFormatterSelector-formatterNames-12-Link\n" +
+                "                  \"Long Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date-time] id=SpreadsheetFormatterSelector-formatterNames-13-Link\n" +
+                "                  \"Long Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-time] id=SpreadsheetFormatterSelector-formatterNames-14-Link\n" +
+                "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date] id=SpreadsheetFormatterSelector-formatterNames-15-Link\n" +
+                "                  \"Medium Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date-time] id=SpreadsheetFormatterSelector-formatterNames-16-Link\n" +
+                "                  \"Medium Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-time] id=SpreadsheetFormatterSelector-formatterNames-17-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=SpreadsheetFormatterSelector-formatterNames-18-Link\n" +
+                "                  \"Percent\" [#/1/Spreadsheet1/cell/A1/formatter/save/percent] id=SpreadsheetFormatterSelector-formatterNames-19-Link\n" +
+                "                  \"Scientific\" [#/1/Spreadsheet1/cell/A1/formatter/save/scientific] id=SpreadsheetFormatterSelector-formatterNames-20-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=SpreadsheetFormatterSelector-formatterNames-21-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=SpreadsheetFormatterSelector-formatterNames-22-Link\n" +
+                "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=SpreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
+                "                  \"Text\" DISABLED id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-26-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=spreadsheetFormatterSelector-Table\n" +
+                "              id=SpreadsheetFormatterSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Default\n" +
-                "                  \"@\" [#/1/Spreadsheet1/cell/A1/formatter/save/text%20@] id=spreadsheetFormatterSelector-Default-Link\n" +
+                "                  \"@\" [#/1/Spreadsheet1/cell/A1/formatter/save/text%20@] id=SpreadsheetFormatterSelector-Default-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    Hello 123\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"@ \"Hello\"\" [#/1/Spreadsheet1/cell/A1/formatter/save/text%20@%20%22Hello%22] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  \"@ \"Hello\"\" [#/1/Spreadsheet1/cell/A1/formatter/save/text%20@%20%22Hello%22] id=SpreadsheetFormatterSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    Hello World 123 Hello\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -709,29 +709,29 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"* \" [#/1/Spreadsheet1/cell/A1/formatter/save/text%20@%20%22Hello%22*%20] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
-                "                  \"@\" [#/1/Spreadsheet1/cell/A1/formatter/save/text%20@%20%22Hello%22@] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
-                "                  \"_ \" [#/1/Spreadsheet1/cell/A1/formatter/save/text%20@%20%22Hello%22_%20] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
+                "                  \"* \" [#/1/Spreadsheet1/cell/A1/formatter/save/text%20@%20%22Hello%22*%20] id=SpreadsheetFormatterSelector-appender-append-0-Link\n" +
+                "                  \"@\" [#/1/Spreadsheet1/cell/A1/formatter/save/text%20@%20%22Hello%22@] id=SpreadsheetFormatterSelector-appender-append-1-Link\n" +
+                "                  \"_ \" [#/1/Spreadsheet1/cell/A1/formatter/save/text%20@%20%22Hello%22_%20] id=SpreadsheetFormatterSelector-appender-append-2-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"@\" [#/1/Spreadsheet1/cell/A1/formatter/save/text%20%20%22Hello%22] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
-                "                  \" \" [#/1/Spreadsheet1/cell/A1/formatter/save/text%20@%22Hello%22] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"\"Hello\"\" [#/1/Spreadsheet1/cell/A1/formatter/save/text%20@%20] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
+                "                  \"@\" [#/1/Spreadsheet1/cell/A1/formatter/save/text%20%20%22Hello%22] id=SpreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
+                "                  \" \" [#/1/Spreadsheet1/cell/A1/formatter/save/text%20@%22Hello%22] id=SpreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"\"Hello\"\" [#/1/Spreadsheet1/cell/A1/formatter/save/text%20@%20] id=SpreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [text @ \"Hello\"] id=spreadsheetFormatterSelector-TextBox\n" +
+                "            [text @ \"Hello\"] id=SpreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/text%20@%20%22Hello%22] id=spreadsheetFormatterSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=spreadsheetFormatterSelector-close-Link\n"
+                "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/text%20@%20%22Hello%22] id=SpreadsheetFormatterSelector-save-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-undo-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -752,62 +752,62 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             "SpreadsheetFormatterSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    A1: Formatter\n" +
-                "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
+                "    id=SpreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Automatic\" [#/1/Spreadsheet1/cell/A1/formatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
-                "                  \"Badge Error\" [#/1/Spreadsheet1/cell/A1/formatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
-                "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
-                "                  \"Currency\" [#/1/Spreadsheet1/cell/A1/formatter/save/currency] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/date] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
-                "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
-                "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
-                "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Full Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-date] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
-                "                  \"Full Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-date-time] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Full Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-time] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
-                "                  \"Long Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date-time] id=spreadsheetFormatterSelector-formatterNames-13-Link\n" +
-                "                  \"Long Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-time] id=spreadsheetFormatterSelector-formatterNames-14-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
-                "                  \"Medium Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date-time] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
-                "                  \"Medium Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-time] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
-                "                  \"Percent\" [#/1/Spreadsheet1/cell/A1/formatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
-                "                  \"Scientific\" [#/1/Spreadsheet1/cell/A1/formatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-24-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=spreadsheetFormatterSelector-formatterNames-25-Link\n" +
-                "                  \"Time\" DISABLED id=spreadsheetFormatterSelector-formatterNames-26-Link\n" +
+                "                  \"Automatic\" [#/1/Spreadsheet1/cell/A1/formatter/save/automatic] id=SpreadsheetFormatterSelector-formatterNames-0-Link\n" +
+                "                  \"Badge Error\" [#/1/Spreadsheet1/cell/A1/formatter/save/badge-error] id=SpreadsheetFormatterSelector-formatterNames-1-Link\n" +
+                "                  \"Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/collection] id=SpreadsheetFormatterSelector-formatterNames-2-Link\n" +
+                "                  \"Currency\" [#/1/Spreadsheet1/cell/A1/formatter/save/currency] id=SpreadsheetFormatterSelector-formatterNames-3-Link\n" +
+                "                  \"Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/date] id=SpreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time] id=SpreadsheetFormatterSelector-formatterNames-5-Link\n" +
+                "                  \"Default Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/default-text] id=SpreadsheetFormatterSelector-formatterNames-6-Link\n" +
+                "                  \"Expression\" [#/1/Spreadsheet1/cell/A1/formatter/save/expression] id=SpreadsheetFormatterSelector-formatterNames-7-Link\n" +
+                "                  \"Full Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-date] id=SpreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Full Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-date-time] id=SpreadsheetFormatterSelector-formatterNames-9-Link\n" +
+                "                  \"Full Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/full-time] id=SpreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/cell/A1/formatter/save/general] id=SpreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Long Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date] id=SpreadsheetFormatterSelector-formatterNames-12-Link\n" +
+                "                  \"Long Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-date-time] id=SpreadsheetFormatterSelector-formatterNames-13-Link\n" +
+                "                  \"Long Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/long-time] id=SpreadsheetFormatterSelector-formatterNames-14-Link\n" +
+                "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date] id=SpreadsheetFormatterSelector-formatterNames-15-Link\n" +
+                "                  \"Medium Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-date-time] id=SpreadsheetFormatterSelector-formatterNames-16-Link\n" +
+                "                  \"Medium Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/medium-time] id=SpreadsheetFormatterSelector-formatterNames-17-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/formatter/save/number] id=SpreadsheetFormatterSelector-formatterNames-18-Link\n" +
+                "                  \"Percent\" [#/1/Spreadsheet1/cell/A1/formatter/save/percent] id=SpreadsheetFormatterSelector-formatterNames-19-Link\n" +
+                "                  \"Scientific\" [#/1/Spreadsheet1/cell/A1/formatter/save/scientific] id=SpreadsheetFormatterSelector-formatterNames-20-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=SpreadsheetFormatterSelector-formatterNames-21-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=SpreadsheetFormatterSelector-formatterNames-22-Link\n" +
+                "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=SpreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
+                "                  \"Time\" DISABLED id=SpreadsheetFormatterSelector-formatterNames-26-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=spreadsheetFormatterSelector-Table\n" +
+                "              id=SpreadsheetFormatterSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Short\n" +
-                "                  \"h:mm AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20h:mm%20AM/PM] id=spreadsheetFormatterSelector-Short-Link\n" +
+                "                  \"h:mm AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20h:mm%20AM/PM] id=SpreadsheetFormatterSelector-Short-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    12:58 PM\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Long\n" +
-                "                  \"h:mm:ss AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Long-Link\n" +
+                "                  \"h:mm:ss AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20h:mm:ss%20AM/PM] id=SpreadsheetFormatterSelector-Long-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    12:58:00 PM\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"hh:mm\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mm] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  \"hh:mm\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mm] id=SpreadsheetFormatterSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    12:58\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -816,38 +816,38 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \".\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mm.] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mm0] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
-                "                  \"A/P\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mmA/P] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
-                "                  \"AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mmAM/PM] id=spreadsheetFormatterSelector-appender-append-3-Link\n" +
-                "                  \"a/p\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mma/p] id=spreadsheetFormatterSelector-appender-append-4-Link\n" +
-                "                  \"am/pm\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mmam/pm] id=spreadsheetFormatterSelector-appender-append-5-Link\n" +
-                "                  \"h\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mmh] id=spreadsheetFormatterSelector-appender-append-6-Link\n" +
-                "                  \"hh\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mmhh] id=spreadsheetFormatterSelector-appender-append-7-Link\n" +
-                "                  \"s\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mms] id=spreadsheetFormatterSelector-appender-append-8-Link\n" +
-                "                  \"ss\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mmss] id=spreadsheetFormatterSelector-appender-append-9-Link\n" +
+                "                  \".\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mm.] id=SpreadsheetFormatterSelector-appender-append-0-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mm0] id=SpreadsheetFormatterSelector-appender-append-1-Link\n" +
+                "                  \"A/P\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mmA/P] id=SpreadsheetFormatterSelector-appender-append-2-Link\n" +
+                "                  \"AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mmAM/PM] id=SpreadsheetFormatterSelector-appender-append-3-Link\n" +
+                "                  \"a/p\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mma/p] id=SpreadsheetFormatterSelector-appender-append-4-Link\n" +
+                "                  \"am/pm\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mmam/pm] id=SpreadsheetFormatterSelector-appender-append-5-Link\n" +
+                "                  \"h\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mmh] id=SpreadsheetFormatterSelector-appender-append-6-Link\n" +
+                "                  \"hh\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mmhh] id=SpreadsheetFormatterSelector-appender-append-7-Link\n" +
+                "                  \"s\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mms] id=SpreadsheetFormatterSelector-appender-append-8-Link\n" +
+                "                  \"ss\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mmss] id=SpreadsheetFormatterSelector-appender-append-9-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"hh\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20:mm] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
-                "                      \"h\" [/1/Spreadsheet1/cell/A1/formatter/save/time%20h:mm] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
-                "                  \":\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hhmm] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
-                "                      \"m\" [/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:m] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
+                "                  \"hh\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20:mm] id=SpreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
+                "                      \"h\" [/1/Spreadsheet1/cell/A1/formatter/save/time%20h:mm] id=SpreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
+                "                  \":\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hhmm] id=SpreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:] id=SpreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
+                "                      \"m\" [/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:m] id=SpreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [time hh:mm] id=spreadsheetFormatterSelector-TextBox\n" +
+                "            [time hh:mm] id=SpreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mm] id=spreadsheetFormatterSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=spreadsheetFormatterSelector-close-Link\n"
+                "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mm] id=SpreadsheetFormatterSelector-save-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-undo-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -868,88 +868,88 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             "SpreadsheetFormatterSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Spreadsheet: Date Formatter (dateFormatter)\n" +
-                "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
+                "    id=SpreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetMetadataPropertyNameTabsComponent\n" +
                 "        TabsComponent\n" +
                 "          TAB 0 SELECTED\n" +
-                "            \"Date\" DISABLED id=spreadsheetFormatterSelector-Tabs-dateFormatter\n" +
+                "            \"Date\" DISABLED id=SpreadsheetFormatterSelector-Tabs-dateFormatter\n" +
                 "          TAB 1\n" +
-                "            \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter] id=spreadsheetFormatterSelector-Tabs-dateTimeFormatter\n" +
+                "            \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter] id=SpreadsheetFormatterSelector-Tabs-dateTimeFormatter\n" +
                 "          TAB 2\n" +
-                "            \"Error\" [#/1/Spreadsheet1/spreadsheet/errorFormatter] id=spreadsheetFormatterSelector-Tabs-errorFormatter\n" +
+                "            \"Error\" [#/1/Spreadsheet1/spreadsheet/errorFormatter] id=SpreadsheetFormatterSelector-Tabs-errorFormatter\n" +
                 "          TAB 3\n" +
-                "            \"Number\" [#/1/Spreadsheet1/spreadsheet/numberFormatter] id=spreadsheetFormatterSelector-Tabs-numberFormatter\n" +
+                "            \"Number\" [#/1/Spreadsheet1/spreadsheet/numberFormatter] id=SpreadsheetFormatterSelector-Tabs-numberFormatter\n" +
                 "          TAB 4\n" +
-                "            \"Text\" [#/1/Spreadsheet1/spreadsheet/textFormatter] id=spreadsheetFormatterSelector-Tabs-textFormatter\n" +
+                "            \"Text\" [#/1/Spreadsheet1/spreadsheet/textFormatter] id=SpreadsheetFormatterSelector-Tabs-textFormatter\n" +
                 "          TAB 5\n" +
-                "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter] id=spreadsheetFormatterSelector-Tabs-timeFormatter\n" +
+                "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter] id=SpreadsheetFormatterSelector-Tabs-timeFormatter\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Automatic\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
-                "                  \"Badge Error\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
-                "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
-                "                  \"Currency\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/currency] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date\" DISABLED id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
-                "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
-                "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
-                "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Full Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/full-date] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
-                "                  \"Full Date Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/full-date-time] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Full Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/full-time] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/long-date] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
-                "                  \"Long Date Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/long-date-time] id=spreadsheetFormatterSelector-formatterNames-13-Link\n" +
-                "                  \"Long Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/long-time] id=spreadsheetFormatterSelector-formatterNames-14-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/medium-date] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
-                "                  \"Medium Date Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/medium-date-time] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
-                "                  \"Medium Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/medium-time] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
-                "                  \"Percent\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
-                "                  \"Scientific\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-24-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-25-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-26-Link\n" +
+                "                  \"Automatic\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/automatic] id=SpreadsheetFormatterSelector-formatterNames-0-Link\n" +
+                "                  \"Badge Error\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/badge-error] id=SpreadsheetFormatterSelector-formatterNames-1-Link\n" +
+                "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/collection] id=SpreadsheetFormatterSelector-formatterNames-2-Link\n" +
+                "                  \"Currency\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/currency] id=SpreadsheetFormatterSelector-formatterNames-3-Link\n" +
+                "                  \"Date\" DISABLED id=SpreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date-time] id=SpreadsheetFormatterSelector-formatterNames-5-Link\n" +
+                "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/default-text] id=SpreadsheetFormatterSelector-formatterNames-6-Link\n" +
+                "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/expression] id=SpreadsheetFormatterSelector-formatterNames-7-Link\n" +
+                "                  \"Full Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/full-date] id=SpreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Full Date Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/full-date-time] id=SpreadsheetFormatterSelector-formatterNames-9-Link\n" +
+                "                  \"Full Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/full-time] id=SpreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/general] id=SpreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Long Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/long-date] id=SpreadsheetFormatterSelector-formatterNames-12-Link\n" +
+                "                  \"Long Date Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/long-date-time] id=SpreadsheetFormatterSelector-formatterNames-13-Link\n" +
+                "                  \"Long Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/long-time] id=SpreadsheetFormatterSelector-formatterNames-14-Link\n" +
+                "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/medium-date] id=SpreadsheetFormatterSelector-formatterNames-15-Link\n" +
+                "                  \"Medium Date Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/medium-date-time] id=SpreadsheetFormatterSelector-formatterNames-16-Link\n" +
+                "                  \"Medium Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/medium-time] id=SpreadsheetFormatterSelector-formatterNames-17-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/number] id=SpreadsheetFormatterSelector-formatterNames-18-Link\n" +
+                "                  \"Percent\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/percent] id=SpreadsheetFormatterSelector-formatterNames-19-Link\n" +
+                "                  \"Scientific\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/scientific] id=SpreadsheetFormatterSelector-formatterNames-20-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/short-date] id=SpreadsheetFormatterSelector-formatterNames-21-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/short-date-time] id=SpreadsheetFormatterSelector-formatterNames-22-Link\n" +
+                "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/short-time] id=SpreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-26-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=spreadsheetFormatterSelector-Table\n" +
+                "              id=SpreadsheetFormatterSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Short\n" +
-                "                  \"d/m/yy\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20d/m/yy] id=spreadsheetFormatterSelector-Short-Link\n" +
+                "                  \"d/m/yy\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20d/m/yy] id=SpreadsheetFormatterSelector-Short-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31/12/99\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Medium\n" +
-                "                  \"d mmm yyyy\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20d%20mmm%20yyyy] id=spreadsheetFormatterSelector-Medium-Link\n" +
+                "                  \"d mmm yyyy\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20d%20mmm%20yyyy] id=SpreadsheetFormatterSelector-Medium-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 Dec. 1999\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Long\n" +
-                "                  \"d mmmm yyyy\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20d%20mmmm%20yyyy] id=spreadsheetFormatterSelector-Long-Link\n" +
+                "                  \"d mmmm yyyy\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20d%20mmmm%20yyyy] id=SpreadsheetFormatterSelector-Long-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 December 1999\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Full\n" +
-                "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dddd,%20d%20mmmm%20yyyy] id=spreadsheetFormatterSelector-Full-Link\n" +
+                "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dddd,%20d%20mmmm%20yyyy] id=SpreadsheetFormatterSelector-Full-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    Friday, 31 December 1999\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"dd/mm/yyyy\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mm/yyyy] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  \"dd/mm/yyyy\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mm/yyyy] id=SpreadsheetFormatterSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31/12/1999\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -958,45 +958,45 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"d\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mm/yyyyd] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
-                "                  \"dd\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mm/yyyydd] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
-                "                  \"ddd\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mm/yyyyddd] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
-                "                  \"dddd\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mm/yyyydddd] id=spreadsheetFormatterSelector-appender-append-3-Link\n" +
-                "                  \"m\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mm/yyyym] id=spreadsheetFormatterSelector-appender-append-4-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mm/yyyymm] id=spreadsheetFormatterSelector-appender-append-5-Link\n" +
-                "                  \"mmm\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mm/yyyymmm] id=spreadsheetFormatterSelector-appender-append-6-Link\n" +
-                "                  \"mmmm\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mm/yyyymmmm] id=spreadsheetFormatterSelector-appender-append-7-Link\n" +
-                "                  \"mmmmm\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mm/yyyymmmmm] id=spreadsheetFormatterSelector-appender-append-8-Link\n" +
+                "                  \"d\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mm/yyyyd] id=SpreadsheetFormatterSelector-appender-append-0-Link\n" +
+                "                  \"dd\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mm/yyyydd] id=SpreadsheetFormatterSelector-appender-append-1-Link\n" +
+                "                  \"ddd\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mm/yyyyddd] id=SpreadsheetFormatterSelector-appender-append-2-Link\n" +
+                "                  \"dddd\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mm/yyyydddd] id=SpreadsheetFormatterSelector-appender-append-3-Link\n" +
+                "                  \"m\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mm/yyyym] id=SpreadsheetFormatterSelector-appender-append-4-Link\n" +
+                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mm/yyyymm] id=SpreadsheetFormatterSelector-appender-append-5-Link\n" +
+                "                  \"mmm\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mm/yyyymmm] id=SpreadsheetFormatterSelector-appender-append-6-Link\n" +
+                "                  \"mmmm\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mm/yyyymmmm] id=SpreadsheetFormatterSelector-appender-append-7-Link\n" +
+                "                  \"mmmmm\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mm/yyyymmmmm] id=SpreadsheetFormatterSelector-appender-append-8-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"dd\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20/mm/yyyy] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
-                "                      \"d\" [/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20d/mm/yyyy] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
-                "                      \"ddd\" [/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20ddd/mm/yyyy] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-1-MenuItem\n" +
-                "                      \"dddd\" [/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dddd/mm/yyyy] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-2-MenuItem\n" +
-                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20ddmm/yyyy] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd//yyyy] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
-                "                      \"m\" [/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/m/yyyy] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
-                "                      \"mmm\" [/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mmm/yyyy] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-1-MenuItem\n" +
-                "                      \"mmmm\" [/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mmmm/yyyy] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-2-MenuItem\n" +
-                "                      \"mmmmm\" [/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mmmmm/yyyy] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-3-MenuItem\n" +
-                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mmyyyy] id=spreadsheetFormatterSelector-removeOrReplace-remove-3-Link\n" +
-                "                  \"yyyy\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mm/] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link\n" +
-                "                      \"yy\" [/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mm/yy] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link-replace-0-MenuItem\n" +
+                "                  \"dd\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20/mm/yyyy] id=SpreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
+                "                      \"d\" [/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20d/mm/yyyy] id=SpreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
+                "                      \"ddd\" [/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20ddd/mm/yyyy] id=SpreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-1-MenuItem\n" +
+                "                      \"dddd\" [/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dddd/mm/yyyy] id=SpreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-2-MenuItem\n" +
+                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20ddmm/yyyy] id=SpreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd//yyyy] id=SpreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
+                "                      \"m\" [/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/m/yyyy] id=SpreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
+                "                      \"mmm\" [/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mmm/yyyy] id=SpreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-1-MenuItem\n" +
+                "                      \"mmmm\" [/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mmmm/yyyy] id=SpreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-2-MenuItem\n" +
+                "                      \"mmmmm\" [/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mmmmm/yyyy] id=SpreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-3-MenuItem\n" +
+                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mmyyyy] id=SpreadsheetFormatterSelector-removeOrReplace-remove-3-Link\n" +
+                "                  \"yyyy\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mm/] id=SpreadsheetFormatterSelector-removeOrReplace-remove-4-Link\n" +
+                "                      \"yy\" [/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mm/yy] id=SpreadsheetFormatterSelector-removeOrReplace-remove-4-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date dd/mm/yyyy] id=spreadsheetFormatterSelector-TextBox\n" +
+                "            [date dd/mm/yyyy] id=SpreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mm/yyyy] id=spreadsheetFormatterSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20yyyy/mm/dd] id=spreadsheetFormatterSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=spreadsheetFormatterSelector-close-Link\n"
+                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mm/yyyy] id=SpreadsheetFormatterSelector-save-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20yyyy/mm/dd] id=SpreadsheetFormatterSelector-undo-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -1017,88 +1017,88 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             "SpreadsheetFormatterSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Spreadsheet: Date Time Formatter (dateTimeFormatter)\n" +
-                "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
+                "    id=SpreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetMetadataPropertyNameTabsComponent\n" +
                 "        TabsComponent\n" +
                 "          TAB 0\n" +
-                "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter] id=spreadsheetFormatterSelector-Tabs-dateFormatter\n" +
+                "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter] id=SpreadsheetFormatterSelector-Tabs-dateFormatter\n" +
                 "          TAB 1 SELECTED\n" +
-                "            \"Date Time\" DISABLED id=spreadsheetFormatterSelector-Tabs-dateTimeFormatter\n" +
+                "            \"Date Time\" DISABLED id=SpreadsheetFormatterSelector-Tabs-dateTimeFormatter\n" +
                 "          TAB 2\n" +
-                "            \"Error\" [#/1/Spreadsheet1/spreadsheet/errorFormatter] id=spreadsheetFormatterSelector-Tabs-errorFormatter\n" +
+                "            \"Error\" [#/1/Spreadsheet1/spreadsheet/errorFormatter] id=SpreadsheetFormatterSelector-Tabs-errorFormatter\n" +
                 "          TAB 3\n" +
-                "            \"Number\" [#/1/Spreadsheet1/spreadsheet/numberFormatter] id=spreadsheetFormatterSelector-Tabs-numberFormatter\n" +
+                "            \"Number\" [#/1/Spreadsheet1/spreadsheet/numberFormatter] id=SpreadsheetFormatterSelector-Tabs-numberFormatter\n" +
                 "          TAB 4\n" +
-                "            \"Text\" [#/1/Spreadsheet1/spreadsheet/textFormatter] id=spreadsheetFormatterSelector-Tabs-textFormatter\n" +
+                "            \"Text\" [#/1/Spreadsheet1/spreadsheet/textFormatter] id=SpreadsheetFormatterSelector-Tabs-textFormatter\n" +
                 "          TAB 5\n" +
-                "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter] id=spreadsheetFormatterSelector-Tabs-timeFormatter\n" +
+                "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter] id=SpreadsheetFormatterSelector-Tabs-timeFormatter\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Automatic\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
-                "                  \"Badge Error\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
-                "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
-                "                  \"Currency\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/currency] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
-                "                  \"Date Time\" DISABLED id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
-                "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
-                "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Full Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/full-date] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
-                "                  \"Full Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/full-date-time] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Full Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/full-time] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/long-date] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
-                "                  \"Long Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/long-date-time] id=spreadsheetFormatterSelector-formatterNames-13-Link\n" +
-                "                  \"Long Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/long-time] id=spreadsheetFormatterSelector-formatterNames-14-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/medium-date] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
-                "                  \"Medium Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/medium-date-time] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
-                "                  \"Medium Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/medium-time] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
-                "                  \"Percent\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
-                "                  \"Scientific\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-24-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-25-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-26-Link\n" +
+                "                  \"Automatic\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/automatic] id=SpreadsheetFormatterSelector-formatterNames-0-Link\n" +
+                "                  \"Badge Error\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/badge-error] id=SpreadsheetFormatterSelector-formatterNames-1-Link\n" +
+                "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/collection] id=SpreadsheetFormatterSelector-formatterNames-2-Link\n" +
+                "                  \"Currency\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/currency] id=SpreadsheetFormatterSelector-formatterNames-3-Link\n" +
+                "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date] id=SpreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" DISABLED id=SpreadsheetFormatterSelector-formatterNames-5-Link\n" +
+                "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/default-text] id=SpreadsheetFormatterSelector-formatterNames-6-Link\n" +
+                "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/expression] id=SpreadsheetFormatterSelector-formatterNames-7-Link\n" +
+                "                  \"Full Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/full-date] id=SpreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Full Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/full-date-time] id=SpreadsheetFormatterSelector-formatterNames-9-Link\n" +
+                "                  \"Full Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/full-time] id=SpreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/general] id=SpreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Long Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/long-date] id=SpreadsheetFormatterSelector-formatterNames-12-Link\n" +
+                "                  \"Long Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/long-date-time] id=SpreadsheetFormatterSelector-formatterNames-13-Link\n" +
+                "                  \"Long Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/long-time] id=SpreadsheetFormatterSelector-formatterNames-14-Link\n" +
+                "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/medium-date] id=SpreadsheetFormatterSelector-formatterNames-15-Link\n" +
+                "                  \"Medium Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/medium-date-time] id=SpreadsheetFormatterSelector-formatterNames-16-Link\n" +
+                "                  \"Medium Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/medium-time] id=SpreadsheetFormatterSelector-formatterNames-17-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/number] id=SpreadsheetFormatterSelector-formatterNames-18-Link\n" +
+                "                  \"Percent\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/percent] id=SpreadsheetFormatterSelector-formatterNames-19-Link\n" +
+                "                  \"Scientific\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/scientific] id=SpreadsheetFormatterSelector-formatterNames-20-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/short-date] id=SpreadsheetFormatterSelector-formatterNames-21-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/short-date-time] id=SpreadsheetFormatterSelector-formatterNames-22-Link\n" +
+                "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/short-time] id=SpreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-26-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=spreadsheetFormatterSelector-Table\n" +
+                "              id=SpreadsheetFormatterSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Short\n" +
-                "                  \"d/m/yy, h:mm AM/PM\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20d/m/yy,%20h:mm%20AM/PM] id=spreadsheetFormatterSelector-Short-Link\n" +
+                "                  \"d/m/yy, h:mm AM/PM\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20d/m/yy,%20h:mm%20AM/PM] id=SpreadsheetFormatterSelector-Short-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31/12/99, 12:58 PM\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Medium\n" +
-                "                  \"d mmm yyyy, h:mm:ss AM/PM\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20d%20mmm%20yyyy,%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Medium-Link\n" +
+                "                  \"d mmm yyyy, h:mm:ss AM/PM\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20d%20mmm%20yyyy,%20h:mm:ss%20AM/PM] id=SpreadsheetFormatterSelector-Medium-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 Dec. 1999, 12:58:00 PM\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Long\n" +
-                "                  \"d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Long-Link\n" +
+                "                  \"d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=SpreadsheetFormatterSelector-Long-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 December 1999 at 12:58:00 PM\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Full\n" +
-                "                  \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Full-Link\n" +
+                "                  \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=SpreadsheetFormatterSelector-Full-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    Friday, 31 December 1999 at 12:58:00 PM\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"dd/mm/yyyy hh:mm:ss\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  \"dd/mm/yyyy hh:mm:ss\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31/12/1999 12:58:00\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -1107,64 +1107,64 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \".\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss.] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss0] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
-                "                  \"A/P\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssA/P] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
-                "                  \"AM/PM\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssAM/PM] id=spreadsheetFormatterSelector-appender-append-3-Link\n" +
-                "                  \"a/p\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssa/p] id=spreadsheetFormatterSelector-appender-append-4-Link\n" +
-                "                  \"am/pm\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssam/pm] id=spreadsheetFormatterSelector-appender-append-5-Link\n" +
-                "                  \"d\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssd] id=spreadsheetFormatterSelector-appender-append-6-Link\n" +
-                "                  \"dd\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssdd] id=spreadsheetFormatterSelector-appender-append-7-Link\n" +
-                "                  \"ddd\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssddd] id=spreadsheetFormatterSelector-appender-append-8-Link\n" +
-                "                  \"dddd\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssdddd] id=spreadsheetFormatterSelector-appender-append-9-Link\n" +
-                "                  \"h\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssh] id=spreadsheetFormatterSelector-appender-append-10-Link\n" +
-                "                  \"hh\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:sshh] id=spreadsheetFormatterSelector-appender-append-11-Link\n" +
-                "                  \"m\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssm] id=spreadsheetFormatterSelector-appender-append-12-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssmm] id=spreadsheetFormatterSelector-appender-append-13-Link\n" +
-                "                  \"mmm\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmm] id=spreadsheetFormatterSelector-appender-append-14-Link\n" +
-                "                  \"mmmm\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmmm] id=spreadsheetFormatterSelector-appender-append-15-Link\n" +
-                "                  \"mmmmm\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmmmm] id=spreadsheetFormatterSelector-appender-append-16-Link\n" +
-                "                  \"yy\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssyy] id=spreadsheetFormatterSelector-appender-append-17-Link\n" +
-                "                  \"yyyy\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssyyyy] id=spreadsheetFormatterSelector-appender-append-18-Link\n" +
+                "                  \".\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss.] id=SpreadsheetFormatterSelector-appender-append-0-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss0] id=SpreadsheetFormatterSelector-appender-append-1-Link\n" +
+                "                  \"A/P\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssA/P] id=SpreadsheetFormatterSelector-appender-append-2-Link\n" +
+                "                  \"AM/PM\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssAM/PM] id=SpreadsheetFormatterSelector-appender-append-3-Link\n" +
+                "                  \"a/p\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssa/p] id=SpreadsheetFormatterSelector-appender-append-4-Link\n" +
+                "                  \"am/pm\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssam/pm] id=SpreadsheetFormatterSelector-appender-append-5-Link\n" +
+                "                  \"d\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssd] id=SpreadsheetFormatterSelector-appender-append-6-Link\n" +
+                "                  \"dd\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssdd] id=SpreadsheetFormatterSelector-appender-append-7-Link\n" +
+                "                  \"ddd\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssddd] id=SpreadsheetFormatterSelector-appender-append-8-Link\n" +
+                "                  \"dddd\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssdddd] id=SpreadsheetFormatterSelector-appender-append-9-Link\n" +
+                "                  \"h\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssh] id=SpreadsheetFormatterSelector-appender-append-10-Link\n" +
+                "                  \"hh\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:sshh] id=SpreadsheetFormatterSelector-appender-append-11-Link\n" +
+                "                  \"m\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssm] id=SpreadsheetFormatterSelector-appender-append-12-Link\n" +
+                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssmm] id=SpreadsheetFormatterSelector-appender-append-13-Link\n" +
+                "                  \"mmm\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmm] id=SpreadsheetFormatterSelector-appender-append-14-Link\n" +
+                "                  \"mmmm\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmmm] id=SpreadsheetFormatterSelector-appender-append-15-Link\n" +
+                "                  \"mmmmm\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmmmm] id=SpreadsheetFormatterSelector-appender-append-16-Link\n" +
+                "                  \"yy\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssyy] id=SpreadsheetFormatterSelector-appender-append-17-Link\n" +
+                "                  \"yyyy\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ssyyyy] id=SpreadsheetFormatterSelector-appender-append-18-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"dd\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
-                "                      \"d\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20d/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
-                "                      \"ddd\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20ddd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-1-MenuItem\n" +
-                "                      \"dddd\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dddd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-2-MenuItem\n" +
-                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20ddmm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd//yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
-                "                      \"m\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/m/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
-                "                      \"mmm\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mmm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-1-MenuItem\n" +
-                "                      \"mmmm\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mmmm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-2-MenuItem\n" +
-                "                      \"mmmmm\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mmmmm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-3-MenuItem\n" +
-                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mmyyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-3-Link\n" +
-                "                  \"yyyy\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link\n" +
-                "                      \"yy\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yy%20hh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link-replace-0-MenuItem\n" +
-                "                  \" \" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyyhh:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-5-Link\n" +
-                "                  \"hh\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-6-Link\n" +
-                "                      \"h\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20h:mm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-6-Link-replace-0-MenuItem\n" +
-                "                  \":\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hhmm:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-7-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh::ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-8-Link\n" +
-                "                      \"m\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:m:ss] id=spreadsheetFormatterSelector-removeOrReplace-remove-8-Link-replace-0-MenuItem\n" +
-                "                  \":\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mmss] id=spreadsheetFormatterSelector-removeOrReplace-remove-9-Link\n" +
-                "                  \"ss\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:] id=spreadsheetFormatterSelector-removeOrReplace-remove-10-Link\n" +
-                "                      \"s\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:s] id=spreadsheetFormatterSelector-removeOrReplace-remove-10-Link-replace-0-MenuItem\n" +
+                "                  \"dd\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20/mm/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
+                "                      \"d\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20d/mm/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
+                "                      \"ddd\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20ddd/mm/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-1-MenuItem\n" +
+                "                      \"dddd\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dddd/mm/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-2-MenuItem\n" +
+                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20ddmm/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd//yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
+                "                      \"m\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/m/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
+                "                      \"mmm\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mmm/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-1-MenuItem\n" +
+                "                      \"mmmm\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mmmm/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-2-MenuItem\n" +
+                "                      \"mmmmm\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mmmmm/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-3-MenuItem\n" +
+                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mmyyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-3-Link\n" +
+                "                  \"yyyy\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/%20hh:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-4-Link\n" +
+                "                      \"yy\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yy%20hh:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-4-Link-replace-0-MenuItem\n" +
+                "                  \" \" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyyhh:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-5-Link\n" +
+                "                  \"hh\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-6-Link\n" +
+                "                      \"h\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20h:mm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-6-Link-replace-0-MenuItem\n" +
+                "                  \":\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hhmm:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-7-Link\n" +
+                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh::ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-8-Link\n" +
+                "                      \"m\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:m:ss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-8-Link-replace-0-MenuItem\n" +
+                "                  \":\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mmss] id=SpreadsheetFormatterSelector-removeOrReplace-remove-9-Link\n" +
+                "                  \"ss\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:] id=SpreadsheetFormatterSelector-removeOrReplace-remove-10-Link\n" +
+                "                      \"s\" [/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:s] id=SpreadsheetFormatterSelector-removeOrReplace-remove-10-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date-time dd/mm/yyyy hh:mm:ss] id=spreadsheetFormatterSelector-TextBox\n" +
+                "            [date-time dd/mm/yyyy hh:mm:ss] id=SpreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20yyyy/mm/dd%20hh:mm] id=spreadsheetFormatterSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=spreadsheetFormatterSelector-close-Link\n"
+                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-save-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20yyyy/mm/dd%20hh:mm] id=SpreadsheetFormatterSelector-undo-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -1185,136 +1185,136 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             "SpreadsheetFormatterSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Spreadsheet: Error Formatter (errorFormatter)\n" +
-                "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
+                "    id=SpreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetMetadataPropertyNameTabsComponent\n" +
                 "        TabsComponent\n" +
                 "          TAB 0\n" +
-                "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter] id=spreadsheetFormatterSelector-Tabs-dateFormatter\n" +
+                "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter] id=SpreadsheetFormatterSelector-Tabs-dateFormatter\n" +
                 "          TAB 1\n" +
-                "            \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter] id=spreadsheetFormatterSelector-Tabs-dateTimeFormatter\n" +
+                "            \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter] id=SpreadsheetFormatterSelector-Tabs-dateTimeFormatter\n" +
                 "          TAB 2 SELECTED\n" +
-                "            \"Error\" DISABLED id=spreadsheetFormatterSelector-Tabs-errorFormatter\n" +
+                "            \"Error\" DISABLED id=SpreadsheetFormatterSelector-Tabs-errorFormatter\n" +
                 "          TAB 3\n" +
-                "            \"Number\" [#/1/Spreadsheet1/spreadsheet/numberFormatter] id=spreadsheetFormatterSelector-Tabs-numberFormatter\n" +
+                "            \"Number\" [#/1/Spreadsheet1/spreadsheet/numberFormatter] id=SpreadsheetFormatterSelector-Tabs-numberFormatter\n" +
                 "          TAB 4\n" +
-                "            \"Text\" [#/1/Spreadsheet1/spreadsheet/textFormatter] id=spreadsheetFormatterSelector-Tabs-textFormatter\n" +
+                "            \"Text\" [#/1/Spreadsheet1/spreadsheet/textFormatter] id=SpreadsheetFormatterSelector-Tabs-textFormatter\n" +
                 "          TAB 5\n" +
-                "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter] id=spreadsheetFormatterSelector-Tabs-timeFormatter\n" +
+                "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter] id=SpreadsheetFormatterSelector-Tabs-timeFormatter\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Automatic\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
-                "                  \"Badge Error\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
-                "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
-                "                  \"Currency\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/currency] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/date] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
-                "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
-                "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
-                "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Full Date\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/full-date] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
-                "                  \"Full Date Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/full-date-time] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Full Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/full-time] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/long-date] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
-                "                  \"Long Date Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/long-date-time] id=spreadsheetFormatterSelector-formatterNames-13-Link\n" +
-                "                  \"Long Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/long-time] id=spreadsheetFormatterSelector-formatterNames-14-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/medium-date] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
-                "                  \"Medium Date Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/medium-date-time] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
-                "                  \"Medium Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/medium-time] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
-                "                  \"Number\" DISABLED id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
-                "                  \"Percent\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
-                "                  \"Scientific\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-24-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-25-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-26-Link\n" +
+                "                  \"Automatic\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/automatic] id=SpreadsheetFormatterSelector-formatterNames-0-Link\n" +
+                "                  \"Badge Error\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/badge-error] id=SpreadsheetFormatterSelector-formatterNames-1-Link\n" +
+                "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/collection] id=SpreadsheetFormatterSelector-formatterNames-2-Link\n" +
+                "                  \"Currency\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/currency] id=SpreadsheetFormatterSelector-formatterNames-3-Link\n" +
+                "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/date] id=SpreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/date-time] id=SpreadsheetFormatterSelector-formatterNames-5-Link\n" +
+                "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/default-text] id=SpreadsheetFormatterSelector-formatterNames-6-Link\n" +
+                "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/expression] id=SpreadsheetFormatterSelector-formatterNames-7-Link\n" +
+                "                  \"Full Date\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/full-date] id=SpreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Full Date Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/full-date-time] id=SpreadsheetFormatterSelector-formatterNames-9-Link\n" +
+                "                  \"Full Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/full-time] id=SpreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/general] id=SpreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Long Date\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/long-date] id=SpreadsheetFormatterSelector-formatterNames-12-Link\n" +
+                "                  \"Long Date Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/long-date-time] id=SpreadsheetFormatterSelector-formatterNames-13-Link\n" +
+                "                  \"Long Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/long-time] id=SpreadsheetFormatterSelector-formatterNames-14-Link\n" +
+                "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/medium-date] id=SpreadsheetFormatterSelector-formatterNames-15-Link\n" +
+                "                  \"Medium Date Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/medium-date-time] id=SpreadsheetFormatterSelector-formatterNames-16-Link\n" +
+                "                  \"Medium Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/medium-time] id=SpreadsheetFormatterSelector-formatterNames-17-Link\n" +
+                "                  \"Number\" DISABLED id=SpreadsheetFormatterSelector-formatterNames-18-Link\n" +
+                "                  \"Percent\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/percent] id=SpreadsheetFormatterSelector-formatterNames-19-Link\n" +
+                "                  \"Scientific\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/scientific] id=SpreadsheetFormatterSelector-formatterNames-20-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/short-date] id=SpreadsheetFormatterSelector-formatterNames-21-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/short-date-time] id=SpreadsheetFormatterSelector-formatterNames-22-Link\n" +
+                "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/short-time] id=SpreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-26-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=spreadsheetFormatterSelector-Table\n" +
+                "              id=SpreadsheetFormatterSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%23,%23%230.%23%23%23] id=SpreadsheetFormatterSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    123.5\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%23,%23%230.%23%23%23] id=SpreadsheetFormatterSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -123.5\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%23,%23%230.%23%23%23] id=SpreadsheetFormatterSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0.\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%23,%23%230] id=SpreadsheetFormatterSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    124\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%23,%23%230] id=SpreadsheetFormatterSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -124\n" +
                 "                ROW 5\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%23,%23%230] id=SpreadsheetFormatterSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0\n" +
                 "                ROW 6\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%23,%23%230%25] id=SpreadsheetFormatterSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    12,350%\n" +
                 "                ROW 7\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%23,%23%230%25] id=SpreadsheetFormatterSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -12,350%\n" +
                 "                ROW 8\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%23,%23%230%25] id=SpreadsheetFormatterSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0%\n" +
                 "                ROW 9\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%23,%23%230.00] id=SpreadsheetFormatterSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $123*50\n" +
                 "                ROW 10\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%23,%23%230.00] id=SpreadsheetFormatterSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $-123*50\n" +
                 "                ROW 11\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%23,%23%230.00] id=SpreadsheetFormatterSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $0*00\n" +
                 "                ROW 12\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"$#0.00\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  \"$#0.00\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00] id=SpreadsheetFormatterSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $1234*50\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -1323,37 +1323,37 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"#\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00%23] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
-                "                  \"$\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00$] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
-                "                  \"%\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00%25] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
-                "                  \",\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00,] id=spreadsheetFormatterSelector-appender-append-3-Link\n" +
-                "                  \".\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00.] id=spreadsheetFormatterSelector-appender-append-4-Link\n" +
-                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00/] id=spreadsheetFormatterSelector-appender-append-5-Link\n" +
-                "                  \"?\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00?] id=spreadsheetFormatterSelector-appender-append-6-Link\n" +
-                "                  \"E\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00E] id=spreadsheetFormatterSelector-appender-append-7-Link\n" +
+                "                  \"#\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00%23] id=SpreadsheetFormatterSelector-appender-append-0-Link\n" +
+                "                  \"$\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00$] id=SpreadsheetFormatterSelector-appender-append-1-Link\n" +
+                "                  \"%\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00%25] id=SpreadsheetFormatterSelector-appender-append-2-Link\n" +
+                "                  \",\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00,] id=SpreadsheetFormatterSelector-appender-append-3-Link\n" +
+                "                  \".\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00.] id=SpreadsheetFormatterSelector-appender-append-4-Link\n" +
+                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00/] id=SpreadsheetFormatterSelector-appender-append-5-Link\n" +
+                "                  \"?\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00?] id=SpreadsheetFormatterSelector-appender-append-6-Link\n" +
+                "                  \"E\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00E] id=SpreadsheetFormatterSelector-appender-append-7-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"$\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%230.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
-                "                  \"#\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$0.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%23.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
-                "                  \".\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%23000] id=spreadsheetFormatterSelector-removeOrReplace-remove-3-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.0] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.0] id=spreadsheetFormatterSelector-removeOrReplace-remove-5-Link\n" +
+                "                  \"$\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20%230.00] id=SpreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
+                "                  \"#\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$0.00] id=SpreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%23.00] id=SpreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
+                "                  \".\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%23000] id=SpreadsheetFormatterSelector-removeOrReplace-remove-3-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.0] id=SpreadsheetFormatterSelector-removeOrReplace-remove-4-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.0] id=SpreadsheetFormatterSelector-removeOrReplace-remove-5-Link\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [number $#0.00] id=spreadsheetFormatterSelector-TextBox\n" +
+                "            [number $#0.00] id=SpreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00] id=spreadsheetFormatterSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/badge-error%20text%20@] id=spreadsheetFormatterSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=spreadsheetFormatterSelector-close-Link\n"
+                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00] id=SpreadsheetFormatterSelector-save-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/badge-error%20text%20@] id=SpreadsheetFormatterSelector-undo-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -1374,136 +1374,136 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             "SpreadsheetFormatterSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Spreadsheet: Number Formatter (numberFormatter)\n" +
-                "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
+                "    id=SpreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetMetadataPropertyNameTabsComponent\n" +
                 "        TabsComponent\n" +
                 "          TAB 0\n" +
-                "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter] id=spreadsheetFormatterSelector-Tabs-dateFormatter\n" +
+                "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter] id=SpreadsheetFormatterSelector-Tabs-dateFormatter\n" +
                 "          TAB 1\n" +
-                "            \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter] id=spreadsheetFormatterSelector-Tabs-dateTimeFormatter\n" +
+                "            \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter] id=SpreadsheetFormatterSelector-Tabs-dateTimeFormatter\n" +
                 "          TAB 2\n" +
-                "            \"Error\" [#/1/Spreadsheet1/spreadsheet/errorFormatter] id=spreadsheetFormatterSelector-Tabs-errorFormatter\n" +
+                "            \"Error\" [#/1/Spreadsheet1/spreadsheet/errorFormatter] id=SpreadsheetFormatterSelector-Tabs-errorFormatter\n" +
                 "          TAB 3 SELECTED\n" +
-                "            \"Number\" DISABLED id=spreadsheetFormatterSelector-Tabs-numberFormatter\n" +
+                "            \"Number\" DISABLED id=SpreadsheetFormatterSelector-Tabs-numberFormatter\n" +
                 "          TAB 4\n" +
-                "            \"Text\" [#/1/Spreadsheet1/spreadsheet/textFormatter] id=spreadsheetFormatterSelector-Tabs-textFormatter\n" +
+                "            \"Text\" [#/1/Spreadsheet1/spreadsheet/textFormatter] id=SpreadsheetFormatterSelector-Tabs-textFormatter\n" +
                 "          TAB 5\n" +
-                "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter] id=spreadsheetFormatterSelector-Tabs-timeFormatter\n" +
+                "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter] id=SpreadsheetFormatterSelector-Tabs-timeFormatter\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Automatic\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
-                "                  \"Badge Error\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
-                "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
-                "                  \"Currency\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/currency] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/date] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
-                "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
-                "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
-                "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Full Date\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/full-date] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
-                "                  \"Full Date Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/full-date-time] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Full Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/full-time] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/long-date] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
-                "                  \"Long Date Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/long-date-time] id=spreadsheetFormatterSelector-formatterNames-13-Link\n" +
-                "                  \"Long Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/long-time] id=spreadsheetFormatterSelector-formatterNames-14-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/medium-date] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
-                "                  \"Medium Date Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/medium-date-time] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
-                "                  \"Medium Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/medium-time] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
-                "                  \"Number\" DISABLED id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
-                "                  \"Percent\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
-                "                  \"Scientific\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-24-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-25-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-26-Link\n" +
+                "                  \"Automatic\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/automatic] id=SpreadsheetFormatterSelector-formatterNames-0-Link\n" +
+                "                  \"Badge Error\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/badge-error] id=SpreadsheetFormatterSelector-formatterNames-1-Link\n" +
+                "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/collection] id=SpreadsheetFormatterSelector-formatterNames-2-Link\n" +
+                "                  \"Currency\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/currency] id=SpreadsheetFormatterSelector-formatterNames-3-Link\n" +
+                "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/date] id=SpreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/date-time] id=SpreadsheetFormatterSelector-formatterNames-5-Link\n" +
+                "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/default-text] id=SpreadsheetFormatterSelector-formatterNames-6-Link\n" +
+                "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/expression] id=SpreadsheetFormatterSelector-formatterNames-7-Link\n" +
+                "                  \"Full Date\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/full-date] id=SpreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Full Date Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/full-date-time] id=SpreadsheetFormatterSelector-formatterNames-9-Link\n" +
+                "                  \"Full Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/full-time] id=SpreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/general] id=SpreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Long Date\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/long-date] id=SpreadsheetFormatterSelector-formatterNames-12-Link\n" +
+                "                  \"Long Date Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/long-date-time] id=SpreadsheetFormatterSelector-formatterNames-13-Link\n" +
+                "                  \"Long Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/long-time] id=SpreadsheetFormatterSelector-formatterNames-14-Link\n" +
+                "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/medium-date] id=SpreadsheetFormatterSelector-formatterNames-15-Link\n" +
+                "                  \"Medium Date Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/medium-date-time] id=SpreadsheetFormatterSelector-formatterNames-16-Link\n" +
+                "                  \"Medium Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/medium-time] id=SpreadsheetFormatterSelector-formatterNames-17-Link\n" +
+                "                  \"Number\" DISABLED id=SpreadsheetFormatterSelector-formatterNames-18-Link\n" +
+                "                  \"Percent\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/percent] id=SpreadsheetFormatterSelector-formatterNames-19-Link\n" +
+                "                  \"Scientific\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/scientific] id=SpreadsheetFormatterSelector-formatterNames-20-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/short-date] id=SpreadsheetFormatterSelector-formatterNames-21-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/short-date-time] id=SpreadsheetFormatterSelector-formatterNames-22-Link\n" +
+                "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/short-time] id=SpreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-26-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=spreadsheetFormatterSelector-Table\n" +
+                "              id=SpreadsheetFormatterSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%23,%23%230.%23%23%23] id=SpreadsheetFormatterSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    123.5\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%23,%23%230.%23%23%23] id=SpreadsheetFormatterSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -123.5\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%23,%23%230.%23%23%23] id=SpreadsheetFormatterSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0.\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%23,%23%230] id=SpreadsheetFormatterSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    124\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%23,%23%230] id=SpreadsheetFormatterSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -124\n" +
                 "                ROW 5\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%23,%23%230] id=SpreadsheetFormatterSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0\n" +
                 "                ROW 6\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%23,%23%230%25] id=SpreadsheetFormatterSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    12,350%\n" +
                 "                ROW 7\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%23,%23%230%25] id=SpreadsheetFormatterSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -12,350%\n" +
                 "                ROW 8\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%23,%23%230%25] id=SpreadsheetFormatterSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0%\n" +
                 "                ROW 9\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%23,%23%230.00] id=SpreadsheetFormatterSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $123*50\n" +
                 "                ROW 10\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%23,%23%230.00] id=SpreadsheetFormatterSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $-123*50\n" +
                 "                ROW 11\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%23,%23%230.00] id=SpreadsheetFormatterSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $0*00\n" +
                 "                ROW 12\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"$#0.00\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  \"$#0.00\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00] id=SpreadsheetFormatterSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $1234*50\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -1512,37 +1512,37 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"#\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00%23] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
-                "                  \"$\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00$] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
-                "                  \"%\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00%25] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
-                "                  \",\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00,] id=spreadsheetFormatterSelector-appender-append-3-Link\n" +
-                "                  \".\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00.] id=spreadsheetFormatterSelector-appender-append-4-Link\n" +
-                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00/] id=spreadsheetFormatterSelector-appender-append-5-Link\n" +
-                "                  \"?\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00?] id=spreadsheetFormatterSelector-appender-append-6-Link\n" +
-                "                  \"E\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00E] id=spreadsheetFormatterSelector-appender-append-7-Link\n" +
+                "                  \"#\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00%23] id=SpreadsheetFormatterSelector-appender-append-0-Link\n" +
+                "                  \"$\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00$] id=SpreadsheetFormatterSelector-appender-append-1-Link\n" +
+                "                  \"%\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00%25] id=SpreadsheetFormatterSelector-appender-append-2-Link\n" +
+                "                  \",\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00,] id=SpreadsheetFormatterSelector-appender-append-3-Link\n" +
+                "                  \".\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00.] id=SpreadsheetFormatterSelector-appender-append-4-Link\n" +
+                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00/] id=SpreadsheetFormatterSelector-appender-append-5-Link\n" +
+                "                  \"?\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00?] id=SpreadsheetFormatterSelector-appender-append-6-Link\n" +
+                "                  \"E\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00E] id=SpreadsheetFormatterSelector-appender-append-7-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"$\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%230.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
-                "                  \"#\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$0.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%23.00] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
-                "                  \".\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%23000] id=spreadsheetFormatterSelector-removeOrReplace-remove-3-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.0] id=spreadsheetFormatterSelector-removeOrReplace-remove-4-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.0] id=spreadsheetFormatterSelector-removeOrReplace-remove-5-Link\n" +
+                "                  \"$\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20%230.00] id=SpreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
+                "                  \"#\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$0.00] id=SpreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%23.00] id=SpreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
+                "                  \".\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%23000] id=SpreadsheetFormatterSelector-removeOrReplace-remove-3-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.0] id=SpreadsheetFormatterSelector-removeOrReplace-remove-4-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.0] id=SpreadsheetFormatterSelector-removeOrReplace-remove-5-Link\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [number $#0.00] id=spreadsheetFormatterSelector-TextBox\n" +
+                "            [number $#0.00] id=SpreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00] id=spreadsheetFormatterSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%200.%23;0.%23;0] id=spreadsheetFormatterSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=spreadsheetFormatterSelector-close-Link\n"
+                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00] id=SpreadsheetFormatterSelector-save-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%200.%23;0.%23;0] id=SpreadsheetFormatterSelector-undo-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -1563,70 +1563,70 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             "SpreadsheetFormatterSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Spreadsheet: Text Formatter (textFormatter)\n" +
-                "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
+                "    id=SpreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetMetadataPropertyNameTabsComponent\n" +
                 "        TabsComponent\n" +
                 "          TAB 0\n" +
-                "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter] id=spreadsheetFormatterSelector-Tabs-dateFormatter\n" +
+                "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter] id=SpreadsheetFormatterSelector-Tabs-dateFormatter\n" +
                 "          TAB 1\n" +
-                "            \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter] id=spreadsheetFormatterSelector-Tabs-dateTimeFormatter\n" +
+                "            \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter] id=SpreadsheetFormatterSelector-Tabs-dateTimeFormatter\n" +
                 "          TAB 2\n" +
-                "            \"Error\" [#/1/Spreadsheet1/spreadsheet/errorFormatter] id=spreadsheetFormatterSelector-Tabs-errorFormatter\n" +
+                "            \"Error\" [#/1/Spreadsheet1/spreadsheet/errorFormatter] id=SpreadsheetFormatterSelector-Tabs-errorFormatter\n" +
                 "          TAB 3\n" +
-                "            \"Number\" [#/1/Spreadsheet1/spreadsheet/numberFormatter] id=spreadsheetFormatterSelector-Tabs-numberFormatter\n" +
+                "            \"Number\" [#/1/Spreadsheet1/spreadsheet/numberFormatter] id=SpreadsheetFormatterSelector-Tabs-numberFormatter\n" +
                 "          TAB 4 SELECTED\n" +
-                "            \"Text\" DISABLED id=spreadsheetFormatterSelector-Tabs-textFormatter\n" +
+                "            \"Text\" DISABLED id=SpreadsheetFormatterSelector-Tabs-textFormatter\n" +
                 "          TAB 5\n" +
-                "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter] id=spreadsheetFormatterSelector-Tabs-timeFormatter\n" +
+                "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter] id=SpreadsheetFormatterSelector-Tabs-timeFormatter\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Automatic\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
-                "                  \"Badge Error\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
-                "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
-                "                  \"Currency\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/currency] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/date] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
-                "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
-                "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
-                "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Full Date\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/full-date] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
-                "                  \"Full Date Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/full-date-time] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Full Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/full-time] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/long-date] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
-                "                  \"Long Date Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/long-date-time] id=spreadsheetFormatterSelector-formatterNames-13-Link\n" +
-                "                  \"Long Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/long-time] id=spreadsheetFormatterSelector-formatterNames-14-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/medium-date] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
-                "                  \"Medium Date Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/medium-date-time] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
-                "                  \"Medium Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/medium-time] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
-                "                  \"Percent\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
-                "                  \"Scientific\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-24-Link\n" +
-                "                  \"Text\" DISABLED id=spreadsheetFormatterSelector-formatterNames-25-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/time] id=spreadsheetFormatterSelector-formatterNames-26-Link\n" +
+                "                  \"Automatic\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/automatic] id=SpreadsheetFormatterSelector-formatterNames-0-Link\n" +
+                "                  \"Badge Error\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/badge-error] id=SpreadsheetFormatterSelector-formatterNames-1-Link\n" +
+                "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/collection] id=SpreadsheetFormatterSelector-formatterNames-2-Link\n" +
+                "                  \"Currency\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/currency] id=SpreadsheetFormatterSelector-formatterNames-3-Link\n" +
+                "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/date] id=SpreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/date-time] id=SpreadsheetFormatterSelector-formatterNames-5-Link\n" +
+                "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/default-text] id=SpreadsheetFormatterSelector-formatterNames-6-Link\n" +
+                "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/expression] id=SpreadsheetFormatterSelector-formatterNames-7-Link\n" +
+                "                  \"Full Date\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/full-date] id=SpreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Full Date Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/full-date-time] id=SpreadsheetFormatterSelector-formatterNames-9-Link\n" +
+                "                  \"Full Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/full-time] id=SpreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/general] id=SpreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Long Date\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/long-date] id=SpreadsheetFormatterSelector-formatterNames-12-Link\n" +
+                "                  \"Long Date Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/long-date-time] id=SpreadsheetFormatterSelector-formatterNames-13-Link\n" +
+                "                  \"Long Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/long-time] id=SpreadsheetFormatterSelector-formatterNames-14-Link\n" +
+                "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/medium-date] id=SpreadsheetFormatterSelector-formatterNames-15-Link\n" +
+                "                  \"Medium Date Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/medium-date-time] id=SpreadsheetFormatterSelector-formatterNames-16-Link\n" +
+                "                  \"Medium Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/medium-time] id=SpreadsheetFormatterSelector-formatterNames-17-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/number] id=SpreadsheetFormatterSelector-formatterNames-18-Link\n" +
+                "                  \"Percent\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/percent] id=SpreadsheetFormatterSelector-formatterNames-19-Link\n" +
+                "                  \"Scientific\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/scientific] id=SpreadsheetFormatterSelector-formatterNames-20-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/short-date] id=SpreadsheetFormatterSelector-formatterNames-21-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/short-date-time] id=SpreadsheetFormatterSelector-formatterNames-22-Link\n" +
+                "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/short-time] id=SpreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
+                "                  \"Text\" DISABLED id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-26-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=spreadsheetFormatterSelector-Table\n" +
+                "              id=SpreadsheetFormatterSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Default\n" +
-                "                  \"@\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@] id=spreadsheetFormatterSelector-Default-Link\n" +
+                "                  \"@\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@] id=SpreadsheetFormatterSelector-Default-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    Hello 123\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"@ \"Hello\"\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@%20%22Hello%22] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  \"@ \"Hello\"\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@%20%22Hello%22] id=SpreadsheetFormatterSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    Hello World 123 Hello\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -1635,29 +1635,29 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"* \" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@%20%22Hello%22*%20] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
-                "                  \"@\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@%20%22Hello%22@] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
-                "                  \"_ \" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@%20%22Hello%22_%20] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
+                "                  \"* \" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@%20%22Hello%22*%20] id=SpreadsheetFormatterSelector-appender-append-0-Link\n" +
+                "                  \"@\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@%20%22Hello%22@] id=SpreadsheetFormatterSelector-appender-append-1-Link\n" +
+                "                  \"_ \" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@%20%22Hello%22_%20] id=SpreadsheetFormatterSelector-appender-append-2-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"@\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20%20%22Hello%22] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
-                "                  \" \" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@%22Hello%22] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"\"Hello\"\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@%20] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
+                "                  \"@\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20%20%22Hello%22] id=SpreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
+                "                  \" \" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@%22Hello%22] id=SpreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"\"Hello\"\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@%20] id=SpreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [text @ \"Hello\"] id=spreadsheetFormatterSelector-TextBox\n" +
+                "            [text @ \"Hello\"] id=SpreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@%20%22Hello%22] id=spreadsheetFormatterSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@] id=spreadsheetFormatterSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=spreadsheetFormatterSelector-close-Link\n"
+                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@%20%22Hello%22] id=SpreadsheetFormatterSelector-save-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@] id=SpreadsheetFormatterSelector-undo-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -1678,76 +1678,76 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             "SpreadsheetFormatterSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Spreadsheet: Time Formatter (timeFormatter)\n" +
-                "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
+                "    id=SpreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetMetadataPropertyNameTabsComponent\n" +
                 "        TabsComponent\n" +
                 "          TAB 0\n" +
-                "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter] id=spreadsheetFormatterSelector-Tabs-dateFormatter\n" +
+                "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter] id=SpreadsheetFormatterSelector-Tabs-dateFormatter\n" +
                 "          TAB 1\n" +
-                "            \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter] id=spreadsheetFormatterSelector-Tabs-dateTimeFormatter\n" +
+                "            \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter] id=SpreadsheetFormatterSelector-Tabs-dateTimeFormatter\n" +
                 "          TAB 2\n" +
-                "            \"Error\" [#/1/Spreadsheet1/spreadsheet/errorFormatter] id=spreadsheetFormatterSelector-Tabs-errorFormatter\n" +
+                "            \"Error\" [#/1/Spreadsheet1/spreadsheet/errorFormatter] id=SpreadsheetFormatterSelector-Tabs-errorFormatter\n" +
                 "          TAB 3\n" +
-                "            \"Number\" [#/1/Spreadsheet1/spreadsheet/numberFormatter] id=spreadsheetFormatterSelector-Tabs-numberFormatter\n" +
+                "            \"Number\" [#/1/Spreadsheet1/spreadsheet/numberFormatter] id=SpreadsheetFormatterSelector-Tabs-numberFormatter\n" +
                 "          TAB 4\n" +
-                "            \"Text\" [#/1/Spreadsheet1/spreadsheet/textFormatter] id=spreadsheetFormatterSelector-Tabs-textFormatter\n" +
+                "            \"Text\" [#/1/Spreadsheet1/spreadsheet/textFormatter] id=SpreadsheetFormatterSelector-Tabs-textFormatter\n" +
                 "          TAB 5 SELECTED\n" +
-                "            \"Time\" DISABLED id=spreadsheetFormatterSelector-Tabs-timeFormatter\n" +
+                "            \"Time\" DISABLED id=SpreadsheetFormatterSelector-Tabs-timeFormatter\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Automatic\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/automatic] id=spreadsheetFormatterSelector-formatterNames-0-Link\n" +
-                "                  \"Badge Error\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/badge-error] id=spreadsheetFormatterSelector-formatterNames-1-Link\n" +
-                "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/collection] id=spreadsheetFormatterSelector-formatterNames-2-Link\n" +
-                "                  \"Currency\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/currency] id=spreadsheetFormatterSelector-formatterNames-3-Link\n" +
-                "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/date] id=spreadsheetFormatterSelector-formatterNames-4-Link\n" +
-                "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/date-time] id=spreadsheetFormatterSelector-formatterNames-5-Link\n" +
-                "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/default-text] id=spreadsheetFormatterSelector-formatterNames-6-Link\n" +
-                "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/expression] id=spreadsheetFormatterSelector-formatterNames-7-Link\n" +
-                "                  \"Full Date\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/full-date] id=spreadsheetFormatterSelector-formatterNames-8-Link\n" +
-                "                  \"Full Date Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/full-date-time] id=spreadsheetFormatterSelector-formatterNames-9-Link\n" +
-                "                  \"Full Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/full-time] id=spreadsheetFormatterSelector-formatterNames-10-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/general] id=spreadsheetFormatterSelector-formatterNames-11-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/long-date] id=spreadsheetFormatterSelector-formatterNames-12-Link\n" +
-                "                  \"Long Date Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/long-date-time] id=spreadsheetFormatterSelector-formatterNames-13-Link\n" +
-                "                  \"Long Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/long-time] id=spreadsheetFormatterSelector-formatterNames-14-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/medium-date] id=spreadsheetFormatterSelector-formatterNames-15-Link\n" +
-                "                  \"Medium Date Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/medium-date-time] id=spreadsheetFormatterSelector-formatterNames-16-Link\n" +
-                "                  \"Medium Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/medium-time] id=spreadsheetFormatterSelector-formatterNames-17-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/number] id=spreadsheetFormatterSelector-formatterNames-18-Link\n" +
-                "                  \"Percent\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/percent] id=spreadsheetFormatterSelector-formatterNames-19-Link\n" +
-                "                  \"Scientific\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/scientific] id=spreadsheetFormatterSelector-formatterNames-20-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/short-date] id=spreadsheetFormatterSelector-formatterNames-21-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/short-date-time] id=spreadsheetFormatterSelector-formatterNames-22-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/short-time] id=spreadsheetFormatterSelector-formatterNames-23-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/spreadsheet-pattern-collection] id=spreadsheetFormatterSelector-formatterNames-24-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/text] id=spreadsheetFormatterSelector-formatterNames-25-Link\n" +
-                "                  \"Time\" DISABLED id=spreadsheetFormatterSelector-formatterNames-26-Link\n" +
+                "                  \"Automatic\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/automatic] id=SpreadsheetFormatterSelector-formatterNames-0-Link\n" +
+                "                  \"Badge Error\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/badge-error] id=SpreadsheetFormatterSelector-formatterNames-1-Link\n" +
+                "                  \"Collection\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/collection] id=SpreadsheetFormatterSelector-formatterNames-2-Link\n" +
+                "                  \"Currency\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/currency] id=SpreadsheetFormatterSelector-formatterNames-3-Link\n" +
+                "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/date] id=SpreadsheetFormatterSelector-formatterNames-4-Link\n" +
+                "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/date-time] id=SpreadsheetFormatterSelector-formatterNames-5-Link\n" +
+                "                  \"Default Text\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/default-text] id=SpreadsheetFormatterSelector-formatterNames-6-Link\n" +
+                "                  \"Expression\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/expression] id=SpreadsheetFormatterSelector-formatterNames-7-Link\n" +
+                "                  \"Full Date\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/full-date] id=SpreadsheetFormatterSelector-formatterNames-8-Link\n" +
+                "                  \"Full Date Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/full-date-time] id=SpreadsheetFormatterSelector-formatterNames-9-Link\n" +
+                "                  \"Full Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/full-time] id=SpreadsheetFormatterSelector-formatterNames-10-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/general] id=SpreadsheetFormatterSelector-formatterNames-11-Link\n" +
+                "                  \"Long Date\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/long-date] id=SpreadsheetFormatterSelector-formatterNames-12-Link\n" +
+                "                  \"Long Date Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/long-date-time] id=SpreadsheetFormatterSelector-formatterNames-13-Link\n" +
+                "                  \"Long Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/long-time] id=SpreadsheetFormatterSelector-formatterNames-14-Link\n" +
+                "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/medium-date] id=SpreadsheetFormatterSelector-formatterNames-15-Link\n" +
+                "                  \"Medium Date Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/medium-date-time] id=SpreadsheetFormatterSelector-formatterNames-16-Link\n" +
+                "                  \"Medium Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/medium-time] id=SpreadsheetFormatterSelector-formatterNames-17-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/number] id=SpreadsheetFormatterSelector-formatterNames-18-Link\n" +
+                "                  \"Percent\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/percent] id=SpreadsheetFormatterSelector-formatterNames-19-Link\n" +
+                "                  \"Scientific\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/scientific] id=SpreadsheetFormatterSelector-formatterNames-20-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/short-date] id=SpreadsheetFormatterSelector-formatterNames-21-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/short-date-time] id=SpreadsheetFormatterSelector-formatterNames-22-Link\n" +
+                "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/short-time] id=SpreadsheetFormatterSelector-formatterNames-23-Link\n" +
+                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
+                "                  \"Time\" DISABLED id=SpreadsheetFormatterSelector-formatterNames-26-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=spreadsheetFormatterSelector-Table\n" +
+                "              id=SpreadsheetFormatterSelector-Table\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Short\n" +
-                "                  \"h:mm AM/PM\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20h:mm%20AM/PM] id=spreadsheetFormatterSelector-Short-Link\n" +
+                "                  \"h:mm AM/PM\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20h:mm%20AM/PM] id=SpreadsheetFormatterSelector-Short-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    12:58 PM\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Long\n" +
-                "                  \"h:mm:ss AM/PM\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Long-Link\n" +
+                "                  \"h:mm:ss AM/PM\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20h:mm:ss%20AM/PM] id=SpreadsheetFormatterSelector-Long-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    12:58:00 PM\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"hh:mm\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mm] id=spreadsheetFormatterSelector-Sample-Link\n" +
+                "                  \"hh:mm\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mm] id=SpreadsheetFormatterSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    12:58\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -1756,38 +1756,38 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \".\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mm.] id=spreadsheetFormatterSelector-appender-append-0-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mm0] id=spreadsheetFormatterSelector-appender-append-1-Link\n" +
-                "                  \"A/P\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mmA/P] id=spreadsheetFormatterSelector-appender-append-2-Link\n" +
-                "                  \"AM/PM\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mmAM/PM] id=spreadsheetFormatterSelector-appender-append-3-Link\n" +
-                "                  \"a/p\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mma/p] id=spreadsheetFormatterSelector-appender-append-4-Link\n" +
-                "                  \"am/pm\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mmam/pm] id=spreadsheetFormatterSelector-appender-append-5-Link\n" +
-                "                  \"h\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mmh] id=spreadsheetFormatterSelector-appender-append-6-Link\n" +
-                "                  \"hh\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mmhh] id=spreadsheetFormatterSelector-appender-append-7-Link\n" +
-                "                  \"s\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mms] id=spreadsheetFormatterSelector-appender-append-8-Link\n" +
-                "                  \"ss\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mmss] id=spreadsheetFormatterSelector-appender-append-9-Link\n" +
+                "                  \".\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mm.] id=SpreadsheetFormatterSelector-appender-append-0-Link\n" +
+                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mm0] id=SpreadsheetFormatterSelector-appender-append-1-Link\n" +
+                "                  \"A/P\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mmA/P] id=SpreadsheetFormatterSelector-appender-append-2-Link\n" +
+                "                  \"AM/PM\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mmAM/PM] id=SpreadsheetFormatterSelector-appender-append-3-Link\n" +
+                "                  \"a/p\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mma/p] id=SpreadsheetFormatterSelector-appender-append-4-Link\n" +
+                "                  \"am/pm\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mmam/pm] id=SpreadsheetFormatterSelector-appender-append-5-Link\n" +
+                "                  \"h\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mmh] id=SpreadsheetFormatterSelector-appender-append-6-Link\n" +
+                "                  \"hh\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mmhh] id=SpreadsheetFormatterSelector-appender-append-7-Link\n" +
+                "                  \"s\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mms] id=SpreadsheetFormatterSelector-appender-append-8-Link\n" +
+                "                  \"ss\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mmss] id=SpreadsheetFormatterSelector-appender-append-9-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"hh\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20:mm] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
-                "                      \"h\" [/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20h:mm] id=spreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
-                "                  \":\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hhmm] id=spreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
-                "                      \"m\" [/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:m] id=spreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
+                "                  \"hh\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20:mm] id=SpreadsheetFormatterSelector-removeOrReplace-remove-0-Link\n" +
+                "                      \"h\" [/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20h:mm] id=SpreadsheetFormatterSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
+                "                  \":\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hhmm] id=SpreadsheetFormatterSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:] id=SpreadsheetFormatterSelector-removeOrReplace-remove-2-Link\n" +
+                "                      \"m\" [/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:m] id=SpreadsheetFormatterSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [time hh:mm] id=spreadsheetFormatterSelector-TextBox\n" +
+                "            [time hh:mm] id=SpreadsheetFormatterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mm] id=spreadsheetFormatterSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mm:ss] id=spreadsheetFormatterSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=spreadsheetFormatterSelector-close-Link\n"
+                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mm] id=SpreadsheetFormatterSelector-save-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mm:ss] id=SpreadsheetFormatterSelector-undo-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetFormatterSelector-close-Link\n"
         );
     }
 

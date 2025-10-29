@@ -131,7 +131,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
         return ID + "-";
     }
 
-    private final static String ID = "spreadsheetFormatterSelector";
+    private final static String ID = SpreadsheetFormatterSelector.class.getSimpleName();
 
     // dialog...........................................................................................................
 
