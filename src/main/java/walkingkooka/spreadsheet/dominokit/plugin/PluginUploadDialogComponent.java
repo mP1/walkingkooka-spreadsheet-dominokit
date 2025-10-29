@@ -142,7 +142,7 @@ public final class PluginUploadDialogComponent implements DialogComponentLifecyc
         return ID_PREFIX;
     }
 
-    final static String ID = "pluginUpload";
+    final static String ID = Plugin.class.getSimpleName() + "Upload";
 
     final static String ID_PREFIX = ID + '-';
 

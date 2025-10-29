@@ -118,15 +118,15 @@ public final class PluginUploadDialogComponentTest implements DialogComponentLif
             "PluginUploadDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Upload Plugin\n" +
-                "    id=pluginUpload-Dialog includeClose=true\n" +
+                "    id=PluginUpload-Dialog includeClose=true\n" +
                 "      UploadFileComponent\n" +
-                "        id=pluginUpload-UploadFile\n" +
+                "        id=PluginUpload-UploadFile\n" +
                 "        label=Drop files here or click to upload.\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Upload\" DISABLED id=pluginUpload-upload-Link\n" +
-                "            \"Close\" [#/plugin] id=pluginUpload-close-Link\n"
+                "            \"Upload\" DISABLED id=PluginUpload-upload-Link\n" +
+                "            \"Close\" [#/plugin] id=PluginUpload-close-Link\n"
         );
     }
 
@@ -160,15 +160,15 @@ public final class PluginUploadDialogComponentTest implements DialogComponentLif
             "PluginUploadDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Upload Plugin\n" +
-                "    id=pluginUpload-Dialog includeClose=true\n" +
+                "    id=PluginUpload-Dialog includeClose=true\n" +
                 "      UploadFileComponent\n" +
-                "        id=pluginUpload-UploadFile\n" +
+                "        id=PluginUpload-UploadFile\n" +
                 "        label=Drop files here or click to upload.\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Upload\" DISABLED id=pluginUpload-upload-Link\n" +
-                "            \"Close\" [#/plugin] id=pluginUpload-close-Link\n"
+                "            \"Upload\" DISABLED id=PluginUpload-upload-Link\n" +
+                "            \"Close\" [#/plugin] id=PluginUpload-close-Link\n"
         );
 
         dialog.uploadFile.setValue(
@@ -190,9 +190,9 @@ public final class PluginUploadDialogComponentTest implements DialogComponentLif
             "PluginUploadDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Upload Plugin\n" +
-                "    id=pluginUpload-Dialog includeClose=true\n" +
+                "    id=PluginUpload-Dialog includeClose=true\n" +
                 "      UploadFileComponent\n" +
-                "        id=pluginUpload-UploadFile\n" +
+                "        id=PluginUpload-UploadFile\n" +
                 "        label=Drop files here or click to upload.\n" +
                 "          BrowserFileBase64\n" +
                 "            \"test-plugin-name-0\"\n" +
@@ -200,8 +200,8 @@ public final class PluginUploadDialogComponentTest implements DialogComponentLif
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Upload\" [#/plugin-upload/save/base64/test-plugin-name-0/UEsDBBQACAgIAEB/IigAAAAAAAAAAAAAAAAUAA0ATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAkABdjabjhYqGw44+UCAFBLBwishaIUBAAAAAIAAABQSwECFAAUAAgICABAfyIorIWiFAQAAAACAAAAFAAJAAAAAAAAAAAAAAAAAAAATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAUABdjabjhQSwUGAAAAAAEAAQBLAAAAUwAAAAAA] id=pluginUpload-upload-Link\n" +
-                "            \"Close\" [#/plugin] id=pluginUpload-close-Link\n"
+                "            \"Upload\" [#/plugin-upload/save/base64/test-plugin-name-0/UEsDBBQACAgIAEB/IigAAAAAAAAAAAAAAAAUAA0ATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAkABdjabjhYqGw44+UCAFBLBwishaIUBAAAAAIAAABQSwECFAAUAAgICABAfyIorIWiFAQAAAACAAAAFAAJAAAAAAAAAAAAAAAAAAAATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAUABdjabjhQSwUGAAAAAAEAAQBLAAAAUwAAAAAA] id=PluginUpload-upload-Link\n" +
+                "            \"Close\" [#/plugin] id=PluginUpload-close-Link\n"
         );
     }
 
