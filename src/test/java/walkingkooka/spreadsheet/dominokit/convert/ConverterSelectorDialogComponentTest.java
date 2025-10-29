@@ -64,18 +64,18 @@ public final class ConverterSelectorDialogComponentTest implements DialogCompone
             "ConverterSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Converter Title123\n" +
-                "    id=selector-Dialog includeClose=true CLOSED\n" +
+                "    id=ConverterSelector-Dialog includeClose=true CLOSED\n" +
                 "      ConverterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [hello-converter] id=selector-TextBox\n" +
+                "            [hello-converter] id=ConverterSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/findConverter/save/hello-converter] id=selector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet123/spreadsheet/findConverter/save/] id=selector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/findConverter/save/hello-converter] id=selector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=selector-close-Link\n"
+                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/findConverter/save/hello-converter] id=ConverterSelector-save-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet123/spreadsheet/findConverter/save/] id=ConverterSelector-clear-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/findConverter/save/hello-converter] id=ConverterSelector-undo-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=ConverterSelector-close-Link\n"
         );
     }
 
