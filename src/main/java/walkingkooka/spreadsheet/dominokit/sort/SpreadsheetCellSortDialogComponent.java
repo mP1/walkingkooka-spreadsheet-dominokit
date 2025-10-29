@@ -21,6 +21,7 @@ import org.dominokit.domino.ui.IsElement;
 import walkingkooka.NeverError;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.set.SortedSets;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
@@ -652,7 +653,7 @@ public final class SpreadsheetCellSortDialogComponent implements DialogComponent
         return ID_PREFIX;
     }
 
-    private final static String ID = "cellSort";
+    private final static String ID = SpreadsheetCell.class.getSimpleName() + "Sort";
 
     final static String ID_PREFIX = ID + "-";
 }
