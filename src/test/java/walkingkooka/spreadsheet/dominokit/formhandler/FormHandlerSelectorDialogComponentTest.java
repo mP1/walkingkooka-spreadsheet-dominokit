@@ -62,18 +62,18 @@ public final class FormHandlerSelectorDialogComponentTest implements DialogCompo
             "FormHandlerSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    FormHandler Title123\n" +
-                "    id=selector-Dialog includeClose=true CLOSED\n" +
+                "    id=FormHandlerSelector-Dialog includeClose=true CLOSED\n" +
                 "      FormHandlerSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [hello-form-handler] id=selector-TextBox\n" +
+                "            [hello-form-handler] id=FormHandlerSelector-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/defaultFormHandler/save/hello-form-handler] id=selector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet123/spreadsheet/defaultFormHandler/save/] id=selector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/defaultFormHandler/save/hello-form-handler] id=selector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=selector-close-Link\n"
+                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/defaultFormHandler/save/hello-form-handler] id=FormHandlerSelector-save-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet123/spreadsheet/defaultFormHandler/save/] id=FormHandlerSelector-clear-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/defaultFormHandler/save/hello-form-handler] id=FormHandlerSelector-undo-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=FormHandlerSelector-close-Link\n"
         );
     }
 
