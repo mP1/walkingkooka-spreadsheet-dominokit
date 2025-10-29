@@ -193,7 +193,7 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
         return ID_PREFIX;
     }
 
-    private final static String ID = "decimalNumberSymbols";
+    private final static String ID = DecimalNumberSymbols.class.getSimpleName();
 
     private final static String ID_PREFIX = ID + "-";
 
@@ -357,7 +357,7 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
                 label,
                 predicate,
                 "Invalid character" // TODO message should have more detail about what characters are valid.
-            ).setId(ID + id + SpreadsheetElementIds.TEXT_BOX)
+            ).setId(ID + '-' + id + SpreadsheetElementIds.TEXT_BOX)
             .setLabel(label)
             .addChangeListener(
                 (Optional<Character> oldValue, Optional<Character> newValue) ->
@@ -372,7 +372,7 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
                                              final String label,
                                              final int propertyIndex) {
         return TextBoxComponent.empty()
-            .setId(ID + CaseKind.CAMEL.change(id, CaseKind.PASCAL) + SpreadsheetElementIds.TEXT_BOX)
+            .setId(ID + '-' + CaseKind.CAMEL.change(id, CaseKind.PASCAL) + SpreadsheetElementIds.TEXT_BOX)
             .setLabel(label)
             .setValidator(SpreadsheetValidators.required())
             .clearIcon()
