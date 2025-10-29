@@ -103,7 +103,7 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
         return ID + "-";
     }
 
-    private final static String ID = "pluginNameSet";
+    private final static String ID = PluginNameSet.class.getSimpleName();
 
     // dialog...........................................................................................................
 

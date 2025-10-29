@@ -130,27 +130,27 @@ public final class PluginNameSetDialogComponentTest implements DialogComponentLi
             "PluginNameSetDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    PluginsTitle999\n" +
-                "    id=pluginNameSet-Dialog includeClose=true\n" +
+                "    id=PluginNameSet-Dialog includeClose=true\n" +
                 "      AddPluginNameSetComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Add\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-add-0-Link\n" +
-                "                  \"Plugin111\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-add-1-Link\n" +
-                "                  \"Plugin222\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin222] id=pluginNameSet-add-2-Link\n" +
+                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=PluginNameSet-add-0-Link\n" +
+                "                  \"Plugin111\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=PluginNameSet-add-1-Link\n" +
+                "                  \"Plugin222\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin222] id=PluginNameSet-add-2-Link\n" +
                 "      RemovePluginNameSetComponent\n" +
                 "      PluginNameSetComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [] id=pluginNameSet-TextBox\n" +
+                "            [] id=PluginNameSet-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=pluginNameSet-save-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginNameSet-close-Link\n"
+                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=PluginNameSet-save-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=PluginNameSet-undo-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=PluginNameSet-close-Link\n"
         );
     }
 
@@ -171,33 +171,33 @@ public final class PluginNameSetDialogComponentTest implements DialogComponentLi
             "PluginNameSetDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    PluginsTitle999\n" +
-                "    id=pluginNameSet-Dialog includeClose=true\n" +
+                "    id=PluginNameSet-Dialog includeClose=true\n" +
                 "      AddPluginNameSetComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Add\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-add-0-Link\n" +
-                "                  \"Plugin222\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-add-1-Link\n" +
+                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=PluginNameSet-add-0-Link\n" +
+                "                  \"Plugin222\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=PluginNameSet-add-1-Link\n" +
                 "      RemovePluginNameSetComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-remove-0-Link\n" +
-                "                  \"Plugin111\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=pluginNameSet-remove-1-Link\n" +
+                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=PluginNameSet-remove-0-Link\n" +
+                "                  \"Plugin111\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=PluginNameSet-remove-1-Link\n" +
                 "      PluginNameSetComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [plugin111] id=pluginNameSet-TextBox\n" +
+                "            [plugin111] id=PluginNameSet-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-save-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginNameSet-close-Link\n"
+                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=PluginNameSet-save-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=PluginNameSet-undo-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=PluginNameSet-close-Link\n"
         );
     }
 
@@ -218,34 +218,34 @@ public final class PluginNameSetDialogComponentTest implements DialogComponentLi
             "PluginNameSetDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    PluginsTitle999\n" +
-                "    id=pluginNameSet-Dialog includeClose=true\n" +
+                "    id=PluginNameSet-Dialog includeClose=true\n" +
                 "      AddPluginNameSetComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Add\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222,plugin333] id=pluginNameSet-add-0-Link\n" +
-                "                  \"Plugin222\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-add-1-Link\n" +
-                "                  \"Plugin333\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin333] id=pluginNameSet-add-2-Link\n" +
+                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222,plugin333] id=PluginNameSet-add-0-Link\n" +
+                "                  \"Plugin222\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=PluginNameSet-add-1-Link\n" +
+                "                  \"Plugin333\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin333] id=PluginNameSet-add-2-Link\n" +
                 "      RemovePluginNameSetComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-remove-0-Link\n" +
-                "                  \"Plugin111\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=pluginNameSet-remove-1-Link\n" +
+                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=PluginNameSet-remove-0-Link\n" +
+                "                  \"Plugin111\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=PluginNameSet-remove-1-Link\n" +
                 "      PluginNameSetComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [plugin111] id=pluginNameSet-TextBox\n" +
+                "            [plugin111] id=PluginNameSet-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-save-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginNameSet-close-Link\n"
+                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=PluginNameSet-save-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=PluginNameSet-undo-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=PluginNameSet-close-Link\n"
         );
     }
 
