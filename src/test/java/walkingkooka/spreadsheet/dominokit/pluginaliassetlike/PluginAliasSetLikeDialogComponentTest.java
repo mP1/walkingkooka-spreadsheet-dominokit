@@ -80,28 +80,28 @@ public final class PluginAliasSetLikeDialogComponentTest implements DialogCompon
             "PluginAliasSetLikeDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    ExpressionFunctions123\n" +
-                "    id=pluginAliasSet-Dialog includeClose=true\n" +
+                "    id=PluginAliasSetLike-Dialog includeClose=true\n" +
                 "      AddPluginAliasSetLikeComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Add\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=pluginAliasSet-add-0-Link\n" +
-                "                  \"Name1\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1] id=pluginAliasSet-add-1-Link\n" +
-                "                  \"Name2\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name2] id=pluginAliasSet-add-2-Link\n" +
-                "                  \"Name3\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name3] id=pluginAliasSet-add-3-Link\n" +
+                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=PluginAliasSetLike-add-0-Link\n" +
+                "                  \"Name1\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1] id=PluginAliasSetLike-add-1-Link\n" +
+                "                  \"Name2\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name2] id=PluginAliasSetLike-add-2-Link\n" +
+                "                  \"Name3\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name3] id=PluginAliasSetLike-add-3-Link\n" +
                 "      RemovePluginAliasSetLikeComponent\n" +
                 "      ExpressionFunctionAliasSetComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [] id=pluginAliasSet-TextBox\n" +
+                "            [] id=PluginAliasSetLike-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/] id=pluginAliasSet-save-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=pluginAliasSet-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginAliasSet-close-Link\n"
+                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/] id=PluginAliasSetLike-save-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=PluginAliasSetLike-undo-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=PluginAliasSetLike-close-Link\n"
         );
     }
 
@@ -130,34 +130,34 @@ public final class PluginAliasSetLikeDialogComponentTest implements DialogCompon
             "PluginAliasSetLikeDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    ExpressionFunctions123\n" +
-                "    id=pluginAliasSet-Dialog includeClose=true\n" +
+                "    id=PluginAliasSetLike-Dialog includeClose=true\n" +
                 "      AddPluginAliasSetLikeComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Add\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=pluginAliasSet-add-0-Link\n" +
-                "                  \"Name2\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2] id=pluginAliasSet-add-1-Link\n" +
-                "                  \"Name3\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name3] id=pluginAliasSet-add-2-Link\n" +
+                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=PluginAliasSetLike-add-0-Link\n" +
+                "                  \"Name2\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2] id=PluginAliasSetLike-add-1-Link\n" +
+                "                  \"Name3\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name3] id=PluginAliasSetLike-add-2-Link\n" +
                 "      RemovePluginAliasSetLikeComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1] id=pluginAliasSet-remove-0-Link\n" +
-                "                  \"Name1\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/] id=pluginAliasSet-remove-1-Link\n" +
+                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1] id=PluginAliasSetLike-remove-0-Link\n" +
+                "                  \"Name1\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/] id=PluginAliasSetLike-remove-1-Link\n" +
                 "      ExpressionFunctionAliasSetComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [name1] id=pluginAliasSet-TextBox\n" +
+                "            [name1] id=PluginAliasSetLike-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1] id=pluginAliasSet-save-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=pluginAliasSet-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginAliasSet-close-Link\n"
+                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1] id=PluginAliasSetLike-save-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=PluginAliasSetLike-undo-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=PluginAliasSetLike-close-Link\n"
         );
     }
 
