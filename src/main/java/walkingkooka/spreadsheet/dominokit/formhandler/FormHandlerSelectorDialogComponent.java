@@ -81,7 +81,7 @@ public final class FormHandlerSelectorDialogComponent implements DialogComponent
         return ID + "-";
     }
 
-    private final static String ID = "selector";
+    private final static String ID = FormHandlerSelector.class.getSimpleName();
 
     // dialog...........................................................................................................
 
