@@ -189,7 +189,8 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
     /**
      * Generic key event handler that handles any key events for cell/column OR row.
      */
-    private void onKeyDownEvent(final KeyboardEvent event) {
+    // @VisibleForTesting
+    void onKeyDownEvent(final KeyboardEvent event) {
         event.preventDefault();
 
         final boolean shifted = event.shiftKey;
