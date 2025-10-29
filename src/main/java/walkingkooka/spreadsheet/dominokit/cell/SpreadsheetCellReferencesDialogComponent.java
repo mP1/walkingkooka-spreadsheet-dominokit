@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
@@ -182,7 +183,7 @@ public final class SpreadsheetCellReferencesDialogComponent implements DialogCom
 
     // UI...............................................................................................................
 
-    private final static String ID = "cellReferences";
+    private final static String ID = SpreadsheetCell.class.getSimpleName() + "References";
 
     private final static String ID_PREFIX = ID + "-";
 
