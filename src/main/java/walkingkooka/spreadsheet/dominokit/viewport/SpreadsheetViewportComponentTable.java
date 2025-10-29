@@ -36,6 +36,7 @@ import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.dom.TBodyComponent;
 import walkingkooka.spreadsheet.dominokit.dom.THeadComponent;
 import walkingkooka.spreadsheet.dominokit.dom.TableComponent;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -195,6 +196,8 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
         final SpreadsheetViewportComponentTableContext context = this.context;
 
         SpreadsheetViewportNavigation navigation = null;
+        HistoryToken historyToken = null;
+
         switch (Key.fromEvent(event)) {
             case ArrowLeft:
                 navigation = shifted ?
@@ -217,29 +220,25 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
                     SpreadsheetViewportNavigation.downRow();
                 break;
             case Backspace:
-                context.pushHistoryToken(
-                    context.historyToken()
-                        .clearAndFormula()
-                );
+                historyToken = context.historyToken()
+                    .clearAndFormula();
                 break;
             case Enter:
-                context.pushHistoryToken(
-                    context.historyToken()
-                        .formula()
-                );
+                historyToken = context.historyToken()
+                    .formula();
                 break;
             case Escape:
-                // clear any selection
-                context.pushHistoryToken(
-                    context.historyToken()
-                        .clearSelection()
-                );
+                historyToken = context.historyToken()
+                    .clearSelection();
                 break;
             default:
                 // ignore other keys
                 break;
         }
 
+        if (null != historyToken) {
+            context.pushHistoryToken(historyToken);
+        }
         if (null != navigation) {
             context.pushNavigation(navigation);
         }
