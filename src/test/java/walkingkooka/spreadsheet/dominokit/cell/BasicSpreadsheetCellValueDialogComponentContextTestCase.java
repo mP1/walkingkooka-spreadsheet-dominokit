@@ -111,6 +111,13 @@ public abstract class BasicSpreadsheetCellValueDialogComponentContextTestCase<C 
         throw new UnsupportedOperationException();
     }
 
+    final void idAndCheck(final String expected) {
+        this.checkEquals(
+            expected,
+            this.createContext().id()
+        );
+    }
+
     @Override
     public final C createContext() {
         return this.createContext(

@@ -44,7 +44,22 @@ abstract class BasicSpreadsheetCellValueDialogComponentContext<T> implements Spr
         this.deltaFetcherWatchers = Objects.requireNonNull(deltaFetcherWatchers, "deltaFetcherWatchers");
         this.historyContext = Objects.requireNonNull(historyContext, "historyContext");
         this.loggingContext = Objects.requireNonNull(loggingContext, "loggingContext");
+
+        this.id = SpreadsheetCell.class.getSimpleName() +
+            "Value" +
+            CaseKind.KEBAB.change(
+                this.valueType()
+                    .text(),
+                CaseKind.PASCAL
+            );
     }
+
+    @Override
+    public final String id() {
+        return id;
+    }
+
+    private final String id;
 
     @Override
     public final String dialogTitle() {

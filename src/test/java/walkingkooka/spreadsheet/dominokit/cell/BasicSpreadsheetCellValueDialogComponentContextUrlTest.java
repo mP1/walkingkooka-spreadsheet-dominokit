@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.net.AbsoluteUrl;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
@@ -24,6 +25,13 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 
 public final class BasicSpreadsheetCellValueDialogComponentContextUrlTest extends BasicSpreadsheetCellValueDialogComponentContextTestCase<BasicSpreadsheetCellValueDialogComponentContextUrl, AbsoluteUrl> {
+
+    @Test
+    public void testId() {
+        this.idAndCheck(
+            "SpreadsheetCellValueUrl"
+        );
+    }
 
     @Override
     BasicSpreadsheetCellValueDialogComponentContextUrl createContext(final SpreadsheetViewportCache viewportCache,

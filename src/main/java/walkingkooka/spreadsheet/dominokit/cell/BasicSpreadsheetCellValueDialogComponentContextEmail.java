@@ -51,13 +51,6 @@ final class BasicSpreadsheetCellValueDialogComponentContextEmail extends BasicSp
     }
 
     @Override
-    public String id() {
-        return ID;
-    }
-
-    private final static String ID = "cellValueEmail";
-
-    @Override
     public ValueTypeName valueType() {
         return ValueTypeName.EMAIL;
     }

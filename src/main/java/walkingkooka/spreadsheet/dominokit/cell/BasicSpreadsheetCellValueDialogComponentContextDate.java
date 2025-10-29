@@ -52,13 +52,6 @@ final class BasicSpreadsheetCellValueDialogComponentContextDate extends BasicSpr
     }
 
     @Override
-    public String id() {
-        return ID;
-    }
-
-    private final static String ID = "cellValueDate";
-
-    @Override
     public ValueTypeName valueType() {
         return ValueTypeName.DATE;
     }

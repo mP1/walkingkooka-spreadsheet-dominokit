@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
@@ -25,6 +26,13 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import java.time.LocalDateTime;
 
 public final class BasicSpreadsheetCellValueDialogComponentContextDateTimeTest extends BasicSpreadsheetCellValueDialogComponentContextTestCase<BasicSpreadsheetCellValueDialogComponentContextDateTime, LocalDateTime> {
+
+    @Test
+    public void testId() {
+        this.idAndCheck(
+            "SpreadsheetCellValueDateTime"
+        );
+    }
 
     @Override
     BasicSpreadsheetCellValueDialogComponentContextDateTime createContext(final SpreadsheetViewportCache viewportCache,
