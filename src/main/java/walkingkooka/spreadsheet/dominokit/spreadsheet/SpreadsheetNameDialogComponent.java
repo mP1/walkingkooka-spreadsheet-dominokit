@@ -103,7 +103,7 @@ public final class SpreadsheetNameDialogComponent implements DialogComponentLife
         return ID_PREFIX;
     }
 
-    final static String ID = "spreadsheetName";
+    final static String ID = SpreadsheetName.class.getSimpleName();
 
     final static String ID_PREFIX = ID + '-';
 
