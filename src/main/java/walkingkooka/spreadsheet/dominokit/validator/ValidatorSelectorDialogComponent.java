@@ -144,6 +144,8 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
                 (event) -> this.refreshSaveLink(
                     this.selector.value()
                 )
+            ).addChangeListener(
+                (o, n) -> this.refreshSaveLink(n)
             );
     }
 
@@ -165,27 +167,34 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
      * Copy any error messages for the {@link ValidatorSelector}.
      */
     private void copySelectorErrorMessages() {
-        this.selector.setErrors(
-            this.context.spreadsheetViewportCache()
-                .historyTokenCell()
-                .map(c -> c.formula()
-                    .error()
-                    .map(SpreadsheetError::message)
-                    .stream()
-                    .collect(Collectors.toList())
-                ).orElse(Lists.empty())
-        );
+        final ValidatorSelectorComponent selector = this.selector;
+
+        if (false == selector.hasErrors()) {
+            selector.setErrors(
+                this.context.spreadsheetViewportCache()
+                    .historyTokenCell()
+                    .map(c -> c.formula()
+                        .error()
+                        .map(SpreadsheetError::message)
+                        .stream()
+                        .collect(Collectors.toList())
+                    ).orElse(Lists.empty())
+            );
+        }
     }
 
     // dialog links.....................................................................................................
 
-    void refreshSaveLink(final Optional<ValidatorSelector> list) {
-        this.selector.validate();
-        if (this.selector.hasErrors()) {
-            this.save.disabled();
-        } else {
-            this.save.setValue(list);
+    void refreshSaveLink(final Optional<ValidatorSelector> value) {
+        final ValidatorSelectorComponent selector = this.selector;
+        final HistoryTokenSaveValueAnchorComponent<ValidatorSelector> save = this.save;
+
+        // selector may have errors from a server response, dont want to clear/replace them.
+        if(false == selector.hasErrors()) {
+            selector.validate();
         }
+
+        save.setValue(value);
     }
 
     /**
@@ -227,9 +236,6 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
 
     @Override
     public void openGiveFocus(final RefreshContext context) {
-        this.refreshSelectorValue();
-        this.copySelectorErrorMessages();
-
         context.giveFocus(
             this.selector::focus
         );
@@ -238,6 +244,10 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
     @Override
     public void refresh(final RefreshContext context) {
         final Optional<ValidatorSelector> undo = this.context.undo();
+
+        this.refreshSelectorValue();
+        this.copySelectorErrorMessages();
+
         this.refreshSaveLink(undo);
         this.undo.setValue(undo);
 
@@ -271,10 +281,6 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
                                    final AbsoluteOrRelativeUrl url,
                                    final SpreadsheetDelta delta,
                                    final AppContext context) {
-        if (this.isOpen()) {
-            // must copy errors after refreshing value, because setValue clears #errors
-            this.refreshSelectorValue();
-            this.copySelectorErrorMessages();
-        }
+        this.refreshIfOpen(context);
     }
 }
