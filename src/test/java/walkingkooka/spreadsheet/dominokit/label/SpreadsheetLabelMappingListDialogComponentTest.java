@@ -94,12 +94,12 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
             "SpreadsheetLabelMappingListDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Labels\n" +
-                "    id=labels-Dialog includeClose=true\n" +
+                "    id=SpreadsheetLabelMappingList-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaLabelsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=labels-labels-Table\n" +
+                "              id=SpreadsheetLabelMappingList-labels-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Label\n" +
                 "                Cell\n" +
@@ -108,15 +108,15 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=labels-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=labels-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetLabelMappingList-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetLabelMappingList-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Create\" [#/1/SpreadsheetName1/create-label] id=labels-create-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1] id=labels-close-Link\n"
+                "            \"Create\" [#/1/SpreadsheetName1/create-label] id=SpreadsheetLabelMappingList-create-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName1] id=SpreadsheetLabelMappingList-close-Link\n"
         );
     }
 
@@ -145,12 +145,12 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
             "SpreadsheetLabelMappingListDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Labels\n" +
-                "    id=labels-Dialog includeClose=true\n" +
+                "    id=SpreadsheetLabelMappingList-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaLabelsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=labels-labels-Table\n" +
+                "              id=SpreadsheetLabelMappingList-labels-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Label\n" +
                 "                Cell\n" +
@@ -159,15 +159,15 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=labels-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=labels-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetLabelMappingList-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetLabelMappingList-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Create\" [#/1/SpreadsheetName1/create-label] id=labels-create-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1] id=labels-close-Link\n"
+                "            \"Create\" [#/1/SpreadsheetName1/create-label] id=SpreadsheetLabelMappingList-create-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName1] id=SpreadsheetLabelMappingList-close-Link\n"
         );
 
         context.deltaFetcherWatchers.onSpreadsheetDelta(
@@ -198,12 +198,12 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
             "SpreadsheetLabelMappingListDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Labels\n" +
-                "    id=labels-Dialog includeClose=true\n" +
+                "    id=SpreadsheetLabelMappingList-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaLabelsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=labels-labels-Table\n" +
+                "              id=SpreadsheetLabelMappingList-labels-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Label\n" +
                 "                Cell\n" +
@@ -211,37 +211,37 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                 "                Links\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
-                "                  \"A1LABEL\" [#/1/SpreadsheetName1/label/A1LABEL] id=labels-labels-A1LABEL-Link\n" +
-                "                  \"=1+2\" [#/1/SpreadsheetName1/cell/A1LABEL/formula] id=labels-labels-A1LABEL-formula-Link\n" +
+                "                  \"A1LABEL\" [#/1/SpreadsheetName1/label/A1LABEL] id=SpreadsheetLabelMappingList-labels-A1LABEL-Link\n" +
+                "                  \"=1+2\" [#/1/SpreadsheetName1/cell/A1LABEL/formula] id=SpreadsheetLabelMappingList-labels-A1LABEL-formula-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"References\" [#/1/SpreadsheetName1/cell/A1LABEL/references] (2) id=labels-labels-A1LABEL-references-Link\n" +
-                "                          \"Delete\" [#/1/SpreadsheetName1/label/A1LABEL/delete] id=labels-labels-A1LABEL-delete-Link\n" +
+                "                          \"References\" [#/1/SpreadsheetName1/cell/A1LABEL/references] (2) id=SpreadsheetLabelMappingList-labels-A1LABEL-references-Link\n" +
+                "                          \"Delete\" [#/1/SpreadsheetName1/label/A1LABEL/delete] id=SpreadsheetLabelMappingList-labels-A1LABEL-delete-Link\n" +
                 "                ROW 1\n" +
-                "                  \"B2LABEL\" [#/1/SpreadsheetName1/label/B2LABEL] id=labels-labels-B2LABEL-Link\n" +
-                "                  \"B2\" [#/1/SpreadsheetName1/cell/B2LABEL/formula] id=labels-labels-B2LABEL-formula-Link\n" +
+                "                  \"B2LABEL\" [#/1/SpreadsheetName1/label/B2LABEL] id=SpreadsheetLabelMappingList-labels-B2LABEL-Link\n" +
+                "                  \"B2\" [#/1/SpreadsheetName1/cell/B2LABEL/formula] id=SpreadsheetLabelMappingList-labels-B2LABEL-formula-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"References\" [#/1/SpreadsheetName1/cell/B2LABEL/references] (0) id=labels-labels-B2LABEL-references-Link\n" +
-                "                          \"Delete\" [#/1/SpreadsheetName1/label/B2LABEL/delete] id=labels-labels-B2LABEL-delete-Link\n" +
+                "                          \"References\" [#/1/SpreadsheetName1/cell/B2LABEL/references] (0) id=SpreadsheetLabelMappingList-labels-B2LABEL-references-Link\n" +
+                "                          \"Delete\" [#/1/SpreadsheetName1/label/B2LABEL/delete] id=SpreadsheetLabelMappingList-labels-B2LABEL-delete-Link\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=labels-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=labels-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetLabelMappingList-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetLabelMappingList-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Create\" [#/1/SpreadsheetName1/create-label] id=labels-create-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1] id=labels-close-Link\n"
+                "            \"Create\" [#/1/SpreadsheetName1/create-label] id=SpreadsheetLabelMappingList-create-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName1] id=SpreadsheetLabelMappingList-close-Link\n"
         );
     }
 
@@ -270,12 +270,12 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
             "SpreadsheetLabelMappingListDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Labels\n" +
-                "    id=labels-Dialog includeClose=true\n" +
+                "    id=SpreadsheetLabelMappingList-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaLabelsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=labels-labels-Table\n" +
+                "              id=SpreadsheetLabelMappingList-labels-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Label\n" +
                 "                Cell\n" +
@@ -284,15 +284,15 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" [#/1/SpreadsheetName1/label/*/offset/2] id=labels-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=labels-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" [#/1/SpreadsheetName1/label/*/offset/2] id=SpreadsheetLabelMappingList-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetLabelMappingList-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Create\" [#/1/SpreadsheetName1/create-label] id=labels-create-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1] id=labels-close-Link\n"
+                "            \"Create\" [#/1/SpreadsheetName1/create-label] id=SpreadsheetLabelMappingList-create-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName1] id=SpreadsheetLabelMappingList-close-Link\n"
         );
 
         context.deltaFetcherWatchers.onSpreadsheetDelta(
@@ -325,12 +325,12 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
             "SpreadsheetLabelMappingListDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Labels\n" +
-                "    id=labels-Dialog includeClose=true\n" +
+                "    id=SpreadsheetLabelMappingList-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaLabelsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=labels-labels-Table\n" +
+                "              id=SpreadsheetLabelMappingList-labels-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Label\n" +
                 "                Cell\n" +
@@ -338,37 +338,37 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                 "                Links\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
-                "                  \"B2LABEL\" [#/1/SpreadsheetName1/label/B2LABEL] id=labels-labels-B2LABEL-Link\n" +
-                "                  \"B2\" [#/1/SpreadsheetName1/cell/B2LABEL/formula] id=labels-labels-B2LABEL-formula-Link\n" +
+                "                  \"B2LABEL\" [#/1/SpreadsheetName1/label/B2LABEL] id=SpreadsheetLabelMappingList-labels-B2LABEL-Link\n" +
+                "                  \"B2\" [#/1/SpreadsheetName1/cell/B2LABEL/formula] id=SpreadsheetLabelMappingList-labels-B2LABEL-formula-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"References\" [#/1/SpreadsheetName1/cell/B2LABEL/references] (0) id=labels-labels-B2LABEL-references-Link\n" +
-                "                          \"Delete\" [#/1/SpreadsheetName1/label/B2LABEL/delete] id=labels-labels-B2LABEL-delete-Link\n" +
+                "                          \"References\" [#/1/SpreadsheetName1/cell/B2LABEL/references] (0) id=SpreadsheetLabelMappingList-labels-B2LABEL-references-Link\n" +
+                "                          \"Delete\" [#/1/SpreadsheetName1/label/B2LABEL/delete] id=SpreadsheetLabelMappingList-labels-B2LABEL-delete-Link\n" +
                 "                ROW 1\n" +
-                "                  \"C3LABEL\" [#/1/SpreadsheetName1/label/C3LABEL] id=labels-labels-C3LABEL-Link\n" +
-                "                  \"C3\" [#/1/SpreadsheetName1/cell/C3LABEL/formula] id=labels-labels-C3LABEL-formula-Link\n" +
+                "                  \"C3LABEL\" [#/1/SpreadsheetName1/label/C3LABEL] id=SpreadsheetLabelMappingList-labels-C3LABEL-Link\n" +
+                "                  \"C3\" [#/1/SpreadsheetName1/cell/C3LABEL/formula] id=SpreadsheetLabelMappingList-labels-C3LABEL-formula-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"References\" [#/1/SpreadsheetName1/cell/C3LABEL/references] (0) id=labels-labels-C3LABEL-references-Link\n" +
-                "                          \"Delete\" [#/1/SpreadsheetName1/label/C3LABEL/delete] id=labels-labels-C3LABEL-delete-Link\n" +
+                "                          \"References\" [#/1/SpreadsheetName1/cell/C3LABEL/references] (0) id=SpreadsheetLabelMappingList-labels-C3LABEL-references-Link\n" +
+                "                          \"Delete\" [#/1/SpreadsheetName1/label/C3LABEL/delete] id=SpreadsheetLabelMappingList-labels-C3LABEL-delete-Link\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" [#/1/SpreadsheetName1/label/*/offset/2] id=labels-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=labels-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" [#/1/SpreadsheetName1/label/*/offset/2] id=SpreadsheetLabelMappingList-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetLabelMappingList-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Create\" [#/1/SpreadsheetName1/create-label] id=labels-create-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1] id=labels-close-Link\n"
+                "            \"Create\" [#/1/SpreadsheetName1/create-label] id=SpreadsheetLabelMappingList-create-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName1] id=SpreadsheetLabelMappingList-close-Link\n"
         );
     }
 
@@ -398,12 +398,12 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
             "SpreadsheetLabelMappingListDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Labels\n" +
-                "    id=labels-Dialog includeClose=true\n" +
+                "    id=SpreadsheetLabelMappingList-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaLabelsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=labels-labels-Table\n" +
+                "              id=SpreadsheetLabelMappingList-labels-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Label\n" +
                 "                Cell\n" +
@@ -412,15 +412,15 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=labels-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=labels-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetLabelMappingList-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetLabelMappingList-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Create\" [#/1/SpreadsheetName1/create-label] id=labels-create-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1/cell/A1] id=labels-close-Link\n"
+                "            \"Create\" [#/1/SpreadsheetName1/create-label] id=SpreadsheetLabelMappingList-create-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName1/cell/A1] id=SpreadsheetLabelMappingList-close-Link\n"
         );
 
         context.deltaFetcherWatchers.onSpreadsheetDelta(
@@ -453,12 +453,12 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
             "SpreadsheetLabelMappingListDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Labels\n" +
-                "    id=labels-Dialog includeClose=true\n" +
+                "    id=SpreadsheetLabelMappingList-Dialog includeClose=true\n" +
                 "      SpreadsheetDeltaLabelsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=labels-labels-Table\n" +
+                "              id=SpreadsheetLabelMappingList-labels-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Label\n" +
                 "                Cell\n" +
@@ -466,37 +466,37 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                 "                Links\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
-                "                  \"B2LABEL\" [#/1/SpreadsheetName1/label/B2LABEL] id=labels-labels-B2LABEL-Link\n" +
-                "                  \"B2\" [#/1/SpreadsheetName1/cell/B2LABEL/formula] id=labels-labels-B2LABEL-formula-Link\n" +
+                "                  \"B2LABEL\" [#/1/SpreadsheetName1/label/B2LABEL] id=SpreadsheetLabelMappingList-labels-B2LABEL-Link\n" +
+                "                  \"B2\" [#/1/SpreadsheetName1/cell/B2LABEL/formula] id=SpreadsheetLabelMappingList-labels-B2LABEL-formula-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"References\" [#/1/SpreadsheetName1/cell/B2LABEL/references] (0) id=labels-labels-B2LABEL-references-Link\n" +
-                "                          \"Delete\" [#/1/SpreadsheetName1/label/B2LABEL/delete] id=labels-labels-B2LABEL-delete-Link\n" +
+                "                          \"References\" [#/1/SpreadsheetName1/cell/B2LABEL/references] (0) id=SpreadsheetLabelMappingList-labels-B2LABEL-references-Link\n" +
+                "                          \"Delete\" [#/1/SpreadsheetName1/label/B2LABEL/delete] id=SpreadsheetLabelMappingList-labels-B2LABEL-delete-Link\n" +
                 "                ROW 1\n" +
-                "                  \"C3LABEL\" [#/1/SpreadsheetName1/label/C3LABEL] id=labels-labels-C3LABEL-Link\n" +
-                "                  \"C3\" [#/1/SpreadsheetName1/cell/C3LABEL/formula] id=labels-labels-C3LABEL-formula-Link\n" +
+                "                  \"C3LABEL\" [#/1/SpreadsheetName1/label/C3LABEL] id=SpreadsheetLabelMappingList-labels-C3LABEL-Link\n" +
+                "                  \"C3\" [#/1/SpreadsheetName1/cell/C3LABEL/formula] id=SpreadsheetLabelMappingList-labels-C3LABEL-formula-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                  SpreadsheetLabelLinksComponent\n" +
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"References\" [#/1/SpreadsheetName1/cell/C3LABEL/references] (0) id=labels-labels-C3LABEL-references-Link\n" +
-                "                          \"Delete\" [#/1/SpreadsheetName1/label/C3LABEL/delete] id=labels-labels-C3LABEL-delete-Link\n" +
+                "                          \"References\" [#/1/SpreadsheetName1/cell/C3LABEL/references] (0) id=SpreadsheetLabelMappingList-labels-C3LABEL-references-Link\n" +
+                "                          \"Delete\" [#/1/SpreadsheetName1/label/C3LABEL/delete] id=SpreadsheetLabelMappingList-labels-C3LABEL-delete-Link\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=labels-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=labels-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetLabelMappingList-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetLabelMappingList-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Create\" [#/1/SpreadsheetName1/create-label] id=labels-create-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1/cell/A1] id=labels-close-Link\n"
+                "            \"Create\" [#/1/SpreadsheetName1/create-label] id=SpreadsheetLabelMappingList-create-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName1/cell/A1] id=SpreadsheetLabelMappingList-close-Link\n"
         );
     }
 
