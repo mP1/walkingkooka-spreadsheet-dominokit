@@ -129,7 +129,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
         return ID + "-";
     }
 
-    private final static String ID = "pluginAliasSet";
+    private final static String ID = PluginAliasSetLike.class.getSimpleName();
 
     // dialog...........................................................................................................
 
