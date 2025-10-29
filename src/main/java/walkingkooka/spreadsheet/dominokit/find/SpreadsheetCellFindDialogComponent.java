@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.find;
 
 import walkingkooka.locale.LocaleContexts;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
@@ -668,7 +669,7 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
 
     // UI...............................................................................................................
 
-    private final static String ID = "cellFind";
+    private final static String ID = SpreadsheetCell.class.getSimpleName() + "Find";
 
     private final static String ID_PREFIX = ID + "-";
 
