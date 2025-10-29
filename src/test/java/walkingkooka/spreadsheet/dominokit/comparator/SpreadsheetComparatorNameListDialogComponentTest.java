@@ -62,18 +62,18 @@ public final class SpreadsheetComparatorNameListDialogComponentTest implements D
             "SpreadsheetComparatorNameListDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Sort Comparators Title123\n" +
-                "    id=spreadsheetComparatorNameList-Dialog includeClose=true CLOSED\n" +
+                "    id=SpreadsheetComparatorNameList-Dialog includeClose=true CLOSED\n" +
                 "      SpreadsheetComparatorNameListComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [day-of-month] id=spreadsheetComparatorNameList-TextBox\n" +
+                "            [day-of-month] id=SpreadsheetComparatorNameList-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/day-of-month] id=spreadsheetComparatorNameList-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/] id=spreadsheetComparatorNameList-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/day-of-month] id=spreadsheetComparatorNameList-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=spreadsheetComparatorNameList-close-Link\n"
+                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/day-of-month] id=SpreadsheetComparatorNameList-save-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/] id=SpreadsheetComparatorNameList-clear-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/day-of-month] id=SpreadsheetComparatorNameList-undo-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=SpreadsheetComparatorNameList-close-Link\n"
         );
     }
 

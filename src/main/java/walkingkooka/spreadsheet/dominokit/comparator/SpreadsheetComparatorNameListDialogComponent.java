@@ -81,7 +81,7 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Dialo
         return ID + "-";
     }
 
-    private final static String ID = "spreadsheetComparatorNameList";
+    private final static String ID = SpreadsheetComparatorNameList.class.getSimpleName();
 
     // dialog...........................................................................................................
 
