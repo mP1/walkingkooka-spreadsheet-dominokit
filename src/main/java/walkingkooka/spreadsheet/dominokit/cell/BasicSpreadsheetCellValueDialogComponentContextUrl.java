@@ -51,13 +51,6 @@ final class BasicSpreadsheetCellValueDialogComponentContextUrl extends BasicSpre
     }
 
     @Override
-    public String id() {
-        return ID;
-    }
-
-    private final static String ID = "cellValueUrl";
-
-    @Override
     public ValueTypeName valueType() {
         return ValueTypeName.URL;
     }

@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
@@ -24,6 +25,13 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 
 public final class BasicSpreadsheetCellValueDialogComponentContextEmailTest extends BasicSpreadsheetCellValueDialogComponentContextTestCase<BasicSpreadsheetCellValueDialogComponentContextEmail, EmailAddress> {
+
+    @Test
+    public void testId() {
+        this.idAndCheck(
+            "SpreadsheetCellValueEmail"
+        );
+    }
 
     @Override
     BasicSpreadsheetCellValueDialogComponentContextEmail createContext(final SpreadsheetViewportCache viewportCache,

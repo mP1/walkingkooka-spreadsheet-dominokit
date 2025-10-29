@@ -52,13 +52,6 @@ final class BasicSpreadsheetCellValueDialogComponentContextDateTime extends Basi
     }
 
     @Override
-    public String id() {
-        return ID;
-    }
-
-    private final static String ID = "cellValueDateTime";
-
-    @Override
     public ValueTypeName valueType() {
         return ValueTypeName.DATE_TIME;
     }

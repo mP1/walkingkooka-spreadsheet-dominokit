@@ -17,12 +17,20 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 
 public final class BasicSpreadsheetCellValueDialogComponentContextTextTest extends BasicSpreadsheetCellValueDialogComponentContextTestCase<BasicSpreadsheetCellValueDialogComponentContextText, String> {
+
+    @Test
+    public void testId() {
+        this.idAndCheck(
+            "SpreadsheetCellValueText"
+        );
+    }
 
     @Override
     BasicSpreadsheetCellValueDialogComponentContextText createContext(final SpreadsheetViewportCache viewportCache,

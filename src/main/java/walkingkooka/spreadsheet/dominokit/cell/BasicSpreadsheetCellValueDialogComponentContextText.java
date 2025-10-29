@@ -50,13 +50,6 @@ final class BasicSpreadsheetCellValueDialogComponentContextText extends BasicSpr
     }
 
     @Override
-    public String id() {
-        return ID;
-    }
-
-    private final static String ID = "cellValueText";
-
-    @Override
     public ValueTypeName valueType() {
         return ValueTypeName.TEXT;
     }

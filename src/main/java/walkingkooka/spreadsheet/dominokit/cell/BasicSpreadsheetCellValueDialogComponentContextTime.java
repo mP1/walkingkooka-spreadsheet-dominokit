@@ -52,13 +52,6 @@ final class BasicSpreadsheetCellValueDialogComponentContextTime extends BasicSpr
     }
 
     @Override
-    public String id() {
-        return ID;
-    }
-
-    private final static String ID = "cellValueTime";
-
-    @Override
     public ValueTypeName valueType() {
         return ValueTypeName.TIME;
     }
