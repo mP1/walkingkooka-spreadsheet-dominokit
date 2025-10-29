@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.insert;
 
+import walkingkooka.spreadsheet.SpreadsheetColumnOrRow;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
@@ -96,7 +97,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Dia
         return ID_PREFIX;
     }
 
-    private final static String ID = "columnRowInsert";
+    private final static String ID = SpreadsheetColumnOrRow.class.getSimpleName() + "Insert";
 
     private final static String ID_PREFIX = ID + "-";
 

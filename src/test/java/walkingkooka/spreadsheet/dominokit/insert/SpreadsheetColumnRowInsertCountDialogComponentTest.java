@@ -112,15 +112,15 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
             "SpreadsheetColumnRowInsertCountDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    ColumnTitle1234\n" +
-                "    id=columnRowInsert-Dialog includeClose=true\n" +
+                "    id=SpreadsheetColumnOrRowInsert-Dialog includeClose=true\n" +
                 "      IntegerBoxComponent\n" +
-                "        Count [] id=columnRowInsert-count-TextBox REQUIRED\n" +
+                "        Count [] id=SpreadsheetColumnOrRowInsert-count-TextBox REQUIRED\n" +
                 "         min: 1\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Insert\" [#/1/SpreadsheetName1/column/A:B/right/insertAfter/1] id=columnRowInsert-insert-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1/column/A:B/right] id=columnRowInsert-close-Link\n"
+                "            \"Insert\" [#/1/SpreadsheetName1/column/A:B/right/insertAfter/1] id=SpreadsheetColumnOrRowInsert-insert-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName1/column/A:B/right] id=SpreadsheetColumnOrRowInsert-close-Link\n"
         );
     }
 
@@ -186,15 +186,15 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
             "SpreadsheetColumnRowInsertCountDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    RowTitle1234\n" +
-                "    id=columnRowInsert-Dialog includeClose=true\n" +
+                "    id=SpreadsheetColumnOrRowInsert-Dialog includeClose=true\n" +
                 "      IntegerBoxComponent\n" +
-                "        Count [] id=columnRowInsert-count-TextBox REQUIRED\n" +
+                "        Count [] id=SpreadsheetColumnOrRowInsert-count-TextBox REQUIRED\n" +
                 "         min: 1\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Insert\" [#/1/SpreadsheetName1/row/1:23/bottom/insertAfter/1] id=columnRowInsert-insert-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1/row/1:23/bottom] id=columnRowInsert-close-Link\n"
+                "            \"Insert\" [#/1/SpreadsheetName1/row/1:23/bottom/insertAfter/1] id=SpreadsheetColumnOrRowInsert-insert-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName1/row/1:23/bottom] id=SpreadsheetColumnOrRowInsert-close-Link\n"
         );
     }
 
