@@ -223,8 +223,6 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
                 );
                 break;
             case Enter:
-                // if cell then edit formula
-                // TODO table.blur
                 context.pushHistoryToken(
                     context.historyToken()
                         .formula()
