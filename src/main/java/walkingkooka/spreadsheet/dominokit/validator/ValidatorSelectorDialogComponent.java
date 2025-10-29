@@ -85,7 +85,7 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
         return ID + "-";
     }
 
-    private final static String ID = "selector";
+    private final static String ID = ValidatorSelector.class.getSimpleName();
 
     // dialog...........................................................................................................
 

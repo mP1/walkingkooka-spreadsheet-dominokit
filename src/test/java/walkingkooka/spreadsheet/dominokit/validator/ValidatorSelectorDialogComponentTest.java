@@ -96,26 +96,26 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
             "ValidatorSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Validator Title123\n" +
-                "    id=selector-Dialog includeClose=true\n" +
+                "    id=ValidatorSelector-Dialog includeClose=true\n" +
                 "      ValidatorSelectorNameAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              id=selector-links\n" +
-                "                \"Validator 1\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-1] id=selector-validator-1-Link\n" +
-                "                \"Validator 2\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-2] id=selector-validator-2-Link\n" +
-                "                \"Validator 3\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-3] id=selector-validator-3-Link\n" +
+                "              id=ValidatorSelector-links\n" +
+                "                \"Validator 1\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-1] id=ValidatorSelector-validator-1-Link\n" +
+                "                \"Validator 2\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-2] id=ValidatorSelector-validator-2-Link\n" +
+                "                \"Validator 3\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-3] id=ValidatorSelector-validator-3-Link\n" +
                 "        ValidatorSelectorComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              [hello-validator] id=selector-TextBox\n" +
+                "              [hello-validator] id=ValidatorSelector-TextBox\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=selector-save-Link\n" +
-                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=selector-clear-Link\n" +
-                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=selector-undo-Link\n" +
-                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=selector-close-Link\n"
+                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=ValidatorSelector-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=ValidatorSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=ValidatorSelector-undo-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=ValidatorSelector-close-Link\n"
         );
     }
 
@@ -189,28 +189,28 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
             "ValidatorSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Validator Title123\n" +
-                "    id=selector-Dialog includeClose=true\n" +
+                "    id=ValidatorSelector-Dialog includeClose=true\n" +
                 "      ValidatorSelectorNameAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              id=selector-links\n" +
-                "                \"Validator 1\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-1] id=selector-validator-1-Link\n" +
-                "                \"Validator 2\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-2] id=selector-validator-2-Link\n" +
-                "                \"Validator 3\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-3] id=selector-validator-3-Link\n" +
+                "              id=ValidatorSelector-links\n" +
+                "                \"Validator 1\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-1] id=ValidatorSelector-validator-1-Link\n" +
+                "                \"Validator 2\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-2] id=ValidatorSelector-validator-2-Link\n" +
+                "                \"Validator 3\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-3] id=ValidatorSelector-validator-3-Link\n" +
                 "        ValidatorSelectorComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              [hello-validator] id=selector-TextBox\n" +
+                "              [hello-validator] id=ValidatorSelector-TextBox\n" +
                 "              Errors\n" +
                 "                Validator Fail Message 123\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=selector-save-Link\n" +
-                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=selector-clear-Link\n" +
-                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=selector-undo-Link\n" +
-                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=selector-close-Link\n"
+                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=ValidatorSelector-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=ValidatorSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=ValidatorSelector-undo-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=ValidatorSelector-close-Link\n"
         );
     }
 
