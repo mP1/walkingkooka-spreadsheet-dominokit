@@ -59,9 +59,7 @@ abstract class BasicSpreadsheetCellValueDialogComponentContext<T> implements Spr
 
     @Override
     public final Optional<SpreadsheetCell> cell() {
-        return this.historyContext.historyToken()
-            .selection()
-            .flatMap(this.viewportCache::cell);
+        return this.viewportCache.historyTokenCell();
     }
 
     final SpreadsheetViewportCache viewportCache;
