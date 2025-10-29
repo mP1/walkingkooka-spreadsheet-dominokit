@@ -136,7 +136,7 @@ public final class PluginSetDialogComponent implements DialogComponentLifecycle,
         return ID_PREFIX;
     }
 
-    final static String ID = "pluginList";
+    final static String ID = PluginSet.class.getSimpleName();
 
     final static String ID_PREFIX = ID + '-';
 
