@@ -57,17 +57,17 @@ public final class SpreadsheetNameDialogComponentTest implements DialogComponent
             "SpreadsheetNameDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Spreadsheet: Name\n" +
-                "    id=spreadsheetName-Dialog includeClose=true\n" +
+                "    id=SpreadsheetName-Dialog includeClose=true\n" +
                 "      SpreadsheetNameComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [SpreadsheetName1] id=spreadsheetName-TextBox\n" +
+                "            [SpreadsheetName1] id=SpreadsheetName-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/SpreadsheetName1/rename/save/SpreadsheetName1] id=spreadsheetName-save-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName1/rename/save/SpreadsheetName1] id=spreadsheetName-undo-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1] id=spreadsheetName-close-Link\n"
+                "            \"Save\" [#/1/SpreadsheetName1/rename/save/SpreadsheetName1] id=SpreadsheetName-save-Link\n" +
+                "            \"Undo\" [#/1/SpreadsheetName1/rename/save/SpreadsheetName1] id=SpreadsheetName-undo-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName1] id=SpreadsheetName-close-Link\n"
         );
     }
 
