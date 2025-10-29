@@ -170,7 +170,7 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
         return ID_PREFIX;
     }
 
-    private final static String ID = "dateTimeSymbols";
+    private final static String ID = DateTimeSymbols.class.getSimpleName();
 
     private final static String ID_PREFIX = ID + "-";
 
@@ -254,7 +254,7 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
                 min,
                 max,
                 CsvStringListComponent.INCLUSIVE
-            ).setId(ID + id + SpreadsheetElementIds.TEXT_BOX)
+            ).setId(ID + "-" + id + SpreadsheetElementIds.TEXT_BOX)
             .setLabel(label)
             .addChangeListener(
                 (Optional<CsvStringList> oldValue, Optional<CsvStringList> newValue) ->
