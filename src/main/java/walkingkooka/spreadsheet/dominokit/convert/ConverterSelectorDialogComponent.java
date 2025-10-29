@@ -96,7 +96,7 @@ public final class ConverterSelectorDialogComponent implements DialogComponentLi
         return ID + "-";
     }
 
-    private final static String ID = "selector";
+    private final static String ID = ConverterSelector.class.getSimpleName();
 
     // dialog...........................................................................................................
 
