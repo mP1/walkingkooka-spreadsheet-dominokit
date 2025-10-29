@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -186,7 +187,7 @@ public final class SpreadsheetLabelMappingListDialogComponent implements DialogC
 
     // UI...............................................................................................................
 
-    private final static String ID = "labels";
+    private final static String ID = SpreadsheetLabelMapping.class.getSimpleName() + "List";
 
     private final static String ID_PREFIX = ID + "-";
 
