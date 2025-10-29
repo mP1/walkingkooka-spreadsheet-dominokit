@@ -127,7 +127,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
         return ID + "-";
     }
 
-    private final static String ID = "spreadsheetParserSelector";
+    private final static String ID = SpreadsheetParserSelector.class.getSimpleName();
 
     // dialog...........................................................................................................
 
