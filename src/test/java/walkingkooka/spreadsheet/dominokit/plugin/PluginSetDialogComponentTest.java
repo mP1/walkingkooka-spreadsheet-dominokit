@@ -99,12 +99,12 @@ public final class PluginSetDialogComponentTest implements DialogComponentLifecy
             "PluginSetDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Plugin\n" +
-                "    id=pluginList-Dialog includeClose=true\n" +
+                "    id=PluginSet-Dialog includeClose=true\n" +
                 "      PluginSetTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=pluginList-Table\n" +
+                "              id=PluginSet-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Name\n" +
                 "                Filename\n" +
@@ -114,15 +114,15 @@ public final class PluginSetDialogComponentTest implements DialogComponentLifecy
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=pluginList-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=pluginList-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=PluginSet-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=PluginSet-next-Link\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"No plugins available\"\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Upload\" [#/plugin-upload] id=pluginList-upload-Link\n" +
-                "            \"Close\" [#/] id=pluginList-close-Link\n"
+                "            \"Upload\" [#/plugin-upload] id=PluginSet-upload-Link\n" +
+                "            \"Close\" [#/] id=PluginSet-close-Link\n"
         );
     }
 
@@ -141,12 +141,12 @@ public final class PluginSetDialogComponentTest implements DialogComponentLifecy
             "PluginSetDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Plugin\n" +
-                "    id=pluginList-Dialog includeClose=true\n" +
+                "    id=PluginSet-Dialog includeClose=true\n" +
                 "      PluginSetTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=pluginList-Table\n" +
+                "              id=PluginSet-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Name\n" +
                 "                Filename\n" +
@@ -156,15 +156,15 @@ public final class PluginSetDialogComponentTest implements DialogComponentLifecy
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=pluginList-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=pluginList-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=PluginSet-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=PluginSet-next-Link\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"No plugins available\"\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Upload\" [#/plugin-upload] id=pluginList-upload-Link\n" +
-                "            \"Close\" [#/] id=pluginList-close-Link\n"
+                "            \"Upload\" [#/plugin-upload] id=PluginSet-upload-Link\n" +
+                "            \"Close\" [#/] id=PluginSet-close-Link\n"
         );
 
         appContext.loadPlugins(
@@ -178,12 +178,12 @@ public final class PluginSetDialogComponentTest implements DialogComponentLifecy
             "PluginSetDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Plugin\n" +
-                "    id=pluginList-Dialog includeClose=true\n" +
+                "    id=PluginSet-Dialog includeClose=true\n" +
                 "      PluginSetTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=pluginList-Table\n" +
+                "              id=PluginSet-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Name\n" +
                 "                Filename\n" +
@@ -202,9 +202,9 @@ public final class PluginSetDialogComponentTest implements DialogComponentLifecy
                 "                    \"31/12/99, 12:58 pm\"\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
-                "                      \"Delete\" [#/plugin/test-plugin-name-1/delete] id=pluginList-delete-Link\n" +
-                "                      \"Download\" [/api/plugin/test-plugin-name-1/download] id=pluginList-download-Link\n" +
-                "                      \"View\" [#/plugin/test-plugin-name-1] id=pluginList-view-Link\n" +
+                "                      \"Delete\" [#/plugin/test-plugin-name-1/delete] id=PluginSet-delete-Link\n" +
+                "                      \"Download\" [/api/plugin/test-plugin-name-1/download] id=PluginSet-download-Link\n" +
+                "                      \"View\" [#/plugin/test-plugin-name-1] id=PluginSet-view-Link\n" +
                 "                ROW 1\n" +
                 "                  TextComponent\n" +
                 "                    \"test-plugin-name-2\"\n" +
@@ -216,9 +216,9 @@ public final class PluginSetDialogComponentTest implements DialogComponentLifecy
                 "                    \"31/12/99, 12:58 pm\"\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
-                "                      \"Delete\" [#/plugin/test-plugin-name-2/delete] id=pluginList-delete-Link\n" +
-                "                      \"Download\" [/api/plugin/test-plugin-name-2/download] id=pluginList-download-Link\n" +
-                "                      \"View\" [#/plugin/test-plugin-name-2] id=pluginList-view-Link\n" +
+                "                      \"Delete\" [#/plugin/test-plugin-name-2/delete] id=PluginSet-delete-Link\n" +
+                "                      \"Download\" [/api/plugin/test-plugin-name-2/download] id=PluginSet-download-Link\n" +
+                "                      \"View\" [#/plugin/test-plugin-name-2] id=PluginSet-view-Link\n" +
                 "                ROW 2\n" +
                 "                  TextComponent\n" +
                 "                    \"test-plugin-name-3\"\n" +
@@ -230,21 +230,21 @@ public final class PluginSetDialogComponentTest implements DialogComponentLifecy
                 "                    \"31/12/99, 12:58 pm\"\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
-                "                      \"Delete\" [#/plugin/test-plugin-name-3/delete] id=pluginList-delete-Link\n" +
-                "                      \"Download\" [/api/plugin/test-plugin-name-3/download] id=pluginList-download-Link\n" +
-                "                      \"View\" [#/plugin/test-plugin-name-3] id=pluginList-view-Link\n" +
+                "                      \"Delete\" [#/plugin/test-plugin-name-3/delete] id=PluginSet-delete-Link\n" +
+                "                      \"Download\" [/api/plugin/test-plugin-name-3/download] id=PluginSet-download-Link\n" +
+                "                      \"View\" [#/plugin/test-plugin-name-3] id=PluginSet-view-Link\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=pluginList-previous-Link\n" +
-                "                    \"next\" [#/plugin/*/offset/2/count/3] mdi-arrow-right id=pluginList-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=PluginSet-previous-Link\n" +
+                "                    \"next\" [#/plugin/*/offset/2/count/3] mdi-arrow-right id=PluginSet-next-Link\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"No plugins available\"\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Upload\" [#/plugin-upload] id=pluginList-upload-Link\n" +
-                "            \"Close\" [#/] id=pluginList-close-Link\n"
+                "            \"Upload\" [#/plugin-upload] id=PluginSet-upload-Link\n" +
+                "            \"Close\" [#/] id=PluginSet-close-Link\n"
         );
     }
 
@@ -268,12 +268,12 @@ public final class PluginSetDialogComponentTest implements DialogComponentLifecy
             "PluginSetDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Plugin\n" +
-                "    id=pluginList-Dialog includeClose=true\n" +
+                "    id=PluginSet-Dialog includeClose=true\n" +
                 "      PluginSetTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=pluginList-Table\n" +
+                "              id=PluginSet-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Name\n" +
                 "                Filename\n" +
@@ -283,15 +283,15 @@ public final class PluginSetDialogComponentTest implements DialogComponentLifecy
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" [#/plugin/*/offset/0/count/3] id=pluginList-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=pluginList-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" [#/plugin/*/offset/0/count/3] id=PluginSet-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=PluginSet-next-Link\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"No plugins available\"\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Upload\" [#/plugin-upload] id=pluginList-upload-Link\n" +
-                "            \"Close\" [#/] id=pluginList-close-Link\n"
+                "            \"Upload\" [#/plugin-upload] id=PluginSet-upload-Link\n" +
+                "            \"Close\" [#/] id=PluginSet-close-Link\n"
         );
     }
 
