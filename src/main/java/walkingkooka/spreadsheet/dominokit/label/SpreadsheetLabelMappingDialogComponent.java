@@ -129,7 +129,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements DialogCompo
         return ID_PREFIX;
     }
 
-    private final static String ID = "labelMapping";
+    private final static String ID = SpreadsheetLabelMapping.class.getSimpleName();
 
     private final static String ID_PREFIX = ID + "-";
 
