@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.HTMLTableElement;
+import elemental2.dom.KeyboardEvent;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.color.Color;
@@ -30,6 +31,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
+import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -39,6 +41,7 @@ import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigation;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportWindows;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextNode;
@@ -54,6 +57,389 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
     final static SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1);
 
     final static SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("SpreadsheetName111");
+
+    // onKeyDownEvent...................................................................................................
+
+    @Test
+    public void testOnKeyDownEventWithUnknownKey() {
+        this.onKeyDownEventAndCheck(
+            key("A"),
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            null, // HistoryToken
+            null // SpreadsheetViewportNavigation
+        );
+    }
+
+    @Test
+    public void testOnKeyDownEventWithEnter() {
+        this.onKeyDownEventAndCheck(
+            key(Key.Enter),
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            HistoryToken.cellFormula(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ), // HistoryToken
+            null // SpreadsheetViewportNavigation
+        );
+    }
+
+    @Test
+    public void testOnKeyDownEventWithEscape() {
+        this.onKeyDownEventAndCheck(
+            key(Key.Escape),
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            HistoryToken.spreadsheetSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
+            ), // HistoryToken
+            null // SpreadsheetViewportNavigation
+        );
+    }
+
+    @Test
+    public void testOnKeyDownEventWithLeftArrow() {
+        this.onKeyDownEventAndCheck(
+            key(Key.ArrowLeft),
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            null, // HistoryToken
+            SpreadsheetViewportNavigation.leftColumn()
+        );
+    }
+
+    @Test
+    public void testOnKeyDownEventWithRightArrow() {
+        this.onKeyDownEventAndCheck(
+            key(Key.ArrowRight),
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            null, // HistoryToken
+            SpreadsheetViewportNavigation.rightColumn()
+        );
+    }
+
+    @Test
+    public void testOnKeyDownEventWithUpArrow() {
+        this.onKeyDownEventAndCheck(
+            key(Key.ArrowUp),
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            null, // HistoryToken
+            SpreadsheetViewportNavigation.upRow()
+        );
+    }
+
+    @Test
+    public void testOnKeyDownEventWithDownArrow() {
+        this.onKeyDownEventAndCheck(
+            key(Key.ArrowDown),
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            null, // HistoryToken
+            SpreadsheetViewportNavigation.downRow()
+        );
+    }
+
+    @Test
+    public void testOnKeyDownEventWithShiftedLeftArrow() {
+        this.onKeyDownEventAndCheck(
+            shiftedKey(Key.ArrowLeft),
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            null, // HistoryToken
+            SpreadsheetViewportNavigation.extendLeftColumn()
+        );
+    }
+
+    @Test
+    public void testOnKeyDownEventWithShiftedRightArrow() {
+        this.onKeyDownEventAndCheck(
+            shiftedKey(Key.ArrowRight),
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            null, // HistoryToken
+            SpreadsheetViewportNavigation.extendRightColumn()
+        );
+    }
+
+    @Test
+    public void testOnKeyDownEventWithShiftedUpArrow() {
+        this.onKeyDownEventAndCheck(
+            shiftedKey(Key.ArrowUp),
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            null, // HistoryToken
+            SpreadsheetViewportNavigation.extendUpRow()
+        );
+    }
+
+    @Test
+    public void testOnKeyDownEventWithShiftedDownArrow() {
+        this.onKeyDownEventAndCheck(
+            shiftedKey(Key.ArrowDown),
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            null, // HistoryToken
+            SpreadsheetViewportNavigation.extendDownRow()
+        );
+    }
+
+    private KeyboardEvent key(final Key key) {
+        return this.key(
+            key.name()
+        );
+    }
+
+    private KeyboardEvent shiftedKey(final Key key) {
+        return this.key(
+            key.name(),
+            true // shifted
+        );
+    }
+
+    private KeyboardEvent key(final String key) {
+        return this.key(
+            key,
+            false // shift
+        );
+    }
+
+    private KeyboardEvent key(final String key,
+                              final boolean shift) {
+        final KeyboardEvent event = new KeyboardEvent("keydown");
+        event.key = key;
+        event.shiftKey = shift;
+        return event;
+    }
+
+    private void onKeyDownEventAndCheck(final KeyboardEvent event,
+                                        final HistoryToken initialHistoryToken,
+                                        final HistoryToken expectedHistoryToken,
+                                        final SpreadsheetViewportNavigation expectedNavigation) {
+        final AppContext appContext = new FakeAppContext() {
+            @Override
+            public void debug(final Object... values) {
+                System.out.println("DEBUG " + Arrays.toString(values));
+            }
+        };
+
+        final SpreadsheetViewportCacheContext cacheContext = new FakeSpreadsheetViewportCacheContext() {
+            @Override
+            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                return null;
+            }
+
+            @Override
+            public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+                return null;
+            }
+
+            @Override
+            public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+                return null;
+            }
+        };
+
+        final SpreadsheetViewportComponentTableContext tableContext = new FakeSpreadsheetViewportComponentTableContext() {
+
+            @Override
+            public boolean shouldHideZeroValues() {
+                return false;
+            }
+
+            @Override
+            public boolean shouldShowFormulas() {
+                return false;
+            }
+
+            @Override
+            public boolean shouldShowHeaders() {
+                return true;
+            }
+
+            @Override
+            public boolean mustRefresh() {
+                return false;
+            }
+
+            @Override
+            public boolean isShiftKeyDown() {
+                return false;
+            }
+
+            @Override
+            public TextStyle allCellsStyle() {
+                return TextStyle.EMPTY;
+            }
+
+            @Override
+            public TextStyle cellStyle() {
+                return TextStyle.EMPTY;
+            }
+
+            @Override
+            public TextStyle selectedCellStyle(final TextStyle cellStyle) {
+                return TextStyle.EMPTY;
+            }
+
+            @Override
+            public TextStyle columnStyle() {
+                return TextStyle.EMPTY;
+            }
+
+            @Override
+            public TextStyle selectedColumnStyle() {
+                return TextStyle.EMPTY;
+            }
+
+            @Override
+            public TextStyle rowStyle() {
+                return TextStyle.EMPTY;
+            }
+
+            @Override
+            public TextStyle selectedRowStyle() {
+                return TextStyle.EMPTY;
+            }
+
+            @Override
+            public int viewportGridWidth() {
+                return 4 * SpreadsheetViewportContext.ROW_HEADER_WIDTH_PIXELS;
+            }
+
+            @Override
+            public int viewportGridHeight() {
+                return 3 * SpreadsheetViewportContext.COLUMN_HEADER_HEIGHT_PIXELS;
+            }
+
+            @Override
+            public HistoryToken historyToken() {
+                return initialHistoryToken;
+            }
+
+            @Override
+            public void pushHistoryToken(final HistoryToken historyToken) {
+                SpreadsheetViewportComponentTableTest.this.historyToken = historyToken;
+            }
+
+            @Override
+            public void pushNavigation(final SpreadsheetViewportNavigation navigation) {
+                SpreadsheetViewportComponentTableTest.this.navigation = navigation;
+            }
+
+            @Override
+            public SpreadsheetViewportCache spreadsheetViewportCache() {
+                return this.spreadsheetViewportCache;
+            }
+
+            private final SpreadsheetViewportCache spreadsheetViewportCache = SpreadsheetViewportCache.empty(cacheContext);
+
+            @Override
+            public void debug(final Object... values) {
+                appContext.debug(values);
+            }
+        };
+
+        final SpreadsheetMetadata metadata = SpreadsheetMetadata.EMPTY.set(
+            SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+            SPREADSHEET_ID
+        ).set(
+            SpreadsheetMetadataPropertyName.STYLE,
+            TextStyle.EMPTY.set(
+                TextStylePropertyName.WIDTH,
+                Length.parse("100px")
+            ).set(
+                TextStylePropertyName.HEIGHT,
+                Length.parse("50px")
+            )
+        );
+
+        tableContext.spreadsheetViewportCache()
+            .onSpreadsheetMetadata(
+                metadata,
+                appContext
+            );
+
+        tableContext.spreadsheetViewportCache()
+            .onSpreadsheetDelta(
+                HttpMethod.GET,
+                Url.parseRelative("/api/spreadsheet/1/cell/A1"),
+                SpreadsheetDelta.EMPTY.setCells(
+                    Sets.of(
+                        SpreadsheetSelection.A1.setFormula(
+                            SpreadsheetFormula.EMPTY.setText("=1+2")
+                        ).setFormattedValue(
+                            Optional.of(
+                                TextNode.text("*** 3.0")
+                            )
+                        )
+                    )
+                ),
+                appContext
+            );
+
+        this.historyToken = null;
+        this.navigation = null;
+
+        final SpreadsheetViewportComponentTable component = SpreadsheetViewportComponentTable.empty(tableContext);
+
+        component.onKeyDownEvent(event);
+
+        this.checkEquals(
+            expectedHistoryToken,
+            this.historyToken,
+            () -> "historyToken event=" + event
+        );
+
+        this.checkEquals(
+            expectedNavigation,
+            this.navigation,
+            () -> "navigation event=" + event
+        );
+    }
+
+    private HistoryToken historyToken;
+
+    private SpreadsheetViewportNavigation navigation;
+
+    // refresh..........................................................................................................
 
     @Test
     public void testTreePrintCellSelectedAndShouldShowHeadersTrue() {
