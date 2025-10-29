@@ -65,71 +65,71 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
             "DecimalNumberSymbolsDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    A1: Decimal Number Symbols\n" +
-                "    id=decimalNumberSymbols-Dialog includeClose=true\n" +
+                "    id=DecimalNumberSymbols-Dialog includeClose=true\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Negative sign [] id=decimalNumberSymbolsnegativeSign-TextBox\n" +
+                "                Negative sign [] id=DecimalNumberSymbols-negativeSign-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Negative sign\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Positive sign [] id=decimalNumberSymbolspositiveSign-TextBox\n" +
+                "                Positive sign [] id=DecimalNumberSymbols-positiveSign-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Positive sign\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Zero digit [] id=decimalNumberSymbolszeroDigit-TextBox\n" +
+                "                Zero digit [] id=DecimalNumberSymbols-zeroDigit-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Zero digit\"\n" +
                 "          TextBoxComponent\n" +
-                "            Currency [] id=decimalNumberSymbolsCurrencySymbol-TextBox\n" +
+                "            Currency [] id=DecimalNumberSymbols-CurrencySymbol-TextBox\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Decimal separator [] id=decimalNumberSymbolsdecimalSeparator-TextBox\n" +
+                "                Decimal separator [] id=DecimalNumberSymbols-decimalSeparator-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Decimal separator\"\n" +
                 "          TextBoxComponent\n" +
-                "            Exponent [] id=decimalNumberSymbolsExponentSymbol-TextBox\n" +
+                "            Exponent [] id=DecimalNumberSymbols-ExponentSymbol-TextBox\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Group separator [] id=decimalNumberSymbolsgroupSeparator-TextBox\n" +
+                "                Group separator [] id=DecimalNumberSymbols-groupSeparator-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Group separator\"\n" +
                 "          TextBoxComponent\n" +
-                "            Infinity [] id=decimalNumberSymbolsInfinitySymbol-TextBox\n" +
+                "            Infinity [] id=DecimalNumberSymbols-InfinitySymbol-TextBox\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Monetary decimal separator [] id=decimalNumberSymbolsmonetaryDecimalSeparator-TextBox\n" +
+                "                Monetary decimal separator [] id=DecimalNumberSymbols-monetaryDecimalSeparator-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Monetary decimal separator\"\n" +
                 "          TextBoxComponent\n" +
-                "            Nan [] id=decimalNumberSymbolsNanSymbol-TextBox\n" +
+                "            Nan [] id=DecimalNumberSymbols-NanSymbol-TextBox\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Percent symbol [] id=decimalNumberSymbolspercentSymbol-TextBox\n" +
+                "                Percent symbol [] id=DecimalNumberSymbols-percentSymbol-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Percent symbol\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Permill symbol [] id=decimalNumberSymbolspermillSymbol-TextBox\n" +
+                "                Permill symbol [] id=DecimalNumberSymbols-permillSymbol-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Permill symbol\"\n" +
                 "          DecimalNumberSymbolsComponent\n" +
@@ -144,11 +144,11 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" DISABLED id=decimalNumberSymbols-save-Link\n" +
-                "            \"Clear\" [#/1/SpreadsheetName1/cell/A1/decimalNumberSymbols/save/] id=decimalNumberSymbols-clear-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName1/cell/A1/decimalNumberSymbols/save/] id=decimalNumberSymbols-undo-Link\n" +
-                "            \"Copy Defaults\" [#/1/SpreadsheetName1/cell/A1/decimalNumberSymbols/save/-,+,0,$,.,e,%22,%22,%E2%88%9E,.,NaN,%25,%E2%80%B0] id=decimalNumberSymbols-copyDefaults-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1/cell/A1] id=decimalNumberSymbols-close-Link\n"
+                "            \"Save\" DISABLED id=DecimalNumberSymbols-save-Link\n" +
+                "            \"Clear\" [#/1/SpreadsheetName1/cell/A1/decimalNumberSymbols/save/] id=DecimalNumberSymbols-clear-Link\n" +
+                "            \"Undo\" [#/1/SpreadsheetName1/cell/A1/decimalNumberSymbols/save/] id=DecimalNumberSymbols-undo-Link\n" +
+                "            \"Copy Defaults\" [#/1/SpreadsheetName1/cell/A1/decimalNumberSymbols/save/-,+,0,$,.,e,%22,%22,%E2%88%9E,.,NaN,%25,%E2%80%B0] id=DecimalNumberSymbols-copyDefaults-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName1/cell/A1] id=DecimalNumberSymbols-close-Link\n"
         );
     }
 
@@ -176,49 +176,49 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
             "DecimalNumberSymbolsDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Spreadsheet: Decimal Number Symbols (decimalNumberSymbols)\n" +
-                "    id=decimalNumberSymbols-Dialog includeClose=true\n" +
+                "    id=DecimalNumberSymbols-Dialog includeClose=true\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Negative sign [-] id=decimalNumberSymbolsnegativeSign-TextBox\n" +
+                "                Negative sign [-] id=DecimalNumberSymbols-negativeSign-TextBox\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Positive sign [+] id=decimalNumberSymbolspositiveSign-TextBox\n" +
+                "                Positive sign [+] id=DecimalNumberSymbols-positiveSign-TextBox\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Zero digit [0] id=decimalNumberSymbolszeroDigit-TextBox\n" +
+                "                Zero digit [0] id=DecimalNumberSymbols-zeroDigit-TextBox\n" +
                 "          TextBoxComponent\n" +
-                "            Currency [$] id=decimalNumberSymbolsCurrencySymbol-TextBox\n" +
+                "            Currency [$] id=DecimalNumberSymbols-CurrencySymbol-TextBox\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Decimal separator [.] id=decimalNumberSymbolsdecimalSeparator-TextBox\n" +
+                "                Decimal separator [.] id=DecimalNumberSymbols-decimalSeparator-TextBox\n" +
                 "          TextBoxComponent\n" +
-                "            Exponent [e] id=decimalNumberSymbolsExponentSymbol-TextBox\n" +
+                "            Exponent [e] id=DecimalNumberSymbols-ExponentSymbol-TextBox\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Group separator [,] id=decimalNumberSymbolsgroupSeparator-TextBox\n" +
+                "                Group separator [,] id=DecimalNumberSymbols-groupSeparator-TextBox\n" +
                 "          TextBoxComponent\n" +
-                "            Infinity [∞] id=decimalNumberSymbolsInfinitySymbol-TextBox\n" +
+                "            Infinity [∞] id=DecimalNumberSymbols-InfinitySymbol-TextBox\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Monetary decimal separator [.] id=decimalNumberSymbolsmonetaryDecimalSeparator-TextBox\n" +
+                "                Monetary decimal separator [.] id=DecimalNumberSymbols-monetaryDecimalSeparator-TextBox\n" +
                 "          TextBoxComponent\n" +
-                "            Nan [NaN] id=decimalNumberSymbolsNanSymbol-TextBox\n" +
+                "            Nan [NaN] id=DecimalNumberSymbols-NanSymbol-TextBox\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Percent symbol [%] id=decimalNumberSymbolspercentSymbol-TextBox\n" +
+                "                Percent symbol [%] id=DecimalNumberSymbols-percentSymbol-TextBox\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Permill symbol [‰] id=decimalNumberSymbolspermillSymbol-TextBox\n" +
+                "                Permill symbol [‰] id=DecimalNumberSymbols-permillSymbol-TextBox\n" +
                 "          DecimalNumberSymbolsComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
@@ -229,11 +229,11 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/SpreadsheetName1/spreadsheet/decimalNumberSymbols/save/-,+,0,$,.,e,%22,%22,%E2%88%9E,.,NaN,%25,%E2%80%B0] id=decimalNumberSymbols-save-Link\n" +
-                "            \"Clear\" [#/1/SpreadsheetName1/spreadsheet/decimalNumberSymbols/save/] id=decimalNumberSymbols-clear-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName1/spreadsheet/decimalNumberSymbols/save/-,+,0,$,.,e,%22,%22,%E2%88%9E,.,NaN,%25,%E2%80%B0] id=decimalNumberSymbols-undo-Link\n" +
-                "            \"Copy Defaults\" DISABLED id=decimalNumberSymbols-copyDefaults-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1/spreadsheet] id=decimalNumberSymbols-close-Link\n"
+                "            \"Save\" [#/1/SpreadsheetName1/spreadsheet/decimalNumberSymbols/save/-,+,0,$,.,e,%22,%22,%E2%88%9E,.,NaN,%25,%E2%80%B0] id=DecimalNumberSymbols-save-Link\n" +
+                "            \"Clear\" [#/1/SpreadsheetName1/spreadsheet/decimalNumberSymbols/save/] id=DecimalNumberSymbols-clear-Link\n" +
+                "            \"Undo\" [#/1/SpreadsheetName1/spreadsheet/decimalNumberSymbols/save/-,+,0,$,.,e,%22,%22,%E2%88%9E,.,NaN,%25,%E2%80%B0] id=DecimalNumberSymbols-undo-Link\n" +
+                "            \"Copy Defaults\" DISABLED id=DecimalNumberSymbols-copyDefaults-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName1/spreadsheet] id=DecimalNumberSymbols-close-Link\n"
         );
     }
 
@@ -261,71 +261,71 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
             "DecimalNumberSymbolsDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Spreadsheet: Decimal Number Symbols (decimalNumberSymbols)\n" +
-                "    id=decimalNumberSymbols-Dialog includeClose=true\n" +
+                "    id=DecimalNumberSymbols-Dialog includeClose=true\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Negative sign [] id=decimalNumberSymbolsnegativeSign-TextBox\n" +
+                "                Negative sign [] id=DecimalNumberSymbols-negativeSign-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Negative sign\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Positive sign [] id=decimalNumberSymbolspositiveSign-TextBox\n" +
+                "                Positive sign [] id=DecimalNumberSymbols-positiveSign-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Positive sign\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Zero digit [] id=decimalNumberSymbolszeroDigit-TextBox\n" +
+                "                Zero digit [] id=DecimalNumberSymbols-zeroDigit-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Zero digit\"\n" +
                 "          TextBoxComponent\n" +
-                "            Currency [] id=decimalNumberSymbolsCurrencySymbol-TextBox\n" +
+                "            Currency [] id=DecimalNumberSymbols-CurrencySymbol-TextBox\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Decimal separator [] id=decimalNumberSymbolsdecimalSeparator-TextBox\n" +
+                "                Decimal separator [] id=DecimalNumberSymbols-decimalSeparator-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Decimal separator\"\n" +
                 "          TextBoxComponent\n" +
-                "            Exponent [] id=decimalNumberSymbolsExponentSymbol-TextBox\n" +
+                "            Exponent [] id=DecimalNumberSymbols-ExponentSymbol-TextBox\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Group separator [] id=decimalNumberSymbolsgroupSeparator-TextBox\n" +
+                "                Group separator [] id=DecimalNumberSymbols-groupSeparator-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Group separator\"\n" +
                 "          TextBoxComponent\n" +
-                "            Infinity [] id=decimalNumberSymbolsInfinitySymbol-TextBox\n" +
+                "            Infinity [] id=DecimalNumberSymbols-InfinitySymbol-TextBox\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Monetary decimal separator [] id=decimalNumberSymbolsmonetaryDecimalSeparator-TextBox\n" +
+                "                Monetary decimal separator [] id=DecimalNumberSymbols-monetaryDecimalSeparator-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Monetary decimal separator\"\n" +
                 "          TextBoxComponent\n" +
-                "            Nan [] id=decimalNumberSymbolsNanSymbol-TextBox\n" +
+                "            Nan [] id=DecimalNumberSymbols-NanSymbol-TextBox\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Percent symbol [] id=decimalNumberSymbolspercentSymbol-TextBox\n" +
+                "                Percent symbol [] id=DecimalNumberSymbols-percentSymbol-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Percent symbol\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Permill symbol [] id=decimalNumberSymbolspermillSymbol-TextBox\n" +
+                "                Permill symbol [] id=DecimalNumberSymbols-permillSymbol-TextBox\n" +
                 "                Errors\n" +
                 "                  Empty \"Permill symbol\"\n" +
                 "          DecimalNumberSymbolsComponent\n" +
@@ -340,11 +340,11 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" DISABLED id=decimalNumberSymbols-save-Link\n" +
-                "            \"Clear\" [#/1/SpreadsheetName1/spreadsheet/decimalNumberSymbols/save/] id=decimalNumberSymbols-clear-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName1/spreadsheet/decimalNumberSymbols/save/] id=decimalNumberSymbols-undo-Link\n" +
-                "            \"Copy Defaults\" DISABLED id=decimalNumberSymbols-copyDefaults-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1/spreadsheet] id=decimalNumberSymbols-close-Link\n"
+                "            \"Save\" DISABLED id=DecimalNumberSymbols-save-Link\n" +
+                "            \"Clear\" [#/1/SpreadsheetName1/spreadsheet/decimalNumberSymbols/save/] id=DecimalNumberSymbols-clear-Link\n" +
+                "            \"Undo\" [#/1/SpreadsheetName1/spreadsheet/decimalNumberSymbols/save/] id=DecimalNumberSymbols-undo-Link\n" +
+                "            \"Copy Defaults\" DISABLED id=DecimalNumberSymbols-copyDefaults-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName1/spreadsheet] id=DecimalNumberSymbols-close-Link\n"
         );
     }
 
