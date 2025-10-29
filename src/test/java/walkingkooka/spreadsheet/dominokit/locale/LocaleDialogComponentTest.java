@@ -99,7 +99,7 @@ public final class LocaleDialogComponentTest implements DialogComponentLifecycle
             "LocaleDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    A1: Locale\n" +
-                "    id=locale-Dialog includeClose=true\n" +
+                "    id=Locale-Dialog includeClose=true\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          LocaleComponent\n" +
@@ -108,10 +108,10 @@ public final class LocaleDialogComponentTest implements DialogComponentLifecycle
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/SpreadsheetName1/cell/A1/locale/save/] id=locale-save-Link\n" +
-                "            \"Clear\" [#/1/SpreadsheetName1/cell/A1/locale/save/] id=locale-clear-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName1/cell/A1/locale/save/] id=locale-undo-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1/cell/A1] id=locale-close-Link\n"
+                "            \"Save\" [#/1/SpreadsheetName1/cell/A1/locale/save/] id=Locale-save-Link\n" +
+                "            \"Clear\" [#/1/SpreadsheetName1/cell/A1/locale/save/] id=Locale-clear-Link\n" +
+                "            \"Undo\" [#/1/SpreadsheetName1/cell/A1/locale/save/] id=Locale-undo-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName1/cell/A1] id=Locale-close-Link\n"
         );
     }
 
@@ -162,7 +162,7 @@ public final class LocaleDialogComponentTest implements DialogComponentLifecycle
             "LocaleDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    A1: Locale\n" +
-                "    id=locale-Dialog includeClose=true\n" +
+                "    id=Locale-Dialog includeClose=true\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          LocaleComponent\n" +
@@ -171,10 +171,10 @@ public final class LocaleDialogComponentTest implements DialogComponentLifecycle
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/SpreadsheetName1/cell/A1/locale/save/en-AU] id=locale-save-Link\n" +
-                "            \"Clear\" [#/1/SpreadsheetName1/cell/A1/locale/save/] id=locale-clear-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName1/cell/A1/locale/save/en-AU] id=locale-undo-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1/cell/A1] id=locale-close-Link\n"
+                "            \"Save\" [#/1/SpreadsheetName1/cell/A1/locale/save/en-AU] id=Locale-save-Link\n" +
+                "            \"Clear\" [#/1/SpreadsheetName1/cell/A1/locale/save/] id=Locale-clear-Link\n" +
+                "            \"Undo\" [#/1/SpreadsheetName1/cell/A1/locale/save/en-AU] id=Locale-undo-Link\n" +
+                "            \"Close\" [#/1/SpreadsheetName1/cell/A1] id=Locale-close-Link\n"
         );
     }
 

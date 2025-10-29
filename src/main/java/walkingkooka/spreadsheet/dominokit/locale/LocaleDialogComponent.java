@@ -123,7 +123,7 @@ public final class LocaleDialogComponent implements DialogComponentLifecycle,
         return ID_PREFIX;
     }
 
-    private final static String ID = "locale";
+    private final static String ID = Locale.class.getSimpleName();
 
     private final static String ID_PREFIX = ID + "-";
 
