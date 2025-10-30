@@ -211,6 +211,13 @@ final class BasicSpreadsheetKeyBindings implements SpreadsheetKeyBindings {
     }
 
     @Override
+    public Set<KeyBinding> screenUp() {
+        return Sets.of(
+            key(Key.PageUp)
+        );
+    }
+
+    @Override
     public Set<KeyBinding> select() {
         return Sets.of(
             key(Key.Enter)

@@ -71,6 +71,8 @@ public interface SpreadsheetKeyBindings {
 
     Set<KeyBinding> screenRight();
 
+    Set<KeyBinding> screenUp();
+
     Set<KeyBinding> select();
 
     Set<KeyBinding> selectAll();
