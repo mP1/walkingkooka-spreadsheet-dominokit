@@ -222,6 +222,20 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
         );
     }
 
+    @Test
+    public void testOnKeyDownEventWithScreenLeft() {
+        this.onKeyDownEventAndCheck(
+            key(Key.Home),
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            null, // HistoryToken
+            SpreadsheetViewportNavigation.leftPixel(300)
+        );
+    }
+
     private KeyboardEvent key(final Key key) {
         return this.key(
             key.name()
@@ -412,6 +426,8 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
                             )
                         )
                     )
+                ).setWindow(
+                    SpreadsheetViewportWindows.parse("A1:C3")
                 ),
                 appContext
             );

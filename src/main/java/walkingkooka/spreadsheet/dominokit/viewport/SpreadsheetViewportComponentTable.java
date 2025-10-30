@@ -35,11 +35,13 @@ import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.dom.TBodyComponent;
 import walkingkooka.spreadsheet.dominokit.dom.THeadComponent;
 import walkingkooka.spreadsheet.dominokit.dom.TableComponent;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.key.KeyBinding;
 import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyBindings;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigation;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportWindows;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -123,6 +125,11 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
         this.registerBindings(
             keyBindings.extendSelectionDown(),
             this::onExtendSelectionDown
+        );
+
+        this.registerBindings(
+            keyBindings.screenLeft(),
+            this::onScreenLeft
         );
 
         this.context = context;
@@ -346,6 +353,25 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
         this.context.pushNavigation(
             SpreadsheetViewportNavigation.extendDownRow()
         );
+    }
+
+    private void onScreenLeft(final KeyboardEvent event) {
+        final SpreadsheetViewportComponentTableContext context = this.context;
+
+        final HistoryToken historyToken = context.historyToken();
+        final AnchoredSpreadsheetSelection anchoredSelection = historyToken.anchoredSelectionOrEmpty()
+            .orElse(null);
+        if (null != anchoredSelection) {
+            final SpreadsheetSelection selection = anchoredSelection.selection();
+            if (selection.isCell()) {
+                context.pushNavigation(
+                    SpreadsheetViewportNavigation.leftPixel(
+                        context.spreadsheetViewportCache()
+                            .lastWindowWidth()
+                    )
+                );
+            }
+        }
     }
 
     // refresh..........................................................................................................
