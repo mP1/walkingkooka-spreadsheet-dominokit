@@ -4846,6 +4846,65 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
     }
 
+    // lastWindowHeight.................................................................................................
+
+    @Test
+    public void testLastWindowHeightOnly() {
+        final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
+        cache.onSpreadsheetDelta(
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setRowHeights(
+                Maps.of(
+                    ROW_1_REF, 10.0,
+                    ROW_2_REF, 20.0
+                )
+            ).setWindow(
+                SpreadsheetViewportWindows.parse("A1:B2")
+            ),
+            CONTEXT
+        );
+
+        this.lastWindowHeightAndCheck(
+            cache,
+            30
+        );
+    }
+
+    @Test
+    public void testLastWindowHeightAndFrozenColumns() {
+        final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
+        cache.onSpreadsheetDelta(
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setRowHeights(
+                Maps.of(
+                    ROW_1_REF, 10.0,
+                    ROW_2_REF, 20.0,
+                    ROW_3_REF, 30.0
+                )
+            ).setWindow(
+                SpreadsheetViewportWindows.parse("A1:B1,A2:C3")
+            ),
+            CONTEXT
+        );
+
+        this.lastWindowHeightAndCheck(
+            cache,
+            50
+        );
+    }
+
+
+    private void lastWindowHeightAndCheck(final SpreadsheetViewportCache cache,
+                                         final int expected) {
+        this.checkEquals(
+            expected,
+            cache.lastWindowHeight(),
+            cache::toString
+        );
+    }
+
     // SpreadsheetLabelNameResolver.....................................................................................
 
     @Override
