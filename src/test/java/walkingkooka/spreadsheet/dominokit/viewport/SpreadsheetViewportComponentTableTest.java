@@ -320,6 +320,20 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
         );
     }
 
+    @Test
+    public void testOnKeyDownEventWithExtendScreenDown() {
+        this.onKeyDownEventAndCheck(
+            shiftedKey(Key.PageDown),
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            null, // HistoryToken
+            SpreadsheetViewportNavigation.extendDownPixel(150)
+        );
+    }
+
     private KeyboardEvent key(final Key key) {
         return this.key(
             key.name()
