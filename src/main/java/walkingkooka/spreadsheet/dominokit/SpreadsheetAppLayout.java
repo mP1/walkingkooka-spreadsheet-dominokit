@@ -30,7 +30,7 @@ import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyBindings;
-import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyboardEventListener;
+import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyboardBindingsEventListener;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataHistoryTokenAwareComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponent;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponentContexts;
@@ -103,7 +103,7 @@ final class SpreadsheetAppLayout extends AppLayout implements
 
         this.context = context;
 
-        this.keyboardEventListener = SpreadsheetKeyboardEventListener.with(
+        this.keyboardEventListener = SpreadsheetKeyboardBindingsEventListener.with(
             keyBindings,
             context
         );
