@@ -45,6 +45,14 @@ public interface SpreadsheetKeyBindings {
 
     Set<KeyBinding> extendSelectionUp();
 
+    Set<KeyBinding> extendScreenDown();
+
+    Set<KeyBinding> extendScreenLeft();
+
+    Set<KeyBinding> extendScreenRight();
+
+    Set<KeyBinding> extendScreenUp();
+
     Set<KeyBinding> generalFormat();
 
     Set<KeyBinding> italics();
