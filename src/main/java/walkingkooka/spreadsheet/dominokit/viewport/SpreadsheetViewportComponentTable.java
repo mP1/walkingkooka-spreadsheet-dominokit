@@ -148,6 +148,11 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
             this::onScreenDown
         );
 
+        this.registerBindings(
+            keyBindings.extendScreenLeft(),
+            this::onExtendScreenLeft
+        );
+
         this.context = context;
 
         final TableComponent table = HtmlElementComponent.table()
@@ -403,6 +408,15 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
             () -> SpreadsheetViewportNavigation.downPixel(
                 this.context.spreadsheetViewportCache()
                     .lastWindowHeight()
+            )
+        );
+    }
+
+    private void onExtendScreenLeft(final KeyboardEvent event) {
+        this.onScreenLeftRightUpDown(
+            () -> SpreadsheetViewportNavigation.extendLeftPixel(
+                this.context.spreadsheetViewportCache()
+                    .lastWindowWidth()
             )
         );
     }
