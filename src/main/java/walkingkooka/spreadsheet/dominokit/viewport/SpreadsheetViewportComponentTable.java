@@ -53,8 +53,8 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Consumer;
-import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 /**
  * A TABLE which holds all the ROWs that are displayed. It also contains and caches rows.
@@ -136,6 +136,11 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
         this.registerBindings(
             keyBindings.screenRight(),
             this::onScreenRight
+        );
+
+        this.registerBindings(
+            keyBindings.screenUp(),
+            this::onScreenUp
         );
 
         this.context = context;
@@ -362,18 +367,33 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
     }
 
     private void onScreenLeft(final KeyboardEvent event) {
-        this.onScreenLeftRight(
-            SpreadsheetViewportNavigation::leftPixel
+        this.onScreenLeftRightUpDown(
+            () -> SpreadsheetViewportNavigation.leftPixel(
+                this.context.spreadsheetViewportCache()
+                    .lastWindowWidth()
+            )
         );
     }
 
     private void onScreenRight(final KeyboardEvent event) {
-        this.onScreenLeftRight(
-            SpreadsheetViewportNavigation::rightPixel
+        this.onScreenLeftRightUpDown(
+            () -> SpreadsheetViewportNavigation.rightPixel(
+                this.context.spreadsheetViewportCache()
+                    .lastWindowWidth()
+            )
         );
     }
 
-    private void onScreenLeftRight(final Function<Integer, SpreadsheetViewportNavigation> navigation) {
+    private void onScreenUp(final KeyboardEvent event) {
+        this.onScreenLeftRightUpDown(
+            () -> SpreadsheetViewportNavigation.upPixel(
+                this.context.spreadsheetViewportCache()
+                    .lastWindowHeight()
+            )
+        );
+    }
+
+    private void onScreenLeftRightUpDown(final Supplier<SpreadsheetViewportNavigation> navigation) {
         final SpreadsheetViewportComponentTableContext context = this.context;
 
         final HistoryToken historyToken = context.historyToken();
@@ -383,10 +403,7 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
             final SpreadsheetSelection selection = anchoredSelection.selection();
             if (selection.isCell()) {
                 context.pushNavigation(
-                    navigation.apply(
-                        this.context.spreadsheetViewportCache()
-                            .lastWindowWidth()
-                    )
+                    navigation.get()
                 );
             }
         }
