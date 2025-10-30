@@ -151,6 +151,11 @@ public class FakeSpreadsheetKeyBindings implements SpreadsheetKeyBindings {
     }
 
     @Override
+    public Set<KeyBinding> screenUp() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public Set<KeyBinding> select() {
         throw new UnsupportedOperationException();
     }
