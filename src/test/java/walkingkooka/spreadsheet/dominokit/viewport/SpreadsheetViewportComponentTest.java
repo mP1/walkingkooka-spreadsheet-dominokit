@@ -35,7 +35,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
-import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyBindings;
+import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyBindingses;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -581,7 +581,7 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
         };
 
         final SpreadsheetViewportComponent component = SpreadsheetViewportComponent.empty(
-            SpreadsheetKeyBindings.basic(),
+            SpreadsheetKeyBindingses.basic(),
             new FakeSpreadsheetViewportComponentContext() {
 
                 @Override

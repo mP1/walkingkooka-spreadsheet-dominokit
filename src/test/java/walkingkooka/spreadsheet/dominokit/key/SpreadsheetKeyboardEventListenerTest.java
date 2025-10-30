@@ -77,7 +77,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetKeyboardEventListener.with(
-                SpreadsheetKeyBindings.fake(),
+                SpreadsheetKeyBindingses.fake(),
                 null
             )
         );
@@ -2749,7 +2749,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
                                      final TestSpreadsheetKeyboardContext context,
                                      final HistoryToken expected) {
         SpreadsheetKeyboardEventListener.with(
-            SpreadsheetKeyBindings.basic(),
+            SpreadsheetKeyBindingses.basic(),
             context
         ).handleEvent(event);
 
