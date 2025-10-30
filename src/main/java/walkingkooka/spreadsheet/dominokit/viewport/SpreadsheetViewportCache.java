@@ -131,6 +131,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
         this.windows = SpreadsheetViewportWindows.EMPTY;
         this.lastWindowWidth = 0;
+        this.lastWindowHeight = 0;
     }
 
     /**
@@ -561,6 +562,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
             this.windows = windows;
             this.lastWindowWidth = 0;
+            this.lastWindowHeight = 0;
         }
     }
 
@@ -595,6 +597,26 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     }
 
     private int lastWindowWidth;
+
+    /**
+     * Gets the height of the last or scrollable bottom right window.
+     */
+    public int lastWindowHeight() {
+        if (0 == this.lastWindowHeight) {
+            double height = 0;
+
+            for (final SpreadsheetRowReference row : this.windows.last()
+                .orElseThrow(() -> new IllegalStateException("Missing window")).rowRange()) {
+                height = height + this.rowHeight(row)
+                    .pixelValue();
+            }
+
+            this.lastWindowHeight = (int) Math.round(height);
+        }
+        return this.lastWindowHeight;
+    }
+
+    private int lastWindowHeight;
 
     // HistoryTokenWatcher..............................................................................................
 
