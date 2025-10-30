@@ -306,6 +306,20 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
         );
     }
 
+    @Test
+    public void testOnKeyDownEventWithExtendScreenUp() {
+        this.onKeyDownEventAndCheck(
+            shiftedKey(Key.PageUp),
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            null, // HistoryToken
+            SpreadsheetViewportNavigation.extendUpPixel(150)
+        );
+    }
+
     private KeyboardEvent key(final Key key) {
         return this.key(
             key.name()
