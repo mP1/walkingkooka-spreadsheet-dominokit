@@ -204,20 +204,7 @@ public final class SpreadsheetKeyBindingsEventListener implements EventListener,
     }
 
     private void handleKeyEvent(final KeyboardEvent event) {
-        KeyBinding binding = KeyBinding.with(event.key);
-
-        if(event.altKey) {
-            binding = binding.setAlt();
-        }
-        if(event.ctrlKey) {
-            binding = binding.setControl();
-        }
-        if(event.metaKey) {
-            binding = binding.setMeta();
-        }
-        if(event.shiftKey) {
-            binding = binding.setShift();
-        }
+        final KeyBinding binding = KeyBinding.fromKeyEvent(event);
 
         if (SPREADSHEET_KEYBOARD_EVENT_LISTENER) {
             this.context.debug(this.getClass().getSimpleName() + " handleKeyEvent " + binding);
