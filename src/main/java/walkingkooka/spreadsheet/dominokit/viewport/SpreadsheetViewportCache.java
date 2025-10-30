@@ -553,20 +553,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
         if (false == windows.isEmpty()) {
             if (false == this.windows.equals(windows)) {
-                // no window clear caches
-                this.cells.clear();
-                this.matchedCells.clear();
-
-                this.labelMappings.clear();
-                this.cellToLabels.clear();
-                this.cellToReferences.clear();
-                this.labelToNonLabel.clear();
-
-                this.columns.clear();
-                this.rows.clear();
-
-                this.columnWidths.clear();
-                this.rowHeights.clear();
+                this.clear();
             }
 
             this.windows = windows;
