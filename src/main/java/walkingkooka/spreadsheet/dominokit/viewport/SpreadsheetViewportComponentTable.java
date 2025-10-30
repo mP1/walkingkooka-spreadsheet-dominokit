@@ -447,7 +447,7 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
 
     private void onExtendScreenUp(final KeyboardEvent event) {
         this.onScreenLeftRightUpDown(
-            () -> SpreadsheetViewportNavigation.extendUpPixel(
+            () -> SpreadsheetViewportNavigation.extendScrollUp(
                 this.context.spreadsheetViewportCache()
                     .lastWindowHeight()
             )
