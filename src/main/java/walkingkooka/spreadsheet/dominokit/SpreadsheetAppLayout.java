@@ -29,7 +29,7 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
-import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyBindings;
+import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyBinding;
 import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyboardEventListener;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataHistoryTokenAwareComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponent;
@@ -52,10 +52,14 @@ final class SpreadsheetAppLayout extends AppLayout implements
     //   formula,
     //   table holding spreadsheet cells
 
-    static SpreadsheetAppLayout prepare(final SpreadsheetViewportComponent viewportComponent,
+    static SpreadsheetAppLayout prepare(final SpreadsheetKeyBinding keyBindings,
+                                        final SpreadsheetViewportComponent viewportComponent,
                                         final AppContext context) {
         Objects.requireNonNull(context, "context");
-        final SpreadsheetAppLayout layout = new SpreadsheetAppLayout(context);
+        final SpreadsheetAppLayout layout = new SpreadsheetAppLayout(
+            keyBindings,
+            context
+        );
 
         layout.setOverFlowX("hidden")
             .setOverFlowY("hidden");
@@ -88,7 +92,8 @@ final class SpreadsheetAppLayout extends AppLayout implements
         return layout;
     }
 
-    private SpreadsheetAppLayout(final AppContext context) {
+    private SpreadsheetAppLayout(final SpreadsheetKeyBinding keyBindings,
+                                 final AppContext context) {
         super();
         context.addHistoryTokenWatcher(this);
         Doms.setVisibility(
@@ -99,7 +104,7 @@ final class SpreadsheetAppLayout extends AppLayout implements
         this.context = context;
 
         this.keyboardEventListener = SpreadsheetKeyboardEventListener.with(
-            SpreadsheetKeyBindings.basic(),
+            keyBindings,
             context
         );
     }

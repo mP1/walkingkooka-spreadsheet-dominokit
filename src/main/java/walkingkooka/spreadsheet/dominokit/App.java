@@ -126,6 +126,8 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListSelectHistoryTo
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContext;
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContextDelegator;
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContexts;
+import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyBinding;
+import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyBindings;
 import walkingkooka.spreadsheet.dominokit.locale.LocaleComponent;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
@@ -427,13 +429,17 @@ public class App implements EntryPoint,
 
         this.viewportCache = SpreadsheetViewportCache.empty(this);
 
+        final SpreadsheetKeyBinding keyBindings = SpreadsheetKeyBindings.basic();
+
         this.viewportComponent = SpreadsheetViewportComponent.empty(
+            keyBindings,
             SpreadsheetViewportComponentContexts.appContext(this)
         );
 
         AppSpreadsheetDialogComponents.register(this);
 
         this.layout = SpreadsheetAppLayout.prepare(
+            keyBindings,
             this.viewportComponent,
             this
         );
