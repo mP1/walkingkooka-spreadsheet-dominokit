@@ -37,7 +37,7 @@ import walkingkooka.spreadsheet.dominokit.dom.TBodyComponent;
 import walkingkooka.spreadsheet.dominokit.dom.THeadComponent;
 import walkingkooka.spreadsheet.dominokit.dom.TableComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyBinding;
+import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyBindings;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -57,7 +57,7 @@ import java.util.function.Predicate;
  */
 final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<HTMLTableElement, SpreadsheetViewportComponentTable> {
 
-    static SpreadsheetViewportComponentTable empty(final SpreadsheetKeyBinding keyBindings,
+    static SpreadsheetViewportComponentTable empty(final SpreadsheetKeyBindings keyBindings,
                                                    final SpreadsheetViewportComponentTableContext context) {
         return new SpreadsheetViewportComponentTable(
             keyBindings,
@@ -65,7 +65,7 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
         );
     }
 
-    private SpreadsheetViewportComponentTable(final SpreadsheetKeyBinding keyBindings,
+    private SpreadsheetViewportComponentTable(final SpreadsheetKeyBindings keyBindings,
                                               final SpreadsheetViewportComponentTableContext context) {
         this.keyBindings = keyBindings;
         this.context = context;
@@ -252,7 +252,7 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
         }
     }
 
-    private final SpreadsheetKeyBinding keyBindings;
+    private final SpreadsheetKeyBindings keyBindings;
 
     void refresh(final SpreadsheetId id,
                  final SpreadsheetName name,

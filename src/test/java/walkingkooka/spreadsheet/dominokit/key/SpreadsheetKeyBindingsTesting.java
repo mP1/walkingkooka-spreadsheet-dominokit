@@ -29,17 +29,17 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public interface SpreadsheetKeyBindingTesting<T extends SpreadsheetKeyBinding> extends ClassTesting<T>,
+public interface SpreadsheetKeyBindingsTesting<T extends SpreadsheetKeyBindings> extends ClassTesting<T>,
     TreePrintableTesting {
 
     @Test
     default void testUniqueKeyBindings() throws Exception {
         final Map<KeyBinding, Set<String>> duplicates = Maps.sorted();
 
-        final SpreadsheetKeyBinding spreadsheetKeyBinding = this.createSpreadsheetKeyBinding();
+        final SpreadsheetKeyBindings spreadsheetKeyBindings = this.createSpreadsheetKeyBinding();
 
-        for(final Method method : SpreadsheetKeyBinding.class.getDeclaredMethods()) {
-            for(KeyBinding key : (Set<KeyBinding>) method.invoke(spreadsheetKeyBinding)) {
+        for(final Method method : SpreadsheetKeyBindings.class.getDeclaredMethods()) {
+            for(KeyBinding key : (Set<KeyBinding>) method.invoke(spreadsheetKeyBindings)) {
                 Set<String> getters = duplicates.get(key);
                 if(null == getters) {
                     getters = SortedSets.tree();

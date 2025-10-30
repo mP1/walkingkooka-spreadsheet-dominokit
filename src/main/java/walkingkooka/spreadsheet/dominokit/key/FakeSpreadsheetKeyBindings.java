@@ -19,9 +19,9 @@ package walkingkooka.spreadsheet.dominokit.key;
 
 import java.util.Set;
 
-public class FakeSpreadsheetKeyBinding implements SpreadsheetKeyBinding{
+public class FakeSpreadsheetKeyBindings implements SpreadsheetKeyBindings {
 
-    public FakeSpreadsheetKeyBinding() {
+    public FakeSpreadsheetKeyBindings() {
         super();
     }
 

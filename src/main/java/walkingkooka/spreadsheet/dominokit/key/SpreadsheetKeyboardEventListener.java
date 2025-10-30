@@ -52,7 +52,7 @@ import java.util.function.Consumer;
 public class SpreadsheetKeyboardEventListener implements EventListener,
     Logging {
 
-    public static SpreadsheetKeyboardEventListener with(final SpreadsheetKeyBinding bindings,
+    public static SpreadsheetKeyboardEventListener with(final SpreadsheetKeyBindings bindings,
                                                         final SpreadsheetKeyboardContext context) {
         return new SpreadsheetKeyboardEventListener(
             Objects.requireNonNull(bindings, "bindings"),
@@ -60,7 +60,7 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         );
     }
 
-    private SpreadsheetKeyboardEventListener(final SpreadsheetKeyBinding bindings,
+    private SpreadsheetKeyboardEventListener(final SpreadsheetKeyBindings bindings,
                                              final SpreadsheetKeyboardContext context) {
         this.bindingToKeyboardEventHandler = Maps.sorted();
         this.context = context;
