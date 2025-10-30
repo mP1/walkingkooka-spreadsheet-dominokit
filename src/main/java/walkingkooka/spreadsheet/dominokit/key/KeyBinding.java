@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.key;
 
+import elemental2.dom.KeyboardEvent;
 import walkingkooka.Cast;
 import walkingkooka.ToStringBuilder;
 import walkingkooka.ToStringBuilderOption;
@@ -28,6 +29,27 @@ import java.util.Objects;
  * Captures the binding for a single keyboard to action mapping.
  */
 public final class KeyBinding implements Comparable<KeyBinding> {
+
+    public static KeyBinding fromKeyEvent(final KeyboardEvent event) {
+        Objects.requireNonNull(event, "event");
+
+        KeyBinding binding = KeyBinding.with(event.key);
+
+        if (event.altKey) {
+            binding = binding.setAlt();
+        }
+        if (event.ctrlKey) {
+            binding = binding.setControl();
+        }
+        if (event.metaKey) {
+            binding = binding.setMeta();
+        }
+        if (event.shiftKey) {
+            binding = binding.setShift();
+        }
+
+        return binding;
+    }
 
     public static KeyBinding with(final String key) {
         return new KeyBinding(
