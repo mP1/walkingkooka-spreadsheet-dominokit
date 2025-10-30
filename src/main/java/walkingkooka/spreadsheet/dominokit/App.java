@@ -1559,7 +1559,7 @@ public class App implements EntryPoint,
 
     private SpreadsheetProvider systemSpreadsheetProvider;
 
-    // SpreadsheetKeyboardContext.......................................................................................
+    // KeyboardContext.......................................................................................
 
     @Override
     public Optional<SpreadsheetCell> historyTokenCell() {

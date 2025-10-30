@@ -22,15 +22,15 @@ import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
 
-public final class SpreadsheetKeyboardContextsTest implements PublicStaticHelperTesting<SpreadsheetKeyboardContexts> {
+public final class KeyboardContextsTest implements PublicStaticHelperTesting<KeyboardContexts> {
     @Override
     public boolean canHavePublicTypes(final Method method) {
         return false;
     }
 
     @Override
-    public Class<SpreadsheetKeyboardContexts> type() {
-        return SpreadsheetKeyboardContexts.class;
+    public Class<KeyboardContexts> type() {
+        return KeyboardContexts.class;
     }
 
     @Override

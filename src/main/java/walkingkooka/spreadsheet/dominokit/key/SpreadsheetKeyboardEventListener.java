@@ -53,7 +53,7 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
     Logging {
 
     public static SpreadsheetKeyboardEventListener with(final SpreadsheetKeyBindings bindings,
-                                                        final SpreadsheetKeyboardContext context) {
+                                                        final KeyboardContext context) {
         return new SpreadsheetKeyboardEventListener(
             Objects.requireNonNull(bindings, "bindings"),
             Objects.requireNonNull(context, "context")
@@ -61,7 +61,7 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
     }
 
     private SpreadsheetKeyboardEventListener(final SpreadsheetKeyBindings bindings,
-                                             final SpreadsheetKeyboardContext context) {
+                                             final KeyboardContext context) {
         this.bindingToKeyboardEventHandler = Maps.sorted();
         this.context = context;
 
@@ -376,7 +376,7 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
     }
 
     private void selectAll(final KeyboardEvent event) {
-        final SpreadsheetKeyboardContext context = this.context;
+        final KeyboardContext context = this.context;
 
         final HistoryToken historyToken = context.historyToken()
             .setSelection(
@@ -444,7 +444,7 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
      * Unconditionally sets a {@link SpreadsheetFormatterSelector} belonging to a {@link SpreadsheetCell}.
      */
     private <T> void setCellFormatter(final Optional<SpreadsheetFormatterSelector> formatter) {
-        final SpreadsheetKeyboardContext context = this.context;
+        final KeyboardContext context = this.context;
 
         context.pushHistoryToken(
             context.historyToken()
@@ -458,7 +458,7 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
      */
     private <T> void setCellStyle(final TextStylePropertyName<T> name,
                                   final T value) {
-        final SpreadsheetKeyboardContext context = this.context;
+        final KeyboardContext context = this.context;
 
         if (context.historyToken() instanceof SpreadsheetCellHistoryToken) {
             context.pushHistoryToken(
@@ -477,7 +477,7 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
      */
     private <T> void flipCellStyle(final TextStylePropertyName<T> name,
                                    final T value) {
-        final SpreadsheetKeyboardContext context = this.context;
+        final KeyboardContext context = this.context;
 
         if(context.historyToken() instanceof SpreadsheetCellHistoryToken) {
             final SpreadsheetCell cell = context.historyTokenCell()
@@ -509,7 +509,7 @@ public class SpreadsheetKeyboardEventListener implements EventListener,
         }
     }
 
-    private final SpreadsheetKeyboardContext context;
+    private final KeyboardContext context;
 
     // Object...........................................................................................................
 

@@ -67,7 +67,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
             NullPointerException.class,
             () -> SpreadsheetKeyboardEventListener.with(
                 null,
-                SpreadsheetKeyboardContexts.fake()
+                KeyboardContexts.fake()
             )
         );
     }
@@ -91,7 +91,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -106,7 +106,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -131,7 +131,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -163,7 +163,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -189,7 +189,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -221,7 +221,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -247,7 +247,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -275,7 +275,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -290,7 +290,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -315,7 +315,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -347,7 +347,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -381,7 +381,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -396,7 +396,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -421,7 +421,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -453,7 +453,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -487,7 +487,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -502,7 +502,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -527,7 +527,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -559,7 +559,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -593,7 +593,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -608,7 +608,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -634,7 +634,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -667,7 +667,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -695,7 +695,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -710,7 +710,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -736,7 +736,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -769,7 +769,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -797,7 +797,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -812,7 +812,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -839,7 +839,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -873,7 +873,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -902,7 +902,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -917,7 +917,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -942,7 +942,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -968,7 +968,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1000,7 +1000,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1032,7 +1032,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1066,7 +1066,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -1081,7 +1081,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1106,7 +1106,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1138,7 +1138,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1172,7 +1172,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -1187,7 +1187,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1219,7 +1219,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1253,7 +1253,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -1268,7 +1268,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1293,7 +1293,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1325,7 +1325,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1359,7 +1359,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -1374,7 +1374,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1399,7 +1399,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1431,7 +1431,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1465,7 +1465,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -1480,7 +1480,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1505,7 +1505,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1537,7 +1537,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1571,7 +1571,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -1586,7 +1586,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1620,7 +1620,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1649,7 +1649,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -1664,7 +1664,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1690,7 +1690,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1723,7 +1723,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1751,7 +1751,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -1766,7 +1766,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1791,7 +1791,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1823,7 +1823,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1857,7 +1857,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -1872,7 +1872,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1898,7 +1898,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1931,7 +1931,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1959,7 +1959,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -1981,7 +1981,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2006,7 +2006,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -2021,7 +2021,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2046,7 +2046,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2072,7 +2072,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2104,7 +2104,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2138,7 +2138,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -2153,7 +2153,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2179,7 +2179,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2212,7 +2212,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2240,7 +2240,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -2255,7 +2255,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2282,7 +2282,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2316,7 +2316,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2345,7 +2345,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -2360,7 +2360,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2385,7 +2385,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2417,7 +2417,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2451,7 +2451,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -2466,7 +2466,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2493,7 +2493,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2521,7 +2521,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2555,7 +2555,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2587,7 +2587,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2621,7 +2621,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -2636,7 +2636,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2661,7 +2661,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2693,7 +2693,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
 
         this.handleEventAndCheck(
             event,
-            new TestSpreadsheetKeyboardContext(
+            new TestKeyboardContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2737,7 +2737,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
     // handleEventAndCheck..............................................................................................
 
     private void handleEventAndCheck(final KeyboardEvent event,
-                                     final TestSpreadsheetKeyboardContext context) {
+                                     final TestKeyboardContext context) {
         this.handleEventAndCheck(
             event,
             context,
@@ -2746,7 +2746,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
     }
 
     private void handleEventAndCheck(final KeyboardEvent event,
-                                     final TestSpreadsheetKeyboardContext context,
+                                     final TestKeyboardContext context,
                                      final HistoryToken expected) {
         SpreadsheetKeyboardEventListener.with(
             SpreadsheetKeyBindingses.basic(),
@@ -2768,25 +2768,25 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
         );
     }
 
-    private class TestSpreadsheetKeyboardContext extends FakeSpreadsheetKeyboardContext {
+    private class TestKeyboardContext extends FakeKeyboardContext {
 
-        TestSpreadsheetKeyboardContext(final HistoryToken historyToken) {
+        TestKeyboardContext(final HistoryToken historyToken) {
             this(
                 historyToken,
                 Optional.empty() // no cell
             );
         }
 
-        TestSpreadsheetKeyboardContext(final HistoryToken historyToken,
-                                       final SpreadsheetCell cell) {
+        TestKeyboardContext(final HistoryToken historyToken,
+                            final SpreadsheetCell cell) {
             this(
                 historyToken,
                 Optional.of(cell)
             );
         }
 
-        TestSpreadsheetKeyboardContext(final HistoryToken historyToken,
-                                       final Optional<SpreadsheetCell> cell) {
+        TestKeyboardContext(final HistoryToken historyToken,
+                            final Optional<SpreadsheetCell> cell) {
             this.historyToken = historyToken;
             this.cell = cell;
 
