@@ -805,7 +805,7 @@ public class FakeAppContext extends FakeSpreadsheetProvider
         throw new UnsupportedOperationException();
     }
 
-    // SpreadsheetKeyboardContext.......................................................................................
+    // KeyboardContext.......................................................................................
 
     @Override
     public Optional<SpreadsheetCell> historyTokenCell() {

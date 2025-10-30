@@ -17,12 +17,21 @@
 
 package walkingkooka.spreadsheet.dominokit.key;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryContextTesting;
+import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 
-public interface SpreadsheetKeyboardContextTesting<C extends SpreadsheetKeyboardContext> extends HistoryContextTesting<C> {
+import java.util.Optional;
 
-    @Override
-    default String typeNameSuffix() {
-        return SpreadsheetKeyboardContext.class.getSimpleName();
-    }
+/**
+ * A {@link walkingkooka.Context} that helps dispatch global keys such as CONTROL-B to bold a cell and more.
+ */
+public interface KeyboardContext extends HistoryContext,
+    LoggingContext {
+
+    /**
+     * Returns the {@link SpreadsheetCell} that matches the current {@link HistoryToken}.
+     */
+    Optional<SpreadsheetCell> historyTokenCell();
 }

@@ -17,24 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.key;
 
-import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContextTesting;
 
-/**
- * A collection of factory methods that dispatch keyboard events, such as CONTROL+B setting/remove BOLD from a {@link walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference}.
- */
-public final class SpreadsheetKeyboardContexts implements PublicStaticHelper {
+public interface KeyboardContextTesting<C extends KeyboardContext> extends HistoryContextTesting<C> {
 
-    /**
-     * {@see FakeSpreadsheetKeyboardContext}
-     */
-    public static SpreadsheetKeyboardContext fake() {
-        return new FakeSpreadsheetKeyboardContext();
-    }
-
-    /**
-     * Stop creation
-     */
-    private SpreadsheetKeyboardContexts() {
-        throw new UnsupportedOperationException();
+    @Override
+    default String typeNameSuffix() {
+        return KeyboardContext.class.getSimpleName();
     }
 }

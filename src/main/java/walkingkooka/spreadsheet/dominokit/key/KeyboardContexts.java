@@ -17,21 +17,24 @@
 
 package walkingkooka.spreadsheet.dominokit.key;
 
-import walkingkooka.spreadsheet.SpreadsheetCell;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-
-import java.util.Optional;
+import walkingkooka.reflect.PublicStaticHelper;
 
 /**
- * A {@link walkingkooka.Context} that helps dispatch global keys such as CONTROL-B to bold a cell and more.
+ * A collection of factory methods that dispatch keyboard events, such as CONTROL+B setting/remove BOLD from a {@link walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference}.
  */
-public interface SpreadsheetKeyboardContext extends HistoryContext,
-    LoggingContext {
+public final class KeyboardContexts implements PublicStaticHelper {
 
     /**
-     * Returns the {@link SpreadsheetCell} that matches the current {@link HistoryToken}.
+     * {@see FakeKeyboardContext}
      */
-    Optional<SpreadsheetCell> historyTokenCell();
+    public static KeyboardContext fake() {
+        return new FakeKeyboardContext();
+    }
+
+    /**
+     * Stop creation
+     */
+    private KeyboardContexts() {
+        throw new UnsupportedOperationException();
+    }
 }

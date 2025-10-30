@@ -22,13 +22,13 @@ import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 
 import java.util.Optional;
 
-public class FakeSpreadsheetKeyboardContext extends FakeHistoryContext implements SpreadsheetKeyboardContext {
+public class FakeKeyboardContext extends FakeHistoryContext implements KeyboardContext {
 
-    public FakeSpreadsheetKeyboardContext() {
+    public FakeKeyboardContext() {
         super();
     }
 
-    // SpreadsheetKeyboardContext.......................................................................................
+    // KeyboardContext.......................................................................................
 
     @Override
     public Optional<SpreadsheetCell> historyTokenCell() {
