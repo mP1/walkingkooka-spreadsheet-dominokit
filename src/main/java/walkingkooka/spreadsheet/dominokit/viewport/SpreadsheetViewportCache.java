@@ -130,6 +130,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
         this.rowCount = OptionalInt.empty();
 
         this.windows = SpreadsheetViewportWindows.EMPTY;
+        this.lastWindowWidth = 0;
     }
 
     /**
@@ -545,6 +546,8 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
      */
     private Optional<SpreadsheetSelection> selectionNotLabel = Optional.empty();
 
+    // windows..........................................................................................................
+
     /**
      * Sets a new {@link SpreadsheetViewportWindows}.
      */
@@ -557,6 +560,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
             }
 
             this.windows = windows;
+            this.lastWindowWidth = 0;
         }
     }
 
@@ -571,6 +575,15 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
      * The viewport. This is used to filter cells and labels in the cache.
      */
     private SpreadsheetViewportWindows windows = SpreadsheetViewportWindows.EMPTY;
+
+    public int lastWindowWidth() {
+        if(0 == this.lastWindowWidth) {
+
+        }
+        return this.lastWindowWidth;
+    }
+
+    private int lastWindowWidth;
 
     // HistoryTokenWatcher..............................................................................................
 
