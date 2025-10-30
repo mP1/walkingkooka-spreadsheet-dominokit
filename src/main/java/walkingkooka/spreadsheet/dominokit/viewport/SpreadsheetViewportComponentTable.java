@@ -163,6 +163,11 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
             this::onExtendScreenUp
         );
 
+        this.registerBindings(
+            keyBindings.extendScreenDown(),
+            this::onExtendScreenDown
+        );
+
         this.context = context;
 
         final TableComponent table = HtmlElementComponent.table()
@@ -443,6 +448,15 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
     private void onExtendScreenUp(final KeyboardEvent event) {
         this.onScreenLeftRightUpDown(
             () -> SpreadsheetViewportNavigation.extendUpPixel(
+                this.context.spreadsheetViewportCache()
+                    .lastWindowHeight()
+            )
+        );
+    }
+
+    private void onExtendScreenDown(final KeyboardEvent event) {
+        this.onScreenLeftRightUpDown(
+            () -> SpreadsheetViewportNavigation.extendDownPixel(
                 this.context.spreadsheetViewportCache()
                     .lastWindowHeight()
             )
