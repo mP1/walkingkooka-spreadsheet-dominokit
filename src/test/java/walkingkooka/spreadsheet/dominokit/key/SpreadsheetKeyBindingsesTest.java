@@ -17,31 +17,24 @@
 
 package walkingkooka.spreadsheet.dominokit.key;
 
-import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicStaticHelperTesting;
 
-/**
- * A collection of {@link SpreadsheetKeyBinding}.
- */
-public final class SpreadsheetKeyBindings implements PublicStaticHelper {
+import java.lang.reflect.Method;
 
-    /**
-     * {@see FakeSpreadsheetKeyBinding}
-     */
-    public static SpreadsheetKeyBinding basic() {
-        return BasicSpreadsheetKeyBinding.INSTANCE;
+public final class SpreadsheetKeyBindingsesTest implements PublicStaticHelperTesting<SpreadsheetKeyBindingses> {
+    @Override
+    public boolean canHavePublicTypes(final Method method) {
+        return false;
     }
 
-    /**
-     * {@see FakeSpreadsheetKeyBinding}
-     */
-    public static SpreadsheetKeyBinding fake() {
-        return new FakeSpreadsheetKeyBinding();
+    @Override
+    public Class<SpreadsheetKeyBindingses> type() {
+        return SpreadsheetKeyBindingses.class;
     }
 
-    /**
-     * Stop creation
-     */
-    private SpreadsheetKeyBindings() {
-        throw new UnsupportedOperationException();
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PUBLIC;
     }
 }
