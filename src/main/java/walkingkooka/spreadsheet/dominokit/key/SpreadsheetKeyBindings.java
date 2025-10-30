@@ -69,6 +69,8 @@ public interface SpreadsheetKeyBindings {
 
     Set<KeyBinding> screenLeft();
 
+    Set<KeyBinding> screenRight();
+
     Set<KeyBinding> select();
 
     Set<KeyBinding> selectAll();
