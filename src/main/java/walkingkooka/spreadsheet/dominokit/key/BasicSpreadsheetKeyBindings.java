@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.key;
 
 import walkingkooka.collect.set.Sets;
+import walkingkooka.spreadsheet.dominokit.dom.Key;
 
 import java.util.Set;
 
@@ -75,6 +76,48 @@ final class BasicSpreadsheetKeyBindings implements SpreadsheetKeyBindings {
         );
     }
 
+    @Override
+    public Set<KeyBinding> delete() {
+        return Sets.of(
+            key(Key.Backspace)
+        );
+    }
+
+    @Override
+    public Set<KeyBinding> exit() {
+        return Sets.of(
+            key(Key.Escape)
+        );
+    }
+
+    @Override
+    public Set<KeyBinding> extendSelectionDown() {
+        return Sets.of(
+            shiftedKey(Key.ArrowDown)
+        );
+    }
+
+    @Override
+    public Set<KeyBinding> extendSelectionLeft() {
+        return Sets.of(
+            shiftedKey(Key.ArrowLeft)
+        );
+    }
+
+    @Override
+    public Set<KeyBinding> extendSelectionRight() {
+        return Sets.of(
+            shiftedKey(Key.ArrowRight)
+        );
+    }
+
+    @Override
+    public Set<KeyBinding> extendSelectionUp() {
+        return Sets.of(
+            shiftedKey(Key.ArrowUp)
+        );
+    }
+    
     @Override
     public Set<KeyBinding> generalFormat() {
         return Sets.of(
@@ -154,9 +197,44 @@ final class BasicSpreadsheetKeyBindings implements SpreadsheetKeyBindings {
     }
 
     @Override
+    public Set<KeyBinding> select() {
+        return Sets.of(
+            key(Key.Enter)
+        );
+    }
+
+    @Override
     public Set<KeyBinding> selectAll() {
         return Sets.of(
             control("a")
+        );
+    }
+
+    @Override
+    public Set<KeyBinding> selectionDown() {
+        return Sets.of(
+            key(Key.ArrowDown)
+        );
+    }
+
+    @Override
+    public Set<KeyBinding> selectionLeft() {
+        return Sets.of(
+            key(Key.ArrowLeft)
+        );
+    }
+
+    @Override
+    public Set<KeyBinding> selectionRight() {
+        return Sets.of(
+            key(Key.ArrowRight)
+        );
+    }
+
+    @Override
+    public Set<KeyBinding> selectionUp() {
+        return Sets.of(
+            key(Key.ArrowUp)
         );
     }
 
@@ -201,6 +279,15 @@ final class BasicSpreadsheetKeyBindings implements SpreadsheetKeyBindings {
         return Sets.of(
             controlShift("U")
         );
+    }
+
+    private static KeyBinding key(final Key key) {
+        return KeyBinding.with(key.toString());
+    }
+
+    private static KeyBinding shiftedKey(final Key key) {
+        return key(key)
+            .setShift();
     }
     
     private static KeyBinding control(final String key) {

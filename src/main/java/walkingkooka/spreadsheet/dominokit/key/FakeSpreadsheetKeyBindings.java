@@ -56,6 +56,36 @@ public class FakeSpreadsheetKeyBindings implements SpreadsheetKeyBindings {
     }
 
     @Override
+    public Set<KeyBinding> delete() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<KeyBinding> exit() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<KeyBinding> extendSelectionDown() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<KeyBinding> extendSelectionLeft() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<KeyBinding> extendSelectionRight() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<KeyBinding> extendSelectionUp() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public Set<KeyBinding> generalFormat() {
         throw new UnsupportedOperationException();
     }
@@ -111,7 +141,32 @@ public class FakeSpreadsheetKeyBindings implements SpreadsheetKeyBindings {
     }
 
     @Override
+    public Set<KeyBinding> select() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public Set<KeyBinding> selectAll() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<KeyBinding> selectionDown() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<KeyBinding> selectionLeft() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<KeyBinding> selectionRight() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<KeyBinding> selectionUp() {
         throw new UnsupportedOperationException();
     }
 

@@ -33,6 +33,18 @@ public interface SpreadsheetKeyBindings {
 
     Set<KeyBinding> dateFormat();
 
+    Set<KeyBinding> delete();
+
+    Set<KeyBinding> exit();
+
+    Set<KeyBinding> extendSelectionDown();
+
+    Set<KeyBinding> extendSelectionLeft();
+
+    Set<KeyBinding> extendSelectionRight();
+
+    Set<KeyBinding> extendSelectionUp();
+
     Set<KeyBinding> generalFormat();
 
     Set<KeyBinding> italics();
@@ -55,7 +67,17 @@ public interface SpreadsheetKeyBindings {
 
     Set<KeyBinding> scientificFormat();
 
+    Set<KeyBinding> select();
+
     Set<KeyBinding> selectAll();
+
+    Set<KeyBinding> selectionDown();
+
+    Set<KeyBinding> selectionLeft();
+
+    Set<KeyBinding> selectionRight();
+
+    Set<KeyBinding> selectionUp();
 
     Set<KeyBinding> strikethru();
 
