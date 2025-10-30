@@ -48,7 +48,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetKeyboardEventListenerTest implements TreePrintableTesting {
+public final class SpreadsheetKeyboardBindingsEventListenerTest implements TreePrintableTesting {
 
     private final static SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1);
 
@@ -65,7 +65,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
     public void testWithNullSpreadsheetKeyBindingFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetKeyboardEventListener.with(
+            () -> SpreadsheetKeyboardBindingsEventListener.with(
                 null,
                 KeyboardContexts.fake()
             )
@@ -76,7 +76,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
     public void testWithNullContextFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetKeyboardEventListener.with(
+            () -> SpreadsheetKeyboardBindingsEventListener.with(
                 SpreadsheetKeyBindingses.fake(),
                 null
             )
@@ -2748,7 +2748,7 @@ public final class SpreadsheetKeyboardEventListenerTest implements TreePrintable
     private void handleEventAndCheck(final KeyboardEvent event,
                                      final TestKeyboardContext context,
                                      final HistoryToken expected) {
-        SpreadsheetKeyboardEventListener.with(
+        SpreadsheetKeyboardBindingsEventListener.with(
             SpreadsheetKeyBindingses.basic(),
             context
         ).handleEvent(event);
