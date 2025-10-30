@@ -117,6 +117,34 @@ final class BasicSpreadsheetKeyBindings implements SpreadsheetKeyBindings {
             shiftedKey(Key.ArrowUp)
         );
     }
+
+    @Override
+    public Set<KeyBinding> extendScreenDown() {
+        return Sets.of(
+            shiftedKey(Key.PageDown)
+        );
+    }
+
+    @Override
+    public Set<KeyBinding> extendScreenLeft() {
+        return Sets.of(
+            shiftedKey(Key.Home)
+        );
+    }
+
+    @Override
+    public Set<KeyBinding> extendScreenRight() {
+        return Sets.of(
+            shiftedKey(Key.End)
+        );
+    }
+
+    @Override
+    public Set<KeyBinding> extendScreenUp() {
+        return Sets.of(
+            shiftedKey(Key.PageUp)
+        );
+    }
     
     @Override
     public Set<KeyBinding> generalFormat() {

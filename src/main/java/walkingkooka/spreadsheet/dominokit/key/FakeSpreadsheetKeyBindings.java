@@ -86,6 +86,26 @@ public class FakeSpreadsheetKeyBindings implements SpreadsheetKeyBindings {
     }
 
     @Override
+    public Set<KeyBinding> extendScreenDown() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<KeyBinding> extendScreenLeft() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<KeyBinding> extendScreenRight() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<KeyBinding> extendScreenUp() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public Set<KeyBinding> generalFormat() {
         throw new UnsupportedOperationException();
     }
