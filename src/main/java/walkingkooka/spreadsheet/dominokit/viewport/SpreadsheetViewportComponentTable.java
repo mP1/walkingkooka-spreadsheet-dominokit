@@ -32,11 +32,10 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.dom.TBodyComponent;
 import walkingkooka.spreadsheet.dominokit.dom.THeadComponent;
 import walkingkooka.spreadsheet.dominokit.dom.TableComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.key.KeyBinding;
 import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyBindings;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
@@ -45,11 +44,13 @@ import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigation;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportWindows;
 import walkingkooka.text.printer.IndentingPrinter;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 /**
@@ -67,7 +68,63 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
 
     private SpreadsheetViewportComponentTable(final SpreadsheetKeyBindings keyBindings,
                                               final SpreadsheetViewportComponentTableContext context) {
-        this.keyBindings = keyBindings;
+        this.bindingToKeyboardEventHandler = Maps.sorted();
+
+        this.registerBindings(
+            keyBindings.delete(),
+            this::onDelete
+        );
+
+        this.registerBindings(
+            keyBindings.exit(),
+            this::onExit
+        );
+
+        this.registerBindings(
+            keyBindings.select(),
+            this::onSelect
+        );
+        
+        this.registerBindings(
+            keyBindings.selectionLeft(),
+            this::onSelectionLeft
+        );
+
+        this.registerBindings(
+            keyBindings.selectionRight(),
+            this::onSelectionRight
+        );
+
+        this.registerBindings(
+            keyBindings.selectionUp(),
+            this::onSelectionUp
+        );
+
+        this.registerBindings(
+            keyBindings.selectionDown(),
+            this::onSelectionDown
+        );
+
+        this.registerBindings(
+            keyBindings.extendSelectionLeft(),
+            this::onExtendSelectionLeft
+        );
+
+        this.registerBindings(
+            keyBindings.extendSelectionRight(),
+            this::onExtendSelectionRight
+        );
+
+        this.registerBindings(
+            keyBindings.extendSelectionUp(),
+            this::onExtendSelectionUp
+        );
+
+        this.registerBindings(
+            keyBindings.extendSelectionDown(),
+            this::onExtendSelectionDown
+        );
+
         this.context = context;
 
         final TableComponent table = HtmlElementComponent.table()
@@ -101,6 +158,16 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
 
         this.rows = SortedSets.tree();
         this.rowsToTableRowCells = Maps.sorted();
+    }
+
+    private void registerBindings(final Collection<KeyBinding> bindings,
+                                  final Consumer<KeyboardEvent> handler) {
+        for(KeyBinding binding : bindings) {
+            this.bindingToKeyboardEventHandler.put(
+                binding,
+                handler
+            );
+        }
     }
 
     // click ...........................................................................................................
@@ -198,61 +265,90 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
      */
     // @VisibleForTesting
     void onKeyDownEvent(final KeyboardEvent event) {
-        event.preventDefault();
+        final KeyBinding binding = KeyBinding.fromKeyEvent(event);
 
-        final boolean shifted = event.shiftKey;
-        final SpreadsheetViewportComponentTableContext context = this.context;
-
-        SpreadsheetViewportNavigation navigation = null;
-        HistoryToken historyToken = null;
-
-        switch (Key.fromEvent(event)) {
-            case ArrowLeft:
-                navigation = shifted ?
-                    SpreadsheetViewportNavigation.extendLeftColumn() :
-                    SpreadsheetViewportNavigation.leftColumn();
-                break;
-            case ArrowUp:
-                navigation = shifted ?
-                    SpreadsheetViewportNavigation.extendUpRow() :
-                    SpreadsheetViewportNavigation.upRow();
-                break;
-            case ArrowRight:
-                navigation = shifted ?
-                    SpreadsheetViewportNavigation.extendRightColumn() :
-                    SpreadsheetViewportNavigation.rightColumn();
-                break;
-            case ArrowDown:
-                navigation = shifted ?
-                    SpreadsheetViewportNavigation.extendDownRow() :
-                    SpreadsheetViewportNavigation.downRow();
-                break;
-            case Backspace:
-                historyToken = context.historyToken()
-                    .clearAndFormula();
-                break;
-            case Enter:
-                historyToken = context.historyToken()
-                    .formula();
-                break;
-            case Escape:
-                historyToken = context.historyToken()
-                    .clearSelection();
-                break;
-            default:
-                // ignore other keys
-                break;
+        if (SPREADSHEET_KEYBOARD_EVENT_LISTENER) {
+            this.context.debug(this.getClass().getSimpleName() + " handleKeyEvent " + binding);
         }
 
-        if (null != historyToken) {
-            context.pushHistoryToken(historyToken);
-        }
-        if (null != navigation) {
-            context.pushNavigation(navigation);
+        final Consumer<KeyboardEvent> handler = this.bindingToKeyboardEventHandler.get(binding);
+        if(null != handler) {
+            handler.accept(event);
         }
     }
 
-    private final SpreadsheetKeyBindings keyBindings;
+    private final Map<KeyBinding, Consumer<KeyboardEvent>> bindingToKeyboardEventHandler;
+
+    private void onDelete(final KeyboardEvent event) {
+        this.context.pushHistoryToken(
+            this.context.historyToken()
+                .clearAndFormula()
+        );
+    }
+
+    private void onExit(final KeyboardEvent event) {
+        this.context.pushHistoryToken(
+            this.context.historyToken()
+                .clearSelection()
+        );
+    }
+
+    private void onSelect(final KeyboardEvent event) {
+        this.context.pushHistoryToken(
+            this.context.historyToken()
+                .formula()
+        );
+    }
+
+    private void onSelectionLeft(final KeyboardEvent event) {
+        this.context.pushNavigation(
+            SpreadsheetViewportNavigation.leftColumn()
+        );
+    }
+
+    private void onSelectionRight(final KeyboardEvent event) {
+        this.context.pushNavigation(
+            SpreadsheetViewportNavigation.rightColumn()
+        );
+    }
+
+    private void onSelectionUp(final KeyboardEvent event) {
+        this.context.pushNavigation(
+            SpreadsheetViewportNavigation.upRow()
+        );
+    }
+
+    private void onSelectionDown(final KeyboardEvent event) {
+        this.context.pushNavigation(
+            SpreadsheetViewportNavigation.downRow()
+        );
+    }
+
+    private void onExtendSelectionLeft(final KeyboardEvent event) {
+        this.context.pushNavigation(
+            SpreadsheetViewportNavigation.extendLeftColumn()
+        );
+    }
+
+    private void onExtendSelectionRight(final KeyboardEvent event) {
+        this.context.pushNavigation(
+            SpreadsheetViewportNavigation.extendRightColumn()
+        );
+    }
+
+    private void onExtendSelectionUp(final KeyboardEvent event) {
+        this.context.pushNavigation(
+            SpreadsheetViewportNavigation.extendUpRow()
+        );
+    }
+
+    private void onExtendSelectionDown(final KeyboardEvent event) {
+        this.context.pushNavigation(
+            SpreadsheetViewportNavigation.extendDownRow()
+        );
+    }
+
+    // refresh..........................................................................................................
 
     void refresh(final SpreadsheetId id,
                  final SpreadsheetName name,
