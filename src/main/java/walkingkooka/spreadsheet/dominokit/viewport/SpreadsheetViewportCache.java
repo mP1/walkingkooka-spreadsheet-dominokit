@@ -576,9 +576,20 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
      */
     private SpreadsheetViewportWindows windows = SpreadsheetViewportWindows.EMPTY;
 
+    /**
+     * Gets the width of the last or scrollable bottom right window.
+     */
     public int lastWindowWidth() {
-        if(0 == this.lastWindowWidth) {
+        if (0 == this.lastWindowWidth) {
+            double width = 0;
 
+            for (final SpreadsheetColumnReference column : this.windows.last()
+                .orElseThrow(() -> new IllegalStateException("Missing window")).columnRange()) {
+                width = width + this.columnWidth(column)
+                    .pixelValue();
+            }
+
+            this.lastWindowWidth = (int) Math.round(width);
         }
         return this.lastWindowWidth;
     }
