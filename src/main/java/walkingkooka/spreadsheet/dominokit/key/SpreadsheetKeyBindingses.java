@@ -20,22 +20,22 @@ package walkingkooka.spreadsheet.dominokit.key;
 import walkingkooka.reflect.PublicStaticHelper;
 
 /**
- * A collection of {@link SpreadsheetKeyBinding}.
+ * A collection of {@link SpreadsheetKeyBindings}.
  */
 public final class SpreadsheetKeyBindingses implements PublicStaticHelper {
 
     /**
-     * {@see FakeSpreadsheetKeyBinding}
+     * {@see FakeSpreadsheetKeyBindings}
      */
-    public static SpreadsheetKeyBinding basic() {
-        return BasicSpreadsheetKeyBinding.INSTANCE;
+    public static SpreadsheetKeyBindings basic() {
+        return BasicSpreadsheetKeyBindings.INSTANCE;
     }
 
     /**
-     * {@see FakeSpreadsheetKeyBinding}
+     * {@see FakeSpreadsheetKeyBindings}
      */
-    public static SpreadsheetKeyBinding fake() {
-        return new FakeSpreadsheetKeyBinding();
+    public static SpreadsheetKeyBindings fake() {
+        return new FakeSpreadsheetKeyBindings();
     }
 
     /**

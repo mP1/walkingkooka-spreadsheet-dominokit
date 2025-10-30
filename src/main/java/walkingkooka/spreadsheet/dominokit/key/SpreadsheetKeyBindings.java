@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.key;
 
 import java.util.Set;
 
-public interface SpreadsheetKeyBinding {
+public interface SpreadsheetKeyBindings {
 
     Set<KeyBinding> bold();
 

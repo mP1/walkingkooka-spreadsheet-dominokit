@@ -19,18 +19,18 @@ package walkingkooka.spreadsheet.dominokit.key;
 
 import walkingkooka.reflect.JavaVisibility;
 
-public final class BasicSpreadsheetKeyBindingTest implements SpreadsheetKeyBindingTesting<BasicSpreadsheetKeyBinding> {
+public final class BasicSpreadsheetKeyBindingsTest implements SpreadsheetKeyBindingsTesting<BasicSpreadsheetKeyBindings> {
 
     @Override
-    public BasicSpreadsheetKeyBinding createSpreadsheetKeyBinding() {
-        return BasicSpreadsheetKeyBinding.INSTANCE;
+    public BasicSpreadsheetKeyBindings createSpreadsheetKeyBinding() {
+        return BasicSpreadsheetKeyBindings.INSTANCE;
     }
 
     // class............................................................................................................
 
     @Override
-    public Class<BasicSpreadsheetKeyBinding> type() {
-        return BasicSpreadsheetKeyBinding.class;
+    public Class<BasicSpreadsheetKeyBindings> type() {
+        return BasicSpreadsheetKeyBindings.class;
     }
 
     @Override

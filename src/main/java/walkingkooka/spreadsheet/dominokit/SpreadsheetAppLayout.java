@@ -29,7 +29,7 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
-import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyBinding;
+import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyBindings;
 import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyboardEventListener;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataHistoryTokenAwareComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponent;
@@ -52,7 +52,7 @@ final class SpreadsheetAppLayout extends AppLayout implements
     //   formula,
     //   table holding spreadsheet cells
 
-    static SpreadsheetAppLayout prepare(final SpreadsheetKeyBinding keyBindings,
+    static SpreadsheetAppLayout prepare(final SpreadsheetKeyBindings keyBindings,
                                         final SpreadsheetViewportComponent viewportComponent,
                                         final AppContext context) {
         Objects.requireNonNull(context, "context");
@@ -92,7 +92,7 @@ final class SpreadsheetAppLayout extends AppLayout implements
         return layout;
     }
 
-    private SpreadsheetAppLayout(final SpreadsheetKeyBinding keyBindings,
+    private SpreadsheetAppLayout(final SpreadsheetKeyBindings keyBindings,
                                  final AppContext context) {
         super();
         context.addHistoryTokenWatcher(this);
