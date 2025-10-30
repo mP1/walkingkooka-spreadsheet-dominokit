@@ -197,6 +197,13 @@ final class BasicSpreadsheetKeyBindings implements SpreadsheetKeyBindings {
     }
 
     @Override
+    public Set<KeyBinding> screenDown() {
+        return Sets.of(
+            key(Key.PageDown)
+        );
+    }
+
+    @Override
     public Set<KeyBinding> screenLeft() {
         return Sets.of(
             key(Key.Home)
