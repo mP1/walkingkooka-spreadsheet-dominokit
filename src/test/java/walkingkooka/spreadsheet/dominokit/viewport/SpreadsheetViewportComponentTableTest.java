@@ -36,6 +36,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyBindings;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -418,7 +419,10 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
         this.historyToken = null;
         this.navigation = null;
 
-        final SpreadsheetViewportComponentTable component = SpreadsheetViewportComponentTable.empty(tableContext);
+        final SpreadsheetViewportComponentTable component = SpreadsheetViewportComponentTable.empty(
+            SpreadsheetKeyBindings.basic(),
+            tableContext
+        );
 
         component.onKeyDownEvent(event);
 
@@ -880,6 +884,7 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
             );
 
         final SpreadsheetViewportComponentTable component = SpreadsheetViewportComponentTable.empty(
+            SpreadsheetKeyBindings.basic(),
             tableContext
         );
 

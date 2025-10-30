@@ -68,6 +68,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnSelectHistory
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContext;
+import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyBinding;
 import walkingkooka.spreadsheet.dominokit.navigate.SpreadsheetNavigateLinkComponent;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetSelectionMenu;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -116,13 +117,16 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
     LoadedSpreadsheetMetadataRequired,
     NopEmptyResponseFetcherWatcher {
 
-    public static SpreadsheetViewportComponent empty(final SpreadsheetViewportComponentContext context) {
-        Objects.requireNonNull(context, "context");
-
-        return new SpreadsheetViewportComponent(context);
+    public static SpreadsheetViewportComponent empty(final SpreadsheetKeyBinding keyBindings,
+                                                     final SpreadsheetViewportComponentContext context) {
+        return new SpreadsheetViewportComponent(
+            Objects.requireNonNull(keyBindings, "keyBindings"),
+            Objects.requireNonNull(context, "context")
+        );
     }
 
-    private SpreadsheetViewportComponent(final SpreadsheetViewportComponentContext context) {
+    private SpreadsheetViewportComponent(final SpreadsheetKeyBinding keyBindings,
+                                         final SpreadsheetViewportComponentContext context) {
         this.context = context;
 
         this.formula = this.createFormula();
@@ -134,7 +138,10 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
                 this.formulaCellLinks.setCssText("position:absolute; bottom: 0px; right: 15px; height: fit-content; display:flex;")
             );
 
-        this.table = this.table(context);
+        this.table = this.table(
+            keyBindings,
+            context
+        );
 
         {
             final SpreadsheetViewportScrollbarComponentContext spreadsheetViewportScrollbarComponentContext = SpreadsheetViewportComponentSpreadsheetViewportScrollbarComponentContext.with(
@@ -332,13 +339,15 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
 
     // table............................................................................................................
 
-    private SpreadsheetViewportComponentTable table(final SpreadsheetViewportContext context) {
+    private SpreadsheetViewportComponentTable table(final SpreadsheetKeyBinding keyBindings,
+                                                    final SpreadsheetViewportContext context) {
         return SpreadsheetViewportComponentTable.empty(
-                SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext.with(
-                    this,
-                    context
-                )
-            );
+            keyBindings,
+            SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext.with(
+                this,
+                context
+            )
+        );
     }
 
     /**

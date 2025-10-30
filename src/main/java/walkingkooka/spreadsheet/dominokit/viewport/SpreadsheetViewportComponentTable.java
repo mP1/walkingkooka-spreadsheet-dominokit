@@ -37,6 +37,7 @@ import walkingkooka.spreadsheet.dominokit.dom.TBodyComponent;
 import walkingkooka.spreadsheet.dominokit.dom.THeadComponent;
 import walkingkooka.spreadsheet.dominokit.dom.TableComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyBinding;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -56,11 +57,17 @@ import java.util.function.Predicate;
  */
 final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<HTMLTableElement, SpreadsheetViewportComponentTable> {
 
-    static SpreadsheetViewportComponentTable empty(final SpreadsheetViewportComponentTableContext context) {
-        return new SpreadsheetViewportComponentTable(context);
+    static SpreadsheetViewportComponentTable empty(final SpreadsheetKeyBinding keyBindings,
+                                                   final SpreadsheetViewportComponentTableContext context) {
+        return new SpreadsheetViewportComponentTable(
+            keyBindings,
+            context
+        );
     }
 
-    private SpreadsheetViewportComponentTable(final SpreadsheetViewportComponentTableContext context) {
+    private SpreadsheetViewportComponentTable(final SpreadsheetKeyBinding keyBindings,
+                                              final SpreadsheetViewportComponentTableContext context) {
+        this.keyBindings = keyBindings;
         this.context = context;
 
         final TableComponent table = HtmlElementComponent.table()
@@ -244,6 +251,8 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
             context.pushNavigation(navigation);
         }
     }
+
+    private final SpreadsheetKeyBinding keyBindings;
 
     void refresh(final SpreadsheetId id,
                  final SpreadsheetName name,
