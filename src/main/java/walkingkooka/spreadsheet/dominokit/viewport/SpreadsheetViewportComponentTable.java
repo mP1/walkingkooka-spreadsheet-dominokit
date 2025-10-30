@@ -393,7 +393,7 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
 
     private void onScreenLeft(final KeyboardEvent event) {
         this.onScreenLeftRightUpDown(
-            () -> SpreadsheetViewportNavigation.leftPixel(
+            () -> SpreadsheetViewportNavigation.scrollLeft(
                 this.context.spreadsheetViewportCache()
                     .lastWindowWidth()
             )
