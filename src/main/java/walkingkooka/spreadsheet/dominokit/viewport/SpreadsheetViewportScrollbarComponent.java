@@ -393,7 +393,7 @@ abstract public class SpreadsheetViewportScrollbarComponent<R extends Spreadshee
                             .setNavigations(
                                 SpreadsheetViewportNavigationList.EMPTY.concat(
                                     columns ?
-                                        SpreadsheetViewportNavigation.rightPixel(width) :
+                                        SpreadsheetViewportNavigation.scrollRight(width) :
                                         SpreadsheetViewportNavigation.downPixel(height)
                                 )
                             )
