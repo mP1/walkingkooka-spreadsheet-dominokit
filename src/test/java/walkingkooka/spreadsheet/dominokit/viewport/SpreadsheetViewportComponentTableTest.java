@@ -288,7 +288,7 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
                 SpreadsheetSelection.A1.setDefaultAnchor()
             ),
             null, // HistoryToken
-            SpreadsheetViewportNavigation.extendLeftPixel(300)
+            SpreadsheetViewportNavigation.extendScrollLeft(300)
         );
     }
 
