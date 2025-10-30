@@ -53,6 +53,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 /**
@@ -130,6 +131,11 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
         this.registerBindings(
             keyBindings.screenLeft(),
             this::onScreenLeft
+        );
+
+        this.registerBindings(
+            keyBindings.screenRight(),
+            this::onScreenRight
         );
 
         this.context = context;
@@ -356,6 +362,18 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
     }
 
     private void onScreenLeft(final KeyboardEvent event) {
+        this.onScreenLeftRight(
+            SpreadsheetViewportNavigation::leftPixel
+        );
+    }
+
+    private void onScreenRight(final KeyboardEvent event) {
+        this.onScreenLeftRight(
+            SpreadsheetViewportNavigation::rightPixel
+        );
+    }
+
+    private void onScreenLeftRight(final Function<Integer, SpreadsheetViewportNavigation> navigation) {
         final SpreadsheetViewportComponentTableContext context = this.context;
 
         final HistoryToken historyToken = context.historyToken();
@@ -365,8 +383,8 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
             final SpreadsheetSelection selection = anchoredSelection.selection();
             if (selection.isCell()) {
                 context.pushNavigation(
-                    SpreadsheetViewportNavigation.leftPixel(
-                        context.spreadsheetViewportCache()
+                    navigation.apply(
+                        this.context.spreadsheetViewportCache()
                             .lastWindowWidth()
                     )
                 );

@@ -236,6 +236,20 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
         );
     }
 
+    @Test
+    public void testOnKeyDownEventWithScreenRight() {
+        this.onKeyDownEventAndCheck(
+            key(Key.End),
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            null, // HistoryToken
+            SpreadsheetViewportNavigation.rightPixel(300)
+        );
+    }
+
     private KeyboardEvent key(final Key key) {
         return this.key(
             key.name()
