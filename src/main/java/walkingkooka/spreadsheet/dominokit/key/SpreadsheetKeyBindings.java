@@ -67,6 +67,8 @@ public interface SpreadsheetKeyBindings {
 
     Set<KeyBinding> scientificFormat();
 
+    Set<KeyBinding> screenLeft();
+
     Set<KeyBinding> select();
 
     Set<KeyBinding> selectAll();
