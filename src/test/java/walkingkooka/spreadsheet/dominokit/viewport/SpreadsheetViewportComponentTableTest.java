@@ -274,7 +274,7 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
                 SpreadsheetSelection.A1.setDefaultAnchor()
             ),
             null, // HistoryToken
-            SpreadsheetViewportNavigation.downPixel(150)
+            SpreadsheetViewportNavigation.scrollDown(150)
         );
     }
 
