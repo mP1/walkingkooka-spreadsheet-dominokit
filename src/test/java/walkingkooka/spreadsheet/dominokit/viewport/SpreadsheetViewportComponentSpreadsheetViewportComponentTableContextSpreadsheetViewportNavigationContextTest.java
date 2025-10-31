@@ -37,12 +37,12 @@ public final class SpreadsheetViewportComponentSpreadsheetViewportComponentTable
     }
 
     @Override
-    public void rightPixelsWithNullColumnFails() {
+    public void testMoveRightPixelsWithNullColumnFails() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public void rightPixelsWithNegativePixelsFails() {
+    public void testMoveRightPixelsWithNegativePixelsFails() {
         throw new UnsupportedOperationException();
     }
 
@@ -77,7 +77,7 @@ public final class SpreadsheetViewportComponentSpreadsheetViewportComponentTable
     }
 
     @Override
-    public void downRowWithNullFails() {
+    public void testMoveDownRowWithNullFails() {
         throw new UnsupportedOperationException();
     }
 
