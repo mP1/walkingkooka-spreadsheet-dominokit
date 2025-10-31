@@ -351,7 +351,7 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
 
     private void onSelectionRight(final KeyboardEvent event) {
         this.context.pushNavigation(
-            SpreadsheetViewportNavigation.rightColumn()
+            SpreadsheetViewportNavigation.moveRight()
         );
     }
 
