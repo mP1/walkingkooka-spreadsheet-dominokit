@@ -32,7 +32,7 @@ public final class SpreadsheetViewportComponentSpreadsheetViewportComponentTable
     }
 
     @Override
-    public void leftColumnWithNullFails() {
+    public void testMoveLeftColumnWithNullFails() {
         throw new UnsupportedOperationException();
     }
 
