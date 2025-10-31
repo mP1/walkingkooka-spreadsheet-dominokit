@@ -22,12 +22,12 @@ import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigationContextTes
 public final class SpreadsheetViewportComponentSpreadsheetViewportComponentTableContextSpreadsheetViewportNavigationContextTest implements SpreadsheetViewportNavigationContextTesting<SpreadsheetViewportComponentSpreadsheetViewportComponentTableContextSpreadsheetViewportNavigationContext> {
 
     @Override
-    public void leftPixelsWithNullColumnFails() {
+    public void testMoveLeftPixelsWithNullColumnFails() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public void leftPixelsWithNegativePixelsFails() {
+    public void testMoveLeftPixelsWithNegativePixelsFails() {
         throw new UnsupportedOperationException();
     }
 
