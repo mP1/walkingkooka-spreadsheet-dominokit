@@ -47,7 +47,7 @@ public final class SpreadsheetViewportComponentSpreadsheetViewportComponentTable
     }
 
     @Override
-    public void moveRightWithNullFails() {
+    public void testMoveRightColumnWithNullFails() {
         throw new UnsupportedOperationException();
     }
 
@@ -62,7 +62,7 @@ public final class SpreadsheetViewportComponentSpreadsheetViewportComponentTable
     }
 
     @Override
-    public void moveUpWithNullFails() {
+    public void testMoveUpRowWithNullFails() {
         throw new UnsupportedOperationException();
     }
 
