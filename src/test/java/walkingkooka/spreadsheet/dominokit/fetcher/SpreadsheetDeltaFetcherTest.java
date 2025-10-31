@@ -653,7 +653,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
                     )
                 ).setNavigations(
                     SpreadsheetViewportNavigationList.EMPTY.concat(
-                        SpreadsheetViewportNavigation.extendRightColumn()
+                        SpreadsheetViewportNavigation.extendMoveRight()
                     )
                 ),
             "home=A2&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=Z&selectionType=column&navigation=extend-right+column"
