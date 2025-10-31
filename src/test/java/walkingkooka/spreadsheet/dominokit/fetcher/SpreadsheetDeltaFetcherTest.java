@@ -617,7 +617,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     }
 
     @Test
-    public void testViewportQueryStringColumnAndNavigationLeftColumn() {
+    public void testViewportQueryStringColumnAndNavigationMoveLeft() {
         this.viewportQueryStringAndCheck(
             SpreadsheetSelection.parseCell("A2")
                 .viewportRectangle(
@@ -631,7 +631,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
                     )
                 ).setNavigations(
                     SpreadsheetViewportNavigationList.EMPTY.concat(
-                        SpreadsheetViewportNavigation.leftColumn()
+                        SpreadsheetViewportNavigation.moveLeft()
                     )
                 ),
             "home=A2&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=ABC&selectionType=column&navigation=left+column"
