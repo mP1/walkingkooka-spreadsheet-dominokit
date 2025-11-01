@@ -69,11 +69,11 @@ public final class SpreadsheetViewportScrollbarComponentColumnsTest extends Spre
                 "  FlexLayoutComponent\n" +
                 "    ROW\n" +
                 "      id=viewport-horizontal-scrollbar-Layout\n" +
-                "        mdi-arrow-left [#/1/SpreadsheetName222/navigate/C3/left%201000px] id=viewport-horizontal-scrollbar-left-Link\n" +
+                "        mdi-arrow-left [#/1/SpreadsheetName222/navigate/C3/scroll%20left%201000px] id=viewport-horizontal-scrollbar-left-Link\n" +
                 "        SliderComponent\n" +
                 "          HORIZONTAL\n" +
                 "            [2.0] min=1.0 max=16383.0 id=viewport-horizontal-scrollbar-value-Slider\n" +
-                "        [#/1/SpreadsheetName222/navigate/C3/right%201000px] mdi-arrow-right id=viewport-horizontal-scrollbar-right-Link\n"
+                "        [#/1/SpreadsheetName222/navigate/C3/scroll%20right%201000px] mdi-arrow-right id=viewport-horizontal-scrollbar-right-Link\n"
         );
     }
 
@@ -99,11 +99,11 @@ public final class SpreadsheetViewportScrollbarComponentColumnsTest extends Spre
                 "  FlexLayoutComponent\n" +
                 "    ROW\n" +
                 "      id=viewport-horizontal-scrollbar-Layout\n" +
-                "        mdi-arrow-left [#/1/SpreadsheetName222/cell/A1/navigate/C3/left%201000px] id=viewport-horizontal-scrollbar-left-Link\n" +
+                "        mdi-arrow-left [#/1/SpreadsheetName222/cell/A1/navigate/C3/scroll%20left%201000px] id=viewport-horizontal-scrollbar-left-Link\n" +
                 "        SliderComponent\n" +
                 "          HORIZONTAL\n" +
                 "            [2.0] min=1.0 max=16383.0 id=viewport-horizontal-scrollbar-value-Slider\n" +
-                "        [#/1/SpreadsheetName222/cell/A1/navigate/C3/right%201000px] mdi-arrow-right id=viewport-horizontal-scrollbar-right-Link\n"
+                "        [#/1/SpreadsheetName222/cell/A1/navigate/C3/scroll%20right%201000px] mdi-arrow-right id=viewport-horizontal-scrollbar-right-Link\n"
         );
     }
 

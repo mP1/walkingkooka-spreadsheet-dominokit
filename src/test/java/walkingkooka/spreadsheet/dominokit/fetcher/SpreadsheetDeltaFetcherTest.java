@@ -634,7 +634,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
                         SpreadsheetViewportNavigation.moveLeft()
                     )
                 ),
-            "home=A2&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=ABC&selectionType=column&navigation=left+column"
+            "home=A2&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=ABC&selectionType=column&navigation=move+left+column"
         );
     }
 
@@ -656,7 +656,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
                         SpreadsheetViewportNavigation.extendMoveRight()
                     )
                 ),
-            "home=A2&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=Z&selectionType=column&navigation=extend-right+column"
+            "home=A2&width=111.0&height=222.0&includeFrozenColumnsRows=true&selection=Z&selectionType=column&navigation=move%26extend+right+column"
         );
     }
 

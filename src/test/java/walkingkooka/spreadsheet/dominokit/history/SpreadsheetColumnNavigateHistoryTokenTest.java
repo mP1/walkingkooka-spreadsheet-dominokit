@@ -35,7 +35,7 @@ public final class SpreadsheetColumnNavigateHistoryTokenTest extends Spreadsheet
     private final static SpreadsheetViewportHomeNavigationList NAVIGATIONS = SpreadsheetViewportHomeNavigationList.with(
         SpreadsheetSelection.parseCell("Z99")
     ).setNavigations(
-        SpreadsheetViewportNavigationList.parse("right 555px")
+        SpreadsheetViewportNavigationList.parse("scroll right 555px")
     );
 
     @Test
@@ -55,14 +55,14 @@ public final class SpreadsheetColumnNavigateHistoryTokenTest extends Spreadsheet
 
     @Test
     public void testUrlFragmentColumn() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/column/A/navigate/Z99/right 555px");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/column/A/navigate/Z99/scroll right 555px");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.LEFT),
-            "/123/SpreadsheetName456/column/B:C/left/navigate/Z99/right 555px"
+            "/123/SpreadsheetName456/column/B:C/left/navigate/Z99/scroll right 555px"
         );
     }
 

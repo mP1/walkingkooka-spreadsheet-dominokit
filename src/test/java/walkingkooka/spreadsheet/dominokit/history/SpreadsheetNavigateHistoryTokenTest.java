@@ -33,7 +33,7 @@ public final class SpreadsheetNavigateHistoryTokenTest extends SpreadsheetNameHi
     private final static SpreadsheetViewportHomeNavigationList NAVIGATIONS = SpreadsheetViewportHomeNavigationList.with(
         SpreadsheetSelection.parseCell("Z99")
     ).setNavigations(
-        SpreadsheetViewportNavigationList.parse("right 555px")
+        SpreadsheetViewportNavigationList.parse("scroll right 555px")
     );
 
     @Test
@@ -52,7 +52,7 @@ public final class SpreadsheetNavigateHistoryTokenTest extends SpreadsheetNameHi
 
     @Test
     public void testUrlFragment() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/navigate/Z99/right 555px");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/navigate/Z99/scroll right 555px");
     }
 
     // parse............................................................................................................
