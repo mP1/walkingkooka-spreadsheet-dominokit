@@ -49,10 +49,12 @@ public final class SpreadsheetNavigateLinkComponent implements HtmlComponentDele
 
     // id...............................................................................................................
 
+    @Override
     public String id() {
         return this.anchor.id();
     }
 
+    @Override
     public SpreadsheetNavigateLinkComponent setId(final String id) {
         this.anchor.setId(id);
         return this;
