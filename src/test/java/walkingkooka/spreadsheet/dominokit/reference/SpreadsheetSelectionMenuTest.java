@@ -145,7 +145,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value\" [/1/SpreadsheetName-1/cell/A1/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Validator\" [/1/SpreadsheetName-1/cell/A1/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -339,7 +339,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n",
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
                 "    (mdi-palette) \"Background Color\" id=test-background-color-SubMenu\n" +
                 "      ColorComponent\n" +
                 "        TABLE\n" +
@@ -523,7 +523,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n",
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem\n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem\n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem\n" +
@@ -722,7 +722,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n",
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -735,7 +735,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -920,7 +920,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n",
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -933,7 +933,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -1118,7 +1118,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n",
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -1131,7 +1131,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -1316,7 +1316,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n",
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -1329,7 +1329,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -1514,7 +1514,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-color/save/] id=test-border-color-color-clear-Link\n",
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-color/save/] id=test-border-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -1527,7 +1527,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -1549,6 +1549,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/valueType/save/url] id=test-valueTypes-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/valueType/save/whole-number] id=test-valueTypes-whole-number-MenuItem\n" +
                 "  \"Value\" id=test-value-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/value/boolean] id=test-value-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/value/date] id=test-value-date-MenuItem\n" +
@@ -1558,6 +1559,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-value-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/value/url] id=test-value-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/value/whole-number] id=test-value-whole-number-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
                 "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
                 "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
@@ -1881,7 +1883,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
                 "    (mdi-palette) \"Background Color\" id=test-background-color-SubMenu\n" +
                 "      ColorComponent\n" +
                 "        TABLE\n" +
@@ -2065,7 +2067,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem\n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem\n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem\n" +
@@ -2264,7 +2266,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -2277,7 +2279,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -2462,7 +2464,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -2475,7 +2477,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -2660,7 +2662,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -2673,7 +2675,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -2858,7 +2860,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -2871,7 +2873,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -3056,7 +3058,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-color/save/] id=test-border-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-color/save/] id=test-border-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -3069,7 +3071,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -3095,6 +3097,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/valueType/save/url] id=test-valueTypes-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/valueType/save/whole-number] id=test-valueTypes-whole-number-MenuItem\n" +
                 "  \"Value\" id=test-value-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/value/boolean] id=test-value-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/value/date] id=test-value-date-MenuItem\n" +
@@ -3104,6 +3107,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-value-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/value/url] id=test-value-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/value/whole-number] id=test-value-whole-number-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
                 "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
                 "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
@@ -3426,7 +3430,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
                 "    (mdi-palette) \"Background Color\" id=test-background-color-SubMenu\n" +
                 "      ColorComponent\n" +
                 "        TABLE\n" +
@@ -3610,7 +3614,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem\n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem\n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem\n" +
@@ -3809,7 +3813,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -3822,7 +3826,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -4007,7 +4011,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -4020,7 +4024,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -4205,7 +4209,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -4218,7 +4222,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -4403,7 +4407,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -4416,7 +4420,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -4601,7 +4605,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-color/save/] id=test-border-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-color/save/] id=test-border-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -4614,7 +4618,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -4636,6 +4640,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/valueType/save/url] id=test-valueTypes-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/valueType/save/whole-number] id=test-valueTypes-whole-number-MenuItem\n" +
                 "  \"Value\" id=test-value-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/value/boolean] id=test-value-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/value/date] id=test-value-date-MenuItem\n" +
@@ -4645,6 +4650,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-value-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/value/url] id=test-value-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/value/whole-number] id=test-value-whole-number-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
                 "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
                 "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
@@ -4978,7 +4984,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
                 "    (mdi-palette) \"Background Color\" id=test-background-color-SubMenu\n" +
                 "      ColorComponent\n" +
                 "        TABLE\n" +
@@ -5162,7 +5168,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem\n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem\n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem\n" +
@@ -5361,7 +5367,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -5374,7 +5380,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -5559,7 +5565,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -5572,7 +5578,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -5757,7 +5763,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -5770,7 +5776,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -5955,7 +5961,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -5968,7 +5974,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -6153,7 +6159,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-color/save/] id=test-border-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-color/save/] id=test-border-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -6166,7 +6172,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "    -----\n" +
@@ -6192,6 +6198,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/valueType/save/url] id=test-valueTypes-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/valueType/save/whole-number] id=test-valueTypes-whole-number-MenuItem\n" +
                 "  \"Value\" id=test-value-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/value/boolean] id=test-value-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/value/date] id=test-value-date-MenuItem\n" +
@@ -6201,6 +6208,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-value-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/value/url] id=test-value-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/value/whole-number] id=test-value-whole-number-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
                 "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
                 "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
@@ -6540,7 +6548,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
                 "    (mdi-palette) \"Background Color\" id=test-background-color-SubMenu\n" +
                 "      ColorComponent\n" +
                 "        TABLE\n" +
@@ -6724,7 +6732,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem\n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem\n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem\n" +
@@ -6923,7 +6931,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -6936,7 +6944,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -7121,7 +7129,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -7134,7 +7142,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -7319,7 +7327,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -7332,7 +7340,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -7517,7 +7525,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -7530,7 +7538,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -7715,7 +7723,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-color/save/] id=test-border-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-color/save/] id=test-border-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -7728,7 +7736,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -7758,6 +7766,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/valueType/save/url] id=test-valueTypes-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/valueType/save/whole-number] id=test-valueTypes-whole-number-MenuItem\n" +
                 "  \"Value\" id=test-value-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/value/boolean] id=test-value-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/value/date] id=test-value-date-MenuItem\n" +
@@ -7767,6 +7776,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-value-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/value/url] id=test-value-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/value/whole-number] id=test-value-whole-number-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
                 "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
                 "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
@@ -8090,7 +8100,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
                 "    (mdi-palette) \"Background Color\" id=test-background-color-SubMenu\n" +
                 "      ColorComponent\n" +
                 "        TABLE\n" +
@@ -8274,7 +8284,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem\n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem\n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem\n" +
@@ -8473,7 +8483,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -8486,7 +8496,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -8671,7 +8681,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -8684,7 +8694,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -8869,7 +8879,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -8882,7 +8892,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -9067,7 +9077,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -9080,7 +9090,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -9265,7 +9275,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-color/save/] id=test-border-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-color/save/] id=test-border-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -9278,7 +9288,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -9300,6 +9310,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/valueType/save/url] id=test-valueTypes-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/valueType/save/whole-number] id=test-valueTypes-whole-number-MenuItem\n" +
                 "  \"Value\" id=test-value-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/value/boolean] id=test-value-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/value/date] id=test-value-date-MenuItem\n" +
@@ -9309,6 +9320,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-value-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/value/url] id=test-value-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/value/whole-number] id=test-value-whole-number-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
                 "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
                 "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
@@ -9632,7 +9644,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
                 "    (mdi-palette) \"Background Color\" id=test-background-color-SubMenu\n" +
                 "      ColorComponent\n" +
                 "        TABLE\n" +
@@ -9816,7 +9828,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem\n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem\n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem\n" +
@@ -10015,7 +10027,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -10028,7 +10040,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -10213,7 +10225,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -10226,7 +10238,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -10411,7 +10423,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -10424,7 +10436,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -10609,7 +10621,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -10622,7 +10634,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -10807,7 +10819,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-color/save/] id=test-border-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-color/save/] id=test-border-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -10820,7 +10832,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -10842,6 +10854,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/valueType/save/url] id=test-valueTypes-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/valueType/save/whole-number] id=test-valueTypes-whole-number-MenuItem\n" +
                 "  \"Value\" id=test-value-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/value/boolean] id=test-value-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/value/date] id=test-value-date-MenuItem\n" +
@@ -10851,6 +10864,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-value-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/value/url] id=test-value-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/value/whole-number] id=test-value-whole-number-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
                 "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
                 "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
@@ -11174,7 +11188,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
                 "    (mdi-palette) \"Background Color\" id=test-background-color-SubMenu\n" +
                 "      ColorComponent\n" +
                 "        TABLE\n" +
@@ -11358,7 +11372,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem\n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem\n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem\n" +
@@ -11557,7 +11571,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -11570,7 +11584,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -11755,7 +11769,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -11768,7 +11782,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -11953,7 +11967,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -11966,7 +11980,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -12151,7 +12165,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -12164,7 +12178,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -12349,7 +12363,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-color/save/] id=test-border-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-color/save/] id=test-border-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -12362,7 +12376,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -12384,6 +12398,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/valueType/save/url] id=test-valueTypes-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/valueType/save/whole-number] id=test-valueTypes-whole-number-MenuItem\n" +
                 "  \"Value\" id=test-value-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/value/boolean] id=test-value-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/value/date] id=test-value-date-MenuItem\n" +
@@ -12393,6 +12408,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-value-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/value/url] id=test-value-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/value/whole-number] id=test-value-whole-number-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
                 "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
                 "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
@@ -12719,7 +12735,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
                 "    (mdi-palette) \"Background Color\" id=test-background-color-SubMenu\n" +
                 "      ColorComponent\n" +
                 "        TABLE\n" +
@@ -12903,7 +12919,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem\n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem\n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem\n" +
@@ -13102,7 +13118,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -13115,7 +13131,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -13300,7 +13316,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -13313,7 +13329,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -13498,7 +13514,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -13511,7 +13527,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -13696,7 +13712,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -13709,7 +13725,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -13894,7 +13910,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-color/save/] id=test-border-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-color/save/] id=test-border-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -13907,7 +13923,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -13932,6 +13948,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/valueType/save/url] id=test-valueTypes-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/valueType/save/whole-number] id=test-valueTypes-whole-number-MenuItem\n" +
                 "  \"Value\" id=test-value-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/value/boolean] id=test-value-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/value/date] id=test-value-date-MenuItem\n" +
@@ -13941,6 +13958,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-value-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/value/url] id=test-value-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/value/whole-number] id=test-value-whole-number-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
                 "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
                 "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
@@ -14264,7 +14282,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
                 "    (mdi-palette) \"Background Color\" id=test-background-color-SubMenu\n" +
                 "      ColorComponent\n" +
                 "        TABLE\n" +
@@ -14448,7 +14466,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem\n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem\n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem\n" +
@@ -14647,7 +14665,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -14660,7 +14678,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -14845,7 +14863,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -14858,7 +14876,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -15043,7 +15061,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -15056,7 +15074,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -15241,7 +15259,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -15254,7 +15272,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -15439,7 +15457,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-color/save/] id=test-border-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-color/save/] id=test-border-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -15452,7 +15470,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -15474,6 +15492,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/valueType/save/url] id=test-valueTypes-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/valueType/save/whole-number] id=test-valueTypes-whole-number-MenuItem\n" +
                 "  \"Value\" id=test-value-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/value/boolean] id=test-value-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/value/date] id=test-value-date-MenuItem\n" +
@@ -15483,6 +15502,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-value-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/value/url] id=test-value-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/value/whole-number] id=test-value-whole-number-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
                 "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
                 "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
@@ -15812,7 +15832,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
                 "    (mdi-palette) \"Background Color\" id=test-background-color-SubMenu\n" +
                 "      ColorComponent\n" +
                 "        TABLE\n" +
@@ -15996,7 +16016,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem\n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem\n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem\n" +
@@ -16195,7 +16215,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -16208,7 +16228,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -16393,7 +16413,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -16406,7 +16426,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -16591,7 +16611,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -16604,7 +16624,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -16789,7 +16809,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -16802,7 +16822,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -16987,7 +17007,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-color/save/] id=test-border-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-color/save/] id=test-border-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -17000,7 +17020,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -17022,6 +17042,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/valueType/save/url] id=test-valueTypes-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/valueType/save/whole-number] id=test-valueTypes-whole-number-MenuItem\n" +
                 "  \"Value\" id=test-value-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/value/boolean] id=test-value-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/value/date] id=test-value-date-MenuItem\n" +
@@ -17031,6 +17052,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-value-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/value/url] id=test-value-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/value/whole-number] id=test-value-whole-number-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
                 "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] CHECKED id=test-validator-hello-validator-1-MenuItem\n" +
                 "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
@@ -17354,7 +17376,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
                 "    (mdi-palette) \"Background Color\" id=test-background-color-SubMenu\n" +
                 "      ColorComponent\n" +
                 "        TABLE\n" +
@@ -17538,7 +17560,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem\n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem\n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem\n" +
@@ -17737,7 +17759,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -17750,7 +17772,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -17935,7 +17957,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -17948,7 +17970,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -18133,7 +18155,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -18146,7 +18168,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -18331,7 +18353,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -18344,7 +18366,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -18529,7 +18551,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-color/save/] id=test-border-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-color/save/] id=test-border-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -18542,7 +18564,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -18564,6 +18586,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/valueType/save/url] id=test-valueTypes-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/valueType/save/whole-number] id=test-valueTypes-whole-number-MenuItem\n" +
                 "  \"Value\" id=test-value-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/value/boolean] id=test-value-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/value/date] id=test-value-date-MenuItem\n" +
@@ -18573,6 +18596,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-value-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/value/url] id=test-value-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/value/whole-number] id=test-value-whole-number-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
                 "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
                 "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
@@ -18899,7 +18923,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
                 "    (mdi-palette) \"Background Color\" id=test-background-color-SubMenu\n" +
                 "      ColorComponent\n" +
                 "        TABLE\n" +
@@ -19083,7 +19107,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem\n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem\n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem\n" +
@@ -19282,7 +19306,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -19295,7 +19319,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -19480,7 +19504,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -19493,7 +19517,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -19678,7 +19702,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -19691,7 +19715,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -19876,7 +19900,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -19889,7 +19913,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -20074,7 +20098,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-color/save/] id=test-border-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-color/save/] id=test-border-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -20087,7 +20111,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -20109,6 +20133,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/valueType/save/url] id=test-valueTypes-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/valueType/save/whole-number] id=test-valueTypes-whole-number-MenuItem\n" +
                 "  \"Value\" id=test-value-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/value/boolean] id=test-value-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/value/date] id=test-value-date-MenuItem\n" +
@@ -20118,6 +20143,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-value-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/value/url] id=test-value-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/value/whole-number] id=test-value-whole-number-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
                 "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
                 "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
@@ -20442,7 +20468,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
                 "    (mdi-palette) \"Background Color\" id=test-background-color-SubMenu\n" +
                 "      ColorComponent\n" +
                 "        TABLE\n" +
@@ -20626,7 +20652,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-bold-MenuItem\n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-italics-MenuItem\n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem\n" +
@@ -20825,7 +20851,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -20838,7 +20864,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -21023,7 +21049,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -21036,7 +21062,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -21221,7 +21247,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -21234,7 +21260,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -21419,7 +21445,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -21432,7 +21458,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -21617,7 +21643,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-color/save/] id=test-border-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-color/save/] id=test-border-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -21630,7 +21656,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -21652,6 +21678,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/valueType/save/url] id=test-valueTypes-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/valueType/save/whole-number] id=test-valueTypes-whole-number-MenuItem\n" +
                 "  \"Value\" id=test-value-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/value/boolean] id=test-value-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/value/date] id=test-value-date-MenuItem\n" +
@@ -21661,6 +21688,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] CHECKED id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-value-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/value/url] id=test-value-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/value/whole-number] id=test-value-whole-number-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
                 "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
                 "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
@@ -21972,7 +22000,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/color/save/] id=test-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/color/save/] id=test-color-color-clear-Link\n" +
                 "    (mdi-palette) \"Background Color\" id=test-background-color-SubMenu\n" +
                 "      ColorComponent\n" +
                 "        TABLE\n" +
@@ -22156,7 +22184,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/background-color/save/] id=test-background-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/font-weight/save/bold] id=test-bold-MenuItem\n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/font-style/save/ITALIC] id=test-italics-MenuItem\n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem\n" +
@@ -22355,7 +22383,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -22368,7 +22396,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -22553,7 +22581,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -22566,7 +22594,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -22751,7 +22779,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -22764,7 +22792,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -22949,7 +22977,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -22962,7 +22990,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -23147,7 +23175,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-color/save/] id=test-border-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-color/save/] id=test-border-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -23160,7 +23188,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -23182,6 +23210,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/url] id=test-valueTypes-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/whole-number] id=test-valueTypes-whole-number-MenuItem\n" +
                 "  \"Value\" id=test-value-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/boolean] id=test-value-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/date] id=test-value-date-MenuItem\n" +
@@ -23191,6 +23220,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/time] id=test-value-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/url] id=test-value-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/whole-number] id=test-value-whole-number-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
                 "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
                 "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
@@ -23598,7 +23628,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/color/save/] id=test-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/color/save/] id=test-color-color-clear-Link\n" +
                 "    (mdi-palette) \"Background Color\" id=test-background-color-SubMenu\n" +
                 "      ColorComponent\n" +
                 "        TABLE\n" +
@@ -23782,7 +23812,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/background-color/save/] id=test-background-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/Label123/style/font-weight/save/bold] id=test-bold-MenuItem\n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/Label123/style/font-style/save/ITALIC] id=test-italics-MenuItem\n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/Label123/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem\n" +
@@ -23981,7 +24011,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -23994,7 +24024,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -24179,7 +24209,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -24192,7 +24222,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -24377,7 +24407,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -24390,7 +24420,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -24575,7 +24605,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -24588,7 +24618,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -24773,7 +24803,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/border-color/save/] id=test-border-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/border-color/save/] id=test-border-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/Label123/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -24786,7 +24816,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/Label123/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -24808,6 +24838,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/url] id=test-valueTypes-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/whole-number] id=test-valueTypes-whole-number-MenuItem\n" +
                 "  \"Value\" id=test-value-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/Label123/value/boolean] id=test-value-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/Label123/value/date] id=test-value-date-MenuItem\n" +
@@ -24817,6 +24848,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/Label123/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/Label123/value/time] id=test-value-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/Label123/value/url] id=test-value-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/Label123/value/whole-number] id=test-value-whole-number-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
                 "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/Label123/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
                 "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/Label123/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
@@ -25129,7 +25161,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/color/save/] id=test-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/color/save/] id=test-color-color-clear-Link\n" +
                 "    (mdi-palette) \"Background Color\" id=test-background-color-SubMenu\n" +
                 "      ColorComponent\n" +
                 "        TABLE\n" +
@@ -25313,7 +25345,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/background-color/save/] id=test-background-color-color-clear-Link\n", // + long line break
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
                 "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/font-weight/save/bold] id=test-bold-MenuItem\n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/font-style/save/ITALIC] id=test-italics-MenuItem\n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem\n" +
@@ -25512,7 +25544,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
@@ -25525,7 +25557,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -25710,7 +25742,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
@@ -25723,7 +25755,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -25908,7 +25940,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
@@ -25921,7 +25953,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -26106,7 +26138,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
@@ -26119,7 +26151,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -26304,7 +26336,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/border-color/save/] id=test-border-color-color-clear-Link\n", // + long line break
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/border-color/save/] id=test-border-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
                 "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
                 "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
@@ -26317,7 +26349,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -26339,6 +26371,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/url] id=test-valueTypes-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/whole-number] id=test-valueTypes-whole-number-MenuItem\n" +
                 "  \"Value\" id=test-value-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/boolean] id=test-value-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/date] id=test-value-date-MenuItem\n" +
@@ -26348,6 +26381,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/text] id=test-value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/time] id=test-value-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/url] id=test-value-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/whole-number] id=test-value-whole-number-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
                 "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
                 "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
