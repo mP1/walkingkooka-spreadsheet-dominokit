@@ -3113,7 +3113,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellNavigateHomeNavigation() {
         this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/navigate/Z99/right%20444px",
+            "/123/SpreadsheetName456/cell/A1/navigate/Z99/scroll%20right%20444px",
             HistoryToken.cellNavigate(
                 ID,
                 NAME,
@@ -3122,7 +3122,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                     SpreadsheetViewportHomeNavigationList.with(
                         SpreadsheetSelection.parseCell("Z99")
                     ).setNavigations(
-                        SpreadsheetViewportNavigationList.parse("right 444px")
+                        SpreadsheetViewportNavigationList.parse("scroll right 444px")
                     )
                 )
             )
@@ -3132,7 +3132,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellRangeNavigateHomeNavitations() {
         this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/B2:C3/top-left/navigate/Z99/right%20444px",
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/navigate/Z99/scroll%20right%20444px",
             HistoryToken.cellNavigate(
                 ID,
                 NAME,
@@ -3141,7 +3141,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                     SpreadsheetViewportHomeNavigationList.with(
                         SpreadsheetSelection.parseCell("Z99")
                     ).setNavigations(
-                        SpreadsheetViewportNavigationList.parse("right 444px")
+                        SpreadsheetViewportNavigationList.parse("scroll right 444px")
                     )
                 )
             )
@@ -3937,7 +3937,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnNavigateHomeNavigations() {
         this.parseStringAndCheck(
-            "/123/SpreadsheetName456/column/AA/navigate/Z99/right%20444px",
+            "/123/SpreadsheetName456/column/AA/navigate/Z99/scroll%20right%20444px",
             HistoryToken.columnNavigate(
                 ID,
                 NAME,
@@ -3946,7 +3946,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                 SpreadsheetViewportHomeNavigationList.with(
                     SpreadsheetSelection.parseCell("Z99")
                 ).setNavigations(
-                    SpreadsheetViewportNavigationList.parse("right 444px")
+                    SpreadsheetViewportNavigationList.parse("scroll right 444px")
                 )
                 )
             )
@@ -3956,7 +3956,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnRangeNavigateHomeNavigations() {
         this.parseStringAndCheck(
-            "/123/SpreadsheetName456/column/BB:CC/left/navigate/Z99/right%20444px",
+            "/123/SpreadsheetName456/column/BB:CC/left/navigate/Z99/scroll%20right%20444px",
             HistoryToken.columnNavigate(
                 ID,
                 NAME,
@@ -3965,7 +3965,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                 SpreadsheetViewportHomeNavigationList.with(
                     SpreadsheetSelection.parseCell("Z99")
                 ).setNavigations(
-                    SpreadsheetViewportNavigationList.parse("right 444px")
+                    SpreadsheetViewportNavigationList.parse("scroll right 444px")
                 )
                 )
             )
@@ -4481,7 +4481,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameNavigate() {
         this.parseStringAndCheck(
-            "/123/SpreadsheetName456/navigate/Z99/right%20444px",
+            "/123/SpreadsheetName456/navigate/Z99/scroll%20right%20444px",
             HistoryToken.navigate(
                 ID,
                 NAME,
@@ -4489,7 +4489,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                     SpreadsheetViewportHomeNavigationList.with(
                         SpreadsheetSelection.parseCell("Z99")
                     ).setNavigations(
-                        SpreadsheetViewportNavigationList.parse("right 444px")
+                        SpreadsheetViewportNavigationList.parse("scroll right 444px")
                     )
                 )
             )
@@ -4801,7 +4801,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowNavigateHomeNavigations() {
         this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/11/navigate/Z99/down%20444px",
+            "/123/SpreadsheetName456/row/11/navigate/Z99/scroll down%20444px",
             HistoryToken.rowNavigate(
                 ID,
                 NAME,
@@ -4810,7 +4810,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                     SpreadsheetViewportHomeNavigationList.with(
                         SpreadsheetSelection.parseCell("Z99")
                     ).setNavigations(
-                        SpreadsheetViewportNavigationList.parse("down 444px")
+                        SpreadsheetViewportNavigationList.parse("scroll down 444px")
                     )
                 )
             )
@@ -4820,7 +4820,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowRangeNavigateHomeNavigations() {
         this.parseStringAndCheck(
-            "/123/SpreadsheetName456/row/22:33/bottom/navigate/Z99/down%20444px",
+            "/123/SpreadsheetName456/row/22:33/bottom/navigate/Z99/scroll%20down%20444px",
             HistoryToken.rowNavigate(
                 ID,
                 NAME,
@@ -4829,7 +4829,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                     SpreadsheetViewportHomeNavigationList.with(
                         SpreadsheetSelection.parseCell("Z99")
                     ).setNavigations(
-                        SpreadsheetViewportNavigationList.parse("down 444px")
+                        SpreadsheetViewportNavigationList.parse("scroll down 444px")
                     )
                 )
             )

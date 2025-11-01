@@ -69,11 +69,11 @@ public final class SpreadsheetViewportScrollbarComponentRowsTest extends Spreads
                 "  FlexLayoutComponent\n" +
                 "    COLUMN\n" +
                 "      id=viewport-vertical-scrollbar-Layout\n" +
-                "        mdi-arrow-up [#/1/SpreadsheetName222/navigate/C3/up%20500px] id=viewport-vertical-scrollbar-up-Link\n" +
+                "        mdi-arrow-up [#/1/SpreadsheetName222/navigate/C3/scroll%20up%20500px] id=viewport-vertical-scrollbar-up-Link\n" +
                 "        SliderComponent\n" +
                 "          VERTICAL\n" +
                 "            [2.0] min=1.0 max=1048575.0 id=viewport-vertical-scrollbar-value-Slider\n" +
-                "        [#/1/SpreadsheetName222/navigate/C3/down%20500px] mdi-arrow-down id=viewport-vertical-scrollbar-down-Link\n"
+                "        [#/1/SpreadsheetName222/navigate/C3/scroll%20down%20500px] mdi-arrow-down id=viewport-vertical-scrollbar-down-Link\n"
         );
     }
 
@@ -99,11 +99,11 @@ public final class SpreadsheetViewportScrollbarComponentRowsTest extends Spreads
                 "  FlexLayoutComponent\n" +
                 "    COLUMN\n" +
                 "      id=viewport-vertical-scrollbar-Layout\n" +
-                "        mdi-arrow-up [#/1/SpreadsheetName222/cell/A1/navigate/C3/up%20500px] id=viewport-vertical-scrollbar-up-Link\n" +
+                "        mdi-arrow-up [#/1/SpreadsheetName222/cell/A1/navigate/C3/scroll%20up%20500px] id=viewport-vertical-scrollbar-up-Link\n" +
                 "        SliderComponent\n" +
                 "          VERTICAL\n" +
                 "            [2.0] min=1.0 max=1048575.0 id=viewport-vertical-scrollbar-value-Slider\n" +
-                "        [#/1/SpreadsheetName222/cell/A1/navigate/C3/down%20500px] mdi-arrow-down id=viewport-vertical-scrollbar-down-Link\n"
+                "        [#/1/SpreadsheetName222/cell/A1/navigate/C3/scroll%20down%20500px] mdi-arrow-down id=viewport-vertical-scrollbar-down-Link\n"
         );
     }
 

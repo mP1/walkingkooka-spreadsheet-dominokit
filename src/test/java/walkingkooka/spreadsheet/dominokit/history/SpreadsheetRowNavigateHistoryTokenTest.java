@@ -52,7 +52,7 @@ public final class SpreadsheetRowNavigateHistoryTokenTest extends SpreadsheetRow
     private final static SpreadsheetViewportHomeNavigationList NAVIGATIONS = SpreadsheetViewportHomeNavigationList.with(
         SpreadsheetSelection.parseCell("Z99")
     ).setNavigations(
-        SpreadsheetViewportNavigationList.parse("down 555px")
+        SpreadsheetViewportNavigationList.parse("scroll down 555px")
     );
 
     @Test
@@ -72,14 +72,14 @@ public final class SpreadsheetRowNavigateHistoryTokenTest extends SpreadsheetRow
 
     @Test
     public void testUrlFragmentColumn() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/row/1/navigate/Z99/down 555px");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/row/1/navigate/Z99/scroll down 555px");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
-            "/123/SpreadsheetName456/row/2:3/bottom/navigate/Z99/down 555px"
+            "/123/SpreadsheetName456/row/2:3/bottom/navigate/Z99/scroll down 555px"
         );
     }
 
