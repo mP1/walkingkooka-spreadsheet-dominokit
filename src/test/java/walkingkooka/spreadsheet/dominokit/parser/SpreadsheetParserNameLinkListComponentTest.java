@@ -58,7 +58,7 @@ public class SpreadsheetParserNameLinkListComponentTest implements HtmlComponent
     public void testRefreshWithSelectedParserName() {
         this.refreshAndCheck(
             Optional.of(
-                SpreadsheetParserName.DATE_PARSER_PATTERN
+                SpreadsheetParserName.DATE
             ),
             "SpreadsheetParserNameLinkListComponent\n" +
                 "  CardLinkListComponent\n" +

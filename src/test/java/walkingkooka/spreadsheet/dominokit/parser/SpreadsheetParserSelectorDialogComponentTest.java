@@ -79,7 +79,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
             SpreadsheetParserSelectorDialogComponent.with(
                 AppContextSpreadsheetParserSelectorDialogComponentContextCell.with(context)
             ),
-            SpreadsheetParserName.DATE_PARSER_PATTERN + "",
+            SpreadsheetParserName.DATE + "",
             context,
             "SpreadsheetParserSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
@@ -160,7 +160,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
             SpreadsheetParserSelectorDialogComponent.with(
                 AppContextSpreadsheetParserSelectorDialogComponentContextCell.with(context)
             ),
-            SpreadsheetParserName.DATE_PARSER_PATTERN + " dd/mm/yyyy",
+            SpreadsheetParserName.DATE + " dd/mm/yyyy",
             context,
             "SpreadsheetParserSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
@@ -273,7 +273,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
             SpreadsheetParserSelectorDialogComponent.with(
                 AppContextSpreadsheetParserSelectorDialogComponentContextCell.with(context)
             ),
-            SpreadsheetParserName.DATE_TIME_PARSER_PATTERN + " dd/mm/yyyy hh:mm:ss",
+            SpreadsheetParserName.DATE_TIME + " dd/mm/yyyy hh:mm:ss",
             context,
             "SpreadsheetParserSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
@@ -405,7 +405,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
             SpreadsheetParserSelectorDialogComponent.with(
                 AppContextSpreadsheetParserSelectorDialogComponentContextCell.with(context)
             ),
-            SpreadsheetParserName.NUMBER_PARSER_PATTERN + " $#0.00",
+            SpreadsheetParserName.NUMBER + " $#0.00",
             context,
             "SpreadsheetParserSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
@@ -558,7 +558,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
             SpreadsheetParserSelectorDialogComponent.with(
                 AppContextSpreadsheetParserSelectorDialogComponentContextCell.with(context)
             ),
-            SpreadsheetParserName.TIME_PARSER_PATTERN + " hh:mm",
+            SpreadsheetParserName.TIME + " hh:mm",
             context,
             "SpreadsheetParserSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
@@ -652,7 +652,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
             SpreadsheetParserSelectorDialogComponent.with(
                 AppContextSpreadsheetParserSelectorDialogComponentContextMetadata.with(context)
             ),
-            SpreadsheetParserName.DATE_PARSER_PATTERN + " dd/mm/yyyy",
+            SpreadsheetParserName.DATE + " dd/mm/yyyy",
             context,
             "SpreadsheetParserSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
@@ -775,7 +775,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
             SpreadsheetParserSelectorDialogComponent.with(
                 AppContextSpreadsheetParserSelectorDialogComponentContextMetadata.with(context)
             ),
-            SpreadsheetParserName.DATE_TIME_PARSER_PATTERN + " dd/mm/yyyy hh:mm:ss",
+            SpreadsheetParserName.DATE_TIME + " dd/mm/yyyy hh:mm:ss",
             context,
             "SpreadsheetParserSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
@@ -917,7 +917,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
             SpreadsheetParserSelectorDialogComponent.with(
                 AppContextSpreadsheetParserSelectorDialogComponentContextMetadata.with(context)
             ),
-            SpreadsheetParserName.NUMBER_PARSER_PATTERN + " $#0.00",
+            SpreadsheetParserName.NUMBER + " $#0.00",
             context,
             "SpreadsheetParserSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
@@ -1080,7 +1080,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
             SpreadsheetParserSelectorDialogComponent.with(
                 AppContextSpreadsheetParserSelectorDialogComponentContextMetadata.with(context)
             ),
-            SpreadsheetParserName.TIME_PARSER_PATTERN + " hh:mm",
+            SpreadsheetParserName.TIME + " hh:mm",
             context,
             "SpreadsheetParserSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
