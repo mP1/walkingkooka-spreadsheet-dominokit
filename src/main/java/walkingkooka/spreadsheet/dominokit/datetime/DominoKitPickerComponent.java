@@ -50,7 +50,7 @@ abstract class DominoKitPickerComponent<V, C extends DominoKitPickerComponent<V,
     protected final DivElement bodyElement;
     protected final LazyChild<DivElement> messagesWrapper;
     protected final LazyChild<SpanElement> helperTextElement;
-    protected Function<String, SpanElement> errorElementSupplier;
+    protected final Function<String, SpanElement> errorElementSupplier;
 
     protected final List<String> errors = new ArrayList<>();
 
