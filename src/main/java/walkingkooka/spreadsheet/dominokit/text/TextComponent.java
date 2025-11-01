@@ -51,7 +51,7 @@ public final class TextComponent implements FormValueComponent<HTMLDivElement, S
 
     @Override
     public String id() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
