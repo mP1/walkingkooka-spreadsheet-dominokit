@@ -115,9 +115,8 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=SpreadsheetFormatterSelector-formatterNames-21-Link\n" +
                 "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=SpreadsheetFormatterSelector-formatterNames-22-Link\n" +
                 "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=SpreadsheetFormatterSelector-formatterNames-23-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-26-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -218,9 +217,8 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=SpreadsheetFormatterSelector-formatterNames-21-Link\n" +
                 "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=SpreadsheetFormatterSelector-formatterNames-22-Link\n" +
                 "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=SpreadsheetFormatterSelector-formatterNames-23-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-26-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -353,9 +351,8 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=SpreadsheetFormatterSelector-formatterNames-21-Link\n" +
                 "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=SpreadsheetFormatterSelector-formatterNames-22-Link\n" +
                 "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=SpreadsheetFormatterSelector-formatterNames-23-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-26-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -507,9 +504,8 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=SpreadsheetFormatterSelector-formatterNames-21-Link\n" +
                 "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=SpreadsheetFormatterSelector-formatterNames-22-Link\n" +
                 "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=SpreadsheetFormatterSelector-formatterNames-23-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-26-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -682,9 +678,8 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=SpreadsheetFormatterSelector-formatterNames-21-Link\n" +
                 "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=SpreadsheetFormatterSelector-formatterNames-22-Link\n" +
                 "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=SpreadsheetFormatterSelector-formatterNames-23-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
-                "                  \"Text\" DISABLED id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-26-Link\n" +
+                "                  \"Text\" DISABLED id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -783,9 +778,8 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date] id=SpreadsheetFormatterSelector-formatterNames-21-Link\n" +
                 "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-date-time] id=SpreadsheetFormatterSelector-formatterNames-22-Link\n" +
                 "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/formatter/save/short-time] id=SpreadsheetFormatterSelector-formatterNames-23-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/cell/A1/formatter/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
-                "                  \"Time\" DISABLED id=SpreadsheetFormatterSelector-formatterNames-26-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/cell/A1/formatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
+                "                  \"Time\" DISABLED id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -913,9 +907,8 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/short-date] id=SpreadsheetFormatterSelector-formatterNames-21-Link\n" +
                 "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/short-date-time] id=SpreadsheetFormatterSelector-formatterNames-22-Link\n" +
                 "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/short-time] id=SpreadsheetFormatterSelector-formatterNames-23-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-26-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -1062,9 +1055,8 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/short-date] id=SpreadsheetFormatterSelector-formatterNames-21-Link\n" +
                 "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/short-date-time] id=SpreadsheetFormatterSelector-formatterNames-22-Link\n" +
                 "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/short-time] id=SpreadsheetFormatterSelector-formatterNames-23-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-26-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -1230,9 +1222,8 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/short-date] id=SpreadsheetFormatterSelector-formatterNames-21-Link\n" +
                 "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/short-date-time] id=SpreadsheetFormatterSelector-formatterNames-22-Link\n" +
                 "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/short-time] id=SpreadsheetFormatterSelector-formatterNames-23-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-26-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -1419,9 +1410,8 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/short-date] id=SpreadsheetFormatterSelector-formatterNames-21-Link\n" +
                 "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/short-date-time] id=SpreadsheetFormatterSelector-formatterNames-22-Link\n" +
                 "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/short-time] id=SpreadsheetFormatterSelector-formatterNames-23-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-26-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -1608,9 +1598,8 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/short-date] id=SpreadsheetFormatterSelector-formatterNames-21-Link\n" +
                 "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/short-date-time] id=SpreadsheetFormatterSelector-formatterNames-22-Link\n" +
                 "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/short-time] id=SpreadsheetFormatterSelector-formatterNames-23-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
-                "                  \"Text\" DISABLED id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-26-Link\n" +
+                "                  \"Text\" DISABLED id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/time] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -1723,9 +1712,8 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/short-date] id=SpreadsheetFormatterSelector-formatterNames-21-Link\n" +
                 "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/short-date-time] id=SpreadsheetFormatterSelector-formatterNames-22-Link\n" +
                 "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/short-time] id=SpreadsheetFormatterSelector-formatterNames-23-Link\n" +
-                "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
-                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
-                "                  \"Time\" DISABLED id=SpreadsheetFormatterSelector-formatterNames-26-Link\n" +
+                "                  \"Text\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/text] id=SpreadsheetFormatterSelector-formatterNames-24-Link\n" +
+                "                  \"Time\" DISABLED id=SpreadsheetFormatterSelector-formatterNames-25-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
