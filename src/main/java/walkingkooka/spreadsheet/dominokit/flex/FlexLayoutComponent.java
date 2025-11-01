@@ -85,11 +85,13 @@ public class FlexLayoutComponent implements HtmlComponentDelegator<HTMLDivElemen
 
     // id...............................................................................................................
 
+    @Override
     public FlexLayoutComponent setId(final String id) {
         this.div.setId(id);
         return this;
     }
 
+    @Override
     public String id() {
         return this.div.id();
     }
