@@ -135,6 +135,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              text\n" +
                 "              time\n" +
                 "              url\n" +
+                "              whole-number\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -258,6 +259,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              text\n" +
                 "              time\n" +
                 "              url\n" +
+                "              whole-number\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -381,6 +383,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              text\n" +
                 "              time\n" +
                 "              url\n" +
+                "              whole-number\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -502,6 +505,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              text\n" +
                 "              time\n" +
                 "              url\n" +
+                "              whole-number\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -659,6 +663,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              text\n" +
                 "              time\n" +
                 "              url\n" +
+                "              whole-number\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -811,6 +816,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              text\n" +
                 "              time\n" +
                 "              url\n" +
+                "              whole-number\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -932,6 +938,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              text\n" +
                 "              time\n" +
                 "              url\n" +
+                "              whole-number\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1053,6 +1060,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              text\n" +
                 "              time\n" +
                 "              url\n" +
+                "              whole-number\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1174,6 +1182,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              text\n" +
                 "              time\n" +
                 "              url\n" +
+                "              whole-number\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1295,6 +1304,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              text\n" +
                 "              time\n" +
                 "              url\n" +
+                "              whole-number\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1416,6 +1426,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              text\n" +
                 "              time\n" +
                 "              url\n" +
+                "              whole-number\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1537,6 +1548,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              text\n" +
                 "              time\n" +
                 "              url\n" +
+                "              whole-number\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1658,6 +1670,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              text\n" +
                 "              time\n" +
                 "              url\n" +
+                "              whole-number\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1779,6 +1792,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              text\n" +
                 "              time\n" +
                 "              url\n" +
+                "              whole-number\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1900,6 +1914,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              text\n" +
                 "              time\n" +
                 "              url\n" +
+                "              whole-number\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -2021,6 +2036,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              text\n" +
                 "              time\n" +
                 "              url\n" +
+                "              whole-number\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -2142,6 +2158,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              text\n" +
                 "              time\n" +
                 "              url\n" +
+                "              whole-number\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -2263,6 +2280,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              text\n" +
                 "              time\n" +
                 "              url\n" +
+                "              whole-number\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +

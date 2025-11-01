@@ -45,7 +45,8 @@ public final class SpreadsheetValueTypeComponentTest implements FormValueCompone
                 "      number\n" +
                 "      text\n" +
                 "      time\n" +
-                "      url\n"
+                "      url\n" +
+                "      whole-number\n"
         );
     }
 
@@ -66,7 +67,8 @@ public final class SpreadsheetValueTypeComponentTest implements FormValueCompone
                 "      number\n" +
                 "      text\n" +
                 "      time\n" +
-                "      url\n"
+                "      url\n" +
+                "      whole-number\n"
         );
     }
 
@@ -91,7 +93,8 @@ public final class SpreadsheetValueTypeComponentTest implements FormValueCompone
                 "      number\n" +
                 "      text\n" +
                 "      time\n" +
-                "      url\n"
+                "      url\n" +
+                "      whole-number\n"
         );
     }
 
