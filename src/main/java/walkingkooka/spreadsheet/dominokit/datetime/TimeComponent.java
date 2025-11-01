@@ -74,18 +74,6 @@ public final class TimeComponent extends DominoKitPickerComponent<LocalTime, Tim
     // HtmlComponent....................................................................................................
 
     @Override
-    public int width() {
-        return this.element()
-            .offsetWidth;
-    }
-
-    @Override
-    public int height() {
-        return this.element()
-            .offsetHeight;
-    }
-
-    @Override
     public TimeComponent setCssText(final String css) {
         this.timePicker.cssText(css);
         return this;
