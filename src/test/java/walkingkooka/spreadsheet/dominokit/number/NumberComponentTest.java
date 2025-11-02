@@ -176,6 +176,24 @@ public final class NumberComponentTest implements FormValueComponentTesting<HTML
     }
 
     @Test
+    public void testSetStringValueWithInvalid2() {
+        this.treePrintAndCheck(
+            this.createComponent()
+                .setStringValue(
+                    Optional.of(
+                        "123XYZ"
+                    )
+                ),
+            "NumberComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [123XYZ]\n" +
+                "      Errors\n" +
+                "        Invalid character 'X' at 3\n"
+        );
+    }
+
+    @Test
     public void testSetValueWithDecimal() {
         this.treePrintAndCheck(
             this.createComponent()
