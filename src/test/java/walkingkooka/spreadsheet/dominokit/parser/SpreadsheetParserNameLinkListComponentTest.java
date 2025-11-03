@@ -50,7 +50,8 @@ public class SpreadsheetParserNameLinkListComponentTest implements HtmlComponent
                 "            \"Date Time\" [#/1/SpreadsheetName123/cell/A1/parser/save/date-time] id=ID123-1-Link\n" +
                 "            \"General\" [#/1/SpreadsheetName123/cell/A1/parser/save/general] id=ID123-2-Link\n" +
                 "            \"Number\" [#/1/SpreadsheetName123/cell/A1/parser/save/number] id=ID123-3-Link\n" +
-                "            \"Time\" [#/1/SpreadsheetName123/cell/A1/parser/save/time] id=ID123-4-Link\n"
+                "            \"Time\" [#/1/SpreadsheetName123/cell/A1/parser/save/time] id=ID123-4-Link\n" +
+                "            \"Whole Number\" [#/1/SpreadsheetName123/cell/A1/parser/save/whole-number] id=ID123-5-Link\n"
         );
     }
 
@@ -70,7 +71,8 @@ public class SpreadsheetParserNameLinkListComponentTest implements HtmlComponent
                 "            \"Date Time\" [#/1/SpreadsheetName123/cell/A1/parser/save/date-time] id=ID123-1-Link\n" +
                 "            \"General\" [#/1/SpreadsheetName123/cell/A1/parser/save/general] id=ID123-2-Link\n" +
                 "            \"Number\" [#/1/SpreadsheetName123/cell/A1/parser/save/number] id=ID123-3-Link\n" +
-                "            \"Time\" [#/1/SpreadsheetName123/cell/A1/parser/save/time] id=ID123-4-Link\n"
+                "            \"Time\" [#/1/SpreadsheetName123/cell/A1/parser/save/time] id=ID123-4-Link\n" +
+                "            \"Whole Number\" [#/1/SpreadsheetName123/cell/A1/parser/save/whole-number] id=ID123-5-Link\n"
         );
     }
 

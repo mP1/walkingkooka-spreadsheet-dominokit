@@ -96,6 +96,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                  \"General\" [#/1/Spreadsheet1/cell/A1/parser/save/general] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Number\" [#/1/Spreadsheet1/cell/A1/parser/save/number] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
                 "                  \"Time\" [#/1/Spreadsheet1/cell/A1/parser/save/time] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
+                "                  \"Whole Number\" [#/1/Spreadsheet1/cell/A1/parser/save/whole-number] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -177,6 +178,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                  \"General\" [#/1/Spreadsheet1/cell/A1/parser/save/general] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Number\" [#/1/Spreadsheet1/cell/A1/parser/save/number] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
                 "                  \"Time\" [#/1/Spreadsheet1/cell/A1/parser/save/time] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
+                "                  \"Whole Number\" [#/1/Spreadsheet1/cell/A1/parser/save/whole-number] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -290,6 +292,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                  \"General\" [#/1/Spreadsheet1/cell/A1/parser/save/general] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Number\" [#/1/Spreadsheet1/cell/A1/parser/save/number] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
                 "                  \"Time\" [#/1/Spreadsheet1/cell/A1/parser/save/time] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
+                "                  \"Whole Number\" [#/1/Spreadsheet1/cell/A1/parser/save/whole-number] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -422,6 +425,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                  \"General\" [#/1/Spreadsheet1/cell/A1/parser/save/general] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetParserSelector-parserNames-3-Link\n" +
                 "                  \"Time\" [#/1/Spreadsheet1/cell/A1/parser/save/time] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
+                "                  \"Whole Number\" [#/1/Spreadsheet1/cell/A1/parser/save/whole-number] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -575,6 +579,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                  \"General\" [#/1/Spreadsheet1/cell/A1/parser/save/general] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Number\" [#/1/Spreadsheet1/cell/A1/parser/save/number] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
                 "                  \"Time\" DISABLED id=SpreadsheetParserSelector-parserNames-4-Link\n" +
+                "                  \"Whole Number\" [#/1/Spreadsheet1/cell/A1/parser/save/whole-number] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -679,6 +684,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                  \"General\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/general] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/number] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
                 "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/time] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
+                "                  \"Whole Number\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/whole-number] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -802,6 +808,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                  \"General\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/general] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/number] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
                 "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/time] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
+                "                  \"Whole Number\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/whole-number] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -944,6 +951,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                  \"General\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/general] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetParserSelector-parserNames-3-Link\n" +
                 "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/time] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
+                "                  \"Whole Number\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/whole-number] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -1107,6 +1115,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                  \"General\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/general] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
                 "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/number] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
                 "                  \"Time\" DISABLED id=SpreadsheetParserSelector-parserNames-4-Link\n" +
+                "                  \"Whole Number\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/whole-number] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
