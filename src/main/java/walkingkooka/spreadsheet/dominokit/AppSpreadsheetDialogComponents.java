@@ -231,7 +231,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
 
             SpreadsheetCellValueDialogComponent.with(
                 TimeComponent.empty(
-                    timeContext.id(),
+                    timeContext.id() + "-value" + SpreadsheetElementIds.TIME_PICKER,
                     context.now()::toLocalTime // HasNow
                 ),
                 timeContext
