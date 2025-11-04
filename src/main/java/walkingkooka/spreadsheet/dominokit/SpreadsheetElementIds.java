@@ -29,6 +29,8 @@ public final class SpreadsheetElementIds implements PublicStaticHelper {
 
     public final static String DATE = "-Date";
 
+    public final static String DATE_TIME_PICKER = "-DateTimePicker";
+
     public final static String DIALOG = "-Dialog";
 
     public final static String LINK = "-Link";
