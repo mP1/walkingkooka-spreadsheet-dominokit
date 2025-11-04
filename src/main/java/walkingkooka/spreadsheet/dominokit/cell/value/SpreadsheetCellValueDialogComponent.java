@@ -38,6 +38,7 @@ import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequi
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValueSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValueSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
+import walkingkooka.spreadsheet.dominokit.number.NumberComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
@@ -120,6 +121,18 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
                 CaseKind.TITLE
             )
         );
+
+        // refresh SAVE as the NumberComponent is updated
+        if (valueComponent instanceof NumberComponent) {
+            NumberComponent numberComponent = (NumberComponent) valueComponent;
+            numberComponent.addKeyUpListener(
+                (e) -> this.save.setValue(
+                    Cast.to(
+                        numberComponent.value()
+                    )
+                )
+            );
+        }
 
         this.clear = this.clearValueAnchor(context);
         this.undo = this.undoAnchor(context);

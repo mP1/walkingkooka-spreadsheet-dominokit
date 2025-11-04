@@ -1629,6 +1629,13 @@ public class App implements EntryPoint,
 
     private final LoggingContext loggingContext;
 
+    // NumberComponentContext...........................................................................................
+
+    @Override
+    public int generalFormatNumberDigitCount() {
+        return this.spreadsheetMetadata.getOrFail(SpreadsheetMetadataPropertyName.GENERAL_NUMBER_FORMAT_DIGIT_COUNT);
+    }
+
     // RecentValueSavesContextDelegator.................................................................................
 
     @Override
