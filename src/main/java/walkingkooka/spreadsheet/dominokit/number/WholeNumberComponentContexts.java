@@ -21,7 +21,12 @@ import walkingkooka.reflect.PublicStaticHelper;
 
 public final class WholeNumberComponentContexts implements PublicStaticHelper {
 
-
+    /**
+     * {@see FakeNumberComponentContext}
+     */
+    public static FakeNumberComponentContext fake() {
+        return new FakeNumberComponentContext();
+    }
 
     /**
      * Stop creation
