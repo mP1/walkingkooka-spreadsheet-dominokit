@@ -28,6 +28,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.history.Historys;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.UnknownHistoryToken;
+import walkingkooka.spreadsheet.dominokit.log.Logging;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -42,7 +43,8 @@ import java.util.Optional;
  */
 final class AppHistoryContextHistoryWatcher implements HistoryContext,
     HistoryTokenWatcher,
-    LoggingContextDelegator {
+    LoggingContextDelegator,
+    Logging {
 
     static AppHistoryContextHistoryWatcher with(final AppContext appContext) {
         return new AppHistoryContextHistoryWatcher(
@@ -70,14 +72,20 @@ final class AppHistoryContextHistoryWatcher implements HistoryContext,
     void onHashChange(final HistoryToken token) {
         final HistoryToken previousToken = this.previousToken;
 
-        final long start = System.currentTimeMillis();
-        this.debug(this.getClass().getSimpleName() + ".onHashChange BEGIN from " + previousToken + " to " + token);
+        long start = 0;
+        if (APP_HISTORY_CONTEXT_HISTORY_WATCHER) {
+            start = System.currentTimeMillis();
+            this.debug(this.getClass().getSimpleName() + ".onHashChange BEGIN from " + previousToken + " to " + token);
+        }
+
 
         this.previousToken = token;
 
         if (false == token.equals(previousToken)) {
             if (token instanceof UnknownHistoryToken) {
-                this.debug(this.getClass().getSimpleName() + ".onHashChange updated with invalid token " + token + ", will restore previous " + previousToken);
+                if (APP_HISTORY_CONTEXT_HISTORY_WATCHER) {
+                    this.debug(this.getClass().getSimpleName() + ".onHashChange updated with invalid token " + token + ", will restore previous " + previousToken);
+                }
                 this.pushHistoryToken(previousToken);
 
             } else {
@@ -88,8 +96,10 @@ final class AppHistoryContextHistoryWatcher implements HistoryContext,
             }
         }
 
-        final long end = System.currentTimeMillis();
-        this.debug(this.getClass().getSimpleName() + ".onHashChange END from " + previousToken + " to " + token + " took " + (end - start) + " ms");
+        if (APP_HISTORY_CONTEXT_HISTORY_WATCHER) {
+            final long end = System.currentTimeMillis();
+            this.debug(this.getClass().getSimpleName() + ".onHashChange END from " + previousToken + " to " + token + " took " + (end - start) + " ms");
+        }
     }
 
     /**
