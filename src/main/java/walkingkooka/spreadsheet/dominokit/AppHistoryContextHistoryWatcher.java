@@ -69,6 +69,8 @@ final class AppHistoryContextHistoryWatcher implements HistoryContext,
 
     void onHashChange(final HistoryToken token) {
         final HistoryToken previousToken = this.previousToken;
+
+        final long start = System.currentTimeMillis();
         this.debug(this.getClass().getSimpleName() + ".onHashChange BEGIN from " + previousToken + " to " + token);
 
         this.previousToken = token;
@@ -86,7 +88,8 @@ final class AppHistoryContextHistoryWatcher implements HistoryContext,
             }
         }
 
-        this.debug(this.getClass().getSimpleName() + ".onHashChange END from " + previousToken + " to " + token);
+        final long end = System.currentTimeMillis();
+        this.debug(this.getClass().getSimpleName() + ".onHashChange END from " + previousToken + " to " + token + " took " + (end - start) + " ms");
     }
 
     /**
