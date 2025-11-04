@@ -26,24 +26,41 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.text.CaseKind;
+import walkingkooka.validation.ValueTypeName;
 
 import java.util.Objects;
 import java.util.Optional;
 
-abstract class BasicSpreadsheetCellValueDialogComponentContext<T> implements SpreadsheetCellValueDialogComponentContext<T>,
+final class BasicSpreadsheetCellValueDialogComponentContext<T> implements SpreadsheetCellValueDialogComponentContext<T>,
     HistoryContextDelegator,
     LoggingContextDelegator {
 
-    BasicSpreadsheetCellValueDialogComponentContext(final SpreadsheetViewportCache viewportCache,
-                                                    final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
-                                                    final HistoryContext historyContext,
-                                                    final LoggingContext loggingContext) {
+    static <T> BasicSpreadsheetCellValueDialogComponentContext<T> with(final ValueTypeName valueType,
+                                                                       final SpreadsheetViewportCache viewportCache,
+                                                                       final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
+                                                                       final HistoryContext historyContext,
+                                                                       final LoggingContext loggingContext) {
+        return new BasicSpreadsheetCellValueDialogComponentContext<>(
+            Objects.requireNonNull(valueType, "valueType"),
+            Objects.requireNonNull(viewportCache, "viewportCache"),
+            Objects.requireNonNull(deltaFetcherWatchers, "deltaFetcherWatchers"),
+            Objects.requireNonNull(historyContext, "historyContext"),
+            Objects.requireNonNull(loggingContext, "loggingContext")
+        );
+    }
+
+    private BasicSpreadsheetCellValueDialogComponentContext(final ValueTypeName valueType,
+                                                            final SpreadsheetViewportCache viewportCache,
+                                                            final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
+                                                            final HistoryContext historyContext,
+                                                            final LoggingContext loggingContext) {
         super();
 
-        this.viewportCache = Objects.requireNonNull(viewportCache, "viewportCache");
-        this.deltaFetcherWatchers = Objects.requireNonNull(deltaFetcherWatchers, "deltaFetcherWatchers");
-        this.historyContext = Objects.requireNonNull(historyContext, "historyContext");
-        this.loggingContext = Objects.requireNonNull(loggingContext, "loggingContext");
+        this.valueType = valueType;
+        this.viewportCache = viewportCache;
+        this.deltaFetcherWatchers = deltaFetcherWatchers;
+        this.historyContext = historyContext;
+        this.loggingContext = loggingContext;
 
         this.id = SpreadsheetCell.class.getSimpleName() +
             "Value" +
@@ -55,14 +72,14 @@ abstract class BasicSpreadsheetCellValueDialogComponentContext<T> implements Spr
     }
 
     @Override
-    public final String id() {
+    public String id() {
         return id;
     }
 
     private final String id;
 
     @Override
-    public final String dialogTitle() {
+    public String dialogTitle() {
         return this.selectionDialogTitle(
             CaseKind.CAMEL.change(
                 this.valueType()
@@ -73,48 +90,55 @@ abstract class BasicSpreadsheetCellValueDialogComponentContext<T> implements Spr
     }
 
     @Override
-    public final Optional<SpreadsheetCell> cell() {
+    public Optional<SpreadsheetCell> cell() {
         return this.viewportCache.historyTokenCell();
     }
 
-    final SpreadsheetViewportCache viewportCache;
+    private final SpreadsheetViewportCache viewportCache;
+
+    @Override
+    public ValueTypeName valueType() {
+        return this.valueType;
+    }
+
+    private final ValueTypeName valueType;
 
     // HistoryContextDelegator..........................................................................................
 
     @Override
-    public final HistoryContext historyContext() {
+    public HistoryContext historyContext() {
         return this.historyContext;
     }
 
-    final HistoryContext historyContext;
+    private final HistoryContext historyContext;
 
     // LoggingContextDelegator..........................................................................................
 
     @Override
-    public final LoggingContext loggingContext() {
+    public LoggingContext loggingContext() {
         return this.loggingContext;
     }
 
-    final LoggingContext loggingContext;
+    private final LoggingContext loggingContext;
 
     // SpreadsheetDeltaFetcherWatchers..................................................................................
 
     @Override
-    public final Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+    public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
         return this.deltaFetcherWatchers.addSpreadsheetDeltaFetcherWatcher(watcher);
     }
 
     @Override
-    public final Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
+    public Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
         return this.deltaFetcherWatchers.addSpreadsheetDeltaFetcherWatcherOnce(watcher);
     }
 
-    final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers;
+    private final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers;
 
     // toString.........................................................................................................
 
     @Override
-    public final String toString() {
+    public String toString() {
         return this.historyContext.toString();
     }
 }

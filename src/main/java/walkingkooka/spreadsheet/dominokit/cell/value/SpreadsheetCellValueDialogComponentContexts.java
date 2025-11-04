@@ -17,103 +17,25 @@
 
 package walkingkooka.spreadsheet.dominokit.cell.value;
 
-import walkingkooka.net.AbsoluteUrl;
-import walkingkooka.net.email.EmailAddress;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
+import walkingkooka.validation.ValueTypeName;
 
 public final class SpreadsheetCellValueDialogComponentContexts implements PublicStaticHelper {
 
     /**
      * {@see BasicSpreadsheetCellValueDialogComponentContextDate}
      */
-    public static SpreadsheetCellValueDialogComponentContext<LocalDate> date(final SpreadsheetViewportCache viewportCache,
-                                                                             final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
-                                                                             final HistoryContext historyContext,
-                                                                             final LoggingContext loggingContext) {
-        return BasicSpreadsheetCellValueDialogComponentContextDate.with(
-            viewportCache,
-            deltaFetcherWatchers,
-            historyContext,
-            loggingContext
-        );
-    }
-
-    /**
-     * {@see BasicSpreadsheetCellValueDialogComponentContextDateTime}
-     */
-    public static SpreadsheetCellValueDialogComponentContext<LocalDateTime> dateTime(final SpreadsheetViewportCache viewportCache,
-                                                                                     final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
-                                                                                     final HistoryContext historyContext,
-                                                                                     final LoggingContext loggingContext) {
-        return BasicSpreadsheetCellValueDialogComponentContextDateTime.with(
-            viewportCache,
-            deltaFetcherWatchers,
-            historyContext,
-            loggingContext
-        );
-    }
-
-    /**
-     * {@see BasicSpreadsheetCellValueDialogComponentContextEmail}
-     */
-    public static SpreadsheetCellValueDialogComponentContext<EmailAddress> email(final SpreadsheetViewportCache viewportCache,
-                                                                                 final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
-                                                                                 final HistoryContext historyContext,
-                                                                                 final LoggingContext loggingContext) {
-        return BasicSpreadsheetCellValueDialogComponentContextEmail.with(
-            viewportCache,
-            deltaFetcherWatchers,
-            historyContext,
-            loggingContext
-        );
-    }
-
-    /**
-     * {@see BasicSpreadsheetCellValueDialogComponentContextText}
-     */
-    public static SpreadsheetCellValueDialogComponentContext<String> text(final SpreadsheetViewportCache viewportCache,
+    public static <T> SpreadsheetCellValueDialogComponentContext<T> basic(final ValueTypeName valueType,
+                                                                          final SpreadsheetViewportCache viewportCache,
                                                                           final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
                                                                           final HistoryContext historyContext,
                                                                           final LoggingContext loggingContext) {
-        return BasicSpreadsheetCellValueDialogComponentContextText.with(
-            viewportCache,
-            deltaFetcherWatchers,
-            historyContext,
-            loggingContext
-        );
-    }
-
-    /**
-     * {@see BasicSpreadsheetCellValueDialogComponentContextTime}
-     */
-    public static SpreadsheetCellValueDialogComponentContext<LocalTime> time(final SpreadsheetViewportCache viewportCache,
-                                                                             final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
-                                                                             final HistoryContext historyContext,
-                                                                             final LoggingContext loggingContext) {
-        return BasicSpreadsheetCellValueDialogComponentContextTime.with(
-            viewportCache,
-            deltaFetcherWatchers,
-            historyContext,
-            loggingContext
-        );
-    }
-
-    /**
-     * {@see BasicSpreadsheetCellValueDialogComponentContextUrl}
-     */
-    public static SpreadsheetCellValueDialogComponentContext<AbsoluteUrl> url(final SpreadsheetViewportCache viewportCache,
-                                                                              final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
-                                                                              final HistoryContext historyContext,
-                                                                              final LoggingContext loggingContext) {
-        return BasicSpreadsheetCellValueDialogComponentContextUrl.with(
+        return BasicSpreadsheetCellValueDialogComponentContext.with(
+            valueType,
             viewportCache,
             deltaFetcherWatchers,
             historyContext,

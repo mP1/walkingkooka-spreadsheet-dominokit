@@ -21,6 +21,7 @@ import walkingkooka.Cast;
 import walkingkooka.net.AbsoluteUrl;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesDialogComponent;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.cell.value.SpreadsheetCellValueDialogComponent;
@@ -130,7 +131,8 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
 
     private static void cellValue(final AppContext context) {
         {
-            final SpreadsheetCellValueDialogComponentContext<LocalDate> dateContext = SpreadsheetCellValueDialogComponentContexts.date(
+            final SpreadsheetCellValueDialogComponentContext<LocalDate> dateContext = SpreadsheetCellValueDialogComponentContexts.basic(
+                SpreadsheetValueType.DATE,
                 context.spreadsheetViewportCache(),
                 context, // SpreadsheetDeltaFetcherWatcher
                 context, // HistoryContext
@@ -146,7 +148,8 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
             );
         }
         {
-            final SpreadsheetCellValueDialogComponentContext<LocalDateTime> dateTimeContext = SpreadsheetCellValueDialogComponentContexts.dateTime(
+            final SpreadsheetCellValueDialogComponentContext<LocalDateTime> dateTimeContext = SpreadsheetCellValueDialogComponentContexts.basic(
+                SpreadsheetValueType.DATE_TIME,
                 context.spreadsheetViewportCache(),
                 context, // SpreadsheetDeltaFetcherWatcher
                 context, // HistoryContext
@@ -163,7 +166,8 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
         }
 
         {
-            final SpreadsheetCellValueDialogComponentContext<EmailAddress> emailContext = SpreadsheetCellValueDialogComponentContexts.email(
+            final SpreadsheetCellValueDialogComponentContext<EmailAddress> emailContext = SpreadsheetCellValueDialogComponentContexts.basic(
+                SpreadsheetValueType.EMAIL_ADDRESS,
                 context.spreadsheetViewportCache(),
                 context, // SpreadsheetDeltaFetcherWatcher
                 context, // HistoryContext
@@ -178,7 +182,8 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
         }
         
         {
-            final SpreadsheetCellValueDialogComponentContext<String> textContext = SpreadsheetCellValueDialogComponentContexts.text(
+            final SpreadsheetCellValueDialogComponentContext<String> textContext = SpreadsheetCellValueDialogComponentContexts.basic(
+                SpreadsheetValueType.TEXT,
                 context.spreadsheetViewportCache(),
                 context, // SpreadsheetDeltaFetcherWatcher
                 context, // HistoryContext
@@ -194,7 +199,8 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
             );
         }
         {
-            final SpreadsheetCellValueDialogComponentContext<LocalTime> timeContext = SpreadsheetCellValueDialogComponentContexts.time(
+            final SpreadsheetCellValueDialogComponentContext<LocalTime> timeContext = SpreadsheetCellValueDialogComponentContexts.basic(
+                SpreadsheetValueType.TIME,
                 context.spreadsheetViewportCache(),
                 context, // SpreadsheetDeltaFetcherWatcher
                 context, // HistoryContext
@@ -211,7 +217,8 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
         }
 
         {
-            final SpreadsheetCellValueDialogComponentContext<AbsoluteUrl> urlContext = SpreadsheetCellValueDialogComponentContexts.url(
+            final SpreadsheetCellValueDialogComponentContext<AbsoluteUrl> urlContext = SpreadsheetCellValueDialogComponentContexts.basic(
+                SpreadsheetValueType.URL,
                 context.spreadsheetViewportCache(),
                 context, // SpreadsheetDeltaFetcherWatcher
                 context, // HistoryContext

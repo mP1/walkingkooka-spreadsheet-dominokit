@@ -17,19 +17,143 @@
 
 package walkingkooka.spreadsheet.dominokit.cell.value;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
+import walkingkooka.spreadsheet.dominokit.viewport.FakeSpreadsheetViewportCacheContext;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
+import walkingkooka.validation.ValueTypeName;
 
-public final class BasicSpreadsheetCellValueDialogComponentContextTest implements ClassTesting<BasicSpreadsheetCellValueDialogComponentContext<?>> {
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-    @Override
-    public Class<BasicSpreadsheetCellValueDialogComponentContext<?>> type() {
-        return Cast.to(BasicSpreadsheetCellValueDialogComponentContext.class);
+public final class BasicSpreadsheetCellValueDialogComponentContextTest implements SpreadsheetCellValueDialogComponentContextTesting<Void, BasicSpreadsheetCellValueDialogComponentContext<Void>> {
+
+    private final static ValueTypeName VALUE_TYPE = ValueTypeName.DATE;
+    private final static SpreadsheetDeltaFetcherWatchers DELTA_FETCHER_WATCHERS = SpreadsheetDeltaFetcherWatchers.empty();
+    private final static HistoryContext HISTORY_CONTEXT = HistoryContexts.fake();
+    private final static LoggingContext LOGGING_CONTEXT = LoggingContexts.fake();
+
+    // with.............................................................................................................
+
+    @Test
+    public void testWithNullSpreadsheetViewportCacheFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> BasicSpreadsheetCellValueDialogComponentContext.with(
+                VALUE_TYPE,
+                null,
+                DELTA_FETCHER_WATCHERS,
+                HISTORY_CONTEXT,
+                LOGGING_CONTEXT
+            )
+        );
+    }
+
+    @Test
+    public void testWithNullSpreadsheetDeltaFetcherWatchersFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> BasicSpreadsheetCellValueDialogComponentContext.with(
+                VALUE_TYPE,
+                this.spreadsheetViewportCache(),
+                null,
+                HISTORY_CONTEXT,
+                LOGGING_CONTEXT
+            )
+        );
+    }
+
+    @Test
+    public void testWithNullHistoryContextFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> BasicSpreadsheetCellValueDialogComponentContext.with(
+                VALUE_TYPE,
+                this.spreadsheetViewportCache(),
+                DELTA_FETCHER_WATCHERS,
+                null,
+                LOGGING_CONTEXT
+            )
+        );
+    }
+
+    @Test
+    public void testWithNullLoggingContextFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> BasicSpreadsheetCellValueDialogComponentContext.with(
+                VALUE_TYPE,
+                this.spreadsheetViewportCache(),
+                DELTA_FETCHER_WATCHERS,
+                HISTORY_CONTEXT,
+                null
+            )
+        );
     }
 
     @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
+    public void testAddHistoryTokenWatcherOnceWithNullFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testAddHistoryTokenWatcherWithNullFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testPushHistoryTokenWithNullFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public BasicSpreadsheetCellValueDialogComponentContext<Void> createContext() {
+        return BasicSpreadsheetCellValueDialogComponentContext.with(
+            VALUE_TYPE,
+            this.spreadsheetViewportCache(),
+            DELTA_FETCHER_WATCHERS,
+            HISTORY_CONTEXT,
+            LOGGING_CONTEXT
+        );
+    }
+
+    private SpreadsheetViewportCache spreadsheetViewportCache() {
+        return SpreadsheetViewportCache.empty(
+            new FakeSpreadsheetViewportCacheContext() {
+                @Override
+                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    return null;
+                }
+
+                @Override
+                public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+                    return null;
+                }
+
+                @Override
+                public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+                    return null;
+                }
+            }
+        );
+    }
+
+    // class............................................................................................................
+
+    @Override
+    public void testTypeNaming() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Class<BasicSpreadsheetCellValueDialogComponentContext<Void>> type() {
+        return Cast.to(BasicSpreadsheetCellValueDialogComponentContext.class);
     }
 }
