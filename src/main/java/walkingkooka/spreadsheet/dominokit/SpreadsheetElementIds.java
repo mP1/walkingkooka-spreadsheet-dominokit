@@ -48,6 +48,8 @@ public final class SpreadsheetElementIds implements PublicStaticHelper {
     public final static String TABS = "-Tabs";
     public final static String TEXT_BOX = "-TextBox";
 
+    public final static String TIME_PICKER = "-TimePicker";
+
     private SpreadsheetElementIds() {
         throw new UnsupportedOperationException();
     }
