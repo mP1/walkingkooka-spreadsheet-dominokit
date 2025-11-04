@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
+import walkingkooka.spreadsheet.dominokit.cell.value.SpreadsheetCellValueAnchorComponentContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 
 public interface SpreadsheetCellLinksComponentContext extends SpreadsheetCellLabelsAnchorComponentContext,

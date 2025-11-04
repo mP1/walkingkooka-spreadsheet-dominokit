@@ -15,22 +15,23 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.cell;
+package walkingkooka.spreadsheet.dominokit.cell.value;
 
-import walkingkooka.net.AbsoluteUrl;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.validation.ValueTypeName;
 
-final class BasicSpreadsheetCellValueDialogComponentContextUrl extends BasicSpreadsheetCellValueDialogComponentContext<AbsoluteUrl> {
+import java.time.LocalDateTime;
 
-    static BasicSpreadsheetCellValueDialogComponentContextUrl with(final SpreadsheetViewportCache viewportCache,
-                                                                   final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
-                                                                   final HistoryContext historyContext,
-                                                                   final LoggingContext loggingContext) {
-        return new BasicSpreadsheetCellValueDialogComponentContextUrl(
+final class BasicSpreadsheetCellValueDialogComponentContextDateTime extends BasicSpreadsheetCellValueDialogComponentContext<LocalDateTime> {
+
+    static BasicSpreadsheetCellValueDialogComponentContextDateTime with(final SpreadsheetViewportCache viewportCache,
+                                                                        final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
+                                                                        final HistoryContext historyContext,
+                                                                        final LoggingContext loggingContext) {
+        return new BasicSpreadsheetCellValueDialogComponentContextDateTime(
             viewportCache,
             deltaFetcherWatchers,
             historyContext,
@@ -38,10 +39,10 @@ final class BasicSpreadsheetCellValueDialogComponentContextUrl extends BasicSpre
         );
     }
 
-    private BasicSpreadsheetCellValueDialogComponentContextUrl(final SpreadsheetViewportCache viewportCache,
-                                                               final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
-                                                               final HistoryContext historyContext,
-                                                               final LoggingContext loggingContext) {
+    private BasicSpreadsheetCellValueDialogComponentContextDateTime(final SpreadsheetViewportCache viewportCache,
+                                                                    final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
+                                                                    final HistoryContext historyContext,
+                                                                    final LoggingContext loggingContext) {
         super(
             viewportCache,
             deltaFetcherWatchers,
@@ -52,6 +53,6 @@ final class BasicSpreadsheetCellValueDialogComponentContextUrl extends BasicSpre
 
     @Override
     public ValueTypeName valueType() {
-        return ValueTypeName.URL;
+        return ValueTypeName.DATE_TIME;
     }
 }

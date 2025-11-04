@@ -15,14 +15,21 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.cell;
+package walkingkooka.spreadsheet.dominokit.cell.value;
 
-import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextTesting;
+import walkingkooka.Cast;
+import walkingkooka.reflect.ClassTesting;
+import walkingkooka.reflect.JavaVisibility;
 
-public interface SpreadsheetCellValueDialogComponentContextTesting<V, C extends SpreadsheetCellValueDialogComponentContext<V>> extends DialogComponentContextTesting<C> {
+public final class BasicSpreadsheetCellValueDialogComponentContextTest implements ClassTesting<BasicSpreadsheetCellValueDialogComponentContext<?>> {
 
     @Override
-    default String typeNameSuffix() {
-        return SpreadsheetCellValueDialogComponentContext.class.getSimpleName();
+    public Class<BasicSpreadsheetCellValueDialogComponentContext<?>> type() {
+        return Cast.to(BasicSpreadsheetCellValueDialogComponentContext.class);
+    }
+
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

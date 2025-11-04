@@ -15,21 +15,22 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.cell;
+package walkingkooka.spreadsheet.dominokit.cell.value;
 
+import walkingkooka.net.email.EmailAddress;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.validation.ValueTypeName;
 
-final class BasicSpreadsheetCellValueDialogComponentContextText extends BasicSpreadsheetCellValueDialogComponentContext<String> {
+final class BasicSpreadsheetCellValueDialogComponentContextEmail extends BasicSpreadsheetCellValueDialogComponentContext<EmailAddress> {
 
-    static BasicSpreadsheetCellValueDialogComponentContextText with(final SpreadsheetViewportCache viewportCache,
-                                                                    final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
-                                                                    final HistoryContext historyContext,
-                                                                    final LoggingContext loggingContext) {
-        return new BasicSpreadsheetCellValueDialogComponentContextText(
+    static BasicSpreadsheetCellValueDialogComponentContextEmail with(final SpreadsheetViewportCache viewportCache,
+                                                                     final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
+                                                                     final HistoryContext historyContext,
+                                                                     final LoggingContext loggingContext) {
+        return new BasicSpreadsheetCellValueDialogComponentContextEmail(
             viewportCache,
             deltaFetcherWatchers,
             historyContext,
@@ -37,10 +38,10 @@ final class BasicSpreadsheetCellValueDialogComponentContextText extends BasicSpr
         );
     }
 
-    private BasicSpreadsheetCellValueDialogComponentContextText(final SpreadsheetViewportCache viewportCache,
-                                                                final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
-                                                                final HistoryContext historyContext,
-                                                                final LoggingContext loggingContext) {
+    private BasicSpreadsheetCellValueDialogComponentContextEmail(final SpreadsheetViewportCache viewportCache,
+                                                                 final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
+                                                                 final HistoryContext historyContext,
+                                                                 final LoggingContext loggingContext) {
         super(
             viewportCache,
             deltaFetcherWatchers,
@@ -51,6 +52,6 @@ final class BasicSpreadsheetCellValueDialogComponentContextText extends BasicSpr
 
     @Override
     public ValueTypeName valueType() {
-        return ValueTypeName.TEXT;
+        return ValueTypeName.EMAIL;
     }
 }

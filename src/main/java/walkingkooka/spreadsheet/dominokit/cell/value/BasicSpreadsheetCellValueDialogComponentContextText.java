@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.cell;
+package walkingkooka.spreadsheet.dominokit.cell.value;
 
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
@@ -23,15 +23,13 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.validation.ValueTypeName;
 
-import java.time.LocalDate;
+final class BasicSpreadsheetCellValueDialogComponentContextText extends BasicSpreadsheetCellValueDialogComponentContext<String> {
 
-final class BasicSpreadsheetCellValueDialogComponentContextDate extends BasicSpreadsheetCellValueDialogComponentContext<LocalDate> {
-
-    static BasicSpreadsheetCellValueDialogComponentContextDate with(final SpreadsheetViewportCache viewportCache,
+    static BasicSpreadsheetCellValueDialogComponentContextText with(final SpreadsheetViewportCache viewportCache,
                                                                     final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
                                                                     final HistoryContext historyContext,
                                                                     final LoggingContext loggingContext) {
-        return new BasicSpreadsheetCellValueDialogComponentContextDate(
+        return new BasicSpreadsheetCellValueDialogComponentContextText(
             viewportCache,
             deltaFetcherWatchers,
             historyContext,
@@ -39,7 +37,7 @@ final class BasicSpreadsheetCellValueDialogComponentContextDate extends BasicSpr
         );
     }
 
-    private BasicSpreadsheetCellValueDialogComponentContextDate(final SpreadsheetViewportCache viewportCache,
+    private BasicSpreadsheetCellValueDialogComponentContextText(final SpreadsheetViewportCache viewportCache,
                                                                 final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
                                                                 final HistoryContext historyContext,
                                                                 final LoggingContext loggingContext) {
@@ -53,6 +51,6 @@ final class BasicSpreadsheetCellValueDialogComponentContextDate extends BasicSpr
 
     @Override
     public ValueTypeName valueType() {
-        return ValueTypeName.DATE;
+        return ValueTypeName.TEXT;
     }
 }

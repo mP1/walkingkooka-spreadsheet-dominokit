@@ -15,29 +15,30 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.cell;
+package walkingkooka.spreadsheet.dominokit.cell.value;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.net.email.EmailAddress;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 
-public final class BasicSpreadsheetCellValueDialogComponentContextTextTest extends BasicSpreadsheetCellValueDialogComponentContextTestCase<BasicSpreadsheetCellValueDialogComponentContextText, String> {
+public final class BasicSpreadsheetCellValueDialogComponentContextEmailTest extends BasicSpreadsheetCellValueDialogComponentContextTestCase<BasicSpreadsheetCellValueDialogComponentContextEmail, EmailAddress> {
 
     @Test
     public void testId() {
         this.idAndCheck(
-            "SpreadsheetCellValueText"
+            "SpreadsheetCellValueEmail"
         );
     }
 
     @Override
-    BasicSpreadsheetCellValueDialogComponentContextText createContext(final SpreadsheetViewportCache viewportCache,
-                                                                      final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
-                                                                      final HistoryContext historyContext,
-                                                                      final LoggingContext loggingContext) {
-        return BasicSpreadsheetCellValueDialogComponentContextText.with(
+    BasicSpreadsheetCellValueDialogComponentContextEmail createContext(final SpreadsheetViewportCache viewportCache,
+                                                                       final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
+                                                                       final HistoryContext historyContext,
+                                                                       final LoggingContext loggingContext) {
+        return BasicSpreadsheetCellValueDialogComponentContextEmail.with(
             viewportCache,
             deltaFetcherWatchers,
             historyContext,
@@ -48,7 +49,9 @@ public final class BasicSpreadsheetCellValueDialogComponentContextTextTest exten
     // class............................................................................................................
 
     @Override
-    public Class<BasicSpreadsheetCellValueDialogComponentContextText> type() {
-        return BasicSpreadsheetCellValueDialogComponentContextText.class;
+    public Class<BasicSpreadsheetCellValueDialogComponentContextEmail> type() {
+        return BasicSpreadsheetCellValueDialogComponentContextEmail.class;
     }
 }
+
+

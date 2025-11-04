@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.cell;
+package walkingkooka.spreadsheet.dominokit.cell.value;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
@@ -23,23 +23,23 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 
-public final class BasicSpreadsheetCellValueDialogComponentContextDateTimeTest extends BasicSpreadsheetCellValueDialogComponentContextTestCase<BasicSpreadsheetCellValueDialogComponentContextDateTime, LocalDateTime> {
+public final class BasicSpreadsheetCellValueDialogComponentContextTimeTest extends BasicSpreadsheetCellValueDialogComponentContextTestCase<BasicSpreadsheetCellValueDialogComponentContextTime, LocalTime> {
 
     @Test
     public void testId() {
         this.idAndCheck(
-            "SpreadsheetCellValueDateTime"
+            "SpreadsheetCellValueTime"
         );
     }
 
     @Override
-    BasicSpreadsheetCellValueDialogComponentContextDateTime createContext(final SpreadsheetViewportCache viewportCache,
-                                                                          final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
-                                                                          final HistoryContext historyContext,
-                                                                          final LoggingContext loggingContext) {
-        return BasicSpreadsheetCellValueDialogComponentContextDateTime.with(
+    BasicSpreadsheetCellValueDialogComponentContextTime createContext(final SpreadsheetViewportCache viewportCache,
+                                                                      final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
+                                                                      final HistoryContext historyContext,
+                                                                      final LoggingContext loggingContext) {
+        return BasicSpreadsheetCellValueDialogComponentContextTime.with(
             viewportCache,
             deltaFetcherWatchers,
             historyContext,
@@ -50,7 +50,8 @@ public final class BasicSpreadsheetCellValueDialogComponentContextDateTimeTest e
     // class............................................................................................................
 
     @Override
-    public Class<BasicSpreadsheetCellValueDialogComponentContextDateTime> type() {
-        return BasicSpreadsheetCellValueDialogComponentContextDateTime.class;
+    public Class<BasicSpreadsheetCellValueDialogComponentContextTime> type() {
+        return BasicSpreadsheetCellValueDialogComponentContextTime.class;
     }
 }
+

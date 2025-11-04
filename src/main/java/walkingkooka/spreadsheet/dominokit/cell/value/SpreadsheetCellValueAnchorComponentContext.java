@@ -15,21 +15,18 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.cell;
+package walkingkooka.spreadsheet.dominokit.cell.value;
 
-import walkingkooka.Cast;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
-public final class BasicSpreadsheetCellValueDialogComponentContextTest implements ClassTesting<BasicSpreadsheetCellValueDialogComponentContext<?>> {
+import java.util.Optional;
 
-    @Override
-    public Class<BasicSpreadsheetCellValueDialogComponentContext<?>> type() {
-        return Cast.to(BasicSpreadsheetCellValueDialogComponentContext.class);
-    }
+public interface SpreadsheetCellValueAnchorComponentContext extends HistoryContext {
 
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
-    }
+    /**
+     * Returns the {@link SpreadsheetCell} identified by the given {@link SpreadsheetSelection}.
+     */
+    Optional<SpreadsheetCell> cell(final SpreadsheetSelection selection);
 }

@@ -15,22 +15,22 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.cell;
+package walkingkooka.spreadsheet.dominokit.cell.value;
 
-import walkingkooka.net.email.EmailAddress;
+import walkingkooka.net.AbsoluteUrl;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.validation.ValueTypeName;
 
-final class BasicSpreadsheetCellValueDialogComponentContextEmail extends BasicSpreadsheetCellValueDialogComponentContext<EmailAddress> {
+final class BasicSpreadsheetCellValueDialogComponentContextUrl extends BasicSpreadsheetCellValueDialogComponentContext<AbsoluteUrl> {
 
-    static BasicSpreadsheetCellValueDialogComponentContextEmail with(final SpreadsheetViewportCache viewportCache,
-                                                                     final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
-                                                                     final HistoryContext historyContext,
-                                                                     final LoggingContext loggingContext) {
-        return new BasicSpreadsheetCellValueDialogComponentContextEmail(
+    static BasicSpreadsheetCellValueDialogComponentContextUrl with(final SpreadsheetViewportCache viewportCache,
+                                                                   final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
+                                                                   final HistoryContext historyContext,
+                                                                   final LoggingContext loggingContext) {
+        return new BasicSpreadsheetCellValueDialogComponentContextUrl(
             viewportCache,
             deltaFetcherWatchers,
             historyContext,
@@ -38,10 +38,10 @@ final class BasicSpreadsheetCellValueDialogComponentContextEmail extends BasicSp
         );
     }
 
-    private BasicSpreadsheetCellValueDialogComponentContextEmail(final SpreadsheetViewportCache viewportCache,
-                                                                 final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
-                                                                 final HistoryContext historyContext,
-                                                                 final LoggingContext loggingContext) {
+    private BasicSpreadsheetCellValueDialogComponentContextUrl(final SpreadsheetViewportCache viewportCache,
+                                                               final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
+                                                               final HistoryContext historyContext,
+                                                               final LoggingContext loggingContext) {
         super(
             viewportCache,
             deltaFetcherWatchers,
@@ -52,6 +52,6 @@ final class BasicSpreadsheetCellValueDialogComponentContextEmail extends BasicSp
 
     @Override
     public ValueTypeName valueType() {
-        return ValueTypeName.EMAIL;
+        return ValueTypeName.URL;
     }
 }
