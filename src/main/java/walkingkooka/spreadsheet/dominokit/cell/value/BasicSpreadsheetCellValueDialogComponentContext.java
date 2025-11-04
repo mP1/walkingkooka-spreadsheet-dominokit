@@ -61,22 +61,12 @@ final class BasicSpreadsheetCellValueDialogComponentContext<T> implements Spread
         this.deltaFetcherWatchers = deltaFetcherWatchers;
         this.historyContext = historyContext;
         this.loggingContext = loggingContext;
-
-        this.id = SpreadsheetCell.class.getSimpleName() +
-            "Value" +
-            CaseKind.KEBAB.change(
-                this.valueType()
-                    .text(),
-                CaseKind.PASCAL
-            );
     }
 
     @Override
     public String id() {
-        return id;
+        return SpreadsheetCell.class.getSimpleName() + "Value";
     }
-
-    private final String id;
 
     @Override
     public String dialogTitle() {
