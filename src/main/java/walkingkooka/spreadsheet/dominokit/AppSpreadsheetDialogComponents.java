@@ -145,7 +145,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
                 DateComponent.empty(
                     dateContext.id(),
                     context.now()::toLocalDate // HasNow
-                ).optional(),
+                ),
                 dateContext
             );
         }
@@ -162,7 +162,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
                 DateTimeComponent.empty(
                     dateTimeContext.id(),
                     context::now // HasNow
-                ).optional(),
+                ),
                 dateTimeContext
             );
         }
@@ -215,7 +215,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
                 TextBoxComponent.empty()
                     .setId(
                         textContext.id()
-                    ).optional(),
+                    ),
                 textContext
             );
         }
@@ -232,7 +232,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
                 TimeComponent.empty(
                     timeContext.id(),
                     context.now()::toLocalTime // HasNow
-                ).optional(),
+                ),
                 timeContext
             );
         }
