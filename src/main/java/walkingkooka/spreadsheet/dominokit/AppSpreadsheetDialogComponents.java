@@ -214,7 +214,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
             SpreadsheetCellValueDialogComponent.with(
                 TextBoxComponent.empty()
                     .setId(
-                        textContext.id()
+                        textContext.id() + "-value" + SpreadsheetElementIds.TEXT_BOX
                     ),
                 textContext
             );
