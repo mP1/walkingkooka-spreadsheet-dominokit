@@ -299,7 +299,15 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
 
     @Override
     public void openGiveFocus(final RefreshContext context) {
-        // NOP
+        this.value.setValue(
+            this.context.cell()
+                .flatMap(c ->
+                    Cast.to(
+                        c.formula()
+                            .value()
+                    )
+                )
+        );
     }
 
     @Override
