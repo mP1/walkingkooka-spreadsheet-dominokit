@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.cell;
+package walkingkooka.spreadsheet.dominokit.cell.value;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
@@ -23,23 +23,23 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 
-import java.time.LocalTime;
+import java.time.LocalDate;
 
-public final class BasicSpreadsheetCellValueDialogComponentContextTimeTest extends BasicSpreadsheetCellValueDialogComponentContextTestCase<BasicSpreadsheetCellValueDialogComponentContextTime, LocalTime> {
+public final class BasicSpreadsheetCellValueDialogComponentContextDateTest extends BasicSpreadsheetCellValueDialogComponentContextTestCase<BasicSpreadsheetCellValueDialogComponentContextDate, LocalDate> {
 
     @Test
     public void testId() {
         this.idAndCheck(
-            "SpreadsheetCellValueTime"
+            "SpreadsheetCellValueDate"
         );
     }
 
     @Override
-    BasicSpreadsheetCellValueDialogComponentContextTime createContext(final SpreadsheetViewportCache viewportCache,
+    BasicSpreadsheetCellValueDialogComponentContextDate createContext(final SpreadsheetViewportCache viewportCache,
                                                                       final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
                                                                       final HistoryContext historyContext,
                                                                       final LoggingContext loggingContext) {
-        return BasicSpreadsheetCellValueDialogComponentContextTime.with(
+        return BasicSpreadsheetCellValueDialogComponentContextDate.with(
             viewportCache,
             deltaFetcherWatchers,
             historyContext,
@@ -50,8 +50,7 @@ public final class BasicSpreadsheetCellValueDialogComponentContextTimeTest exten
     // class............................................................................................................
 
     @Override
-    public Class<BasicSpreadsheetCellValueDialogComponentContextTime> type() {
-        return BasicSpreadsheetCellValueDialogComponentContextTime.class;
+    public Class<BasicSpreadsheetCellValueDialogComponentContextDate> type() {
+        return BasicSpreadsheetCellValueDialogComponentContextDate.class;
     }
 }
-

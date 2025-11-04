@@ -15,17 +15,14 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.cell;
+package walkingkooka.spreadsheet.dominokit.cell.value;
 
-import walkingkooka.spreadsheet.SpreadsheetCell;
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextTesting;
 
-import java.util.Optional;
+public interface SpreadsheetCellValueDialogComponentContextTesting<V, C extends SpreadsheetCellValueDialogComponentContext<V>> extends DialogComponentContextTesting<C> {
 
-public class FakeSpreadsheetCellValueAnchorComponentContext extends FakeHistoryContext implements SpreadsheetCellValueAnchorComponentContext {
     @Override
-    public Optional<SpreadsheetCell> cell(final SpreadsheetSelection selection) {
-        throw new UnsupportedOperationException();
+    default String typeNameSuffix() {
+        return SpreadsheetCellValueDialogComponentContext.class.getSimpleName();
     }
 }

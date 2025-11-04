@@ -15,18 +15,23 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.cell;
+package walkingkooka.spreadsheet.dominokit.cell.value;
 
-import walkingkooka.spreadsheet.SpreadsheetCell;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.reflect.PublicStaticHelper;
 
-import java.util.Optional;
-
-public interface SpreadsheetCellValueAnchorComponentContext extends HistoryContext {
+public final class SpreadsheetCellValueAnchorComponentContexts implements PublicStaticHelper {
 
     /**
-     * Returns the {@link SpreadsheetCell} identified by the given {@link SpreadsheetSelection}.
+     * {@see FakeSpreadsheetCellValueAnchorComponentContext}
      */
-    Optional<SpreadsheetCell> cell(final SpreadsheetSelection selection);
+    public static SpreadsheetCellValueAnchorComponentContext fake() {
+        return new FakeSpreadsheetCellValueAnchorComponentContext();
+    }
+
+    /**
+     * Stop creation
+     */
+    private SpreadsheetCellValueAnchorComponentContexts() {
+        throw new UnsupportedOperationException();
+    }
 }

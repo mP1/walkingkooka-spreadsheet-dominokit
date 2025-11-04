@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.cell;
+package walkingkooka.spreadsheet.dominokit.cell.value;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;

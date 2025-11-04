@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.cell;
+package walkingkooka.spreadsheet.dominokit.cell.value;
 
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;

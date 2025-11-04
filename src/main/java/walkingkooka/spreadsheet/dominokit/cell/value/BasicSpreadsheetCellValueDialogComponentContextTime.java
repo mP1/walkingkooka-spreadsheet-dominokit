@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.cell;
+package walkingkooka.spreadsheet.dominokit.cell.value;
 
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
@@ -23,15 +23,15 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.validation.ValueTypeName;
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 
-final class BasicSpreadsheetCellValueDialogComponentContextDateTime extends BasicSpreadsheetCellValueDialogComponentContext<LocalDateTime> {
+final class BasicSpreadsheetCellValueDialogComponentContextTime extends BasicSpreadsheetCellValueDialogComponentContext<LocalTime> {
 
-    static BasicSpreadsheetCellValueDialogComponentContextDateTime with(final SpreadsheetViewportCache viewportCache,
-                                                                        final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
-                                                                        final HistoryContext historyContext,
-                                                                        final LoggingContext loggingContext) {
-        return new BasicSpreadsheetCellValueDialogComponentContextDateTime(
+    static BasicSpreadsheetCellValueDialogComponentContextTime with(final SpreadsheetViewportCache viewportCache,
+                                                                    final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
+                                                                    final HistoryContext historyContext,
+                                                                    final LoggingContext loggingContext) {
+        return new BasicSpreadsheetCellValueDialogComponentContextTime(
             viewportCache,
             deltaFetcherWatchers,
             historyContext,
@@ -39,10 +39,10 @@ final class BasicSpreadsheetCellValueDialogComponentContextDateTime extends Basi
         );
     }
 
-    private BasicSpreadsheetCellValueDialogComponentContextDateTime(final SpreadsheetViewportCache viewportCache,
-                                                                    final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
-                                                                    final HistoryContext historyContext,
-                                                                    final LoggingContext loggingContext) {
+    private BasicSpreadsheetCellValueDialogComponentContextTime(final SpreadsheetViewportCache viewportCache,
+                                                                final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
+                                                                final HistoryContext historyContext,
+                                                                final LoggingContext loggingContext) {
         super(
             viewportCache,
             deltaFetcherWatchers,
@@ -53,6 +53,6 @@ final class BasicSpreadsheetCellValueDialogComponentContextDateTime extends Basi
 
     @Override
     public ValueTypeName valueType() {
-        return ValueTypeName.DATE_TIME;
+        return ValueTypeName.TIME;
     }
 }

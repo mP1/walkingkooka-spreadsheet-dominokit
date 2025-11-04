@@ -34,7 +34,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellValueDialogComponent;
+import walkingkooka.spreadsheet.dominokit.cell.value.SpreadsheetCellValueDialogComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportFormulaComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;

@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.cell;
+package walkingkooka.spreadsheet.dominokit.cell.value;
 
 import walkingkooka.net.AbsoluteUrl;
 import walkingkooka.net.email.EmailAddress;
