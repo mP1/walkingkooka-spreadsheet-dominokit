@@ -307,6 +307,8 @@ public final class ValueTextBoxComponent<T> implements FormValueComponent<HTMLFi
             parsed = this.parser.apply(
                 text.orElse("")
             );
+        } catch (final UnsupportedOperationException rethrow) {
+            throw rethrow;
         } catch (final Exception ignore) {
             parsed = null;
         }
