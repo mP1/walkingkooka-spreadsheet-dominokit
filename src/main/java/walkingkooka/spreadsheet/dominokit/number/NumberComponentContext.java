@@ -25,5 +25,4 @@ public interface NumberComponentContext extends DecimalNumberContext {
     ExpressionNumberKind expressionNumberKind();
 
     int generalFormatNumberDigitCount();
-    //char valueSeparator();
 }
