@@ -143,7 +143,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
 
             SpreadsheetCellValueDialogComponent.with(
                 DateComponent.empty(
-                    dateContext.id(),
+                    dateContext.id() + "-value" + SpreadsheetElementIds.DATE_PICKER,
                     context.now()::toLocalDate // HasNow
                 ),
                 dateContext
