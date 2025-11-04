@@ -249,7 +249,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
 
             SpreadsheetCellValueDialogComponent.with(
                 AbsoluteUrlComponent.empty()
-                    .setId(urlContext.id())
+                    .setId(urlContext.id() + "-value" + SpreadsheetElementIds.TEXT_BOX)
                     .optional(),
                 urlContext
             );
