@@ -56,6 +56,7 @@ import walkingkooka.spreadsheet.dominokit.locale.LocaleDialogComponent;
 import walkingkooka.spreadsheet.dominokit.locale.LocaleDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.navigate.SpreadsheetNavigateDialogComponent;
 import walkingkooka.spreadsheet.dominokit.navigate.SpreadsheetNavigateDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.number.NumberComponent;
 import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.plugin.JarEntryInfoListDialogComponent;
@@ -81,6 +82,7 @@ import walkingkooka.spreadsheet.dominokit.url.AbsoluteUrlComponent;
 import walkingkooka.spreadsheet.dominokit.validator.ValidatorSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.validator.ValidatorSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.tree.expression.ExpressionNumber;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -180,7 +182,25 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
                 emailContext
             );
         }
-        
+
+        {
+            final SpreadsheetCellValueDialogComponentContext<ExpressionNumber> numberContext = SpreadsheetCellValueDialogComponentContexts.basic(
+                SpreadsheetValueType.NUMBER,
+                context.spreadsheetViewportCache(),
+                context, // SpreadsheetDeltaFetcherWatcher
+                context, // HistoryContext
+                context // LoggingContext
+            );
+
+            SpreadsheetCellValueDialogComponent.with(
+                NumberComponent.empty(
+                    numberContext.id() + "-value" + SpreadsheetElementIds.TEXT_BOX,
+                    context
+                ).optional(),
+                numberContext
+            );
+        }
+
         {
             final SpreadsheetCellValueDialogComponentContext<String> textContext = SpreadsheetCellValueDialogComponentContexts.basic(
                 SpreadsheetValueType.TEXT,
