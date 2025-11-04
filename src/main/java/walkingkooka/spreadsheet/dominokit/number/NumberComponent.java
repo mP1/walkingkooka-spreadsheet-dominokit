@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatters;
 import walkingkooka.spreadsheet.formula.parser.NumberSpreadsheetFormulaParserToken;
 import walkingkooka.spreadsheet.parser.SpreadsheetParsers;
+import walkingkooka.text.CharSequences;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.text.TextNode;
 
@@ -34,30 +35,34 @@ import java.util.Optional;
  */
 public final class NumberComponent implements ValueTextBoxComponentDelegator<NumberComponent, ExpressionNumber> {
 
-    public static NumberComponent empty(final NumberComponentContext context) {
+    public static NumberComponent empty(final String id,
+                                        final NumberComponentContext context) {
+        CharSequences.failIfNullOrEmpty(id, id);
+        Objects.requireNonNull(context, "context");
         return new NumberComponent(
-            Objects.requireNonNull(context, "context")
+            ValueTextBoxComponent.with(
+                t -> {
+                    final NumberComponentContextSpreadsheetParserContext numberComponentContextSpreadsheetParserContext = NumberComponentContextSpreadsheetParserContext.with(context);
+                    return SpreadsheetParsers.general()
+                        .parseText(
+                            t,
+                            numberComponentContextSpreadsheetParserContext
+                        ).cast(NumberSpreadsheetFormulaParserToken.class)
+                        .toNumber(numberComponentContextSpreadsheetParserContext);
+                }, // parser String -> ExpressionNumber
+                v -> SpreadsheetFormatters.general()
+                    .format(
+                        Optional.of(v),
+                        NumberComponentContextSpreadsheetFormatterContext.with(context)
+                    ).orElse(TextNode.EMPTY_TEXT)
+                    .text() // formatter ExpressionNumber to String
+            ).optional()
+                .setId(id)
         );
     }
 
-    private NumberComponent(final NumberComponentContext context) {
-        this.textBox = ValueTextBoxComponent.with(
-            t -> {
-                final NumberComponentContextSpreadsheetParserContext numberComponentContextSpreadsheetParserContext = NumberComponentContextSpreadsheetParserContext.with(context);
-                return SpreadsheetParsers.general()
-                    .parseText(
-                        t,
-                        numberComponentContextSpreadsheetParserContext
-                    ).cast(NumberSpreadsheetFormulaParserToken.class)
-                    .toNumber(numberComponentContextSpreadsheetParserContext);
-            }, // parser String -> ExpressionNumber
-            v -> SpreadsheetFormatters.general()
-                .format(
-                    Optional.of(v),
-                    NumberComponentContextSpreadsheetFormatterContext.with(context)
-                ).orElse(TextNode.EMPTY_TEXT)
-                .text() // formatter ExpressionNumber to String
-        ).optional();
+    private NumberComponent(final ValueTextBoxComponent<ExpressionNumber> textBox) {
+        this.textBox = textBox;
     }
 
     // ValueTextBoxComponentDelegator...................................................................................
