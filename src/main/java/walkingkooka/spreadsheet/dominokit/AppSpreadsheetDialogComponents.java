@@ -253,6 +253,24 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
                 urlContext
             );
         }
+
+        {
+            final SpreadsheetCellValueDialogComponentContext<ExpressionNumber> wholeNumberContext = SpreadsheetCellValueDialogComponentContexts.basic(
+                SpreadsheetValueType.WHOLE_NUMBER,
+                context.spreadsheetViewportCache(),
+                context, // SpreadsheetDeltaFetcherWatcher
+                context, // HistoryContext
+                context // LoggingContext
+            );
+
+            SpreadsheetCellValueDialogComponent.with(
+                NumberComponent.empty(
+                    wholeNumberContext.id() + "-value" + SpreadsheetElementIds.TEXT_BOX,
+                    context
+                ).optional(),
+                wholeNumberContext
+            );
+        }
     }
 
     private static void columnAndRow(final AppContext context) {
