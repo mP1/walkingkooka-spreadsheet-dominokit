@@ -178,8 +178,9 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
 
             SpreadsheetCellValueDialogComponent.with(
                 EmailAddressComponent.empty()
-                    .setId(emailContext.id())
-                    .optional(),
+                    .setId(
+                        emailContext.id() + "-value" + SpreadsheetElementIds.TEXT_BOX
+                    ).optional(),
                 emailContext
             );
         }
