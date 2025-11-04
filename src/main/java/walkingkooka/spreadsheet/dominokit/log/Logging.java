@@ -22,6 +22,8 @@ package walkingkooka.spreadsheet.dominokit.log;
  */
 public interface Logging {
 
+    boolean APP_HISTORY_CONTEXT_HISTORY_WATCHER = true;
+
     boolean CONVERTER_SELECTOR_DIALOG_COMPONENT = false;
 
     boolean DATE_TIME_SYMBOLS_DIALOG_COMPONENT = false;
