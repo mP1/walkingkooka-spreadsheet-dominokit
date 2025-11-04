@@ -35,9 +35,4 @@ public class FakeNumberComponentContext extends FakeDecimalNumberContext impleme
     public int generalFormatNumberDigitCount() {
         throw new UnsupportedOperationException();
     }
-//
-//    @Override
-//    public char valueSeparator() {
-//        throw new UnsupportedOperationException();
-//    }
 }
