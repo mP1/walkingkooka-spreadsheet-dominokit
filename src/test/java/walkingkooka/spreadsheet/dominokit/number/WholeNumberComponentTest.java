@@ -23,6 +23,7 @@ import walkingkooka.math.DecimalNumberContext;
 import walkingkooka.math.DecimalNumberContextDelegator;
 import walkingkooka.math.DecimalNumberContexts;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.tree.expression.ExpressionNumber;
@@ -43,7 +44,7 @@ public final class WholeNumberComponentTest implements FormValueComponentTesting
             "WholeNumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      []\n"
+                "      [] id=TestId123-TextBox\n"
         );
     }
 
@@ -56,7 +57,7 @@ public final class WholeNumberComponentTest implements FormValueComponentTesting
             "WholeNumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      []\n"
+                "      [] id=TestId123-TextBox\n"
         );
     }
 
@@ -69,7 +70,7 @@ public final class WholeNumberComponentTest implements FormValueComponentTesting
             "WholeNumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      []\n"
+                "      [] id=TestId123-TextBox\n"
         );
     }
 
@@ -83,7 +84,7 @@ public final class WholeNumberComponentTest implements FormValueComponentTesting
             "WholeNumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      []\n"
+                "      [] id=TestId123-TextBox\n"
         );
     }
 
@@ -97,7 +98,7 @@ public final class WholeNumberComponentTest implements FormValueComponentTesting
             "WholeNumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [0]\n"
+                "      [0] id=TestId123-TextBox\n"
         );
     }
 
@@ -111,7 +112,7 @@ public final class WholeNumberComponentTest implements FormValueComponentTesting
             "WholeNumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [123]\n"
+                "      [123] id=TestId123-TextBox\n"
         );
     }
 
@@ -125,7 +126,7 @@ public final class WholeNumberComponentTest implements FormValueComponentTesting
             "WholeNumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [-456]\n"
+                "      [-456] id=TestId123-TextBox\n"
         );
     }
 
@@ -139,7 +140,7 @@ public final class WholeNumberComponentTest implements FormValueComponentTesting
             "WholeNumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [12345678901234567890]\n"
+                "      [12345678901234567890] id=TestId123-TextBox\n"
         );
     }
 
@@ -153,7 +154,7 @@ public final class WholeNumberComponentTest implements FormValueComponentTesting
             "WholeNumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [45.75]\n" +
+                "      [45.75] id=TestId123-TextBox\n" +
                 "      Errors\n" +
                 "        Invalid character '.' at 2\n"
         );
@@ -169,7 +170,7 @@ public final class WholeNumberComponentTest implements FormValueComponentTesting
             "WholeNumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [8E+2]\n" +
+                "      [8E+2] id=TestId123-TextBox\n" +
                 "      Errors\n" +
                 "        Invalid character 'E' at 1\n"
         );
@@ -187,7 +188,7 @@ public final class WholeNumberComponentTest implements FormValueComponentTesting
             "WholeNumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [abcdef]\n" +
+                "      [abcdef] id=TestId123-TextBox\n" +
                 "      Errors\n" +
                 "        Invalid character 'a' at 0\n"
         );
@@ -205,7 +206,7 @@ public final class WholeNumberComponentTest implements FormValueComponentTesting
             "WholeNumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [123XYZ]\n" +
+                "      [123XYZ] id=TestId123-TextBox\n" +
                 "      Errors\n" +
                 "        Invalid character 'X' at 3\n"
         );
@@ -223,7 +224,7 @@ public final class WholeNumberComponentTest implements FormValueComponentTesting
             "WholeNumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [123.5]\n" +
+                "      [123.5] id=TestId123-TextBox\n" +
                 "      Errors\n" +
                 "        Invalid character '.' at 3\n"
         );
@@ -241,7 +242,7 @@ public final class WholeNumberComponentTest implements FormValueComponentTesting
             "WholeNumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [456]\n"
+                "      [456] id=TestId123-TextBox\n"
         );
     }
 
@@ -258,7 +259,7 @@ public final class WholeNumberComponentTest implements FormValueComponentTesting
             "WholeNumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [0]\n"
+                "      [0] id=TestId123-TextBox\n"
         );
     }
 
@@ -267,6 +268,7 @@ public final class WholeNumberComponentTest implements FormValueComponentTesting
     @Override
     public WholeNumberComponent createComponent() {
         return WholeNumberComponent.empty(
+            "TestId123" + SpreadsheetElementIds.TEXT_BOX,
             new TestWholeNumberComponentContext()
         );
     }
