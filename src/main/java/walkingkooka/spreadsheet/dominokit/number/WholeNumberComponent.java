@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatters;
 import walkingkooka.spreadsheet.formula.parser.NumberSpreadsheetFormulaParserToken;
 import walkingkooka.spreadsheet.parser.SpreadsheetParsers;
+import walkingkooka.text.CharSequences;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.text.TextNode;
 
@@ -34,30 +35,35 @@ import java.util.Optional;
  */
 public final class WholeNumberComponent implements ValueTextBoxComponentDelegator<WholeNumberComponent, ExpressionNumber> {
 
-    public static WholeNumberComponent empty(final WholeNumberComponentContext context) {
+    public static WholeNumberComponent empty(final String id,
+                                             final WholeNumberComponentContext context) {
+        CharSequences.failIfNullOrEmpty(id, id);
+        Objects.requireNonNull(context, "context");
+
         return new WholeNumberComponent(
-            Objects.requireNonNull(context, "context")
+            ValueTextBoxComponent.with(
+                t -> {
+                    final WholeNumberComponentContextSpreadsheetParserContext numberComponentContextSpreadsheetParserContext = WholeNumberComponentContextSpreadsheetParserContext.with(context);
+                    return SpreadsheetParsers.wholeNumber()
+                        .parseText(
+                            t,
+                            numberComponentContextSpreadsheetParserContext
+                        ).cast(NumberSpreadsheetFormulaParserToken.class)
+                        .toNumber(numberComponentContextSpreadsheetParserContext);
+                }, // parser String -> ExpressionNumber
+                v -> SpreadsheetFormatters.general()
+                    .format(
+                        Optional.of(v),
+                        WholeNumberComponentContextSpreadsheetFormatterContext.with(context)
+                    ).orElse(TextNode.EMPTY_TEXT)
+                    .text() // formatter ExpressionNumber to String
+            ).optional()
+                .setId(id)
         );
     }
 
-    private WholeNumberComponent(final WholeNumberComponentContext context) {
-        this.textBox = ValueTextBoxComponent.with(
-            t -> {
-                final WholeNumberComponentContextSpreadsheetParserContext numberComponentContextSpreadsheetParserContext = WholeNumberComponentContextSpreadsheetParserContext.with(context);
-                return SpreadsheetParsers.wholeNumber()
-                    .parseText(
-                        t,
-                        numberComponentContextSpreadsheetParserContext
-                    ).cast(NumberSpreadsheetFormulaParserToken.class)
-                    .toNumber(numberComponentContextSpreadsheetParserContext);
-            }, // parser String -> ExpressionNumber
-            v -> SpreadsheetFormatters.general()
-                .format(
-                    Optional.of(v),
-                    WholeNumberComponentContextSpreadsheetFormatterContext.with(context)
-                ).orElse(TextNode.EMPTY_TEXT)
-                .text() // formatter ExpressionNumber to String
-        ).optional();
+    private WholeNumberComponent(final ValueTextBoxComponent<ExpressionNumber> textBox) {
+        this.textBox = textBox;
     }
 
     // ValueTextBoxComponentDelegator...................................................................................
