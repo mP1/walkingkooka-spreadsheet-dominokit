@@ -56,8 +56,7 @@ public final class NumberComponent implements ValueTextBoxComponentDelegator<Num
                         NumberComponentContextSpreadsheetFormatterContext.with(context)
                     ).orElse(TextNode.EMPTY_TEXT)
                     .text() // formatter ExpressionNumber to String
-            ).optional()
-                .setId(id)
+            ).setId(id)
         );
     }
 
