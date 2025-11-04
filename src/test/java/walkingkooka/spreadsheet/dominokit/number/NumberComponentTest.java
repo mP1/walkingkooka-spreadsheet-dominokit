@@ -44,7 +44,9 @@ public final class NumberComponentTest implements FormValueComponentTesting<HTML
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] id=TestId123-TextBox\n"
+                "      [] id=TestId123-TextBox\n" +
+                "      Errors\n" +
+                "        Empty \"text\"\n"
         );
     }
 
@@ -78,6 +80,23 @@ public final class NumberComponentTest implements FormValueComponentTesting<HTML
     public void testSetStringEmpty() {
         this.treePrintAndCheck(
             this.createComponent()
+                .setStringValue(
+                    Optional.of("")
+                ),
+            "NumberComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [] id=TestId123-TextBox\n" +
+                "      Errors\n" +
+                "        Empty \"text\"\n"
+        );
+    }
+
+    @Test
+    public void testOptionalSetStringEmpty() {
+        this.treePrintAndCheck(
+            this.createComponent()
+                .optional()
                 .setStringValue(
                     Optional.of("")
                 ),
