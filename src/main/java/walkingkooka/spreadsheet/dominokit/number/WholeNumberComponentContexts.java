@@ -22,10 +22,10 @@ import walkingkooka.reflect.PublicStaticHelper;
 public final class WholeNumberComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see FakeNumberComponentContext}
+     * {@see FakeWholeNumberComponentContext}
      */
-    public static FakeNumberComponentContext fake() {
-        return new FakeNumberComponentContext();
+    public static FakeWholeNumberComponentContext fake() {
+        return new FakeWholeNumberComponentContext();
     }
 
     /**
