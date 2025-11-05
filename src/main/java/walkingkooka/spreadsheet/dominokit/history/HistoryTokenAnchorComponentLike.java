@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
+import elemental2.dom.KeyboardEvent;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.ToStringBuilder;
@@ -28,10 +29,12 @@ import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuTarget;
+import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponent;
 import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponentTarget;
 import walkingkooka.text.printer.IndentingPrinter;
 
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -155,16 +158,27 @@ abstract class HistoryTokenAnchorComponentLike implements AnchorComponent<Histor
      * The {@link #historyToken()} will be pushed if this anchor is clicked or ENTER key downed.
      */
     public final HistoryTokenAnchorComponent addPushHistoryToken(final HistoryContext context) {
-        return this.addClickAndKeydownEnterListener(
-            (e) -> {
-                e.preventDefault();
+        Objects.requireNonNull(context, "context");
 
-                this.historyToken()
-                    .ifPresent(
-                        context::pushHistoryToken
-                    );
+        final EventListener listener = (e) -> {
+            e.preventDefault();
+
+            this.historyToken()
+                .ifPresent(
+                    context::pushHistoryToken
+                );
+        };
+
+        this.addKeyDownListener(
+            e -> {
+                final KeyboardEvent keyboardEvent = (KeyboardEvent) e;
+                if(keyboardEvent.key.equals(Key.Enter)) {
+                    listener.handleEvent(e);
+                }
             }
         );
+
+        return this.addClickListener(listener);
     }
 
     // TooltipComponentTarget................................................................................

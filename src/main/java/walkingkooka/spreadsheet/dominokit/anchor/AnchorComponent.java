@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.anchor;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.net.Url;
@@ -121,13 +120,6 @@ public interface AnchorComponent<A extends AnchorComponent<A, T>, T> extends Val
     Optional<Icon<?>> iconAfter();
 
     A setIconAfter(final Optional<Icon<?>> icon);
-
-    // events...........................................................................................................
-
-    /**
-     * Adds a {@link EventListener} that receives click and keydown with ENTER events.
-     */
-    A addClickAndKeydownEnterListener(final EventListener listener);
 
     @Override
     default A hideMarginBottom() {

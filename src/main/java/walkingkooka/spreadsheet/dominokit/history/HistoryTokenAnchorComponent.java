@@ -429,16 +429,6 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
         return this;
     }
 
-    /**
-     * Adds a {@link EventListener} that receives click and keydown with ENTER events.
-     */
-    @Override
-    public HistoryTokenAnchorComponent addClickAndKeydownEnterListener(final EventListener listener) {
-        this.element.onKeyPress(e -> e.onEnter(listener));
-
-        return this.addClickListener(listener);
-    }
-
     // focus............................................................................................................
 
     @Override
