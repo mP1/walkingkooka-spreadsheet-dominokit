@@ -17,12 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.validator;
 
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 
 public interface ValidatorSelectorNameAnchorListComponentContext extends HistoryContext,
     HasSpreadsheetMetadata {
-
-    Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher);
 }

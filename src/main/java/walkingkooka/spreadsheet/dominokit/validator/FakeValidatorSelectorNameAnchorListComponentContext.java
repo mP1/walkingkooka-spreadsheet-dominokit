@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.validator;
 
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
@@ -25,11 +24,6 @@ public class FakeValidatorSelectorNameAnchorListComponentContext extends FakeHis
 
     public FakeValidatorSelectorNameAnchorListComponentContext() {
         super();
-    }
-
-    @Override
-    public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
-        throw new UnsupportedOperationException();
     }
 
     @Override

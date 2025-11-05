@@ -232,11 +232,6 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
         }
 
         @Override
-        public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
-            return this.context.addSpreadsheetMetadataFetcherWatcher(watcher);
-        }
-
-        @Override
         public SpreadsheetMetadata spreadsheetMetadata() {
             return this.context.spreadsheetMetadata();
         }

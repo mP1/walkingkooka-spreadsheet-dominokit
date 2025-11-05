@@ -22,7 +22,6 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -140,11 +139,6 @@ public final class ValidatorSelectorNameAnchorListComponentTest implements Value
                         SpreadsheetMetadataPropertyName.VALIDATION_VALIDATORS,
                         ValidatorAliasSet.parse("apple-tree, banana, carrot")
                     );
-                }
-
-                @Override
-                public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
-                    return null;
                 }
             }
         );
