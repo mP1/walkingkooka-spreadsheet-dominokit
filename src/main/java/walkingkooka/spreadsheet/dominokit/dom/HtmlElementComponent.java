@@ -90,14 +90,14 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
     // width............................................................................................................
 
     @Override
-    public int width() {
+    public final int width() {
         return this.element.offsetWidth;
     }
 
     // height...........................................................................................................
 
     @Override
-    public int height() {
+    public final int height() {
         return this.element.offsetHeight;
     }
 
@@ -169,47 +169,47 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
     }
 
     @Override
-    public boolean contains(final IsElement<?> element) {
+    public final boolean contains(final IsElement<?> element) {
         Objects.requireNonNull(element, "element");
 
         return this.element.contains(element.element());
     }
 
     @Override
-    public C appendChild(final TextNode textNode) {
-        this.element.appendChild(
+    public final C appendChild(final TextNode textNode) {
+        this.element.append(
             Doms.node(textNode)
         );
         return (C) this;
     }
 
     @Override
-    public C appendChild(final Node child) {
+    public final C appendChild(final Node child) {
         this.element.appendChild(child);
         return (C) this;
     }
 
     @Override
-    public C appendChild(final IsElement<?> child) {
+    public final C appendChild(final IsElement<?> child) {
         this.element.appendChild(child.element());
         return (C) this;
     }
 
     @Override
-    public C appendText(final String text) {
+    public final C appendText(final String text) {
         return this.appendChild(
             Doms.textNode(text)
         );
     }
 
     @Override
-    public C removeChild(final Node child) {
+    public final C removeChild(final Node child) {
         this.element.removeChild(child);
         return (C) this;
     }
 
     @Override
-    public C removeChild(final IsElement<?> child) {
+    public final C removeChild(final IsElement<?> child) {
         this.element.removeChild(child.element());
         return (C) this;
     }
@@ -234,8 +234,8 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
     // IsElement........................................................................................................
 
     @Override
-    public C addEventListener(final String type,
-                              final EventListener listener) {
+    public final C addEventListener(final String type,
+                                    final EventListener listener) {
         this.element.addEventListener(type, listener);
         return (C) this;
     }
@@ -243,7 +243,7 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
     // IsElement........................................................................................................
 
     @Override
-    public E element() {
+    public final E element() {
         return this.element;
     }
 
@@ -252,7 +252,7 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
     // TreePrintable....................................................................................................
 
     @Override
-    public void printTree(final IndentingPrinter printer) {
+    public final void printTree(final IndentingPrinter printer) {
         printer.println(this.getClass().getSimpleName());
         printer.indent();
         {
@@ -262,7 +262,7 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
     }
 
     @Override
-    public void printTreeChildren(final IndentingPrinter printer) {
+    public final void printTreeChildren(final IndentingPrinter printer) {
         printer.println(this.element.outerHTML);
     }
 }
