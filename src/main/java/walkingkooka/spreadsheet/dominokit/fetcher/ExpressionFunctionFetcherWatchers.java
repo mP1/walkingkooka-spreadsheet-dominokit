@@ -23,12 +23,12 @@ import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 public final class ExpressionFunctionFetcherWatchers extends FetcherWatchers<ExpressionFunctionFetcherWatcher>
     implements ExpressionFunctionFetcherWatcher {
 
-    private ExpressionFunctionFetcherWatchers() {
-        super();
-    }
-
     public static ExpressionFunctionFetcherWatchers empty() {
         return new ExpressionFunctionFetcherWatchers();
+    }
+
+    private ExpressionFunctionFetcherWatchers() {
+        super();
     }
 
     @Override
