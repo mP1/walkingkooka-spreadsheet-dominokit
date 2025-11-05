@@ -25,12 +25,12 @@ import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
 public final class SpreadsheetParserFetcherWatchers extends FetcherWatchers<SpreadsheetParserFetcherWatcher>
     implements SpreadsheetParserFetcherWatcher {
 
-    private SpreadsheetParserFetcherWatchers() {
-        super();
-    }
-
     public static SpreadsheetParserFetcherWatchers empty() {
         return new SpreadsheetParserFetcherWatchers();
+    }
+
+    private SpreadsheetParserFetcherWatchers() {
+        super();
     }
 
     @Override
