@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.suggestbox;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
+import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.suggest.SuggestionsStore;
 import org.dominokit.domino.ui.menu.MenuItem;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
@@ -37,8 +38,8 @@ import java.util.function.Function;
 /**
  * A text box component that includes support for suggestions using a {@link SuggestionsStore}.
  */
-public final class SuggestBoxComponent<T extends HasText> implements SuggestBoxComponentLike<T>,
-    TestHtmlElementComponent<HTMLFieldSetElement, SuggestBoxComponent<T>>,
+public final class SuggestBoxComponent<T extends HasText> extends SuggestBoxComponentLike<T>
+    implements TestHtmlElementComponent<HTMLFieldSetElement, SuggestBoxComponent<T>>,
     ValidatorHelper {
 
     public static <T extends HasText> SuggestBoxComponent<T> with(final SuggestBoxComponentSuggestionsProvider<T> suggestionsProvider,
@@ -244,12 +245,6 @@ public final class SuggestBoxComponent<T extends HasText> implements SuggestBoxC
     // events...........................................................................................................
 
     @Override
-    public SuggestBoxComponent<T> addBlurListener(final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-        return this;
-    }
-
-    @Override
     public SuggestBoxComponent<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
         Objects.requireNonNull(listener, "listener");
 
@@ -257,42 +252,9 @@ public final class SuggestBoxComponent<T extends HasText> implements SuggestBoxC
     }
 
     @Override
-    public SuggestBoxComponent<T> addClickListener(final EventListener listener) {
+    SuggestBoxComponent<T> addEventListener(final EventType eventType,
+                                            final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
-
-        return this;
-    }
-
-    @Override
-    public SuggestBoxComponent<T> addContextMenuListener(final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        return this;
-    }
-
-    @Override
-    public SuggestBoxComponent<T> addFocusListener(final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-        return this;
-    }
-
-    @Override
-    public SuggestBoxComponent<T> addInputListener(final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-        return this;
-    }
-
-    @Override
-    public SuggestBoxComponent<T> addKeyDownListener(final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        return this;
-    }
-
-    @Override
-    public SuggestBoxComponent<T> addKeyUpListener(final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-
         return this;
     }
 
