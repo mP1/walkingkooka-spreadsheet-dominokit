@@ -23,12 +23,12 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 public final class SpreadsheetComparatorFetcherWatchers extends FetcherWatchers<SpreadsheetComparatorFetcherWatcher>
     implements SpreadsheetComparatorFetcherWatcher {
 
-    private SpreadsheetComparatorFetcherWatchers() {
-        super();
-    }
-
     public static SpreadsheetComparatorFetcherWatchers empty() {
         return new SpreadsheetComparatorFetcherWatchers();
+    }
+
+    private SpreadsheetComparatorFetcherWatchers() {
+        super();
     }
 
     @Override
