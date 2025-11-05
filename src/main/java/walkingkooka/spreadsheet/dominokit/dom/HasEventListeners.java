@@ -24,6 +24,8 @@ import java.util.Optional;
 
 public interface HasEventListeners<V, C extends HasEventListeners<V, C>> {
 
+    C addBlurListener(final EventListener listener);
+
     C addClickListener(final EventListener listener);
 
     C addChangeListener(final ChangeListener<Optional<V>> listener);

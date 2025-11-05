@@ -25,6 +25,13 @@ import java.util.Optional;
 public interface HasEventListenersDelegator<V, C extends HasEventListeners<V, C>> extends HasEventListeners<V, C> {
 
     @Override
+    default C addBlurListener(final EventListener listener) {
+        this.hasEventListeners()
+            .addBlurListener(listener);
+        return (C) this;
+    }
+
+    @Override
     default C addChangeListener(final ChangeListener<Optional<V>> listener) {
         this.hasEventListeners()
             .addChangeListener(listener);
