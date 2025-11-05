@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.slider;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
+import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
@@ -223,10 +224,7 @@ public final class SliderComponent extends SliderComponentLike
 
     private boolean disabled;
 
-    @Override
-    public SliderComponent addBlurListener(final EventListener listener) {
-        return this;
-    }
+    // addXXXListener...................................................................................................
 
     @Override
     public SliderComponent addChangeListener(final ChangeListener<Optional<Double>> listener) {
@@ -234,32 +232,9 @@ public final class SliderComponent extends SliderComponentLike
     }
 
     @Override
-    public SliderComponent addClickListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public SliderComponent addContextMenuListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public SliderComponent addFocusListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public SliderComponent addInputListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public SliderComponent addKeyDownListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public SliderComponent addKeyUpListener(final EventListener listener) {
+    SliderComponent addEventListener(final EventType eventType,
+                                     final EventListener listener) {
+        // nop
         return this;
     }
 
