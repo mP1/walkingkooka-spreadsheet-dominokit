@@ -49,14 +49,12 @@ public final class IntegerBoxComponentTest implements FormValueComponentTesting<
             IntegerBoxComponent.empty()
                 .setId("id123")
                 .setValidator(
-                    Optional.of(
-                        new FakeValidator<Optional<Integer>>() {
-                            @Override
-                            public ValidationResult isValid(final Optional<Integer> component) {
-                                return ValidationResult.valid();
-                            }
+                    new FakeValidator<>() {
+                        @Override
+                        public ValidationResult isValid(final Optional<Integer> component) {
+                            return ValidationResult.valid();
                         }
-                    )
+                    }
                 )
                 .setValue(
                     Optional.of(
@@ -74,14 +72,12 @@ public final class IntegerBoxComponentTest implements FormValueComponentTesting<
             IntegerBoxComponent.empty()
                 .setId("id123")
                 .setValidator(
-                    Optional.of(
-                        new FakeValidator<Optional<Integer>>() {
-                            @Override
-                            public ValidationResult isValid(final Optional<Integer> component) {
-                                return ValidationResult.invalid("Invalid value 123");
-                            }
+                    new FakeValidator<>() {
+                        @Override
+                        public ValidationResult isValid(final Optional<Integer> component) {
+                            return ValidationResult.invalid("Invalid value 123");
                         }
-                    )
+                    }
                 )
                 .setValue(
                     Optional.of(

@@ -19,13 +19,12 @@ package walkingkooka.spreadsheet.dominokit.text;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
+import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ValidatorHelper;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -38,14 +37,46 @@ import java.util.Optional;
  * A mock of main/IntegerBoxComponent with the same public interface and a helpful {@link TreePrintable}. This will be useful for unit tests to verify the rough apperance of a component that includes
  * {@link IntegerBoxComponent}.
  */
-public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSetElement, Integer, IntegerBoxComponent>,
-    FormValueComponentTreePrintable<HTMLFieldSetElement, IntegerBoxComponent, Integer>,
-    TestHtmlElementComponent<HTMLFieldSetElement, IntegerBoxComponent>,
+public final class IntegerBoxComponent extends IntegerBoxComponentLike
+    implements TestHtmlElementComponent<HTMLFieldSetElement, IntegerBoxComponent>,
     ValidatorHelper {
 
     public static IntegerBoxComponent empty() {
         return new IntegerBoxComponent();
     }
+
+    @Override
+    public IntegerBoxComponent max(final int value) {
+        this.max = value;
+        return this;
+    }
+
+    private Integer max;
+
+    @Override
+    public IntegerBoxComponent min(final int value) {
+        this.min = value;
+        return this;
+    }
+
+    private Integer min;
+
+    @Override
+    public IntegerBoxComponent step(final int step) {
+        this.step = step;
+        return this;
+    }
+
+    private Integer step;
+
+    @Override
+    public IntegerBoxComponent pattern(final String pattern) {
+        Objects.requireNonNull(pattern, "pattern");
+        this.pattern = pattern;
+        return this;
+    }
+
+    private String pattern;
 
     @Override
     public IntegerBoxComponent setId(final String id) {
@@ -117,7 +148,7 @@ public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSe
         this.setErrors(
             this.validateAndGetErrors(
                 this.value,
-                this.validator
+                Optional.ofNullable(this.validator)
             )
         );
         return this;
@@ -151,42 +182,14 @@ public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSe
     private boolean disabled;
 
     @Override
-    public IntegerBoxComponent addBlurListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
     public IntegerBoxComponent addChangeListener(final ChangeListener<Optional<Integer>> listener) {
         return this;
     }
 
     @Override
-    public IntegerBoxComponent addClickListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public IntegerBoxComponent addContextMenuListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public IntegerBoxComponent addFocusListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public IntegerBoxComponent addInputListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public IntegerBoxComponent addKeyDownListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public IntegerBoxComponent addKeyUpListener(final EventListener listener) {
+    IntegerBoxComponent addEventListener(final EventType eventType,
+                                         final EventListener listener) {
+        Objects.requireNonNull(eventType, "eventType");
         return this;
     }
 
@@ -223,55 +226,25 @@ public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSe
         return this;
     }
 
+    @Override
     public IntegerBoxComponent clearIcon() {
         return this;
     }
 
-    public IntegerBoxComponent disableSpellcheck() {
-        return this;
-    }
-
+    @Override
     public IntegerBoxComponent enterFiresValueChange() {
         return this;
     }
 
-    public IntegerBoxComponent setValidator(final Optional<Validator<Optional<Integer>>> validator) {
+    @Override
+    public IntegerBoxComponent setValidator(final Validator<Optional<Integer>> validator) {
         Objects.requireNonNull(validator, "validator");
 
         this.validator = validator;
         return this;
     }
 
-    private Optional<Validator<Optional<Integer>>> validator = Optional.empty();
-
-    public IntegerBoxComponent max(final int value) {
-        this.max = value;
-        return this;
-    }
-
-    private Integer max;
-
-    public IntegerBoxComponent min(final int value) {
-        this.min = value;
-        return this;
-    }
-
-    private Integer min;
-
-    public IntegerBoxComponent step(final int step) {
-        this.step = step;
-        return this;
-    }
-
-    private Integer step;
-
-    public IntegerBoxComponent pattern(final String pattern) {
-        Objects.requireNonNull(pattern, "pattern");
-        this.pattern = pattern;
-        return this;
-    }
-
-    private String pattern;
+    private Validator<Optional<Integer>> validator = null;
 
     @Override
     public IntegerBoxComponent setCssText(final String css) {
