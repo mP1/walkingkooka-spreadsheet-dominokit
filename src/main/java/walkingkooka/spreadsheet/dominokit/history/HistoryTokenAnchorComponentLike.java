@@ -17,7 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
+import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.ToStringBuilder;
 import walkingkooka.ToStringBuilderOption;
@@ -54,6 +56,67 @@ abstract class HistoryTokenAnchorComponentLike implements AnchorComponent<Histor
     public final HistoryTokenAnchorComponent setValue(final Optional<HistoryToken> value) {
         return this.setHistoryToken(value);
     }
+
+    // addXXXListener...................................................................................................
+
+    @Override
+    public final HistoryTokenAnchorComponent addBlurListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.blur,
+            listener
+        );
+    }
+
+    @Override
+    public final HistoryTokenAnchorComponent addClickListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.click,
+            listener
+        );
+    }
+
+    @Override
+    public final HistoryTokenAnchorComponent addContextMenuListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.contextmenu,
+            listener
+        );
+    }
+
+    @Override
+    public final HistoryTokenAnchorComponent addFocusListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.focus,
+            listener
+        );
+    }
+
+    @Override
+    public final HistoryTokenAnchorComponent addInputListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.input,
+            listener
+        );
+    }
+
+    @Override
+    public final HistoryTokenAnchorComponent addKeyUpListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.keyup,
+            listener
+        );
+    }
+
+    @Override
+    public final HistoryTokenAnchorComponent addKeyDownListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.keydown,
+            listener
+        );
+    }
+
+    abstract HistoryTokenAnchorComponent addEventListener(final EventType eventType,
+                                                          final EventListener listener);
 
     // historyToken....................................................................................................
 
