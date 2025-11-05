@@ -25,12 +25,12 @@ import walkingkooka.validation.form.provider.FormHandlerInfoSet;
 public final class FormHandlerFetcherWatchers extends FetcherWatchers<FormHandlerFetcherWatcher>
     implements FormHandlerFetcherWatcher {
 
-    private FormHandlerFetcherWatchers() {
-        super();
-    }
-
     public static FormHandlerFetcherWatchers empty() {
         return new FormHandlerFetcherWatchers();
+    }
+
+    private FormHandlerFetcherWatchers() {
+        super();
     }
 
     @Override
