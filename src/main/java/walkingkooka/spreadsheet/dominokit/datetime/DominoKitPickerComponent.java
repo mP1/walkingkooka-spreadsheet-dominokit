@@ -211,6 +211,11 @@ abstract class DominoKitPickerComponent<V, C extends DominoKitPickerComponent<V,
     }
 
     @Override
+    public final C addInputListener(final EventListener listener) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public final C addKeyDownListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }

@@ -87,6 +87,14 @@ abstract class CheckboxComponentLike implements FormValueComponent<HTMLFieldSetE
     }
 
     @Override
+    public final CheckboxComponent addInputListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.input,
+            listener
+        );
+    }
+
+    @Override
     public final CheckboxComponent addKeyDownListener(final EventListener listener) {
         return this.addEventListener(
             EventType.keydown,

@@ -195,6 +195,13 @@ public interface AnchorComponentDelegator<A extends AnchorComponent<A, T>, T> ex
             .addFocusListener(listener);
         return (A) this;
     }
+
+    @Override
+    default A addInputListener(final EventListener listener) {
+        this.anchorComponent()
+            .addInputListener(listener);
+        return (A) this;
+    }
     
     @Override
     default A addKeyDownListener(final EventListener listener) {

@@ -64,6 +64,11 @@ public interface TableComponent<E extends HTMLElement, V, C extends TableCompone
     }
 
     @Override
+    default C addInputListener(final EventListener listener) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     default C addKeyDownListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }

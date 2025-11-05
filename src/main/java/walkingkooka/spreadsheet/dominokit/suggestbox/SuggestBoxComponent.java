@@ -399,6 +399,14 @@ public final class SuggestBoxComponent<T> implements SuggestBoxComponentLike<T> 
     }
 
     @Override
+    public SuggestBoxComponent<T> addInputListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.input,
+            listener
+        );
+    }
+
+    @Override
     public SuggestBoxComponent<T> addKeyDownListener(final EventListener listener) {
         return this.addEventListener(
             EventType.keydown,

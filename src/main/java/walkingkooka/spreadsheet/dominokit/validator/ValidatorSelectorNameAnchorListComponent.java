@@ -190,6 +190,14 @@ public final class ValidatorSelectorNameAnchorListComponent implements ValueComp
     }
 
     @Override
+    public ValidatorSelectorNameAnchorListComponent addInputListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.input,
+            listener
+        );
+    }
+
+    @Override
     public ValidatorSelectorNameAnchorListComponent addKeyDownListener(final EventListener listener) {
         return this.addEventListener(
             EventType.keydown,

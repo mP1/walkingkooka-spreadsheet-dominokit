@@ -205,6 +205,11 @@ public final class DateTimeComponent implements FormValueComponent<HTMLFieldSetE
     }
 
     @Override
+    public DateTimeComponent addInputListener(final EventListener listener) {
+        return this;
+    }
+
+    @Override
     public DateTimeComponent addKeyDownListener(final EventListener listener) {
         return this;
     }
