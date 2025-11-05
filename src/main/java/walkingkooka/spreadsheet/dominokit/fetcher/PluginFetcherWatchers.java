@@ -30,12 +30,12 @@ public final class PluginFetcherWatchers extends FetcherWatchers<PluginFetcherWa
     implements PluginFetcherWatcher,
     HasPluginFetcherWatchers {
 
-    private PluginFetcherWatchers() {
-        super();
-    }
-
     public static PluginFetcherWatchers empty() {
         return new PluginFetcherWatchers();
+    }
+
+    private PluginFetcherWatchers() {
+        super();
     }
 
     @Override
