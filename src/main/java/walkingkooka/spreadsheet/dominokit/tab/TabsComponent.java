@@ -67,7 +67,7 @@ public final class TabsComponent implements TabsComponentLike {
             ).setId(id)
             .setTextContent(title)
             .setDisabled(true)
-            .addPushHistoryToken(this.context);
+            .clickOrEnterPushHistoryToken(this.context);
 
         this.tabsPanel.appendChild(tab);
         this.anchors.add(anchor);

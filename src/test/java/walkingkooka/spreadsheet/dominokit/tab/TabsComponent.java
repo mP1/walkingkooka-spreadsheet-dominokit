@@ -57,7 +57,7 @@ public final class TabsComponent implements TabsComponentLike, TestHtmlElementCo
             .setId(id)
             .setTextContent(title)
             .setDisabled(true)
-            .addPushHistoryToken(this.context);
+            .clickOrEnterPushHistoryToken(this.context);
 
         this.anchors.add(anchor);
         return this;
