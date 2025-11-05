@@ -93,6 +93,13 @@ public interface ValueComponentDelegator<E extends HTMLElement, V, C extends Val
     }
 
     @Override
+    default C addInputListener(final EventListener listener) {
+        this.valueComponent()
+            .addInputListener(listener);
+        return (C) this;
+    }
+
+    @Override
     default C addKeyDownListener(final EventListener listener) {
         this.valueComponent()
             .addKeyDownListener(listener);

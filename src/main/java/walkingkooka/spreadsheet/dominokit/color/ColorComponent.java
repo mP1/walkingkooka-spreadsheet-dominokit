@@ -278,6 +278,14 @@ public final class ColorComponent implements ValueComponent<HTMLTableElement, Co
     }
 
     @Override
+    public ColorComponent addInputListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.input,
+            listener
+        );
+    }
+
+    @Override
     public ColorComponent addKeyDownListener(final EventListener listener) {
         return this.addEventListener(
             EventType.keydown,

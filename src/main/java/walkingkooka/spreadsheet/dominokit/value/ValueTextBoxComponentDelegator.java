@@ -169,6 +169,13 @@ public interface ValueTextBoxComponentDelegator<C extends ValueTextBoxComponentD
     }
 
     @Override
+    default C addInputListener(final EventListener listener) {
+        this.valueTextBoxComponent()
+            .addInputListener(listener);
+        return (C) this;
+    }
+
+    @Override
     default C addKeyDownListener(final EventListener listener) {
         this.valueTextBoxComponent()
             .addKeyDownListener(listener);

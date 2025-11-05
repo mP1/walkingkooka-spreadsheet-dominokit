@@ -118,6 +118,11 @@ abstract class TextViewComponentLike implements FormValueComponent<HTMLDivElemen
     }
 
     @Override
+    public final TextViewComponent addInputListener(final EventListener listener) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public final TextViewComponent addKeyDownListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }

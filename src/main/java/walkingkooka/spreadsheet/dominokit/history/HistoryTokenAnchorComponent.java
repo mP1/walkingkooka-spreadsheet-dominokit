@@ -441,6 +441,14 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
     }
 
     @Override
+    public HistoryTokenAnchorComponent addInputListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.input,
+            listener
+        );
+    }
+
+    @Override
     public HistoryTokenAnchorComponent addKeyUpListener(final EventListener listener) {
         return this.addEventListener(
             EventType.keyup,

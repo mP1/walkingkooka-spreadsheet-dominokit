@@ -206,6 +206,12 @@ public final class ValidationCheckboxComponent implements FormValueComponent<HTM
     }
 
     @Override
+    public ValidationCheckboxComponent addInputListener(final EventListener listener) {
+        this.checkbox.addInputListener(listener);
+        return this;
+    }
+
+    @Override
     public ValidationCheckboxComponent addKeyDownListener(final EventListener listener) {
         this.checkbox.addKeyDownListener(listener);
         return this;

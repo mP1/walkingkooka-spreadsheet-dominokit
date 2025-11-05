@@ -253,6 +253,14 @@ public final class SliderComponent extends SliderComponentLike {
     }
 
     @Override
+    public SliderComponent addInputListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.input,
+            listener
+        );
+    }
+
+    @Override
     public SliderComponent addKeyDownListener(final EventListener listener) {
         return this.addEventListener(
             EventType.keydown,

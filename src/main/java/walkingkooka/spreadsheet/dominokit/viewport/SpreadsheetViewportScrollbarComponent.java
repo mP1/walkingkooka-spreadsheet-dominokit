@@ -252,6 +252,11 @@ abstract public class SpreadsheetViewportScrollbarComponent<R extends Spreadshee
     }
 
     @Override
+    public final SpreadsheetViewportScrollbarComponent<R> addInputListener(final EventListener listener) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public final SpreadsheetViewportScrollbarComponent<R> addKeyDownListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }

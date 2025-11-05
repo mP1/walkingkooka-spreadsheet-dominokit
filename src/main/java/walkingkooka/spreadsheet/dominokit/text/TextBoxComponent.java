@@ -100,6 +100,14 @@ public final class TextBoxComponent implements FormValueComponent<HTMLFieldSetEl
     }
 
     @Override
+    public TextBoxComponent addInputListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.input,
+            listener
+        );
+    }
+
+    @Override
     public TextBoxComponent addKeyDownListener(final EventListener listener) {
         return this.addEventListener(
             EventType.keydown,

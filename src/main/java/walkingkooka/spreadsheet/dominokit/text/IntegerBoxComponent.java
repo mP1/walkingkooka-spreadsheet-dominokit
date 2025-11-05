@@ -136,6 +136,14 @@ public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSe
     }
 
     @Override
+    public IntegerBoxComponent addInputListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.input,
+            listener
+        );
+    }
+
+    @Override
     public IntegerBoxComponent addKeyDownListener(final EventListener listener) {
         return this.addEventListener(
             EventType.keydown,

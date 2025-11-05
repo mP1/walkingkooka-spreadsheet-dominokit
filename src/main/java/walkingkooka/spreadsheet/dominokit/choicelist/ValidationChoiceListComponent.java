@@ -230,6 +230,12 @@ public final class ValidationChoiceListComponent implements FormValueComponent<H
     }
 
     @Override
+    public ValidationChoiceListComponent addInputListener(final EventListener listener) {
+        this.select.addInputListener(listener);
+        return this;
+    }
+
+    @Override
     public ValidationChoiceListComponent addKeyDownListener(final EventListener listener) {
         this.select.addKeyDownListener(listener);
         return this;
