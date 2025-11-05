@@ -59,17 +59,17 @@ import java.util.Optional;
  * </pre>
  * The {@link SliderComponent#setStep(double)} will be set to match the visible column/row count of the viewport.
  */
-abstract public class SpreadsheetViewportScrollbarComponent<R extends SpreadsheetColumnOrRowReference>
+abstract class SpreadsheetViewportScrollbarComponent<R extends SpreadsheetColumnOrRowReference>
     implements ValueComponent<HTMLDivElement, R, SpreadsheetViewportScrollbarComponent<R>>,
     SpreadsheetViewportComponentLifecycle,
     HtmlComponentDelegator<HTMLDivElement, SpreadsheetViewportScrollbarComponent<R>>,
     HtmlStyledComponent<SpreadsheetViewportScrollbarComponent<R>> {
 
-    public static SpreadsheetViewportScrollbarComponent<SpreadsheetColumnReference> columns(final SpreadsheetViewportScrollbarComponentContext context) {
+    static SpreadsheetViewportScrollbarComponent<SpreadsheetColumnReference> columns(final SpreadsheetViewportScrollbarComponentContext context) {
         return SpreadsheetViewportScrollbarComponentColumns.with(context);
     }
 
-    public static SpreadsheetViewportScrollbarComponent<SpreadsheetRowReference> rows(final SpreadsheetViewportScrollbarComponentContext context) {
+    static SpreadsheetViewportScrollbarComponent<SpreadsheetRowReference> rows(final SpreadsheetViewportScrollbarComponentContext context) {
         return SpreadsheetViewportScrollbarComponentRows.with(context);
     }
 
