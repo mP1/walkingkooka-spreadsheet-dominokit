@@ -34,8 +34,6 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
@@ -47,8 +45,7 @@ import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
 /**
  * An IntegerBox that adds a few extras that should be common to all text boxes.
  */
-public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSetElement, Integer, IntegerBoxComponent>,
-    FormValueComponentTreePrintable<HTMLFieldSetElement, IntegerBoxComponent, Integer> {
+public final class IntegerBoxComponent extends IntegerBoxComponentLike {
 
     public static IntegerBoxComponent empty() {
         return new IntegerBoxComponent();
@@ -61,6 +58,7 @@ public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSe
         this.integerBox.getInputElement().element().step = "1";
     }
 
+    @Override
     public IntegerBoxComponent max(final int value) {
         this.integerBox.getInputElement()
             .element()
@@ -68,6 +66,7 @@ public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSe
         return this;
     }
 
+    @Override
     public IntegerBoxComponent min(final int value) {
         this.integerBox.getInputElement()
             .element()
@@ -75,6 +74,7 @@ public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSe
         return this;
     }
 
+    @Override
     public IntegerBoxComponent step(final int step) {
         this.integerBox.getInputElement()
             .element()
@@ -84,6 +84,7 @@ public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSe
 
     private int step;
 
+    @Override
     public IntegerBoxComponent pattern(final String pattern) {
         Objects.requireNonNull(pattern, "pattern");
 
@@ -96,14 +97,6 @@ public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSe
     private String pattern;
 
     @Override
-    public IntegerBoxComponent addBlurListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.blur,
-            listener
-        );
-    }
-
-    @Override
     public IntegerBoxComponent addChangeListener(final ChangeListener<Optional<Integer>> listener) {
         this.integerBox.addChangeListener(
             IntegerBoxComponentChangeListener.with(listener)
@@ -112,55 +105,8 @@ public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSe
     }
 
     @Override
-    public IntegerBoxComponent addClickListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.click,
-            listener
-        );
-    }
-
-    @Override
-    public IntegerBoxComponent addContextMenuListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.contextmenu,
-            listener
-        );
-    }
-
-    @Override
-    public IntegerBoxComponent addFocusListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.focus,
-            listener
-        );
-    }
-
-    @Override
-    public IntegerBoxComponent addInputListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.input,
-            listener
-        );
-    }
-
-    @Override
-    public IntegerBoxComponent addKeyDownListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.keydown,
-            listener
-        );
-    }
-
-    @Override
-    public IntegerBoxComponent addKeyUpListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.keyup,
-            listener
-        );
-    }
-
-    private IntegerBoxComponent addEventListener(final EventType eventType,
-                                                 final EventListener listener) {
+    IntegerBoxComponent addEventListener(final EventType eventType,
+                                         final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
 
         this.integerBox.addEventListener(
@@ -170,6 +116,7 @@ public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSe
         return this;
     }
 
+    @Override
     public IntegerBoxComponent clearIcon() {
         this.integerBox.apply(
             self -> self.appendChild(
@@ -191,6 +138,7 @@ public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSe
         return this;
     }
 
+    @Override
     public IntegerBoxComponent enterFiresValueChange() {
         final IntegerBox integerBox = this.integerBox;
 
@@ -289,6 +237,7 @@ public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSe
         return this.integerBox.getLabel();
     }
 
+    @Override
     public IntegerBoxComponent setValidator(final Validator<Optional<Integer>> validator) {
         final IntegerBox integerBox = this.integerBox;
         integerBox.setAutoValidation(true);
@@ -434,6 +383,7 @@ public final class IntegerBoxComponent implements FormValueComponent<HTMLFieldSe
 
     // Object...........................................................................................................
 
+    @Override
     public String toString() {
         return this.integerBox.toString();
     }
