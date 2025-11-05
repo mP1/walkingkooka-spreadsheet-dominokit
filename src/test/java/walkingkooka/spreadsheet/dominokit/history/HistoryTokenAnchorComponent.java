@@ -245,11 +245,6 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
     }
 
     @Override
-    public HistoryTokenAnchorComponent addClickAndKeydownEnterListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
     HistoryTokenAnchorComponent addEventListener(final EventType eventType,
                                                  final EventListener listener) {
         Objects.requireNonNull(listener, "listener");

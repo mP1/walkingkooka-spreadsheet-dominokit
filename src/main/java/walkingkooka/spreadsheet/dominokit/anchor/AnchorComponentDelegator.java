@@ -218,13 +218,6 @@ public interface AnchorComponentDelegator<A extends AnchorComponent<A, T>, T> ex
     }
 
     @Override
-    default A addClickAndKeydownEnterListener(final EventListener listener) {
-        this.anchorComponent()
-            .addClickAndKeydownEnterListener(listener);
-        return (A) this;
-    }
-
-    @Override
     default A focus() {
         this.anchorComponent()
             .focus();
