@@ -241,9 +241,17 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
 
     // ColorComponentContext............................................................................................
 
+    /**
+     * Components within a menu should not react to any {@link walkingkooka.spreadsheet.dominokit.fetcher.FetcherWatcher} events.
+     */
     @Override
     public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
-        return this.context.addSpreadsheetMetadataFetcherWatcher(watcher);
+        return new Runnable() {
+            @Override
+            public void run() {
+                // nop
+            }
+        };
     }
 
     // Object...........................................................................................................
