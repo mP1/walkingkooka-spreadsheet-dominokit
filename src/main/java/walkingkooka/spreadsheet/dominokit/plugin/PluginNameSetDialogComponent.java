@@ -239,12 +239,14 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
     @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                       final AppContext context) {
-        // maybe should ignore metadata if it has the wrong SpreadsheetMetadata
-        this.setText(
-            metadata.get(SpreadsheetMetadataPropertyName.PLUGINS)
-                .orElse(PluginNameSet.EMPTY)
-                .text()
-        );
+        if(this.isOpen()) {
+            // maybe should ignore metadata if it has the wrong SpreadsheetMetadata
+            this.setText(
+                metadata.get(SpreadsheetMetadataPropertyName.PLUGINS)
+                    .orElse(PluginNameSet.EMPTY)
+                    .text()
+            );
+        }
     }
 
     @Override
