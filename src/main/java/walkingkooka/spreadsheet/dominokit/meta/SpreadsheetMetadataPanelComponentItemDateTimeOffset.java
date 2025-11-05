@@ -118,7 +118,7 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
             final HistoryTokenAnchorComponent anchor = token
                 .link(SpreadsheetMetadataPanelComponent.id(PROPERTY_NAME) + "-" + value)
                 .setTabIndex(0)
-                .addPushHistoryToken(context)
+                .clickOrEnterPushHistoryToken(context)
                 .setTextContent(
                     formatValue(value)
                 );

@@ -72,7 +72,7 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
             final HistoryTokenAnchorComponent anchor = token
                 .link(SpreadsheetMetadataPanelComponent.id(propertyName) + "-" + CaseKind.kebabEnumName(value))
                 .setTabIndex(0)
-                .addPushHistoryToken(context)
+                .clickOrEnterPushHistoryToken(context)
                 .setTextContent(this.format(value));
 
             valueToAnchors.put(value, anchor);
