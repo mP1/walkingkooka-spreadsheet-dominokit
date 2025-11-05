@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
+import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.net.Url;
@@ -236,45 +237,10 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
 
     private Optional<Icon<?>> iconAfter = Optional.empty();
 
-    // events..........................................................................................................
-
-    @Override
-    public HistoryTokenAnchorComponent addBlurListener(final EventListener listener) {
-        return this;
-    }
+    // addXXXListener...................................................................................................
 
     @Override
     public HistoryTokenAnchorComponent addChangeListener(ChangeListener<Optional<HistoryToken>> listener) {
-        return this;
-    }
-
-    @Override
-    public HistoryTokenAnchorComponent addClickListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public HistoryTokenAnchorComponent addContextMenuListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public HistoryTokenAnchorComponent addFocusListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public HistoryTokenAnchorComponent addInputListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public HistoryTokenAnchorComponent addKeyDownListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public HistoryTokenAnchorComponent addKeyUpListener(final EventListener listener) {
         return this;
     }
 
@@ -283,6 +249,12 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
         return this;
     }
 
+    @Override
+    HistoryTokenAnchorComponent addEventListener(final EventType eventType,
+                                                 final EventListener listener) {
+        Objects.requireNonNull(listener, "listener");
+        return this;
+    }
     // focus............................................................................................................
 
     @Override

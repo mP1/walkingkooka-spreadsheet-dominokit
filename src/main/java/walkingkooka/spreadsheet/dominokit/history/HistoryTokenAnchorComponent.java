@@ -400,15 +400,7 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
 
     private Icon<?> iconAfter;
 
-    // events..........................................................................................................
-
-    @Override
-    public HistoryTokenAnchorComponent addBlurListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.blur,
-            listener
-        );
-    }
+    // addXXXListener...................................................................................................
 
     @Override
     public HistoryTokenAnchorComponent addChangeListener(final ChangeListener<Optional<HistoryToken>> listener) {
@@ -416,59 +408,14 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
         throw new UnsupportedOperationException();
     }
 
-    @Override
-    public HistoryTokenAnchorComponent addClickListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.click,
-            listener
-        );
-    }
-
-    @Override
-    public HistoryTokenAnchorComponent addContextMenuListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.contextmenu,
-            listener
-        );
-    }
-
-    @Override
-    public HistoryTokenAnchorComponent addFocusListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.focus,
-            listener
-        );
-    }
-
-    @Override
-    public HistoryTokenAnchorComponent addInputListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.input,
-            listener
-        );
-    }
-
-    @Override
-    public HistoryTokenAnchorComponent addKeyUpListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.keyup,
-            listener
-        );
-    }
-
-    @Override
-    public HistoryTokenAnchorComponent addKeyDownListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.keydown,
-            listener
-        );
-    }
-
     /**
      * If this anchor is disabled calls {@link Event#preventDefault()} and skips calling the given {@link EventListener}.
      */
-    private HistoryTokenAnchorComponent addEventListener(final EventType eventType,
-                                                         final EventListener listener) {
+    @Override
+    HistoryTokenAnchorComponent addEventListener(final EventType eventType,
+                                                 final EventListener listener) {
+        Objects.requireNonNull(listener, "listener");
+
         this.element.addEventListener(
             eventType,
             (e) -> {
