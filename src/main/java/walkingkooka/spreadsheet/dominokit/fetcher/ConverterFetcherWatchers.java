@@ -29,12 +29,12 @@ import java.util.Set;
 public final class ConverterFetcherWatchers extends FetcherWatchers<ConverterFetcherWatcher>
     implements ConverterFetcherWatcher {
 
-    private ConverterFetcherWatchers() {
-        super();
-    }
-
     public static ConverterFetcherWatchers empty() {
         return new ConverterFetcherWatchers();
+    }
+
+    private ConverterFetcherWatchers() {
+        super();
     }
 
     @Override
