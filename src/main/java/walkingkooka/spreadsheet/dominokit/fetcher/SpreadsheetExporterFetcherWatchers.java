@@ -23,12 +23,12 @@ import walkingkooka.spreadsheet.export.provider.SpreadsheetExporterInfoSet;
 public final class SpreadsheetExporterFetcherWatchers extends FetcherWatchers<SpreadsheetExporterFetcherWatcher>
     implements SpreadsheetExporterFetcherWatcher {
 
-    private SpreadsheetExporterFetcherWatchers() {
-        super();
-    }
-
     public static SpreadsheetExporterFetcherWatchers empty() {
         return new SpreadsheetExporterFetcherWatchers();
+    }
+
+    private SpreadsheetExporterFetcherWatchers() {
+        super();
     }
 
     @Override
