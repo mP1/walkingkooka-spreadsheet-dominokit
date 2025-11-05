@@ -70,8 +70,6 @@ public final class ValidatorSelectorNameAnchorListComponent implements ValueComp
             .setId(idPrefix + "links");
         this.value = Optional.empty();
         this.context = context;
-
-        context.addSpreadsheetMetadataFetcherWatcher(this);
     }
 
     private void refresh() {
