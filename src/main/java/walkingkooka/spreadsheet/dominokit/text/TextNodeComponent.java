@@ -56,7 +56,8 @@ public final class TextNodeComponent implements TextNodeComponentLike {
 
     // node.............................................................................................................
 
-    @Override public Node node() {
+    @Override
+    public Node node() {
         if (null == this.node) {
             this.node = Doms.node(
                 this.value.orElse(TextNode.EMPTY_TEXT)
