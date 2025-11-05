@@ -221,63 +221,8 @@ public final class SliderComponent extends SliderComponentLike {
     }
 
     @Override
-    public SliderComponent addBlurListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.blur,
-            listener
-        );
-    }
-
-    @Override
-    public SliderComponent addClickListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.click,
-            listener
-        );
-    }
-
-    @Override
-    public SliderComponent addContextMenuListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.contextmenu,
-            listener
-        );
-    }
-
-    @Override
-    public SliderComponent addFocusListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.focus,
-            listener
-        );
-    }
-
-    @Override
-    public SliderComponent addInputListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.input,
-            listener
-        );
-    }
-
-    @Override
-    public SliderComponent addKeyDownListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.keydown,
-            listener
-        );
-    }
-
-    @Override
-    public SliderComponent addKeyUpListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.keyup,
-            listener
-        );
-    }
-
-    private SliderComponent addEventListener(final EventType eventType,
-                                             final EventListener listener) {
+    SliderComponent addEventListener(final EventType eventType,
+                                     final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
 
         this.slider.addEventListener(
