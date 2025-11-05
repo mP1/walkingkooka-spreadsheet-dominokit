@@ -30,6 +30,6 @@ public final class SpreadsheetViewportScrollbarComponentTest implements ClassTes
 
     @Override
     public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
+        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }
