@@ -47,7 +47,8 @@ import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
 /**
  * A textbox that adds a few extras that should be common to all text boxes.
  */
-public final class TextBoxComponent implements FormValueComponent<HTMLFieldSetElement, String, TextBoxComponent>,
+public final class TextBoxComponent extends TextBoxComponentLike
+    implements FormValueComponent<HTMLFieldSetElement, String, TextBoxComponent>,
     FormValueComponentTreePrintable<HTMLFieldSetElement, TextBoxComponent, String> {
 
     public static TextBoxComponent empty() {
@@ -60,14 +61,6 @@ public final class TextBoxComponent implements FormValueComponent<HTMLFieldSetEl
     }
 
     @Override
-    public TextBoxComponent addBlurListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.blur,
-            listener
-        );
-    }
-
-    @Override
     public TextBoxComponent addChangeListener(final ChangeListener<Optional<String>> listener) {
         this.textBox.addChangeListener(
             TextBoxComponentChangeListener.with(listener)
@@ -76,55 +69,8 @@ public final class TextBoxComponent implements FormValueComponent<HTMLFieldSetEl
     }
 
     @Override
-    public TextBoxComponent addClickListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.click,
-            listener
-        );
-    }
-
-    @Override
-    public TextBoxComponent addContextMenuListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.contextmenu,
-            listener
-        );
-    }
-
-    @Override
-    public TextBoxComponent addFocusListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.focus,
-            listener
-        );
-    }
-
-    @Override
-    public TextBoxComponent addInputListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.input,
-            listener
-        );
-    }
-
-    @Override
-    public TextBoxComponent addKeyDownListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.keydown,
-            listener
-        );
-    }
-
-    @Override
-    public TextBoxComponent addKeyUpListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.keyup,
-            listener
-        );
-    }
-
-    private TextBoxComponent addEventListener(final EventType eventType,
-                                              final EventListener listener) {
+    TextBoxComponent addEventListener(final EventType eventType,
+                                      final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
 
         this.textBox.getInputElement()
