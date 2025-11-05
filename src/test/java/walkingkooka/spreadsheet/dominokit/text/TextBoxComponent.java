@@ -19,13 +19,12 @@ package walkingkooka.spreadsheet.dominokit.text;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
+import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ValidatorHelper;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -38,9 +37,8 @@ import java.util.Optional;
  * A mock of main/TextBoxComponent with the same public interface and a helpful {@link TreePrintable}. This will be useful for unit tests to verify the rough apperance of a component that includes
  * {@link TextBoxComponent}.
  */
-public final class TextBoxComponent implements FormValueComponent<HTMLFieldSetElement, String, TextBoxComponent>,
-    FormValueComponentTreePrintable<HTMLFieldSetElement, TextBoxComponent, String>,
-    TestHtmlElementComponent<HTMLFieldSetElement, TextBoxComponent>,
+public final class TextBoxComponent extends TextBoxComponentLike
+    implements TestHtmlElementComponent<HTMLFieldSetElement, TextBoxComponent>,
     ValidatorHelper {
 
     public static TextBoxComponent empty() {
@@ -164,42 +162,14 @@ public final class TextBoxComponent implements FormValueComponent<HTMLFieldSetEl
     private boolean disabled;
 
     @Override
-    public TextBoxComponent addBlurListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
     public TextBoxComponent addChangeListener(final ChangeListener<Optional<String>> listener) {
         return this;
     }
 
     @Override
-    public TextBoxComponent addClickListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public TextBoxComponent addContextMenuListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public TextBoxComponent addFocusListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public TextBoxComponent addInputListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public TextBoxComponent addKeyDownListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public TextBoxComponent addKeyUpListener(final EventListener listener) {
+    TextBoxComponent addEventListener(final EventType eventType,
+                                      final EventListener listener) {
+        Objects.requireNonNull(listener, "listener");
         return this;
     }
 
