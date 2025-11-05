@@ -17,7 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.suggestbox;
 
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
+import org.dominokit.domino.ui.events.EventType;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -30,23 +32,82 @@ import java.util.Optional;
 /**
  * A text box component that includes support for finding values that match the entered search text.
  */
-public interface SuggestBoxComponentLike<T> extends FormValueComponent<HTMLFieldSetElement, T, SuggestBoxComponent<T>>,
+abstract class SuggestBoxComponentLike<T> implements FormValueComponent<HTMLFieldSetElement, T, SuggestBoxComponent<T>>,
     FormValueComponentTreePrintable<HTMLFieldSetElement, SuggestBoxComponent<T>, T> {
 
-    SuggestBoxComponent<T> setStringValue(final Optional<String> value);
+    abstract public SuggestBoxComponent<T> setStringValue(final Optional<String> value);
 
-    Optional<String> stringValue();
+    abstract public Optional<String> stringValue();
 
-    List<T> options();
+    abstract public List<T> options();
 
-    SuggestBoxComponent<T> setOptions(final List<T> options);
+    abstract public SuggestBoxComponent<T> setOptions(final List<T> options);
 
-    SuggestBoxComponent<T> setVerifiedOption(final T option);
+    abstract public SuggestBoxComponent<T> setVerifiedOption(final T option);
+
+    @Override
+    public final SuggestBoxComponent<T> addBlurListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.blur,
+            listener
+        );
+    }
+
+    @Override
+    public final SuggestBoxComponent<T> addClickListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.click,
+            listener
+        );
+    }
+
+    @Override
+    public final SuggestBoxComponent<T> addContextMenuListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.contextmenu,
+            listener
+        );
+    }
+
+    @Override
+    public final SuggestBoxComponent<T> addFocusListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.focus,
+            listener
+        );
+    }
+
+    @Override
+    public final SuggestBoxComponent<T> addInputListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.input,
+            listener
+        );
+    }
+
+    @Override
+    public final SuggestBoxComponent<T> addKeyDownListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.keydown,
+            listener
+        );
+    }
+
+    @Override
+    public final SuggestBoxComponent<T> addKeyUpListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.keyup,
+            listener
+        );
+    }
+
+    abstract SuggestBoxComponent<T> addEventListener(final EventType eventType,
+                                                     final EventListener listener);
 
     // FormValueComponentTreePrintable..................................................................................
 
     @Override
-    default void treePrintAlternateValues(final IndentingPrinter printer) {
+    public final void treePrintAlternateValues(final IndentingPrinter printer) {
         final Collection<T> options = this.options();
         if (false == options.isEmpty()) {
             printer.println("options");

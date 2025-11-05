@@ -50,7 +50,7 @@ import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
 /**
  * A text box component that includes support for finding a label.
  */
-public final class SuggestBoxComponent<T> implements SuggestBoxComponentLike<T> {
+public final class SuggestBoxComponent<T> extends SuggestBoxComponentLike<T> {
 
     public static <T> SuggestBoxComponent<T> with(final SuggestBoxComponentSuggestionsProvider<T> suggestionsProvider,
                                                   final Function<T, MenuItem<T>> menuItemCreator) {
@@ -352,14 +352,6 @@ public final class SuggestBoxComponent<T> implements SuggestBoxComponentLike<T> 
     // events...........................................................................................................
 
     @Override
-    public SuggestBoxComponent<T> addBlurListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.blur,
-            listener
-        );
-    }
-
-    @Override
     public SuggestBoxComponent<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
         Objects.requireNonNull(listener, "listener");
 
@@ -375,54 +367,7 @@ public final class SuggestBoxComponent<T> implements SuggestBoxComponentLike<T> 
     }
 
     @Override
-    public SuggestBoxComponent<T> addClickListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.click,
-            listener
-        );
-    }
-
-    @Override
-    public SuggestBoxComponent<T> addContextMenuListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.contextmenu,
-            listener
-        );
-    }
-
-    @Override
-    public SuggestBoxComponent<T> addFocusListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.focus,
-            listener
-        );
-    }
-
-    @Override
-    public SuggestBoxComponent<T> addInputListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.input,
-            listener
-        );
-    }
-
-    @Override
-    public SuggestBoxComponent<T> addKeyDownListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.keydown,
-            listener
-        );
-    }
-
-    @Override
-    public SuggestBoxComponent<T> addKeyUpListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.keyup,
-            listener
-        );
-    }
-
-    private SuggestBoxComponent<T> addEventListener(final EventType eventType,
+    SuggestBoxComponent<T> addEventListener(final EventType eventType,
                                                     final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
 
