@@ -57,6 +57,13 @@ public final class AppContextSpreadsheetListDialogComponentContext implements Sp
         return this.context.locale();
     }
 
+    // CanGiveFocus.....................................................................................................
+
+    @Override
+    public void giveFocus(final Runnable focus) {
+        this.context.giveFocus(focus);
+    }
+
     // HistoryContextDelegator..........................................................................................
 
     @Override

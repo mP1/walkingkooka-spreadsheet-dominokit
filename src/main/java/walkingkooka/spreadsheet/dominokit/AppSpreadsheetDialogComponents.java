@@ -137,6 +137,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
                 SpreadsheetValueType.DATE,
                 context.spreadsheetViewportCache(),
                 context, // SpreadsheetDeltaFetcherWatcher
+                context, // canGiveFocus
                 context, // HistoryContext
                 context // LoggingContext
             );
@@ -154,6 +155,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
                 SpreadsheetValueType.DATE_TIME,
                 context.spreadsheetViewportCache(),
                 context, // SpreadsheetDeltaFetcherWatcher
+                context, // canGiveFocus
                 context, // HistoryContext
                 context // LoggingContext
             );
@@ -172,6 +174,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
                 SpreadsheetValueType.EMAIL_ADDRESS,
                 context.spreadsheetViewportCache(),
                 context, // SpreadsheetDeltaFetcherWatcher
+                context, // canGiveFocus
                 context, // HistoryContext
                 context // LoggingContext
             );
@@ -190,6 +193,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
                 SpreadsheetValueType.NUMBER,
                 context.spreadsheetViewportCache(),
                 context, // SpreadsheetDeltaFetcherWatcher
+                context, // canGiveFocus
                 context, // HistoryContext
                 context // LoggingContext
             );
@@ -208,6 +212,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
                 SpreadsheetValueType.TEXT,
                 context.spreadsheetViewportCache(),
                 context, // SpreadsheetDeltaFetcherWatcher
+                context, // canGiveFocus
                 context, // HistoryContext
                 context // LoggingContext
             );
@@ -225,6 +230,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
                 SpreadsheetValueType.TIME,
                 context.spreadsheetViewportCache(),
                 context, // SpreadsheetDeltaFetcherWatcher
+                context, // canGiveFocus
                 context, // HistoryContext
                 context // LoggingContext
             );
@@ -243,6 +249,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
                 SpreadsheetValueType.URL,
                 context.spreadsheetViewportCache(),
                 context, // SpreadsheetDeltaFetcherWatcher
+                context, // canGiveFocus
                 context, // HistoryContext
                 context // LoggingContext
             );
@@ -260,6 +267,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
                 SpreadsheetValueType.WHOLE_NUMBER,
                 context.spreadsheetViewportCache(),
                 context, // SpreadsheetDeltaFetcherWatcher
+                context, // canGiveFocus
                 context, // HistoryContext
                 context // LoggingContext
             );

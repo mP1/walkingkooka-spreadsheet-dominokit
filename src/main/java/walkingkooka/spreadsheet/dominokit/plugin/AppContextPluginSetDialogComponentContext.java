@@ -57,6 +57,13 @@ final class AppContextPluginSetDialogComponentContext implements PluginSetDialog
         return this.context.locale();
     }
 
+    // CanGiveFocus.....................................................................................................
+
+    @Override
+    public void giveFocus(final Runnable focus) {
+        this.context.giveFocus(focus);
+    }
+
     // HistoryContextDelegator..........................................................................................
 
     @Override

@@ -51,6 +51,13 @@ final class BasicDialogComponentContext implements DialogComponentContext,
         throw new UnsupportedOperationException();
     }
 
+    // CanGiveFocus.....................................................................................................
+
+    @Override
+    public void giveFocus(final Runnable focus) {
+        throw new UnsupportedOperationException();
+    }
+
     // HistoryContextDelegator..........................................................................................
 
     @Override

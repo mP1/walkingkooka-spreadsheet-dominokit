@@ -27,6 +27,12 @@ public interface DialogComponentContextDelegator extends DialogComponentContext,
     LoggingContextDelegator {
 
     @Override
+    default void giveFocus(final Runnable focus) {
+        this.dialogComponentContext()
+            .giveFocus(focus);
+    }
+
+    @Override
     default HistoryContext historyContext() {
         return this.dialogComponentContext();
     }

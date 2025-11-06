@@ -22,6 +22,7 @@ import walkingkooka.Cast;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.focus.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
@@ -37,6 +38,9 @@ public final class BasicSpreadsheetCellValueDialogComponentContextTest implement
 
     private final static ValueTypeName VALUE_TYPE = ValueTypeName.DATE;
     private final static SpreadsheetDeltaFetcherWatchers DELTA_FETCHER_WATCHERS = SpreadsheetDeltaFetcherWatchers.empty();
+    private final static CanGiveFocus CAN_GIVE_FOCUS = (final Runnable focus) -> {
+        throw new UnsupportedOperationException();
+    };
     private final static HistoryContext HISTORY_CONTEXT = HistoryContexts.fake();
     private final static LoggingContext LOGGING_CONTEXT = LoggingContexts.fake();
 
@@ -50,6 +54,7 @@ public final class BasicSpreadsheetCellValueDialogComponentContextTest implement
                 VALUE_TYPE,
                 null,
                 DELTA_FETCHER_WATCHERS,
+                CAN_GIVE_FOCUS,
                 HISTORY_CONTEXT,
                 LOGGING_CONTEXT
             )
@@ -63,6 +68,22 @@ public final class BasicSpreadsheetCellValueDialogComponentContextTest implement
             () -> BasicSpreadsheetCellValueDialogComponentContext.with(
                 VALUE_TYPE,
                 this.spreadsheetViewportCache(),
+                null,
+                CAN_GIVE_FOCUS,
+                HISTORY_CONTEXT,
+                LOGGING_CONTEXT
+            )
+        );
+    }
+
+    @Test
+    public void testWithNullCanGiveFocusFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> BasicSpreadsheetCellValueDialogComponentContext.with(
+                VALUE_TYPE,
+                this.spreadsheetViewportCache(),
+                DELTA_FETCHER_WATCHERS,
                 null,
                 HISTORY_CONTEXT,
                 LOGGING_CONTEXT
@@ -78,6 +99,7 @@ public final class BasicSpreadsheetCellValueDialogComponentContextTest implement
                 VALUE_TYPE,
                 this.spreadsheetViewportCache(),
                 DELTA_FETCHER_WATCHERS,
+                CAN_GIVE_FOCUS,
                 null,
                 LOGGING_CONTEXT
             )
@@ -92,6 +114,7 @@ public final class BasicSpreadsheetCellValueDialogComponentContextTest implement
                 VALUE_TYPE,
                 this.spreadsheetViewportCache(),
                 DELTA_FETCHER_WATCHERS,
+                CAN_GIVE_FOCUS,
                 HISTORY_CONTEXT,
                 null
             )
@@ -119,6 +142,7 @@ public final class BasicSpreadsheetCellValueDialogComponentContextTest implement
             VALUE_TYPE,
             this.spreadsheetViewportCache(),
             DELTA_FETCHER_WATCHERS,
+            CAN_GIVE_FOCUS,
             HISTORY_CONTEXT,
             LOGGING_CONTEXT
         );

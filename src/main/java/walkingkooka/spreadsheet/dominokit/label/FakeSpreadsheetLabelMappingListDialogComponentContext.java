@@ -33,6 +33,13 @@ public class FakeSpreadsheetLabelMappingListDialogComponentContext extends FakeS
         super();
     }
 
+    // CanGiveFocus.....................................................................................................
+
+    @Override
+    public void giveFocus(final Runnable focus) {
+        throw new UnsupportedOperationException();
+    }
+
     @Override
     public void loadLabelMappings(final SpreadsheetId id,
                                   final HistoryTokenOffsetAndCount offsetAndCount) {

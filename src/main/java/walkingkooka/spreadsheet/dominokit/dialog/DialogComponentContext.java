@@ -17,8 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.dialog;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CaseKind;
@@ -30,8 +29,7 @@ import java.util.Objects;
 /**
  * Base class for all {@link walkingkooka.Context} that accompanies a {@link DialogComponent}
  */
-public interface DialogComponentContext extends HistoryContext,
-    LoggingContext {
+public interface DialogComponentContext extends RefreshContext {
 
     /**
      * Helper that may be used to create a standard dialog title for a relating to plugins.

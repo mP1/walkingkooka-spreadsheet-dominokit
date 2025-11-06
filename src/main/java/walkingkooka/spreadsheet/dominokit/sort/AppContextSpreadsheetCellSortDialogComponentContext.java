@@ -62,7 +62,14 @@ final class AppContextSpreadsheetCellSortDialogComponentContext implements Sprea
         return this.context;
     }
 
-    // DialogComponentContextDelegator.......................................................................
+    // CanGiveFocus.....................................................................................................
+
+    @Override
+    public final void giveFocus(final Runnable focus) {
+        this.context.giveFocus(focus);
+    }
+
+    // DialogComponentContextDelegator..................................................................................
 
     @Override
     public HistoryContext historyContext() {
