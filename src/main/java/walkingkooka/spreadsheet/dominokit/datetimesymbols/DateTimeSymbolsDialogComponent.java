@@ -256,11 +256,11 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
                 CsvStringListComponent.INCLUSIVE
             ).setId(ID + "-" + id + SpreadsheetElementIds.TEXT_BOX)
             .setLabel(label)
-            .addChangeListener(
-                (Optional<CsvStringList> oldValue, Optional<CsvStringList> newValue) ->
+            .addValueWatcher2(
+                (Optional<CsvStringList> value) ->
                     this.refreshDateTimeSymbols(
                         propertyIndex,
-                        newValue
+                        value
                     )
             );
     }
