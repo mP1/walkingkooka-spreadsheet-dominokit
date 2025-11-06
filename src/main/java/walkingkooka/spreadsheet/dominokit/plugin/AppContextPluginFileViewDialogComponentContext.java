@@ -66,6 +66,13 @@ public final class AppContextPluginFileViewDialogComponentContext implements Plu
         return this.context;
     }
 
+    // CanGiveFocus.....................................................................................................
+
+    @Override
+    public void giveFocus(final Runnable focus) {
+        this.context.giveFocus(focus);
+    }
+
     // HistoryContextDelegator..........................................................................................
 
     @Override

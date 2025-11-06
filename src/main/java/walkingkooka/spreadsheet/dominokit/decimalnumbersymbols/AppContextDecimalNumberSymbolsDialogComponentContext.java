@@ -55,6 +55,13 @@ abstract class AppContextDecimalNumberSymbolsDialogComponentContext implements D
         return this.context.addSpreadsheetMetadataFetcherWatcher(watcher);
     }
 
+    // CanGiveFocus.....................................................................................................
+
+    @Override
+    public final void giveFocus(final Runnable focus) {
+        this.context.giveFocus(focus);
+    }
+
     // HistoryContextDelegator..........................................................................................
 
     @Override

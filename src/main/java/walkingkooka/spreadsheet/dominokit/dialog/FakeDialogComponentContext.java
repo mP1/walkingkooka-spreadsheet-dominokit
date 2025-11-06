@@ -27,6 +27,13 @@ public class FakeDialogComponentContext extends FakeHistoryContext
         throw new UnsupportedOperationException();
     }
 
+    // CanGiveFocus.....................................................................................................
+
+    @Override
+    public void giveFocus(Runnable focus) {
+        throw new UnsupportedOperationException();
+    }
+
     // LoggingContext...................................................................................................
 
     @Override

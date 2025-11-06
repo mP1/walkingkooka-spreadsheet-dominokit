@@ -81,6 +81,13 @@ abstract class AppContextSpreadsheetLabelMappingListDialogComponentContext imple
         return false;
     }
 
+    // CanGiveFocus.....................................................................................................
+
+    @Override
+    public final void giveFocus(final Runnable focus) {
+        this.context.giveFocus(focus);
+    }
+
     // HistoryContextDelegator..........................................................................................
 
     @Override

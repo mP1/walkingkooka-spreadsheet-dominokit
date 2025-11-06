@@ -42,6 +42,13 @@ abstract class AppContextSpreadsheetNavigateDialogComponentContext implements Sp
         return this.context.addSpreadsheetMetadataFetcherWatcher(watcher);
     }
 
+    // CanGiveFocus.....................................................................................................
+
+    @Override
+    public final void giveFocus(final Runnable focus) {
+        this.context.giveFocus(focus);
+    }
+
     // ComponentLifecycleMatcher........................................................................................
 
     @Override

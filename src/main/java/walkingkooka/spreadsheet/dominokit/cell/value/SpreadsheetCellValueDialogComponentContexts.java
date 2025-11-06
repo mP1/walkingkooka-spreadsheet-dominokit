@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.cell.value;
 
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.focus.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
@@ -32,12 +33,14 @@ public final class SpreadsheetCellValueDialogComponentContexts implements Public
     public static <T> SpreadsheetCellValueDialogComponentContext<T> basic(final ValueTypeName valueType,
                                                                           final SpreadsheetViewportCache viewportCache,
                                                                           final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
+                                                                          final CanGiveFocus canGiveFocus,
                                                                           final HistoryContext historyContext,
                                                                           final LoggingContext loggingContext) {
         return BasicSpreadsheetCellValueDialogComponentContext.with(
             valueType,
             viewportCache,
             deltaFetcherWatchers,
+            canGiveFocus,
             historyContext,
             loggingContext
         );
