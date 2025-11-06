@@ -81,7 +81,7 @@ abstract class AppContextSpreadsheetLabelMappingListDialogComponentContext imple
     // RefreshContextDelegator..........................................................................................
 
     @Override
-    public RefreshContext refreshContext() {
+    public final RefreshContext refreshContext() {
         return this.context;
     }
 
