@@ -18,19 +18,16 @@
 package walkingkooka.spreadsheet.dominokit.plugin;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContextDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchersDelegator;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 
 import java.util.Objects;
 
 public final class AppContextPluginUploadDialogComponentContext implements PluginUploadDialogComponentContext,
     HasPluginFetcherWatchersDelegator,
-    HistoryContextDelegator,
-    LoggingContextDelegator {
+    RefreshContextDelegator {
 
     public static AppContextPluginUploadDialogComponentContext with(final AppContext context) {
         return new AppContextPluginUploadDialogComponentContext(
@@ -42,13 +39,6 @@ public final class AppContextPluginUploadDialogComponentContext implements Plugi
         this.context = context;
     }
 
-    // CanGiveFocus.....................................................................................................
-
-    @Override
-    public void giveFocus(final Runnable focus) {
-        this.context.giveFocus(focus);
-    }
-
     // HasPluginFetcherWatchersDelegator................................................................................
 
     @Override
@@ -56,17 +46,10 @@ public final class AppContextPluginUploadDialogComponentContext implements Plugi
         return this.context;
     }
 
-    // HistoryContextDelegator.....................................................................................
+    // RefreshContextDelegator..........................................................................................
 
     @Override
-    public HistoryContext historyContext() {
-        return this.context;
-    }
-
-    // LoggingContextDelegator..........................................................................................
-
-    @Override
-    public LoggingContext loggingContext() {
+    public RefreshContext refreshContext() {
         return this.context;
     }
 
