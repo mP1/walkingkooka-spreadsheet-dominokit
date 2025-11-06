@@ -120,6 +120,11 @@ public class FakeSpreadsheetViewportFormulaComponentContext extends FakeHistoryC
     }
 
     @Override
+    public void giveFocus(final Runnable focus) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public void debug(final Object... values) {
 
     }

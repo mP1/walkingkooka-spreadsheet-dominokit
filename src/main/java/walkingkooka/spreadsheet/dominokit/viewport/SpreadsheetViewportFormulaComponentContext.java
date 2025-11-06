@@ -20,10 +20,9 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.plugin.ProviderContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProvider;
 
@@ -31,8 +30,7 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 
-public interface SpreadsheetViewportFormulaComponentContext extends HistoryContext,
-    LoggingContext,
+public interface SpreadsheetViewportFormulaComponentContext extends RefreshContext,
     HasSpreadsheetDeltaFetcher,
     HasSpreadsheetViewportCache,
     HasSpreadsheetMetadata,
