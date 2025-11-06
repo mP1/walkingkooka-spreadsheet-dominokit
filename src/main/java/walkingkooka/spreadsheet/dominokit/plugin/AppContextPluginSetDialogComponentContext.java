@@ -18,19 +18,16 @@
 package walkingkooka.spreadsheet.dominokit.plugin;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContextDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchersDelegator;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 
 import java.util.Locale;
 import java.util.Objects;
 
 final class AppContextPluginSetDialogComponentContext implements PluginSetDialogComponentContext,
-    HistoryContextDelegator,
-    LoggingContextDelegator,
+    RefreshContextDelegator,
     HasPluginFetcherWatchersDelegator {
 
     static AppContextPluginSetDialogComponentContext with(final AppContext context) {
@@ -57,26 +54,14 @@ final class AppContextPluginSetDialogComponentContext implements PluginSetDialog
         return this.context.locale();
     }
 
-    // CanGiveFocus.....................................................................................................
+    // RefreshContextDelegator..........................................................................................
 
     @Override
-    public void giveFocus(final Runnable focus) {
-        this.context.giveFocus(focus);
-    }
-
-    // HistoryContextDelegator..........................................................................................
-
-    @Override
-    public HistoryContext historyContext() {
+    public RefreshContext refreshContext() {
         return this.context;
     }
 
-    // LoggingContextDelegator..........................................................................................
-
-    @Override
-    public LoggingContext loggingContext() {
-        return this.context;
-    }
+    private final AppContext context;
 
     // Object...........................................................................................................
 
@@ -84,6 +69,4 @@ final class AppContextPluginSetDialogComponentContext implements PluginSetDialog
     public String toString() {
         return this.context.toString();
     }
-
-    private final AppContext context;
 }
