@@ -53,10 +53,7 @@ abstract class AppContextNameDialogComponentContext implements SpreadsheetNameDi
 
     @Override
     public final DialogComponentContext dialogComponentContext() {
-        return DialogComponentContexts.basic(
-            this.context,
-            this.context
-        );
+        return DialogComponentContexts.basic(this.context);
     }
 
     private final AppContext context;

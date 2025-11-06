@@ -95,10 +95,7 @@ final class AppContextSpreadsheetLabelMappingDialogComponentContext implements S
 
     @Override
     public DialogComponentContext dialogComponentContext() {
-        return DialogComponentContexts.basic(
-            this.context,
-            this.context
-        );
+        return DialogComponentContexts.basic(this.context);
     }
 
     private final AppContext context;

@@ -18,8 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.dialog;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
+import walkingkooka.spreadsheet.dominokit.FakeAppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -27,29 +27,15 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class BasicDialogComponentContextTest implements DialogComponentContextTesting<BasicDialogComponentContext> {
 
-    private final static HistoryContext HISTORY_CONTEXT = HistoryContexts.fake();
+    private final static RefreshContext CONTEXT = new FakeAppContext();
 
     private final static LoggingContext LOGGING_CONTEXT = walkingkooka.spreadsheet.dominokit.log.LoggingContexts.fake();
 
     @Test
-    public void testWithNullHistoryContextFails() {
+    public void testWithNullRefreshContextFails() {
         assertThrows(
             NullPointerException.class,
-            () -> BasicDialogComponentContext.with(
-                null,
-                LOGGING_CONTEXT
-            )
-        );
-    }
-
-    @Test
-    public void testWithNullLoggingContextFails() {
-        assertThrows(
-            NullPointerException.class,
-            () -> BasicDialogComponentContext.with(
-                HISTORY_CONTEXT,
-                null
-            )
+            () -> BasicDialogComponentContext.with(null)
         );
     }
 
@@ -70,10 +56,7 @@ public final class BasicDialogComponentContextTest implements DialogComponentCon
 
     @Override
     public BasicDialogComponentContext createContext() {
-        return BasicDialogComponentContext.with(
-            HISTORY_CONTEXT,
-            LOGGING_CONTEXT
-        );
+        return BasicDialogComponentContext.with(CONTEXT);
     }
 
     // class............................................................................................................

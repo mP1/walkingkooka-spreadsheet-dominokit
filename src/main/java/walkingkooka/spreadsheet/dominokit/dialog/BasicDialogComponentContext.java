@@ -17,10 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.dialog;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContextDelegator;
 
 import java.util.Objects;
 
@@ -29,57 +27,35 @@ import java.util.Objects;
  * Note the {@link #dialogTitle()} throws {@link UnsupportedOperationException}.
  */
 final class BasicDialogComponentContext implements DialogComponentContext,
-    HistoryContextDelegator,
-    LoggingContextDelegator {
+    RefreshContextDelegator {
 
-    static BasicDialogComponentContext with(final HistoryContext historyContext,
-                                            final LoggingContext loggingContext) {
+    static BasicDialogComponentContext with(final RefreshContext context) {
         return new BasicDialogComponentContext(
-            Objects.requireNonNull(historyContext, "historyContext"),
-            Objects.requireNonNull(loggingContext, "loggingContext")
+            Objects.requireNonNull(context, "context")
         );
     }
 
-    private BasicDialogComponentContext(final HistoryContext historyContext,
-                                        final LoggingContext loggingContext) {
-        this.historyContext = historyContext;
-        this.loggingContext = loggingContext;
+    private BasicDialogComponentContext(final RefreshContext context) {
+        this.context = context;
     }
 
     @Override
     public String dialogTitle() {
         throw new UnsupportedOperationException();
     }
-
-    // CanGiveFocus.....................................................................................................
-
-    @Override
-    public void giveFocus(final Runnable focus) {
-        throw new UnsupportedOperationException();
-    }
-
-    // HistoryContextDelegator..........................................................................................
+    // RefreshContextDelegator..........................................................................................
 
     @Override
-    public HistoryContext historyContext() {
-        return this.historyContext;
+    public RefreshContext refreshContext() {
+        return this.context;
     }
 
-    private final HistoryContext historyContext;
-
-    // LoggingContextDelegator..........................................................................................
-
-    @Override
-    public LoggingContext loggingContext() {
-        return this.loggingContext;
-    }
-
-    private final LoggingContext loggingContext;
+    private final RefreshContext context;
 
     // Object...........................................................................................................
 
     @Override
     public String toString() {
-        return this.historyContext + " " + this.loggingContext;
+        return this.context.toString();
     }
 }

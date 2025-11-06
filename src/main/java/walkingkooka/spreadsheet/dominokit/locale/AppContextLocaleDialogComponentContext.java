@@ -41,10 +41,7 @@ abstract class AppContextLocaleDialogComponentContext implements LocaleDialogCom
 
     @Override
     public DialogComponentContext dialogComponentContext() {
-        return DialogComponentContexts.basic(
-            this.context,
-            this.context
-        );
+        return DialogComponentContexts.basic(this.context);
     }
 
     // LocaleContextDelegator...........................................................................................
