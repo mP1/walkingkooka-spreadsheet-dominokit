@@ -29,42 +29,28 @@ import java.util.function.Consumer;
  */
 final class ValueWatcherEvent<T> implements Consumer<ValueWatcher<T>> {
 
-    static <T> ValueWatcherEvent<T> with(final Optional<T> value,
-                                         final AppContext context) {
+    static <T> ValueWatcherEvent<T> with(final Optional<T> value) {
         return new ValueWatcherEvent<>(
-            Objects.requireNonNull(value, "value"),
-            Objects.requireNonNull(context, "context")
+            Objects.requireNonNull(value, "value")
         );
     }
 
-    private ValueWatcherEvent(final Optional<T> value,
-                              final AppContext context) {
+    private ValueWatcherEvent(final Optional<T> value) {
         this.value = value;
-        this.context = context;
     }
 
     @Override
     public void accept(final ValueWatcher<T> watcher) {
-        try {
-            this.fire(watcher);
-        } catch (final Exception cause) {
-            this.context.error(
-                this.getClass().getSimpleName() + ".accept exception: " + cause.getMessage(),
-                cause
-            );
-        }
+        this.fire(watcher);
     }
 
     private void fire(final ValueWatcher<T> watcher) {
         watcher.onValue(
-            this.value,
-            this.context
+            this.value
         );
     }
 
     private final Optional<T> value;
-
-    private final AppContext context;
 
     @Override
     public String toString() {

@@ -17,12 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.value;
 
-import walkingkooka.spreadsheet.dominokit.AppContext;
-
 import java.util.Optional;
 
 public interface ValueWatcher<T> {
 
-    void onValue(final Optional<T> value,
-                 final AppContext context);
+    void onValue(final Optional<T> value);
 }
