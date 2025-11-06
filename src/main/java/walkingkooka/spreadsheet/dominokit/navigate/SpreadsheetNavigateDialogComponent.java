@@ -69,10 +69,8 @@ public final class SpreadsheetNavigateDialogComponent implements DialogComponent
 
         this.home = SpreadsheetCellReferenceComponent.with(
             idPrefix + "home" + SpreadsheetElementIds.TEXT_BOX
-        ).addKeyUpListener(
-            (e) -> this.refreshLinks()
-        ).addChangeListener(
-            (oldValue, newValue) -> this.refreshLinks(newValue)
+        ).addValueWatcher2(
+            (v) -> this.refreshLinks()
         );
 
         this.save = HistoryTokenAnchorComponent.empty()
