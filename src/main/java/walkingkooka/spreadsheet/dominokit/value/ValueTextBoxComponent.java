@@ -289,6 +289,11 @@ public final class ValueTextBoxComponent<T> implements FormValueComponent<HTMLFi
         );
     }
 
+    public ValueTextBoxComponent<T> addValueWatcher2(final ValueWatcher<T> watcher) {
+        this.addValueWatcher(watcher);
+        return this;
+    }
+
     // HtmlComponentDelegator...........................................................................................
 
     @Override
