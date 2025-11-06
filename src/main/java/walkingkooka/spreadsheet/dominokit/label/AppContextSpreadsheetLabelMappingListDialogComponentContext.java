@@ -19,13 +19,11 @@ package walkingkooka.spreadsheet.dominokit.label;
 
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContextDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchersDelegator;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -36,8 +34,7 @@ import java.util.Set;
 
 abstract class AppContextSpreadsheetLabelMappingListDialogComponentContext implements SpreadsheetLabelMappingListDialogComponentContext,
     HasSpreadsheetDeltaFetcherWatchersDelegator,
-    HistoryContextDelegator,
-    LoggingContextDelegator {
+    RefreshContextDelegator {
 
     AppContextSpreadsheetLabelMappingListDialogComponentContext(final AppContext context) {
         this.context = Objects.requireNonNull(context, "context");
@@ -81,28 +78,16 @@ abstract class AppContextSpreadsheetLabelMappingListDialogComponentContext imple
         return false;
     }
 
-    // CanGiveFocus.....................................................................................................
+    // RefreshContextDelegator..........................................................................................
 
     @Override
-    public final void giveFocus(final Runnable focus) {
-        this.context.giveFocus(focus);
-    }
-
-    // HistoryContextDelegator..........................................................................................
-
-    @Override
-    public final HistoryContext historyContext() {
-        return this.context;
-    }
-
-    // LoggingContextDelegator..........................................................................................
-
-    @Override
-    public final LoggingContext loggingContext() {
+    public RefreshContext refreshContext() {
         return this.context;
     }
 
     final AppContext context;
+
+    // Object...........................................................................................................
 
     @Override
     public final String toString() {
