@@ -20,17 +20,14 @@ package walkingkooka.spreadsheet.dominokit.sort;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorProviderDelegator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContextDelegator;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 
 import java.util.Objects;
 
 final class AppContextSpreadsheetCellSortDialogComponentContext implements SpreadsheetCellSortDialogComponentContext,
-    HistoryContextDelegator,
-    LoggingContextDelegator,
+    RefreshContextDelegator,
     SpreadsheetComparatorProviderDelegator {
 
     static AppContextSpreadsheetCellSortDialogComponentContext with(final AppContext context) {
@@ -62,26 +59,14 @@ final class AppContextSpreadsheetCellSortDialogComponentContext implements Sprea
         return this.context;
     }
 
-    // CanGiveFocus.....................................................................................................
+    // RefreshContextDelegator..........................................................................................
 
     @Override
-    public final void giveFocus(final Runnable focus) {
-        this.context.giveFocus(focus);
-    }
-
-    // DialogComponentContextDelegator..................................................................................
-
-    @Override
-    public HistoryContext historyContext() {
+    public RefreshContext refreshContext() {
         return this.context;
     }
 
-    // LoggingContext...................................................................................................
-
-    @Override
-    public LoggingContext loggingContext() {
-        return this.context;
-    }
+    private final AppContext context;
 
     // Object...........................................................................................................
 
@@ -89,6 +74,4 @@ final class AppContextSpreadsheetCellSortDialogComponentContext implements Sprea
     public String toString() {
         return this.context.toString();
     }
-
-    private final AppContext context;
 }
