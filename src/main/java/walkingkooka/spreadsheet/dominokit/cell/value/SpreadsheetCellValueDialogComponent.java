@@ -154,11 +154,9 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
         // refresh SAVE as the WholeNumberComponent is updated
         if (valueComponent instanceof WholeNumberComponent) {
             WholeNumberComponent wholeNumberComponent = (WholeNumberComponent) valueComponent;
-            wholeNumberComponent.addKeyUpListener(
-                (e) -> this.save.setValue(
-                    Cast.to(
-                        wholeNumberComponent.value()
-                    )
+            wholeNumberComponent.addValueWatcher(
+                (v) -> this.save.setValue(
+                    Cast.to(v)
                 )
             );
         }

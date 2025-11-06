@@ -57,6 +57,7 @@ import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContext
 import walkingkooka.spreadsheet.dominokit.key.KeyboardContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.number.NumberComponentContext;
+import walkingkooka.spreadsheet.dominokit.number.WholeNumberComponentContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCacheContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
@@ -114,6 +115,7 @@ public interface AppContext extends CanGiveFocus,
     KeyboardContext,
     SpreadsheetViewportCacheContext,
     RecentValueSavesContext,
+    WholeNumberComponentContext,
     Context {
 
     /**
