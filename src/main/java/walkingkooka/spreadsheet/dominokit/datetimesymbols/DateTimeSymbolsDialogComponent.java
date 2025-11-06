@@ -342,10 +342,8 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
     private DateTimeSymbolsComponent dateTimeSymbols() {
         return DateTimeSymbolsComponent.empty()
             .setLabel("Date Time Symbols")
-            .addChangeListener(
-                (Optional<DateTimeSymbols> oldValue, Optional<DateTimeSymbols> newValue) -> {
-                    this.refreshDateTimeSymbolsComponentsAndSave(newValue);
-                }
+            .addValueWatcher2(
+                this::refreshDateTimeSymbolsComponentsAndSave
             );
     }
 
