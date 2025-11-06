@@ -18,19 +18,16 @@
 package walkingkooka.spreadsheet.dominokit.meta;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContextDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.util.Locale;
 import java.util.Objects;
 
 final class AppContextSpreadsheetMetadataPanelComponentContext implements SpreadsheetMetadataPanelComponentContext,
-    HistoryContextDelegator,
-    LoggingContextDelegator {
+    RefreshContextDelegator {
 
     static AppContextSpreadsheetMetadataPanelComponentContext with(final AppContext context) {
         Objects.requireNonNull(context, "context");
@@ -64,17 +61,10 @@ final class AppContextSpreadsheetMetadataPanelComponentContext implements Spread
         return this.context.addSpreadsheetMetadataFetcherWatcher(watcher);
     }
 
-    // HistoryContext..............................................................................................
+    // RefreshContextDelegator..........................................................................................
 
     @Override
-    public HistoryContext historyContext() {
-        return this.context;
-    }
-
-    // LoggingContext...................................................................................................
-
-    @Override
-    public LoggingContext loggingContext() {
+    public RefreshContext refreshContext() {
         return this.context;
     }
 
