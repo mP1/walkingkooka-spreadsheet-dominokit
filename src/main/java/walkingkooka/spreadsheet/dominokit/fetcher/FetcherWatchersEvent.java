@@ -72,14 +72,7 @@ abstract class FetcherWatchersEvent<W extends FetcherWatcher> implements Consume
 
     @Override
     public final void accept(final W watcher) {
-        try {
-            this.fire(watcher);
-        } catch (final Exception cause) {
-            this.context.error(
-                this.getClass().getSimpleName() + ".accept exception: " + cause.getMessage(),
-                cause
-            );
-        }
+        this.fire(watcher);
     }
 
     /**
