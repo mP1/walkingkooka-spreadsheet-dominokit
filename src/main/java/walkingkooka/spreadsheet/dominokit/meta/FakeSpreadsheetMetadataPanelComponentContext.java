@@ -45,6 +45,13 @@ public class FakeSpreadsheetMetadataPanelComponentContext extends FakeHistoryCon
         throw new UnsupportedOperationException();
     }
 
+    // CanGiveFocus.....................................................................................................
+
+    @Override
+    public void giveFocus(final Runnable focus) {
+        throw new UnsupportedOperationException();
+    }
+
     // LoggingContext...................................................................................................
 
     @Override
