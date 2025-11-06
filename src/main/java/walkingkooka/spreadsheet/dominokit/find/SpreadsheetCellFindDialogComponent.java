@@ -165,21 +165,13 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
         return SpreadsheetCellRangeReferenceComponent.with(
                 ID_PREFIX + "cell-range" + SpreadsheetElementIds.TEXT_BOX
             ).setLabel("Cell Range")
-            .addChangeListener(this::onCellRangeValueChange)
+            .addValueWatcher2(value -> this.setAndRefresh(
+                t -> t.setSelection(value)
+                    .setQuery(
+                        t.query()
+                    )
+            ))
             .required();
-    }
-
-    /**
-     * Push the new {@link SpreadsheetCellRangeReference} keeping the original {@link SpreadsheetCellFindQuery}.
-     */
-    private void onCellRangeValueChange(final Optional<SpreadsheetCellRangeReference> oldCellRange,
-                                        final Optional<SpreadsheetCellRangeReference> newCellRange) {
-        this.setAndRefresh(
-            t -> t.setSelection(newCellRange)
-                .setQuery(
-                    t.query()
-                )
-        );
     }
 
     private final SpreadsheetCellRangeReferenceComponent cellRange;
