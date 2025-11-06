@@ -659,7 +659,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                       final AppContext context) {
-        this.refreshIfOpen(context);
+        this.refreshIfOpen(this.context);
     }
 
     @Override
