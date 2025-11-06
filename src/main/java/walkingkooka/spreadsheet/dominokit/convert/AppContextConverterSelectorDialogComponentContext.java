@@ -124,10 +124,7 @@ final class AppContextConverterSelectorDialogComponentContext implements Convert
 
     @Override
     public DialogComponentContext dialogComponentContext() {
-        return DialogComponentContexts.basic(
-            this.context,
-            this.context
-        );
+        return DialogComponentContexts.basic(this.context);
     }
 
     private final SpreadsheetMetadataPropertyName<ConverterSelector> propertyName;

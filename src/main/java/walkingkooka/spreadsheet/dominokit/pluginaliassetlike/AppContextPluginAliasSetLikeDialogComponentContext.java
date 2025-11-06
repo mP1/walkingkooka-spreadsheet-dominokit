@@ -104,10 +104,7 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContext<N extends Name
 
     @Override
     public final DialogComponentContext dialogComponentContext() {
-        return DialogComponentContexts.basic(
-            this.context,
-            this.context
-        );
+        return DialogComponentContexts.basic(this.context);
     }
 
     final AppContext context;

@@ -92,10 +92,7 @@ final class AppContextPluginNameSetDialogComponentContext implements PluginNameS
 
     @Override
     public DialogComponentContext dialogComponentContext() {
-        return DialogComponentContexts.basic(
-            this.context,
-            this.context
-        );
+        return DialogComponentContexts.basic(this.context);
     }
 
     // Object...........................................................................................................

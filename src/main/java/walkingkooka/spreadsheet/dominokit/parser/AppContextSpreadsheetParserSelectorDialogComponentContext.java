@@ -186,10 +186,7 @@ abstract class AppContextSpreadsheetParserSelectorDialogComponentContext impleme
 
     @Override
     public final DialogComponentContext dialogComponentContext() {
-        return DialogComponentContexts.basic(
-            this.context,
-            this.context
-        );
+        return DialogComponentContexts.basic(this.context);
     }
 
     // Object..........................................................................................................

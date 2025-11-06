@@ -18,20 +18,15 @@
 package walkingkooka.spreadsheet.dominokit.dialog;
 
 import walkingkooka.reflect.PublicStaticHelper;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 
 public final class DialogComponentContexts implements PublicStaticHelper {
 
     /**
      * {@see BasicDialogComponentContext}
      */
-    public static DialogComponentContext basic(final HistoryContext historyContext,
-                                               final LoggingContext loggingContext) {
-        return BasicDialogComponentContext.with(
-            historyContext,
-            loggingContext
-        );
+    public static DialogComponentContext basic(final RefreshContext context) {
+        return BasicDialogComponentContext.with(context);
     }
 
     /**
