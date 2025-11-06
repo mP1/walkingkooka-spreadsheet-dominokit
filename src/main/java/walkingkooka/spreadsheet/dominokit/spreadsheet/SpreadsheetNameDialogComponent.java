@@ -112,10 +112,8 @@ public final class SpreadsheetNameDialogComponent implements DialogComponentLife
     private SpreadsheetNameComponent name() {
         return SpreadsheetNameComponent.empty()
             .setId(ID + SpreadsheetElementIds.TEXT_BOX)
-            .addKeyUpListener(
+            .addInputListener(
                 (e) -> this.setName(this.name.value())
-            ).addChangeListener(
-                (oldValue, newValue) -> this.setName(newValue)
             );
     }
 
