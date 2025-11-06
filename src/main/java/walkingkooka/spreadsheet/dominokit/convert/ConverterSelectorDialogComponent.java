@@ -139,17 +139,13 @@ public final class ConverterSelectorDialogComponent implements DialogComponentLi
     private ConverterSelectorComponent selector() {
         return ConverterSelectorComponent.empty()
             .setId(ID + SpreadsheetElementIds.TEXT_BOX)
-            .addKeyUpListener(
-                (event) -> this.refreshSaveLink(
-                    this.selector.value()
-                )
-            ).addChangeListener(
-                (oldValue, newValue) -> {
-                    this.refreshSaveLink(newValue);
+            .addValueWatcher2(
+                (value) -> {
+                    this.refreshSaveLink(value);
 
-                    if (newValue.isPresent()) {
+                    if (value.isPresent()) {
                         this.context.verifySelector(
-                            newValue.get()
+                            value.get()
                                 .toString()
                         );
                     }
