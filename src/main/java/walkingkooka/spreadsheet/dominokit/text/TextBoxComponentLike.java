@@ -24,6 +24,7 @@ import org.dominokit.domino.ui.events.EventType;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
+import walkingkooka.spreadsheet.dominokit.value.HasValueWatchers;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatchers;
 
@@ -31,7 +32,8 @@ import java.util.Objects;
 import java.util.Optional;
 
 abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetElement, String, TextBoxComponent>,
-    FormValueComponentTreePrintable<HTMLFieldSetElement, TextBoxComponent, String> {
+    FormValueComponentTreePrintable<HTMLFieldSetElement, TextBoxComponent, String>,
+    HasValueWatchers<String> {
 
     TextBoxComponentLike() {
         super();
@@ -101,6 +103,7 @@ abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetEl
     /**
      * Fires a {@link ValueWatcher#onValue(Optional)} when the value changes or ENTER is hit.
      */
+    @Override
     public final Runnable addValueWatcher(final ValueWatcher<String> watcher) {
         Objects.requireNonNull(watcher, "watcher");
 

@@ -32,7 +32,8 @@ import java.util.Optional;
  */
 public interface ValueTextBoxComponentDelegator<C extends ValueTextBoxComponentDelegator<C, V>, V>
     extends FormValueComponent<HTMLFieldSetElement, V, C>,
-    HtmlComponentDelegator<HTMLFieldSetElement, C> {
+    HtmlComponentDelegator<HTMLFieldSetElement, C>,
+    HasValueWatchers<V> {
 
     @Override
     default C setId(final String id) {
@@ -189,6 +190,7 @@ public interface ValueTextBoxComponentDelegator<C extends ValueTextBoxComponentD
         return (C) this;
     }
 
+    @Override
     default Runnable addValueWatcher(final ValueWatcher<V> watcher) {
         return this.valueTextBoxComponent()
             .addValueWatcher(watcher);
