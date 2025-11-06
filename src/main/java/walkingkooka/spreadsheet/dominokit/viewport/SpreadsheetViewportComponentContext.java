@@ -27,9 +27,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetFormatterFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetFormatterFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
@@ -38,9 +36,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
 import java.util.Locale;
 import java.util.Optional;
 
-public interface SpreadsheetViewportComponentContext extends HistoryContext,
-    LoggingContext,
-    HasSpreadsheetDeltaFetcher,
+public interface SpreadsheetViewportComponentContext extends HasSpreadsheetDeltaFetcher,
     HasSpreadsheetFormatterFetcher,
     HasSpreadsheetFormatterFetcherWatchers,
     HasSpreadsheetMetadata,
