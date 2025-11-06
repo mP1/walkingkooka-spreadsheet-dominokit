@@ -174,6 +174,12 @@ public final class TextBoxComponent extends TextBoxComponentLike
     }
 
     @Override
+    void removeEventListener(final EventType type,
+                             final EventListener listener) {
+        // NOP
+    }
+
+    @Override
     public TextBoxComponent alwaysShowHelperText() {
         return this;
     }
