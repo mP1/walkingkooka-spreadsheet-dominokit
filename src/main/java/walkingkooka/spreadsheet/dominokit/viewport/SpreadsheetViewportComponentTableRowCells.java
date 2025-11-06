@@ -17,13 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
-import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.dom.TrComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelectionMaps;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportWindows;
 
 import java.util.Map;
@@ -49,7 +49,7 @@ final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewpor
             row,
             context
         );
-        this.columnToCells = Maps.sorted();
+        this.columnToCells = SpreadsheetSelectionMaps.column();
     }
 
     @Override
@@ -73,7 +73,7 @@ final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewpor
             this.columns = columns;
 
             final Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellSpreadsheetCell> oldColumnToCells = this.columnToCells;
-            final Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellSpreadsheetCell> newColumnToCells = Maps.sorted();
+            final Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellSpreadsheetCell> newColumnToCells = SpreadsheetSelectionMaps.column();
 
             tr.clear();
 

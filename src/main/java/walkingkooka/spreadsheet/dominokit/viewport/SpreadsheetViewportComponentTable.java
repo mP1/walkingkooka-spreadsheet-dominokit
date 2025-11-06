@@ -41,6 +41,7 @@ import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyBindings;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelectionMaps;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigation;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportWindows;
@@ -200,7 +201,7 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
         this.name = null;
 
         this.rows = SortedSets.tree();
-        this.rowsToTableRowCells = Maps.sorted();
+        this.rowsToTableRowCells = SpreadsheetSelectionMaps.row();
     }
 
     private void registerBindings(final Collection<KeyBinding> bindings,
