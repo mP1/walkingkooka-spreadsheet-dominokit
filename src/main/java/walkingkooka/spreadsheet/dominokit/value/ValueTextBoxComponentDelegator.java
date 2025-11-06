@@ -194,6 +194,12 @@ public interface ValueTextBoxComponentDelegator<C extends ValueTextBoxComponentD
             .addValueWatcher(watcher);
     }
 
+    default C addValueWatcher2(final ValueWatcher<V> watcher) {
+        this.valueTextBoxComponent()
+            .addValueWatcher2(watcher);
+        return (C) this;
+    }
+
     @Override
     default C alwaysShowHelperText() {
         this.valueTextBoxComponent()
