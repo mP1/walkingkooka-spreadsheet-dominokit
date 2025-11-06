@@ -18,13 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.cell.value;
 
 import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.dominokit.dialog.FakeDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.validation.ValueTypeName;
 
 import java.util.Optional;
 
-public class FakeSpreadsheetCellValueDialogComponentContext<T> extends FakeHistoryContext implements SpreadsheetCellValueDialogComponentContext<T> {
+public class FakeSpreadsheetCellValueDialogComponentContext<T> extends FakeDialogComponentContext implements SpreadsheetCellValueDialogComponentContext<T> {
 
     public FakeSpreadsheetCellValueDialogComponentContext() {
         super();
@@ -32,11 +32,6 @@ public class FakeSpreadsheetCellValueDialogComponentContext<T> extends FakeHisto
 
     @Override
     public String id() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public String dialogTitle() {
         throw new UnsupportedOperationException();
     }
 
@@ -59,28 +54,6 @@ public class FakeSpreadsheetCellValueDialogComponentContext<T> extends FakeHisto
 
     @Override
     public Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
-        throw new UnsupportedOperationException();
-    }
-
-    // LoggingContext...................................................................................................
-
-    @Override
-    public void debug(final Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void info(final Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void warn(final Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void error(final Object... values) {
         throw new UnsupportedOperationException();
     }
 }
