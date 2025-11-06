@@ -18,19 +18,16 @@
 package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContextDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchersDelegator;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 
 import java.util.Locale;
 import java.util.Objects;
 
 public final class AppContextSpreadsheetListDialogComponentContext implements SpreadsheetListDialogComponentContext,
-    HistoryContextDelegator,
-    LoggingContextDelegator,
+    RefreshContextDelegator,
     HasSpreadsheetMetadataFetcherWatchersDelegator {
 
     static AppContextSpreadsheetListDialogComponentContext with(final AppContext context) {
@@ -57,24 +54,10 @@ public final class AppContextSpreadsheetListDialogComponentContext implements Sp
         return this.context.locale();
     }
 
-    // CanGiveFocus.....................................................................................................
+    // RefreshContextDelegator..........................................................................................
 
     @Override
-    public void giveFocus(final Runnable focus) {
-        this.context.giveFocus(focus);
-    }
-
-    // HistoryContextDelegator..........................................................................................
-
-    @Override
-    public HistoryContext historyContext() {
-        return this.context;
-    }
-
-    // LoggingContextDelegator..........................................................................................
-
-    @Override
-    public LoggingContext loggingContext() {
+    public RefreshContext refreshContext() {
         return this.context;
     }
 
