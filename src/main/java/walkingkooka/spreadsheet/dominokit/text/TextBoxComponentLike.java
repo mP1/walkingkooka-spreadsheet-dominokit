@@ -19,9 +19,16 @@ package walkingkooka.spreadsheet.dominokit.text;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
+import elemental2.dom.KeyboardEvent;
 import org.dominokit.domino.ui.events.EventType;
+import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatchers;
+
+import java.util.Objects;
+import java.util.Optional;
 
 abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetElement, String, TextBoxComponent>,
     FormValueComponentTreePrintable<HTMLFieldSetElement, TextBoxComponent, String> {
@@ -29,6 +36,8 @@ abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetEl
     TextBoxComponentLike() {
         super();
     }
+
+    // addXXXListener...................................................................................................
 
     @Override
     public final TextBoxComponent addBlurListener(final EventListener listener) {
@@ -88,4 +97,49 @@ abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetEl
 
     abstract TextBoxComponent addEventListener(final EventType eventType,
                                                final EventListener listener);
+
+    /**
+     * Fires a {@link ValueWatcher#onValue(Optional)} when the value changes or ENTER is hit.
+     */
+    public final Runnable addValueWatcher(final ValueWatcher<String> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+
+        final EventListener keyDownListener = (e) -> {
+            final KeyboardEvent keyboardEvent = (KeyboardEvent) e;
+            if (Key.Enter.equals(keyboardEvent.key)) {
+                TextBoxComponentLike.this.fire();
+            }
+        };
+        this.addKeyDownListener(keyDownListener);
+
+        final EventListener inputListener = (e) -> TextBoxComponentLike.this.fire();
+        this.addInputListener(inputListener);
+
+
+        final Runnable valueWatcherRemover = valueWatchers.add(watcher);
+
+        return () -> {
+            this.removeEventListener(
+                EventType.keydown,
+                keyDownListener
+            );
+            this.removeEventListener(
+                EventType.input,
+                inputListener
+            );
+            valueWatcherRemover.run();
+        };
+    }
+
+    private void fire() {
+        this.valueWatchers.onValue(
+            this.value()
+        );
+    }
+
+    private final ValueWatchers<String> valueWatchers = ValueWatchers.empty();
+
+    abstract void removeEventListener(final EventType type,
+                                      final EventListener listener);
 }

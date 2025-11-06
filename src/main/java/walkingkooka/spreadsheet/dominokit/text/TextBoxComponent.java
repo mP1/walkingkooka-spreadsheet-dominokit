@@ -81,6 +81,16 @@ public final class TextBoxComponent extends TextBoxComponentLike
         return this;
     }
 
+    @Override
+    void removeEventListener(final EventType type,
+                             final EventListener listener) {
+        this.textBox.getInputElement()
+            .removeEventListener(
+                type,
+                listener
+            );
+    }
+
     public TextBoxComponent autocompleteOff() {
         this.textBox.getInputElement()
             .element()
