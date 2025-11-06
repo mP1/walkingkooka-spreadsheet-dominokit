@@ -59,7 +59,7 @@ public final class ValueWatchers<T> implements ValueWatcher<T> {
     @Override
     public void onValue(final Optional<T> value,
                         final AppContext context) {
-        this.watchers.accept(
+        this.fire(
             ValueWatcherEvent.with(
                 value,
                 context
