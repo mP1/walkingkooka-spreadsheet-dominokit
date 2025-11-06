@@ -161,7 +161,7 @@ public final class PluginSetDialogComponent implements DialogComponentLifecycle,
     public void onPlugin(final PluginName name,
                          final Optional<Plugin> plugin,
                          final AppContext context) {
-        this.refreshIfOpen(context);
+        this.refreshIfOpen(this.context);
     }
 
     @Override
@@ -174,7 +174,7 @@ public final class PluginSetDialogComponent implements DialogComponentLifecycle,
                     plugins
             )
         );
-        this.refreshIfOpen(context);
+        this.refreshIfOpen(this.context);
     }
 
     // DialogComponentLifecycle..............................................................................

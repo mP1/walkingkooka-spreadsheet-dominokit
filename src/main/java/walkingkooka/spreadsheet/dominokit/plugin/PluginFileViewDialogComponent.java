@@ -207,7 +207,7 @@ public final class PluginFileViewDialogComponent implements DialogComponentLifec
                                    final AppContext context) {
         this.textView.setValue(body);
 
-        this.refreshIfOpen(context);
+        this.refreshIfOpen(this.context);
     }
 
     @Override

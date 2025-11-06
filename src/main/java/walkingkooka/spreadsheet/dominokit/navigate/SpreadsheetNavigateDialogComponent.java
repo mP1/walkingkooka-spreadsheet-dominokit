@@ -222,7 +222,7 @@ public final class SpreadsheetNavigateDialogComponent implements DialogComponent
     @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                       final AppContext context) {
-        this.refreshIfOpen(context);
+        this.refreshIfOpen(this.context);
     }
 
     @Override

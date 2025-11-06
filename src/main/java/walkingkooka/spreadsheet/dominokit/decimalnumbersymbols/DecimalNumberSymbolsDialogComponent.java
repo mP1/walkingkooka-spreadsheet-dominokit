@@ -774,14 +774,14 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
                                    final AbsoluteOrRelativeUrl url,
                                    final SpreadsheetDelta delta,
                                    final AppContext context) {
-        this.refreshIfOpen(context);
+        this.refreshIfOpen(this.context);
     }
 
     // SpreadsheetMetadataFetcherWatcher................................................................................
     @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                       final AppContext context) {
-        this.refreshIfOpen(context);
+        this.refreshIfOpen(this.context);
     }
 
     @Override

@@ -361,7 +361,7 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
                                    final AbsoluteOrRelativeUrl url,
                                    final SpreadsheetDelta delta,
                                    final AppContext context) {
-        this.refreshIfOpen(context);
+        this.refreshIfOpen(this.context);
     }
 
     // Object...........................................................................................................

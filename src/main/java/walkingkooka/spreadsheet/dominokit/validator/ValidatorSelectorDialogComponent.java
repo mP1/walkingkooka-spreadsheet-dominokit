@@ -281,6 +281,6 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
                                    final AbsoluteOrRelativeUrl url,
                                    final SpreadsheetDelta delta,
                                    final AppContext context) {
-        this.refreshIfOpen(context);
+        this.refreshIfOpen(this.context);
     }
 }

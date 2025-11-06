@@ -280,7 +280,7 @@ public final class LocaleDialogComponent implements DialogComponentLifecycle,
                                    final AbsoluteOrRelativeUrl url,
                                    final SpreadsheetDelta delta,
                                    final AppContext context) {
-        this.refreshIfOpen(context);
+        this.refreshIfOpen(this.context);
     }
 
     // SpreadsheetMetadataFetcherWatcher................................................................................
@@ -288,7 +288,7 @@ public final class LocaleDialogComponent implements DialogComponentLifecycle,
     @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                       final AppContext context) {
-        this.refreshIfOpen(context);
+        this.refreshIfOpen(this.context);
     }
 
     @Override

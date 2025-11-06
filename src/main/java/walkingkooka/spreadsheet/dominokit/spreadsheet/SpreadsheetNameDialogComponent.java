@@ -222,7 +222,7 @@ public final class SpreadsheetNameDialogComponent implements DialogComponentLife
             if (Objects.equals(
                 metadata.id().orElse(null),
                 this.spreadsheetId)) {
-                this.refreshIfOpen(context);
+                this.refreshIfOpen(this.context);
             }
         } else {
             this.spreadsheetId = null;
