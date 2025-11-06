@@ -310,7 +310,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlComponentD
                                    final AbsoluteOrRelativeUrl url,
                                    final SpreadsheetDelta delta,
                                    final AppContext context) {
-        this.refreshIfOpen(context);
+        this.refreshIfOpen(this.context);
     }
 
     // Object...........................................................................................................
