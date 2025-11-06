@@ -142,14 +142,11 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
             );
         }
 
-        // refresh SAVE as the NumberComponent is updated
         if (valueComponent instanceof NumberComponent) {
-            NumberComponent numberComponent = (NumberComponent) valueComponent;
-            numberComponent.addKeyUpListener(
-                (e) -> this.save.setValue(
-                    Cast.to(
-                        numberComponent.value()
-                    )
+            final NumberComponent numberComponent = (NumberComponent) valueComponent;
+            numberComponent.addValueWatcher(
+                (v) -> this.save.setValue(
+                    Cast.to(v)
                 )
             );
         }
