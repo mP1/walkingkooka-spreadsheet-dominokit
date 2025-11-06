@@ -40,7 +40,6 @@ import walkingkooka.spreadsheet.dominokit.valuetype.SpreadsheetValueTypeComponen
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
-import walkingkooka.spreadsheet.formula.parser.ConditionRightSpreadsheetFormulaParserToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
@@ -244,8 +243,7 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
     /**
      * Reconstructs the query from the other fields in the form, then updates the FIND link and performs a FIND.
      */
-    private void refreshQueryAndFindFromWizardFieldsAndServerFind(final Optional<?> old,
-                                                                  final Optional<?> newAlsoIgnored) {
+    private void refreshQueryAndFindFromWizardFieldsAndServerFind(final Optional<?> ignored) {
         final Optional<SpreadsheetFormula> formula = SpreadsheetCellFindDialogComponentQuery.query(
             this.context.historyToken()
                 .cast(SpreadsheetCellFindHistoryToken.class)
@@ -415,15 +413,9 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
             ).setId(ID_PREFIX + "value" + SpreadsheetElementIds.TEXT_BOX)
             .setLabel("Value")
             .optional()
-            .addChangeListener(this::onValueValueChange);
-    }
-
-    private void onValueValueChange(final Optional<ConditionRightSpreadsheetFormulaParserToken> old,
-                                    final Optional<ConditionRightSpreadsheetFormulaParserToken> newValue) {
-        this.refreshQueryAndFindFromWizardFieldsAndServerFind(
-            old,
-            newValue
-        );
+            .addValueWatcher2(
+                this::refreshQueryAndFindFromWizardFieldsAndServerFind
+            );
     }
 
     final ConditionRightSpreadsheetFormulaParserTokenComponent value;
@@ -464,7 +456,7 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
                     ) +
                     SpreadsheetElementIds.TEXT_BOX
             ).setLabel(label)
-            .addChangeListener(this::refreshQueryAndFindFromWizardFieldsAndServerFind);
+            .addValueWatcher2(this::refreshQueryAndFindFromWizardFieldsAndServerFind);
     }
 
     // find.............................................................................................................
