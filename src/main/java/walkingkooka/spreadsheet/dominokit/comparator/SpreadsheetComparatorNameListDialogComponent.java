@@ -124,10 +124,8 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Dialo
     private SpreadsheetComparatorNameListComponent comparatorNameList() {
         return SpreadsheetComparatorNameListComponent.empty()
             .setId(ID + SpreadsheetElementIds.TEXT_BOX)
-            .addInputListener(
-                (event) -> this.refreshSaveLink(
-                    this.comparatorNameList.value()
-                )
+            .addValueWatcher2(
+                this::refreshSaveLink
             );
     }
 
