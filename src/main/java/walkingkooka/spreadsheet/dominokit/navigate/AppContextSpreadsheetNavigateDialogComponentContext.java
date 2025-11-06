@@ -18,19 +18,16 @@
 package walkingkooka.spreadsheet.dominokit.navigate;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContextDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.util.Objects;
 
 abstract class AppContextSpreadsheetNavigateDialogComponentContext implements SpreadsheetNavigateDialogComponentContext,
-    HistoryContextDelegator,
-    LoggingContextDelegator {
+    RefreshContextDelegator {
 
     AppContextSpreadsheetNavigateDialogComponentContext(final AppContext context) {
         super();
@@ -40,13 +37,6 @@ abstract class AppContextSpreadsheetNavigateDialogComponentContext implements Sp
     @Override
     public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
         return this.context.addSpreadsheetMetadataFetcherWatcher(watcher);
-    }
-
-    // CanGiveFocus.....................................................................................................
-
-    @Override
-    public final void giveFocus(final Runnable focus) {
-        this.context.giveFocus(focus);
     }
 
     // ComponentLifecycleMatcher........................................................................................
@@ -63,17 +53,10 @@ abstract class AppContextSpreadsheetNavigateDialogComponentContext implements Sp
         return this.context.spreadsheetMetadata();
     }
 
-    // HistoryContextDelegator..........................................................................................
+    // RefreshContextDelegator..........................................................................................
 
     @Override
-    public final HistoryContext historyContext() {
-        return this.context;
-    }
-
-    // LoggingContextDelegator..........................................................................................
-
-    @Override
-    public final LoggingContext loggingContext() {
+    public final RefreshContext refreshContext() {
         return this.context;
     }
 
