@@ -17,12 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
-import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.dom.TrComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelectionMaps;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportWindows;
 
 import java.util.Map;
@@ -41,7 +41,7 @@ final class SpreadsheetViewportComponentTableRowColumnHeaders extends Spreadshee
     private SpreadsheetViewportComponentTableRowColumnHeaders(final SpreadsheetViewportComponentTableContext context) {
         this.selectAll = SpreadsheetViewportComponentTableCellHeaderSelectAll.empty(context);
         this.columns = null;
-        this.columnToHeaders = Maps.sorted();
+        this.columnToHeaders = SpreadsheetSelectionMaps.column();
     }
 
     @Override
@@ -70,7 +70,7 @@ final class SpreadsheetViewportComponentTableRowColumnHeaders extends Spreadshee
                 element.appendChild(this.selectAll);
 
                 final Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn> oldColumnToHeaders = this.columnToHeaders;
-                final Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn> newColumnToHeaders = Maps.sorted();
+                final Map<SpreadsheetColumnReference, SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn> newColumnToHeaders = SpreadsheetSelectionMaps.column();
 
                 double width = rowWidth;
 

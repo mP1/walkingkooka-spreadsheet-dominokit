@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.clipboard;
 
 import walkingkooka.collect.list.Lists;
-import walkingkooka.collect.map.Maps;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.HasUrlFragment;
@@ -40,6 +39,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelectionMaps;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.cursor.TextCursors;
 import walkingkooka.tree.json.JsonNode;
@@ -771,7 +771,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
 
     static <T> Map<SpreadsheetCellReference, T> toMap(final SpreadsheetCellRange range,
                                                       final Function<SpreadsheetCell, T> valueExtractor) {
-        final Map<SpreadsheetCellReference, T> map = Maps.sorted();
+        final Map<SpreadsheetCellReference, T> map = SpreadsheetSelectionMaps.cell();
         for (final SpreadsheetCell cell : range.value()) {
             map.put(
                 cell.reference(),
