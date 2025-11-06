@@ -44,7 +44,7 @@ final class ValueWatcherEvent<T> implements Consumer<ValueWatcher<T>> {
     }
 
     @Override
-    public final void accept(final ValueWatcher<T> watcher) {
+    public void accept(final ValueWatcher<T> watcher) {
         try {
             this.fire(watcher);
         } catch (final Exception cause) {
