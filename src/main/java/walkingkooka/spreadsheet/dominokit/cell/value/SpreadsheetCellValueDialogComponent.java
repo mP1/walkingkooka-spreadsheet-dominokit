@@ -93,8 +93,7 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
             )
         );
 
-        this.save = this.<String>saveValueAnchor(context)
-            .autoDisableWhenMissingValue();
+        this.save = this.<String>saveValueAnchor(context);
 
         String nowOrToday;
         ValueTypeName valueTypeName = context.valueType();
