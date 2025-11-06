@@ -18,13 +18,10 @@
 package walkingkooka.spreadsheet.dominokit.cell.value;
 
 import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContextDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.focus.CanGiveFocus;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.text.CaseKind;
 import walkingkooka.validation.ValueTypeName;
@@ -33,39 +30,30 @@ import java.util.Objects;
 import java.util.Optional;
 
 final class BasicSpreadsheetCellValueDialogComponentContext<T> implements SpreadsheetCellValueDialogComponentContext<T>,
-    HistoryContextDelegator,
-    LoggingContextDelegator {
+    RefreshContextDelegator {
 
     static <T> BasicSpreadsheetCellValueDialogComponentContext<T> with(final ValueTypeName valueType,
                                                                        final SpreadsheetViewportCache viewportCache,
                                                                        final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
-                                                                       final CanGiveFocus canGiveFocus,
-                                                                       final HistoryContext historyContext,
-                                                                       final LoggingContext loggingContext) {
+                                                                       final RefreshContext refreshContext) {
         return new BasicSpreadsheetCellValueDialogComponentContext<>(
             Objects.requireNonNull(valueType, "valueType"),
             Objects.requireNonNull(viewportCache, "viewportCache"),
             Objects.requireNonNull(deltaFetcherWatchers, "deltaFetcherWatchers"),
-            Objects.requireNonNull(canGiveFocus, "canGiveFocus"),
-            Objects.requireNonNull(historyContext, "historyContext"),
-            Objects.requireNonNull(loggingContext, "loggingContext")
+            Objects.requireNonNull(refreshContext, "refreshContext")
         );
     }
 
     private BasicSpreadsheetCellValueDialogComponentContext(final ValueTypeName valueType,
                                                             final SpreadsheetViewportCache viewportCache,
                                                             final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
-                                                            final CanGiveFocus canGiveFocus,
-                                                            final HistoryContext historyContext,
-                                                            final LoggingContext loggingContext) {
+                                                            final RefreshContext refreshContext) {
         super();
 
         this.valueType = valueType;
         this.viewportCache = viewportCache;
         this.deltaFetcherWatchers = deltaFetcherWatchers;
-        this.canGiveFocus = canGiveFocus;
-        this.historyContext = historyContext;
-        this.loggingContext = loggingContext;
+        this.refreshContext = refreshContext;
     }
 
     @Override
@@ -98,32 +86,14 @@ final class BasicSpreadsheetCellValueDialogComponentContext<T> implements Spread
 
     private final ValueTypeName valueType;
 
-    // CanGiveFocus.....................................................................................................
+    // RefreshContextDelegator..........................................................................................
 
     @Override
-    public void giveFocus(final Runnable focus) {
-        this.canGiveFocus.giveFocus(focus);
+    public RefreshContext refreshContext() {
+        return this.refreshContext;
     }
 
-    private final CanGiveFocus canGiveFocus;
-
-    // HistoryContextDelegator..........................................................................................
-
-    @Override
-    public HistoryContext historyContext() {
-        return this.historyContext;
-    }
-
-    private final HistoryContext historyContext;
-
-    // LoggingContextDelegator..........................................................................................
-
-    @Override
-    public LoggingContext loggingContext() {
-        return this.loggingContext;
-    }
-
-    private final LoggingContext loggingContext;
+    private final RefreshContext refreshContext;
 
     // SpreadsheetDeltaFetcherWatchers..................................................................................
 
@@ -143,6 +113,6 @@ final class BasicSpreadsheetCellValueDialogComponentContext<T> implements Spread
 
     @Override
     public String toString() {
-        return this.historyContext.toString();
+        return this.refreshContext.toString();
     }
 }
