@@ -57,6 +57,7 @@ import walkingkooka.spreadsheet.dominokit.locale.LocaleDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.navigate.SpreadsheetNavigateDialogComponent;
 import walkingkooka.spreadsheet.dominokit.navigate.SpreadsheetNavigateDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.number.NumberComponent;
+import walkingkooka.spreadsheet.dominokit.number.WholeNumberComponent;
 import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.plugin.JarEntryInfoListDialogComponent;
@@ -257,7 +258,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
             );
 
             SpreadsheetCellValueDialogComponent.with(
-                NumberComponent.empty(
+                WholeNumberComponent.empty(
                     wholeNumberContext.id() + "-value" + SpreadsheetElementIds.TEXT_BOX,
                     context
                 ).optional(),
