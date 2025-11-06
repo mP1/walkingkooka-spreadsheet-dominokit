@@ -225,8 +225,9 @@ final class SpreadsheetSelectionMenuFormatter {
                         label + " " + text
                 ).historyToken(
                     Optional.of(
-                        historyToken.setSaveStringValue(
-                            selector.text()
+                        historyToken.formatter()
+                            .setSaveValue(
+                                Optional.of(selector)
                         )
                     )
                 ).checked(
