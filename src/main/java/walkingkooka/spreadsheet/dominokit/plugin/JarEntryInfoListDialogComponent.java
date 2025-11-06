@@ -169,7 +169,7 @@ public final class JarEntryInfoListDialogComponent implements DialogComponentLif
         this.pluginName = name;
         this.list = list.orElse(JarEntryInfoList.EMPTY);
 
-        this.refreshIfOpen(context);
+        this.refreshIfOpen(this.context);
     }
 
     @Override

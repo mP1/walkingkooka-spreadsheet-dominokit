@@ -482,7 +482,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements DialogCompo
                 this.undoLabelName = undoLabelName;
                 this.undoLabelMappingReference = undoLabelMappingReference;
 
-                this.refreshIfOpen(context);
+                this.refreshIfOpen(this.context);
             }
         }
     }

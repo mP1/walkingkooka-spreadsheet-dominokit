@@ -283,7 +283,7 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
     public void onPluginSet(final PluginSet plugins,
                             final AppContext context) {
         this.filterMatchPluginNames = plugins.names();
-        this.refreshIfOpen(context);
+        this.refreshIfOpen(this.context);
     }
 
     /**

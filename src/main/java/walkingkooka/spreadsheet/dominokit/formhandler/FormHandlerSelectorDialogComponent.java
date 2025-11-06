@@ -171,7 +171,7 @@ public final class FormHandlerSelectorDialogComponent implements DialogComponent
     @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                       final AppContext context) {
-        this.refreshIfOpen(context);
+        this.refreshIfOpen(this.context);
     }
 
     @Override

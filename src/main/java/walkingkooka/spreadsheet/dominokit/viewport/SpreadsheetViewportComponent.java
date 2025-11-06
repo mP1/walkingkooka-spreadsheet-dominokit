@@ -970,7 +970,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
                                                final AppContext context) {
         this.spreadsheetFormatterSelectorSelection = cellOrLabel;
         this.spreadsheetFormatterSelectorMenus = menus;
-        this.refreshIfOpen(context);
+        this.refreshIfOpen(this.context);
     }
 
     // metadata.........................................................................................................
@@ -1017,7 +1017,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
             this.spreadsheetFormatterSelectorMenus = null;
         }
 
-        this.refreshIfOpen(context);
+        this.refreshIfOpen(this.context);
         if(false == this.isOpen()) {
             this.refreshLayout();
         }
