@@ -281,6 +281,14 @@ public final class ValueTextBoxComponent<T> implements FormValueComponent<HTMLFi
         return this;
     }
 
+    public Runnable addValueWatcher(final ValueWatcher<T> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        return this.textBox.addValueWatcher(
+            (text) -> watcher.onValue(this.value())
+        );
+    }
+
     // HtmlComponentDelegator...........................................................................................
 
     @Override
