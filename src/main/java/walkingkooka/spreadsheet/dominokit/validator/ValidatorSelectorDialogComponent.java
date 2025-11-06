@@ -140,12 +140,8 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
     private ValidatorSelectorComponent selector() {
         return ValidatorSelectorComponent.empty()
             .setId(ID + SpreadsheetElementIds.TEXT_BOX)
-            .addKeyUpListener(
-                (event) -> this.refreshSaveLink(
-                    this.selector.value()
-                )
-            ).addChangeListener(
-                (o, n) -> this.refreshSaveLink(n)
+            .addValueWatcher2(
+                this::refreshSaveLink
             );
     }
 
