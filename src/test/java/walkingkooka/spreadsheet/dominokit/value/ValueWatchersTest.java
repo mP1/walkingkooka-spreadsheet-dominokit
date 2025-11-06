@@ -21,8 +21,6 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.text.CharSequences;
 
 import java.util.Optional;
@@ -37,14 +35,11 @@ public final class ValueWatchersTest implements ClassTesting<ValueWatchers<Strin
     public void testAddAndFire() {
         final ValueWatchers<String> watchers = ValueWatchers.empty();
 
-        final AppContext context = AppContexts.fake();
-
         final TestValueWatcher watcher = new TestValueWatcher();
         watchers.add(watcher);
 
         watchers.onValue(
-            Optional.of(VALUE),
-            context
+            Optional.of(VALUE)
         );
 
         this.checkEquals(
@@ -57,8 +52,6 @@ public final class ValueWatchersTest implements ClassTesting<ValueWatchers<Strin
     public void testAddAndFire2() {
         final ValueWatchers<String> watchers = ValueWatchers.empty();
 
-        final AppContext context = AppContexts.fake();
-
         final TestValueWatcher watcher = new TestValueWatcher();
         watchers.add(watcher);
 
@@ -66,8 +59,7 @@ public final class ValueWatchersTest implements ClassTesting<ValueWatchers<Strin
         watchers.add(watcher2);
 
         watchers.onValue(
-            Optional.of(VALUE),
-            context
+            Optional.of(VALUE)
         );
 
         this.checkEquals(
@@ -85,8 +77,7 @@ public final class ValueWatchersTest implements ClassTesting<ValueWatchers<Strin
         private final StringBuilder b = new StringBuilder();
 
         @Override
-        public void onValue(final Optional<String> value,
-                            final AppContext context) {
+        public void onValue(final Optional<String> value) {
             this.b.append("onValue " + CharSequences.quoteIfChars(value));
         }
 

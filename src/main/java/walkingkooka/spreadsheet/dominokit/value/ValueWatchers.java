@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.value;
 
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.watch.Watchers;
 
@@ -57,13 +56,9 @@ public final class ValueWatchers<T> implements ValueWatcher<T> {
     // ValueWatcher.....................................................................................................
 
     @Override
-    public void onValue(final Optional<T> value,
-                        final AppContext context) {
+    public void onValue(final Optional<T> value) {
         this.fire(
-            ValueWatcherEvent.with(
-                value,
-                context
-            )
+            ValueWatcherEvent.with(value)
         );
     }
 
