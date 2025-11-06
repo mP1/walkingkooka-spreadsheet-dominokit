@@ -38,7 +38,8 @@ import java.util.function.Function;
  * the validation fail messages. it is possible to replace the default validator mentioned above using {@link #setValidator(Validator)}.
  */
 public final class ValueTextBoxComponent<T> implements FormValueComponent<HTMLFieldSetElement, T, ValueTextBoxComponent<T>>,
-    HtmlComponentDelegator<HTMLFieldSetElement, ValueTextBoxComponent<T>> {
+    HtmlComponentDelegator<HTMLFieldSetElement, ValueTextBoxComponent<T>>,
+    HasValueWatchers<T>{
 
     /**
      * Creates a new {@link ValueTextBoxComponent}.
@@ -281,6 +282,7 @@ public final class ValueTextBoxComponent<T> implements FormValueComponent<HTMLFi
         return this;
     }
 
+    @Override
     public Runnable addValueWatcher(final ValueWatcher<T> watcher) {
         Objects.requireNonNull(watcher, "watcher");
 
