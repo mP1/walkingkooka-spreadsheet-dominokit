@@ -198,10 +198,8 @@ public final class SpreadsheetCellSortDialogComponent implements DialogComponent
     private SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent columnOrRowComparatorNamesList() {
         return SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent.empty()
             .setId(ID_PREFIX + "columnOrRowComparatorNamesList" + SpreadsheetElementIds.TEXT_BOX)
-            .addKeyUpListener(
+            .addValueWatcher2(
                 (e) -> this.refreshColumnOrRowComparatorNamesList()
-            ).addChangeListener(
-                (oldValue, newValue) -> this.refreshColumnOrRowComparatorNamesList()
             );
     }
 
