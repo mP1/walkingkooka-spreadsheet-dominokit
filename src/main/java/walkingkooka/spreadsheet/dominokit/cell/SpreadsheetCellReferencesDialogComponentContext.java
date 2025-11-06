@@ -21,7 +21,6 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaCellsTableComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
@@ -29,8 +28,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 /**
  * The {@link walkingkooka.Context} accompanying a {@link SpreadsheetCellReferencesDialogComponent}.
  */
-public interface SpreadsheetCellReferencesDialogComponentContext extends HistoryContext,
-    SpreadsheetDeltaCellsTableComponentContext,
+public interface SpreadsheetCellReferencesDialogComponentContext extends SpreadsheetDeltaCellsTableComponentContext,
     HasSpreadsheetDeltaFetcherWatchers,
     HasSpreadsheetMetadata,
     DialogComponentContext {
