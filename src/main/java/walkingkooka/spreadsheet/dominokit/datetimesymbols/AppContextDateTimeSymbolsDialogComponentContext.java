@@ -18,17 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.datetimesymbols;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContextDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.DateTimeSymbolsFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 
 abstract class AppContextDateTimeSymbolsDialogComponentContext implements DateTimeSymbolsDialogComponentContext,
-    HistoryContextDelegator,
-    LoggingContextDelegator {
+    RefreshContextDelegator {
 
     AppContextDateTimeSymbolsDialogComponentContext(final AppContext context) {
         this.context = context;
@@ -55,24 +52,10 @@ abstract class AppContextDateTimeSymbolsDialogComponentContext implements DateTi
         return this.context.addSpreadsheetMetadataFetcherWatcher(watcher);
     }
 
-    // CanGiveFocus.....................................................................................................
+    // RefreshContextDelegator..........................................................................................
 
     @Override
-    public final void giveFocus(final Runnable focus) {
-        this.context.giveFocus(focus);
-    }
-    
-    // HistoryContextDelegator..........................................................................................
-
-    @Override
-    public final HistoryContext historyContext() {
-        return this.context;
-    }
-
-    // LoggingContextDelegator..........................................................................................
-
-    @Override
-    public final LoggingContext loggingContext() {
+    public final RefreshContext refreshContext() {
         return this.context;
     }
 
