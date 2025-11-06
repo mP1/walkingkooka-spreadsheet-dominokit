@@ -126,22 +126,22 @@ public class FakeSpreadsheetViewportFormulaComponentContext extends FakeHistoryC
 
     @Override
     public void debug(final Object... values) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void info(final Object... values) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void warn(final Object... values) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void error(final Object... values) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
