@@ -517,10 +517,8 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
     private DecimalNumberSymbolsComponent decimalNumberSymbols() {
         return DecimalNumberSymbolsComponent.empty()
             .setLabel("Date Time Symbols")
-            .addChangeListener(
-                (Optional<DecimalNumberSymbols> oldValue, Optional<DecimalNumberSymbols> newValue) -> {
-                    this.refreshDecimalNumberSymbolsComponentsAndSave(newValue);
-                }
+            .addValueWatcher2(
+                this::refreshDecimalNumberSymbolsComponentsAndSave
             );
     }
 
