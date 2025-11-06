@@ -27,6 +27,8 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorProviderDelegator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContextDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchersDelegator;
@@ -38,12 +40,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherW
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetFormatterFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContext;
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContextDelegator;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProvider;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProviderDelegator;
@@ -58,8 +56,7 @@ import java.util.Optional;
 import java.util.Set;
 
 final class AppContextSpreadsheetViewportComponentContext implements SpreadsheetViewportComponentContext,
-    HistoryContextDelegator,
-    LoggingContextDelegator,
+    RefreshContextDelegator,
     SpreadsheetComparatorProviderDelegator,
     HasSpreadsheetDeltaFetcher,
     HasSpreadsheetDeltaFetcherWatchersDelegator,
@@ -96,16 +93,6 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
 
     @Override
     public HasSpreadsheetMetadataFetcherWatchers hasSpreadsheetMetadataFetcherWatchers() {
-        return this.context;
-    }
-
-    @Override
-    public HistoryContext historyContext() {
-        return this.context;
-    }
-
-    @Override
-    public LoggingContext loggingContext() {
         return this.context;
     }
 
@@ -223,6 +210,13 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
 
     @Override
     public LocaleContext localeContext() {
+        return this.context;
+    }
+
+    // RefreshContextDelegator..........................................................................................
+
+    @Override
+    public RefreshContext refreshContext() {
         return this.context;
     }
 
