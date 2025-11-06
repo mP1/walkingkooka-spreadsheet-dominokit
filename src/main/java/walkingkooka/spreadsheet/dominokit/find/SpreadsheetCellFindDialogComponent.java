@@ -211,19 +211,16 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
                 )
             ).setId("query" + SpreadsheetElementIds.TEXT_BOX)
             .setLabel("Query")
-            .addChangeListener(this::onQueryChange);
-    }
-
-    private void onQueryChange(final Optional<SpreadsheetFormula> oldFormula,
-                               final Optional<SpreadsheetFormula> newFormula) {
-        this.setAndRefresh(
-            t -> t.setQuery(
-                t.query()
-                    .setQuery(
-                        newFormula.map(f -> SpreadsheetCellQuery.parse(f.text()))
+            .addValueWatcher2(
+                (v) -> this.setAndRefresh(
+                    t -> t.setQuery(
+                        t.query()
+                            .setQuery(
+                                v.map(f -> SpreadsheetCellQuery.parse(f.text()))
+                            )
                     )
-            )
-        );
+                )
+            );
     }
 
     /**
