@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.email.EmailAddressComponent;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
@@ -126,6 +127,15 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
         if (valueComponent instanceof AbsoluteUrlComponent) {
             final AbsoluteUrlComponent absoluteUrlComponent = (AbsoluteUrlComponent) valueComponent;
             absoluteUrlComponent.addValueWatcher(
+                (v) -> this.save.setValue(
+                    Cast.to(v)
+                )
+            );
+        }
+
+        if (valueComponent instanceof EmailAddressComponent) {
+            final EmailAddressComponent emailAddressComponent = (EmailAddressComponent) valueComponent;
+            emailAddressComponent.addValueWatcher(
                 (v) -> this.save.setValue(
                     Cast.to(v)
                 )
