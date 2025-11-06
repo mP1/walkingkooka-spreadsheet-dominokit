@@ -185,10 +185,8 @@ public final class SpreadsheetLabelMappingDialogComponent implements DialogCompo
         return SpreadsheetExpressionReferenceComponent.empty()
             .setId(ID_PREFIX + "reference" + SpreadsheetElementIds.TEXT_BOX)
             .setLabel("Cell, cell range or Label")
-            .addInputListener(
-                (e) -> this.onLabelMappingReferenceNewValue(
-                    this.labelMappingReference.value()
-                )
+            .addValueWatcher2(
+                this::onLabelMappingReferenceNewValue
             );
     }
 
