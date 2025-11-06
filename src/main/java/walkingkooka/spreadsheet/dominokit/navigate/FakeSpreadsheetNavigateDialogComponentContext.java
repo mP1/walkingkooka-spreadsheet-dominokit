@@ -17,12 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.navigate;
 
+import walkingkooka.spreadsheet.dominokit.dialog.FakeDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
-public class FakeSpreadsheetNavigateDialogComponentContext extends FakeHistoryContext
+public class FakeSpreadsheetNavigateDialogComponentContext extends FakeDialogComponentContext
     implements SpreadsheetNavigateDialogComponentContext {
 
     public FakeSpreadsheetNavigateDialogComponentContext() {
@@ -43,28 +43,6 @@ public class FakeSpreadsheetNavigateDialogComponentContext extends FakeHistoryCo
 
     @Override
     public SpreadsheetMetadata spreadsheetMetadata() {
-        throw new UnsupportedOperationException();
-    }
-
-    // LoggingContext...................................................................................................
-
-    @Override
-    public void debug(final Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void info(final Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void warn(final Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void error(final Object... values) {
         throw new UnsupportedOperationException();
     }
 
