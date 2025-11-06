@@ -19,20 +19,17 @@ package walkingkooka.spreadsheet.dominokit.plugin;
 
 import walkingkooka.plugin.PluginName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContextDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchersDelegator;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 
 import java.util.Objects;
 
 public final class AppContextPluginFileViewDialogComponentContext implements PluginFileViewDialogComponentContext,
     HasPluginFetcherWatchersDelegator,
-    HistoryContextDelegator,
-    LoggingContextDelegator {
+    RefreshContextDelegator {
 
     public static AppContextPluginFileViewDialogComponentContext with(final AppContext context) {
         return new AppContextPluginFileViewDialogComponentContext(
@@ -66,24 +63,10 @@ public final class AppContextPluginFileViewDialogComponentContext implements Plu
         return this.context;
     }
 
-    // CanGiveFocus.....................................................................................................
+    // RefreshContextDelegator..........................................................................................
 
     @Override
-    public void giveFocus(final Runnable focus) {
-        this.context.giveFocus(focus);
-    }
-
-    // HistoryContextDelegator..........................................................................................
-
-    @Override
-    public HistoryContext historyContext() {
-        return this.context;
-    }
-
-    // LoggingContextDelegator..........................................................................................
-
-    @Override
-    public LoggingContext loggingContext() {
+    public RefreshContext refreshContext() {
         return this.context;
     }
 
