@@ -50,9 +50,9 @@ final class SpreadsheetMetadataPanelComponentItemSpreadsheetName extends Spreads
 
         this.spreadsheetNameComponent = SpreadsheetNameComponent.empty()
             .setId(SpreadsheetMetadataPanelComponent.id(PROPERTY_NAME) + "-TextBox")
-            .addChangeListener(
-                (oldValue, newValue) -> this.save(
-                    newValue.map(SpreadsheetName::value)
+            .addValueWatcher2(
+                (v) -> this.save(
+                    v.map(SpreadsheetName::value)
                         .orElse("")
                 )
             );
