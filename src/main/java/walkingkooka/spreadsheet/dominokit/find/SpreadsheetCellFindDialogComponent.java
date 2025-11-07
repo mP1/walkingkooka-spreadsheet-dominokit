@@ -280,17 +280,14 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
                 ID_PREFIX + "value-type-",
                 this.context
             ).setLabel("Value type")
-            .addChangeListener(this::onValueTypeChange);
-    }
-
-    private void onValueTypeChange(final Optional<ValueTypeName> oldValue,
-                                   final Optional<ValueTypeName> newValue) {
-        this.setAndRefresh(
-            t -> t.setQuery(
-                t.query()
-                    .setValueType(newValue)
-            )
-        );
+            .addValueWatcher2(
+                (final Optional<ValueTypeName> value) -> this.setAndRefresh(
+                    t -> t.setQuery(
+                        t.query()
+                            .setValueType(value)
+                    )
+                )
+            );
     }
 
     private final SpreadsheetValueTypeComponent valueType;
