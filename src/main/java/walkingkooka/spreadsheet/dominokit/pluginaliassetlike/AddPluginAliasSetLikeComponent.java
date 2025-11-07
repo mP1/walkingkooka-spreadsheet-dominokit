@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
 import elemental2.dom.HTMLDivElement;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.set.SortedSets;
 import walkingkooka.naming.Name;
 import walkingkooka.plugin.PluginAliasLike;
@@ -31,11 +30,11 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 
-import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -74,8 +73,8 @@ public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>
             .appendChild(this.flex);
     }
 
-    AddPluginAliasSetLikeComponent<N, I, IS, S, A, AS> setFilterValueChangeListener(final ChangeListener<Optional<String>> listener) {
-        this.root.setFilterValueChangeListener(listener);
+    AddPluginAliasSetLikeComponent<N, I, IS, S, A, AS> setFilterValueWatcher(final ValueWatcher<String> watcher) {
+        this.root.setFilterValueWatcher(watcher);
         return this;
     }
 

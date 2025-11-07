@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.plugin;
 
 import elemental2.dom.HTMLDivElement;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.set.SortedSets;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.plugin.PluginNameSet;
@@ -27,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -62,8 +62,8 @@ public final class AddPluginNameSetComponent implements HtmlComponentDelegator<H
         return this.root.filterValue();
     }
 
-    AddPluginNameSetComponent setFilterValueChangeListener(final ChangeListener<Optional<String>> listener) {
-        this.root.setFilterValueChangeListener(listener);
+    AddPluginNameSetComponent setFilterValueWatcher(final ValueWatcher<String> watcher) {
+        this.root.setFilterValueWatcher(watcher);
         return this;
     }
 
